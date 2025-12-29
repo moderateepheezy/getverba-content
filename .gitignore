@@ -1,8 +1,8 @@
 # Dependencies
 node_modules/
-package-lock.json
-pnpm-lock.yaml
-yarn.lock
+# package-lock.json - Keep this committed for CI
+# pnpm-lock.yaml - Keep this committed for CI
+# yarn.lock - Keep this committed for CI
 
 # Environment variables
 .env
