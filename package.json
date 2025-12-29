@@ -4,9 +4,10 @@
   "description": "GetVerba content pipeline - versioned JSON content for the GetVerba platform",
   "type": "module",
   "scripts": {
-    "content:validate": "node scripts/validate-content.mjs",
+    "content:validate": "tsx scripts/validate-content.ts",
     "content:verify": "node scripts/verify-content.mjs",
-    "content:publish": "./scripts/publish-content.sh"
+    "content:publish": "./scripts/publish-content.sh",
+    "test": "tsx scripts/validate-content.test.ts"
   },
   "keywords": [
     "getverba",
@@ -14,6 +15,11 @@
     "pipeline"
   ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.0"
+  }
 }
 

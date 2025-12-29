@@ -1,0 +1,68 @@
+name: Content Validation
+
+on:
+  pull_request:
+    paths:
+      - 'content/**'
+      - 'scripts/**'
+      - 'package.json'
+      - '.github/workflows/content-validate.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'content/**'
+      - 'scripts/**'
+      - 'package.json'
+      - '.github/workflows/content-validate.yml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Detect package manager
+        id: pm
+        run: |
+          if [ -f "pnpm-lock.yaml" ]; then
+            echo "manager=pnpm" >> $GITHUB_OUTPUT
+            echo "command=pnpm" >> $GITHUB_OUTPUT
+          elif [ -f "yarn.lock" ]; then
+            echo "manager=yarn" >> $GITHUB_OUTPUT
+            echo "command=yarn" >> $GITHUB_OUTPUT
+          else
+            echo "manager=npm" >> $GITHUB_OUTPUT
+            echo "command=npm" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Install dependencies
+        run: |
+          if [ "${{ steps.pm.outputs.manager }}" = "pnpm" ]; then
+            npm install -g pnpm
+            pnpm install --frozen-lockfile
+          elif [ "${{ steps.pm.outputs.manager }}" = "yarn" ]; then
+            npm install -g yarn
+            yarn install --frozen-lockfile
+          else
+            npm ci
+          fi
+
+      - name: Validate content
+        run: |
+          if [ "${{ steps.pm.outputs.manager }}" = "pnpm" ]; then
+            pnpm run content:validate
+          elif [ "${{ steps.pm.outputs.manager }}" = "yarn" ]; then
+            yarn content:validate
+          else
+            npm run content:validate
+          fi
+

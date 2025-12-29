@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Publish content to Cloudflare R2
-# Usage: ./scripts/publish-content.sh [--dry-run]
+# Usage: ./scripts/publish-content.sh [--dry-run|--sanity-check]
 
 set -e
 
@@ -12,7 +12,21 @@ BUCKET="${R2_BUCKET:-getverba-content-prod}"
 # Check required environment variables
 if [ -z "$R2_ENDPOINT" ]; then
   echo "❌ Error: R2_ENDPOINT environment variable is required"
-  echo "   Example: R2_ENDPOINT=https://<account-id>.r2.cloudflarestorage.com"
+  echo "   Example: R2_ENDPOINT=https://97dc30e52aaefc6c6d1ddd700aef7e27.r2.cloudflarestorage.com"
+  echo "   Note: This is the host-only endpoint URL, not the bucket URL"
+  exit 1
+fi
+
+# Detect if R2_ENDPOINT looks like a bucket path URL (ends with /bucket-name)
+# Check if it ends with /getverba-content-prod or /$BUCKET or has a path after .r2.cloudflarestorage.com
+if [[ "$R2_ENDPOINT" == *"/$BUCKET" ]] || \
+   [[ "$R2_ENDPOINT" == *"/getverba-content-prod" ]] || \
+   [[ "$R2_ENDPOINT" =~ \.r2\.cloudflarestorage\.com/[^/]+ ]]; then
+  echo "❌ Error: R2_ENDPOINT appears to be a bucket path URL, not the account endpoint"
+  echo "   Current value: $R2_ENDPOINT"
+  echo "   Expected format: https://<account-id>.r2.cloudflarestorage.com"
+  echo "   Example: https://97dc30e52aaefc6c6d1ddd700aef7e27.r2.cloudflarestorage.com"
+  echo "   Note: Do not include the bucket name in the endpoint URL"
   exit 1
 fi
 
@@ -39,11 +53,19 @@ if [ ! -d "$CONTENT_DIR" ]; then
   exit 1
 fi
 
-# Determine if dry-run
+# Determine if dry-run or sanity-check
 DRY_RUN=""
 if [ "$1" == "--dry-run" ]; then
   DRY_RUN="--dryrun"
   echo "🔍 DRY RUN MODE - No files will be uploaded"
+elif [ "$1" == "--sanity-check" ]; then
+  echo "🔍 SANITY CHECK - Testing bucket access..."
+  AWS_ACCESS_KEY_ID="$R2_ACCESS_KEY_ID" \
+  AWS_SECRET_ACCESS_KEY="$R2_SECRET_ACCESS_KEY" \
+  aws s3 ls "s3://$BUCKET" --endpoint-url "$R2_ENDPOINT"
+  echo ""
+  echo "✅ Bucket access successful!"
+  exit 0
 fi
 
 echo "📦 Publishing content to R2..."
@@ -68,18 +90,20 @@ aws s3 sync "$CONTENT_DIR" "s3://$BUCKET/v1/" \
 
 if [ "$1" != "--dry-run" ]; then
   echo ""
-  echo "📝 Setting content-type for JSON files..."
+  echo "📝 Setting content-type and cache-control for JSON files..."
   
-  # Find all JSON files and set content-type
-  find "$CONTENT_DIR" -type f -name "*.json" | while read -r file; do
+  # Find all JSON files and set content-type and cache-control
+  # Use -print0 and read -d '' to safely handle filenames with spaces/newlines
+  find "$CONTENT_DIR" -type f -name "*.json" -print0 | while IFS= read -r -d '' file; do
     # Get relative path from content/v1
     rel_path="${file#$CONTENT_DIR/}"
     s3_path="s3://$BUCKET/v1/$rel_path"
     
-    echo "   Setting content-type for: $rel_path"
+    echo "   Setting content-type and cache-control for: $rel_path"
     aws s3 cp "$file" "$s3_path" \
       --endpoint-url "$R2_ENDPOINT" \
       --content-type "application/json" \
+      --cache-control "public, max-age=300, stale-while-revalidate=86400" \
       --metadata-directive REPLACE
   done
 fi

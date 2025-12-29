@@ -202,10 +202,17 @@ This checks:
 Uploads content to Cloudflare R2:
 
 ```bash
-R2_ENDPOINT="https://<account-id>.r2.cloudflarestorage.com" \
-R2_ACCESS_KEY_ID="your-access-key" \
-R2_SECRET_ACCESS_KEY="your-secret-key" \
+export R2_ENDPOINT="https://97dc30e52aaefc6c6d1ddd700aef7e27.r2.cloudflarestorage.com"
+export R2_BUCKET="getverba-content-prod"
+export R2_ACCESS_KEY_ID="your-access-key-id"
+export R2_SECRET_ACCESS_KEY="your-secret-access-key"
+
 ./scripts/publish-content.sh
+```
+
+**Sanity check (test bucket access):**
+```bash
+./scripts/publish-content.sh --sanity-check
 ```
 
 **Dry run mode:**
@@ -214,10 +221,12 @@ R2_SECRET_ACCESS_KEY="your-secret-key" \
 ```
 
 **Environment variables:**
-- `R2_ENDPOINT`: Your R2 S3 API endpoint
+- `R2_ENDPOINT`: Your R2 S3 API endpoint (host-only URL, e.g., `https://<account-id>.r2.cloudflarestorage.com`)
+- `R2_BUCKET`: Bucket name (defaults to `getverba-content-prod`)
 - `R2_ACCESS_KEY_ID`: R2 access key ID
 - `R2_SECRET_ACCESS_KEY`: R2 secret access key
-- `R2_BUCKET`: Bucket name (defaults to `getverba-content-prod`)
+
+**Note:** The `R2_ENDPOINT` should be the host-only endpoint URL (not the bucket URL). This is the S3-compatible API endpoint for AWS CLI/SDKs.
 
 The script:
 1. Syncs all files from `content/v1/` to `s3://{bucket}/v1/`
