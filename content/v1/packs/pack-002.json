@@ -1,0 +1,30 @@
+{
+  "id": "pack-002",
+  "type": "context",
+  "title": "Restaurant Conversations",
+  "language": "de",
+  "level": "A2",
+  "durationMins": 20,
+  "tags": ["restaurant", "food", "ordering"],
+  "items": [
+    {
+      "id": "item-001",
+      "text": "Ich hätte gerne eine Pizza",
+      "translation": "I would like a pizza",
+      "audioUrl": "/v1/audio/pack-002/item-001.mp3"
+    },
+    {
+      "id": "item-002",
+      "text": "Können Sie mir die Speisekarte bringen?",
+      "translation": "Can you bring me the menu?",
+      "audioUrl": "/v1/audio/pack-002/item-002.mp3"
+    },
+    {
+      "id": "item-003",
+      "text": "Die Rechnung, bitte",
+      "translation": "The bill, please",
+      "audioUrl": "/v1/audio/pack-002/item-003.mp3"
+    }
+  ]
+}
+

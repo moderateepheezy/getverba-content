@@ -1,0 +1,30 @@
+{
+  "id": "pack-001",
+  "type": "context",
+  "title": "Basic German Greetings",
+  "language": "de",
+  "level": "A1",
+  "durationMins": 15,
+  "tags": ["greetings", "basics", "conversation"],
+  "items": [
+    {
+      "id": "item-001",
+      "text": "Guten Morgen",
+      "translation": "Good morning",
+      "audioUrl": "/v1/audio/pack-001/item-001.mp3"
+    },
+    {
+      "id": "item-002",
+      "text": "Guten Tag",
+      "translation": "Good day",
+      "audioUrl": "/v1/audio/pack-001/item-002.mp3"
+    },
+    {
+      "id": "item-003",
+      "text": "Guten Abend",
+      "translation": "Good evening",
+      "audioUrl": "/v1/audio/pack-001/item-003.mp3"
+    }
+  ]
+}
+

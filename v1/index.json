@@ -1,0 +1,8 @@
+{
+    "version": 1,
+    "workspaces": {
+      "de": {
+        "catalogUrl": "/v1/workspaces/de/catalog.json"
+      }
+    }
+  }

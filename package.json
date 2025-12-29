@@ -1,0 +1,19 @@
+{
+  "name": "getverba-content",
+  "version": "1.0.0",
+  "description": "GetVerba content pipeline - versioned JSON content for the GetVerba platform",
+  "type": "module",
+  "scripts": {
+    "content:validate": "node scripts/validate-content.mjs",
+    "content:verify": "node scripts/verify-content.mjs",
+    "content:publish": "./scripts/publish-content.sh"
+  },
+  "keywords": [
+    "getverba",
+    "content",
+    "pipeline"
+  ],
+  "author": "",
+  "license": "ISC"
+}
+

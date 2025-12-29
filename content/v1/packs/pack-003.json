@@ -1,0 +1,33 @@
+{
+  "id": "pack-003",
+  "type": "exam",
+  "title": "A1 Level Test",
+  "language": "de",
+  "level": "A1",
+  "durationMins": 30,
+  "tags": ["exam", "test", "assessment"],
+  "items": [
+    {
+      "id": "item-001",
+      "question": "Wie sagt man 'Hello' auf Deutsch?",
+      "type": "multiple-choice",
+      "options": ["Hallo", "Tschüss", "Danke", "Bitte"],
+      "correctAnswer": 0
+    },
+    {
+      "id": "item-002",
+      "question": "Was bedeutet 'Guten Morgen'?",
+      "type": "multiple-choice",
+      "options": ["Good night", "Good morning", "Good afternoon", "Goodbye"],
+      "correctAnswer": 1
+    },
+    {
+      "id": "item-003",
+      "question": "Wie sagt man 'Thank you' auf Deutsch?",
+      "type": "multiple-choice",
+      "options": ["Bitte", "Danke", "Entschuldigung", "Hallo"],
+      "correctAnswer": 1
+    }
+  ]
+}
+

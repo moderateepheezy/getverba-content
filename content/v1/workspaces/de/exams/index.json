@@ -1,0 +1,13 @@
+{
+  "items": [
+    {
+      "id": "pack-003",
+      "title": "A1 Level Test",
+      "type": "exam",
+      "level": "A1",
+      "durationMins": 30,
+      "packUrl": "/v1/packs/pack-003.json"
+    }
+  ]
+}
+
