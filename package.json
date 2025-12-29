@@ -7,6 +7,7 @@
     "content:validate": "tsx scripts/validate-content.ts",
     "content:verify": "node scripts/verify-content.mjs",
     "content:publish": "./scripts/publish-content.sh",
+    "content:load-env": "source scripts/load-env.sh",
     "test": "tsx scripts/validate-content.test.ts"
   },
   "keywords": [

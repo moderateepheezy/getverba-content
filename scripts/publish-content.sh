@@ -9,6 +9,15 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONTENT_DIR="$SCRIPT_DIR/../content/v1"
 BUCKET="${R2_BUCKET:-getverba-content-prod}"
 
+# Load environment variables from .env.local if it exists
+ENV_FILE="$SCRIPT_DIR/../.env.local"
+if [ -f "$ENV_FILE" ]; then
+  # Source the env file (export variables)
+  set -a
+  source "$ENV_FILE"
+  set +a
+fi
+
 # Check required environment variables
 if [ -z "$R2_ENDPOINT" ]; then
   echo "❌ Error: R2_ENDPOINT environment variable is required"
