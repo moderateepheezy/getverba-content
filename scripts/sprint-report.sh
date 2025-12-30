@@ -384,6 +384,48 @@ cat >> "$REPORT_FILE" << EOF
 
 ---
 
+## Analytics Summary
+
+EOF
+
+# Run analytics export if available
+if command -v npx &> /dev/null && command -v tsx &> /dev/null; then
+  echo "📊 Computing analytics summary..."
+  npx tsx "$SCRIPT_DIR/export-catalog-analytics.ts" --workspace "$WORKSPACE" >/dev/null 2>&1 || true
+  
+  ANALYTICS_JSON="$SCRIPT_DIR/../exports/catalog-analytics.v1.json"
+  if [[ -f "$ANALYTICS_JSON" ]] && command -v jq &> /dev/null; then
+    TOTAL_PACKS_ANALYTICS=$(jq -r '.summary.totalPacks // 0' "$ANALYTICS_JSON" 2>/dev/null || echo "0")
+    PASSES_QUALITY=$(jq -r '[.packs[] | select(.passesQualityGates == true)] | length' "$ANALYTICS_JSON" 2>/dev/null || echo "0")
+    MULTI_SLOT_LOW=$(jq -r '[.packs[] | select(.multiSlotRate != null and .multiSlotRate < 0.3)] | length' "$ANALYTICS_JSON" 2>/dev/null || echo "0")
+    MULTI_SLOT_MED=$(jq -r '[.packs[] | select(.multiSlotRate != null and .multiSlotRate >= 0.3 and .multiSlotRate < 0.6)] | length' "$ANALYTICS_JSON" 2>/dev/null || echo "0")
+    MULTI_SLOT_HIGH=$(jq -r '[.packs[] | select(.multiSlotRate != null and .multiSlotRate >= 0.6)] | length' "$ANALYTICS_JSON" 2>/dev/null || echo "0")
+    APPROVED_COUNT=$(jq -r '[.packs[] | select(.reviewStatus == "approved")] | length' "$ANALYTICS_JSON" 2>/dev/null || echo "0")
+    NEEDS_REVIEW_COUNT=$(jq -r '[.packs[] | select(.reviewStatus == "needs_review")] | length' "$ANALYTICS_JSON" 2>/dev/null || echo "0")
+    
+    cat >> "$REPORT_FILE" << EOF
+- **Total packs with analytics:** $TOTAL_PACKS_ANALYTICS
+- **Passes quality gates:** $PASSES_QUALITY / $TOTAL_PACKS_ANALYTICS
+- **Approved:** $APPROVED_COUNT
+- **Needs review:** $NEEDS_REVIEW_COUNT
+
+### Multi-Slot Distribution
+- **Low (< 0.3):** $MULTI_SLOT_LOW packs
+- **Medium (0.3-0.6):** $MULTI_SLOT_MED packs
+- **High (>= 0.6):** $MULTI_SLOT_HIGH packs
+
+EOF
+  else
+    echo "- Run \`npm run content:export-analytics -- --workspace $WORKSPACE\` to generate analytics summary" >> "$REPORT_FILE"
+  fi
+else
+  echo "- Run \`npm run content:export-analytics -- --workspace $WORKSPACE\` to generate analytics summary" >> "$REPORT_FILE"
+fi
+
+cat >> "$REPORT_FILE" << EOF
+
+---
+
 ## Duplicate Checks
 
 Run duplicate detection:

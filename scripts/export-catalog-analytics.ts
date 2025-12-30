@@ -38,6 +38,14 @@ interface PackAnalytics {
   promptCount: number;
   stepCount: number;
   estimatedMinutes: number;
+  // Computed metrics
+  multiSlotRate?: number;
+  scenarioTokenHitAvg?: number;
+  scenarioTokenQualifiedRate?: number;
+  uniqueTokenRate?: number;
+  bannedPhraseViolations?: number;
+  passesQualityGates?: boolean;
+  reviewStatus?: string;
 }
 
 interface CatalogAnalytics {
@@ -173,7 +181,15 @@ function extractPackAnalytics(workspaceId: string, item: any, pack: any): PackAn
     anchorPhrases: analytics.anchorPhrases,
     promptCount: Array.isArray(pack.prompts) ? pack.prompts.length : 0,
     stepCount: pack.sessionPlan && Array.isArray(pack.sessionPlan.steps) ? pack.sessionPlan.steps.length : 0,
-    estimatedMinutes: pack.estimatedMinutes || item.durationMinutes || 15
+    estimatedMinutes: pack.estimatedMinutes || item.durationMinutes || 15,
+    // Computed metrics
+    multiSlotRate: analytics.multiSlotRate,
+    scenarioTokenHitAvg: analytics.scenarioTokenHitAvg,
+    scenarioTokenQualifiedRate: analytics.scenarioTokenQualifiedRate,
+    uniqueTokenRate: analytics.uniqueTokenRate,
+    bannedPhraseViolations: analytics.bannedPhraseViolations,
+    passesQualityGates: analytics.passesQualityGates,
+    reviewStatus: pack.review?.status || 'unknown'
   };
 }
 
@@ -324,7 +340,14 @@ function generateCsv(analytics: CatalogAnalytics): string {
     'anchorPhrases',
     'promptCount',
     'stepCount',
-    'estimatedMinutes'
+    'estimatedMinutes',
+    'multiSlotRate',
+    'scenarioTokenHitAvg',
+    'scenarioTokenQualifiedRate',
+    'uniqueTokenRate',
+    'bannedPhraseViolations',
+    'passesQualityGates',
+    'reviewStatus'
   ].join(','));
   
   // Data rows
@@ -355,7 +378,14 @@ function generateCsv(analytics: CatalogAnalytics): string {
       escape(pack.anchorPhrases?.join('|')),
       escape(pack.promptCount),
       escape(pack.stepCount),
-      escape(pack.estimatedMinutes)
+      escape(pack.estimatedMinutes),
+      escape(pack.multiSlotRate),
+      escape(pack.scenarioTokenHitAvg),
+      escape(pack.scenarioTokenQualifiedRate),
+      escape(pack.uniqueTokenRate),
+      escape(pack.bannedPhraseViolations),
+      escape(pack.passesQualityGates),
+      escape(pack.reviewStatus)
     ].join(','));
   }
   

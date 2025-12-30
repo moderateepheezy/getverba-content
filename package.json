@@ -46,7 +46,8 @@
     "test:telemetry-readiness": "tsx scripts/telemetry-readiness-report.test.ts",
     "test:telemetry": "npm test && npm run test:telemetry-readiness",
     "test:bundle-export": "tsx scripts/export-bundle.test.ts",
-    "test:all": "npm test && npm run test:review && npm run test:curriculum-export && npm run test:curriculum-validate && npm run test:e2e && npm run test:ingest && npm run test:ingest-e2e && npm run test:telemetry-readiness"
+    "test:analytics": "tsx scripts/content-quality/computeAnalytics.test.ts && tsx scripts/analytics-validation.test.ts",
+    "test:all": "npm test && npm run test:review && npm run test:curriculum-export && npm run test:curriculum-validate && npm run test:e2e && npm run test:ingest && npm run test:ingest-e2e && npm run test:telemetry-readiness && npm run test:analytics"
   },
   "keywords": [
     "getverba",

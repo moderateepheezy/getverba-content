@@ -3,6 +3,7 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'fs';
 import { join, dirname, relative } from 'path';
 import { fileURLToPath } from 'url';
+import { computePackAnalytics, computeDrillAnalytics } from './content-quality/computeAnalytics';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -393,6 +394,9 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
         if (entry.prompts && Array.isArray(entry.prompts) && entry.prompts.length > 0) {
           validatePackQualityGates(entry, contextFile, itemIdx);
         }
+        
+        // Analytics validation: required for generated content, optional for handcrafted
+        validatePackAnalytics(entry, contextFile, itemIdx);
       }
       // If promptsUrl is used instead, validate it's a string
       if (entry.promptsUrl !== undefined && typeof entry.promptsUrl !== 'string') {
@@ -1496,6 +1500,85 @@ function validatePackQualityGates(entry: any, contextFile: string, itemIdx: numb
   
   if (concretenessCount < 2) {
     addError(contextFile, `Item ${itemIdx} pack entry Quality Gate violation: insufficient concreteness markers (found ${concretenessCount} prompt(s) with markers, required: 2)`);
+  }
+}
+
+/**
+ * Validate analytics block for pack entries
+ */
+function validatePackAnalytics(entry: any, contextFile: string, itemIdx: number): void {
+  const provenance = entry.provenance || {};
+  const source = provenance.source;
+  const isGenerated = source === 'pdf' || source === 'template';
+  
+  // For generated content, analytics is required
+  if (isGenerated) {
+    if (!entry.analytics || typeof entry.analytics !== 'object') {
+      addError(contextFile, `Item ${itemIdx} pack entry missing required analytics block (required for generated content with source="${source}")`);
+      return;
+    }
+    
+    const analytics = entry.analytics;
+    
+    // Check required analytics fields
+    if (analytics.version !== 1) {
+      addError(contextFile, `Item ${itemIdx} pack entry analytics.version must be 1, found: ${analytics.version}`);
+    }
+    
+    if (!analytics.qualityGateVersion || typeof analytics.qualityGateVersion !== 'string') {
+      addError(contextFile, `Item ${itemIdx} pack entry analytics.qualityGateVersion is required`);
+    }
+    
+    if (typeof analytics.passesQualityGates !== 'boolean') {
+      addError(contextFile, `Item ${itemIdx} pack entry analytics.passesQualityGates must be a boolean`);
+    } else if (!analytics.passesQualityGates) {
+      addError(contextFile, `Item ${itemIdx} pack entry analytics.passesQualityGates must be true for generated content`);
+    }
+    
+    // Recompute analytics and validate match (within tolerance for floats)
+    try {
+      const computed = computePackAnalytics(entry);
+      const tolerance = 0.001;
+      
+      // Validate numeric fields match (within tolerance)
+      if (typeof analytics.promptCount === 'number' && Math.abs(analytics.promptCount - computed.promptCount) > tolerance) {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics.promptCount mismatch: expected ${computed.promptCount}, found ${analytics.promptCount}`);
+      }
+      
+      if (typeof analytics.multiSlotRate === 'number' && Math.abs(analytics.multiSlotRate - computed.multiSlotRate) > tolerance) {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics.multiSlotRate mismatch: expected ${computed.multiSlotRate.toFixed(3)}, found ${analytics.multiSlotRate.toFixed(3)}`);
+      }
+      
+      if (typeof analytics.scenarioTokenHitAvg === 'number' && Math.abs(analytics.scenarioTokenHitAvg - computed.scenarioTokenHitAvg) > tolerance) {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics.scenarioTokenHitAvg mismatch: expected ${computed.scenarioTokenHitAvg.toFixed(3)}, found ${analytics.scenarioTokenHitAvg.toFixed(3)}`);
+      }
+      
+      if (typeof analytics.scenarioTokenQualifiedRate === 'number' && Math.abs(analytics.scenarioTokenQualifiedRate - computed.scenarioTokenQualifiedRate) > tolerance) {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics.scenarioTokenQualifiedRate mismatch: expected ${computed.scenarioTokenQualifiedRate.toFixed(3)}, found ${analytics.scenarioTokenQualifiedRate.toFixed(3)}`);
+      }
+      
+      if (typeof analytics.uniqueTokenRate === 'number' && Math.abs(analytics.uniqueTokenRate - computed.uniqueTokenRate) > tolerance) {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics.uniqueTokenRate mismatch: expected ${computed.uniqueTokenRate.toFixed(3)}, found ${analytics.uniqueTokenRate.toFixed(3)}`);
+      }
+      
+      if (typeof analytics.bannedPhraseViolations === 'number' && analytics.bannedPhraseViolations !== computed.bannedPhraseViolations) {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics.bannedPhraseViolations mismatch: expected ${computed.bannedPhraseViolations}, found ${analytics.bannedPhraseViolations}`);
+      }
+      
+      if (typeof analytics.passesQualityGates === 'boolean' && analytics.passesQualityGates !== computed.passesQualityGates) {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics.passesQualityGates mismatch: expected ${computed.passesQualityGates}, found ${analytics.passesQualityGates}`);
+      }
+    } catch (error: any) {
+      addError(contextFile, `Item ${itemIdx} pack entry failed to recompute analytics: ${error.message}`);
+    }
+  } else {
+    // For handcrafted content, analytics is optional but if present, validate structure
+    if (entry.analytics && typeof entry.analytics === 'object') {
+      const analytics = entry.analytics;
+      if (analytics.version !== undefined && analytics.version !== 1) {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics.version must be 1 if present, found: ${analytics.version}`);
+      }
+    }
   }
   
   // Quality Gates v2: Near-duplicate detection

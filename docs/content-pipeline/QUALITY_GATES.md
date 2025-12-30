@@ -403,6 +403,66 @@ Quality Gates are enforced:
 
 **For A1 non-government scenarios**: `natural_en` is optional but recommended (warning if missing, not a hard fail).
 
+## Analytics Metrics
+
+All generated packs (source: "pdf" or "template") must include a computed `analytics` block with deterministic metrics that prove "why this pack works" without ML/LLM runtime.
+
+### Required Analytics Fields (for generated content)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `version` | number | Must be `1` |
+| `qualityGateVersion` | string | Quality gate version identifier (e.g., "qg-2025-01-01") |
+| `scenario` | string | Content scenario identifier (matches pack.scenario) |
+| `register` | string | Formality level (matches pack.register) |
+| `primaryStructure` | string | Primary grammatical structure (matches pack.primaryStructure) |
+| `variationSlots` | string[] | Array of slot types (matches pack.variationSlots) |
+| `promptCount` | number | Total number of prompts in pack |
+| `multiSlotRate` | number | Ratio (0..1) of prompts with 2+ slotsChanged |
+| `scenarioTokenHitAvg` | number | Average scenario token hits per prompt (>=0) |
+| `scenarioTokenQualifiedRate` | number | Ratio (0..1) of prompts meeting minimum token requirement (>=2 tokens) |
+| `uniqueTokenRate` | number | Ratio (0..1) of unique normalized tokens to total tokens |
+| `bannedPhraseViolations` | number | Count of prompts containing banned phrases (should be 0) |
+| `passesQualityGates` | boolean | Must be `true` for generated content |
+
+### Computation Rules
+
+- **Deterministic**: All metrics are computed from normalized tokens and metadata, no ML/LLM runtime
+- **Validation**: Validator recomputes metrics and hard-fails if mismatch (within 0.001 tolerance for floats)
+- **Required for generated**: Packs with `provenance.source === "pdf"` or `"template"` must include analytics
+- **Optional for handcrafted**: Packs with `provenance.source === "handcrafted"` may omit analytics
+
+### Metric Definitions
+
+- **multiSlotRate**: Percentage of prompts that change 2+ slots relative to previous prompt. Higher values indicate better variation.
+- **scenarioTokenHitAvg**: Average number of scenario-specific tokens found per prompt. Measures contextual relevance.
+- **scenarioTokenQualifiedRate**: Percentage of prompts that meet the minimum token requirement (>=2 tokens). Should be >= 0.8 (80%).
+- **uniqueTokenRate**: Ratio of unique normalized tokens to total tokens. Measures vocabulary diversity.
+- **bannedPhraseViolations**: Count of prompts containing generic template phrases. Must be 0 for publishable content.
+
+### Section Index Signals
+
+Section index items for packs include derived `signals` object:
+
+```json
+{
+  "signals": {
+    "multiSlot": "low" | "med" | "high",  // Based on multiSlotRate thresholds
+    "difficultyHint": "foundation" | "standard" | "stretch"  // Based on level + primaryStructure
+  }
+}
+```
+
+**Multi-slot classification:**
+- `low`: multiSlotRate < 0.3
+- `med`: 0.3 <= multiSlotRate < 0.6
+- `high`: multiSlotRate >= 0.6
+
+**Difficulty hint classification:**
+- `foundation`: A1 level with simple structures (greeting, basic)
+- `standard`: A1-A2 with standard structures
+- `stretch`: B1+ or complex/advanced structures
+
 ## Related Documentation
 
 - [Pack Schema](./PACK_SCHEMA.md) - Complete pack entry schema

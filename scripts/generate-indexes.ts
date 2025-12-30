@@ -56,6 +56,10 @@ interface SectionIndexItem {
   scenario?: string;
   register?: string;
   primaryStructure?: string;
+  signals?: {
+    multiSlot: 'low' | 'med' | 'high';
+    difficultyHint: 'foundation' | 'standard' | 'stretch';
+  };
   tags?: string[];
   // Analytics summary (required for kind="pack")
   analyticsSummary?: AnalyticsSummary;
@@ -247,6 +251,44 @@ function readEntryDocument(
           goal: goal,
           whyThisWorks: whyThisWorks.length >= 2 ? whyThisWorks : [goal, 'See pack entry for details']
         };
+        
+        // Compute signals from analytics metrics
+        if (entry.analytics.multiSlotRate !== undefined && typeof entry.analytics.multiSlotRate === 'number') {
+          const multiSlotRate = entry.analytics.multiSlotRate;
+          let multiSlot: 'low' | 'med' | 'high';
+          if (multiSlotRate < 0.3) {
+            multiSlot = 'low';
+          } else if (multiSlotRate < 0.6) {
+            multiSlot = 'med';
+          } else {
+            multiSlot = 'high';
+          }
+          
+          // Determine difficultyHint based on level and primaryStructure
+          let difficultyHint: 'foundation' | 'standard' | 'stretch';
+          const level = entry.level || 'A1';
+          const isA1 = level === 'A1';
+          const isA2 = level === 'A2';
+          const isB1Plus = ['B1', 'B2', 'C1', 'C2'].includes(level);
+          
+          // Foundation: A1 with simple structures
+          if (isA1 && (entry.primaryStructure.includes('greeting') || entry.primaryStructure.includes('basic'))) {
+            difficultyHint = 'foundation';
+          }
+          // Stretch: B1+ or complex structures
+          else if (isB1Plus || entry.primaryStructure.includes('complex') || entry.primaryStructure.includes('advanced')) {
+            difficultyHint = 'stretch';
+          }
+          // Standard: everything else
+          else {
+            difficultyHint = 'standard';
+          }
+          
+          item.signals = {
+            multiSlot,
+            difficultyHint
+          };
+        }
       }
     }
     

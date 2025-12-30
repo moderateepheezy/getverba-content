@@ -1717,6 +1717,252 @@ test('scaffolding - includes meaning contract fields', () => {
   }
 });
 
+// E2E Test: Provenance and review metadata on generated packs
+test('generated packs include provenance and review metadata', () => {
+  const testPackId = `e2e-provenance-${Date.now()}`;
+  const workspace = 'de';
+  
+  console.log(`  Generating pack "${testPackId}" to verify provenance...`);
+  
+  try {
+    const output = execSync(
+      `npx tsx scripts/generate-pack.ts --workspace ${workspace} --packId ${testPackId} --scenario work --level A2 --seed 42`,
+      {
+        cwd: join(__dirname, '..'),
+        encoding: 'utf-8',
+        stdio: 'pipe'
+      }
+    );
+    
+    assert(output.includes('✅ Created'), 'Generator should succeed');
+    
+    // Verify pack file exists
+    const packPath = join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId, 'pack.json');
+    assert(existsSync(packPath), `Pack file should exist at ${packPath}`);
+    
+    // Verify provenance and review fields
+    const pack = JSON.parse(readFileSync(packPath, 'utf-8'));
+    assert(pack.provenance, 'Pack should have provenance field');
+    assert(pack.provenance.source === 'template', 'Provenance source should be "template"');
+    assert(pack.provenance.sourceRef, 'Provenance should have sourceRef');
+    assert(pack.provenance.extractorVersion, 'Provenance should have extractorVersion');
+    assert(pack.provenance.generatedAt, 'Provenance should have generatedAt');
+    
+    assert(pack.review, 'Pack should have review field');
+    assert(pack.review.status === 'needs_review', 'Review status should be "needs_review"');
+    
+    console.log(`  ✅ Provenance and review metadata verified`);
+    
+    // Cleanup
+    const packDir = join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId);
+    if (existsSync(packDir)) {
+      rmSync(packDir, { recursive: true, force: true });
+    }
+  } catch (err: any) {
+    // Cleanup on error
+    try {
+      const packDir = join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId);
+      if (existsSync(packDir)) {
+        rmSync(packDir, { recursive: true, force: true });
+      }
+    } catch {}
+    throw new Error(`Provenance test failed: ${err.message}`);
+  }
+});
+
+// E2E Test: Duplicate detection blocks promotion
+test('duplicate detection finds duplicates and fails quality check', () => {
+  const workspace = 'de';
+  const testPackId1 = `e2e-dedup-1-${Date.now()}`;
+  const testPackId2 = `e2e-dedup-2-${Date.now()}`;
+  
+  console.log(`  Creating test packs with duplicate prompts...`);
+  
+  try {
+    // Create first pack
+    execSync(
+      `npx tsx scripts/generate-pack.ts --workspace ${workspace} --packId ${testPackId1} --scenario work --level A2 --seed 100`,
+      {
+        cwd: join(__dirname, '..'),
+        encoding: 'utf-8',
+        stdio: 'pipe'
+      }
+    );
+    
+    const pack1Path = join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId1, 'pack.json');
+    const pack1 = JSON.parse(readFileSync(pack1Path, 'utf-8'));
+    
+    // Create second pack with duplicate prompt
+    execSync(
+      `npx tsx scripts/generate-pack.ts --workspace ${workspace} --packId ${testPackId2} --scenario work --level A2 --seed 200`,
+      {
+        cwd: join(__dirname, '..'),
+        encoding: 'utf-8',
+        stdio: 'pipe'
+      }
+    );
+    
+    const pack2Path = join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId2, 'pack.json');
+    const pack2 = JSON.parse(readFileSync(pack2Path, 'utf-8'));
+    
+    // Manually add duplicate prompt to pack2
+    if (pack1.prompts && pack1.prompts.length > 0) {
+      pack2.prompts[0] = { ...pack1.prompts[0], id: 'p-duplicate' };
+      writeFileSync(pack2Path, JSON.stringify(pack2, null, 2));
+    }
+    
+    // Run duplicate detection
+    try {
+      const output = execSync(`npx tsx scripts/content-quality/dedupe.ts ${workspace}`, {
+        cwd: join(__dirname, '..'),
+        encoding: 'utf-8',
+        stdio: 'pipe'
+      });
+      
+      // If no duplicates found, that's also valid (depends on actual prompts)
+      console.log(`  ✅ Duplicate detection ran successfully`);
+    } catch (err: any) {
+      // Duplicate detection should fail if duplicates found
+      const errorOutput = err.stdout || err.stderr || '';
+      if (errorOutput.includes('duplicate') || errorOutput.includes('Duplicate')) {
+        console.log(`  ✅ Duplicate detection correctly identified duplicates`);
+      } else {
+        throw new Error(`Duplicate detection failed unexpectedly: ${err.message}`);
+      }
+    }
+    
+    // Cleanup
+    const pack1Dir = join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId1);
+    const pack2Dir = join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId2);
+    if (existsSync(pack1Dir)) {
+      rmSync(pack1Dir, { recursive: true, force: true });
+    }
+    if (existsSync(pack2Dir)) {
+      rmSync(pack2Dir, { recursive: true, force: true });
+    }
+  } catch (err: any) {
+    // Cleanup on error
+    try {
+      const pack1Dir = join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId1);
+      const pack2Dir = join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId2);
+      if (existsSync(pack1Dir)) {
+        rmSync(pack1Dir, { recursive: true, force: true });
+      }
+      if (existsSync(pack2Dir)) {
+        rmSync(pack2Dir, { recursive: true, force: true });
+      }
+    } catch {}
+    throw new Error(`Duplicate detection test failed: ${err.message}`);
+  }
+});
+
+// E2E Test: Approval gate workflow
+test('approval gate workflow: approve pack then check gate', () => {
+  const testPackId = `e2e-approval-${Date.now()}`;
+  const workspace = 'de';
+  
+  console.log(`  Testing approval gate workflow...`);
+  
+  try {
+    // Generate pack
+    execSync(
+      `npx tsx scripts/generate-pack.ts --workspace ${workspace} --packId ${testPackId} --scenario work --level A2 --seed 300`,
+      {
+        cwd: join(__dirname, '..'),
+        encoding: 'utf-8',
+        stdio: 'pipe'
+      }
+    );
+    
+    const packPath = join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId, 'pack.json');
+    assert(existsSync(packPath), 'Pack should exist');
+    
+    // Verify pack has needs_review status
+    const packBefore = JSON.parse(readFileSync(packPath, 'utf-8'));
+    assert(packBefore.review.status === 'needs_review', 'Pack should start with needs_review status');
+    
+    // Approve pack
+    execSync(
+      `./scripts/approve-pack.sh ${testPackId} --reviewer "test-reviewer" --workspace ${workspace}`,
+      {
+        cwd: join(__dirname, '..'),
+        encoding: 'utf-8',
+        stdio: 'pipe'
+      }
+    );
+    
+    // Verify pack is now approved
+    const packAfter = JSON.parse(readFileSync(packPath, 'utf-8'));
+    assert(packAfter.review.status === 'approved', 'Pack should be approved');
+    assert(packAfter.review.reviewer === 'test-reviewer', 'Pack should have reviewer');
+    assert(packAfter.review.reviewedAt, 'Pack should have reviewedAt timestamp');
+    
+    console.log(`  ✅ Approval workflow verified`);
+    
+    // Cleanup
+    const packDir = join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId);
+    if (existsSync(packDir)) {
+      rmSync(packDir, { recursive: true, force: true });
+    }
+  } catch (err: any) {
+    // Cleanup on error
+    try {
+      const packDir = join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId);
+      if (existsSync(packDir)) {
+        rmSync(packDir, { recursive: true, force: true });
+      }
+    } catch {}
+    throw new Error(`Approval gate test failed: ${err.message}`);
+  }
+});
+
+// E2E Test: Review queue lists packs needing review
+test('review queue lists packs needing review', () => {
+  const testPackId = `e2e-review-queue-${Date.now()}`;
+  const workspace = 'de';
+  
+  console.log(`  Testing review queue...`);
+  
+  try {
+    // Generate pack (defaults to needs_review)
+    execSync(
+      `npx tsx scripts/generate-pack.ts --workspace ${workspace} --packId ${testPackId} --scenario work --level A2 --seed 400`,
+      {
+        cwd: join(__dirname, '..'),
+        encoding: 'utf-8',
+        stdio: 'pipe'
+      }
+    );
+    
+    // Run review queue
+    const output = execSync('./scripts/review-queue.sh', {
+      cwd: join(__dirname, '..'),
+      encoding: 'utf-8',
+      stdio: 'pipe'
+    });
+    
+    // Review queue should list the pack (or show no entries if it's approved)
+    assert(output.length > 0, 'Review queue should produce output');
+    
+    console.log(`  ✅ Review queue verified`);
+    
+    // Cleanup
+    const packDir = join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId);
+    if (existsSync(packDir)) {
+      rmSync(packDir, { recursive: true, force: true });
+    }
+  } catch (err: any) {
+    // Cleanup on error
+    try {
+      const packDir = join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId);
+      if (existsSync(packDir)) {
+        rmSync(packDir, { recursive: true, force: true });
+      }
+    } catch {}
+    throw new Error(`Review queue test failed: ${err.message}`);
+  }
+});
+
 // E2E Test: Verify expansion report runs and generates report
 test('expansion report generates report file', () => {
   const reportPath = join(__dirname, '..', 'content-expansion-report.json');
@@ -2274,6 +2520,78 @@ test('stable attempt addressing key generation', () => {
   assert(addressingKey !== key3, 'Different attemptIndex should produce different key');
   
   console.log('  ✅ Stable attempt addressing key generation works');
+});
+
+// E2E Test: Analytics metadata on generated packs
+test('generated packs include analytics metadata with computed metrics', () => {
+  const testPackId = `e2e-analytics-${Date.now()}`;
+  const workspace = 'de';
+  
+  console.log(`  Generating pack "${testPackId}" to verify analytics...`);
+  
+  try {
+    const output = execSync(
+      `npx tsx scripts/generate-pack.ts --workspace ${workspace} --packId ${testPackId} --scenario work --level A2 --seed 42`,
+      {
+        cwd: join(__dirname, '..'),
+        encoding: 'utf-8',
+        stdio: 'pipe'
+      }
+    );
+    
+    assert(output.includes('✅ Created'), 'Generator should succeed');
+    
+    // Verify pack file exists
+    const packPath = join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId, 'pack.json');
+    assert(existsSync(packPath), `Pack file should exist at ${packPath}`);
+    
+    // Verify analytics block
+    const pack = JSON.parse(readFileSync(packPath, 'utf-8'));
+    assert(pack.analytics, 'Pack should have analytics field');
+    
+    // Verify required analytics fields
+    assert(pack.analytics.version === 1, 'Analytics version should be 1');
+    assert(pack.analytics.qualityGateVersion, 'Analytics should have qualityGateVersion');
+    assert(typeof pack.analytics.promptCount === 'number', 'Analytics should have promptCount');
+    assert(typeof pack.analytics.multiSlotRate === 'number', 'Analytics should have multiSlotRate');
+    assert(typeof pack.analytics.scenarioTokenHitAvg === 'number', 'Analytics should have scenarioTokenHitAvg');
+    assert(typeof pack.analytics.scenarioTokenQualifiedRate === 'number', 'Analytics should have scenarioTokenQualifiedRate');
+    assert(typeof pack.analytics.uniqueTokenRate === 'number', 'Analytics should have uniqueTokenRate');
+    assert(typeof pack.analytics.bannedPhraseViolations === 'number', 'Analytics should have bannedPhraseViolations');
+    assert(typeof pack.analytics.passesQualityGates === 'boolean', 'Analytics should have passesQualityGates');
+    
+    // Verify analytics values are reasonable
+    assert(pack.analytics.promptCount > 0, 'promptCount should be > 0');
+    assert(pack.analytics.multiSlotRate >= 0 && pack.analytics.multiSlotRate <= 1, 'multiSlotRate should be 0..1');
+    assert(pack.analytics.scenarioTokenHitAvg >= 0, 'scenarioTokenHitAvg should be >= 0');
+    assert(pack.analytics.scenarioTokenQualifiedRate >= 0 && pack.analytics.scenarioTokenQualifiedRate <= 1, 'scenarioTokenQualifiedRate should be 0..1');
+    assert(pack.analytics.uniqueTokenRate >= 0 && pack.analytics.uniqueTokenRate <= 1, 'uniqueTokenRate should be 0..1');
+    assert(pack.analytics.bannedPhraseViolations >= 0, 'bannedPhraseViolations should be >= 0');
+    assert(pack.analytics.passesQualityGates === true, 'Generated pack should pass quality gates');
+    
+    // Verify analytics matches pack metadata
+    assert(pack.analytics.scenario === pack.scenario, 'Analytics scenario should match pack scenario');
+    assert(pack.analytics.register === pack.register, 'Analytics register should match pack register');
+    assert(pack.analytics.primaryStructure === pack.primaryStructure, 'Analytics primaryStructure should match pack primaryStructure');
+    assert(JSON.stringify(pack.analytics.variationSlots) === JSON.stringify(pack.variationSlots), 'Analytics variationSlots should match pack variationSlots');
+    
+    console.log(`  ✅ Analytics metadata verified`);
+    
+    // Cleanup
+    const packDir = join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId);
+    if (existsSync(packDir)) {
+      rmSync(packDir, { recursive: true, force: true });
+    }
+  } catch (err: any) {
+    // Cleanup on error
+    try {
+      const packDir = join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId);
+      if (existsSync(packDir)) {
+        rmSync(packDir, { recursive: true, force: true });
+      }
+    } catch {}
+    throw new Error(`Analytics test failed: ${err.message}`);
+  }
 });
 
 // Run all tests

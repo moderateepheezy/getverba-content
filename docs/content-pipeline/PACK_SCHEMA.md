@@ -24,7 +24,7 @@ All pack entries must include `schemaVersion: 1`.
 | `register` | string | Formality level: `"formal"`, `"neutral"`, or `"informal"` |
 | `primaryStructure` | string | Primary grammatical structure identifier (3-60 chars, lowercase snake_case recommended) |
 | `variationSlots` | string[] | Array of slot types that can be varied in prompts. Allowed values: `"subject"`, `"verb"`, `"object"`, `"modifier"`, `"tense"`, `"polarity"`, `"time"`, `"location"`. Must be non-empty. |
-| `analytics` | object | Analytics metadata block (required). See [ANALYTICS_METADATA.md](./ANALYTICS_METADATA.md) for details. Must include `targetLatencyMs`, `successDefinition`, and `keyFailureModes` for telemetry readiness. |
+| `analytics` | object | Analytics metadata block (required for generated content, optional for handcrafted). See [QUALITY_GATES.md](./QUALITY_GATES.md#analytics-metrics) for details. Must include computed metrics for generated packs. |
 
 ## Quality Gates
 
@@ -212,6 +212,70 @@ Review status and approval metadata.
 **Default Values:**
 - Generated packs (PDF/template): `status: "needs_review"`
 - Handcrafted packs: `status: "approved"` (if review block present)
+
+### `analytics` (Required for generated content, Optional for handcrafted)
+
+Analytics metadata block containing deterministic metrics that prove "why this pack works" without ML/LLM runtime.
+
+```json
+{
+  "analytics": {
+    "version": 1,
+    "qualityGateVersion": "qg-2025-01-01",
+    "scenario": "work",
+    "register": "formal",
+    "primaryStructure": "modal_verbs",
+    "variationSlots": ["subject", "verb", "object"],
+    "promptCount": 12,
+    "multiSlotRate": 0.42,
+    "scenarioTokenHitAvg": 2.5,
+    "scenarioTokenQualifiedRate": 0.92,
+    "uniqueTokenRate": 0.68,
+    "bannedPhraseViolations": 0,
+    "passesQualityGates": true,
+    "goal": "Practice professional work communication at A2 level",
+    "constraints": ["formal register maintained", "work scenario context"],
+    "levers": ["subject variation", "verb substitution", "object variation"],
+    "successCriteria": ["Uses professional vocabulary appropriately", "Varies subject and verb across prompts"],
+    "commonMistakes": ["Mixing formal and informal register", "Missing time/meeting context"],
+    "drillType": "roleplay-bounded",
+    "cognitiveLoad": "medium"
+  }
+}
+```
+
+**Analytics Fields:**
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `version` | number | ✅ (generated) | Must be `1` |
+| `qualityGateVersion` | string | ✅ (generated) | Quality gate version identifier |
+| `scenario` | string | ✅ (generated) | Content scenario (matches pack.scenario) |
+| `register` | string | ✅ (generated) | Formality level (matches pack.register) |
+| `primaryStructure` | string | ✅ (generated) | Primary structure (matches pack.primaryStructure) |
+| `variationSlots` | string[] | ✅ (generated) | Slot types (matches pack.variationSlots) |
+| `promptCount` | number | ✅ (generated) | Total number of prompts |
+| `multiSlotRate` | number | ✅ (generated) | Ratio (0..1) of prompts with 2+ slotsChanged |
+| `scenarioTokenHitAvg` | number | ✅ (generated) | Average scenario token hits per prompt |
+| `scenarioTokenQualifiedRate` | number | ✅ (generated) | Ratio (0..1) of prompts meeting min token requirement |
+| `uniqueTokenRate` | number | ✅ (generated) | Ratio (0..1) of unique tokens to total tokens |
+| `bannedPhraseViolations` | number | ✅ (generated) | Count of banned phrase violations (should be 0) |
+| `passesQualityGates` | boolean | ✅ (generated) | Must be `true` for generated content |
+| `goal` | string | ❌ | Learning goal description (<= 120 chars) |
+| `constraints` | string[] | ❌ | What is held constant |
+| `levers` | string[] | ❌ | What changes (references variationSlots) |
+| `successCriteria` | string[] | ❌ | Success criteria (2-6 items) |
+| `commonMistakes` | string[] | ❌ | Common mistakes to avoid |
+| `drillType` | string | ❌ | Type: "substitution", "pattern-switch", or "roleplay-bounded" |
+| `cognitiveLoad` | string | ❌ | Load level: "low", "medium", or "high" |
+
+**Validation Rules:**
+- Required if `provenance.source === "pdf"` or `"template"`
+- Optional if `provenance.source === "handcrafted"` (may be omitted entirely)
+- Validator recomputes metrics and hard-fails if mismatch (within 0.001 tolerance for floats)
+- `passesQualityGates` must be `true` for generated content
+
+See [QUALITY_GATES.md](./QUALITY_GATES.md#analytics-metrics) for detailed metric definitions.
 
 ## Complete Example
 

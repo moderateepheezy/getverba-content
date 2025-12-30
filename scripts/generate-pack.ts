@@ -13,6 +13,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { computePackAnalytics } from './content-quality/computeAnalytics';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -110,6 +111,7 @@ interface PackEntry {
   };
   tags: string[];
   analytics: {
+    // Existing analytics fields
     goal: string;
     constraints: string[];
     levers: string[];
@@ -117,6 +119,16 @@ interface PackEntry {
     commonMistakes: string[];
     drillType: 'substitution' | 'pattern-switch' | 'roleplay-bounded';
     cognitiveLoad: 'low' | 'medium' | 'high';
+    // Computed metrics (deterministic)
+    version: number;
+    qualityGateVersion: string;
+    promptCount: number;
+    multiSlotRate: number;
+    scenarioTokenHitAvg: number;
+    scenarioTokenQualifiedRate: number;
+    uniqueTokenRate: number;
+    bannedPhraseViolations: number;
+    passesQualityGates: boolean;
   };
   provenance: {
     source: 'pdf' | 'template' | 'handcrafted';
@@ -888,8 +900,39 @@ function generatePack(
   // Calculate estimated minutes (roughly 1 minute per prompt)
   const estimatedMinutes = Math.max(15, Math.min(120, allPrompts.length));
   
-  // Generate analytics metadata
-  const analytics = generateAnalytics(template, level, allPrompts.length);
+  // Generate base analytics metadata
+  const baseAnalytics = generateAnalytics(template, level, allPrompts.length);
+  
+  // Create minimal pack object for analytics computation (computePackAnalytics only needs specific fields)
+  const tempPackForAnalytics = {
+    id: packId,
+    kind: 'pack',
+    scenario: template.scenarioId,
+    register: template.defaultRegister,
+    primaryStructure: template.primaryStructure,
+    variationSlots: template.variationSlots,
+    prompts: allPrompts,
+    provenance: {
+      source: 'template' as const
+    }
+  };
+  
+  // Compute deterministic analytics metrics
+  const computedAnalytics = computePackAnalytics(tempPackForAnalytics);
+  
+  // Merge base analytics with computed metrics
+  const analytics: PackEntry['analytics'] = {
+    ...baseAnalytics,
+    version: computedAnalytics.version,
+    qualityGateVersion: computedAnalytics.qualityGateVersion,
+    promptCount: computedAnalytics.promptCount,
+    multiSlotRate: computedAnalytics.multiSlotRate,
+    scenarioTokenHitAvg: computedAnalytics.scenarioTokenHitAvg,
+    scenarioTokenQualifiedRate: computedAnalytics.scenarioTokenQualifiedRate,
+    uniqueTokenRate: computedAnalytics.uniqueTokenRate,
+    bannedPhraseViolations: computedAnalytics.bannedPhraseViolations,
+    passesQualityGates: computedAnalytics.passesQualityGates
+  };
   
   const pack: PackEntry = {
     schemaVersion: 1,
@@ -928,12 +971,13 @@ function generatePack(
 
 /**
  * Generate analytics metadata from template and pack characteristics
+ * Returns base analytics (goal, constraints, etc.) - computed metrics are added separately
  */
 function generateAnalytics(
   template: Template,
   level: string,
   promptCount: number
-): PackEntry['analytics'] {
+): Omit<PackEntry['analytics'], 'version' | 'qualityGateVersion' | 'promptCount' | 'multiSlotRate' | 'scenarioTokenHitAvg' | 'scenarioTokenQualifiedRate' | 'uniqueTokenRate' | 'bannedPhraseViolations' | 'passesQualityGates'> {
   const scenarioId = template.scenarioId;
   const variationSlots = template.variationSlots;
   const primaryStructure = template.primaryStructure;
