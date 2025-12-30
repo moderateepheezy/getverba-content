@@ -10,7 +10,13 @@
       "title": "Accusative Prepositions",
       "level": "A1",
       "durationMinutes": 10,
-      "entryUrl": "/v1/workspaces/de/drills/akkusativ_prepositions_a1/drill.json"
+      "entryUrl": "/v1/workspaces/de/drills/akkusativ_prepositions_a1/drill.json",
+      "tags": [
+        "grammar",
+        "prepositions",
+        "accusative",
+        "cases"
+      ]
     },
     {
       "id": "dative_case_a1",
@@ -18,7 +24,13 @@
       "title": "Dative Case Practice",
       "level": "A1",
       "durationMinutes": 12,
-      "entryUrl": "/v1/workspaces/de/drills/dative_case_a1/drill.json"
+      "entryUrl": "/v1/workspaces/de/drills/dative_case_a1/drill.json",
+      "tags": [
+        "grammar",
+        "cases",
+        "dative",
+        "articles"
+      ]
     }
   ],
   "nextPage": "/v1/workspaces/de/mechanics/index.page2.json"

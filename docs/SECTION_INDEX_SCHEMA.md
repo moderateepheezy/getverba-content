@@ -44,6 +44,13 @@ Each item in the `items` array must have:
 - `entryUrl` (string): Path to the pack/entry JSON file. Must start with `/v1/` and end with `.json`
 - `durationMinutes` (number, optional): Estimated duration in minutes. Recommended but optional
 
+**Optional metadata fields** (recommended for pack items to enable filtering/sorting):
+
+- `scenario` (string, optional): Content scenario identifier (e.g., "work", "restaurant", "shopping"). Should match the pack's `scenario` field if present.
+- `register` (string, optional): Formality level: `"formal"`, `"neutral"`, or `"informal"`. Should match the pack's `register` field if present.
+- `primaryStructure` (string, optional): Primary grammatical structure identifier. Should match the pack's `primaryStructure` field if present.
+- `tags` (string[], optional): Array of tag strings for categorization. Should match the pack's `tags` field if present.
+
 ## Pagination
 
 ### Single Page

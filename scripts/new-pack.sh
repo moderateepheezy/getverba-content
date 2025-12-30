@@ -111,6 +111,10 @@ cat > "$PACK_FILE" << EOF
   "level": "$LEVEL",
   "estimatedMinutes": 15,
   "description": "TODO: Add description for $TITLE",
+  "scenario": "TODO: Add scenario (e.g., work, restaurant, shopping, doctor, housing)",
+  "register": "neutral",
+  "primaryStructure": "TODO: Add primaryStructure (e.g., verb_position, negation, modal_verbs, dative_case)",
+  "variationSlots": ["subject", "verb"],
   "outline": [
     "Introduction",
     "Key Phrases",

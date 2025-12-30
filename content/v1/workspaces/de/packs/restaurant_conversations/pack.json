@@ -6,10 +6,10 @@
   "level": "A2",
   "estimatedMinutes": 20,
   "description": "Master essential phrases for dining out in Germany. Learn how to order food, ask questions, and handle restaurant interactions confidently.",
-  "primaryStructure": {
-    "id": "modal-verbs-requests",
-    "label": "Modal verbs for polite requests"
-  },
+  "scenario": "restaurant",
+  "register": "formal",
+  "primaryStructure": "modal_verbs_requests",
+  "variationSlots": ["subject", "verb", "object", "modifier"],
   "outline": [
     "Making a Reservation",
     "Ordering Food",
@@ -19,38 +19,42 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Ich hätte gern einen Tisch für zwei Personen",
-      "translation": "I would like a table for two people",
+      "text": "Ich hätte gern eine Reservierung für 2 Personen um 19:30",
+      "translation": "I would like a table for 2 people at 7:30 PM",
       "audioUrl": "/v1/audio/restaurant_conversations/prompt-001.mp3",
       "slots": {
         "subject": ["Ich"],
         "verb": ["hätte"],
-        "object": ["einen Tisch für zwei Personen"]
-      }
+        "object": ["eine Reservierung für 2 Personen"],
+        "modifier": ["um 19:30"]
+      },
+      "slotsChanged": ["subject", "verb"]
     },
     {
       "id": "prompt-002",
-      "text": "Können wir die Speisekarte sehen bitte?",
-      "translation": "Can we see the menu please?",
+      "text": "Können Sie uns die Speisekarte bringen bitte?",
+      "translation": "Can you bring us the menu please?",
       "audioUrl": "/v1/audio/restaurant_conversations/prompt-002.mp3",
       "slots": {
         "verb": ["Können"],
-        "subject": ["wir"],
+        "subject": ["Sie"],
         "object": ["die Speisekarte"],
         "modifier": ["bitte"]
-      }
+      },
+      "slotsChanged": ["verb", "object"]
     },
     {
       "id": "prompt-003",
-      "text": "Ich nehme das Schnitzel mit Pommes",
-      "translation": "I'll have the schnitzel with fries",
+      "text": "Ich nehme das Schnitzel mit Pommes für 15€",
+      "translation": "I'll have the schnitzel with fries for 15 euros",
       "audioUrl": "/v1/audio/restaurant_conversations/prompt-003.mp3",
       "slots": {
         "subject": ["Ich"],
         "verb": ["nehme"],
         "object": ["das Schnitzel", "Pommes"],
-        "modifier": ["mit"]
-      }
+        "modifier": ["mit", "für 15€"]
+      },
+      "slotsChanged": ["verb", "object"]
     }
   ],
   "microNotes": [

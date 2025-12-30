@@ -19,31 +19,22 @@ All pack entries must include `schemaVersion: 1`.
 | `description` | string | Pack description |
 | `outline` | array | Array of outline step titles |
 | `sessionPlan` | object | Session plan structure (see [SESSION_PLAN_SCHEMA.md](./SESSION_PLAN_SCHEMA.md)) |
+| `scenario` | string | Content scenario identifier (3-40 chars, lowercase snake_case recommended) |
+| `register` | string | Formality level: `"formal"`, `"neutral"`, or `"informal"` |
+| `primaryStructure` | string | Primary grammatical structure identifier (3-60 chars, lowercase snake_case recommended) |
+| `variationSlots` | string[] | Array of slot types that can be varied in prompts. Allowed values: `"subject"`, `"verb"`, `"object"`, `"modifier"`, `"tense"`, `"polarity"`, `"time"`, `"location"`. Must be non-empty. |
+
+## Quality Gates
+
+All packs must pass Content Quality Gates v1. See [QUALITY_GATES.md](./QUALITY_GATES.md) for detailed rules and examples.
+
+**Quick Summary:**
+- **Generic Template Denylist**: Hard fail if prompts contain generic template phrases
+- **Multi-slot Variation**: Hard fail if <2 distinct verbs or <2 distinct subjects across prompts
+- **Register Consistency**: Hard fail if `register === "formal"` but no prompts contain "Sie" or "Ihnen"
+- **Concreteness Marker**: Hard fail if <2 prompts contain digits, currency, time, or weekday markers
 
 ## Optional Fields
-
-### `primaryStructure` (Optional, Encouraged)
-
-Declares the primary grammatical structure or concept the pack trains.
-
-```json
-{
-  "primaryStructure": {
-    "id": "verb-second-position",
-    "label": "Verb position in main clauses"
-  }
-}
-```
-
-**Validation Rules:**
-- Optional but encouraged
-- `id`: kebab-case string, max 40 chars
-- `label`: string, max 80 chars
-
-**Purpose:**
-- Makes each pack's intent explicit
-- Prevents "topic-only" packs from creeping in
-- Enables future search, analytics, and QA
 
 ### `prompts` (Optional)
 
@@ -77,6 +68,7 @@ Array of prompt objects for practice.
 | `translation` | string | ❌ | English translation |
 | `audioUrl` | string | ❌ | Audio file URL |
 | `slots` | object | ❌ | Slot metadata (see below) |
+| `slotsChanged` | string[] | ❌ | Array of slot types that differ from previous prompt in the same step. Values must be from `variationSlots`. Used for multi-slot variation enforcement. |
 
 **Prompt Quality Guardrails:**
 

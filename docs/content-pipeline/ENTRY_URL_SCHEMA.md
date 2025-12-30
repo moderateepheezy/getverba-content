@@ -105,6 +105,10 @@ All `entryUrl` values must follow these patterns based on the section `kind`:
 - `description` (string): 1-3 line description
 - `outline` (string[]): Array of section titles/headings
 - `sessionPlan` (object): Session plan defining the order and grouping of prompts
+- `scenario` (string): Content scenario identifier (e.g., "work", "restaurant", "shopping", "doctor", "housing")
+- `register` (string): Formality level: `"formal"`, `"neutral"`, or `"informal"`
+- `primaryStructure` (string): Primary grammatical structure identifier (e.g., "verb_position", "negation", "modal_verbs", "dative_case")
+- `variationSlots` (string[]): Array of slot types that can be varied. Allowed values: `"subject"`, `"verb"`, `"object"`, `"modifier"`, `"tense"`, `"polarity"`, `"time"`, `"location"`. Must be non-empty.
   - `version` (number): Must be `1`
   - `steps` (array): Non-empty array of step objects
     - Each step must have:

@@ -700,24 +700,50 @@ test('verify smoke test script works', () => {
   }
 });
 
-// E2E Test 22: Verify example pack has new pedagogical metadata
-test('verify example pack has new pedagogical metadata', () => {
+// E2E Test 22: Verify example pack has Quality Gates v1 fields
+test('verify example pack has Quality Gates v1 fields', () => {
   const packPath = join(CONTENT_DIR, 'workspaces', 'de', 'packs', 'restaurant_conversations', 'pack.json');
   assert(existsSync(packPath), 'restaurant_conversations pack should exist');
   
   const pack = JSON.parse(readFileSync(packPath, 'utf-8'));
   
-  // Verify primaryStructure
-  assert(pack.primaryStructure, 'Pack should have primaryStructure');
-  assert(pack.primaryStructure.id === 'modal-verbs-requests', 'primaryStructure.id should match');
-  assert(pack.primaryStructure.label, 'primaryStructure should have label');
+  // Verify Quality Gates v1 required fields
+  assert(pack.scenario, 'Pack should have scenario');
+  assert(typeof pack.scenario === 'string', 'scenario should be string');
+  assert(pack.scenario.length >= 3 && pack.scenario.length <= 40, 'scenario should be 3-40 chars');
   
-  // Verify slots
+  assert(pack.register, 'Pack should have register');
+  assert(['formal', 'neutral', 'informal'].includes(pack.register), 'register should be formal, neutral, or informal');
+  
+  assert(pack.primaryStructure, 'Pack should have primaryStructure');
+  assert(typeof pack.primaryStructure === 'string', 'primaryStructure should be string');
+  assert(pack.primaryStructure.length >= 3 && pack.primaryStructure.length <= 60, 'primaryStructure should be 3-60 chars');
+  
+  // Verify variationSlots (new required field)
+  assert(Array.isArray(pack.variationSlots), 'Pack should have variationSlots array');
+  assert(pack.variationSlots.length > 0, 'variationSlots should be non-empty');
+  const validSlots = ['subject', 'verb', 'object', 'modifier', 'tense', 'polarity', 'time', 'location'];
+  pack.variationSlots.forEach((slot: string) => {
+    assert(validSlots.includes(slot), `variationSlots should contain valid slot: ${slot}`);
+  });
+  
+  // Verify slots (optional)
   assert(Array.isArray(pack.prompts), 'Pack should have prompts');
   assert(pack.prompts.length > 0, 'Pack should have at least one prompt');
-  assert(pack.prompts[0].slots, 'First prompt should have slots');
-  assert(pack.prompts[0].slots.subject, 'Prompt should have subject slot');
-  assert(pack.prompts[0].slots.verb, 'Prompt should have verb slot');
+  if (pack.prompts[0].slots) {
+    assert(pack.prompts[0].slots.subject, 'Prompt should have subject slot if slots present');
+    assert(pack.prompts[0].slots.verb, 'Prompt should have verb slot if slots present');
+  }
+  
+  // Verify slotsChanged metadata (optional, but recommended)
+  const promptsWithSlotsChanged = pack.prompts.filter((p: any) => p.slotsChanged && Array.isArray(p.slotsChanged) && p.slotsChanged.length >= 2);
+  const minRequired = Math.ceil(pack.prompts.length * 0.3);
+  if (promptsWithSlotsChanged.length > 0) {
+    promptsWithSlotsChanged.forEach((p: any) => {
+      assert(p.slotsChanged.every((slot: string) => pack.variationSlots.includes(slot)), 
+        'slotsChanged values should be in variationSlots');
+    });
+  }
   
   // Verify microNotes
   assert(Array.isArray(pack.microNotes), 'Pack should have microNotes array');

@@ -6,6 +6,10 @@
   "level": "A1",
   "estimatedMinutes": 15,
   "description": "Learn essential German greetings for everyday conversations. Practice saying hello, goodbye, and common polite phrases.",
+  "scenario": "casual_greeting",
+  "register": "formal",
+  "primaryStructure": "formal_pronouns",
+  "variationSlots": ["subject", "verb", "modifier", "time"],
   "outline": [
     "Opening: Greetings",
     "Common Phrases",
@@ -14,20 +18,22 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Guten Morgen, wie geht es Ihnen?",
-      "translation": "Good morning, how are you?",
-      "audioUrl": "/v1/audio/basic_greetings/prompt-001.mp3"
+      "text": "Guten Morgen, wie geht es Ihnen um 9 Uhr?",
+      "translation": "Good morning, how are you at 9 o'clock?",
+      "audioUrl": "/v1/audio/basic_greetings/prompt-001.mp3",
+      "slotsChanged": ["subject", "time"]
     },
     {
       "id": "prompt-002",
       "text": "Guten Tag, schön Sie zu sehen",
       "translation": "Good day, nice to see you",
-      "audioUrl": "/v1/audio/basic_greetings/prompt-002.mp3"
+      "audioUrl": "/v1/audio/basic_greetings/prompt-002.mp3",
+      "slotsChanged": ["verb", "modifier"]
     },
     {
       "id": "prompt-003",
-      "text": "Guten Abend, wie war Ihr Tag?",
-      "translation": "Good evening, how was your day?",
+      "text": "Guten Abend, wie war Ihr Tag am Montag?",
+      "translation": "Good evening, how was your day on Monday?",
       "audioUrl": "/v1/audio/basic_greetings/prompt-003.mp3"
     },
     {

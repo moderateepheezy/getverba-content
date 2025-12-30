@@ -10,7 +10,14 @@
       "title": "Welcome to English",
       "level": "A1",
       "durationMinutes": 10,
-      "entryUrl": "/v1/workspaces/en/packs/welcome_english/pack.json"
+      "entryUrl": "/v1/workspaces/en/packs/welcome_english/pack.json",
+      "scenario": "intro_lesson",
+      "register": "neutral",
+      "primaryStructure": "basic_phrases",
+      "tags": [
+        "intro",
+        "basics"
+      ]
     }
   ],
   "nextPage": null

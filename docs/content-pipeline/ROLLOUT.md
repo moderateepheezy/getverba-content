@@ -31,6 +31,22 @@ This regenerates all section indexes from entry documents on disk. The generator
 
 **Note**: The `new-pack.sh` and `new-drill.sh` scripts automatically regenerate indexes after creating entries.
 
+### Step 1.5: Quality Gates Validation
+
+All packs must pass Content Quality Gates v1 before publishing. The validator automatically enforces:
+- **Required fields**: `scenario`, `register`, `primaryStructure`
+- **Generic template denylist**: Blocks template phrases
+- **Multi-slot variation**: Requires ≥2 distinct verbs and ≥2 distinct subjects
+- **Register consistency**: Formal packs must use Sie/Ihnen
+- **Concreteness markers**: ≥2 prompts must contain digits, currency, time, or weekday markers
+
+See [QUALITY_GATES.md](./QUALITY_GATES.md) for detailed rules and how to fix failing packs.
+
+**Validation runs automatically**:
+- During `npm run content:validate`
+- During smoke test (before promotion)
+- During publish (blocks invalid content)
+
 ### Step 2: Publish Content to Staging
 
 Publish all content files and the staging manifest:

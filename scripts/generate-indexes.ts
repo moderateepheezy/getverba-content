@@ -41,6 +41,10 @@ interface SectionIndexItem {
   level: string;
   durationMinutes: number;
   entryUrl: string;
+  scenario?: string;
+  register?: string;
+  primaryStructure?: string;
+  tags?: string[];
 }
 
 interface SectionIndex {
@@ -58,6 +62,10 @@ interface EntryDocument {
   title: string;
   level: string;
   estimatedMinutes?: number;
+  scenario?: string;
+  register?: string;
+  primaryStructure?: string;
+  tags?: string[];
 }
 
 /**
@@ -129,7 +137,8 @@ function readEntryDocument(
     // Extract durationMinutes from estimatedMinutes
     const durationMinutes = entry.estimatedMinutes || 15; // fallback
     
-    return {
+    // Enrich with pack metadata (scenario, register, primaryStructure, tags)
+    const item: SectionIndexItem = {
       id: entry.id,
       kind: entry.kind,
       title: entry.title,
@@ -137,6 +146,22 @@ function readEntryDocument(
       durationMinutes,
       entryUrl
     };
+    
+    // Add optional metadata fields if present in pack
+    if (entry.scenario) {
+      item.scenario = entry.scenario;
+    }
+    if (entry.register) {
+      item.register = entry.register;
+    }
+    if (entry.primaryStructure) {
+      item.primaryStructure = entry.primaryStructure;
+    }
+    if (entry.tags && Array.isArray(entry.tags)) {
+      item.tags = entry.tags;
+    }
+    
+    return item;
   } catch (error: any) {
     console.warn(`⚠️  Failed to read ${entryPath}: ${error.message}`);
     return null;

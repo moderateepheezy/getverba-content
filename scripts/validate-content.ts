@@ -135,6 +135,25 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
         addError(contextFile, `Item ${itemIdx} pack entry missing or invalid field: outline (must be non-empty array)`);
       }
       
+      // Quality Gates v1: Required fields
+      if (!entry.scenario || typeof entry.scenario !== 'string') {
+        addError(contextFile, `Item ${itemIdx} pack entry missing or invalid field: scenario (must be string, 3-40 chars)`);
+      } else if (entry.scenario.length < 3 || entry.scenario.length > 40) {
+        addError(contextFile, `Item ${itemIdx} pack entry scenario length is invalid (${entry.scenario.length} chars). Must be 3-40 chars.`);
+      }
+      
+      if (!entry.register || typeof entry.register !== 'string') {
+        addError(contextFile, `Item ${itemIdx} pack entry missing or invalid field: register (must be "formal", "neutral", or "informal")`);
+      } else if (!['formal', 'neutral', 'casual'].includes(entry.register)) {
+        addError(contextFile, `Item ${itemIdx} pack entry register must be one of: "formal", "neutral", "casual"`);
+      }
+      
+      if (!entry.primaryStructure || typeof entry.primaryStructure !== 'string') {
+        addError(contextFile, `Item ${itemIdx} pack entry missing or invalid field: primaryStructure (must be string, 3-60 chars)`);
+      } else if (entry.primaryStructure.length < 3 || entry.primaryStructure.length > 60) {
+        addError(contextFile, `Item ${itemIdx} pack entry primaryStructure length is invalid (${entry.primaryStructure.length} chars). Must be 3-60 chars.`);
+      }
+      
       // Validate sessionPlan (required for packs)
       if (!entry.sessionPlan || typeof entry.sessionPlan !== 'object') {
         addError(contextFile, `Item ${itemIdx} pack entry missing or invalid field: sessionPlan (must be object)`);
@@ -195,29 +214,6 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
         }
       }
       
-      // Validate primaryStructure (optional, encouraged)
-      if (entry.primaryStructure !== undefined) {
-        if (typeof entry.primaryStructure !== 'object' || entry.primaryStructure === null) {
-          addError(contextFile, `Item ${itemIdx} pack entry primaryStructure must be an object if present`);
-        } else {
-          if (!entry.primaryStructure.id || typeof entry.primaryStructure.id !== 'string') {
-            addError(contextFile, `Item ${itemIdx} pack entry primaryStructure.id must be a string`);
-          } else {
-            // Validate kebab-case and length
-            if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(entry.primaryStructure.id)) {
-              addError(contextFile, `Item ${itemIdx} pack entry primaryStructure.id must be kebab-case (lowercase letters, numbers, hyphens only)`);
-            }
-            if (entry.primaryStructure.id.length > MAX_PRIMARY_STRUCTURE_ID_LENGTH) {
-              addError(contextFile, `Item ${itemIdx} pack entry primaryStructure.id is too long (${entry.primaryStructure.id.length} chars). Max is ${MAX_PRIMARY_STRUCTURE_ID_LENGTH} chars.`);
-            }
-          }
-          if (!entry.primaryStructure.label || typeof entry.primaryStructure.label !== 'string') {
-            addError(contextFile, `Item ${itemIdx} pack entry primaryStructure.label must be a string`);
-          } else if (entry.primaryStructure.label.length > MAX_PRIMARY_STRUCTURE_LABEL_LENGTH) {
-            addError(contextFile, `Item ${itemIdx} pack entry primaryStructure.label is too long (${entry.primaryStructure.label.length} chars). Max is ${MAX_PRIMARY_STRUCTURE_LABEL_LENGTH} chars.`);
-          }
-        }
-      }
       
       // Validate microNotes (optional, reserved for future use)
       if (entry.microNotes !== undefined) {
@@ -300,7 +296,13 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
                 }
               }
             }
+            
           });
+        }
+        
+        // Quality Gates v1: Validate pack quality
+        if (entry.prompts && Array.isArray(entry.prompts) && entry.prompts.length > 0) {
+          validatePackQualityGates(entry, contextFile, itemIdx);
         }
       }
       // If promptsUrl is used instead, validate it's a string
@@ -460,6 +462,24 @@ const MAX_MICRO_NOTE_LENGTH = 240;
 // Valid slot keys for prompt slots
 const VALID_SLOT_KEYS = ['subject', 'verb', 'object', 'modifier', 'complement'];
 
+// Quality Gates v1: Generic template denylist
+const DENYLIST_PHRASES = [
+  "in today's lesson",
+  "let's practice",
+  "this sentence",
+  "i like to",
+  "the quick brown fox",
+  "lorem ipsum"
+];
+
+// Quality Gates v1: Pronouns for subject detection (German + English)
+const GERMAN_PRONOUNS = ['ich', 'du', 'wir', 'sie', 'er', 'es', 'ihr', 'Sie'];
+const ENGLISH_PRONOUNS = ['i', 'you', 'we', 'they', 'he', 'she', 'it'];
+const ALL_PRONOUNS = [...GERMAN_PRONOUNS, ...ENGLISH_PRONOUNS];
+
+// Quality Gates v1: Weekday tokens (German + English)
+const WEEKDAY_TOKENS = ['montag', 'dienstag', 'mittwoch', 'donnerstag', 'freitag', 'samstag', 'sonntag', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+
 // Schema versioning
 const SUPPORTED_SCHEMA_VERSIONS = [1];
 
@@ -467,6 +487,152 @@ const SUPPORTED_SCHEMA_VERSIONS = [1];
  * Validate schemaVersion field
  * Hard-fails on missing or unknown versions
  */
+/**
+ * Quality Gates v1: Validate pack quality
+ */
+function validatePackQualityGates(entry: any, contextFile: string, itemIdx: number): void {
+  if (!entry.prompts || !Array.isArray(entry.prompts) || entry.prompts.length === 0) {
+    return; // No prompts to validate
+  }
+  
+  const prompts = entry.prompts.filter((p: any) => p && p.text && typeof p.text === 'string');
+  
+  if (prompts.length === 0) {
+    return; // No valid prompts
+  }
+  
+  // Rule 1: Generic Template Denylist
+  for (const prompt of prompts) {
+    const textLower = prompt.text.toLowerCase();
+    for (const phrase of DENYLIST_PHRASES) {
+      if (textLower.includes(phrase.toLowerCase())) {
+        addError(contextFile, `Item ${itemIdx} pack entry Quality Gate violation: prompt "${prompt.id || 'unknown'}" contains denylisted phrase "${phrase}"`);
+        return; // Fail fast on first violation
+      }
+    }
+  }
+  
+  // Rule 2: Multi-slot Variation
+  // Extract verbs and subjects from prompts
+  const verbs = new Set<string>();
+  const subjects = new Set<string>();
+  
+  for (const prompt of prompts) {
+    const text = prompt.text.trim();
+    const tokens = text.split(/\s+/);
+    
+    // Subject detection: look for pronouns anywhere in the sentence
+    for (let i = 0; i < tokens.length; i++) {
+      const token = tokens[i].replace(/[.,!?;:]$/, '').toLowerCase();
+      if (ALL_PRONOUNS.includes(token)) {
+        subjects.add(token);
+      }
+    }
+    
+    // Verb detection: 
+    // 1. If sentence starts with pronoun, second token is likely the verb
+    // 2. Look for pronoun + verb pattern anywhere in sentence
+    // 3. Look for common verb patterns (German + English)
+    if (tokens.length > 0) {
+      const firstToken = tokens[0].replace(/[.,!?;:]$/, '').toLowerCase();
+      
+      if (ALL_PRONOUNS.includes(firstToken) && tokens.length > 1) {
+        // Case 1: Starts with pronoun - second token is verb
+        const secondToken = tokens[1].replace(/[.,!?;:]$/, '').toLowerCase();
+        if (secondToken) {
+          verbs.add(secondToken);
+        }
+      }
+      
+      // Case 2: Look for pronoun + verb pattern anywhere
+      for (let i = 0; i < tokens.length - 1; i++) {
+        const token = tokens[i].replace(/[.,!?;:]$/, '').toLowerCase();
+        if (ALL_PRONOUNS.includes(token)) {
+          const nextToken = tokens[i + 1].replace(/[.,!?;:]$/, '').toLowerCase();
+          if (nextToken && nextToken.length > 2) {
+            verbs.add(nextToken);
+          }
+        }
+      }
+      
+      // Case 3: Look for common verb patterns anywhere in sentence (German + English)
+      for (let i = 0; i < tokens.length; i++) {
+        const token = tokens[i].replace(/[.,!?;:]$/, '').toLowerCase();
+        // Common German verb patterns
+        if (token.match(/^(geht|ist|hat|kann|können|muss|soll|will|macht|sagt|kommt|sieht|weiß|gibt|nimmt|hätte|könnte|wäre|war|waren|haben|sein|werden|sehen|geben|nehmen|helfen|vereinbaren|bringen)$/)) {
+          verbs.add(token);
+        }
+        // Common English verb patterns
+        if (token.match(/^(is|are|was|were|have|has|had|do|does|did|will|would|can|could|should|must|go|goes|went|come|comes|came|see|sees|saw|say|says|said|get|gets|got|make|makes|made|take|takes|took|give|gives|gave|know|knows|knew|think|thinks|thought|welcome|welcomes|learning|learn)$/)) {
+          verbs.add(token);
+        }
+      }
+    }
+  }
+  
+  if (verbs.size < 2) {
+    addError(contextFile, `Item ${itemIdx} pack entry Quality Gate violation: insufficient verb variation (found ${verbs.size} distinct verb(s), required: 2)`);
+  }
+  
+  if (subjects.size < 2) {
+    addError(contextFile, `Item ${itemIdx} pack entry Quality Gate violation: insufficient subject variation (found ${subjects.size} distinct subject(s), required: 2)`);
+  }
+  
+  // Rule 3: Register Consistency
+  if (entry.register === 'formal') {
+    let hasFormalMarker = false;
+    for (const prompt of prompts) {
+      const text = prompt.text;
+      // Check for "Sie" (case-sensitive) or "Ihnen" (case-sensitive)
+      if (/\bSie\b/.test(text) || /\bIhnen\b/.test(text)) {
+        hasFormalMarker = true;
+        break;
+      }
+    }
+    if (!hasFormalMarker) {
+      addError(contextFile, `Item ${itemIdx} pack entry Quality Gate violation: register is "formal" but no prompts contain "Sie" or "Ihnen"`);
+    }
+  }
+  
+  // Rule 4: Concreteness Marker
+  let concretenessCount = 0;
+  for (const prompt of prompts) {
+    const text = prompt.text;
+    let hasMarker = false;
+    
+    // Check for digit
+    if (/\d/.test(text)) {
+      hasMarker = true;
+    }
+    // Check for currency symbol
+    else if (/[€$]/.test(text)) {
+      hasMarker = true;
+    }
+    // Check for time marker (colon with digits)
+    else if (/\d{1,2}:\d{2}/.test(text)) {
+      hasMarker = true;
+    }
+    // Check for weekday
+    else {
+      const textLower = text.toLowerCase();
+      for (const weekday of WEEKDAY_TOKENS) {
+        if (textLower.includes(weekday)) {
+          hasMarker = true;
+          break;
+        }
+      }
+    }
+    
+    if (hasMarker) {
+      concretenessCount++;
+    }
+  }
+  
+  if (concretenessCount < 2) {
+    addError(contextFile, `Item ${itemIdx} pack entry Quality Gate violation: insufficient concreteness markers (found ${concretenessCount} prompt(s) with markers, required: 2)`);
+  }
+}
+
 function validateSchemaVersion(docType: string, doc: any, filePath: string): void {
   if (typeof doc.schemaVersion !== 'number') {
     addError(filePath, `${docType} missing required field: schemaVersion (must be number)`);
@@ -548,6 +714,16 @@ function validateSchemaV1RequiredFields(docType: string, doc: any, filePath: str
     }
     if (!doc.sessionPlan || typeof doc.sessionPlan !== 'object') {
       addError(filePath, 'PackEntry schemaVersion 1: missing or invalid required field: sessionPlan');
+    }
+    // Quality Gates v1: Required fields
+    if (!doc.scenario || typeof doc.scenario !== 'string') {
+      addError(filePath, 'PackEntry schemaVersion 1: missing or invalid required field: scenario');
+    }
+    if (!doc.register || typeof doc.register !== 'string') {
+      addError(filePath, 'PackEntry schemaVersion 1: missing or invalid required field: register');
+    }
+    if (!doc.primaryStructure || typeof doc.primaryStructure !== 'string') {
+      addError(filePath, 'PackEntry schemaVersion 1: missing or invalid required field: primaryStructure');
     }
   } else if (docType === 'ExamEntry') {
     if (!doc.id || typeof doc.id !== 'string') {
@@ -849,6 +1025,56 @@ function validateIndex(indexPath: string): void {
           const entryPath = resolveContentPath(item.entryUrl);
           if (existsSync(entryPath)) {
             validateEntryDocument(entryPath, item.kind, indexPath, idx);
+            
+            // Validate index item metadata matches pack metadata (if present)
+            if (item.kind === 'pack' || item.kind === 'context') {
+              try {
+                const entryContent = readFileSync(entryPath, 'utf-8');
+                const entry = JSON.parse(entryContent);
+                
+                // Check scenario
+                if (item.scenario !== undefined && entry.scenario !== undefined) {
+                  if (item.scenario !== entry.scenario) {
+                    addError(indexPath, `Item ${idx} scenario "${item.scenario}" does not match pack scenario "${entry.scenario}"`);
+                  }
+                } else if (entry.scenario && !item.scenario) {
+                  // Warn if pack has scenario but index doesn't (non-fatal)
+                  console.warn(`⚠️  Item ${idx} in ${indexPath} is not enriched with scenario. Pack has scenario "${entry.scenario}" but index item is missing it.`);
+                }
+                
+                // Check register
+                if (item.register !== undefined && entry.register !== undefined) {
+                  if (item.register !== entry.register) {
+                    addError(indexPath, `Item ${idx} register "${item.register}" does not match pack register "${entry.register}"`);
+                  }
+                } else if (entry.register && !item.register) {
+                  console.warn(`⚠️  Item ${idx} in ${indexPath} is not enriched with register. Pack has register "${entry.register}" but index item is missing it.`);
+                }
+                
+                // Check primaryStructure
+                if (item.primaryStructure !== undefined && entry.primaryStructure !== undefined) {
+                  if (item.primaryStructure !== entry.primaryStructure) {
+                    addError(indexPath, `Item ${idx} primaryStructure "${item.primaryStructure}" does not match pack primaryStructure "${entry.primaryStructure}"`);
+                  }
+                } else if (entry.primaryStructure && !item.primaryStructure) {
+                  console.warn(`⚠️  Item ${idx} in ${indexPath} is not enriched with primaryStructure. Pack has primaryStructure "${entry.primaryStructure}" but index item is missing it.`);
+                }
+                
+                // Check tags (array comparison)
+                if (item.tags !== undefined && entry.tags !== undefined) {
+                  const itemTags = Array.isArray(item.tags) ? item.tags.sort() : [];
+                  const entryTags = Array.isArray(entry.tags) ? entry.tags.sort() : [];
+                  if (JSON.stringify(itemTags) !== JSON.stringify(entryTags)) {
+                    // Warn but don't fail - tags can be filtered/curated in index
+                    console.warn(`⚠️  Item ${idx} in ${indexPath} tags differ from pack tags. Index: [${itemTags.join(', ')}], Pack: [${entryTags.join(', ')}]`);
+                  }
+                } else if (entry.tags && Array.isArray(entry.tags) && entry.tags.length > 0 && !item.tags) {
+                  console.warn(`⚠️  Item ${idx} in ${indexPath} is not enriched with tags. Pack has tags [${entry.tags.join(', ')}] but index item is missing them.`);
+                }
+              } catch (err: any) {
+                // If we can't parse the entry, skip metadata validation (entry validation will catch it)
+              }
+            }
           }
         }
       }

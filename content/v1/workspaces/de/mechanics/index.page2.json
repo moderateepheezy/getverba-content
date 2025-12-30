@@ -10,7 +10,13 @@
       "title": "Separable Verbs",
       "level": "A1",
       "durationMinutes": 15,
-      "entryUrl": "/v1/workspaces/de/drills/separable_verbs_a1/drill.json"
+      "entryUrl": "/v1/workspaces/de/drills/separable_verbs_a1/drill.json",
+      "tags": [
+        "grammar",
+        "verbs",
+        "separable-verbs",
+        "conjugation"
+      ]
     },
     {
       "id": "verb_endings_a1",
@@ -18,7 +24,13 @@
       "title": "Verb Endings - Present Tense",
       "level": "A1",
       "durationMinutes": 10,
-      "entryUrl": "/v1/workspaces/de/drills/verb_endings_a1/drill.json"
+      "entryUrl": "/v1/workspaces/de/drills/verb_endings_a1/drill.json",
+      "tags": [
+        "grammar",
+        "verbs",
+        "conjugation",
+        "present-tense"
+      ]
     }
   ],
   "nextPage": null

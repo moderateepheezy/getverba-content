@@ -6,6 +6,10 @@
   "level": "A1",
   "estimatedMinutes": 10,
   "description": "A brief introduction to learning English with GetVerba. Get comfortable with the app and basic vocabulary.",
+  "scenario": "intro_lesson",
+  "register": "neutral",
+  "primaryStructure": "basic_phrases",
+  "variationSlots": ["subject", "verb", "object", "time"],
   "outline": [
     "Introduction",
     "Basic Phrases"
@@ -13,15 +17,17 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Hello, welcome to English learning",
-      "translation": "Hallo, willkommen beim Englischlernen",
-      "audioUrl": "/v1/audio/welcome_english/prompt-001.mp3"
+      "text": "I welcome you to our English learning course starting on Monday",
+      "translation": "Ich heiße Sie willkommen zu unserem Englischkurs, der am Montag beginnt",
+      "audioUrl": "/v1/audio/welcome_english/prompt-001.mp3",
+      "slotsChanged": ["subject", "verb"]
     },
     {
       "id": "prompt-002",
-      "text": "Welcome to our language course today",
-      "translation": "Willkommen zu unserem Sprachkurs heute",
-      "audioUrl": "/v1/audio/welcome_english/prompt-002.mp3"
+      "text": "We offer language courses starting at 10:00 for $5",
+      "translation": "Wir bieten Sprachkurse ab 10:00 für 5 Dollar an",
+      "audioUrl": "/v1/audio/welcome_english/prompt-002.mp3",
+      "slotsChanged": ["subject", "verb"]
     }
   ],
   "sessionPlan": {

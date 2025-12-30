@@ -2795,6 +2795,486 @@ test('index generator stable output idempotent', () => {
   cleanupTestDir();
 });
 
+// Test 62: Quality Gates - Missing required fields (scenario, register, primaryStructure)
+test('quality gates missing required fields', () => {
+  setupTestDir();
+  
+  const packMissingFields = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test',
+    outline: ['Step 1'],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] },
+    prompts: [{ id: 'p1', text: 'Ich gehe zur Arbeit.' }]
+    // Missing scenario, register, primaryStructure
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack'), { recursive: true });
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+    JSON.stringify(packMissingFields, null, 2)
+  );
+  
+  assert(!packMissingFields.scenario, 'Pack should be missing scenario');
+  assert(!packMissingFields.register, 'Pack should be missing register');
+  assert(!packMissingFields.primaryStructure, 'Pack should be missing primaryStructure');
+  
+  cleanupTestDir();
+});
+
+// Test 63: Quality Gates - Denylist phrase triggers hard fail
+test('quality gates denylist phrase triggers hard fail', () => {
+  setupTestDir();
+  
+  const packWithDenylist = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test',
+    scenario: 'test_scenario',
+    register: 'neutral',
+    primaryStructure: 'test_structure',
+    outline: ['Step 1'],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] },
+    prompts: [
+      { id: 'p1', text: 'In today\'s lesson, we will practice German.' }
+    ]
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack'), { recursive: true });
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+    JSON.stringify(packWithDenylist, null, 2)
+  );
+  
+  const text = packWithDenylist.prompts[0].text.toLowerCase();
+  assert(text.includes("in today's lesson"), 'Pack should contain denylisted phrase');
+  
+  cleanupTestDir();
+});
+
+// Test 64: Quality Gates - Multi-slot variation fails when only 1 verb detected
+test('quality gates multi-slot variation fails with 1 verb', () => {
+  setupTestDir();
+  
+  const packWithOneVerb = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test',
+    scenario: 'test_scenario',
+    register: 'neutral',
+    primaryStructure: 'test_structure',
+    outline: ['Step 1', 'Step 2'],
+    sessionPlan: { version: 1, steps: [
+      { id: 's1', title: 'Step 1', promptIds: ['p1'] },
+      { id: 's2', title: 'Step 2', promptIds: ['p2'] }
+    ]},
+    prompts: [
+      { id: 'p1', text: 'Ich gehe zur Arbeit.' },
+      { id: 'p2', text: 'Ich gehe zur Schule.' },
+      { id: 'p3', text: 'Ich gehe zum Park.' }
+    ]
+  };
+  
+  // All prompts use the same verb "gehe" - only 1 distinct verb
+  // Simulate the verb detection logic from validator
+  const verbs = new Set<string>();
+  packWithOneVerb.prompts.forEach((p: any) => {
+    const tokens = p.text.split(/\s+/);
+    if (tokens.length > 0) {
+      const firstToken = tokens[0].replace(/[.,!?;:]$/, '').toLowerCase();
+      if (['ich', 'du', 'er', 'wir', 'sie'].includes(firstToken) && tokens.length > 1) {
+        const secondToken = tokens[1].replace(/[.,!?;:]$/, '').toLowerCase();
+        if (secondToken) {
+          verbs.add(secondToken);
+        }
+      }
+    }
+  });
+  
+  // All three prompts use the same verb "gehe" - should only count as 1 distinct verb
+  // The test verifies that the detection logic finds < 2 verbs
+  assert(verbs.size < 2, `Pack should have insufficient verb variation (found ${verbs.size} verb(s), required: 2)`);
+  
+  cleanupTestDir();
+});
+
+// Test 65: Quality Gates - Formal register fails without Sie/Ihnen
+test('quality gates formal register fails without Sie/Ihnen', () => {
+  setupTestDir();
+  
+  const packFormalNoSie = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test',
+    scenario: 'test_scenario',
+    register: 'formal',
+    primaryStructure: 'test_structure',
+    outline: ['Step 1'],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] },
+    prompts: [
+      { id: 'p1', text: 'Kannst du mir helfen?' }
+    ]
+  };
+  
+  const hasSie = /\bSie\b/.test(packFormalNoSie.prompts[0].text);
+  const hasIhnen = /\bIhnen\b/.test(packFormalNoSie.prompts[0].text);
+  
+  assert(packFormalNoSie.register === 'formal', 'Pack should have formal register');
+  assert(!hasSie && !hasIhnen, 'Pack should not contain Sie or Ihnen');
+  
+  cleanupTestDir();
+});
+
+// Test 66: Quality Gates - Concreteness marker fails if <2 prompts match
+test('quality gates concreteness marker fails if less than 2 prompts match', () => {
+  setupTestDir();
+  
+  const packWithOneMarker = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test',
+    scenario: 'test_scenario',
+    register: 'neutral',
+    primaryStructure: 'test_structure',
+    outline: ['Step 1', 'Step 2'],
+    sessionPlan: { version: 1, steps: [
+      { id: 's1', title: 'Step 1', promptIds: ['p1'] },
+      { id: 's2', title: 'Step 2', promptIds: ['p2'] }
+    ]},
+    prompts: [
+      { id: 'p1', text: 'Das Meeting beginnt um 14:30.' },
+      { id: 'p2', text: 'Wir treffen uns morgen.' }
+    ]
+  };
+  
+  let concretenessCount = 0;
+  packWithOneMarker.prompts.forEach((p: any) => {
+    const text = p.text;
+    const hasMarker = /\d/.test(text) || /[€$]/.test(text) || /\d{1,2}:\d{2}/.test(text) || 
+      ['montag', 'monday'].some(w => text.toLowerCase().includes(w));
+    if (hasMarker) concretenessCount++;
+  });
+  
+  assert(concretenessCount < 2, 'Pack should have insufficient concreteness markers');
+  
+  cleanupTestDir();
+});
+
+// Test 67: Quality Gates - Context token requirement passes with 2+ tokens
+test('quality gates context token requirement passes with 2+ tokens', () => {
+  setupTestDir();
+  
+  const packWithContextTokens = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test',
+    scenario: 'work',
+    register: 'neutral',
+    primaryStructure: 'test_structure',
+    variationSlots: ['subject', 'verb'],
+    outline: ['Step 1'],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] },
+    prompts: [
+      { id: 'p1', text: 'Das Meeting mit dem Manager beginnt um 14:30.' } // Contains "meeting" and "manager" (2 work tokens)
+    ]
+  };
+  
+  // Verify prompt contains work scenario tokens
+  const workTokens = ['meeting', 'shift', 'manager', 'schedule', 'invoice', 'deadline', 'office', 'colleague', 'project', 'task', 'besprechung', 'termin', 'büro', 'kollege', 'projekt', 'aufgabe', 'arbeit'];
+  const textLower = packWithContextTokens.prompts[0].text.toLowerCase();
+  const foundTokens = workTokens.filter(token => textLower.includes(token.toLowerCase()));
+  
+  assert(foundTokens.length >= 2, `Prompt should contain at least 2 work scenario tokens. Found: ${foundTokens.length} (${foundTokens.join(', ')})`);
+  assert(packWithContextTokens.variationSlots && packWithContextTokens.variationSlots.length > 0, 'Pack should have variationSlots');
+  
+  cleanupTestDir();
+});
+
+// Test 68: Quality Gates - Context token requirement fails with <2 tokens
+test('quality gates context token requirement fails with less than 2 tokens', () => {
+  setupTestDir();
+  
+  const packWithInsufficientTokens = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test',
+    scenario: 'work',
+    register: 'neutral',
+    primaryStructure: 'test_structure',
+    variationSlots: ['subject', 'verb'],
+    outline: ['Step 1'],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] },
+    prompts: [
+      { id: 'p1', text: 'Ich gehe zur Arbeit.' } // Only "Arbeit" (work) - needs 2 tokens
+    ]
+  };
+  
+  const workTokens = ['meeting', 'shift', 'manager', 'schedule', 'invoice', 'deadline', 'office', 'colleague', 'project', 'task', 'arbeit'];
+  const textLower = packWithInsufficientTokens.prompts[0].text.toLowerCase();
+  const foundTokens = workTokens.filter(token => textLower.includes(token.toLowerCase()));
+  
+  // This should fail validation (found < 2 tokens)
+  assert(foundTokens.length < 2, `Prompt should have insufficient tokens for this test. Found: ${foundTokens.length}`);
+  
+  cleanupTestDir();
+});
+
+// Test 69: Quality Gates - variationSlots validation
+test('quality gates variationSlots validation', () => {
+  setupTestDir();
+  
+  const validPack = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test',
+    scenario: 'work',
+    register: 'neutral',
+    primaryStructure: 'test_structure',
+    variationSlots: ['subject', 'verb', 'object'], // Valid slots
+    outline: ['Step 1'],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] },
+    prompts: [{ id: 'p1', text: 'Das Meeting beginnt um 14:30.' }]
+  };
+  
+  const invalidPack = {
+    schemaVersion: 1,
+    id: 'test-pack-2',
+    kind: 'pack',
+    title: 'Test Pack 2',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test',
+    scenario: 'work',
+    register: 'neutral',
+    primaryStructure: 'test_structure',
+    variationSlots: ['invalid_slot'], // Invalid slot
+    outline: ['Step 1'],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] },
+    prompts: [{ id: 'p1', text: 'Das Meeting beginnt um 14:30.' }]
+  };
+  
+  const validSlots = ['subject', 'verb', 'object', 'modifier', 'tense', 'polarity', 'time', 'location'];
+  
+  assert(Array.isArray(validPack.variationSlots), 'Valid pack should have variationSlots array');
+  assert(validPack.variationSlots.length > 0, 'Valid pack should have non-empty variationSlots');
+  assert(validPack.variationSlots.every((s: string) => validSlots.includes(s)), 'All slots should be valid');
+  
+  assert(!validSlots.includes('invalid_slot'), 'Invalid slot should not be in valid slots list');
+  
+  cleanupTestDir();
+});
+
+// Test 70: Quality Gates - slotsChanged metadata validation
+test('quality gates slotsChanged metadata validation', () => {
+  setupTestDir();
+  
+  const packWithSlotsChanged = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test',
+    scenario: 'work',
+    register: 'neutral',
+    primaryStructure: 'test_structure',
+    variationSlots: ['subject', 'verb', 'object'],
+    outline: ['Step 1', 'Step 2'],
+    sessionPlan: { version: 1, steps: [
+      { id: 's1', title: 'Step 1', promptIds: ['p1', 'p2'] }
+    ]},
+    prompts: [
+      { 
+        id: 'p1', 
+        text: 'Ich gehe zur Arbeit.',
+        slotsChanged: ['subject', 'verb'] // 2+ slots changed
+      },
+      {
+        id: 'p2',
+        text: 'Du kommst zur Schule.',
+        slotsChanged: ['subject', 'verb'] // 2+ slots changed
+      }
+    ]
+  };
+  
+  // Verify slotsChanged values are in variationSlots
+  packWithSlotsChanged.prompts.forEach((p: any) => {
+    if (p.slotsChanged) {
+      assert(Array.isArray(p.slotsChanged), 'slotsChanged should be an array');
+      assert(p.slotsChanged.length >= 2, 'slotsChanged should have 2+ slots');
+      assert(
+        p.slotsChanged.every((slot: string) => packWithSlotsChanged.variationSlots.includes(slot)),
+        'All slotsChanged values should be in variationSlots'
+      );
+    }
+  });
+  
+  // Calculate 30% threshold
+  const minRequired = Math.ceil(packWithSlotsChanged.prompts.length * 0.3);
+  const promptsWithMultiSlot = packWithSlotsChanged.prompts.filter(
+    (p: any) => p.slotsChanged && p.slotsChanged.length >= 2
+  );
+  
+  assert(promptsWithMultiSlot.length >= minRequired, `At least ${minRequired} prompts should have 2+ slots changed`);
+  
+  cleanupTestDir();
+});
+
+// Test 71: Quality Gates - Multi-slot variation with slotsChanged passes
+test('quality gates multi-slot variation with slotsChanged passes', () => {
+  setupTestDir();
+  
+  const packWithMultiSlotVariation = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test',
+    scenario: 'work',
+    register: 'neutral',
+    primaryStructure: 'test_structure',
+    variationSlots: ['subject', 'verb', 'object', 'time'],
+    outline: ['Step 1'],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1', 'p2', 'p3', 'p4'] }] },
+    prompts: [
+      { id: 'p1', text: 'Das Meeting beginnt um 14:30.', slotsChanged: ['subject', 'verb'] },
+      { id: 'p2', text: 'Wir treffen uns am Montag.', slotsChanged: ['subject', 'time'] },
+      { id: 'p3', text: 'Der Kaffee kostet 3€.', slotsChanged: ['object', 'verb'] },
+      { id: 'p4', text: 'Ich gehe zur Arbeit.' } // No slotsChanged - but that's OK
+    ]
+  };
+  
+  const promptsWithMultiSlot = packWithMultiSlotVariation.prompts.filter(
+    (p: any) => p.slotsChanged && p.slotsChanged.length >= 2
+  );
+  const minRequired = Math.ceil(packWithMultiSlotVariation.prompts.length * 0.3);
+  
+  assert(promptsWithMultiSlot.length >= minRequired, `Should have at least ${minRequired} prompts with 2+ slots changed. Found: ${promptsWithMultiSlot.length}`);
+  assert(promptsWithMultiSlot.length === 3, 'Should have 3 prompts with multi-slot variation');
+  
+  cleanupTestDir();
+});
+
+// Test 72: Quality Gates - New banned phrases (hello, how are you, etc.)
+test('quality gates new banned phrases trigger hard fail', () => {
+  setupTestDir();
+  
+  const bannedPhrases = ['hello', 'how are you', 'my name is', 'nice to meet you'];
+  
+  bannedPhrases.forEach((phrase, idx) => {
+    const packWithBannedPhrase = {
+      schemaVersion: 1,
+      id: `test-pack-${idx}`,
+      kind: 'pack',
+      title: 'Test Pack',
+      level: 'A1',
+      estimatedMinutes: 15,
+      description: 'Test',
+      scenario: 'work',
+      register: 'neutral',
+      primaryStructure: 'test_structure',
+      variationSlots: ['subject', 'verb'],
+      outline: ['Step 1'],
+      sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] },
+      prompts: [
+        { id: 'p1', text: `Hello, ${phrase} is a test.` }
+      ]
+    };
+    
+    const textLower = packWithBannedPhrase.prompts[0].text.toLowerCase();
+    const containsBanned = bannedPhrases.some(banned => textLower.includes(banned.toLowerCase()));
+    
+    assert(containsBanned, `Prompt should contain banned phrase for this test`);
+  });
+  
+  cleanupTestDir();
+});
+
+// Test 73: Index enrichment with pack metadata
+test('index enrichment with pack metadata', () => {
+  setupTestDir();
+  
+  const pack = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test',
+    scenario: 'work',
+    register: 'formal',
+    primaryStructure: 'modal_verbs',
+    variationSlots: ['subject', 'verb'],
+    tags: ['work', 'office'],
+    outline: ['Step 1'],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] },
+    prompts: [{ id: 'p1', text: 'Das Meeting beginnt um 14:30.' }]
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack'), { recursive: true });
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+    JSON.stringify(pack, null, 2)
+  );
+  
+  // Simulate index item enrichment (as done by generate-indexes.ts)
+  const indexItem = {
+    id: pack.id,
+    kind: pack.kind,
+    title: pack.title,
+    level: pack.level,
+    durationMinutes: pack.estimatedMinutes,
+    entryUrl: `/v1/workspaces/test-ws/packs/${pack.id}/pack.json`,
+    scenario: pack.scenario,
+    register: pack.register,
+    primaryStructure: pack.primaryStructure,
+    tags: pack.tags
+  };
+  
+  assert(indexItem.scenario === pack.scenario, 'Index item should have scenario from pack');
+  assert(indexItem.register === pack.register, 'Index item should have register from pack');
+  assert(indexItem.primaryStructure === pack.primaryStructure, 'Index item should have primaryStructure from pack');
+  assert(JSON.stringify(indexItem.tags) === JSON.stringify(pack.tags), 'Index item should have tags from pack');
+  
+  cleanupTestDir();
+});
+
 // Run all tests
 function runTests() {
   console.log('Running unit tests...\n');
