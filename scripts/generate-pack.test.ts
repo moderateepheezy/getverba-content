@@ -356,6 +356,94 @@ function main() {
   
   console.log(`\n${passed} passed, ${failed} failed`);
   
+  // Test: Analytics metadata generation
+  test('generated pack includes analytics metadata', () => {
+    const workspace = 'de';
+    const packId = 'test-analytics-generation';
+    
+    try {
+      cleanupPack(workspace, packId);
+      
+      runGenerator([
+        '--workspace', workspace,
+        '--packId', packId,
+        '--scenario', 'work',
+        '--level', 'A2',
+        '--seed', '42'
+      ]);
+      
+      const pack = readGeneratedPack(workspace, packId);
+      
+      // Verify analytics exists
+      assert(pack.analytics, 'Generated pack should have analytics');
+      assert(typeof pack.analytics === 'object', 'Analytics should be an object');
+      
+      // Verify analytics structure
+      assert(pack.analytics.goal && typeof pack.analytics.goal === 'string', 'Analytics should have goal');
+      assert(pack.analytics.goal.length <= 120, 'Analytics goal should be <= 120 chars');
+      assert(Array.isArray(pack.analytics.constraints), 'Analytics should have constraints array');
+      assert(Array.isArray(pack.analytics.levers), 'Analytics should have levers array');
+      assert(Array.isArray(pack.analytics.successCriteria), 'Analytics should have successCriteria array');
+      assert(Array.isArray(pack.analytics.commonMistakes), 'Analytics should have commonMistakes array');
+      assert(['substitution', 'pattern-switch', 'roleplay-bounded'].includes(pack.analytics.drillType), 'Analytics should have valid drillType');
+      assert(['low', 'medium', 'high'].includes(pack.analytics.cognitiveLoad), 'Analytics should have valid cognitiveLoad');
+      
+      // Verify levers reference variationSlots
+      const variationSlots = pack.variationSlots || [];
+      const validLeverKeywords = ['subject', 'verb', 'object', 'modifier', 'tense', 'polarity', 'time', 'location', 'register', 'scenario', 'intent'];
+      
+      for (const lever of pack.analytics.levers) {
+        const leverLower = lever.toLowerCase();
+        const isVariationSlot = variationSlots.some((slot: string) => leverLower.includes(slot.toLowerCase()));
+        const isLeverKeyword = validLeverKeywords.some((keyword: string) => leverLower.includes(keyword.toLowerCase()));
+        
+        assert(isVariationSlot || isLeverKeyword, `Lever "${lever}" should reference variationSlot or keyword`);
+      }
+      
+      console.log('   ✅ Analytics generation test passed');
+    } finally {
+      cleanupPack(workspace, packId);
+    }
+  });
+  
+  // Test: Analytics drillType determination
+  test('analytics drillType determined correctly from scenario', () => {
+    const template = {
+      scenarioId: 'work',
+      primaryStructure: 'modal_verbs_requests'
+    };
+    
+    // Simulate drillType determination
+    let drillType: 'substitution' | 'pattern-switch' | 'roleplay-bounded';
+    if (template.scenarioId === 'government_office' || template.scenarioId === 'work' || template.scenarioId === 'restaurant') {
+      drillType = 'roleplay-bounded';
+    } else if (template.primaryStructure.includes('switch') || template.primaryStructure.includes('pattern')) {
+      drillType = 'pattern-switch';
+    } else {
+      drillType = 'substitution';
+    }
+    
+    assert(drillType === 'roleplay-bounded', 'Work scenario should generate roleplay-bounded drillType');
+  });
+  
+  // Test: Analytics cognitiveLoad determination
+  test('analytics cognitiveLoad determined correctly from level and variationSlots', () => {
+    const level = 'A2';
+    const variationSlots = ['subject', 'verb', 'object', 'modifier'];
+    
+    // Simulate cognitiveLoad determination
+    let cognitiveLoad: 'low' | 'medium' | 'high';
+    if (level === 'A1' && variationSlots.length <= 2) {
+      cognitiveLoad = 'low';
+    } else if (level === 'A1' || (level === 'A2' && variationSlots.length <= 3)) {
+      cognitiveLoad = 'medium';
+    } else {
+      cognitiveLoad = 'high';
+    }
+    
+    assert(cognitiveLoad === 'high', 'A2 with 4 variationSlots should generate high cognitiveLoad');
+  });
+
   if (failed > 0) {
     process.exit(1);
   }

@@ -1,0 +1,245 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GetVerba Telemetry Events v1",
+  "description": "Schema for pack effectiveness telemetry events",
+  "type": "object",
+  "oneOf": [
+    {
+      "$ref": "#/definitions/content_session_started"
+    },
+    {
+      "$ref": "#/definitions/content_step_started"
+    },
+    {
+      "$ref": "#/definitions/content_prompt_attempted"
+    },
+    {
+      "$ref": "#/definitions/content_prompt_result"
+    },
+    {
+      "$ref": "#/definitions/content_session_completed"
+    },
+    {
+      "$ref": "#/definitions/content_session_abandoned"
+    }
+  ],
+  "definitions": {
+    "baseEvent": {
+      "type": "object",
+      "required": [
+        "eventVersion",
+        "eventName",
+        "occurredAt",
+        "deviceSessionId",
+        "appSessionId",
+        "workspace",
+        "entryUrl",
+        "kind",
+        "contentId",
+        "level"
+      ],
+      "properties": {
+        "eventVersion": {
+          "type": "integer",
+          "const": 1
+        },
+        "eventName": {
+          "type": "string"
+        },
+        "occurredAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "deviceSessionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "appSessionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "workspace": {
+          "type": "string",
+          "minLength": 1
+        },
+        "entryUrl": {
+          "type": "string",
+          "pattern": "^/v1/workspaces/[^/]+/(packs|exams|drills)/[^/]+/(pack|exam|drill)\\.json$"
+        },
+        "kind": {
+          "type": "string",
+          "enum": ["pack", "exam", "drill"]
+        },
+        "contentId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "level": {
+          "type": "string",
+          "enum": ["A1", "A2", "B1", "B2", "C1", "C2"]
+        },
+        "scenario": {
+          "type": ["string", "null"]
+        },
+        "primaryStructure": {
+          "type": ["string", "null"]
+        },
+        "variationSlots": {
+          "type": ["array", "null"],
+          "items": {
+            "type": "string",
+            "enum": ["subject", "verb", "object", "modifier", "complement", "tense", "polarity", "time", "location"]
+          }
+        }
+      }
+    },
+    "content_session_started": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/baseEvent"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "eventName": {
+              "const": "content_session_started"
+            }
+          }
+        }
+      ]
+    },
+    "content_step_started": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/baseEvent"
+        },
+        {
+          "type": "object",
+          "required": ["stepId"],
+          "properties": {
+            "eventName": {
+              "const": "content_step_started"
+            },
+            "stepId": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
+    "content_prompt_attempted": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/baseEvent"
+        },
+        {
+          "type": "object",
+          "required": ["stepId", "promptId", "attemptIndex"],
+          "properties": {
+            "eventName": {
+              "const": "content_prompt_attempted"
+            },
+            "stepId": {
+              "type": "string",
+              "minLength": 1
+            },
+            "promptId": {
+              "type": "string",
+              "minLength": 1
+            },
+            "attemptIndex": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "latencyMs": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        }
+      ]
+    },
+    "content_prompt_result": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/baseEvent"
+        },
+        {
+          "type": "object",
+          "required": ["stepId", "promptId", "attemptIndex", "result"],
+          "properties": {
+            "eventName": {
+              "const": "content_prompt_result"
+            },
+            "stepId": {
+              "type": "string",
+              "minLength": 1
+            },
+            "promptId": {
+              "type": "string",
+              "minLength": 1
+            },
+            "attemptIndex": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "result": {
+              "type": "string",
+              "enum": ["pass", "retry", "adjust", "skip"]
+            },
+            "latencyMs": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        }
+      ]
+    },
+    "content_session_completed": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/baseEvent"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "eventName": {
+              "const": "content_session_completed"
+            }
+          }
+        }
+      ]
+    },
+    "content_session_abandoned": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/baseEvent"
+        },
+        {
+          "type": "object",
+          "required": ["abandonReason"],
+          "properties": {
+            "eventName": {
+              "const": "content_session_abandoned"
+            },
+            "abandonReason": {
+              "type": "string",
+              "enum": ["user_exit", "timeout", "error", "unknown"]
+            },
+            "errorCode": {
+              "type": "string"
+            },
+            "errorMessage": {
+              "type": "string"
+            },
+            "stepId": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+

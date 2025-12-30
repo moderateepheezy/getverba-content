@@ -1,71 +1,39 @@
 {
   "workspace": "de",
-  "timestamp": "2025-12-30T19:09:49.406Z",
+  "timestamp": "2025-12-30T20:15:56.973Z",
   "packs": {
-    "total": 3,
-    "byScenario": {
-      "casual_greeting": 1,
-      "restaurant": 1,
-      "work": 1
-    },
-    "byPrimaryStructure": {
-      "formal_pronouns": 1,
-      "verb_position": 1,
-      "modal_verbs_requests": 1
-    },
-    "byLevel": {
-      "A1": 1,
-      "A2": 2
-    }
+    "total": 0,
+    "byScenario": {},
+    "byPrimaryStructure": {},
+    "byLevel": {}
   },
   "metrics": {
     "scenarioCoverage": {
-      "distribution": {
-        "casual_greeting": 1,
-        "restaurant": 1,
-        "work": 1
-      },
+      "distribution": {},
       "failures": [],
-      "warnings": [
-        "Scenario \"casual_greeting\" has only 1 pack(s) (minimum: 2, but only 3 total packs)",
-        "Scenario \"restaurant\" has only 1 pack(s) (minimum: 2, but only 3 total packs)",
-        "Scenario \"work\" has only 1 pack(s) (minimum: 2, but only 3 total packs)"
-      ]
+      "warnings": []
     },
     "primaryStructureDiversity": {
-      "distribution": {
-        "formal_pronouns": 1,
-        "verb_position": 1,
-        "modal_verbs_requests": 1
-      },
-      "failures": []
+      "failures": [],
+      "warnings": []
     },
     "variationSlotDepth": {
-      "workspaceAverage": 3.230769230769231,
-      "multiSlotPercentage": 100,
-      "packFailures": [],
-      "failures": []
+      "failures": [],
+      "warnings": []
     },
     "sentenceReuse": {
-      "duplicateSentences": [],
-      "skeletonRepeats": [],
-      "failures": []
+      "failures": [],
+      "warnings": []
     },
     "contextTokenDensity": {
-      "workspaceAverage": 3.6923076923076925,
-      "packFailures": [],
-      "failures": []
+      "failures": [],
+      "warnings": []
     },
     "cefrBalance": {
-      "distribution": {
-        "A1": 1,
-        "A2": 2
-      },
-      "warnings": [
-        "Level \"A2\" is 66.7% of packs (consider balancing)"
-      ]
+      "distribution": {},
+      "warnings": []
     }
   },
   "hasFailures": false,
-  "hasWarnings": true
+  "hasWarnings": false
 }

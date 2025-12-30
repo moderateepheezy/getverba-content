@@ -23,6 +23,7 @@ All pack entries must include `schemaVersion: 1`.
 | `register` | string | Formality level: `"formal"`, `"neutral"`, or `"informal"` |
 | `primaryStructure` | string | Primary grammatical structure identifier (3-60 chars, lowercase snake_case recommended) |
 | `variationSlots` | string[] | Array of slot types that can be varied in prompts. Allowed values: `"subject"`, `"verb"`, `"object"`, `"modifier"`, `"tense"`, `"polarity"`, `"time"`, `"location"`. Must be non-empty. |
+| `analytics` | object | Analytics metadata block (required). See [ANALYTICS_METADATA.md](./ANALYTICS_METADATA.md) for details. |
 
 ## Quality Gates
 

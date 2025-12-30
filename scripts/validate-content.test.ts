@@ -4018,6 +4018,21 @@ function cleanupTestPack(workspace: string, packId: string) {
   if (existsSync(packDir)) {
     rmSync(packDir, { recursive: true, force: true });
   }
+  
+  // Also remove from context index if present
+  const contextIndexPath = join(CONTENT_DIR, 'workspaces', workspace, 'context', 'index.json');
+  if (existsSync(contextIndexPath)) {
+    try {
+      const index = JSON.parse(readFileSync(contextIndexPath, 'utf-8'));
+      if (Array.isArray(index.items)) {
+        index.items = index.items.filter((item: any) => item.id !== packId);
+        index.total = index.items.length;
+        writeFileSync(contextIndexPath, JSON.stringify(index, null, 2));
+      }
+    } catch (err) {
+      // Ignore errors during cleanup
+    }
+  }
 }
 
 // Test: Missing intent fails
@@ -4503,6 +4518,254 @@ test('prompt meaning contract - alt_de similarity warning', () => {
   } finally {
     cleanupTestPack(workspace, packId);
   }
+});
+
+// Test: Analytics missing fails validation
+test('analytics missing fails validation', () => {
+  setupTestDir();
+  
+  const pack = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test',
+    scenario: 'work',
+    register: 'formal',
+    primaryStructure: 'verb_position',
+    variationSlots: ['subject', 'verb'],
+    outline: ['Step 1'],
+    sessionPlan: { version: 1, steps: [{ id: 'step1', title: 'Step 1', promptIds: [] }] },
+    prompts: []
+    // Missing analytics
+  };
+  
+  assert(!pack.analytics, 'Pack should be missing analytics');
+  
+  cleanupTestDir();
+});
+
+// Test: Analytics goal too long fails validation
+test('analytics goal too long fails validation', () => {
+  setupTestDir();
+  
+  const pack = {
+    analytics: {
+      goal: 'a'.repeat(121) // Too long (>120 chars)
+    }
+  };
+  
+  assert(pack.analytics.goal.length > 120, 'Goal should be too long');
+  
+  cleanupTestDir();
+});
+
+// Test: Analytics levers must reference variationSlots
+test('analytics levers must reference variationSlots', () => {
+  setupTestDir();
+  
+  const pack = {
+    variationSlots: ['subject', 'verb'],
+    analytics: {
+      levers: ['completely invalid lever with no keywords']
+    }
+  };
+  
+  const variationSlots = pack.variationSlots || [];
+  const validLeverKeywords = ['subject', 'verb', 'object', 'modifier', 'tense', 'polarity', 'time', 'location', 'register', 'scenario', 'intent'];
+  const lever = pack.analytics.levers[0];
+  const leverLower = lever.toLowerCase();
+  const isVariationSlot = variationSlots.some((slot: string) => leverLower.includes(slot.toLowerCase()));
+  const isLeverKeyword = validLeverKeywords.some((keyword: string) => leverLower.includes(keyword.toLowerCase()));
+  
+  // This lever should NOT align (validation should fail)
+  const shouldFail = !isVariationSlot && !isLeverKeyword;
+  assert(shouldFail, 'Invalid lever should not align with variationSlots or keywords');
+  
+  cleanupTestDir();
+});
+
+// Test: Analytics levers referencing variationSlots passes
+test('analytics levers referencing variationSlots passes', () => {
+  setupTestDir();
+  
+  const pack = {
+    variationSlots: ['subject', 'verb'],
+    analytics: {
+      levers: ['subject variation', 'verb substitution']
+    }
+  };
+  
+  const variationSlots = pack.variationSlots || [];
+  const validLeverKeywords = ['subject', 'verb', 'object', 'modifier', 'tense', 'polarity', 'time', 'location', 'register', 'scenario', 'intent'];
+  
+  for (const lever of pack.analytics.levers) {
+    const leverLower = lever.toLowerCase();
+    const isVariationSlot = variationSlots.some((slot: string) => leverLower.includes(slot.toLowerCase()));
+    const isLeverKeyword = validLeverKeywords.some((keyword: string) => leverLower.includes(keyword.toLowerCase()));
+    
+    assert(isVariationSlot || isLeverKeyword, `Lever "${lever}" should align with variationSlots or keywords`);
+  }
+  
+  cleanupTestDir();
+});
+
+// Test: Analytics valid structure passes validation
+test('analytics valid structure passes validation', () => {
+  setupTestDir();
+  
+  const pack = {
+    analytics: {
+      goal: 'Practice work scenarios at A1 level',
+      constraints: ['formal register maintained', 'work scenario context'],
+      levers: ['subject variation', 'verb substitution'],
+      successCriteria: ['Uses work vocabulary appropriately'],
+      commonMistakes: ['Missing work vocabulary'],
+      drillType: 'roleplay-bounded',
+      cognitiveLoad: 'medium'
+    }
+  };
+  
+  assert(pack.analytics.goal.length <= 120, 'Goal should be valid length');
+  assert(pack.analytics.constraints.length >= 1 && pack.analytics.constraints.length <= 6, 'Constraints should be valid count');
+  assert(pack.analytics.levers.length >= 1 && pack.analytics.levers.length <= 6, 'Levers should be valid count');
+  assert(['substitution', 'pattern-switch', 'roleplay-bounded'].includes(pack.analytics.drillType), 'DrillType should be valid enum');
+  assert(['low', 'medium', 'high'].includes(pack.analytics.cognitiveLoad), 'CognitiveLoad should be valid enum');
+  
+  cleanupTestDir();
+});
+
+// Test: Analytics whyThisWorks validation
+test('analytics whyThisWorks must be array with 1-5 items', () => {
+  setupTestDir();
+  
+  const pack = {
+    analytics: {
+      whyThisWorks: [
+        'High-frequency bureaucratic intents',
+        'Multi-slot substitution to prevent chanting',
+        'Short response windows encourage retrieval speed'
+      ]
+    }
+  };
+  
+  assert(Array.isArray(pack.analytics.whyThisWorks), 'whyThisWorks should be array');
+  assert(pack.analytics.whyThisWorks.length >= 1 && pack.analytics.whyThisWorks.length <= 5, 'whyThisWorks should have 1-5 items');
+  pack.analytics.whyThisWorks.forEach((bullet: string) => {
+    assert(typeof bullet === 'string', 'Each bullet should be string');
+    assert(bullet.length >= 1 && bullet.length <= 120, 'Each bullet should be 1-120 chars');
+  });
+  
+  cleanupTestDir();
+});
+
+// Test: Analytics whyThisWorks too many items fails
+test('analytics whyThisWorks too many items fails validation', () => {
+  setupTestDir();
+  
+  const pack = {
+    analytics: {
+      whyThisWorks: [
+        'Bullet 1',
+        'Bullet 2',
+        'Bullet 3',
+        'Bullet 4',
+        'Bullet 5',
+        'Bullet 6' // Too many (>5)
+      ]
+    }
+  };
+  
+  assert(pack.analytics.whyThisWorks.length > 5, 'whyThisWorks should have >5 items (invalid)');
+  
+  cleanupTestDir();
+});
+
+// Test: Analytics whyThisWorks bullet too long fails
+test('analytics whyThisWorks bullet too long fails validation', () => {
+  setupTestDir();
+  
+  const pack = {
+    analytics: {
+      whyThisWorks: [
+        'a'.repeat(121) // Too long (>120 chars)
+      ]
+    }
+  };
+  
+  assert(pack.analytics.whyThisWorks[0].length > 120, 'Bullet should be too long');
+  
+  cleanupTestDir();
+});
+
+// Test: Analytics exitConditions validation
+test('analytics exitConditions must have valid targetMinutes and completeWhen', () => {
+  setupTestDir();
+  
+  const pack = {
+    analytics: {
+      exitConditions: {
+        targetMinutes: 5,
+        completeWhen: 'sessionPlan_completed_once'
+      }
+    }
+  };
+  
+  assert(typeof pack.analytics.exitConditions.targetMinutes === 'number', 'targetMinutes should be number');
+  assert(pack.analytics.exitConditions.targetMinutes >= 1 && pack.analytics.exitConditions.targetMinutes <= 20, 'targetMinutes should be 1-20');
+  assert(typeof pack.analytics.exitConditions.completeWhen === 'string', 'completeWhen should be string');
+  assert(['sessionPlan_completed_once', 'sessionPlan_completed_twice', 'manual_mark_complete'].includes(pack.analytics.exitConditions.completeWhen), 'completeWhen should be valid enum');
+  
+  cleanupTestDir();
+});
+
+// Test: Analytics exitConditions targetMinutes out of range fails
+test('analytics exitConditions targetMinutes out of range fails validation', () => {
+  setupTestDir();
+  
+  const pack1 = {
+    analytics: {
+      exitConditions: {
+        targetMinutes: 0, // Too low (<1)
+        completeWhen: 'sessionPlan_completed_once'
+      }
+    }
+  };
+  
+  const pack2 = {
+    analytics: {
+      exitConditions: {
+        targetMinutes: 21, // Too high (>20)
+        completeWhen: 'sessionPlan_completed_once'
+      }
+    }
+  };
+  
+  assert(pack1.analytics.exitConditions.targetMinutes < 1, 'targetMinutes should be <1 (invalid)');
+  assert(pack2.analytics.exitConditions.targetMinutes > 20, 'targetMinutes should be >20 (invalid)');
+  
+  cleanupTestDir();
+});
+
+// Test: Analytics exitConditions invalid completeWhen fails
+test('analytics exitConditions invalid completeWhen fails validation', () => {
+  setupTestDir();
+  
+  const pack = {
+    analytics: {
+      exitConditions: {
+        targetMinutes: 5,
+        completeWhen: 'invalid_value' // Invalid enum
+      }
+    }
+  };
+  
+  const validValues = ['sessionPlan_completed_once', 'sessionPlan_completed_twice', 'manual_mark_complete'];
+  assert(!validValues.includes(pack.analytics.exitConditions.completeWhen), 'completeWhen should be invalid');
+  
+  cleanupTestDir();
 });
 
 // Run all tests

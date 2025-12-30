@@ -1,62 +1,86 @@
 # Content Expansion Sprint Report
 
-**Generated:** 2025-12-30 18:35:25 UTC  
+**Generated:** 2025-12-30 19:18:42 UTC  
 **Workspace:** de
 
 ---
 
 ## Summary
 
-- **Total Packs:** 1
+- **Total Packs:** 4
 - **Total Drills:** 0
-- **Total Items:** 1
+- **Total Items:** 4
 
 ---
 
 ## Distribution by Scenario
 
-- **government_office:** 1 pack(s)
+- **work:** 1 pack(s)
+- **shopping:** 1 pack(s)
+- **restaurant:** 1 pack(s)
+- **casual_greeting:** 1 pack(s)
 
 ---
 
 ## Distribution by Level
 
-- **A1:** 1 pack(s)
+- **A1:** 2 pack(s)
+- **A2:** 2 pack(s)
 
 ---
 
 ## Distribution by Register
 
-- **formal:** 1 pack(s)
+- **formal:** 3 pack(s)
+- **neutral:** 1 pack(s)
 
 ---
 
 ## Top Primary Structures
 
+- **verb_position:** 2 pack(s)
 - **modal_verbs_requests:** 1 pack(s)
+- **formal_pronouns:** 1 pack(s)
 
 ---
 
 ## Validation Results
 
-❌ **Validation Errors:** 2
+❌ **Validation Errors:** 3
 
 ### Error Summary
 
 ```
-❌ Validation errors:
-❌ Validation failed with 4 error(s)
+❌ Fail: Pack "shopping_payment_options" has average 1.33 context tokens per prompt (minimum: 2.0)
+❌ Fail: Primary structure "verb_position" is 50.0% of packs (max: 35%)
+❌ Quality regression detected. Build should fail.
 ```
 
-⚠️  **Validation Warnings:** 4
+⚠️  **Validation Warnings:** 27
 
 ### Warning Summary
 
 ```
-⚠️  Item 0 pack entry prompt 0 text may not contain a verb-like token: "I welcome you to our English learning course start..."
 ⚠️  Item 0 pack entry prompt 0 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
-⚠️  Item 0 pack entry prompt 1 text may not contain a verb-like token: "We offer language courses starting at 10:00 for $5..."
 ⚠️  Item 0 pack entry prompt 1 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
+⚠️  Item 0 pack entry prompt 2 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
+⚠️  Item 0 pack entry prompt 3 text may not contain a verb-like token: "Auf Wiedersehen, bis zum nächsten Mal! Schönen Tag..."
+⚠️  Item 0 pack entry prompt 3 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
+⚠️  Item 0 pack entry prompt 4 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
+⚠️  Item 1 pack entry prompt 0 text may not contain a verb-like token: "Ich zahle 50€ an der Kasse...."
+⚠️  Item 1 pack entry prompt 0 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
+⚠️  Item 1 pack entry prompt 1 text may not contain a verb-like token: "Die Zahlung kostet 35€ im Laden...."
+⚠️  Item 1 pack entry prompt 1 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
+⚠️  Item 1 pack entry prompt 2 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
+⚠️  Item 1 pack entry prompt 3 text may not contain a verb-like token: "Ich kaufe das für 40€ mit Karte...."
+⚠️  Item 1 pack entry prompt 3 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
+⚠️  Item 1 pack entry prompt 4 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
+⚠️  Item 1 pack entry prompt 5 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
+⚠️  Item 1 pack entry prompt 6 text may not contain a verb-like token: "Wir zahlen 60€ an der Kasse am Montag...."
+⚠️  Item 1 pack entry prompt 6 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
+⚠️  Item 1 pack entry prompt 7 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
+⚠️  Item 1 pack entry prompt 8 text may not contain a verb-like token: "Ich hole die Zahlung für 45€ am Dienstag um 9 Uhr...."
+⚠️  Item 1 pack entry prompt 8 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
 ```
 
 ---

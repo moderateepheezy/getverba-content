@@ -1,0 +1,43 @@
+{
+  "version": "v1",
+  "generatedAt": "2025-12-30T19:50:36.543Z",
+  "gitSha": "2219c7a",
+  "workspace": "de",
+  "totalEvents": 5,
+  "totalSessions": 1,
+  "summary": {
+    "sessionsStarted": 1,
+    "sessionsCompleted": 1,
+    "sessionsAbandoned": 0,
+    "overallCompletionRate": 1,
+    "avgAttemptsPerPrompt": 1
+  },
+  "packMetrics": [
+    {
+      "contentId": "test_pack",
+      "entryUrl": "/v1/workspaces/de/packs/test_pack/pack.json",
+      "level": "A1",
+      "scenario": "shopping",
+      "primaryStructure": "verb_position",
+      "sessionsStarted": 1,
+      "sessionsCompleted": 1,
+      "sessionsAbandoned": 0,
+      "completionRate": 1,
+      "avgAttemptsPerPrompt": 1,
+      "medianTimeToCompletion": 20000,
+      "abandonRateByStepId": {},
+      "topHardPrompts": [
+        {
+          "promptId": "prompt-1",
+          "avgAttempts": 1
+        }
+      ]
+    }
+  ],
+  "topHardPacks": [
+    {
+      "contentId": "test_pack",
+      "avgAttemptsPerPrompt": 1
+    }
+  ]
+}

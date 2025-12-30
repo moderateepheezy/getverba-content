@@ -62,6 +62,9 @@ TMP_SCENARIOS=$(mktemp)
 TMP_LEVELS=$(mktemp)
 TMP_REGISTERS=$(mktemp)
 TMP_STRUCTURES=$(mktemp)
+TMP_DRILL_TYPES=$(mktemp)
+TMP_COGNITIVE_LOADS=$(mktemp)
+TMP_ANALYTICS_COMPLETE=$(mktemp)
 
 # Analyze packs
 if [[ -d "$PACKS_DIR" ]]; then
@@ -83,17 +86,36 @@ if [[ -d "$PACKS_DIR" ]]; then
       LEVEL=$(jq -r '.level // "unknown"' "$PACK_FILE" 2>/dev/null || echo "unknown")
       REGISTER=$(jq -r '.register // "unknown"' "$PACK_FILE" 2>/dev/null || echo "unknown")
       PRIMARY_STRUCTURE=$(jq -r '.primaryStructure // "unknown"' "$PACK_FILE" 2>/dev/null || echo "unknown")
+      
+      # Extract analytics metadata
+      DRILL_TYPE=$(jq -r '.analytics.drillType // "missing"' "$PACK_FILE" 2>/dev/null || echo "missing")
+      COGNITIVE_LOAD=$(jq -r '.analytics.cognitiveLoad // "missing"' "$PACK_FILE" 2>/dev/null || echo "missing")
+      
+      # Check if analytics is complete (no TODO markers)
+      HAS_ANALYTICS=$(jq -e '.analytics' "$PACK_FILE" >/dev/null 2>&1 && echo "yes" || echo "no")
+      HAS_TODO=$(jq -r '.analytics // {}' "$PACK_FILE" 2>/dev/null | grep -q "TODO" && echo "yes" || echo "no")
+      
+      if [[ "$HAS_ANALYTICS" == "yes" && "$HAS_TODO" == "no" ]]; then
+        echo "complete" >> "$TMP_ANALYTICS_COMPLETE"
+      else
+        echo "incomplete" >> "$TMP_ANALYTICS_COMPLETE"
+      fi
     else
       SCENARIO=$(grep -o '"scenario"[[:space:]]*:[[:space:]]*"[^"]*"' "$PACK_FILE" | sed 's/.*"\([^"]*\)".*/\1/' || echo "unknown")
       LEVEL=$(grep -o '"level"[[:space:]]*:[[:space:]]*"[^"]*"' "$PACK_FILE" | sed 's/.*"\([^"]*\)".*/\1/' || echo "unknown")
       REGISTER=$(grep -o '"register"[[:space:]]*:[[:space:]]*"[^"]*"' "$PACK_FILE" | sed 's/.*"\([^"]*\)".*/\1/' || echo "unknown")
       PRIMARY_STRUCTURE=$(grep -o '"primaryStructure"[[:space:]]*:[[:space:]]*"[^"]*"' "$PACK_FILE" | sed 's/.*"\([^"]*\)".*/\1/' || echo "unknown")
+      DRILL_TYPE="unknown"
+      COGNITIVE_LOAD="unknown"
+      echo "incomplete" >> "$TMP_ANALYTICS_COMPLETE"
     fi
     
     echo "$SCENARIO" >> "$TMP_SCENARIOS"
     echo "$LEVEL" >> "$TMP_LEVELS"
     echo "$REGISTER" >> "$TMP_REGISTERS"
     echo "$PRIMARY_STRUCTURE" >> "$TMP_STRUCTURES"
+    echo "$DRILL_TYPE" >> "$TMP_DRILL_TYPES"
+    echo "$COGNITIVE_LOAD" >> "$TMP_COGNITIVE_LOADS"
   done
 fi
 
@@ -433,7 +455,7 @@ Check for:
 EOF
 
 # Cleanup temp files
-rm -f "$TMP_SCENARIOS" "$TMP_LEVELS" "$TMP_REGISTERS" "$TMP_STRUCTURES"
+rm -f "$TMP_SCENARIOS" "$TMP_LEVELS" "$TMP_REGISTERS" "$TMP_STRUCTURES" "$TMP_DRILL_TYPES" "$TMP_COGNITIVE_LOADS" "$TMP_ANALYTICS_COMPLETE"
 
 echo "✅ Sprint report generated: $REPORT_FILE"
 echo ""

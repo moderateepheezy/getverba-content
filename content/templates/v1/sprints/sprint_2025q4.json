@@ -1,0 +1,124 @@
+{
+  "version": "v1",
+  "sprintId": "sprint_2025q4",
+  "name": "2025 Q4 Content Expansion Sprint",
+  "workspace": "de",
+  "targets": {
+    "packs": 30,
+    "drills": 15,
+    "exams": 0
+  },
+  "scenarios": [
+    {
+      "id": "government_office",
+      "targetPacks": 8,
+      "targetDrills": 4,
+      "levels": {
+        "A1": 4,
+        "A2": 4
+      },
+      "registers": {
+        "formal": 6,
+        "neutral": 2
+      },
+      "requiredPrimaryStructures": [
+        "modal_verbs_requests",
+        "verb_position_main_clause",
+        "questions_with_wo_questions"
+      ]
+    },
+    {
+      "id": "doctor",
+      "targetPacks": 5,
+      "targetDrills": 3,
+      "levels": {
+        "A1": 3,
+        "A2": 2
+      },
+      "registers": {
+        "formal": 3,
+        "neutral": 2
+      },
+      "requiredPrimaryStructures": [
+        "modal_verbs_requests",
+        "verb_position_main_clause"
+      ]
+    },
+    {
+      "id": "housing",
+      "targetPacks": 5,
+      "targetDrills": 2,
+      "levels": {
+        "A1": 3,
+        "A2": 2
+      },
+      "registers": {
+        "formal": 2,
+        "neutral": 3
+      },
+      "requiredPrimaryStructures": [
+        "modal_verbs_requests",
+        "verb_position_main_clause"
+      ]
+    },
+    {
+      "id": "work",
+      "targetPacks": 6,
+      "targetDrills": 3,
+      "levels": {
+        "A1": 3,
+        "A2": 3
+      },
+      "registers": {
+        "formal": 4,
+        "neutral": 2
+      },
+      "requiredPrimaryStructures": [
+        "modal_verbs_requests",
+        "verb_position_main_clause",
+        "questions_with_wo_questions"
+      ]
+    },
+    {
+      "id": "restaurant",
+      "targetPacks": 3,
+      "targetDrills": 2,
+      "levels": {
+        "A1": 2,
+        "A2": 1
+      },
+      "registers": {
+        "formal": 1,
+        "neutral": 2
+      },
+      "requiredPrimaryStructures": [
+        "modal_verbs_requests",
+        "verb_position_main_clause"
+      ]
+    },
+    {
+      "id": "shopping",
+      "targetPacks": 3,
+      "targetDrills": 1,
+      "levels": {
+        "A1": 2,
+        "A2": 1
+      },
+      "registers": {
+        "formal": 0,
+        "neutral": 3
+      },
+      "requiredPrimaryStructures": [
+        "modal_verbs_requests",
+        "verb_position_main_clause"
+      ]
+    }
+  ],
+  "coherenceThresholds": {
+    "minScenarioCoverage": 0.80,
+    "minPrimaryStructureCoverage": 0.90,
+    "maxBannedPhraseViolations": 0,
+    "minMultiSlotRate": 0.30
+  }
+}
+

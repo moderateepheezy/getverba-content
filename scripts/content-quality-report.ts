@@ -469,6 +469,30 @@ function computeCefrBalance(packs: PackEntry[]): {
 function generateReport(workspace: string): QualityReport {
   const packs = loadAllPacks(workspace);
   
+  // Skip quality checks for empty workspaces
+  if (packs.length === 0) {
+    return {
+      workspace,
+      timestamp: new Date().toISOString(),
+      packs: {
+        total: 0,
+        byScenario: {},
+        byPrimaryStructure: {},
+        byLevel: {}
+      },
+      metrics: {
+        scenarioCoverage: { distribution: {}, failures: [], warnings: [] },
+        primaryStructureDiversity: { failures: [], warnings: [] },
+        variationSlotDepth: { failures: [], warnings: [] },
+        sentenceReuse: { failures: [], warnings: [] },
+        contextTokenDensity: { failures: [], warnings: [] },
+        cefrBalance: { distribution: {}, warnings: [] }
+      },
+      hasFailures: false,
+      hasWarnings: false
+    };
+  }
+  
   // Compute metrics
   const scenarioCoverage = computeScenarioCoverage(packs);
   const primaryStructureDiversity = computePrimaryStructureDiversity(packs);
@@ -549,6 +573,13 @@ function formatHumanReport(report: QualityReport): string {
     report.metrics.scenarioCoverage.failures.forEach(f => {
       lines.push(`❌ Risk: ${f}`);
     });
+  }
+  
+  // Skip metrics for empty workspaces
+  if (report.packs.total === 0) {
+    lines.push('');
+    lines.push('⚠️  Workspace is empty - no quality metrics to report');
+    return lines.join('\n');
   }
   
   lines.push('');

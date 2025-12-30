@@ -17,7 +17,27 @@
       "tags": [
         "intro",
         "basics"
-      ]
+      ],
+      "analyticsSummary": {
+        "primaryStructure": "basic_phrases",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "medium",
+        "goal": "Practice intro_lesson scenarios at A1 level",
+        "whyThisWorks": [
+          "Uses intro_lesson vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Maintains neutral register consistency"
+        ]
+      },
+      "drillType": "substitution",
+      "cognitiveLoad": "medium",
+      "whyThisWorks": "Practice intro_lesson scenarios at A1 level Uses intro_lesson vocabulary appropriately"
     }
   ],
   "nextPage": null

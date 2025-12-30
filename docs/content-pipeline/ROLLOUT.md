@@ -27,26 +27,59 @@ This regenerates all section indexes from entry documents on disk. The generator
 - Scans all entry files (packs, drills, exams)
 - Sorts items deterministically (level, title, id)
 - Generates paginated index files
+- **Enriches pack items with `analyticsSummary`** (required for frontend rendering)
 - Preserves existing `pageSize` if present
 
 **Note**: The `new-pack.sh` and `new-drill.sh` scripts automatically regenerate indexes after creating entries.
+
+### Step 1.1: Generate Catalog Rollups (if needed)
+
+Generate analytics rollups for catalog sections:
+
+```bash
+npm run content:generate-catalog-rollups
+```
+
+This computes section-level rollups:
+- `scenarios`: Count of items per scenario
+- `levels`: Count of items per CEFR level
+- `primaryStructures`: Count of items per primary structure
+
+These rollups enable fast filtering in the frontend without fetching all pack entries.
+
+**Note**: Catalog rollups are automatically generated during promotion (`./scripts/promote-staging.sh`).
 
 ### Step 1.25: Content Expansion Sprint (Optional)
 
 For batch generation of multiple packs/drills:
 
 ```bash
-# Generate government office packs
-./scripts/generate-government-office-packs.sh
+# Run expansion sprint orchestrator (recommended)
+./scripts/run-expansion-sprint.sh \
+  --workspace de \
+  --scenario government_office \
+  --packs 20 \
+  --drills 10 \
+  --level A1
 
-# Or use the general batch generator
+# Or generate manually
 ./scripts/expand-content.sh --workspace de --section context --count 20 --scenario government_office --level A1
 
 # Generate sprint report
 ./scripts/sprint-report.sh --workspace de
+
+# Export curriculum bundle (for B2B sharing)
+npm run content:export-bundle -- \
+  --workspace de \
+  --section all \
+  --scenario government_office \
+  --level A1 \
+  --out ./exports
 ```
 
 This generates content deterministically from scenario templates. All generated content must pass quality gates before publishing.
+
+**Export Bundle**: After expansion sprint, generate curriculum exports for B2B sharing. The export includes `bundle.json`, `teacher_notes.md`, and `qa_report.json` proving catalog coherence at scale. See [CURRICULUM_EXPORTS.md](./CURRICULUM_EXPORTS.md) for details.
 
 ### Step 1.5: Quality Gates Validation
 
@@ -63,6 +96,30 @@ See [QUALITY_GATES.md](./QUALITY_GATES.md) for detailed rules and how to fix fai
 - During `npm run content:validate`
 - During smoke test (before promotion)
 - During publish (blocks invalid content)
+
+### Step 1.6: Review Harness (Ship Readiness Gate)
+
+The review harness (`npm run content:review`) is a **hard-fail gate** that prevents placeholder or incomplete content from being promoted. It checks:
+
+- **No TODO placeholders**: Analytics block must not contain "TODO", "FIXME", or "TBD"
+- **Non-generic goals**: Analytics goal must not match generic denylist phrases
+- **Required metadata**: `scenario`, `register`, `primaryStructure`, `variationSlots` must be present
+- **Valid sessionPlan**: Session plan must exist with valid steps
+- **Complete outline**: Outline array must not be empty
+- **Prompt completeness**: All prompts must have `gloss_en` and `intent` fields
+
+This is separate from:
+- **Schema validation** (`content:validate`): Checks JSON structure and types
+- **Quality gates** (`content:quality`): Checks prompt quality and variation
+
+The review harness is the **final gate** before promotion - it ensures content is production-ready.
+
+**Run manually**:
+```bash
+npm run content:review
+```
+
+**Runs automatically** during `./scripts/promote-staging.sh` (before export generation).
 
 ### Step 2: Publish Content to Staging
 
@@ -95,6 +152,28 @@ curl https://getverba-content-api.simpumind-apps.workers.dev/v1/workspaces/de/pa
 
 **Important**: The Worker serves `/manifest` from `meta/manifest.json` (production). To test staging, you would need a separate staging Worker or test content files directly.
 
+### Step 1.7: Generate Curriculum Exports
+
+Generate export artifacts (JSON + CSV) for curriculum sharing and B2B use:
+
+```bash
+npm run content:generate-exports
+```
+
+This generates:
+- `content/v1/workspaces/{ws}/exports/catalog_export.json`
+- `content/v1/workspaces/{ws}/exports/catalog_export.csv`
+
+Exports include:
+- All items from paginated section indexes
+- Metadata (scenario, register, primaryStructure, level, etc.)
+- Analytics summary (goal, drillType, cognitiveLoad, whyThisWorks)
+- Pagination position (page, position)
+
+See [EXPORTS.md](./EXPORTS.md) for detailed schema.
+
+**Runs automatically** during `./scripts/promote-staging.sh` (after review harness).
+
 ### Step 4: Promote Staging to Production
 
 Once you've verified the content is correct, promote it:
@@ -104,18 +183,22 @@ Once you've verified the content is correct, promote it:
 ```
 
 This will:
-1. **Run smoke test** (validates all referenced content is accessible)
-2. Copy `manifest.staging.json` → `manifest.json` (local file)
-3. Regenerate `release.json` with new metadata
-4. Upload `meta/manifest.json` and `meta/release.json` to R2
-5. **Archive manifest** to `meta/manifests/<gitSha>.json` (immutable, for rollback)
+1. **Run content validation** (schema + quality gates)
+2. **Run review harness** (ship readiness gate)
+3. **Generate exports** (curriculum artifacts)
+4. **Run smoke test** (validates all referenced content is accessible, including exports)
+5. Copy `manifest.staging.json` → `manifest.json` (local file)
+6. Regenerate `release.json` with new metadata
+7. Upload `meta/manifest.json` and `meta/release.json` to R2
+8. **Archive manifest** to `meta/manifests/<gitSha>.json` (immutable, for rollback)
 
 **Result**: Production instantly flips to the new content. The Worker's `/manifest` endpoint will now return the promoted manifest.
 
 **Smoke Test**: By default, the promote script runs a smoke test that:
 - Fetches the catalog from staging manifest
-- Tests all section indexes
+- Tests all section indexes (follows pagination chains)
 - Samples N items (default: 5) and verifies their entry documents are accessible
+- Validates exports exist and parse correctly (JSON + CSV)
 - Fails if any 404 or invalid JSON is found
 
 **Skip Smoke Test**: Use `--skip-smoke-test` to bypass (not recommended):
@@ -354,22 +437,28 @@ vim content/meta/manifest.staging.json
 # 4. Validate
 npm run content:validate
 
-# 5. Publish to staging
+# 5. Run review harness (optional, runs automatically during promote)
+npm run content:review
+
+# 6. Publish to staging
 ./scripts/publish-content.sh
 
-# 6. Verify (test content files directly)
+# 7. Verify (test content files directly)
 curl https://getverba-content-api.simpumind-apps.workers.dev/v1/workspaces/de/packs/new_pack/pack.json
 
-# 7. Run smoke test manually (optional)
+# 8. Run smoke test manually (optional)
 ./scripts/smoke-test-content.sh --sample 5
 
-# 8. Promote to production (includes smoke test)
+# 9. Promote to production (includes validation, review, exports, smoke test)
 ./scripts/promote-staging.sh
 
-# 9. Verify production
+# 10. Verify production
 curl https://getverba-content-api.simpumind-apps.workers.dev/manifest
 
-# 10. If needed, rollback
+# 11. Verify exports
+curl https://getverba-content-api.simpumind-apps.workers.dev/v1/workspaces/de/exports/catalog_export.json
+
+# 12. If needed, rollback
 ./scripts/rollback.sh <previous-git-sha>
 ```
 
@@ -394,6 +483,7 @@ The smoke test:
 - Tests all section indexes
 - **Follows pagination chains** (validates all pages in multi-page indexes)
 - Samples N items and verifies entry documents
+- **Validates exports** (JSON + CSV exist and parse correctly)
 - Fails on any 404 or invalid JSON
 - Validates pagination invariants (version, kind, pageSize, total consistent across pages)
 

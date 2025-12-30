@@ -108,6 +108,15 @@ interface PackEntry {
     }>;
   };
   tags: string[];
+  analytics: {
+    goal: string;
+    constraints: string[];
+    levers: string[];
+    successCriteria: string[];
+    commonMistakes: string[];
+    drillType: 'substitution' | 'pattern-switch' | 'roleplay-bounded';
+    cognitiveLoad: 'low' | 'medium' | 'high';
+  };
 }
 
 /**
@@ -867,6 +876,9 @@ function generatePack(
   // Calculate estimated minutes (roughly 1 minute per prompt)
   const estimatedMinutes = Math.max(15, Math.min(120, allPrompts.length));
   
+  // Generate analytics metadata
+  const analytics = generateAnalytics(template, level, allPrompts.length);
+  
   const pack: PackEntry = {
     schemaVersion: 1,
     id: packId,
@@ -885,10 +897,190 @@ function generatePack(
       version: 1,
       steps: sessionPlanSteps
     },
-    tags: [template.scenarioId]
+    tags: [template.scenarioId],
+    analytics
   };
   
   return pack;
+}
+
+/**
+ * Generate analytics metadata from template and pack characteristics
+ */
+function generateAnalytics(
+  template: Template,
+  level: string,
+  promptCount: number
+): PackEntry['analytics'] {
+  const scenarioId = template.scenarioId;
+  const variationSlots = template.variationSlots;
+  const primaryStructure = template.primaryStructure;
+  const register = template.defaultRegister;
+  
+  // Determine drillType based on scenario and structure
+  let drillType: 'substitution' | 'pattern-switch' | 'roleplay-bounded';
+  if (scenarioId === 'government_office' || scenarioId === 'work' || scenarioId === 'restaurant') {
+    drillType = 'roleplay-bounded';
+  } else if (primaryStructure.includes('switch') || primaryStructure.includes('pattern')) {
+    drillType = 'pattern-switch';
+  } else {
+    drillType = 'substitution';
+  }
+  
+  // Determine cognitiveLoad based on level and variation complexity
+  let cognitiveLoad: 'low' | 'medium' | 'high';
+  if (level === 'A1' && variationSlots.length <= 2) {
+    cognitiveLoad = 'low';
+  } else if (level === 'A1' || (level === 'A2' && variationSlots.length <= 3)) {
+    cognitiveLoad = 'medium';
+  } else {
+    cognitiveLoad = 'high';
+  }
+  
+  // Generate goal based on scenario
+  const goalTemplates: Record<string, string> = {
+    government_office: `Practice formal ${scenarioId} interactions at ${level} level`,
+    work: `Practice professional ${scenarioId} communication at ${level} level`,
+    restaurant: `Practice ${scenarioId} ordering and service requests at ${level} level`,
+    shopping: `Practice ${scenarioId} transactions and inquiries at ${level} level`,
+    doctor: `Practice ${scenarioId} appointments and health conversations at ${level} level`,
+    housing: `Practice ${scenarioId} rental and maintenance conversations at ${level} level`,
+    casual_greeting: `Practice ${scenarioId} phrases and polite conversation at ${level} level`
+  };
+  
+  const goal = goalTemplates[scenarioId] || `Practice ${scenarioId} scenarios at ${level} level`;
+  
+  // Generate constraints (what is held constant)
+  const constraints: string[] = [];
+  if (register) {
+    constraints.push(`${register} register maintained`);
+  }
+  if (scenarioId) {
+    constraints.push(`${scenarioId} scenario context`);
+  }
+  if (primaryStructure) {
+    constraints.push(`${primaryStructure} structure focus`);
+  }
+  // Add more constraints based on template
+  if (template.constraints?.verbPosition) {
+    constraints.push(`verb position: ${template.constraints.verbPosition}`);
+  }
+  
+  // Generate levers (what changes - must reference variationSlots)
+  const levers = variationSlots.map(slot => {
+    // Make lever descriptions more descriptive
+    const leverDescriptions: Record<string, string> = {
+      subject: 'subject variation',
+      verb: 'verb substitution',
+      object: 'object variation',
+      modifier: 'modifier changes',
+      time: 'time expressions',
+      location: 'location phrases',
+      tense: 'tense variation',
+      polarity: 'negation patterns'
+    };
+    return leverDescriptions[slot] || `${slot} variation`;
+  });
+  
+  // Generate successCriteria based on scenario and level
+  const successCriteriaTemplates: Record<string, string[]> = {
+    government_office: [
+      'Uses formal address (Sie/Ihnen) correctly',
+      'Includes required scenario tokens (Termin, Formular, etc.)',
+      'Maintains polite modal verb constructions'
+    ],
+    work: [
+      'Uses professional vocabulary appropriately',
+      'Varies subject and verb across prompts',
+      'Includes time/meeting context markers'
+    ],
+    restaurant: [
+      'Uses polite request forms (Könnten Sie, etc.)',
+      'Includes menu/ordering vocabulary',
+      'Varies food items and modifiers'
+    ],
+    shopping: [
+      'Uses price inquiry phrases correctly',
+      'Includes payment/checkout vocabulary',
+      'Varies product and quantity expressions'
+    ],
+    doctor: [
+      'Uses appointment scheduling phrases',
+      'Includes symptom/health vocabulary',
+      'Maintains appropriate formality'
+    ],
+    housing: [
+      'Uses rental/maintenance vocabulary',
+      'Includes address and location phrases',
+      'Varies time and urgency modifiers'
+    ],
+    casual_greeting: [
+      'Uses appropriate greeting phrases',
+      'Varies time-of-day expressions',
+      'Includes polite closing phrases'
+    ]
+  };
+  
+  const successCriteria = successCriteriaTemplates[scenarioId] || [
+    'Uses scenario-appropriate vocabulary',
+    'Varies key slots across prompts',
+    'Maintains register consistency'
+  ];
+  
+  // Generate commonMistakes based on scenario and structure
+  const commonMistakesTemplates: Record<string, string[]> = {
+    government_office: [
+      'Forgetting formal address (using "du" instead of "Sie")',
+      'Missing required documents vocabulary',
+      'Incorrect modal verb conjugation'
+    ],
+    work: [
+      'Mixing formal and informal register',
+      'Missing time/meeting context',
+      'Incorrect verb position in questions'
+    ],
+    restaurant: [
+      'Using informal requests in formal settings',
+      'Missing menu/ordering vocabulary',
+      'Incorrect word order with modal verbs'
+    ],
+    shopping: [
+      'Missing price/currency vocabulary',
+      'Incorrect article declension',
+      'Missing payment method phrases'
+    ],
+    doctor: [
+      'Missing appointment vocabulary',
+      'Incorrect symptom description forms',
+      'Mixing formal/informal address'
+    ],
+    housing: [
+      'Missing rental-specific vocabulary',
+      'Incorrect dative prepositions',
+      'Missing urgency/time modifiers'
+    ],
+    casual_greeting: [
+      'Mixing formal and casual greetings',
+      'Missing time-of-day context',
+      'Incorrect goodbye phrase usage'
+    ]
+  };
+  
+  const commonMistakes = commonMistakesTemplates[scenarioId] || [
+    'Missing scenario vocabulary',
+    'Inconsistent register usage',
+    'Incorrect slot variation'
+  ];
+  
+  return {
+    goal: goal.length <= 120 ? goal : goal.substring(0, 117) + '...',
+    constraints: constraints.slice(0, 6),
+    levers: levers.slice(0, 6),
+    successCriteria: successCriteria.slice(0, 6),
+    commonMistakes: commonMistakes.slice(0, 6),
+    drillType,
+    cognitiveLoad
+  };
 }
 
 /**

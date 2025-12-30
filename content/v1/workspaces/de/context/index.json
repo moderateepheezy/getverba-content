@@ -1,58 +1,8 @@
 {
   "version": "v1",
   "kind": "context",
-  "total": 3,
+  "total": 0,
   "pageSize": 20,
-  "items": [
-    {
-      "id": "basic_greetings",
-      "kind": "pack",
-      "title": "Basic German Greetings",
-      "level": "A1",
-      "durationMinutes": 15,
-      "entryUrl": "/v1/workspaces/de/packs/basic_greetings/pack.json",
-      "scenario": "casual_greeting",
-      "register": "formal",
-      "primaryStructure": "formal_pronouns",
-      "tags": [
-        "greetings",
-        "basics",
-        "conversation"
-      ]
-    },
-    {
-      "id": "restaurant_conversations",
-      "kind": "pack",
-      "title": "Restaurant Conversations",
-      "level": "A2",
-      "durationMinutes": 20,
-      "entryUrl": "/v1/workspaces/de/packs/restaurant_conversations/pack.json",
-      "scenario": "restaurant",
-      "register": "formal",
-      "primaryStructure": "verb_position",
-      "tags": [
-        "restaurant",
-        "food",
-        "conversation"
-      ]
-    },
-    {
-      "id": "work_1",
-      "kind": "pack",
-      "title": "Work Conversations - Part 1",
-      "level": "A2",
-      "durationMinutes": 20,
-      "entryUrl": "/v1/workspaces/de/packs/work_1/pack.json",
-      "scenario": "work",
-      "register": "formal",
-      "primaryStructure": "modal_verbs_requests",
-      "tags": [
-        "work",
-        "office",
-        "professional",
-        "meetings"
-      ]
-    }
-  ],
+  "items": [],
   "nextPage": null
 }

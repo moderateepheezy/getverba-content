@@ -13,6 +13,46 @@ Quality Gates v1 exist to:
 
 These gates are **hard constraints** - packs that fail cannot be published. No exceptions.
 
+## Analytics Summary Validation
+
+When packs are indexed in section indexes, they must include an `analyticsSummary` field that matches the pack's metadata exactly. This enables frontend to display "why this pack works" without fetching full pack entries.
+
+### Required Fields
+
+For `kind="pack"` items in section indexes, `analyticsSummary` is **required** and must include:
+
+- `primaryStructure` (string): Must match pack's `primaryStructure` exactly
+- `variationSlots` (array): Must match pack's `variationSlots` array exactly
+- `drillType` (string): Must match pack's `analytics.drillType` exactly
+- `cognitiveLoad` (string): Must match pack's `analytics.cognitiveLoad` exactly
+- `goal` (string, <= 120 chars): Must match pack's `analytics.goal` (truncated if needed)
+- `whyThisWorks` (array, 2-4 items, each <= 80 chars): Derived from pack's `analytics.successCriteria`
+
+### Validation Rules
+
+1. **No TODO placeholders**: `goal` and `whyThisWorks` bullets cannot contain "TODO", "FIXME", or "TBD" (case-insensitive)
+2. **No generic phrases**: `goal` cannot contain generic phrases like:
+   - "practice german"
+   - "learn german"
+   - "study german"
+   - "improve german"
+   - "practice language"
+   - "learn language"
+   - "practice speaking"
+   - "practice grammar"
+   - "practice vocabulary"
+   - "generic practice"
+   - "basic practice"
+   - "simple practice"
+   - "general practice"
+   - "placeholder"
+3. **Length constraints**:
+   - `goal`: Maximum 120 characters
+   - `whyThisWorks`: Array of 2-4 items, each maximum 80 characters
+4. **Exact match requirement**: All fields must match pack metadata exactly (validator hard-fails on mismatch)
+
+**Why**: Ensures index items provide accurate, non-placeholder analytics metadata for frontend rendering without requiring full pack entry fetches.
+
 ## Rules
 
 ### 1. Generic Template Denylist (Hard Fail)

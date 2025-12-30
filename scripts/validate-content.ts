@@ -154,6 +154,13 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
         addError(contextFile, `Item ${itemIdx} pack entry primaryStructure length is invalid (${entry.primaryStructure.length} chars). Must be 3-60 chars.`);
       }
       
+      // Analytics metadata validation (required for all packs)
+      if (!entry.analytics || typeof entry.analytics !== 'object') {
+        addError(contextFile, `Item ${itemIdx} pack entry missing or invalid field: analytics (must be object)`);
+      } else {
+        validateAnalytics(entry.analytics, entry, contextFile, itemIdx);
+      }
+      
       // Validate sessionPlan (required for packs)
       if (!entry.sessionPlan || typeof entry.sessionPlan !== 'object') {
         addError(contextFile, `Item ${itemIdx} pack entry missing or invalid field: sessionPlan (must be object)`);
@@ -431,6 +438,29 @@ function validateCatalog(catalogPath: string): void {
       }
       if (!section.title || typeof section.title !== 'string') {
         addError(catalogPath, `Section ${idx} missing or invalid field: title (must be string)`);
+      }
+      
+      // Validate analyticsRollup if present
+      if (section.analyticsRollup !== undefined) {
+        if (typeof section.analyticsRollup !== 'object' || section.analyticsRollup === null) {
+          addError(catalogPath, `Section ${idx} analyticsRollup must be an object if present`);
+        } else {
+          if (section.analyticsRollup.scenarios !== undefined) {
+            if (typeof section.analyticsRollup.scenarios !== 'object' || Array.isArray(section.analyticsRollup.scenarios)) {
+              addError(catalogPath, `Section ${idx} analyticsRollup.scenarios must be an object if present`);
+            }
+          }
+          if (section.analyticsRollup.levels !== undefined) {
+            if (typeof section.analyticsRollup.levels !== 'object' || Array.isArray(section.analyticsRollup.levels)) {
+              addError(catalogPath, `Section ${idx} analyticsRollup.levels must be an object if present`);
+            }
+          }
+          if (section.analyticsRollup.primaryStructures !== undefined) {
+            if (typeof section.analyticsRollup.primaryStructures !== 'object' || Array.isArray(section.analyticsRollup.primaryStructures)) {
+              addError(catalogPath, `Section ${idx} analyticsRollup.primaryStructures must be an object if present`);
+            }
+          }
+        }
       }
     });
 
@@ -795,6 +825,420 @@ function validatePromptMeaningContract(prompt: any, entry: any, contextFile: str
 /**
  * Quality Gates v1: Validate pack quality
  */
+/**
+ * Validate analytics metadata block
+ */
+function validateAnalytics(analytics: any, entry: any, contextFile: string, itemIdx: number): void {
+  // Validate version
+  if (analytics.version !== undefined && analytics.version !== 1) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.version must be 1 (got ${analytics.version})`);
+  }
+  
+  // Validate that analytics fields match pack top-level fields (single source of truth)
+  if (analytics.primaryStructure !== undefined && entry.primaryStructure !== undefined) {
+    if (analytics.primaryStructure !== entry.primaryStructure) {
+      addError(contextFile, `Item ${itemIdx} pack entry analytics.primaryStructure "${analytics.primaryStructure}" does not match pack.primaryStructure "${entry.primaryStructure}"`);
+    }
+  }
+  
+  if (analytics.scenario !== undefined && entry.scenario !== undefined) {
+    if (analytics.scenario !== entry.scenario) {
+      addError(contextFile, `Item ${itemIdx} pack entry analytics.scenario "${analytics.scenario}" does not match pack.scenario "${entry.scenario}"`);
+    }
+  }
+  
+  if (analytics.register !== undefined && entry.register !== undefined) {
+    // Normalize "informal" to "casual" for comparison
+    const normalizedAnalyticsRegister = analytics.register === 'informal' ? 'casual' : analytics.register;
+    const normalizedPackRegister = entry.register === 'informal' ? 'casual' : entry.register;
+    if (normalizedAnalyticsRegister !== normalizedPackRegister) {
+      addError(contextFile, `Item ${itemIdx} pack entry analytics.register "${analytics.register}" does not match pack.register "${entry.register}"`);
+    }
+  }
+  
+  if (analytics.variationSlots !== undefined && entry.variationSlots !== undefined) {
+    const analyticsSlots = [...(analytics.variationSlots || [])].sort();
+    const packSlots = [...(entry.variationSlots || [])].sort();
+    if (JSON.stringify(analyticsSlots) !== JSON.stringify(packSlots)) {
+      addError(contextFile, `Item ${itemIdx} pack entry analytics.variationSlots does not match pack.variationSlots`);
+    }
+  }
+  
+  // Validate goal
+  if (!analytics.goal || typeof analytics.goal !== 'string') {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.goal missing or invalid (must be string, 1-120 chars)`);
+  } else if (analytics.goal.length === 0 || analytics.goal.length > 120) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.goal length is invalid (${analytics.goal.length} chars). Must be 1-120 chars.`);
+  } else if (analytics.goal.includes('TODO') || analytics.goal.includes('FIXME')) {
+    // Warning only - not a hard fail, but review harness should catch this
+    console.warn(`⚠️  Item ${itemIdx} pack entry analytics.goal contains TODO/FIXME placeholder`);
+  }
+  
+  // Validate constraints array
+  if (!Array.isArray(analytics.constraints)) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.constraints must be an array`);
+  } else if (analytics.constraints.length === 0 || analytics.constraints.length > 6) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.constraints length is invalid (${analytics.constraints.length} items). Must be 1-6 items.`);
+  } else {
+    analytics.constraints.forEach((constraint: any, idx: number) => {
+      if (typeof constraint !== 'string') {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics.constraints[${idx}] must be a string`);
+      } else if (constraint.length === 0 || constraint.length > 80) {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics.constraints[${idx}] length is invalid (${constraint.length} chars). Must be 1-80 chars.`);
+      }
+    });
+  }
+  
+  // Validate levers array
+  if (!Array.isArray(analytics.levers)) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.levers must be an array`);
+  } else if (analytics.levers.length === 0 || analytics.levers.length > 6) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.levers length is invalid (${analytics.levers.length} items). Must be 1-6 items.`);
+  } else {
+    const variationSlots = entry.variationSlots || [];
+    const validLeverKeywords = ['subject', 'verb', 'object', 'modifier', 'tense', 'polarity', 'time', 'location', 'register', 'scenario', 'intent'];
+    
+    analytics.levers.forEach((lever: any, idx: number) => {
+      if (typeof lever !== 'string') {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics.levers[${idx}] must be a string`);
+      } else if (lever.length === 0 || lever.length > 80) {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics.levers[${idx}] length is invalid (${lever.length} chars). Must be 1-80 chars.`);
+      } else {
+        // Alignment check: lever must reference a variationSlot or be a valid lever keyword
+        const leverLower = lever.toLowerCase();
+        const isVariationSlot = variationSlots.some((slot: string) => leverLower.includes(slot.toLowerCase()));
+        const isLeverKeyword = validLeverKeywords.some((keyword: string) => leverLower.includes(keyword.toLowerCase()));
+        
+        if (!isVariationSlot && !isLeverKeyword) {
+          addError(contextFile, `Item ${itemIdx} pack entry analytics.levers[${idx}] "${lever}" must reference a variationSlot (${variationSlots.join(', ')}) or a valid lever keyword`);
+        }
+      }
+    });
+  }
+  
+  // Validate successCriteria array
+  if (!Array.isArray(analytics.successCriteria)) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.successCriteria must be an array`);
+  } else if (analytics.successCriteria.length === 0 || analytics.successCriteria.length > 6) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.successCriteria length is invalid (${analytics.successCriteria.length} items). Must be 1-6 items.`);
+  } else {
+    analytics.successCriteria.forEach((criterion: any, idx: number) => {
+      if (typeof criterion !== 'string') {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics.successCriteria[${idx}] must be a string`);
+      } else if (criterion.length === 0 || criterion.length > 80) {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics.successCriteria[${idx}] length is invalid (${criterion.length} chars). Must be 1-80 chars.`);
+      }
+    });
+  }
+  
+  // Validate commonMistakes array
+  if (!Array.isArray(analytics.commonMistakes)) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.commonMistakes must be an array`);
+  } else if (analytics.commonMistakes.length === 0 || analytics.commonMistakes.length > 6) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.commonMistakes length is invalid (${analytics.commonMistakes.length} items). Must be 1-6 items.`);
+  } else {
+    analytics.commonMistakes.forEach((mistake: any, idx: number) => {
+      if (typeof mistake !== 'string') {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics.commonMistakes[${idx}] must be a string`);
+      } else if (mistake.length === 0 || mistake.length > 80) {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics.commonMistakes[${idx}] length is invalid (${mistake.length} chars). Must be 1-80 chars.`);
+      }
+    });
+  }
+  
+  // Validate drillType enum
+  const validDrillTypes = ['substitution', 'pattern-switch', 'roleplay-bounded'];
+  if (!analytics.drillType || typeof analytics.drillType !== 'string') {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.drillType missing or invalid (must be one of: ${validDrillTypes.join(', ')})`);
+  } else if (!validDrillTypes.includes(analytics.drillType)) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.drillType "${analytics.drillType}" is invalid. Must be one of: ${validDrillTypes.join(', ')}`);
+  }
+  
+  // Validate cognitiveLoad enum
+  const validCognitiveLoads = ['low', 'medium', 'high'];
+  if (!analytics.cognitiveLoad || typeof analytics.cognitiveLoad !== 'string') {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.cognitiveLoad missing or invalid (must be one of: ${validCognitiveLoads.join(', ')})`);
+  } else if (!validCognitiveLoads.includes(analytics.cognitiveLoad)) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.cognitiveLoad "${analytics.cognitiveLoad}" is invalid. Must be one of: ${validCognitiveLoads.join(', ')}`);
+  }
+  
+  // Alignment checks
+  // If drillType is not 'substitution', scenario/register/primaryStructure must exist
+  if (analytics.drillType && analytics.drillType !== 'substitution') {
+    if (!entry.scenario || typeof entry.scenario !== 'string') {
+      addError(contextFile, `Item ${itemIdx} pack entry analytics.drillType is "${analytics.drillType}" but scenario is missing. Non-substitution drills require scenario.`);
+    }
+    if (!entry.register || typeof entry.register !== 'string') {
+      addError(contextFile, `Item ${itemIdx} pack entry analytics.drillType is "${analytics.drillType}" but register is missing. Non-substitution drills require register.`);
+    }
+    if (!entry.primaryStructure || typeof entry.primaryStructure !== 'string') {
+      addError(contextFile, `Item ${itemIdx} pack entry analytics.drillType is "${analytics.drillType}" but primaryStructure is missing. Non-substitution drills require primaryStructure.`);
+    }
+  }
+  
+  // Warnings (non-fatal)
+  // Check if successCriteria overlaps heavily with commonMistakes
+  if (Array.isArray(analytics.successCriteria) && Array.isArray(analytics.commonMistakes)) {
+    const overlap = analytics.successCriteria.filter((sc: string) => 
+      analytics.commonMistakes.some((cm: string) => sc.toLowerCase() === cm.toLowerCase())
+    );
+    if (overlap.length > 0) {
+      console.warn(`⚠️  Item ${itemIdx} pack entry analytics: successCriteria overlaps with commonMistakes: ${overlap.join(', ')}`);
+    }
+  }
+  
+  // Check if cognitiveLoad is 'low' while multi-slot variation requirement is high
+  if (analytics.cognitiveLoad === 'low' && Array.isArray(entry.variationSlots) && entry.variationSlots.length >= 4) {
+    console.warn(`⚠️  Item ${itemIdx} pack entry analytics: cognitiveLoad is 'low' but variationSlots has ${entry.variationSlots.length} items (>=4). Consider medium/high cognitive load.`);
+  }
+  
+  // Validate new analytics fields (v1 extended)
+  if (typeof analytics.minDistinctSubjects === 'number') {
+    if (analytics.minDistinctSubjects < 3) {
+      addError(contextFile, `Item ${itemIdx} pack entry analytics.minDistinctSubjects (${analytics.minDistinctSubjects}) must be >= 3`);
+    }
+  }
+  
+  if (typeof analytics.minDistinctVerbs === 'number') {
+    if (analytics.minDistinctVerbs < 3) {
+      addError(contextFile, `Item ${itemIdx} pack entry analytics.minDistinctVerbs (${analytics.minDistinctVerbs}) must be >= 3`);
+    }
+  }
+  
+  if (typeof analytics.minMultiSlotRate === 'number') {
+    if (analytics.minMultiSlotRate < 0 || analytics.minMultiSlotRate > 1) {
+      addError(contextFile, `Item ${itemIdx} pack entry analytics.minMultiSlotRate (${analytics.minMultiSlotRate}) must be between 0.0 and 1.0`);
+    }
+  }
+  
+  if (typeof analytics.targetResponseSeconds === 'number') {
+    if (analytics.targetResponseSeconds < 0.5 || analytics.targetResponseSeconds > 6.0) {
+      addError(contextFile, `Item ${itemIdx} pack entry analytics.targetResponseSeconds (${analytics.targetResponseSeconds}) must be between 0.5 and 6.0`);
+    }
+  }
+  
+  if (Array.isArray(analytics.canonicalIntents)) {
+    if (analytics.canonicalIntents.length < 3) {
+      addError(contextFile, `Item ${itemIdx} pack entry analytics.canonicalIntents must have at least 3 items, got ${analytics.canonicalIntents.length}`);
+    }
+    const validIntents = ['greet', 'request', 'apologize', 'inform', 'ask', 'confirm', 'schedule', 'order', 'ask_price', 'thank', 'goodbye', 'decline'];
+    for (const intent of analytics.canonicalIntents) {
+      if (!validIntents.includes(intent)) {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics.canonicalIntents contains invalid intent "${intent}". Must be one of: ${validIntents.join(', ')}`);
+      }
+    }
+  }
+  
+  if (Array.isArray(analytics.anchorPhrases)) {
+    if (analytics.anchorPhrases.length < 3) {
+      addError(contextFile, `Item ${itemIdx} pack entry analytics.anchorPhrases must have at least 3 items, got ${analytics.anchorPhrases.length}`);
+    }
+  }
+  
+  // Computed validations (if prompts exist)
+  if (entry.prompts && Array.isArray(entry.prompts) && entry.prompts.length > 0) {
+    const prompts = entry.prompts.filter((p: any) => p && p.text && typeof p.text === 'string');
+    
+    // Compute distinct subjects
+    if (typeof analytics.minDistinctSubjects === 'number') {
+      const distinctSubjects = computeDistinctSubjects(prompts);
+      if (distinctSubjects < analytics.minDistinctSubjects) {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics: measured distinct subjects (${distinctSubjects}) < minDistinctSubjects (${analytics.minDistinctSubjects})`);
+      }
+    }
+    
+    // Compute distinct verbs
+    if (typeof analytics.minDistinctVerbs === 'number') {
+      const distinctVerbs = computeDistinctVerbs(prompts);
+      if (distinctVerbs < analytics.minDistinctVerbs) {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics: measured distinct verbs (${distinctVerbs}) < minDistinctVerbs (${analytics.minDistinctVerbs})`);
+      }
+    }
+    
+    // Compute multi-slot rate
+    if (typeof analytics.minMultiSlotRate === 'number') {
+      const measuredRate = computeMultiSlotRate(prompts);
+      if (measuredRate < analytics.minMultiSlotRate) {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics: measured multi-slot rate (${measuredRate.toFixed(2)}) < minMultiSlotRate (${analytics.minMultiSlotRate})`);
+      }
+    }
+    
+    // Validate canonical intents appear in prompts
+    if (Array.isArray(analytics.canonicalIntents) && analytics.canonicalIntents.length > 0) {
+      const promptIntents = new Set(prompts.map((p: any) => p.intent).filter(Boolean));
+      for (const intent of analytics.canonicalIntents) {
+        if (!promptIntents.has(intent)) {
+          addError(contextFile, `Item ${itemIdx} pack entry analytics: canonicalIntent "${intent}" not found in any prompt`);
+        }
+      }
+    }
+    
+    // Validate anchor phrases appear in prompts
+    if (Array.isArray(analytics.anchorPhrases) && analytics.anchorPhrases.length > 0) {
+      const allPromptText = prompts.map((p: any) => p.text.toLowerCase()).join(' ');
+      for (const phrase of analytics.anchorPhrases) {
+        const phraseLower = phrase.toLowerCase();
+        if (!allPromptText.includes(phraseLower)) {
+          addError(contextFile, `Item ${itemIdx} pack entry analytics: anchorPhrase "${phrase}" not found in any prompt`);
+        }
+      }
+    }
+  }
+  
+  // Validate whyThisWorks array
+  if (!Array.isArray(analytics.whyThisWorks)) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.whyThisWorks must be an array`);
+  } else if (analytics.whyThisWorks.length === 0 || analytics.whyThisWorks.length > 5) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.whyThisWorks length is invalid (${analytics.whyThisWorks.length} items). Must be 1-5 items.`);
+  } else {
+    const genericPhrases = ['practice more', 'learn faster', 'improve skills', 'get better', 'study hard'];
+    analytics.whyThisWorks.forEach((bullet: any, idx: number) => {
+      if (typeof bullet !== 'string') {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics.whyThisWorks[${idx}] must be a string`);
+      } else if (bullet.length === 0 || bullet.length > 120) {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics.whyThisWorks[${idx}] length is invalid (${bullet.length} chars). Must be 1-120 chars.`);
+      } else {
+        // Check for generic phrases (warning only)
+        const bulletLower = bullet.toLowerCase();
+        for (const phrase of genericPhrases) {
+          if (bulletLower.includes(phrase)) {
+            console.warn(`⚠️  Item ${itemIdx} pack entry analytics.whyThisWorks[${idx}] contains generic phrase: "${phrase}"`);
+            break;
+          }
+        }
+        // Check for TODO/FIXME
+        if (bulletLower.includes('todo') || bulletLower.includes('fixme') || bulletLower.includes('tbd')) {
+          console.warn(`⚠️  Item ${itemIdx} pack entry analytics.whyThisWorks[${idx}] contains TODO/FIXME/TBD placeholder`);
+        }
+      }
+    });
+  }
+  
+  // Validate exitConditions object
+  if (!analytics.exitConditions || typeof analytics.exitConditions !== 'object') {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.exitConditions missing or invalid (must be object)`);
+  } else {
+    // Validate targetMinutes
+    if (typeof analytics.exitConditions.targetMinutes !== 'number') {
+      addError(contextFile, `Item ${itemIdx} pack entry analytics.exitConditions.targetMinutes missing or invalid (must be number)`);
+    } else if (analytics.exitConditions.targetMinutes < 1 || analytics.exitConditions.targetMinutes > 20) {
+      addError(contextFile, `Item ${itemIdx} pack entry analytics.exitConditions.targetMinutes (${analytics.exitConditions.targetMinutes}) is outside valid range [1-20]`);
+    }
+    
+    // Validate completeWhen enum
+    const validCompleteWhen = ['sessionPlan_completed_once', 'sessionPlan_completed_twice', 'manual_mark_complete'];
+    if (!analytics.exitConditions.completeWhen || typeof analytics.exitConditions.completeWhen !== 'string') {
+      addError(contextFile, `Item ${itemIdx} pack entry analytics.exitConditions.completeWhen missing or invalid (must be one of: ${validCompleteWhen.join(', ')})`);
+    } else if (!validCompleteWhen.includes(analytics.exitConditions.completeWhen)) {
+      addError(contextFile, `Item ${itemIdx} pack entry analytics.exitConditions.completeWhen "${analytics.exitConditions.completeWhen}" is invalid. Must be one of: ${validCompleteWhen.join(', ')}`);
+    }
+  }
+}
+
+/**
+ * Compute distinct subjects from prompts
+ */
+function computeDistinctSubjects(prompts: any[]): number {
+  const subjects = new Set<string>();
+  
+  for (const prompt of prompts) {
+    // Try explicit subject tag first
+    if (prompt.subjectTag && typeof prompt.subjectTag === 'string') {
+      subjects.add(prompt.subjectTag.toLowerCase());
+      continue;
+    }
+    
+    // Try slots.subject
+    if (prompt.slots && prompt.slots.subject && Array.isArray(prompt.slots.subject)) {
+      prompt.slots.subject.forEach((s: string) => {
+        if (s) subjects.add(s.toLowerCase());
+      });
+      continue;
+    }
+    
+    // Heuristic: first token if it's a pronoun
+    if (prompt.text) {
+      const tokens = prompt.text.trim().split(/\s+/);
+      if (tokens.length > 0) {
+        const firstToken = tokens[0].replace(/[.,!?;:]$/, '').toLowerCase();
+        const PRONOUNS = ['ich', 'du', 'er', 'sie', 'es', 'wir', 'ihr', 'sie', 'i', 'you', 'he', 'she', 'it', 'we', 'they'];
+        if (PRONOUNS.includes(firstToken)) {
+          subjects.add(firstToken);
+        }
+      }
+    }
+  }
+  
+  return subjects.size;
+}
+
+/**
+ * Compute distinct verbs from prompts
+ */
+function computeDistinctVerbs(prompts: any[]): number {
+  const verbs = new Set<string>();
+  
+  for (const prompt of prompts) {
+    // Try explicit verb tag first
+    if (prompt.verbTag && typeof prompt.verbTag === 'string') {
+      verbs.add(prompt.verbTag.toLowerCase());
+      continue;
+    }
+    
+    // Try slots.verb
+    if (prompt.slots && prompt.slots.verb && Array.isArray(prompt.slots.verb)) {
+      prompt.slots.verb.forEach((v: string) => {
+        if (v) verbs.add(v.toLowerCase());
+      });
+      continue;
+    }
+    
+    // Heuristic: second token if first is pronoun, or look for common verb patterns
+    if (prompt.text) {
+      const tokens = prompt.text.trim().split(/\s+/);
+      if (tokens.length > 1) {
+        const firstToken = tokens[0].replace(/[.,!?;:]$/, '').toLowerCase();
+        const PRONOUNS = ['ich', 'du', 'er', 'sie', 'es', 'wir', 'ihr', 'sie', 'i', 'you', 'he', 'she', 'it', 'we', 'they'];
+        if (PRONOUNS.includes(firstToken)) {
+          const secondToken = tokens[1].replace(/[.,!?;:]$/, '').toLowerCase();
+          if (secondToken && secondToken.length > 2) {
+            verbs.add(secondToken);
+          }
+        }
+      }
+    }
+  }
+  
+  return verbs.size;
+}
+
+/**
+ * Compute multi-slot rate (fraction of prompts with multiple slots changed)
+ */
+function computeMultiSlotRate(prompts: any[]): number {
+  if (prompts.length === 0) return 0;
+  
+  let multiSlotCount = 0;
+  
+  for (const prompt of prompts) {
+    if (prompt.slotsChanged && Array.isArray(prompt.slotsChanged)) {
+      if (prompt.slotsChanged.length >= 2) {
+        multiSlotCount++;
+      }
+    } else if (prompt.slots && typeof prompt.slots === 'object') {
+      const slotKeys = Object.keys(prompt.slots).filter(key => {
+        const slotValues = prompt.slots[key];
+        return Array.isArray(slotValues) && slotValues.length > 0;
+      });
+      if (slotKeys.length >= 2) {
+        multiSlotCount++;
+      }
+    }
+  }
+  
+  return multiSlotCount / prompts.length;
+}
+
 function validatePackQualityGates(entry: any, contextFile: string, itemIdx: number): void {
   if (!entry.prompts || !Array.isArray(entry.prompts) || entry.prompts.length === 0) {
     return; // No prompts to validate
@@ -1500,6 +1944,86 @@ function validateIndex(indexPath: string): void {
               try {
                 const entryContent = readFileSync(entryPath, 'utf-8');
                 const entry = JSON.parse(entryContent);
+                
+                // Validate analyticsSummary (required for pack items)
+                if (item.kind === 'pack') {
+                  if (!item.analyticsSummary || typeof item.analyticsSummary !== 'object') {
+                    addError(indexPath, `Item ${idx} (pack) missing required field: analyticsSummary`);
+                  } else {
+                    const summary = item.analyticsSummary;
+                    
+                    // Validate required fields
+                    if (!summary.primaryStructure || typeof summary.primaryStructure !== 'string') {
+                      addError(indexPath, `Item ${idx} analyticsSummary.primaryStructure missing or invalid`);
+                    } else if (entry.primaryStructure && summary.primaryStructure !== entry.primaryStructure) {
+                      addError(indexPath, `Item ${idx} analyticsSummary.primaryStructure "${summary.primaryStructure}" does not match pack primaryStructure "${entry.primaryStructure}"`);
+                    }
+                    
+                    if (!Array.isArray(summary.variationSlots) || summary.variationSlots.length === 0) {
+                      addError(indexPath, `Item ${idx} analyticsSummary.variationSlots missing or invalid (must be non-empty array)`);
+                    } else if (entry.variationSlots && Array.isArray(entry.variationSlots)) {
+                      const itemSlots = [...summary.variationSlots].sort();
+                      const entrySlots = [...entry.variationSlots].sort();
+                      if (JSON.stringify(itemSlots) !== JSON.stringify(entrySlots)) {
+                        addError(indexPath, `Item ${idx} analyticsSummary.variationSlots does not match pack variationSlots`);
+                      }
+                    }
+                    
+                    if (!summary.drillType || typeof summary.drillType !== 'string') {
+                      addError(indexPath, `Item ${idx} analyticsSummary.drillType missing or invalid`);
+                    } else if (entry.analytics?.drillType && summary.drillType !== entry.analytics.drillType) {
+                      addError(indexPath, `Item ${idx} analyticsSummary.drillType "${summary.drillType}" does not match pack analytics.drillType "${entry.analytics.drillType}"`);
+                    }
+                    
+                    if (!summary.cognitiveLoad || typeof summary.cognitiveLoad !== 'string') {
+                      addError(indexPath, `Item ${idx} analyticsSummary.cognitiveLoad missing or invalid`);
+                    } else if (!['low', 'medium', 'high'].includes(summary.cognitiveLoad)) {
+                      addError(indexPath, `Item ${idx} analyticsSummary.cognitiveLoad must be one of: low, medium, high`);
+                    } else if (entry.analytics?.cognitiveLoad && summary.cognitiveLoad !== entry.analytics.cognitiveLoad) {
+                      addError(indexPath, `Item ${idx} analyticsSummary.cognitiveLoad "${summary.cognitiveLoad}" does not match pack analytics.cognitiveLoad "${entry.analytics.cognitiveLoad}"`);
+                    }
+                    
+                    if (!summary.goal || typeof summary.goal !== 'string') {
+                      addError(indexPath, `Item ${idx} analyticsSummary.goal missing or invalid`);
+                    } else {
+                      if (summary.goal.length > 120) {
+                        addError(indexPath, `Item ${idx} analyticsSummary.goal too long (${summary.goal.length} chars, max 120)`);
+                      }
+                      // Check for TODO/generic phrases
+                      const goalLower = summary.goal.toLowerCase();
+                      if (goalLower.includes('todo') || goalLower.includes('fixme') || goalLower.includes('tbd')) {
+                        addError(indexPath, `Item ${idx} analyticsSummary.goal contains TODO/FIXME/TBD placeholder`);
+                      }
+                      const genericPhrases = ['practice german', 'learn german', 'study german', 'improve german', 'practice language', 'learn language', 'study language', 'improve language', 'practice speaking', 'practice grammar', 'practice vocabulary', 'generic practice', 'basic practice', 'simple practice', 'general practice', 'placeholder'];
+                      for (const phrase of genericPhrases) {
+                        if (goalLower.includes(phrase)) {
+                          addError(indexPath, `Item ${idx} analyticsSummary.goal contains generic phrase: "${phrase}"`);
+                          break;
+                        }
+                      }
+                    }
+                    
+                    if (!Array.isArray(summary.whyThisWorks)) {
+                      addError(indexPath, `Item ${idx} analyticsSummary.whyThisWorks missing or invalid (must be array)`);
+                    } else {
+                      if (summary.whyThisWorks.length < 2 || summary.whyThisWorks.length > 4) {
+                        addError(indexPath, `Item ${idx} analyticsSummary.whyThisWorks must have 2-4 items, got ${summary.whyThisWorks.length}`);
+                      }
+                      summary.whyThisWorks.forEach((bullet: any, bIdx: number) => {
+                        if (typeof bullet !== 'string') {
+                          addError(indexPath, `Item ${idx} analyticsSummary.whyThisWorks[${bIdx}] must be a string`);
+                        } else if (bullet.length > 80) {
+                          addError(indexPath, `Item ${idx} analyticsSummary.whyThisWorks[${bIdx}] too long (${bullet.length} chars, max 80)`);
+                        }
+                        // Check for TODO/generic phrases
+                        const bulletLower = bullet.toLowerCase();
+                        if (bulletLower.includes('todo') || bulletLower.includes('fixme') || bulletLower.includes('tbd')) {
+                          addError(indexPath, `Item ${idx} analyticsSummary.whyThisWorks[${bIdx}] contains TODO/FIXME/TBD placeholder`);
+                        }
+                      });
+                    }
+                  }
+                }
                 
                 // Check scenario
                 if (item.scenario !== undefined && entry.scenario !== undefined) {

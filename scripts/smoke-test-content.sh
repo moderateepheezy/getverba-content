@@ -282,6 +282,25 @@ test_workspace() {
               exit 1
             fi
             
+            # Validate analyticsSummary for pack items
+            if [ "$ENTRY_KIND" = "pack" ] || [ "$ENTRY_KIND" = "context" ]; then
+              local HAS_ANALYTICS=$(echo "$item" | jq -r '.analyticsSummary // empty')
+              if [ -z "$HAS_ANALYTICS" ]; then
+                echo "         ⚠️  Item $ITEM_INDEX ($ITEM_ID): Pack item missing analyticsSummary (may not be regenerated yet)"
+              else
+                local GOAL=$(echo "$item" | jq -r '.analyticsSummary.goal // ""')
+                if [ -z "$GOAL" ]; then
+                  echo "         ❌ Item $ITEM_INDEX ($ITEM_ID): analyticsSummary missing goal"
+                  exit 1
+                fi
+                local WHY_COUNT=$(echo "$item" | jq '.analyticsSummary.whyThisWorks | length // 0')
+                if [ "$WHY_COUNT" -lt 2 ] || [ "$WHY_COUNT" -gt 4 ]; then
+                  echo "         ❌ Item $ITEM_INDEX ($ITEM_ID): analyticsSummary.whyThisWorks must have 2-4 items, got $WHY_COUNT"
+                  exit 1
+                fi
+              fi
+            fi
+            
             echo "         ✅ Item $ITEM_INDEX ($ITEM_ID): Entry accessible and valid"
           done
           
@@ -319,6 +338,53 @@ test_workspace() {
   
   if [ $? -ne 0 ]; then
     return 1
+  fi
+  
+  # Test 3: Validate exports exist and parse
+  echo "   📊 Testing exports..."
+  
+  local EXPORTS_JSON_URL="${BASE_URL}/v1/workspaces/${WORKSPACE}/exports/catalog_export.json"
+  local EXPORTS_CSV_URL="${BASE_URL}/v1/workspaces/${WORKSPACE}/exports/catalog_export.csv"
+  
+  # Test JSON export
+  local JSON_RESPONSE=$(curl -s -w "\n%{http_code}" "$EXPORTS_JSON_URL")
+  local JSON_HTTP_CODE=$(echo "$JSON_RESPONSE" | tail -n1)
+  local JSON_BODY=$(echo "$JSON_RESPONSE" | sed '$d')
+  
+  if [ "$JSON_HTTP_CODE" != "200" ] && [ "$JSON_HTTP_CODE" != "304" ]; then
+    echo "      ⚠️  Warning: JSON export returned HTTP $JSON_HTTP_CODE (may not be published yet)"
+  else
+    if ! echo "$JSON_BODY" | jq empty 2>/dev/null; then
+      echo "      ❌ Error: JSON export is not valid JSON"
+      return 1
+    fi
+    
+    local EXPORT_TOTAL=$(echo "$JSON_BODY" | jq -r '.total // 0')
+    local EXPORT_ITEMS_COUNT=$(echo "$JSON_BODY" | jq '.items | length // 0')
+    
+    if [ "$EXPORT_TOTAL" != "$EXPORT_ITEMS_COUNT" ]; then
+      echo "      ❌ Error: JSON export total ($EXPORT_TOTAL) doesn't match items count ($EXPORT_ITEMS_COUNT)"
+      return 1
+    fi
+    
+    echo "      ✅ JSON export accessible and valid (${EXPORT_TOTAL} items)"
+  fi
+  
+  # Test CSV export
+  local CSV_RESPONSE=$(curl -s -w "\n%{http_code}" "$EXPORTS_CSV_URL")
+  local CSV_HTTP_CODE=$(echo "$CSV_RESPONSE" | tail -n1)
+  local CSV_BODY=$(echo "$CSV_RESPONSE" | sed '$d')
+  
+  if [ "$CSV_HTTP_CODE" != "200" ] && [ "$CSV_HTTP_CODE" != "304" ]; then
+    echo "      ⚠️  Warning: CSV export returned HTTP $CSV_HTTP_CODE (may not be published yet)"
+  else
+    # Check CSV has headers
+    local FIRST_LINE=$(echo "$CSV_BODY" | head -n1)
+    if [ -z "$FIRST_LINE" ] || [ "$FIRST_LINE" != "${FIRST_LINE%,*}" ]; then
+      echo "      ✅ CSV export accessible and has headers"
+    else
+      echo "      ⚠️  Warning: CSV export may be missing headers"
+    fi
   fi
   
   return 0

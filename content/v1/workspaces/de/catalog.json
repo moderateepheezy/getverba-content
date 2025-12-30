@@ -5,8 +5,38 @@
   "languageCode": "de",
   "languageName": "German",
   "sections": [
-    { "id": "context", "kind": "context", "title": "Context Library", "itemsUrl": "/v1/workspaces/de/context/index.json" },
-    { "id": "mechanics", "kind": "mechanics", "title": "Mechanics Drills", "itemsUrl": "/v1/workspaces/de/mechanics/index.json" },
-    { "id": "exams", "kind": "exams", "title": "Exams", "itemsUrl": "/v1/workspaces/de/exams/index.json" }
+    {
+      "id": "context",
+      "kind": "context",
+      "title": "Context Library",
+      "itemsUrl": "/v1/workspaces/de/context/index.json",
+      "analyticsRollup": {
+        "scenarios": {},
+        "levels": {},
+        "primaryStructures": {}
+      }
+    },
+    {
+      "id": "mechanics",
+      "kind": "mechanics",
+      "title": "Mechanics Drills",
+      "itemsUrl": "/v1/workspaces/de/mechanics/index.json",
+      "analyticsRollup": {
+        "scenarios": {},
+        "levels": {},
+        "primaryStructures": {}
+      }
+    },
+    {
+      "id": "exams",
+      "kind": "exams",
+      "title": "Exams",
+      "itemsUrl": "/v1/workspaces/de/exams/index.json",
+      "analyticsRollup": {
+        "scenarios": {},
+        "levels": {},
+        "primaryStructures": {}
+      }
+    }
   ]
 }

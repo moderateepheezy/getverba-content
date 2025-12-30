@@ -215,7 +215,24 @@ cat > "$PACK_FILE" << EOF
       }
     ]
   },
-  "tags": []
+  "tags": [],
+  "analytics": {
+    "goal": "TODO: What this pack trains (1-120 chars)",
+    "constraints": [
+      "TODO: What is held constant (e.g., 'formal register maintained', 'work scenario context')"
+    ],
+    "levers": [
+      "TODO: What changes across prompts (must reference variationSlots, e.g., 'subject variation', 'verb substitution')"
+    ],
+    "successCriteria": [
+      "TODO: What 'good' sounds like (e.g., 'Uses formal address correctly')"
+    ],
+    "commonMistakes": [
+      "TODO: Most likely failure modes (e.g., 'Forgetting formal address')"
+    ],
+    "drillType": "TODO: One of 'substitution', 'pattern-switch', 'roleplay-bounded'",
+    "cognitiveLoad": "TODO: One of 'low', 'medium', 'high'"
+  }
 }
 EOF
 

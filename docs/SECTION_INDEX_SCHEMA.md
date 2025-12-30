@@ -51,6 +51,34 @@ Each item in the `items` array must have:
 - `primaryStructure` (string, optional): Primary grammatical structure identifier. Should match the pack's `primaryStructure` field if present.
 - `tags` (string[], optional): Array of tag strings for categorization. Should match the pack's `tags` field if present.
 
+**Analytics Summary** (required for `kind="pack"` items):
+
+- `analyticsSummary` (object, required for packs): Cached analytics metadata from pack entry. Enables frontend to display "why this pack works" without fetching full pack entry.
+
+```json
+{
+  "analyticsSummary": {
+    "primaryStructure": "verb-second-position",
+    "variationSlots": ["subject", "verb", "object"],
+    "drillType": "controlled-substitution",
+    "cognitiveLoad": "medium",
+    "goal": "Ask for an appointment and confirm details",
+    "whyThisWorks": [
+      "Forces verb position under time pressure",
+      "Reuses same skeleton with multi-slot variation"
+    ]
+  }
+}
+```
+
+**analyticsSummary fields:**
+- `primaryStructure` (string, required): Must match pack's `primaryStructure` field exactly
+- `variationSlots` (string[], required): Must match pack's `variationSlots` array exactly
+- `drillType` (string, required): Must match pack's `analytics.drillType` exactly. Valid values: `"substitution"`, `"pattern-switch"`, `"roleplay-bounded"`
+- `cognitiveLoad` (string, required): Must match pack's `analytics.cognitiveLoad` exactly. Valid values: `"low"`, `"medium"`, `"high"`
+- `goal` (string, required): Must match pack's `analytics.goal` (truncated to 120 chars max). Cannot contain "TODO", "FIXME", "TBD", or generic phrases
+- `whyThisWorks` (string[], required): Array of 2-4 bullets, each <= 80 chars. Derived from pack's `analytics.successCriteria`. Cannot contain "TODO", "FIXME", "TBD"
+
 ## Pagination
 
 ### Single Page

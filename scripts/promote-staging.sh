@@ -111,7 +111,22 @@ else
   echo ""
 fi
 
-# Step 1.6: Check approval status
+# Step 1.6: Run review harness
+if [ "$DRY_RUN" != "--dryrun" ]; then
+  echo "🔍 Running review harness..."
+  if ! npm run content:review > /dev/null 2>&1; then
+    echo "❌ Review harness failed. Promotion aborted."
+    echo "   Fix review failures before promoting."
+    exit 1
+  fi
+  echo "   ✅ Review harness passed"
+  echo ""
+else
+  echo "🔍 Review harness will run before promotion (dry-run mode)"
+  echo ""
+fi
+
+# Step 1.7: Check approval status
 if [ "$DRY_RUN" != "--dryrun" ]; then
   echo "🔍 Checking approval status..."
   if ! npx tsx "$SCRIPT_DIR/check-approvals.ts" "$STAGING_MANIFEST" > /dev/null 2>&1; then
@@ -124,6 +139,34 @@ if [ "$DRY_RUN" != "--dryrun" ]; then
   echo ""
 else
   echo "🔍 Approval check will run before promotion (dry-run mode)"
+  echo ""
+fi
+
+# Step 1.8: Generate catalog rollups
+if [ "$DRY_RUN" != "--dryrun" ]; then
+  echo "📦 Generating catalog rollups..."
+  if ! npm run content:generate-catalog-rollups > /dev/null 2>&1; then
+    echo "❌ Catalog rollup generation failed. Promotion aborted."
+    exit 1
+  fi
+  echo "   ✅ Catalog rollups generated"
+  echo ""
+else
+  echo "📦 Catalog rollup generation will run before promotion (dry-run mode)"
+  echo ""
+fi
+
+# Step 1.9: Generate exports
+if [ "$DRY_RUN" != "--dryrun" ]; then
+  echo "📦 Generating curriculum exports..."
+  if ! npm run content:generate-exports > /dev/null 2>&1; then
+    echo "❌ Export generation failed. Promotion aborted."
+    exit 1
+  fi
+  echo "   ✅ Exports generated"
+  echo ""
+else
+  echo "📦 Export generation will run before promotion (dry-run mode)"
   echo ""
 fi
 

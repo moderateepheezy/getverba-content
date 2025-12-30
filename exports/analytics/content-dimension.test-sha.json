@@ -1,0 +1,27 @@
+{
+  "version": "v1",
+  "generatedAt": "2025-12-30T19:50:41.660Z",
+  "gitSha": "test-sha",
+  "workspace": "de",
+  "totalItems": 1,
+  "items": [
+    {
+      "workspace": "de",
+      "kind": "pack",
+      "contentId": "test_pack",
+      "entryUrl": "/v1/workspaces/de/packs/test_pack/pack.json",
+      "title": "Test Pack",
+      "level": "A1",
+      "scenario": "shopping",
+      "register": null,
+      "primaryStructure": "verb_position",
+      "variationSlots": [
+        "subject",
+        "verb"
+      ],
+      "promptCount": 1,
+      "stepCount": 1,
+      "estimatedMinutes": 15
+    }
+  ]
+}

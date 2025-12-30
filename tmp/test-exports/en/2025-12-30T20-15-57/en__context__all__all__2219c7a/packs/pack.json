@@ -1,0 +1,124 @@
+{
+  "id": "welcome_english",
+  "schemaVersion": 1,
+  "kind": "pack",
+  "title": "Welcome to English",
+  "level": "A1",
+  "estimatedMinutes": 10,
+  "description": "A brief introduction to learning English with GetVerba. Get comfortable with the app and basic vocabulary.",
+  "scenario": "intro_lesson",
+  "register": "neutral",
+  "primaryStructure": "basic_phrases",
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier"
+  ],
+  "outline": [
+    "Introduction",
+    "Basic Phrases"
+  ],
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "I welcome you to our English learning course starting on Monday",
+      "intent": "greet",
+      "gloss_en": "I welcome you to our English learning course starting on Monday",
+      "translation": "Ich heiße Sie willkommen zu unserem Englischkurs, der am Montag beginnt",
+      "audioUrl": "/v1/audio/welcome_english/prompt-001.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "modifier"
+      ]
+    },
+    {
+      "id": "prompt-002",
+      "text": "We offer language courses starting at 10:00 for $5",
+      "intent": "inform",
+      "gloss_en": "We offer language courses starting at 10:00 for $5",
+      "translation": "Wir bieten Sprachkurse ab 10:00 für 5 Dollar an",
+      "audioUrl": "/v1/audio/welcome_english/prompt-002.mp3",
+      "slots": {
+        "subject": [
+          "We"
+        ],
+        "verb": [
+          "offer"
+        ],
+        "object": [
+          "language courses"
+        ],
+        "modifier": [
+          "at 10:00"
+        ]
+      },
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ]
+    }
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "intro",
+        "title": "Introduction",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ]
+      },
+      {
+        "id": "phrases",
+        "title": "Basic Phrases",
+        "promptIds": [
+          "prompt-002"
+        ]
+      }
+    ]
+  },
+  "tags": [
+    "intro",
+    "basics"
+  ],
+  "analytics": {
+    "goal": "Practice intro_lesson scenarios at A1 level",
+    "constraints": [
+      "neutral register maintained",
+      "intro_lesson scenario context",
+      "basic_phrases structure focus"
+    ],
+    "levers": [
+      "subject variation",
+      "verb substitution",
+      "object variation",
+      "modifier changes"
+    ],
+    "successCriteria": [
+      "Uses intro_lesson vocabulary appropriately",
+      "Varies subject and verb across prompts",
+      "Maintains neutral register consistency"
+    ],
+    "commonMistakes": [
+      "Missing intro_lesson vocabulary",
+      "Inconsistent neutral register usage",
+      "Incorrect basic_phrases structure"
+    ],
+    "drillType": "substitution",
+    "cognitiveLoad": "medium",
+    "whyThisWorks": [
+      "High-frequency intro_lesson vocabulary",
+      "Multi-slot substitution prevents chanting",
+      "Short response windows encourage retrieval speed"
+    ],
+    "exitConditions": {
+      "targetMinutes": 5,
+      "completeWhen": "sessionPlan_completed_once"
+    }
+  }
+}

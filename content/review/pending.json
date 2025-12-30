@@ -88,5 +88,1415 @@
     "title": "Work - A2",
     "createdAt": "2025-12-30T18:39:29.495Z",
     "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-1767122416586",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:20:17.009Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-validation-1767122417028",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T19:20:17.361Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-deterministic-1-1767122417726",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:20:18.096Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-deterministic-2-1767122417726",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:20:18.459Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-work-1767122418477",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:20:18.810Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-restaurant-1767122418822",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T19:20:19.186Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-shopping-1767122419197",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "shopping",
+    "level": "A2",
+    "title": "Shopping - A2",
+    "createdAt": "2025-12-30T19:20:19.610Z",
+    "sourceTemplate": "shopping.json"
+  },
+  {
+    "id": "e2e-test-newpack-1767122419976",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:20:20.571Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-1767122513091",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:21:53.450Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-validation-1767122513466",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T19:21:53.819Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-deterministic-1-1767122514144",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:21:54.458Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-deterministic-2-1767122514144",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:21:54.792Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-work-1767122514809",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:21:55.151Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-restaurant-1767122515161",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T19:21:55.491Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-shopping-1767122515503",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "shopping",
+    "level": "A2",
+    "title": "Shopping - A2",
+    "createdAt": "2025-12-30T19:21:55.811Z",
+    "sourceTemplate": "shopping.json"
+  },
+  {
+    "id": "e2e-test-newpack-1767122516178",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:21:56.547Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-1767122639341",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:23:59.670Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-validation-1767122639686",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T19:24:00.079Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-deterministic-1-1767122640450",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:24:00.809Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-deterministic-2-1767122640450",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:24:01.150Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-work-1767122641168",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:24:01.538Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-restaurant-1767122641549",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T19:24:01.930Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-shopping-1767122641943",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "shopping",
+    "level": "A2",
+    "title": "Shopping - A2",
+    "createdAt": "2025-12-30T19:24:02.280Z",
+    "sourceTemplate": "shopping.json"
+  },
+  {
+    "id": "e2e-test-newpack-1767122642637",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:24:03.019Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-1767122661082",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:24:21.448Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-validation-1767122661466",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T19:24:21.814Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-deterministic-1-1767122662135",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:24:22.500Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-deterministic-2-1767122662135",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:24:22.884Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-work-1767122662909",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:24:23.249Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-restaurant-1767122663259",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T19:24:23.598Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-shopping-1767122663609",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "shopping",
+    "level": "A2",
+    "title": "Shopping - A2",
+    "createdAt": "2025-12-30T19:24:23.972Z",
+    "sourceTemplate": "shopping.json"
+  },
+  {
+    "id": "e2e-test-newpack-1767122664334",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:24:24.670Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "test-determinism-1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:24:33.759Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "test-seed-variation",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:24:34.523Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "test-slots-changed",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:24:35.281Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "test-required-tokens",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:24:35.664Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "test-quality-gates",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:24:36.072Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-1767122697287",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:24:57.738Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-validation-1767122697759",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T19:24:58.119Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-deterministic-1-1767122698495",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:24:58.871Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-deterministic-2-1767122698495",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:24:59.223Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-work-1767122699241",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:24:59.649Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-restaurant-1767122699661",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T19:25:00.054Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-shopping-1767122700066",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "shopping",
+    "level": "A2",
+    "title": "Shopping - A2",
+    "createdAt": "2025-12-30T19:25:00.429Z",
+    "sourceTemplate": "shopping.json"
+  },
+  {
+    "id": "e2e-test-newpack-1767122700761",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:25:01.142Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-1767122711454",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:25:11.816Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-validation-1767122711833",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T19:25:12.230Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-deterministic-1-1767122712569",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:25:12.942Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-deterministic-2-1767122712569",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:25:13.350Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-work-1767122713369",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:25:13.740Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-restaurant-1767122713750",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T19:25:14.087Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-shopping-1767122714098",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "shopping",
+    "level": "A2",
+    "title": "Shopping - A2",
+    "createdAt": "2025-12-30T19:25:14.568Z",
+    "sourceTemplate": "shopping.json"
+  },
+  {
+    "id": "e2e-test-newpack-1767122714959",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:25:15.316Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-1767122719328",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:25:19.729Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-validation-1767122719749",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T19:25:20.179Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-deterministic-1-1767122720528",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:25:20.944Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-deterministic-2-1767122720528",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:25:21.364Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-work-1767122721386",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:25:21.755Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-restaurant-1767122721768",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T19:25:22.102Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-shopping-1767122722117",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "shopping",
+    "level": "A2",
+    "title": "Shopping - A2",
+    "createdAt": "2025-12-30T19:25:22.495Z",
+    "sourceTemplate": "shopping.json"
+  },
+  {
+    "id": "e2e-test-newpack-1767122722882",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:25:23.234Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-1767122929964",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:28:50.319Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-validation-1767122930336",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T19:28:50.673Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-deterministic-1-1767122931030",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:28:51.737Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-deterministic-2-1767122931030",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:28:52.094Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-work-1767122932110",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:28:52.459Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-restaurant-1767122932469",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T19:28:52.827Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-shopping-1767122932838",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "shopping",
+    "level": "A2",
+    "title": "Shopping - A2",
+    "createdAt": "2025-12-30T19:28:53.184Z",
+    "sourceTemplate": "shopping.json"
+  },
+  {
+    "id": "e2e-test-newpack-1767122933507",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:28:53.872Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-1767122969897",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:29:30.226Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-validation-1767122970242",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T19:29:30.604Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-deterministic-1-1767122970969",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:29:31.303Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-deterministic-2-1767122970969",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:29:31.636Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-work-1767122971653",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:29:32.020Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-restaurant-1767122972030",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T19:29:32.383Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-shopping-1767122972394",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "shopping",
+    "level": "A2",
+    "title": "Shopping - A2",
+    "createdAt": "2025-12-30T19:29:32.713Z",
+    "sourceTemplate": "shopping.json"
+  },
+  {
+    "id": "e2e-test-newpack-1767122973054",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:29:33.427Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-1767123690285",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:41:30.745Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-validation-1767123690765",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T19:41:31.147Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-deterministic-1-1767123691497",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:41:31.862Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-deterministic-2-1767123691497",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:41:32.268Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-work-1767123692286",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:41:32.629Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-restaurant-1767123692639",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T19:41:32.997Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-shopping-1767123693010",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "shopping",
+    "level": "A2",
+    "title": "Shopping - A2",
+    "createdAt": "2025-12-30T19:41:33.374Z",
+    "sourceTemplate": "shopping.json"
+  },
+  {
+    "id": "e2e-test-newpack-1767123693721",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:41:34.095Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-1767123821088",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:43:41.436Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-validation-1767123821455",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T19:43:41.782Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-deterministic-1-1767123822091",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:43:42.433Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-deterministic-2-1767123822091",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:43:42.776Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-work-1767123822792",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:43:43.106Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-restaurant-1767123823117",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T19:43:43.443Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-shopping-1767123823453",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "shopping",
+    "level": "A2",
+    "title": "Shopping - A2",
+    "createdAt": "2025-12-30T19:43:43.791Z",
+    "sourceTemplate": "shopping.json"
+  },
+  {
+    "id": "e2e-test-newpack-1767123824115",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:43:44.446Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-1767124174443",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:49:34.768Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-validation-1767124174785",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T19:49:35.134Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-deterministic-1-1767124175475",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:49:35.782Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-deterministic-2-1767124175475",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:49:36.128Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-work-1767124176144",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:49:36.491Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-restaurant-1767124176502",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T19:49:36.818Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-shopping-1767124176827",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "shopping",
+    "level": "A2",
+    "title": "Shopping - A2",
+    "createdAt": "2025-12-30T19:49:37.140Z",
+    "sourceTemplate": "shopping.json"
+  },
+  {
+    "id": "e2e-test-newpack-1767124177478",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:49:37.827Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-1767124252365",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:50:52.699Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-validation-1767124252713",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T19:50:53.033Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-deterministic-1-1767124253370",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:50:53.717Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-deterministic-2-1767124253370",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:50:54.031Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-work-1767124254046",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:50:54.376Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-restaurant-1767124254387",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T19:50:54.727Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-shopping-1767124254737",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "shopping",
+    "level": "A2",
+    "title": "Shopping - A2",
+    "createdAt": "2025-12-30T19:50:55.062Z",
+    "sourceTemplate": "shopping.json"
+  },
+  {
+    "id": "e2e-test-newpack-1767124255364",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T19:50:55.707Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-1767127245386",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T20:40:45.750Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-validation-1767127245765",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T20:40:46.075Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-deterministic-1-1767127246398",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T20:40:46.754Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-deterministic-2-1767127246398",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T20:40:47.097Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-work-1767127247113",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T20:40:47.414Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-restaurant-1767127247422",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T20:40:47.770Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-shopping-1767127247780",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "shopping",
+    "level": "A2",
+    "title": "Shopping - A2",
+    "createdAt": "2025-12-30T20:40:48.125Z",
+    "sourceTemplate": "shopping.json"
+  },
+  {
+    "id": "e2e-test-newpack-1767127248420",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T20:40:48.725Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-1767127266095",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T20:41:06.436Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-validation-1767127266451",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T20:41:06.750Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-deterministic-1-1767127267065",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T20:41:07.421Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-deterministic-2-1767127267065",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T20:41:07.752Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-work-1767127267767",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T20:41:08.071Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-restaurant-1767127268080",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T20:41:08.417Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-shopping-1767127268427",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "shopping",
+    "level": "A2",
+    "title": "Shopping - A2",
+    "createdAt": "2025-12-30T20:41:08.780Z",
+    "sourceTemplate": "shopping.json"
+  },
+  {
+    "id": "e2e-test-newpack-1767127269101",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T20:41:09.401Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-1767128760454",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T21:06:00.913Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-validation-1767128760932",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T21:06:01.285Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-deterministic-1-1767128761619",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T21:06:01.982Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-deterministic-2-1767128761619",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T21:06:02.346Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-work-1767128762362",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T21:06:02.684Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-restaurant-1767128762694",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T21:06:03.037Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-shopping-1767128763047",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "shopping",
+    "level": "A2",
+    "title": "Shopping - A2",
+    "createdAt": "2025-12-30T21:06:03.407Z",
+    "sourceTemplate": "shopping.json"
+  },
+  {
+    "id": "e2e-test-newpack-1767128763747",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T21:06:04.067Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-1767128807430",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T21:06:47.871Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-validation-1767128807888",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T21:06:48.261Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-deterministic-1-1767128808581",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T21:06:48.916Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-deterministic-2-1767128808581",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T21:06:49.289Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-work-1767128809305",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T21:06:49.686Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-restaurant-1767128809697",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T21:06:50.016Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-shopping-1767128810026",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "shopping",
+    "level": "A2",
+    "title": "Shopping - A2",
+    "createdAt": "2025-12-30T21:06:50.375Z",
+    "sourceTemplate": "shopping.json"
+  },
+  {
+    "id": "e2e-test-newpack-1767128810742",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T21:06:51.098Z",
+    "sourceTemplate": "work.json"
   }
 ]

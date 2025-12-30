@@ -9,7 +9,12 @@
   "scenario": "intro_lesson",
   "register": "neutral",
   "primaryStructure": "basic_phrases",
-  "variationSlots": ["subject", "verb", "object", "modifier"],
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier"
+  ],
   "outline": [
     "Introduction",
     "Basic Phrases"
@@ -22,7 +27,11 @@
       "gloss_en": "I welcome you to our English learning course starting on Monday",
       "translation": "Ich heiße Sie willkommen zu unserem Englischkurs, der am Montag beginnt",
       "audioUrl": "/v1/audio/welcome_english/prompt-001.mp3",
-      "slotsChanged": ["subject", "verb", "modifier"]
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "modifier"
+      ]
     },
     {
       "id": "prompt-002",
@@ -32,12 +41,25 @@
       "translation": "Wir bieten Sprachkurse ab 10:00 für 5 Dollar an",
       "audioUrl": "/v1/audio/welcome_english/prompt-002.mp3",
       "slots": {
-        "subject": ["We"],
-        "verb": ["offer"],
-        "object": ["language courses"],
-        "modifier": ["at 10:00"]
+        "subject": [
+          "We"
+        ],
+        "verb": [
+          "offer"
+        ],
+        "object": [
+          "language courses"
+        ],
+        "modifier": [
+          "at 10:00"
+        ]
       },
-      "slotsChanged": ["subject", "verb", "object", "modifier"]
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ]
     }
   ],
   "sessionPlan": {
@@ -46,15 +68,82 @@
       {
         "id": "intro",
         "title": "Introduction",
-        "promptIds": ["prompt-001", "prompt-002"]
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ]
       },
       {
         "id": "phrases",
         "title": "Basic Phrases",
-        "promptIds": ["prompt-002"]
+        "promptIds": [
+          "prompt-002"
+        ]
       }
     ]
   },
-  "tags": ["intro", "basics"]
+  "tags": [
+    "intro",
+    "basics"
+  ],
+  "analytics": {
+    "version": 1,
+    "primaryStructure": "basic_phrases",
+    "scenario": "intro_lesson",
+    "register": "neutral",
+    "variationSlots": [
+      "subject",
+      "verb",
+      "object",
+      "modifier"
+    ],
+    "minDistinctSubjects": 2,
+    "minDistinctVerbs": 2,
+    "minMultiSlotRate": 0.30,
+    "targetResponseSeconds": 2.5,
+    "canonicalIntents": [
+      "greet",
+      "inform"
+    ],
+    "anchorPhrases": [
+      "welcome",
+      "course",
+      "Monday",
+      "offer",
+      "language"
+    ],
+    "goal": "Practice intro_lesson scenarios at A1 level",
+    "constraints": [
+      "neutral register maintained",
+      "intro_lesson scenario context",
+      "basic_phrases structure focus"
+    ],
+    "levers": [
+      "subject variation",
+      "verb substitution",
+      "object variation",
+      "modifier changes"
+    ],
+    "successCriteria": [
+      "Uses intro_lesson vocabulary appropriately",
+      "Varies subject and verb across prompts",
+      "Maintains neutral register consistency"
+    ],
+    "commonMistakes": [
+      "Missing intro_lesson vocabulary",
+      "Inconsistent neutral register usage",
+      "Incorrect basic_phrases structure"
+    ],
+    "drillType": "substitution",
+    "cognitiveLoad": "medium",
+    "whyThisWorks": [
+      "High-frequency intro_lesson vocabulary",
+      "Multi-slot substitution prevents chanting",
+      "Short response windows encourage retrieval speed"
+    ],
+    "exitConditions": {
+      "targetMinutes": 5,
+      "completeWhen": "sessionPlan_completed_once"
+    }
+  }
 }
-

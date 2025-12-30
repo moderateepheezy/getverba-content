@@ -34,6 +34,18 @@ const SECTION_CONFIG: Record<string, { kind: string; folders: string[] }> = {
   }
 };
 
+interface AnalyticsSummary {
+  primaryStructure: string;
+  scenario: string;
+  register: string;
+  variationSlots: string[];
+  targetResponseSeconds?: number;
+  drillType: string;
+  cognitiveLoad: string;
+  goal: string;
+  whyThisWorks: string[];
+}
+
 interface SectionIndexItem {
   id: string;
   kind: string;
@@ -45,6 +57,12 @@ interface SectionIndexItem {
   register?: string;
   primaryStructure?: string;
   tags?: string[];
+  // Analytics summary (required for kind="pack")
+  analyticsSummary?: AnalyticsSummary;
+  // Legacy analytics fields (deprecated, use analyticsSummary)
+  drillType?: string;
+  cognitiveLoad?: string;
+  whyThisWorks?: string;
 }
 
 interface SectionIndex {
@@ -65,7 +83,25 @@ interface EntryDocument {
   scenario?: string;
   register?: string;
   primaryStructure?: string;
+  variationSlots?: string[];
   tags?: string[];
+  analytics?: {
+    version?: number;
+    goal: string;
+    successCriteria: string[];
+    drillType: string;
+    cognitiveLoad: string;
+    targetResponseSeconds?: number;
+    primaryStructure?: string;
+    scenario?: string;
+    register?: string;
+    variationSlots?: string[];
+    minDistinctSubjects?: number;
+    minDistinctVerbs?: number;
+    minMultiSlotRate?: number;
+    canonicalIntents?: string[];
+    anchorPhrases?: string[];
+  };
 }
 
 /**
@@ -159,6 +195,87 @@ function readEntryDocument(
     }
     if (entry.tags && Array.isArray(entry.tags)) {
       item.tags = entry.tags;
+    }
+    
+    // Add analytics summary for pack items (required)
+    if (entryType === 'pack' && entry.analytics && typeof entry.analytics === 'object') {
+      if (!entry.primaryStructure) {
+        console.warn(`⚠️  Pack ${entry.id} missing primaryStructure, cannot generate analyticsSummary`);
+      } else if (!Array.isArray(entry.variationSlots) || entry.variationSlots.length === 0) {
+        console.warn(`⚠️  Pack ${entry.id} missing variationSlots, cannot generate analyticsSummary`);
+      } else if (!entry.analytics.drillType || !entry.analytics.cognitiveLoad || !entry.analytics.goal) {
+        console.warn(`⚠️  Pack ${entry.id} missing required analytics fields, cannot generate analyticsSummary`);
+      } else {
+        // Generate whyThisWorks array from successCriteria (2-4 bullets, each <= 80 chars)
+        const whyThisWorks: string[] = [];
+        if (Array.isArray(entry.analytics.successCriteria)) {
+          for (const criterion of entry.analytics.successCriteria) {
+            if (typeof criterion === 'string' && criterion.trim().length > 0) {
+              const trimmed = criterion.trim();
+              // Truncate to 80 chars
+              const bullet = trimmed.length > 80 ? trimmed.substring(0, 77) + '...' : trimmed;
+              whyThisWorks.push(bullet);
+              // Stop at 4 bullets
+              if (whyThisWorks.length >= 4) break;
+            }
+          }
+        }
+        
+        // Ensure we have at least 2 bullets (use goal if needed)
+        if (whyThisWorks.length < 2 && entry.analytics.goal) {
+          const goalBullet = entry.analytics.goal.length > 80 
+            ? entry.analytics.goal.substring(0, 77) + '...' 
+            : entry.analytics.goal;
+          if (whyThisWorks.length === 0 || whyThisWorks[0] !== goalBullet) {
+            whyThisWorks.unshift(goalBullet);
+          }
+        }
+        
+        // Ensure goal is <= 120 chars
+        const goal = entry.analytics.goal.length > 120
+          ? entry.analytics.goal.substring(0, 117) + '...'
+          : entry.analytics.goal;
+        
+        item.analyticsSummary = {
+          primaryStructure: entry.primaryStructure,
+          scenario: entry.scenario || '',
+          register: entry.register || '',
+          variationSlots: entry.variationSlots,
+          targetResponseSeconds: entry.analytics.targetResponseSeconds,
+          drillType: entry.analytics.drillType,
+          cognitiveLoad: entry.analytics.cognitiveLoad,
+          goal: goal,
+          whyThisWorks: whyThisWorks.length >= 2 ? whyThisWorks : [goal, 'See pack entry for details']
+        };
+      }
+    }
+    
+    // Legacy analytics fields (for backwards compatibility, deprecated)
+    if (entry.analytics && typeof entry.analytics === 'object') {
+      if (entry.analytics.drillType) {
+        item.drillType = entry.analytics.drillType;
+      }
+      if (entry.analytics.cognitiveLoad) {
+        item.cognitiveLoad = entry.analytics.cognitiveLoad;
+      }
+      // Generate whyThisWorks from goal + first successCriteria (legacy format)
+      if (entry.analytics.goal && typeof entry.analytics.goal === 'string') {
+        const goal = entry.analytics.goal;
+        const firstCriterion = Array.isArray(entry.analytics.successCriteria) && entry.analytics.successCriteria.length > 0
+          ? entry.analytics.successCriteria[0]
+          : null;
+        
+        if (firstCriterion) {
+          item.whyThisWorks = `${goal} ${firstCriterion}`;
+        } else {
+          item.whyThisWorks = goal;
+        }
+        
+        // Truncate to reasonable length (max 200 chars for index)
+        if (item.whyThisWorks.length > 200) {
+          item.whyThisWorks = item.whyThisWorks.substring(0, 197) + '...';
+        }
+      }
     }
     
     return item;
@@ -261,7 +378,30 @@ function generateIndex(
   }
   
   if (allItems.length === 0) {
-    console.log(`⏭️  Skipping ${workspaceId}/${sectionId}: no entries found`);
+    // Create empty index file (catalog may reference it)
+    const emptyIndex: SectionIndex = {
+      version: 'v1',
+      kind: config.kind,
+      total: 0,
+      pageSize: pageSize,
+      items: [],
+      nextPage: null
+    };
+    
+    writeFileSync(existingIndexPath, JSON.stringify(emptyIndex, null, 2), 'utf-8');
+    console.log(`📝 Created empty index: ${workspaceId}/${sectionId} (no entries found)`);
+    
+    // Remove any paginated index files (shouldn't exist for empty sections)
+    let pageNum = 2;
+    while (true) {
+      const pagePath = join(sectionDir, `index.page${pageNum}.json`);
+      if (existsSync(pagePath)) {
+        rmSync(pagePath, { force: true });
+        pageNum++;
+      } else {
+        break;
+      }
+    }
     return;
   }
   
