@@ -117,7 +117,12 @@ This will:
 3. Regenerate `release.json`
 4. Upload only `meta/manifest.json` and `meta/release.json` to R2
 
-**List Available Manifests**:
+**List Available Manifests via API**:
+```bash
+curl https://getverba-content-api.simpumind-apps.workers.dev/manifests
+```
+
+**Or via AWS CLI**:
 ```bash
 aws s3 ls s3://getverba-content-prod/meta/manifests/ --endpoint-url "$R2_ENDPOINT"
 ```
@@ -153,12 +158,79 @@ The Worker serves:
 - `GET /manifest` → Returns `meta/manifest.json` (production)
 - `GET /release` → Returns `meta/release.json`
 - `GET /active` → Redirects based on production manifest
+- `GET /manifests` → Lists archived manifests (for rollback discovery)
+- `GET /manifests/:gitSha` → Returns specific archived manifest
 - `GET /v1/**` → Passthrough to R2 content
 
 **Note**: The Worker does **not** have a separate staging endpoint. Staging is tested by:
 1. Publishing content files to R2
 2. Verifying content files directly (bypassing manifest)
 3. Promoting when ready
+
+## Release Visibility Endpoints
+
+These endpoints help discover archived manifests for debugging and rollback.
+
+### List Archived Manifests
+
+```bash
+curl https://getverba-content-api.simpumind-apps.workers.dev/manifests
+```
+
+**Response**:
+```json
+{
+  "items": [
+    {
+      "gitSha": "abc123def456",
+      "key": "meta/manifests/abc123def456.json",
+      "lastModified": "2025-12-30T10:00:00.000Z"
+    },
+    {
+      "gitSha": "789def012abc",
+      "key": "meta/manifests/789def012abc.json",
+      "lastModified": "2025-12-29T15:30:00.000Z"
+    }
+  ]
+}
+```
+
+**Query Parameters**:
+- `limit` (optional): Number of items to return (default: 50, max: 200)
+- `cursor` (optional): Pagination cursor from previous response
+
+**Caching**: `Cache-Control: public, max-age=30, stale-while-revalidate=300`
+
+### Fetch Specific Archived Manifest
+
+```bash
+curl https://getverba-content-api.simpumind-apps.workers.dev/manifests/abc123def456
+```
+
+**Response**: The archived manifest JSON for that git SHA.
+
+**Caching**: `Cache-Control: public, max-age=31536000, immutable` (cached for 1 year)
+
+**Error Responses**:
+- `400` - Invalid git SHA format (must be 7-40 hex characters)
+- `404` - Archived manifest not found
+
+### Using Release Visibility for Rollback
+
+1. **List available archives**:
+   ```bash
+   curl -s https://getverba-content-api.simpumind-apps.workers.dev/manifests | jq '.items[].gitSha'
+   ```
+
+2. **Inspect a specific manifest**:
+   ```bash
+   curl https://getverba-content-api.simpumind-apps.workers.dev/manifests/abc123def456
+   ```
+
+3. **Rollback to that version**:
+   ```bash
+   ./scripts/rollback.sh abc123def456
+   ```
 
 ## Best Practices
 

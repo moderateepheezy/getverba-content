@@ -29,6 +29,18 @@ export default {
       return serveKey(request, env, "meta/release.json");
     }
 
+    // --- List archived manifests ---
+    if (url.pathname === "/manifests") {
+      return listArchivedManifests(request, env, url);
+    }
+
+    // --- Fetch specific archived manifest ---
+    const manifestMatch = url.pathname.match(/^\/manifests\/([a-f0-9]{7,40})$/);
+    if (manifestMatch) {
+      const gitSha = manifestMatch[1];
+      return serveArchivedManifest(request, env, gitSha);
+    }
+
     // --- Active catalog redirect ---
     if (url.pathname === "/active") {
       const manifest = await getJsonObject(env, "meta/manifest.json");
@@ -160,6 +172,147 @@ async function serveKey(request, env, key) {
     return new Response(object.body, { headers });
   } catch (err) {
     console.error("serveKey error:", err);
+    return new Response("Internal Server Error", {
+      status: 500,
+      headers: corsHeaders(),
+    });
+  }
+}
+
+/**
+ * List archived manifests from R2
+ * GET /manifests?limit=50&cursor=...
+ */
+async function listArchivedManifests(request, env, url) {
+  try {
+    const bucket = env.CONTENT_BUCKET;
+    
+    // Parse query params
+    const limitParam = url.searchParams.get("limit");
+    let limit = parseInt(limitParam, 10) || 50;
+    limit = Math.min(Math.max(limit, 1), 200); // Clamp between 1-200
+    
+    const cursor = url.searchParams.get("cursor") || undefined;
+    
+    // List objects with prefix
+    const listResult = await bucket.list({
+      prefix: "meta/manifests/",
+      limit,
+      cursor,
+    });
+    
+    // Map to response format
+    const items = listResult.objects
+      .filter(obj => obj.key.endsWith(".json"))
+      .map(obj => {
+        // Extract gitSha from key: meta/manifests/<gitSha>.json
+        const match = obj.key.match(/meta\/manifests\/([a-f0-9]+)\.json$/);
+        const gitSha = match ? match[1] : obj.key;
+        
+        return {
+          gitSha,
+          key: obj.key,
+          lastModified: obj.uploaded?.toISOString() || null,
+        };
+      });
+    
+    // Sort by lastModified descending (newest first)
+    items.sort((a, b) => {
+      if (!a.lastModified) return 1;
+      if (!b.lastModified) return -1;
+      return new Date(b.lastModified).getTime() - new Date(a.lastModified).getTime();
+    });
+    
+    const response = {
+      items,
+      ...(listResult.truncated && listResult.cursor ? { cursor: listResult.cursor } : {}),
+    };
+    
+    const headers = new Headers();
+    headers.set("Content-Type", "application/json");
+    headers.set("Cache-Control", "public, max-age=30, stale-while-revalidate=300");
+    for (const [k, v] of Object.entries(corsHeaders())) {
+      headers.set(k, v);
+    }
+    
+    return new Response(JSON.stringify(response), { headers });
+  } catch (err) {
+    console.error("listArchivedManifests error:", err);
+    return new Response("Internal Server Error", {
+      status: 500,
+      headers: corsHeaders(),
+    });
+  }
+}
+
+/**
+ * Serve a specific archived manifest
+ * GET /manifests/:gitSha
+ */
+async function serveArchivedManifest(request, env, gitSha) {
+  // Validate gitSha format (already validated by regex, but double-check)
+  if (!/^[a-f0-9]{7,40}$/.test(gitSha)) {
+    return new Response(JSON.stringify({ error: "Invalid git SHA format" }), {
+      status: 400,
+      headers: {
+        "Content-Type": "application/json",
+        ...corsHeaders(),
+      },
+    });
+  }
+  
+  const key = `meta/manifests/${gitSha}.json`;
+  
+  // Use serveKey but override cache headers for archived manifests (immutable)
+  try {
+    const bucket = env.CONTENT_BUCKET;
+    const object = await bucket.get(key);
+    
+    if (!object) {
+      return new Response(JSON.stringify({ error: "Archived manifest not found" }), {
+        status: 404,
+        headers: {
+          "Content-Type": "application/json",
+          ...corsHeaders(),
+        },
+      });
+    }
+    
+    const serverEtag = object.etag || object.httpEtag;
+    
+    // Check If-None-Match for 304
+    const clientETag = request.headers.get("If-None-Match");
+    if (clientETag && serverEtag) {
+      const normalizedClient = normalizeEtag(clientETag);
+      const normalizedServer = normalizeEtag(serverEtag);
+      
+      if (normalizedClient && normalizedServer && normalizedClient === normalizedServer) {
+        const headers = new Headers();
+        headers.set("ETag", `"${normalizedServer}"`);
+        headers.set("Content-Type", "application/json");
+        // Archived manifests are immutable
+        headers.set("Cache-Control", "public, max-age=31536000, immutable");
+        for (const [k, v] of Object.entries(corsHeaders())) {
+          headers.set(k, v);
+        }
+        return new Response(null, { status: 304, headers });
+      }
+    }
+    
+    const headers = new Headers();
+    headers.set("Content-Type", "application/json");
+    // Archived manifests are immutable - cache for 1 year
+    headers.set("Cache-Control", "public, max-age=31536000, immutable");
+    if (serverEtag) {
+      headers.set("ETag", `"${normalizeEtag(serverEtag)}"`);
+    }
+    for (const [k, v] of Object.entries(corsHeaders())) {
+      headers.set(k, v);
+    }
+    
+    return new Response(object.body, { headers });
+  } catch (err) {
+    console.error("serveArchivedManifest error:", err);
     return new Response("Internal Server Error", {
       status: 500,
       headers: corsHeaders(),
