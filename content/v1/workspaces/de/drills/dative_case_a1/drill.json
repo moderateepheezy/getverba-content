@@ -1,0 +1,52 @@
+{
+  "id": "dative_case_a1",
+  "kind": "drill",
+  "title": "Dative Case Practice",
+  "level": "A1",
+  "estimatedMinutes": 12,
+  "description": "Learn to use the dative case with common prepositions and verbs. Practice transforming articles and pronouns.",
+  "instructions": "Choose the correct dative form for each sentence.",
+  "exercises": [
+    {
+      "id": "ex-001",
+      "type": "multiple-choice",
+      "prompt": "Ich gebe ___ Buch dem Mann.",
+      "options": ["das", "dem", "den", "der"],
+      "answer": "das",
+      "hint": "das Buch is the direct object (accusative), not dative"
+    },
+    {
+      "id": "ex-002",
+      "type": "multiple-choice",
+      "prompt": "Er hilft ___ Frau.",
+      "options": ["die", "der", "den", "das"],
+      "answer": "der",
+      "hint": "helfen takes dative: die → der"
+    },
+    {
+      "id": "ex-003",
+      "type": "multiple-choice",
+      "prompt": "Wir fahren mit ___ Bus.",
+      "options": ["der", "dem", "den", "das"],
+      "answer": "dem",
+      "hint": "mit takes dative: der → dem"
+    },
+    {
+      "id": "ex-004",
+      "type": "fill-blank",
+      "prompt": "Das Buch gehört ___ (ich).",
+      "answer": "mir",
+      "hint": "ich → mir in dative"
+    },
+    {
+      "id": "ex-005",
+      "type": "fill-blank",
+      "prompt": "Kannst du ___ (er) helfen?",
+      "answer": "ihm",
+      "hint": "er → ihm in dative"
+    }
+  ],
+  "passingScore": 70,
+  "tags": ["grammar", "cases", "dative", "articles"]
+}
+

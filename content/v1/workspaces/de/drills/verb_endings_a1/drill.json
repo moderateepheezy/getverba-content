@@ -1,0 +1,49 @@
+{
+  "id": "verb_endings_a1",
+  "kind": "drill",
+  "title": "Verb Endings - Present Tense",
+  "level": "A1",
+  "estimatedMinutes": 10,
+  "description": "Practice regular verb conjugations in the present tense. Master the endings for ich, du, er/sie/es, wir, ihr, and sie/Sie.",
+  "instructions": "Complete each sentence with the correct verb form.",
+  "exercises": [
+    {
+      "id": "ex-001",
+      "type": "fill-blank",
+      "prompt": "Ich ___ (spielen) Fußball.",
+      "answer": "spiele",
+      "hint": "ich → -e"
+    },
+    {
+      "id": "ex-002",
+      "type": "fill-blank",
+      "prompt": "Du ___ (lernen) Deutsch.",
+      "answer": "lernst",
+      "hint": "du → -st"
+    },
+    {
+      "id": "ex-003",
+      "type": "fill-blank",
+      "prompt": "Er ___ (arbeiten) im Büro.",
+      "answer": "arbeitet",
+      "hint": "er/sie/es → -t (with -et for stems ending in -t)"
+    },
+    {
+      "id": "ex-004",
+      "type": "fill-blank",
+      "prompt": "Wir ___ (wohnen) in Berlin.",
+      "answer": "wohnen",
+      "hint": "wir → -en"
+    },
+    {
+      "id": "ex-005",
+      "type": "fill-blank",
+      "prompt": "Sie (formal) ___ (kommen) aus Deutschland.",
+      "answer": "kommen",
+      "hint": "Sie → -en"
+    }
+  ],
+  "passingScore": 80,
+  "tags": ["grammar", "verbs", "conjugation", "present-tense"]
+}
+

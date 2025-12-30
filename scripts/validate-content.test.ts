@@ -1587,6 +1587,194 @@ test('catalog workspace paths must be valid', () => {
   cleanupTestDir();
 });
 
+// Test 34: Valid drill entry document
+test('valid drill entry document', () => {
+  setupTestDir();
+  
+  const drillEntry = {
+    id: 'test-drill',
+    kind: 'drill',
+    title: 'Test Drill',
+    level: 'A1',
+    estimatedMinutes: 10,
+    description: 'Test drill description',
+    instructions: 'Complete the exercises',
+    exercises: [
+      { id: 'ex-001', type: 'fill-blank', prompt: 'Test', answer: 'test' }
+    ]
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'drills', 'test-drill'), { recursive: true });
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'drills', 'test-drill', 'drill.json'),
+    JSON.stringify(drillEntry, null, 2)
+  );
+  
+  const content = JSON.parse(
+    readFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'drills', 'test-drill', 'drill.json'),
+      'utf-8'
+    )
+  );
+  
+  assert(content.id === 'test-drill', 'Drill should have id');
+  assert(content.kind === 'drill', 'Drill should have kind = drill');
+  assert(content.title === 'Test Drill', 'Drill should have title');
+  assert(typeof content.estimatedMinutes === 'number', 'Drill should have estimatedMinutes');
+  assert(content.level === 'A1', 'Drill should have level');
+  assert(Array.isArray(content.exercises), 'Drill should have exercises array');
+  
+  cleanupTestDir();
+});
+
+// Test 35: Invalid drill entry (missing required field)
+test('invalid drill entry missing required field', () => {
+  setupTestDir();
+  
+  const invalidDrill = {
+    id: 'test-drill',
+    kind: 'drill',
+    title: 'Test Drill'
+    // Missing estimatedMinutes
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'drills', 'test-drill'), { recursive: true });
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'drills', 'test-drill', 'drill.json'),
+    JSON.stringify(invalidDrill, null, 2)
+  );
+  
+  const content = JSON.parse(
+    readFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'drills', 'test-drill', 'drill.json'),
+      'utf-8'
+    )
+  );
+  
+  assert(!content.estimatedMinutes, 'Invalid drill should be missing estimatedMinutes');
+  
+  cleanupTestDir();
+});
+
+// Test 36: Index item with kind drill but wrong entryUrl pattern
+test('drill index item with wrong entryUrl pattern', () => {
+  setupTestDir();
+  
+  const validIndex = {
+    version: 'v1',
+    kind: 'drills',
+    total: 1,
+    pageSize: 20,
+    items: [
+      {
+        id: 'test-drill',
+        kind: 'drill',
+        title: 'Test Drill',
+        level: 'A1',
+        entryUrl: '/v1/workspaces/test-ws/drills/test-drill/drill.json' // Correct pattern
+      }
+    ],
+    nextPage: null
+  };
+  
+  const invalidIndex = {
+    version: 'v1',
+    kind: 'drills',
+    total: 1,
+    pageSize: 20,
+    items: [
+      {
+        id: 'test-drill',
+        kind: 'drill',
+        title: 'Test Drill',
+        level: 'A1',
+        entryUrl: '/v1/drills/test-drill.json' // Wrong pattern
+      }
+    ],
+    nextPage: null
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'mechanics'), { recursive: true });
+  
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'mechanics', 'index-valid.json'),
+    JSON.stringify(validIndex, null, 2)
+  );
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'mechanics', 'index-invalid.json'),
+    JSON.stringify(invalidIndex, null, 2)
+  );
+  
+  const valid = JSON.parse(
+    readFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'mechanics', 'index-valid.json'),
+      'utf-8'
+    )
+  );
+  const invalid = JSON.parse(
+    readFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'mechanics', 'index-invalid.json'),
+      'utf-8'
+    )
+  );
+  
+  // Valid pattern: /v1/workspaces/{ws}/drills/{id}/drill.json
+  assert(
+    valid.items[0].entryUrl.match(/\/v1\/workspaces\/[^/]+\/drills\/[^/]+\/drill\.json$/),
+    'Valid drill entryUrl should match canonical pattern'
+  );
+  assert(
+    !invalid.items[0].entryUrl.match(/\/v1\/workspaces\/[^/]+\/drills\/[^/]+\/drill\.json$/),
+    'Invalid drill entryUrl should not match canonical pattern'
+  );
+  
+  cleanupTestDir();
+});
+
+// Test 37: Drills section in catalog
+test('catalog with drills section', () => {
+  setupTestDir();
+  
+  const catalog = {
+    version: 'v1',
+    workspace: 'test-ws',
+    languageCode: 'test',
+    languageName: 'Test',
+    sections: [
+      {
+        id: 'context',
+        kind: 'context',
+        title: 'Context Library',
+        itemsUrl: '/v1/workspaces/test-ws/context/index.json'
+      },
+      {
+        id: 'mechanics',
+        kind: 'drills',
+        title: 'Mechanics Drills',
+        itemsUrl: '/v1/workspaces/test-ws/mechanics/index.json'
+      }
+    ]
+  };
+  
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'catalog.json'),
+    JSON.stringify(catalog, null, 2)
+  );
+  
+  const content = JSON.parse(
+    readFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'catalog.json'),
+      'utf-8'
+    )
+  );
+  
+  assert(content.sections.length === 2, 'Catalog should have 2 sections');
+  assert(content.sections[1].kind === 'drills', 'Second section should have kind = drills');
+  assert(content.sections[1].id === 'mechanics', 'Second section should have id = mechanics');
+  
+  cleanupTestDir();
+});
+
 // Run all tests
 function runTests() {
   console.log('Running unit tests...\n');

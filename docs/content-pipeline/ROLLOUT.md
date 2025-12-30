@@ -345,7 +345,13 @@ The smoke test:
 
 - **Publish**: Uploads content + staging manifest (safe, doesn't affect production)
 - **Promote**: Flips production manifest (instant, one command)
-- **Rollback**: Promote previous manifest from git (instant recovery)
+- **Rollback**: Restore previous manifest by SHA (instant recovery)
 
 This workflow ensures you never have half-published states or production 404s.
+
+## Related Documentation
+
+- [Rollback Drill](./ROLLBACK_DRILL.md) - Step-by-step guide to test rollback in production
+- [Entry URL Schema](./ENTRY_URL_SCHEMA.md) - Canonical URL patterns for entry documents
+- [Section Index Schema](../SECTION_INDEX_SCHEMA.md) - Pagination schema for indexes
 
