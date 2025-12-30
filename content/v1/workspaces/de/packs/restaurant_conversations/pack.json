@@ -1,0 +1,36 @@
+{
+  "id": "restaurant_conversations",
+  "kind": "pack",
+  "title": "Restaurant Conversations",
+  "level": "A2",
+  "estimatedMinutes": 20,
+  "description": "Master essential phrases for dining out in Germany. Learn how to order food, ask questions, and handle restaurant interactions confidently.",
+  "outline": [
+    "Making a Reservation",
+    "Ordering Food",
+    "Asking Questions",
+    "Paying the Bill"
+  ],
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Ich hätte gern einen Tisch für zwei",
+      "translation": "I would like a table for two",
+      "audioUrl": "/v1/audio/restaurant_conversations/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Können wir die Speisekarte sehen?",
+      "translation": "Can we see the menu?",
+      "audioUrl": "/v1/audio/restaurant_conversations/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "Ich nehme das Schnitzel",
+      "translation": "I'll have the schnitzel",
+      "audioUrl": "/v1/audio/restaurant_conversations/prompt-003.mp3"
+    }
+  ],
+  "tags": ["restaurant", "food", "conversation"]
+}
+

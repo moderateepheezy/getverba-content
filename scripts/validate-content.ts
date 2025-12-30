@@ -30,6 +30,53 @@ function resolveContentPath(jsonPath: string): string {
   return join(CONTENT_DIR, relativePath);
 }
 
+function validateEntryUrlPattern(entryUrl: string, itemId: string, kind: string, filePath: string, itemIdx: number): void {
+  // Normalize kind to canonical form
+  const normalizedKind = kind.toLowerCase();
+  
+  // Determine expected pattern based on kind
+  let expectedPattern: RegExp;
+  let expectedSuffix: string;
+  
+  if (normalizedKind === 'context' || normalizedKind === 'pack') {
+    // Pack pattern: /v1/workspaces/{workspace}/packs/{packId}/pack.json
+    expectedPattern = /^\/v1\/workspaces\/[^/]+\/packs\/[^/]+\/pack\.json$/;
+    expectedSuffix = '/pack.json';
+  } else if (normalizedKind === 'exams' || normalizedKind === 'exam') {
+    // Exam pattern: /v1/workspaces/{workspace}/exams/{examId}/exam.json
+    expectedPattern = /^\/v1\/workspaces\/[^/]+\/exams\/[^/]+\/exam\.json$/;
+    expectedSuffix = '/exam.json';
+  } else if (normalizedKind === 'drills' || normalizedKind === 'drill') {
+    // Drill pattern: /v1/workspaces/{workspace}/drills/{drillId}/drill.json
+    expectedPattern = /^\/v1\/workspaces\/[^/]+\/drills\/[^/]+\/drill\.json$/;
+    expectedSuffix = '/drill.json';
+  } else {
+    // Unknown kind - skip pattern validation but warn
+    return;
+  }
+  
+  // Check if entryUrl matches expected pattern
+  if (!expectedPattern.test(entryUrl)) {
+    addError(filePath, `Item ${itemIdx} entryUrl does not match canonical pattern for kind "${kind}". Expected pattern: /v1/workspaces/{workspace}/${normalizedKind === 'context' || normalizedKind === 'pack' ? 'packs' : normalizedKind === 'exams' || normalizedKind === 'exam' ? 'exams' : 'drills'}/{id}/${normalizedKind === 'context' || normalizedKind === 'pack' ? 'pack' : normalizedKind === 'exams' || normalizedKind === 'exam' ? 'exam' : 'drill'}.json`);
+    return;
+  }
+  
+  // Extract packId/examId/drillId from URL and verify it matches item.id
+  // URL format: /v1/workspaces/{workspace}/{type}/{id}/{file}.json
+  const urlParts = entryUrl.split('/');
+  const typeIndex = urlParts.indexOf(normalizedKind === 'context' || normalizedKind === 'pack' ? 'packs' : normalizedKind === 'exams' || normalizedKind === 'exam' ? 'exams' : 'drills');
+  if (typeIndex >= 0 && typeIndex < urlParts.length - 2) {
+    const urlId = urlParts[typeIndex + 1];
+    // Normalize IDs for comparison (case-insensitive, handle kebab-case)
+    const normalizedUrlId = urlId.toLowerCase().replace(/-/g, '_');
+    const normalizedItemId = itemId.toLowerCase().replace(/-/g, '_');
+    
+    if (normalizedUrlId !== normalizedItemId) {
+      addError(filePath, `Item ${itemIdx} entryUrl contains ID "${urlId}" but item.id is "${itemId}". They should match (case-insensitive).`);
+    }
+  }
+}
+
 function validateJsonPath(path: string, context: string): void {
   if (!isValidJsonPath(path)) {
     return; // Not a JSON path, skip
@@ -173,6 +220,11 @@ function validateIndex(indexPath: string): void {
         if (!item.entryUrl.startsWith('/v1/') || !item.entryUrl.endsWith('.json')) {
           addError(indexPath, `Item ${idx} entryUrl must start with /v1/ and end with .json`);
         } else {
+          // Validate entryUrl matches canonical pattern based on kind
+          const sectionKind = index.kind;
+          const itemKind = item.kind || sectionKind; // Use item.kind if present, fallback to section kind
+          validateEntryUrlPattern(item.entryUrl, item.id, itemKind || sectionKind, indexPath, idx);
+          
           // Validate entryUrl file exists
           validateJsonPath(item.entryUrl, `items[${idx}].entryUrl`);
         }

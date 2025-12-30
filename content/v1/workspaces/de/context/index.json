@@ -5,18 +5,18 @@
   "pageSize": 20,
   "items": [
     {
-      "id": "pack-001",
+      "id": "basic_greetings",
       "title": "Basic German Greetings",
       "level": "A1",
       "durationMinutes": 15,
-      "entryUrl": "/v1/packs/pack-001.json"
+      "entryUrl": "/v1/workspaces/de/packs/basic_greetings/pack.json"
     },
     {
-      "id": "pack-002",
+      "id": "restaurant_conversations",
       "title": "Restaurant Conversations",
       "level": "A2",
       "durationMinutes": 20,
-      "entryUrl": "/v1/packs/pack-002.json"
+      "entryUrl": "/v1/workspaces/de/packs/restaurant_conversations/pack.json"
     }
   ],
   "nextPage": null

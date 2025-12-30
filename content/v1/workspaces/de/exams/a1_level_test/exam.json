@@ -1,0 +1,31 @@
+{
+  "id": "a1_level_test",
+  "kind": "exam",
+  "title": "A1 Level Test",
+  "level": "A1",
+  "estimatedMinutes": 30,
+  "description": "Test your A1 German skills with this comprehensive assessment covering vocabulary, grammar, and basic comprehension.",
+  "outline": [
+    "Vocabulary Section",
+    "Grammar Section",
+    "Reading Comprehension"
+  ],
+  "questions": [
+    {
+      "id": "q-001",
+      "type": "multiple-choice",
+      "question": "What does 'Guten Tag' mean?",
+      "options": ["Good morning", "Good day", "Good evening", "Good night"],
+      "correctAnswer": 1
+    },
+    {
+      "id": "q-002",
+      "type": "multiple-choice",
+      "question": "How do you say 'Thank you' in German?",
+      "options": ["Bitte", "Danke", "Entschuldigung", "Gern geschehen"],
+      "correctAnswer": 1
+    }
+  ],
+  "passingScore": 70
+}
+

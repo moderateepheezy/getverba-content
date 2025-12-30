@@ -1,0 +1,235 @@
+# Entry URL Schema
+
+This document defines the canonical `entryUrl` contract for section index items. Every `entryUrl` must resolve to a single, canonical JSON document that the app can render.
+
+## Canonical Patterns
+
+All `entryUrl` values must follow these patterns based on the section `kind`:
+
+### Pack Entry URL
+
+**Pattern**: `/v1/workspaces/{workspace}/packs/{packId}/pack.json`
+
+**Example**: `/v1/workspaces/de/packs/basic_greetings/pack.json`
+
+**Schema**: See [Pack Entry Schema](#pack-entry-schema)
+
+### Exam Entry URL
+
+**Pattern**: `/v1/workspaces/{workspace}/exams/{examId}/exam.json`
+
+**Example**: `/v1/workspaces/de/exams/a1_level_test/exam.json`
+
+**Schema**: See [Exam Entry Schema](#exam-entry-schema)
+
+### Drill Entry URL
+
+**Pattern**: `/v1/workspaces/{workspace}/drills/{drillId}/drill.json`
+
+**Example**: `/v1/workspaces/de/drills/pronunciation_basics/drill.json`
+
+**Schema**: See [Drill Entry Schema](#drill-entry-schema)
+
+## Validation Rules
+
+1. ✅ `entryUrl` must start with `/v1/` and end with `.json`
+2. ✅ `entryUrl` must match the pattern for the section `kind`:
+   - If `kind === "context"` or `kind === "pack"` → must match pack pattern
+   - If `kind === "exams"` or `kind === "exam"` → must match exam pattern
+   - If `kind === "drills"` or `kind === "drill"` → must match drill pattern
+3. ✅ The file referenced by `entryUrl` must exist locally
+4. ✅ The `packId`/`examId`/`drillId` in the URL must match the item `id` (case-insensitive, normalized)
+
+## Pack Entry Schema
+
+**File**: `/v1/workspaces/{workspace}/packs/{packId}/pack.json`
+
+```json
+{
+  "id": "basic_greetings",
+  "kind": "pack",
+  "title": "Basic German Greetings",
+  "level": "A1",
+  "estimatedMinutes": 15,
+  "description": "Learn essential German greetings for everyday conversations. Practice saying hello, goodbye, and common polite phrases.",
+  "outline": [
+    "Opening: Greetings",
+    "Common Phrases",
+    "Closing: Goodbyes"
+  ],
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Guten Morgen",
+      "translation": "Good morning",
+      "audioUrl": "/v1/audio/basic_greetings/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Guten Tag",
+      "translation": "Good day",
+      "audioUrl": "/v1/audio/basic_greetings/prompt-002.mp3"
+    }
+  ]
+}
+```
+
+### Pack Entry Fields
+
+**Required:**
+- `id` (string): Pack identifier, must match `packId` in URL
+- `kind` (string): Must be `"pack"`
+- `title` (string): Display title
+- `level` (string): Language level (`"A1"`, `"A2"`, etc.)
+- `estimatedMinutes` (number): Estimated duration in minutes
+- `description` (string): 1-3 line description
+- `outline` (string[]): Array of section titles/headings
+- `prompts` (array): Array of prompt objects OR `promptsUrl` (string) for large packs
+
+**Optional:**
+- `promptsUrl` (string): If pack has many prompts, can reference external file
+  - Format: `/v1/workspaces/{workspace}/packs/{packId}/prompts.json`
+- `tags` (string[]): Taxonomy tags for filtering
+- `thumbnailUrl` (string): Preview image URL
+
+**Prompt Object:**
+- `id` (string): Unique prompt identifier
+- `text` (string): Primary text (e.g., German phrase)
+- `translation` (string, optional): Translation or explanation
+- `audioUrl` (string, optional): Audio file URL
+
+## Exam Entry Schema
+
+**File**: `/v1/workspaces/{workspace}/exams/{examId}/exam.json`
+
+```json
+{
+  "id": "a1_level_test",
+  "kind": "exam",
+  "title": "A1 Level Test",
+  "level": "A1",
+  "estimatedMinutes": 30,
+  "description": "Test your A1 German skills with this comprehensive assessment.",
+  "outline": [
+    "Vocabulary Section",
+    "Grammar Section",
+    "Reading Comprehension"
+  ],
+  "questions": [
+    {
+      "id": "q-001",
+      "type": "multiple-choice",
+      "question": "What does 'Guten Tag' mean?",
+      "options": ["Good morning", "Good day", "Good evening", "Good night"],
+      "correctAnswer": 1
+    }
+  ]
+}
+```
+
+### Exam Entry Fields
+
+**Required:**
+- `id` (string): Exam identifier
+- `kind` (string): Must be `"exam"`
+- `title` (string): Display title
+- `level` (string): Language level
+- `estimatedMinutes` (number): Estimated duration
+- `description` (string): Exam description
+- `outline` (string[]): Section outline
+- `questions` (array): Array of question objects OR `questionsUrl` (string)
+
+**Optional:**
+- `questionsUrl` (string): External questions file for large exams
+- `passingScore` (number): Minimum score to pass (0-100)
+
+## Drill Entry Schema
+
+**File**: `/v1/workspaces/{workspace}/drills/{drillId}/drill.json`
+
+```json
+{
+  "id": "pronunciation_basics",
+  "kind": "drill",
+  "title": "Pronunciation Basics",
+  "level": "A1",
+  "estimatedMinutes": 10,
+  "description": "Practice basic German pronunciation patterns.",
+  "outline": [
+    "Vowel Sounds",
+    "Consonant Combinations",
+    "Common Words"
+  ],
+  "exercises": [
+    {
+      "id": "ex-001",
+      "text": "Hallo",
+      "audioUrl": "/v1/audio/pronunciation_basics/ex-001.mp3"
+    }
+  ]
+}
+```
+
+### Drill Entry Fields
+
+**Required:**
+- `id` (string): Drill identifier
+- `kind` (string): Must be `"drill"`
+- `title` (string): Display title
+- `level` (string): Language level
+- `estimatedMinutes` (number): Estimated duration
+- `description` (string): Drill description
+- `outline` (string[]): Section outline
+- `exercises` (array): Array of exercise objects OR `exercisesUrl` (string)
+
+## Migration from Old Pattern
+
+**Old pattern** (deprecated):
+```
+/v1/packs/pack-001.json
+```
+
+**New pattern** (canonical):
+```
+/v1/workspaces/de/packs/basic_greetings/pack.json
+```
+
+**Changes:**
+- Moved from flat `/v1/packs/` to workspace-scoped `/v1/workspaces/{workspace}/packs/`
+- Pack ID now uses kebab-case (`basic_greetings` instead of `pack-001`)
+- File name is always `pack.json` (not `{packId}.json`)
+- Same structure for exams and drills
+
+## Benefits
+
+1. **Workspace-scoped**: Content is organized by workspace, enabling multi-language support
+2. **Predictable**: Always know where to find entry files
+3. **Extensible**: Can add additional files per entry (e.g., `prompts.json`, `metadata.json`)
+4. **Validatable**: Validator can enforce pattern matching
+5. **Cache-friendly**: Clear URL structure for ETag caching
+
+## Usage in Frontend
+
+The frontend should:
+
+1. Extract `kind` from section index (or infer from section `kind`)
+2. Construct expected `entryUrl` pattern based on `kind`
+3. Fetch entry JSON from `entryUrl`
+4. Render based on entry `kind` and schema
+
+Example:
+```typescript
+// From section index item
+const item = { id: "basic_greetings", entryUrl: "/v1/workspaces/de/packs/basic_greetings/pack.json", ... };
+
+// Fetch entry
+const entry = await contentClient.fetchEntry(item.entryUrl);
+
+// Render based on entry.kind
+if (entry.kind === "pack") {
+  // Render PackDetailPreview
+} else if (entry.kind === "exam") {
+  // Render ExamDetailPreview
+}
+```
+

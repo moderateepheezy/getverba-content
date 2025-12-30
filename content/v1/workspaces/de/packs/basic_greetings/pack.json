@@ -1,0 +1,47 @@
+{
+  "id": "basic_greetings",
+  "kind": "pack",
+  "title": "Basic German Greetings",
+  "level": "A1",
+  "estimatedMinutes": 15,
+  "description": "Learn essential German greetings for everyday conversations. Practice saying hello, goodbye, and common polite phrases.",
+  "outline": [
+    "Opening: Greetings",
+    "Common Phrases",
+    "Closing: Goodbyes"
+  ],
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Guten Morgen",
+      "translation": "Good morning",
+      "audioUrl": "/v1/audio/basic_greetings/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Guten Tag",
+      "translation": "Good day",
+      "audioUrl": "/v1/audio/basic_greetings/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "Guten Abend",
+      "translation": "Good evening",
+      "audioUrl": "/v1/audio/basic_greetings/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Auf Wiedersehen",
+      "translation": "Goodbye",
+      "audioUrl": "/v1/audio/basic_greetings/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Tschüss",
+      "translation": "Bye",
+      "audioUrl": "/v1/audio/basic_greetings/prompt-005.mp3"
+    }
+  ],
+  "tags": ["greetings", "basics", "conversation"]
+}
+
