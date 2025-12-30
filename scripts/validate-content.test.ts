@@ -1437,6 +1437,156 @@ test('staging manifest can differ from production', () => {
   cleanupTestDir();
 });
 
+// Test 30: Release.json structure validation
+test('release.json structure validation', () => {
+  setupTestDir();
+  
+  const validRelease = {
+    releasedAt: '2025-12-30T10:00:00Z',
+    gitSha: 'abc123def456',
+    contentHash: '7168ce1e00fa8bc39464d1f1754efc47cee1f30297f71c94c595615718d38f8c'
+  };
+  
+  const invalidRelease = {
+    releasedAt: '2025-12-30T10:00:00Z'
+    // Missing gitSha and contentHash
+  };
+  
+  mkdirSync(join(TEST_DIR, 'meta'), { recursive: true });
+  writeFileSync(
+    join(TEST_DIR, 'meta', 'release-valid.json'),
+    JSON.stringify(validRelease, null, 2)
+  );
+  writeFileSync(
+    join(TEST_DIR, 'meta', 'release-invalid.json'),
+    JSON.stringify(invalidRelease, null, 2)
+  );
+  
+  const valid = JSON.parse(
+    readFileSync(join(TEST_DIR, 'meta', 'release-valid.json'), 'utf-8')
+  );
+  const invalid = JSON.parse(
+    readFileSync(join(TEST_DIR, 'meta', 'release-invalid.json'), 'utf-8')
+  );
+  
+  assert(valid.releasedAt, 'Valid release should have releasedAt');
+  assert(valid.gitSha, 'Valid release should have gitSha');
+  assert(valid.contentHash, 'Valid release should have contentHash');
+  
+  assert(!invalid.gitSha, 'Invalid release should be missing gitSha');
+  assert(!invalid.contentHash, 'Invalid release should be missing contentHash');
+  
+  cleanupTestDir();
+});
+
+// Test 31: Archived manifest naming convention
+test('archived manifest naming convention', () => {
+  setupTestDir();
+  
+  const manifest = {
+    activeVersion: 'v1',
+    activeWorkspace: 'test-ws',
+    workspaces: {
+      'test-ws': '/v1/workspaces/test-ws/catalog.json'
+    }
+  };
+  
+  const gitSha = 'abc123def456789012345678901234567890abcd';
+  
+  mkdirSync(join(TEST_DIR, 'meta', 'manifests'), { recursive: true });
+  writeFileSync(
+    join(TEST_DIR, 'meta', 'manifests', `${gitSha}.json`),
+    JSON.stringify(manifest, null, 2)
+  );
+  
+  assert(
+    existsSync(join(TEST_DIR, 'meta', 'manifests', `${gitSha}.json`)),
+    'Archived manifest should be named <gitSha>.json'
+  );
+  
+  // Validate SHA format
+  assert(/^[a-f0-9]{7,40}$/.test(gitSha), 'Git SHA should be 7-40 hex characters');
+  
+  cleanupTestDir();
+});
+
+// Test 32: Manifest activeWorkspace must exist in workspaces
+test('manifest activeWorkspace must exist in workspaces', () => {
+  setupTestDir();
+  
+  const validManifest = {
+    activeVersion: 'v1',
+    activeWorkspace: 'test-ws',
+    workspaces: {
+      'test-ws': '/v1/workspaces/test-ws/catalog.json'
+    }
+  };
+  
+  const invalidManifest = {
+    activeVersion: 'v1',
+    activeWorkspace: 'missing-ws', // Not in workspaces
+    workspaces: {
+      'test-ws': '/v1/workspaces/test-ws/catalog.json'
+    }
+  };
+  
+  mkdirSync(join(TEST_DIR, 'meta'), { recursive: true });
+  writeFileSync(
+    join(TEST_DIR, 'meta', 'manifest-valid.json'),
+    JSON.stringify(validManifest, null, 2)
+  );
+  writeFileSync(
+    join(TEST_DIR, 'meta', 'manifest-invalid.json'),
+    JSON.stringify(invalidManifest, null, 2)
+  );
+  
+  const valid = JSON.parse(
+    readFileSync(join(TEST_DIR, 'meta', 'manifest-valid.json'), 'utf-8')
+  );
+  const invalid = JSON.parse(
+    readFileSync(join(TEST_DIR, 'meta', 'manifest-invalid.json'), 'utf-8')
+  );
+  
+  assert(
+    valid.workspaces[valid.activeWorkspace] !== undefined,
+    'Valid manifest activeWorkspace should exist in workspaces'
+  );
+  assert(
+    invalid.workspaces[invalid.activeWorkspace] === undefined,
+    'Invalid manifest activeWorkspace should not exist in workspaces'
+  );
+  
+  cleanupTestDir();
+});
+
+// Test 33: Catalog workspace paths must be valid
+test('catalog workspace paths must be valid', () => {
+  setupTestDir();
+  
+  const validPath = '/v1/workspaces/test-ws/catalog.json';
+  const invalidPaths = [
+    'v1/workspaces/test-ws/catalog.json', // Missing leading /
+    '/workspaces/test-ws/catalog.json',   // Missing v1/
+    '/v1/workspaces/test-ws/catalog',     // Missing .json
+  ];
+  
+  // Valid path should pass all checks
+  assert(validPath.startsWith('/v1/'), 'Valid path should start with /v1/');
+  assert(validPath.endsWith('.json'), 'Valid path should end with .json');
+  assert(validPath.includes('/workspaces/'), 'Valid path should include /workspaces/');
+  
+  // Invalid paths should fail at least one check
+  invalidPaths.forEach((path, i) => {
+    const isValid = 
+      path.startsWith('/v1/') && 
+      path.endsWith('.json') && 
+      path.includes('/workspaces/');
+    assert(!isValid, `Invalid path ${i} should fail validation`);
+  });
+  
+  cleanupTestDir();
+});
+
 // Run all tests
 function runTests() {
   console.log('Running unit tests...\n');
