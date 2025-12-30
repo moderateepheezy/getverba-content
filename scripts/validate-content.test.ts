@@ -908,6 +908,421 @@ test('entry document kind matches item kind', () => {
   cleanupTestDir();
 });
 
+// Test 18: Pack entry with valid sessionPlan
+test('pack entry with valid sessionPlan', () => {
+  setupTestDir();
+  
+  const packEntry = {
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test description',
+    outline: ['Step 1', 'Step 2'],
+    prompts: [
+      { id: 'p1', text: 'Hello' },
+      { id: 'p2', text: 'Goodbye' }
+    ],
+    sessionPlan: {
+      version: 1,
+      steps: [
+        {
+          id: 'step1',
+          title: 'Step 1',
+          promptIds: ['p1']
+        },
+        {
+          id: 'step2',
+          title: 'Step 2',
+          promptIds: ['p2']
+        }
+      ]
+    }
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack'), { recursive: true });
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+    JSON.stringify(packEntry, null, 2)
+  );
+  
+  const content = JSON.parse(
+    readFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+      'utf-8'
+    )
+  );
+  
+  assert(content.sessionPlan.version === 1, 'Valid pack should have sessionPlan.version === 1');
+  assert(Array.isArray(content.sessionPlan.steps), 'Valid pack should have sessionPlan.steps array');
+  assert(content.sessionPlan.steps.length > 0, 'Valid pack should have non-empty steps array');
+  assert(content.sessionPlan.steps[0].id === 'step1', 'First step should have id');
+  assert(content.sessionPlan.steps[0].title === 'Step 1', 'First step should have title');
+  assert(Array.isArray(content.sessionPlan.steps[0].promptIds), 'First step should have promptIds array');
+  assert(content.sessionPlan.steps[0].promptIds.length > 0, 'First step should have non-empty promptIds');
+  
+  cleanupTestDir();
+});
+
+// Test 19: Pack entry missing sessionPlan
+test('pack entry missing sessionPlan', () => {
+  setupTestDir();
+  
+  const packEntry = {
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test description',
+    outline: ['Step 1'],
+    prompts: [{ id: 'p1', text: 'Hello' }]
+    // Missing sessionPlan
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack'), { recursive: true });
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+    JSON.stringify(packEntry, null, 2)
+  );
+  
+  const content = JSON.parse(
+    readFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+      'utf-8'
+    )
+  );
+  
+  assert(!content.sessionPlan, 'Invalid pack should be missing sessionPlan');
+  
+  cleanupTestDir();
+});
+
+// Test 20: Pack entry with invalid sessionPlan.version
+test('pack entry with invalid sessionPlan.version', () => {
+  setupTestDir();
+  
+  const packEntry = {
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test description',
+    outline: ['Step 1'],
+    prompts: [{ id: 'p1', text: 'Hello' }],
+    sessionPlan: {
+      version: 2, // Invalid - must be 1
+      steps: [
+        {
+          id: 'step1',
+          title: 'Step 1',
+          promptIds: ['p1']
+        }
+      ]
+    }
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack'), { recursive: true });
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+    JSON.stringify(packEntry, null, 2)
+  );
+  
+  const content = JSON.parse(
+    readFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+      'utf-8'
+    )
+  );
+  
+  assert(content.sessionPlan.version !== 1, 'Invalid pack should have sessionPlan.version !== 1');
+  
+  cleanupTestDir();
+});
+
+// Test 21: Pack entry with empty steps array
+test('pack entry with empty steps array', () => {
+  setupTestDir();
+  
+  const packEntry = {
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test description',
+    outline: ['Step 1'],
+    prompts: [{ id: 'p1', text: 'Hello' }],
+    sessionPlan: {
+      version: 1,
+      steps: [] // Invalid - must be non-empty
+    }
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack'), { recursive: true });
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+    JSON.stringify(packEntry, null, 2)
+  );
+  
+  const content = JSON.parse(
+    readFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+      'utf-8'
+    )
+  );
+  
+  assert(Array.isArray(content.sessionPlan.steps), 'Steps should be an array');
+  assert(content.sessionPlan.steps.length === 0, 'Invalid pack should have empty steps array');
+  
+  cleanupTestDir();
+});
+
+// Test 22: Pack entry step missing required fields
+test('pack entry step missing required fields', () => {
+  setupTestDir();
+  
+  const packEntry = {
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test description',
+    outline: ['Step 1'],
+    prompts: [{ id: 'p1', text: 'Hello' }],
+    sessionPlan: {
+      version: 1,
+      steps: [
+        {
+          // Missing id, title, promptIds
+        }
+      ]
+    }
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack'), { recursive: true });
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+    JSON.stringify(packEntry, null, 2)
+  );
+  
+  const content = JSON.parse(
+    readFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+      'utf-8'
+    )
+  );
+  
+  assert(!content.sessionPlan.steps[0].id, 'Invalid step should be missing id');
+  assert(!content.sessionPlan.steps[0].title, 'Invalid step should be missing title');
+  assert(!content.sessionPlan.steps[0].promptIds, 'Invalid step should be missing promptIds');
+  
+  cleanupTestDir();
+});
+
+// Test 23: Pack entry step with empty promptIds
+test('pack entry step with empty promptIds', () => {
+  setupTestDir();
+  
+  const packEntry = {
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test description',
+    outline: ['Step 1'],
+    prompts: [{ id: 'p1', text: 'Hello' }],
+    sessionPlan: {
+      version: 1,
+      steps: [
+        {
+          id: 'step1',
+          title: 'Step 1',
+          promptIds: [] // Invalid - must be non-empty
+        }
+      ]
+    }
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack'), { recursive: true });
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+    JSON.stringify(packEntry, null, 2)
+  );
+  
+  const content = JSON.parse(
+    readFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+      'utf-8'
+    )
+  );
+  
+  assert(Array.isArray(content.sessionPlan.steps[0].promptIds), 'promptIds should be an array');
+  assert(content.sessionPlan.steps[0].promptIds.length === 0, 'Invalid step should have empty promptIds');
+  
+  cleanupTestDir();
+});
+
+// Test 24: Pack entry promptIds referencing non-existent prompts
+test('pack entry promptIds referencing non-existent prompts', () => {
+  setupTestDir();
+  
+  const packEntry = {
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test description',
+    outline: ['Step 1'],
+    prompts: [
+      { id: 'p1', text: 'Hello' }
+      // Missing p2, p3
+    ],
+    sessionPlan: {
+      version: 1,
+      steps: [
+        {
+          id: 'step1',
+          title: 'Step 1',
+          promptIds: ['p1', 'p2', 'p3'] // p2 and p3 don't exist
+        }
+      ]
+    }
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack'), { recursive: true });
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+    JSON.stringify(packEntry, null, 2)
+  );
+  
+  const content = JSON.parse(
+    readFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+      'utf-8'
+    )
+  );
+  
+  const promptIds = new Set(content.prompts.map((p: any) => p.id));
+  const referencedIds = content.sessionPlan.steps[0].promptIds;
+  
+  assert(!promptIds.has('p2'), 'p2 should not exist in prompts');
+  assert(!promptIds.has('p3'), 'p3 should not exist in prompts');
+  assert(referencedIds.includes('p2'), 'Step should reference non-existent p2');
+  assert(referencedIds.includes('p3'), 'Step should reference non-existent p3');
+  
+  cleanupTestDir();
+});
+
+// Test 25: Pack entry outline.length matches steps.length
+test('pack entry outline.length matches steps.length', () => {
+  setupTestDir();
+  
+  const packEntry = {
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test description',
+    outline: ['Step 1', 'Step 2'], // 2 items
+    prompts: [
+      { id: 'p1', text: 'Hello' },
+      { id: 'p2', text: 'Goodbye' }
+    ],
+    sessionPlan: {
+      version: 1,
+      steps: [
+        {
+          id: 'step1',
+          title: 'Step 1',
+          promptIds: ['p1']
+        },
+        {
+          id: 'step2',
+          title: 'Step 2',
+          promptIds: ['p2']
+        }
+      ] // 2 steps - matches outline
+    }
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack'), { recursive: true });
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+    JSON.stringify(packEntry, null, 2)
+  );
+  
+  const content = JSON.parse(
+    readFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+      'utf-8'
+    )
+  );
+  
+  assert(content.outline.length === content.sessionPlan.steps.length, 'Outline length should match steps length');
+  
+  cleanupTestDir();
+});
+
+// Test 26: Pack entry outline.length mismatch (warning case)
+test('pack entry outline.length mismatch warning case', () => {
+  setupTestDir();
+  
+  const packEntry = {
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test description',
+    outline: ['Step 1', 'Step 2', 'Step 3', 'Step 4'], // 4 items
+    prompts: [
+      { id: 'p1', text: 'Hello' },
+      { id: 'p2', text: 'Goodbye' }
+    ],
+    sessionPlan: {
+      version: 1,
+      steps: [
+        {
+          id: 'step1',
+          title: 'Step 1',
+          promptIds: ['p1']
+        },
+        {
+          id: 'step2',
+          title: 'Step 2',
+          promptIds: ['p2']
+        }
+      ] // 2 steps - doesn't match outline (warning, not error)
+    }
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack'), { recursive: true });
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+    JSON.stringify(packEntry, null, 2)
+  );
+  
+  const content = JSON.parse(
+    readFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+      'utf-8'
+    )
+  );
+  
+  assert(content.outline.length !== content.sessionPlan.steps.length, 'Outline length should not match steps length in mismatch case');
+  assert(content.outline.length === 4, 'Outline should have 4 items');
+  assert(content.sessionPlan.steps.length === 2, 'Steps should have 2 items');
+  
+  cleanupTestDir();
+});
+
 // Run all tests
 function runTests() {
   console.log('Running unit tests...\n');
