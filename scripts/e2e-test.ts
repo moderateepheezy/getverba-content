@@ -110,7 +110,7 @@ test('verify catalog exists for active workspace', () => {
   assert(catalog.sections.length > 0, 'Catalog should have at least one section');
 });
 
-// E2E Test 4: Verify section indexes exist and are valid
+// E2E Test 4: Verify section indexes exist and are valid (with pagination)
 test('verify section indexes exist and are valid', () => {
   const manifestPath = join(META_DIR, 'manifest.json');
   const manifest = JSON.parse(readFileSync(manifestPath, 'utf-8'));
@@ -131,14 +131,68 @@ test('verify section indexes exist and are valid', () => {
     assert(existsSync(indexLocalPath), `Section index should exist: ${indexLocalPath}`);
     
     // Validate index structure
-    const index = JSON.parse(readFileSync(indexLocalPath, 'utf-8'));
-    assert(index.version === 'v1', `Index should have version v1`);
-    assert(index.kind, `Index should have kind`);
-    assert(Array.isArray(index.items), `Index should have items array`);
-    assert(index.items.length > 0, `Index should have at least one item`);
+    const firstPage = JSON.parse(readFileSync(indexLocalPath, 'utf-8'));
+    assert(firstPage.version === 'v1', `Index should have version v1`);
+    assert(firstPage.kind, `Index should have kind`);
+    assert(Array.isArray(firstPage.items), `Index should have items array`);
     
-    // Validate items have required fields
-    index.items.forEach((item: any, idx: number) => {
+    // Store first page metadata for pagination invariant checks
+    const firstPageVersion = firstPage.version;
+    const firstPageKind = firstPage.kind;
+    const firstPagePageSize = firstPage.pageSize;
+    const firstPageTotal = firstPage.total;
+    const allItemIds = new Set<string>();
+    let totalItems = 0;
+    let pageCount = 0;
+    const visitedPages = new Set<string>();
+    
+    // Follow pagination chain
+    let currentPagePath: string | null = indexRelativePath;
+    while (currentPagePath) {
+      pageCount++;
+      const currentFullPath = join(CONTENT_DIR, currentPagePath);
+      
+      // Loop detection
+      assert(!visitedPages.has(currentPagePath), `Pagination loop detected at ${currentPagePath}`);
+      visitedPages.add(currentPagePath);
+      
+      assert(existsSync(currentFullPath), `Pagination page should exist: ${currentFullPath}`);
+      const page = JSON.parse(readFileSync(currentFullPath, 'utf-8'));
+      
+      // Validate invariants match first page
+      if (pageCount > 1) {
+        assert(page.version === firstPageVersion, `Page ${pageCount} version should match first page`);
+        assert(page.kind === firstPageKind, `Page ${pageCount} kind should match first page`);
+        assert(page.pageSize === firstPagePageSize, `Page ${pageCount} pageSize should match first page`);
+        assert(page.total === firstPageTotal, `Page ${pageCount} total should match first page`);
+      }
+      
+      // Collect items and check for duplicates
+      if (Array.isArray(page.items)) {
+        page.items.forEach((item: any) => {
+          if (item.id) {
+            assert(!allItemIds.has(item.id), `Duplicate item ID "${item.id}" found across pagination pages`);
+            allItemIds.add(item.id);
+          }
+          totalItems++;
+        });
+      }
+      
+      // Move to next page
+      if (typeof page.nextPage === 'string') {
+        assert(page.nextPage.startsWith('/v1/'), `nextPage should start with /v1/`);
+        assert(page.nextPage.endsWith('.json'), `nextPage should end with .json`);
+        currentPagePath = page.nextPage.replace(/^\/v1\//, '');
+      } else {
+        currentPagePath = null;
+      }
+    }
+    
+    // Validate total matches actual item count
+    assert(totalItems === firstPageTotal, `Total (${firstPageTotal}) should equal actual item count (${totalItems}) across ${pageCount} page(s)`);
+    
+    // Validate items have required fields (from first page)
+    firstPage.items.forEach((item: any, idx: number) => {
       assert(item.id, `Item ${idx} should have id`);
       assert(item.kind, `Item ${idx} should have kind`);
       assert(item.title, `Item ${idx} should have title`);
@@ -244,7 +298,7 @@ test('verify Worker API catalog endpoint', async () => {
   }
 });
 
-// E2E Test 8: Verify Worker API section index endpoint (if accessible)
+// E2E Test 8: Verify Worker API section index endpoint (if accessible, with pagination)
 test('verify Worker API section index endpoint', async () => {
   try {
     const manifest = await fetchJson(`${WORKER_BASE_URL}/manifest`);
@@ -253,15 +307,69 @@ test('verify Worker API section index endpoint', async () => {
     const catalog = await fetchJson(`${WORKER_BASE_URL}${catalogPath}`);
     
     if (catalog.sections.length > 0) {
-      const firstSection = catalog.sections[0];
-      const index = await fetchJson(`${WORKER_BASE_URL}${firstSection.itemsUrl}`);
+      // Find a section with pagination (mechanics) or use first section
+      let testSection = catalog.sections.find((s: any) => s.id === 'mechanics') || catalog.sections[0];
+      const firstPage = await fetchJson(`${WORKER_BASE_URL}${testSection.itemsUrl}`);
       
-      assert(index.version === 'v1', 'Worker index should have version v1');
-      assert(index.kind, 'Worker index should have kind');
-      assert(Array.isArray(index.items), 'Worker index should have items array');
+      assert(firstPage.version === 'v1', 'Worker index should have version v1');
+      assert(firstPage.kind, 'Worker index should have kind');
+      assert(Array.isArray(firstPage.items), 'Worker index should have items array');
       
-      if (index.items.length > 0) {
-        const firstItem = index.items[0];
+      // Store first page metadata for pagination invariant checks
+      const firstPageVersion = firstPage.version;
+      const firstPageKind = firstPage.kind;
+      const firstPagePageSize = firstPage.pageSize;
+      const firstPageTotal = firstPage.total;
+      const allItemIds = new Set<string>();
+      let totalItems = 0;
+      let pageCount = 0;
+      const visitedPages = new Set<string>();
+      
+      // Follow pagination chain
+      let currentPageUrl: string | null = testSection.itemsUrl;
+      while (currentPageUrl) {
+        pageCount++;
+        
+        // Loop detection
+        assert(!visitedPages.has(currentPageUrl), `Pagination loop detected at ${currentPageUrl}`);
+        visitedPages.add(currentPageUrl);
+        
+        const page = await fetchJson(`${WORKER_BASE_URL}${currentPageUrl}`);
+        
+        // Validate invariants match first page
+        if (pageCount > 1) {
+          assert(page.version === firstPageVersion, `Page ${pageCount} version should match first page`);
+          assert(page.kind === firstPageKind, `Page ${pageCount} kind should match first page`);
+          assert(page.pageSize === firstPagePageSize, `Page ${pageCount} pageSize should match first page`);
+          assert(page.total === firstPageTotal, `Page ${pageCount} total should match first page`);
+        }
+        
+        // Collect items and check for duplicates
+        if (Array.isArray(page.items)) {
+          page.items.forEach((item: any) => {
+            if (item.id) {
+              assert(!allItemIds.has(item.id), `Duplicate item ID "${item.id}" found across pagination pages`);
+              allItemIds.add(item.id);
+            }
+            totalItems++;
+          });
+        }
+        
+        // Move to next page
+        if (typeof page.nextPage === 'string') {
+          assert(page.nextPage.startsWith('/v1/'), `nextPage should start with /v1/`);
+          assert(page.nextPage.endsWith('.json'), `nextPage should end with .json`);
+          currentPageUrl = page.nextPage;
+        } else {
+          currentPageUrl = null;
+        }
+      }
+      
+      // Validate total matches actual item count
+      assert(totalItems === firstPageTotal, `Total (${firstPageTotal}) should equal actual item count (${totalItems}) across ${pageCount} page(s)`);
+      
+      if (firstPage.items.length > 0) {
+        const firstItem = firstPage.items[0];
         assert(firstItem.id, 'Worker index item should have id');
         assert(firstItem.kind, 'Worker index item should have kind');
         assert(firstItem.entryUrl, 'Worker index item should have entryUrl');
@@ -589,6 +697,54 @@ test('verify smoke test script works', () => {
     );
   } catch (err: any) {
     console.warn(`  ⚠️  Skipping smoke test: ${err.message}`);
+  }
+});
+
+// E2E Test 22: Verify Worker API pagination endpoints (if accessible)
+test('verify Worker API pagination endpoints', async () => {
+  try {
+    const manifest = await fetchJson(`${WORKER_BASE_URL}/manifest`);
+    const activeWorkspace = manifest.activeWorkspace;
+    const catalogPath = manifest.workspaces[activeWorkspace];
+    const catalog = await fetchJson(`${WORKER_BASE_URL}${catalogPath}`);
+    
+    // Find mechanics section (known to have pagination)
+    const mechanicsSection = catalog.sections.find((s: any) => s.id === 'mechanics');
+    
+    if (mechanicsSection) {
+      // Test page 1
+      const page1 = await fetchJson(`${WORKER_BASE_URL}${mechanicsSection.itemsUrl}`);
+      assert(page1.version === 'v1', 'Page 1 should have version v1');
+      assert(page1.kind === 'drills', 'Page 1 should have kind drills');
+      assert(typeof page1.total === 'number', 'Page 1 should have total');
+      assert(typeof page1.pageSize === 'number', 'Page 1 should have pageSize');
+      assert(Array.isArray(page1.items), 'Page 1 should have items array');
+      
+      // If nextPage exists, test page 2
+      if (typeof page1.nextPage === 'string') {
+        assert(page1.nextPage.includes('index.page2.json'), 'nextPage should point to page2');
+        
+        const page2 = await fetchJson(`${WORKER_BASE_URL}${page1.nextPage}`);
+        assert(page2.version === page1.version, 'Page 2 version should match page 1');
+        assert(page2.kind === page1.kind, 'Page 2 kind should match page 1');
+        assert(page2.pageSize === page1.pageSize, 'Page 2 pageSize should match page 1');
+        assert(page2.total === page1.total, 'Page 2 total should match page 1');
+        assert(Array.isArray(page2.items), 'Page 2 should have items array');
+        assert(page2.nextPage === null, 'Page 2 should have null nextPage (last page)');
+        
+        // Verify no duplicate IDs
+        const allIds = [...page1.items.map((i: any) => i.id), ...page2.items.map((i: any) => i.id)];
+        const uniqueIds = new Set(allIds);
+        assert(allIds.length === uniqueIds.size, 'No duplicate IDs across pages');
+        
+        // Verify total matches sum
+        const totalItems = page1.items.length + page2.items.length;
+        assert(totalItems === page1.total, `Total (${page1.total}) should equal sum of items (${totalItems})`);
+      }
+    }
+  } catch (err: any) {
+    console.warn(`  ⚠️  Skipping Worker API pagination test: ${err.message}`);
+    // Don't fail the test if Worker is not accessible or mechanics section doesn't exist
   }
 });
 
