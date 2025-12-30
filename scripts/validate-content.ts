@@ -98,8 +98,9 @@ function validateCatalog(catalogPath: string): void {
     if (!catalog.workspace) {
       addError(catalogPath, 'Missing required field: workspace');
     }
-    if (!catalog.language) {
-      addError(catalogPath, 'Missing required field: language');
+    // Accept either old schema (language) or new schema (languageCode + languageName)
+    if (!catalog.language && (!catalog.languageCode || !catalog.languageName)) {
+      addError(catalogPath, 'Missing required field: either "language" (old schema) or both "languageCode" and "languageName" (new schema)');
     }
     if (!Array.isArray(catalog.sections)) {
       addError(catalogPath, 'Missing or invalid field: sections (must be an array)');
