@@ -55,11 +55,24 @@ Once you've verified the content is correct, promote it:
 ```
 
 This will:
-1. Copy `manifest.staging.json` → `manifest.json` (local file)
-2. Regenerate `release.json` with new metadata
-3. Upload only `meta/manifest.json` and `meta/release.json` to R2
+1. **Run smoke test** (validates all referenced content is accessible)
+2. Copy `manifest.staging.json` → `manifest.json` (local file)
+3. Regenerate `release.json` with new metadata
+4. Upload `meta/manifest.json` and `meta/release.json` to R2
+5. **Archive manifest** to `meta/manifests/<gitSha>.json` (immutable, for rollback)
 
 **Result**: Production instantly flips to the new content. The Worker's `/manifest` endpoint will now return the promoted manifest.
+
+**Smoke Test**: By default, the promote script runs a smoke test that:
+- Fetches the catalog from staging manifest
+- Tests all section indexes
+- Samples N items (default: 5) and verifies their entry documents are accessible
+- Fails if any 404 or invalid JSON is found
+
+**Skip Smoke Test**: Use `--skip-smoke-test` to bypass (not recommended):
+```bash
+./scripts/promote-staging.sh --skip-smoke-test
+```
 
 ### Dry-Run Mode
 
@@ -87,20 +100,34 @@ If you need to publish the production manifest during initial publish (not recom
 
 ### Rollback
 
-To rollback to a previous version:
+To rollback to a previous version by git SHA:
 
-1. **Check git history** for the previous manifest:
-   ```bash
-   git log --oneline content/meta/manifest.json
-   git show <commit-hash>:content/meta/manifest.json > content/meta/manifest.staging.json
-   ```
+```bash
+./scripts/rollback.sh <gitSha>
+```
 
-2. **Promote the previous manifest**:
-   ```bash
-   ./scripts/promote-staging.sh
-   ```
+Example:
+```bash
+./scripts/rollback.sh abc123def456
+```
 
-This instantly rolls back production to the previous content version.
+This will:
+1. Download archived manifest from R2: `meta/manifests/<gitSha>.json`
+2. Restore it to `manifest.json` (local)
+3. Regenerate `release.json`
+4. Upload only `meta/manifest.json` and `meta/release.json` to R2
+
+**List Available Manifests**:
+```bash
+aws s3 ls s3://getverba-content-prod/meta/manifests/ --endpoint-url "$R2_ENDPOINT"
+```
+
+**Dry-Run Rollback**:
+```bash
+./scripts/rollback.sh <gitSha> --dry-run
+```
+
+**Note**: Manifests are archived automatically on every promote. Each archived manifest is immutable (long cache headers) and can be used for instant rollback.
 
 ## File Structure
 
@@ -207,12 +234,40 @@ npm run content:validate
 # 4. Verify (test content files directly)
 curl https://getverba-content-api.simpumind-apps.workers.dev/v1/workspaces/de/packs/new_pack/pack.json
 
-# 5. Promote to production
+# 5. Run smoke test manually (optional)
+./scripts/smoke-test-content.sh --sample 5
+
+# 6. Promote to production (includes smoke test)
 ./scripts/promote-staging.sh
 
-# 6. Verify production
+# 7. Verify production
 curl https://getverba-content-api.simpumind-apps.workers.dev/manifest
+
+# 8. If needed, rollback
+./scripts/rollback.sh <previous-git-sha>
 ```
+
+## Smoke Test
+
+The smoke test script can be run independently:
+
+```bash
+# Test with default settings (sample 5 items)
+./scripts/smoke-test-content.sh
+
+# Test with custom base URL
+./scripts/smoke-test-content.sh --base-url https://staging-worker.workers.dev
+
+# Test with custom sample size
+./scripts/smoke-test-content.sh --sample 10
+```
+
+The smoke test:
+- Reads `manifest.staging.json`
+- Fetches catalog and validates JSON
+- Tests all section indexes
+- Samples N items and verifies entry documents
+- Fails on any 404 or invalid JSON
 
 ## Summary
 
