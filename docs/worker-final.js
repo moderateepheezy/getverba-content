@@ -75,6 +75,19 @@ export default {
 // Helpers
 // =======================
 
+/**
+ * Normalize ETag for comparison
+ * Strips W/ prefix (weak ETag) and surrounding quotes
+ */
+function normalizeEtag(etag) {
+  if (!etag) return null;
+  // Remove W/ prefix if present (weak ETag format)
+  let normalized = etag.replace(/^W\//i, "");
+  // Remove surrounding quotes
+  normalized = normalized.replace(/^"|"$/g, "");
+  return normalized.trim() || null;
+}
+
 async function serveKey(request, env, key) {
   try {
     // ✅ CORRECT binding name
@@ -97,25 +110,36 @@ async function serveKey(request, env, key) {
     const cacheControl =
       object.httpMetadata?.cacheControl ||
       (isMeta
-        ? "public, max-age=30, stale-while-revalidate=300"
+        ? "public, max-age=300, stale-while-revalidate=300"
         : isV1
         ? "public, max-age=300, stale-while-revalidate=86400"
         : "public, max-age=60");
 
-    // --- Proper 304 support ---
-    const clientETag = request.headers.get("If-None-Match");
-    if (clientETag && object.etag) {
-      const cleanClient = clientETag.replace(/"/g, "");
-      const cleanObject = object.etag.replace(/"/g, "");
+    // Get server ETag once (try both etag and httpEtag properties)
+    const serverEtag = object.etag || object.httpEtag;
 
-      if (cleanClient === cleanObject) {
+    // --- Proper 304 support with normalized ETag comparison ---
+    const clientETag = request.headers.get("If-None-Match");
+    
+    if (clientETag && serverEtag) {
+      // Normalize both for comparison (handles W/ prefix and quotes)
+      const normalizedClient = normalizeEtag(clientETag);
+      const normalizedServer = normalizeEtag(serverEtag);
+      
+      // If they match, return 304
+      if (normalizedClient && normalizedServer && normalizedClient === normalizedServer) {
+        const headers = new Headers();
+        // Use consistent ETag format (strong ETag with quotes)
+        headers.set("ETag", `"${normalizedServer}"`);
+        headers.set("Content-Type", contentType);
+        headers.set("Cache-Control", cacheControl);
+        for (const [k, v] of Object.entries(corsHeaders())) {
+          headers.set(k, v);
+        }
+        
         return new Response(null, {
           status: 304,
-          headers: {
-            ETag: `"${cleanObject}"`,
-            "Cache-Control": cacheControl,
-            ...corsHeaders(),
-          },
+          headers,
         });
       }
     }
@@ -123,7 +147,11 @@ async function serveKey(request, env, key) {
     const headers = new Headers();
     headers.set("Content-Type", contentType);
     headers.set("Cache-Control", cacheControl);
-    if (object.etag) headers.set("ETag", `"${object.etag}"`);
+    // Set ETag with consistent format (strong ETag with quotes)
+    if (serverEtag) {
+      const normalizedEtag = normalizeEtag(serverEtag);
+      headers.set("ETag", `"${normalizedEtag}"`);
+    }
 
     for (const [k, v] of Object.entries(corsHeaders())) {
       headers.set(k, v);
