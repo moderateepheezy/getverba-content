@@ -1,8 +1,14 @@
 {
   "activeVersion": "v1",
+  "schemaVersion": 1,
+  "minClientVersion": "1.0.0",
   "activeWorkspace": "de",
   "workspaces": {
     "de": "/v1/workspaces/de/catalog.json",
     "en": "/v1/workspaces/en/catalog.json"
+  },
+  "workspaceHashes": {
+    "de": "787a2b11c79b169b019179c533bad5494944782fcfffe669970899896fb1eca4",
+    "en": "d1b66486de0ffc211e011eef5343890b9bd659572d980af1b4fc4a4ebf9034b2"
   }
 }

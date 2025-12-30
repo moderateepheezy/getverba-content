@@ -388,10 +388,47 @@ For sections with pagination (`nextPage` links), verify:
    - No duplicate `items[].id` across pages
    - Sum of items equals `total`
 
+## Manifest Schema
+
+The manifest includes:
+
+- `schemaVersion`: Schema version (currently `1`)
+- `activeVersion`: Content version (e.g., `"v1"`)
+- `activeWorkspace`: Default workspace ID
+- `minClientVersion`: Minimum app version required (semver, e.g., `"1.0.0"`)
+- `workspaces`: Mapping of workspace ID → catalog URL
+- `workspaceHashes`: Mapping of workspace ID → SHA256 hash
+
+### workspaceHashes
+
+Each workspace has a deterministic hash computed from:
+- `catalog.json`
+- All section index pages (including pagination chain)
+- All entry documents referenced by section index items
+
+The hash changes when any referenced content changes, enabling:
+- Change detection per workspace
+- Content integrity verification
+- Safe rollout (hash mismatch prevents promotion)
+
+### minClientVersion
+
+When you bump `schemaVersion` (breaking change), you must also bump `minClientVersion`:
+
+```json
+{
+  "schemaVersion": 2,
+  "minClientVersion": "2.0.0",
+  ...
+}
+```
+
+This tells older app versions to show "update required" instead of crashing.
+
 ## Summary
 
 - **Publish**: Uploads content + staging manifest (safe, doesn't affect production)
-- **Promote**: Flips production manifest (instant, one command)
+- **Promote**: Validates → Verifies hashes → Smoke tests → Flips production manifest (instant, one command)
 - **Rollback**: Restore previous manifest by SHA (instant recovery)
 
 This workflow ensures you never have half-published states or production 404s.

@@ -1,5 +1,6 @@
 {
   "id": "basic_greetings",
+  "schemaVersion": 1,
   "kind": "pack",
   "title": "Basic German Greetings",
   "level": "A1",

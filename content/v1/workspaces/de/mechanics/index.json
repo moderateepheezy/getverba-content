@@ -1,5 +1,6 @@
 {
   "version": "v1",
+  "schemaVersion": 1,
   "kind": "drills",
   "total": 4,
   "pageSize": 2,

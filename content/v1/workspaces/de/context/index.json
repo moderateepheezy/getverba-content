@@ -1,5 +1,6 @@
 {
   "version": "v1",
+  "schemaVersion": 1,
   "kind": "context",
   "total": 3,
   "pageSize": 20,

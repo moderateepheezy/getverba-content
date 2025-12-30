@@ -84,6 +84,21 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
     
     const normalizedKind = kind.toLowerCase();
     
+    // Determine docType for schemaVersion validation
+    let docType: string;
+    if (normalizedKind === 'pack') {
+      docType = 'PackEntry';
+    } else if (normalizedKind === 'exam') {
+      docType = 'ExamEntry';
+    } else if (normalizedKind === 'drill') {
+      docType = 'DrillEntry';
+    } else {
+      docType = 'Entry';
+    }
+    
+    // Validate schemaVersion first
+    validateSchemaVersion(docType, entry, entryPath);
+    
     // Common required fields for all entry types
     if (!entry.id || typeof entry.id !== 'string') {
       addError(contextFile, `Item ${itemIdx} entry document missing or invalid field: id (must be string)`);
@@ -292,7 +307,10 @@ function validateCatalog(catalogPath: string): void {
     const content = readFileSync(catalogPath, 'utf-8');
     const catalog = JSON.parse(content);
 
-    // Validate required fields
+    // Validate schemaVersion first
+    validateSchemaVersion('Catalog', catalog, catalogPath);
+
+    // Validate required fields (schemaVersion validation also checks these, but keep for clarity)
     if (!catalog.workspace) {
       addError(catalogPath, 'Missing required field: workspace');
     }
@@ -334,6 +352,137 @@ const MAX_DURATION_MINUTES = 120;
 
 // Title length bounds
 const MAX_TITLE_LENGTH = 100;
+
+// Schema versioning
+const SUPPORTED_SCHEMA_VERSIONS = [1];
+
+/**
+ * Validate schemaVersion field
+ * Hard-fails on missing or unknown versions
+ */
+function validateSchemaVersion(docType: string, doc: any, filePath: string): void {
+  if (typeof doc.schemaVersion !== 'number') {
+    addError(filePath, `${docType} missing required field: schemaVersion (must be number)`);
+    return;
+  }
+  
+  if (!SUPPORTED_SCHEMA_VERSIONS.includes(doc.schemaVersion)) {
+    addError(filePath, `${docType} has unsupported schemaVersion: ${doc.schemaVersion}. Supported versions: ${SUPPORTED_SCHEMA_VERSIONS.join(', ')}`);
+    return;
+  }
+  
+  // For schemaVersion 1, enforce required fields based on docType
+  if (doc.schemaVersion === 1) {
+    validateSchemaV1RequiredFields(docType, doc, filePath);
+  }
+}
+
+/**
+ * Validate required fields for schemaVersion 1
+ * Enforces breaking change rules: no missing required fields
+ */
+function validateSchemaV1RequiredFields(docType: string, doc: any, filePath: string): void {
+  if (docType === 'Catalog') {
+    if (!doc.version || typeof doc.version !== 'string') {
+      addError(filePath, 'Catalog schemaVersion 1: missing or invalid required field: version');
+    }
+    if (!doc.workspace || typeof doc.workspace !== 'string') {
+      addError(filePath, 'Catalog schemaVersion 1: missing or invalid required field: workspace');
+    }
+    if (!doc.languageCode || typeof doc.languageCode !== 'string') {
+      addError(filePath, 'Catalog schemaVersion 1: missing or invalid required field: languageCode');
+    }
+    if (!doc.languageName || typeof doc.languageName !== 'string') {
+      addError(filePath, 'Catalog schemaVersion 1: missing or invalid required field: languageName');
+    }
+    if (!Array.isArray(doc.sections)) {
+      addError(filePath, 'Catalog schemaVersion 1: missing or invalid required field: sections (must be array)');
+    }
+  } else if (docType === 'SectionIndexPage') {
+    if (!doc.version || typeof doc.version !== 'string') {
+      addError(filePath, 'SectionIndexPage schemaVersion 1: missing or invalid required field: version');
+    }
+    if (!doc.kind || typeof doc.kind !== 'string') {
+      addError(filePath, 'SectionIndexPage schemaVersion 1: missing or invalid required field: kind');
+    }
+    if (typeof doc.total !== 'number') {
+      addError(filePath, 'SectionIndexPage schemaVersion 1: missing or invalid required field: total');
+    }
+    if (typeof doc.pageSize !== 'number') {
+      addError(filePath, 'SectionIndexPage schemaVersion 1: missing or invalid required field: pageSize');
+    }
+    if (!Array.isArray(doc.items)) {
+      addError(filePath, 'SectionIndexPage schemaVersion 1: missing or invalid required field: items (must be array)');
+    }
+    if (doc.nextPage !== null && typeof doc.nextPage !== 'string') {
+      addError(filePath, 'SectionIndexPage schemaVersion 1: invalid required field: nextPage (must be string or null)');
+    }
+  } else if (docType === 'PackEntry') {
+    if (!doc.id || typeof doc.id !== 'string') {
+      addError(filePath, 'PackEntry schemaVersion 1: missing or invalid required field: id');
+    }
+    if (!doc.kind || typeof doc.kind !== 'string') {
+      addError(filePath, 'PackEntry schemaVersion 1: missing or invalid required field: kind');
+    }
+    if (!doc.title || typeof doc.title !== 'string') {
+      addError(filePath, 'PackEntry schemaVersion 1: missing or invalid required field: title');
+    }
+    if (!doc.level || typeof doc.level !== 'string') {
+      addError(filePath, 'PackEntry schemaVersion 1: missing or invalid required field: level');
+    }
+    if (typeof doc.estimatedMinutes !== 'number') {
+      addError(filePath, 'PackEntry schemaVersion 1: missing or invalid required field: estimatedMinutes');
+    }
+    if (!doc.description || typeof doc.description !== 'string') {
+      addError(filePath, 'PackEntry schemaVersion 1: missing or invalid required field: description');
+    }
+    if (!Array.isArray(doc.outline)) {
+      addError(filePath, 'PackEntry schemaVersion 1: missing or invalid required field: outline (must be array)');
+    }
+    if (!doc.sessionPlan || typeof doc.sessionPlan !== 'object') {
+      addError(filePath, 'PackEntry schemaVersion 1: missing or invalid required field: sessionPlan');
+    }
+  } else if (docType === 'ExamEntry') {
+    if (!doc.id || typeof doc.id !== 'string') {
+      addError(filePath, 'ExamEntry schemaVersion 1: missing or invalid required field: id');
+    }
+    if (!doc.kind || typeof doc.kind !== 'string') {
+      addError(filePath, 'ExamEntry schemaVersion 1: missing or invalid required field: kind');
+    }
+    if (!doc.title || typeof doc.title !== 'string') {
+      addError(filePath, 'ExamEntry schemaVersion 1: missing or invalid required field: title');
+    }
+    if (!doc.level || typeof doc.level !== 'string') {
+      addError(filePath, 'ExamEntry schemaVersion 1: missing or invalid required field: level');
+    }
+    if (typeof doc.estimatedMinutes !== 'number') {
+      addError(filePath, 'ExamEntry schemaVersion 1: missing or invalid required field: estimatedMinutes');
+    }
+  } else if (docType === 'DrillEntry') {
+    if (!doc.id || typeof doc.id !== 'string') {
+      addError(filePath, 'DrillEntry schemaVersion 1: missing or invalid required field: id');
+    }
+    if (!doc.kind || typeof doc.kind !== 'string') {
+      addError(filePath, 'DrillEntry schemaVersion 1: missing or invalid required field: kind');
+    }
+    if (!doc.title || typeof doc.title !== 'string') {
+      addError(filePath, 'DrillEntry schemaVersion 1: missing or invalid required field: title');
+    }
+    if (typeof doc.estimatedMinutes !== 'number') {
+      addError(filePath, 'DrillEntry schemaVersion 1: missing or invalid required field: estimatedMinutes');
+    }
+  } else if (docType === 'Manifest') {
+    if (!doc.activeVersion || typeof doc.activeVersion !== 'string') {
+      addError(filePath, 'Manifest schemaVersion 1: missing or invalid required field: activeVersion');
+    }
+    if (!doc.activeWorkspace || typeof doc.activeWorkspace !== 'string') {
+      addError(filePath, 'Manifest schemaVersion 1: missing or invalid required field: activeWorkspace');
+    }
+    if (!doc.workspaces || typeof doc.workspaces !== 'object') {
+      addError(filePath, 'Manifest schemaVersion 1: missing or invalid required field: workspaces');
+    }
+  }
+}
 
 function validateCefrLevel(level: string, context: string, itemIdx: number): void {
   if (!VALID_CEFR_LEVELS.includes(level.toUpperCase())) {
@@ -653,7 +802,10 @@ function validateManifest(manifestPath: string): void {
     const content = readFileSync(manifestPath, 'utf-8');
     const manifest = JSON.parse(content);
 
-    // Validate required fields
+    // Validate schemaVersion first
+    validateSchemaVersion('Manifest', manifest, manifestPath);
+
+    // Validate required fields (schemaVersion validation also checks these, but keep for clarity)
     if (!manifest.activeVersion) {
       addError(manifestPath, 'Missing required field: activeVersion');
     }
@@ -681,6 +833,48 @@ function validateManifest(manifestPath: string): void {
 
       if (!existsSync(fullPath)) {
         addError(manifestPath, `Workspace "${workspaceId}" catalog path "${catalogPath}" does not exist (resolved to: ${fullPath})`);
+      }
+    }
+    
+    // Validate workspaceHashes if present
+    if (manifest.workspaceHashes !== undefined) {
+      if (typeof manifest.workspaceHashes !== 'object' || manifest.workspaceHashes === null) {
+        addError(manifestPath, 'workspaceHashes must be an object if present');
+      } else {
+        // Ensure workspaceHashes contains an entry for every workspace
+        const workspaceIds = Object.keys(manifest.workspaces);
+        const hashWorkspaceIds = Object.keys(manifest.workspaceHashes);
+        
+        for (const workspaceId of workspaceIds) {
+          if (!hashWorkspaceIds.includes(workspaceId)) {
+            addError(manifestPath, `workspaceHashes missing entry for workspace "${workspaceId}"`);
+          } else {
+            const hash = manifest.workspaceHashes[workspaceId];
+            if (typeof hash !== 'string') {
+              addError(manifestPath, `workspaceHashes["${workspaceId}"] must be a string`);
+            } else if (hash === 'PLACEHOLDER') {
+              // This is a warning, not an error - hash will be computed during promotion
+              console.warn(`⚠️  ${manifestPath}: workspaceHashes["${workspaceId}"] is PLACEHOLDER - will be computed during promotion`);
+            } else if (!/^[a-f0-9]{64}$/.test(hash)) {
+              addError(manifestPath, `workspaceHashes["${workspaceId}"] must be a valid SHA256 hex string (64 chars)`);
+            }
+          }
+        }
+        
+        // Note: Hash computation verification is done in promote-staging.sh
+        // The validator only checks structure and format here
+      }
+    }
+    
+    // Validate minClientVersion if present
+    if (manifest.minClientVersion !== undefined) {
+      if (typeof manifest.minClientVersion !== 'string') {
+        addError(manifestPath, 'minClientVersion must be a string if present');
+      } else {
+        // Basic semver validation (loose)
+        if (!/^\d+\.\d+\.\d+/.test(manifest.minClientVersion)) {
+          addError(manifestPath, `minClientVersion "${manifest.minClientVersion}" must be a valid semver string (e.g., "1.0.0")`);
+        }
       }
     }
   } catch (err: any) {

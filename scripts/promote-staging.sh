@@ -82,7 +82,73 @@ if [ "$GIT_SHA" != "unknown" ]; then
 fi
 echo ""
 
-# Run smoke test before promoting (unless skipped)
+# Step 1: Run validation
+if [ "$DRY_RUN" != "--dryrun" ]; then
+  echo "🔍 Running content validation..."
+  if ! npm run content:validate > /dev/null 2>&1; then
+    echo "❌ Content validation failed. Promotion aborted."
+    exit 1
+  fi
+  echo "   ✅ Validation passed"
+  echo ""
+else
+  echo "🔍 Content validation will run before promotion (dry-run mode)"
+  echo ""
+fi
+
+# Step 2: Verify workspace hashes match computed values
+if [ "$DRY_RUN" != "--dryrun" ]; then
+  echo "🔍 Verifying workspace hashes..."
+  
+  # Check if jq is available
+  if ! command -v jq &> /dev/null; then
+    echo "❌ Error: jq is required for hash verification"
+    exit 1
+  fi
+  
+  # Compute hashes
+  COMPUTED_HASHES=$(npx tsx "$SCRIPT_DIR/generate-workspace-hashes.ts" "$STAGING_MANIFEST" 2>/dev/null)
+  if [ -z "$COMPUTED_HASHES" ]; then
+    echo "❌ Error: Failed to compute workspace hashes"
+    exit 1
+  fi
+  
+  # Get hashes from staging manifest
+  MANIFEST_HASHES=$(jq -c '.workspaceHashes // {}' "$STAGING_MANIFEST" 2>/dev/null || echo "{}")
+  
+  # Compare hashes
+  HASH_MISMATCH=false
+  for workspace in $(echo "$COMPUTED_HASHES" | jq -r 'keys[]'); do
+    COMPUTED_HASH=$(echo "$COMPUTED_HASHES" | jq -r ".[\"$workspace\"]")
+    MANIFEST_HASH=$(echo "$MANIFEST_HASHES" | jq -r ".[\"$workspace\"] // \"\"")
+    
+    if [ -z "$MANIFEST_HASH" ] || [ "$MANIFEST_HASH" = "PLACEHOLDER" ]; then
+      echo "   ⚠️  Workspace $workspace: Hash not set in manifest (will be updated)"
+      # Update hash in staging manifest
+      "$SCRIPT_DIR/update-manifest-hashes.sh" "$STAGING_MANIFEST" > /dev/null 2>&1
+      echo "   ✅ Updated workspace $workspace hash"
+    elif [ "$COMPUTED_HASH" != "$MANIFEST_HASH" ]; then
+      echo "   ❌ Workspace $workspace: Hash mismatch"
+      echo "      Manifest: $MANIFEST_HASH"
+      echo "      Computed: $COMPUTED_HASH"
+      HASH_MISMATCH=true
+    else
+      echo "   ✅ Workspace $workspace: Hash matches"
+    fi
+  done
+  
+  if [ "$HASH_MISMATCH" = true ]; then
+    echo ""
+    echo "❌ Workspace hash mismatch detected. Run ./scripts/update-manifest-hashes.sh to update."
+    exit 1
+  fi
+  echo ""
+else
+  echo "🔍 Workspace hash verification will run before promotion (dry-run mode)"
+  echo ""
+fi
+
+# Step 3: Run smoke test before promoting (unless skipped)
 if [ "$SKIP_SMOKE_TEST" = false ]; then
   if [ "$DRY_RUN" != "--dryrun" ]; then
     echo "🔍 Running smoke test before promotion..."
@@ -109,19 +175,23 @@ export AWS_SECRET_ACCESS_KEY="$R2_SECRET_ACCESS_KEY"
 export AWS_DEFAULT_REGION="auto"
 
 if [ "$DRY_RUN" != "--dryrun" ]; then
-  # Step 1: Copy staging manifest to production (local file)
+  # Step 4: Ensure workspace hashes are up-to-date in staging manifest
+  echo "📝 Updating workspace hashes in staging manifest..."
+  "$SCRIPT_DIR/update-manifest-hashes.sh" "$STAGING_MANIFEST" > /dev/null 2>&1
+  
+  # Step 5: Copy staging manifest to production (local file)
   echo "📋 Copying staging manifest to production..."
   cp "$STAGING_MANIFEST" "$PROD_MANIFEST"
   echo "   ✅ Copied manifest.staging.json → manifest.json"
   
-  # Step 2: Regenerate release.json
+  # Step 6: Regenerate release.json
   echo "📝 Regenerating release metadata..."
   "$SCRIPT_DIR/generate-release.sh"
   echo "   ✅ Generated release.json"
   echo ""
 fi
 
-# Step 3: Upload only meta/manifest.json and meta/release.json to R2
+# Step 7: Upload only meta/manifest.json and meta/release.json to R2
 echo "📤 Uploading production manifest and release to R2..."
 
 if [ "$DRY_RUN" == "--dryrun" ]; then

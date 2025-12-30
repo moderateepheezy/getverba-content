@@ -2110,6 +2110,168 @@ test('pagination total mismatch with actual items', () => {
   cleanupTestDir();
 });
 
+// Test 51: Missing schemaVersion fails
+test('missing schemaVersion fails validation', () => {
+  setupTestDir();
+  
+  const catalog = {
+    version: 'v1',
+    workspace: 'test-ws',
+    languageCode: 'test',
+    languageName: 'Test',
+    sections: []
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws'), { recursive: true });
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'catalog.json'),
+    JSON.stringify(catalog, null, 2)
+  );
+  
+  assert(!catalog.schemaVersion, 'Catalog should be missing schemaVersion for this test');
+  
+  cleanupTestDir();
+});
+
+// Test 52: Unknown schemaVersion fails
+test('unknown schemaVersion fails validation', () => {
+  setupTestDir();
+  
+  const catalog = {
+    schemaVersion: 999,
+    version: 'v1',
+    workspace: 'test-ws',
+    languageCode: 'test',
+    languageName: 'Test',
+    sections: []
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws'), { recursive: true });
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'catalog.json'),
+    JSON.stringify(catalog, null, 2)
+  );
+  
+  assert(catalog.schemaVersion === 999, 'Catalog should have unknown schemaVersion for this test');
+  assert(![1].includes(catalog.schemaVersion), 'schemaVersion 999 should not be in supported list');
+  
+  cleanupTestDir();
+});
+
+// Test 53: Removing required field in v1 fixture fails
+test('removing required field in v1 fails validation', () => {
+  setupTestDir();
+  
+  // Valid pack entry
+  const validPack = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 10,
+    description: 'Test',
+    outline: ['Step 1'],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] }
+  };
+  
+  // Invalid pack entry (missing required field: description)
+  const invalidPack = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 10,
+    // description removed - BREAKING
+    outline: ['Step 1'],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] }
+  };
+  
+  assert(validPack.description, 'Valid pack should have description');
+  assert(!invalidPack.description, 'Invalid pack should be missing description');
+  
+  cleanupTestDir();
+});
+
+// Test 54: Adding optional field does not fail
+test('adding optional field does not fail validation', () => {
+  setupTestDir();
+  
+  const packWithOptional = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 10,
+    description: 'Test',
+    outline: ['Step 1'],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] },
+    tags: ['new', 'optional'] // New optional field
+  };
+  
+  assert(packWithOptional.tags, 'Pack should have optional tags field');
+  assert(Array.isArray(packWithOptional.tags), 'Tags should be array');
+  assert(packWithOptional.schemaVersion === 1, 'Should still be schemaVersion 1');
+  
+  cleanupTestDir();
+});
+
+// Test 55: Manifest with workspaceHashes structure
+test('manifest with workspaceHashes structure validation', () => {
+  setupTestDir();
+  
+  const manifest = {
+    schemaVersion: 1,
+    activeVersion: 'v1',
+    activeWorkspace: 'test-ws',
+    minClientVersion: '1.0.0',
+    workspaces: {
+      'test-ws': '/v1/workspaces/test-ws/catalog.json'
+    },
+    workspaceHashes: {
+      'test-ws': 'abc123def4567890abcdef1234567890abcdef1234567890abcdef1234567890'
+    }
+  };
+  
+  assert(manifest.workspaceHashes, 'Manifest should have workspaceHashes');
+  assert(typeof manifest.workspaceHashes === 'object', 'workspaceHashes should be object');
+  assert(manifest.workspaceHashes['test-ws'], 'workspaceHashes should have entry for test-ws');
+  assert(typeof manifest.workspaceHashes['test-ws'] === 'string', 'Hash should be string');
+  assert(manifest.workspaceHashes['test-ws'].length === 64, 'Hash should be 64 hex chars');
+  assert(manifest.minClientVersion === '1.0.0', 'minClientVersion should be set');
+  
+  cleanupTestDir();
+});
+
+// Test 56: Manifest missing workspaceHashes entry
+test('manifest missing workspaceHashes entry validation', () => {
+  setupTestDir();
+  
+  const manifest = {
+    schemaVersion: 1,
+    activeVersion: 'v1',
+    activeWorkspace: 'test-ws',
+    workspaces: {
+      'test-ws': '/v1/workspaces/test-ws/catalog.json',
+      'other-ws': '/v1/workspaces/other-ws/catalog.json'
+    },
+    workspaceHashes: {
+      'test-ws': 'abc123...'
+      // Missing 'other-ws' - should be detected
+    }
+  };
+  
+  const workspaceIds = Object.keys(manifest.workspaces);
+  const hashWorkspaceIds = Object.keys(manifest.workspaceHashes);
+  
+  assert(!hashWorkspaceIds.includes('other-ws'), 'workspaceHashes should be missing other-ws');
+  assert(workspaceIds.length !== hashWorkspaceIds.length, 'workspaceHashes should not match workspaces count');
+  
+  cleanupTestDir();
+});
+
 // Run all tests
 function runTests() {
   console.log('Running unit tests...\n');

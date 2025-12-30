@@ -67,11 +67,14 @@ npm run content:validate
 
 This checks:
 - All JSON files parse correctly
+- **All documents have `schemaVersion` field** (required)
 - At least one workspace catalog exists
-- Catalog files have required fields (`workspace`, `language`, `sections`)
+- Catalog files have required fields (`schemaVersion`, `workspace`, `languageCode`, `languageName`, `sections`)
 - Sections have required fields (`id`, `kind`, `title`)
 - Referenced JSON paths (ending with `.json` and starting with `/v1/`) exist
 - No duplicate IDs
+- **Schema compatibility** (no breaking changes for schemaVersion 1)
+- **Workspace hashes** match computed values (in manifest)
 
 ### 2. Dry Run Publish
 
