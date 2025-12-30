@@ -162,23 +162,58 @@ The validator enforces:
 - Renamed `durationMins` → `durationMinutes`
 - Renamed `packUrl` → `entryUrl`
 
+## Item Routing
+
+The `kind` field at the top level of the index determines the navigation target:
+
+- **`"context"`** → Navigate to Pack Detail screen
+- **`"exams"`** → Navigate to Exam Detail screen
+- **`"drill"`** → Navigate to Drill Detail screen (future)
+- **`"mechanics"`** → Navigate to Mechanics Detail screen (future)
+
+The frontend should use `item.id` and `item.entryUrl` for route parameters and content fetching.
+
+## Foundation Focus (A1-Only Filtering)
+
+The `level` field in each item enables client-side A1 filtering:
+
+- Every item has a `level` field (required, non-empty string)
+- Common values: `"A1"`, `"A2"`, `"B1"`, `"B2"`, `"C1"`, `"C2"`
+- Backend does **not** filter by level (all items returned)
+- Frontend filters client-side: `items.filter(item => item.level === "A1")`
+
 ## Usage in Frontend
 
 The frontend should:
 
 1. Load index from `itemsUrl` in catalog section
-2. Check `nextPage` for pagination
-3. Filter items by `level` for A1-only mode
-4. Use `entryUrl` to load individual packs
+2. Use `kind` field to determine navigation target
+3. Check `nextPage` for pagination
+4. Filter items by `level` for A1-only mode (Foundation Focus)
+5. Use `entryUrl` to load individual packs
 
 Example:
 ```typescript
 const index = await contentClient.fetchIndex(section.itemsUrl);
-const items = index.items;
+
+// Routing: use index.kind to determine target screen
+const targetScreen = index.kind === "context" ? "PackDetail" : "ExamDetail";
+
+// Filtering: apply Foundation Focus if enabled
+const visibleItems = foundationFocusEnabled
+  ? index.items.filter(item => item.level === "A1")
+  : index.items;
+
+// Pagination: load additional pages
 if (index.nextPage) {
-  // Load next page
   const nextIndex = await contentClient.fetchIndex(index.nextPage);
-  items.push(...nextIndex.items);
+  visibleItems.push(...nextIndex.items);
 }
 ```
+
+## Backend Documentation
+
+For complete backend API contract and acceptance criteria, see:
+- [`BACKEND_ITEM_ROUTING.md`](./BACKEND_ITEM_ROUTING.md) - Backend API contract for routing and filtering
+- [`BACKEND_ACCEPTANCE.md`](./BACKEND_ACCEPTANCE.md) - Backend acceptance criteria and test scenarios
 
