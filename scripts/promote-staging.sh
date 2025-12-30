@@ -126,19 +126,33 @@ else
   echo ""
 fi
 
-# Step 1.7: Check approval status
+# Step 1.7: Check approval gate
+SKIP_APPROVAL_GATE=false
+for arg in "$@"; do
+  case "$arg" in
+    --skip-approval-gate)
+      SKIP_APPROVAL_GATE=true
+      ;;
+  esac
+done
+
 if [ "$DRY_RUN" != "--dryrun" ]; then
-  echo "🔍 Checking approval status..."
-  if ! npx tsx "$SCRIPT_DIR/check-approvals.ts" "$STAGING_MANIFEST" > /dev/null 2>&1; then
-    echo "❌ Approval check failed. Promotion aborted."
-    echo "   Some items in staging manifest are not approved."
-    echo "   Run: npx tsx $SCRIPT_DIR/check-approvals.ts $STAGING_MANIFEST"
-    exit 1
+  echo "🔍 Checking approval gate..."
+  if [ "$SKIP_APPROVAL_GATE" = true ]; then
+    echo "   ⚠️  Approval gate skipped (--skip-approval-gate flag used)"
+  else
+    if ! npx tsx "$SCRIPT_DIR/check-approval-gate.ts" > /dev/null 2>&1; then
+      echo "❌ Approval gate failed. Promotion aborted."
+      echo "   Some items in staging manifest are not approved."
+      echo "   Run: npx tsx $SCRIPT_DIR/check-approval-gate.ts"
+      echo "   Or use: --skip-approval-gate (not recommended)"
+      exit 1
+    fi
+    echo "   ✅ All items are approved"
   fi
-  echo "   ✅ All items are approved"
   echo ""
 else
-  echo "🔍 Approval check will run before promotion (dry-run mode)"
+  echo "🔍 Approval gate will run before promotion (dry-run mode)"
   echo ""
 fi
 

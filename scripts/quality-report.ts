@@ -13,6 +13,7 @@ import { readFileSync, readdirSync, statSync, existsSync, writeFileSync, mkdirSy
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { execSync } from 'child_process';
+import { detectDuplicates } from './content-quality/dedupe.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -529,6 +530,39 @@ function main() {
   const failOnRed = args.includes('--fail-on-red');
   
   console.log('Generating quality report...\n');
+  
+  // Check for duplicates across all workspaces
+  console.log('🔍 Checking for duplicate prompts...');
+  const workspacesDir = join(CONTENT_DIR, 'workspaces');
+  let hasDuplicates = false;
+  
+  if (existsSync(workspacesDir)) {
+    const workspaces = readdirSync(workspacesDir).filter(item => {
+      const itemPath = join(workspacesDir, item);
+      return statSync(itemPath).isDirectory();
+    });
+    
+    for (const workspace of workspaces) {
+      try {
+        const result = detectDuplicates(workspace);
+        if (result.duplicates.length > 0) {
+          hasDuplicates = true;
+          console.error(`❌ Workspace "${workspace}": Found ${result.duplicates.length} duplicate group(s)`);
+        } else {
+          console.log(`✅ Workspace "${workspace}": No duplicates`);
+        }
+      } catch (error: any) {
+        console.warn(`⚠️  Workspace "${workspace}": ${error.message}`);
+      }
+    }
+  }
+  
+  if (hasDuplicates) {
+    console.error('\n❌ Duplicate detection failed. All duplicates must be removed.');
+    process.exit(1);
+  }
+  
+  console.log('');
   
   const report = generateReport(failOnRed);
   

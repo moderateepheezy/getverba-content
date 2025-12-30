@@ -172,6 +172,66 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
         validateAnalytics(entry.analytics, entry, contextFile, itemIdx);
       }
       
+      // Validate provenance (required for generated content)
+      if (entry.provenance) {
+        if (typeof entry.provenance !== 'object') {
+          addError(contextFile, `Item ${itemIdx} pack entry provenance must be an object`);
+        } else {
+          if (!entry.provenance.source || typeof entry.provenance.source !== 'string') {
+            addError(contextFile, `Item ${itemIdx} pack entry provenance.source is required and must be string`);
+          } else if (!['pdf', 'template', 'handcrafted'].includes(entry.provenance.source)) {
+            addError(contextFile, `Item ${itemIdx} pack entry provenance.source must be one of: "pdf", "template", "handcrafted"`);
+          }
+          
+          if (entry.provenance.source !== 'handcrafted') {
+            // Generated content must have all provenance fields
+            if (!entry.provenance.sourceRef || typeof entry.provenance.sourceRef !== 'string') {
+              addError(contextFile, `Item ${itemIdx} pack entry provenance.sourceRef is required for generated content`);
+            }
+            if (!entry.provenance.extractorVersion || typeof entry.provenance.extractorVersion !== 'string') {
+              addError(contextFile, `Item ${itemIdx} pack entry provenance.extractorVersion is required for generated content`);
+            }
+            if (!entry.provenance.generatedAt || typeof entry.provenance.generatedAt !== 'string') {
+              addError(contextFile, `Item ${itemIdx} pack entry provenance.generatedAt is required for generated content`);
+            } else {
+              // Validate ISO 8601 format
+              const isoDate = new Date(entry.provenance.generatedAt);
+              if (isNaN(isoDate.getTime())) {
+                addError(contextFile, `Item ${itemIdx} pack entry provenance.generatedAt must be valid ISO 8601 format`);
+              }
+            }
+          }
+        }
+      }
+      
+      // Validate review (required for generated content)
+      if (entry.provenance && entry.provenance.source !== 'handcrafted') {
+        if (!entry.review || typeof entry.review !== 'object') {
+          addError(contextFile, `Item ${itemIdx} pack entry review is required for generated content`);
+        } else {
+          if (!entry.review.status || typeof entry.review.status !== 'string') {
+            addError(contextFile, `Item ${itemIdx} pack entry review.status is required`);
+          } else if (!['draft', 'needs_review', 'approved'].includes(entry.review.status)) {
+            addError(contextFile, `Item ${itemIdx} pack entry review.status must be one of: "draft", "needs_review", "approved"`);
+          }
+          
+          // If approved, must have reviewer and reviewedAt
+          if (entry.review.status === 'approved') {
+            if (!entry.review.reviewer || typeof entry.review.reviewer !== 'string') {
+              addError(contextFile, `Item ${itemIdx} pack entry review.reviewer is required when status is "approved"`);
+            }
+            if (!entry.review.reviewedAt || typeof entry.review.reviewedAt !== 'string') {
+              addError(contextFile, `Item ${itemIdx} pack entry review.reviewedAt is required when status is "approved"`);
+            } else {
+              const reviewedDate = new Date(entry.review.reviewedAt);
+              if (isNaN(reviewedDate.getTime())) {
+                addError(contextFile, `Item ${itemIdx} pack entry review.reviewedAt must be valid ISO 8601 format`);
+              }
+            }
+          }
+        }
+      }
+      
       // Validate sessionPlan (required for packs)
       if (!entry.sessionPlan || typeof entry.sessionPlan !== 'object') {
         addError(contextFile, `Item ${itemIdx} pack entry missing or invalid field: sessionPlan (must be object)`);

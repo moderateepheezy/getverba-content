@@ -7,6 +7,7 @@
     "content:validate": "tsx scripts/validate-content.ts && tsx scripts/content-quality-report.ts && tsx scripts/content-expansion-report.ts",
     "content:quality": "tsx scripts/quality-report.ts --fail-on-red",
     "content:quality-report": "tsx scripts/content-quality-report.ts",
+    "content:dedupe": "tsx scripts/content-quality/dedupe.ts",
     "content:dedupe": "tsx scripts/dedupe-content.ts",
     "content:report": "tsx scripts/review-report.ts",
     "content:review": "tsx scripts/review-content.ts",

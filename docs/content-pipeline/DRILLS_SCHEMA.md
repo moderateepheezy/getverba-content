@@ -53,6 +53,16 @@ Drills are interactive grammar and vocabulary exercises that test specific langu
 | `exercises` | array | Array of exercise objects (see below) |
 | `passingScore` | number | Minimum percentage to pass (0-100) |
 | `tags` | array | Array of tag strings for filtering |
+| `provenance` | object | Provenance metadata (required for generated, optional for handcrafted) |
+| `review` | object | Review status (required for generated, optional for handcrafted) |
+
+### `provenance` (Required for generated content, Optional for handcrafted)
+
+Metadata about where the drill came from. Same structure as pack provenance (see [PACK_SCHEMA.md](./PACK_SCHEMA.md)).
+
+### `review` (Required for generated content, Optional for handcrafted)
+
+Review status and approval metadata. Same structure as pack review (see [PACK_SCHEMA.md](./PACK_SCHEMA.md)).
 
 ## Exercise Schema
 

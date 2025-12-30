@@ -150,6 +150,69 @@ Array of tag strings for categorization.
 }
 ```
 
+### `provenance` (Required for generated content, Optional for handcrafted)
+
+Metadata about where the pack came from and how it was generated.
+
+```json
+{
+  "provenance": {
+    "source": "pdf",
+    "sourceRef": "DeutschImBlick-textbook.pdf (pages 100-125)",
+    "extractorVersion": "1.0.0",
+    "generatedAt": "2025-12-30T23:00:00Z"
+  }
+}
+```
+
+**Provenance Fields:**
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `source` | string | ✅ | Source type: `"pdf"`, `"template"`, or `"handcrafted"` |
+| `sourceRef` | string | ✅ | Reference to source (e.g., PDF filename + page range, template ID, or "manual") |
+| `extractorVersion` | string | ✅ | Version of generator/extractor used (semver format) |
+| `generatedAt` | string | ✅ | ISO 8601 timestamp when pack was generated |
+
+**Validation Rules:**
+- Required if `source !== "handcrafted"`
+- Optional if `source === "handcrafted"` (may be omitted entirely)
+- `source` must be one of: `"pdf"`, `"template"`, `"handcrafted"`
+- `generatedAt` must be valid ISO 8601 format
+
+### `review` (Required for generated content, Optional for handcrafted)
+
+Review status and approval metadata.
+
+```json
+{
+  "review": {
+    "status": "approved",
+    "reviewer": "alice",
+    "reviewedAt": "2025-12-30T23:30:00Z"
+  }
+}
+```
+
+**Review Fields:**
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `status` | string | ✅ | Review status: `"draft"`, `"needs_review"`, or `"approved"` |
+| `reviewer` | string | ❌ | Username/identifier of reviewer (required if `status === "approved"`) |
+| `reviewedAt` | string | ❌ | ISO 8601 timestamp when reviewed (required if `status === "approved"`) |
+
+**Validation Rules:**
+- Required if `provenance.source !== "handcrafted"`
+- Optional if `provenance.source === "handcrafted"` (defaults to `"approved"` if omitted)
+- `status` must be one of: `"draft"`, `"needs_review"`, `"approved"`
+- If `status === "approved"`, both `reviewer` and `reviewedAt` must be present
+- For production promotion, all referenced packs must have `review.status === "approved"` (unless `provenance.source === "handcrafted"`)
+
+**Default Values:**
+- Generated packs (PDF/template): `status: "needs_review"`
+- Handcrafted packs: `status: "approved"` (if review block present)
+
 ## Complete Example
 
 ```json

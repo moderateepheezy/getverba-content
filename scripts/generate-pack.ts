@@ -89,6 +89,7 @@ interface PackEntry {
   schemaVersion: number;
   id: string;
   kind: string;
+  packVersion: string;
   title: string;
   level: string;
   estimatedMinutes: number;
@@ -116,6 +117,17 @@ interface PackEntry {
     commonMistakes: string[];
     drillType: 'substitution' | 'pattern-switch' | 'roleplay-bounded';
     cognitiveLoad: 'low' | 'medium' | 'high';
+  };
+  provenance: {
+    source: 'pdf' | 'template' | 'handcrafted';
+    sourceRef: string;
+    extractorVersion: string;
+    generatedAt: string;
+  };
+  review: {
+    status: 'draft' | 'needs_review' | 'approved';
+    reviewer?: string;
+    reviewedAt?: string;
   };
 }
 
@@ -883,6 +895,7 @@ function generatePack(
     schemaVersion: 1,
     id: packId,
     kind: 'pack',
+    packVersion: '1.0.0',
     title,
     level,
     estimatedMinutes,
@@ -898,7 +911,16 @@ function generatePack(
       steps: sessionPlanSteps
     },
     tags: [template.scenarioId],
-    analytics
+    analytics,
+    provenance: {
+      source: 'template',
+      sourceRef: template.scenarioId || 'unknown-template',
+      extractorVersion: '1.0.0',
+      generatedAt: new Date().toISOString()
+    },
+    review: {
+      status: 'needs_review'
+    }
   };
   
   return pack;

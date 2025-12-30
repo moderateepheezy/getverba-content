@@ -144,6 +144,7 @@ interface PackEntry {
   schemaVersion: number;
   id: string;
   kind: string;
+  packVersion: string;
   title: string;
   level: string;
   estimatedMinutes: number;
@@ -179,6 +180,17 @@ interface PackEntry {
     commonMistakes: string[];
     drillType: 'substitution' | 'pattern-switch' | 'roleplay-bounded';
     cognitiveLoad: 'low' | 'medium' | 'high';
+  };
+  provenance: {
+    source: 'pdf' | 'template' | 'handcrafted';
+    sourceRef: string;
+    extractorVersion: string;
+    generatedAt: string;
+  };
+  review: {
+    status: 'draft' | 'needs_review' | 'approved';
+    reviewer?: string;
+    reviewedAt?: string;
   };
 }
 
@@ -457,7 +469,9 @@ function generatePack(
   scenario: string,
   register: string,
   packSize: number,
-  rng: SeededRNG
+  rng: SeededRNG,
+  args: CliArgs,
+  windowSearchResult?: any
 ): PackEntry {
   // Select candidates for this pack (deterministic shuffle)
   const shuffled = rng.shuffle([...candidates]);
@@ -566,6 +580,13 @@ function generatePack(
   // Generate successDefinition
   const successDefinition = successCriteria[0] || 'Uses scenario-appropriate vocabulary correctly';
   
+  // Generate provenance metadata
+  const pdfBaseName = basename(args.pdf, '.pdf');
+  const windowInfo = windowSearchResult?.bestWindow 
+    ? `pages ${windowSearchResult.bestWindow.startPage}-${windowSearchResult.bestWindow.endPage}`
+    : args.pageRange || 'all pages';
+  const sourceRef = `${pdfBaseName} (${windowInfo})`;
+  
   return {
     schemaVersion: 1,
     id: packId,
@@ -613,6 +634,15 @@ function generatePack(
         targetMinutes: Math.max(5, Math.min(20, Math.ceil(estimatedMinutes / 3))),
         completeWhen: 'sessionPlan_completed_once'
       }
+    },
+    provenance: {
+      source: 'pdf',
+      sourceRef,
+      extractorVersion: '1.0.0',
+      generatedAt: new Date().toISOString()
+    },
+    review: {
+      status: 'needs_review'
     }
   };
 }
@@ -979,7 +1009,9 @@ async function main() {
         args.scenario,
         args.register,
         packCandidates.length,
-        rng
+        rng,
+        args,
+        windowSearchResult
       );
       
       packs.push(pack);
