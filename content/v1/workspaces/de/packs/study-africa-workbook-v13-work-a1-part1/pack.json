@@ -1,0 +1,209 @@
+{
+  "schemaVersion": 1,
+  "id": "study-africa-workbook-v13-work-a1-part1",
+  "kind": "pack",
+  "title": "Study Africa Workbook V13 - work - A1 - Part 1",
+  "level": "A1",
+  "estimatedMinutes": 15,
+  "description": "Practice work scenarios at A1 level.",
+  "scenario": "work",
+  "register": "neutral",
+  "primaryStructure": "verb_position",
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object"
+  ],
+  "outline": [
+    "Step 1",
+    "Step 2",
+    "Step 3"
+  ],
+  "prompts": [
+    {
+      "id": "p001",
+      "text": "Course Layout 2",
+      "intent": "inform",
+      "gloss_en": "(gloss pending)",
+      "audioUrl": "/v1/audio/study-africa-workbook-v13-work-a1-part1/p001.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ]
+    },
+    {
+      "id": "p002",
+      "text": "be competent in using the structures provided in the sentences independently.",
+      "intent": "inform",
+      "gloss_en": "(gloss pending)",
+      "audioUrl": "/v1/audio/study-africa-workbook-v13-work-a1-part1/p002.mp3",
+      "slotsChanged": [
+        "verb"
+      ]
+    },
+    {
+      "id": "p003",
+      "text": "Introduction 1",
+      "intent": "inform",
+      "gloss_en": "(gloss pending)",
+      "audioUrl": "/v1/audio/study-africa-workbook-v13-work-a1-part1/p003.mp3",
+      "slotsChanged": [
+        "verb"
+      ]
+    },
+    {
+      "id": "p004",
+      "text": "Course Layout",
+      "intent": "inform",
+      "gloss_en": "(gloss pending)",
+      "audioUrl": "/v1/audio/study-africa-workbook-v13-work-a1-part1/p004.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ]
+    },
+    {
+      "id": "p005",
+      "text": "Table of Contents",
+      "intent": "inform",
+      "gloss_en": "(gloss pending)",
+      "audioUrl": "/v1/audio/study-africa-workbook-v13-work-a1-part1/p005.mp3",
+      "slotsChanged": [
+        "verb"
+      ]
+    },
+    {
+      "id": "p006",
+      "text": "support of an instructor.",
+      "intent": "inform",
+      "gloss_en": "(gloss pending)",
+      "audioUrl": "/v1/audio/study-africa-workbook-v13-work-a1-part1/p006.mp3",
+      "slotsChanged": [
+        "verb"
+      ]
+    },
+    {
+      "id": "p007",
+      "text": "Introduction & Course Layout",
+      "intent": "inform",
+      "gloss_en": "(gloss pending)",
+      "audioUrl": "/v1/audio/study-africa-workbook-v13-work-a1-part1/p007.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ]
+    },
+    {
+      "id": "p008",
+      "text": "Day 1: Greetings!",
+      "intent": "inform",
+      "gloss_en": "(gloss pending)",
+      "audioUrl": "/v1/audio/study-africa-workbook-v13-work-a1-part1/p008.mp3",
+      "slotsChanged": [
+        "verb"
+      ]
+    },
+    {
+      "id": "p009",
+      "text": "The instructor should encourage the students to substitute and remould the sentences to enable them to",
+      "intent": "inform",
+      "gloss_en": "(gloss pending)",
+      "audioUrl": "/v1/audio/study-africa-workbook-v13-work-a1-part1/p009.mp3",
+      "slotsChanged": [
+        "verb"
+      ]
+    },
+    {
+      "id": "p010",
+      "text": "The sentences are to be used as a basis for building the students ability to use the Arabic language.",
+      "intent": "inform",
+      "gloss_en": "(gloss pending)",
+      "audioUrl": "/v1/audio/study-africa-workbook-v13-work-a1-part1/p010.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ]
+    },
+    {
+      "id": "p011",
+      "text": "Arabic in Africa: Fez 2021",
+      "intent": "inform",
+      "gloss_en": "(gloss pending)",
+      "audioUrl": "/v1/audio/study-africa-workbook-v13-work-a1-part1/p011.mp3",
+      "slotsChanged": [
+        "verb"
+      ]
+    },
+    {
+      "id": "p012",
+      "text": "This workbook is to be used to aid students in immersing themselves in the Arabic language with the",
+      "intent": "inform",
+      "gloss_en": "(gloss pending)",
+      "audioUrl": "/v1/audio/study-africa-workbook-v13-work-a1-part1/p012.mp3",
+      "slotsChanged": [
+        "verb"
+      ]
+    }
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "step-1",
+        "title": "Step 1",
+        "promptIds": [
+          "p001",
+          "p002",
+          "p003",
+          "p004"
+        ]
+      },
+      {
+        "id": "step-2",
+        "title": "Step 2",
+        "promptIds": [
+          "p005",
+          "p006",
+          "p007",
+          "p008"
+        ]
+      },
+      {
+        "id": "step-3",
+        "title": "Step 3",
+        "promptIds": [
+          "p009",
+          "p010",
+          "p011",
+          "p012"
+        ]
+      }
+    ]
+  },
+  "tags": [
+    "work"
+  ],
+  "analytics": {
+    "goal": "Practice work scenarios at A1 level",
+    "constraints": [
+      "neutral register maintained",
+      "work scenario context"
+    ],
+    "levers": [
+      "subject variation",
+      "verb substitution"
+    ],
+    "successCriteria": [
+      "Uses scenario-appropriate vocabulary",
+      "Varies key slots across prompts",
+      "Maintains register consistency"
+    ],
+    "commonMistakes": [
+      "Missing scenario vocabulary",
+      "Inconsistent register usage",
+      "Incorrect slot variation"
+    ],
+    "drillType": "roleplay-bounded",
+    "cognitiveLoad": "low"
+  }
+}

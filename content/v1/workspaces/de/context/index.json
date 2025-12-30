@@ -1,8 +1,116 @@
 {
   "version": "v1",
   "kind": "context",
-  "total": 0,
+  "total": 3,
   "pageSize": 20,
-  "items": [],
+  "items": [
+    {
+      "id": "deutschimblick-textbook-work-a1-part1",
+      "kind": "pack",
+      "title": "DeutschImBlick textbook - work - A1 - Part 1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/deutschimblick-textbook-work-a1-part1/pack.json",
+      "scenario": "work",
+      "register": "neutral",
+      "primaryStructure": "verb_position",
+      "tags": [
+        "work"
+      ],
+      "analyticsSummary": {
+        "primaryStructure": "verb_position",
+        "scenario": "work",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object"
+        ],
+        "targetResponseSeconds": 2.5,
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "low",
+        "goal": "Practice work scenarios at A1 level",
+        "whyThisWorks": [
+          "Uses scenario-appropriate vocabulary",
+          "Varies key slots across prompts",
+          "Maintains register consistency"
+        ]
+      },
+      "drillType": "roleplay-bounded",
+      "cognitiveLoad": "low",
+      "whyThisWorks": "Practice work scenarios at A1 level Uses scenario-appropriate vocabulary"
+    },
+    {
+      "id": "study-africa-workbook-v13-work-a1-part1",
+      "kind": "pack",
+      "title": "Study Africa Workbook V13 - work - A1 - Part 1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/study-africa-workbook-v13-work-a1-part1/pack.json",
+      "scenario": "work",
+      "register": "neutral",
+      "primaryStructure": "verb_position",
+      "tags": [
+        "work"
+      ],
+      "analyticsSummary": {
+        "primaryStructure": "verb_position",
+        "scenario": "work",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "low",
+        "goal": "Practice work scenarios at A1 level",
+        "whyThisWorks": [
+          "Uses scenario-appropriate vocabulary",
+          "Varies key slots across prompts",
+          "Maintains register consistency"
+        ]
+      },
+      "drillType": "roleplay-bounded",
+      "cognitiveLoad": "low",
+      "whyThisWorks": "Practice work scenarios at A1 level Uses scenario-appropriate vocabulary"
+    },
+    {
+      "id": "study-africa-workbook-v13-work-a1-part1-1",
+      "kind": "pack",
+      "title": "Study Africa Workbook V13 - work - A1 - Part 1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/study-africa-workbook-v13-work-a1-part1-1/pack.json",
+      "scenario": "work",
+      "register": "neutral",
+      "primaryStructure": "verb_position",
+      "tags": [
+        "work"
+      ],
+      "analyticsSummary": {
+        "primaryStructure": "verb_position",
+        "scenario": "work",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object"
+        ],
+        "targetResponseSeconds": 2.5,
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "low",
+        "goal": "Practice work scenarios at A1 level",
+        "whyThisWorks": [
+          "Uses scenario-appropriate vocabulary",
+          "Varies key slots across prompts",
+          "Maintains register consistency"
+        ]
+      },
+      "drillType": "roleplay-bounded",
+      "cognitiveLoad": "low",
+      "whyThisWorks": "Practice work scenarios at A1 level Uses scenario-appropriate vocabulary"
+    }
+  ],
   "nextPage": null
 }

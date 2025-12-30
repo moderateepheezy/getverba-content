@@ -6,8 +6,8 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const CONTENT_DIR = join(__dirname, '..', 'content', 'v1');
-const META_DIR = join(__dirname, '..', 'content', 'meta');
+const CONTENT_DIR = process.env.CONTENT_DIR || join(__dirname, '..', 'content', 'v1');
+const META_DIR = process.env.META_DIR || join(__dirname, '..', 'content', 'meta');
 
 interface ValidationError {
   file: string;
