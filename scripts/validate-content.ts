@@ -353,8 +353,124 @@ function validateTitle(title: string, context: string, itemIdx: number): void {
   }
 }
 
+interface PaginationResult {
+  totalItems: number;
+  allItemIds: Set<string>;
+  pageCount: number;
+}
+
+interface FirstPageMeta {
+  version: string;
+  kind: string;
+  pageSize: number;
+  total: number;
+}
+
 /**
- * Validate pagination across all pages of an index
+ * Validate pagination chain from first page
+ * Enforces all invariants across pages
+ */
+function validatePaginationChain(
+  firstPagePath: string,
+  firstPageMeta: FirstPageMeta
+): PaginationResult {
+  const result: PaginationResult = { totalItems: 0, allItemIds: new Set<string>(), pageCount: 0 };
+  const visitedPages = new Set<string>();
+  
+  let currentPath: string | null = firstPagePath;
+  
+  while (currentPath) {
+    // Loop detection
+    if (visitedPages.has(currentPath)) {
+      addError(currentPath, 'Circular reference detected in nextPage chain (loop)');
+      break;
+    }
+    visitedPages.add(currentPath);
+    result.pageCount++;
+    
+    // Resolve path
+    const resolvedPath = resolveContentPath(currentPath.replace(/^\/v1\//, ''));
+    
+    if (!existsSync(resolvedPath)) {
+      addError(firstPagePath, `nextPage chain broken: file not found at ${currentPath}`);
+      break;
+    }
+    
+    try {
+      const content = readFileSync(resolvedPath, 'utf-8');
+      const page = JSON.parse(content);
+      
+      // Validate invariants match first page (only for pages after first)
+      if (result.pageCount > 1) {
+        if (page.version !== firstPageMeta.version) {
+          addError(resolvedPath, `Pagination invariant violation: version "${page.version}" differs from first page "${firstPageMeta.version}"`);
+        }
+        if (page.kind !== firstPageMeta.kind) {
+          addError(resolvedPath, `Pagination invariant violation: kind "${page.kind}" differs from first page "${firstPageMeta.kind}"`);
+        }
+        if (page.pageSize !== firstPageMeta.pageSize) {
+          addError(resolvedPath, `Pagination invariant violation: pageSize ${page.pageSize} differs from first page ${firstPageMeta.pageSize}`);
+        }
+        if (page.total !== firstPageMeta.total) {
+          addError(resolvedPath, `Pagination invariant violation: total ${page.total} differs from first page ${firstPageMeta.total}`);
+        }
+      }
+      
+      // Collect items and check for duplicates
+      if (Array.isArray(page.items)) {
+        page.items.forEach((item: any) => {
+          if (item.id) {
+            if (result.allItemIds.has(item.id)) {
+              addError(resolvedPath, `Duplicate item ID "${item.id}" found across pagination pages`);
+            }
+            result.allItemIds.add(item.id);
+          }
+        });
+        result.totalItems += page.items.length;
+      }
+      
+      // Move to next page
+      if (typeof page.nextPage === 'string') {
+        // Validate nextPage format
+        if (!page.nextPage.startsWith('/v1/')) {
+          addError(resolvedPath, `nextPage "${page.nextPage}" must start with /v1/`);
+          break;
+        }
+        if (!page.nextPage.endsWith('.json')) {
+          addError(resolvedPath, `nextPage "${page.nextPage}" must end with .json`);
+          break;
+        }
+        currentPath = page.nextPage;
+      } else {
+        currentPath = null;
+      }
+      
+      // Soft warning: last page has fewer items than pageSize
+      if (currentPath === null && Array.isArray(page.items) && page.items.length < page.pageSize) {
+        // This is normal for last page - could add a debug log if needed
+      }
+      
+    } catch (err: any) {
+      addError(resolvedPath, `Failed to parse pagination page: ${err.message}`);
+      break;
+    }
+  }
+  
+  // Validate total matches actual item count
+  if (result.totalItems !== firstPageMeta.total) {
+    addError(firstPagePath, `Pagination total mismatch: declared total is ${firstPageMeta.total} but actual item count across ${result.pageCount} page(s) is ${result.totalItems}`);
+  }
+  
+  // Soft warning: tiny pageSize with large total
+  if (firstPageMeta.total > 100 && firstPageMeta.pageSize < 10) {
+    console.warn(`⚠️  ${firstPagePath}: Large total (${firstPageMeta.total}) with small pageSize (${firstPageMeta.pageSize}) - consider increasing pageSize`);
+  }
+  
+  return result;
+}
+
+/**
+ * Validate pagination across all pages of an index (legacy wrapper)
  * Returns: { totalItems: number, allItemIds: Set<string> }
  */
 function validatePaginatedIndex(indexPath: string, visitedPages: Set<string> = new Set()): { totalItems: number; allItemIds: Set<string> } {
@@ -499,13 +615,23 @@ function validateIndex(indexPath: string): void {
       }
     }
     
-    // For first page (index.json), validate total matches sum of all pages
+    // For first page (index.json), validate entire pagination chain with full invariants
     if (indexPath.endsWith('index.json') && !indexPath.includes('.page')) {
-      const relPath = '/' + relative(join(CONTENT_DIR, '..'), indexPath).replace(/\\/g, '/');
-      const paginationResult = validatePaginatedIndex(relPath);
+      const relPath = '/v1/' + relative(CONTENT_DIR, indexPath).replace(/\\/g, '/');
       
-      if (typeof index.total === 'number' && paginationResult.totalItems !== index.total) {
-        addError(indexPath, `total (${index.total}) does not match actual item count across all pages (${paginationResult.totalItems})`);
+      // Use full pagination chain validation with invariant checks
+      const firstPageMeta: FirstPageMeta = {
+        version: index.version || '',
+        kind: index.kind || '',
+        pageSize: index.pageSize || 0,
+        total: index.total || 0
+      };
+      
+      const paginationResult = validatePaginationChain(relPath, firstPageMeta);
+      
+      // Log pagination stats for multi-page indexes
+      if (paginationResult.pageCount > 1) {
+        console.log(`   📄 ${relPath}: ${paginationResult.pageCount} pages, ${paginationResult.totalItems} items`);
       }
     }
   } catch (err: any) {

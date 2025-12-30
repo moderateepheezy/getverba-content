@@ -1,0 +1,26 @@
+{
+  "version": "v1",
+  "kind": "drills",
+  "total": 4,
+  "pageSize": 2,
+  "items": [
+    {
+      "id": "akkusativ_prepositions_a1",
+      "kind": "drill",
+      "title": "Accusative Prepositions",
+      "level": "A1",
+      "durationMinutes": 10,
+      "entryUrl": "/v1/workspaces/de/drills/akkusativ_prepositions_a1/drill.json"
+    },
+    {
+      "id": "separable_verbs_a1",
+      "kind": "drill",
+      "title": "Separable Verbs",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/drills/separable_verbs_a1/drill.json"
+    }
+  ],
+  "nextPage": null
+}
+

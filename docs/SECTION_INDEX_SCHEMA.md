@@ -211,6 +211,11 @@ if (index.nextPage) {
 }
 ```
 
+## Pagination Documentation
+
+For detailed pagination rules, invariants, and validation:
+- [`SECTION_INDEX_PAGINATION.md`](./content-pipeline/SECTION_INDEX_PAGINATION.md) - Complete pagination specification
+
 ## Backend Documentation
 
 For complete backend API contract and acceptance criteria, see:

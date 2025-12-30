@@ -1,0 +1,62 @@
+{
+  "id": "separable_verbs_a1",
+  "kind": "drill",
+  "title": "Separable Verbs",
+  "level": "A1",
+  "estimatedMinutes": 15,
+  "description": "Practice conjugating and using common separable verbs (trennbare Verben) in German sentences.",
+  "instructions": "Complete each sentence with the correct form of the separable verb.",
+  "exercises": [
+    {
+      "id": "ex-001",
+      "type": "fill-blank",
+      "prompt": "Ich ___ jeden Tag um 7 Uhr ___ (aufstehen).",
+      "answer": "stehe ... auf",
+      "hint": "aufstehen separates: ich stehe ... auf"
+    },
+    {
+      "id": "ex-002",
+      "type": "fill-blank",
+      "prompt": "Wann ___ der Zug ___ (ankommen)?",
+      "answer": "kommt ... an",
+      "hint": "ankommen separates: er kommt ... an"
+    },
+    {
+      "id": "ex-003",
+      "type": "fill-blank",
+      "prompt": "Er ___ seinen Freund ___ (anrufen).",
+      "answer": "ruft ... an",
+      "hint": "anrufen separates: er ruft ... an"
+    },
+    {
+      "id": "ex-004",
+      "type": "multiple-choice",
+      "prompt": "Which is the correct sentence?",
+      "options": [
+        "Ich aufräume mein Zimmer.",
+        "Ich räume mein Zimmer auf.",
+        "Ich auf räume mein Zimmer.",
+        "Ich räume auf mein Zimmer."
+      ],
+      "answer": "Ich räume mein Zimmer auf.",
+      "hint": "Prefix goes to the end in main clauses"
+    },
+    {
+      "id": "ex-005",
+      "type": "fill-blank",
+      "prompt": "Sie ___ das Licht ___ (ausmachen).",
+      "answer": "macht ... aus",
+      "hint": "ausmachen separates: sie macht ... aus"
+    },
+    {
+      "id": "ex-006",
+      "type": "fill-blank",
+      "prompt": "Wir ___ um 18 Uhr ___ (einkaufen).",
+      "answer": "kaufen ... ein",
+      "hint": "einkaufen separates: wir kaufen ... ein"
+    }
+  ],
+  "passingScore": 70,
+  "tags": ["grammar", "verbs", "separable-verbs", "conjugation"]
+}
+

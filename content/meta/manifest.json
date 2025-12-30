@@ -2,7 +2,7 @@
   "activeVersion": "v1",
   "activeWorkspace": "de",
   "workspaces": {
-    "de": "/v1/workspaces/de/catalog.json"
+    "de": "/v1/workspaces/de/catalog.json",
+    "en": "/v1/workspaces/en/catalog.json"
   }
 }
-

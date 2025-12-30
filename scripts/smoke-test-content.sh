@@ -2,7 +2,16 @@
 
 # Smoke test content before promotion
 # Verifies all referenced content exists and is valid
-# Usage: ./scripts/smoke-test-content.sh [--base-url <worker>] [--sample <N>]
+# Follows pagination nextPage chains
+#
+# Usage: ./scripts/smoke-test-content.sh [options]
+#
+# Options:
+#   --base-url <url>        Worker API base URL
+#   --sample <N>            Number of entry items to sample per section (default: 5)
+#   --follow-next-page      Follow nextPage pagination chains (default: on)
+#   --no-follow-next-page   Skip nextPage following
+#   --max-pages <N>         Maximum pages to follow per section (default: 20)
 
 set -e
 
@@ -13,23 +22,46 @@ STAGING_MANIFEST="$META_DIR/manifest.staging.json"
 # Default values
 BASE_URL="${WORKER_BASE_URL:-https://getverba-content-api.simpumind-apps.workers.dev}"
 SAMPLE_SIZE=5
+FOLLOW_NEXT_PAGE=true
+MAX_PAGES=20
 
 # Parse arguments
-for arg in "$@"; do
-  case "$arg" in
+while [[ $# -gt 0 ]]; do
+  case "$1" in
     --base-url=*)
-      BASE_URL="${arg#*=}"
-      ;;
-    --sample=*)
-      SAMPLE_SIZE="${arg#*=}"
+      BASE_URL="${1#*=}"
+      shift
       ;;
     --base-url)
+      BASE_URL="$2"
+      shift 2
+      ;;
+    --sample=*)
+      SAMPLE_SIZE="${1#*=}"
       shift
-      BASE_URL="$1"
       ;;
     --sample)
+      SAMPLE_SIZE="$2"
+      shift 2
+      ;;
+    --follow-next-page)
+      FOLLOW_NEXT_PAGE=true
       shift
-      SAMPLE_SIZE="$1"
+      ;;
+    --no-follow-next-page)
+      FOLLOW_NEXT_PAGE=false
+      shift
+      ;;
+    --max-pages=*)
+      MAX_PAGES="${1#*=}"
+      shift
+      ;;
+    --max-pages)
+      MAX_PAGES="$2"
+      shift 2
+      ;;
+    *)
+      shift
       ;;
   esac
 done
@@ -43,6 +75,8 @@ fi
 echo "🔍 Smoke testing content before promotion..."
 echo "   Base URL: $BASE_URL"
 echo "   Sample size: $SAMPLE_SIZE"
+echo "   Follow nextPage: $FOLLOW_NEXT_PAGE"
+echo "   Max pages: $MAX_PAGES"
 echo "   Staging manifest: $STAGING_MANIFEST"
 echo ""
 
@@ -110,7 +144,7 @@ test_workspace() {
   local SECTION_COUNT=$(echo "$CATALOG_BODY" | jq '.sections | length')
   echo "   Found $SECTION_COUNT section(s)"
   
-  # Test 2: For each section, test index and sample entries
+  # Test 2: For each section, test index and sample entries (with pagination)
   local SECTION_INDEX=0
   echo "$CATALOG_BODY" | jq -c '.sections[]' | while IFS= read -r section; do
     SECTION_INDEX=$((SECTION_INDEX + 1))
@@ -122,81 +156,161 @@ test_workspace() {
       continue
     fi
     
-    local INDEX_URL="${BASE_URL}${ITEMS_URL}"
-    echo "   📄 Testing section $SECTION_INDEX ($SECTION_ID): $INDEX_URL"
+    # Follow pagination chain
+    local CURRENT_PAGE_URL="$ITEMS_URL"
+    local PAGE_NUM=0
+    local TOTAL_ITEMS=0
+    local VISITED_PAGES=""
+    local FIRST_PAGE_VERSION=""
+    local FIRST_PAGE_KIND=""
+    local FIRST_PAGE_PAGESIZE=""
+    local FIRST_PAGE_TOTAL=""
     
-    # Fetch index
-    local INDEX_RESPONSE=$(curl -s -w "\n%{http_code}" "$INDEX_URL")
-    local INDEX_HTTP_CODE=$(echo "$INDEX_RESPONSE" | tail -n1)
-    local INDEX_BODY=$(echo "$INDEX_RESPONSE" | sed '$d')
-    
-    if [ "$INDEX_HTTP_CODE" != "200" ] && [ "$INDEX_HTTP_CODE" != "304" ]; then
-      echo "      ❌ Error: Index returned HTTP $INDEX_HTTP_CODE"
-      exit 1
-    fi
-    
-    # Validate index JSON
-    if ! echo "$INDEX_BODY" | jq empty 2>/dev/null; then
-      echo "      ❌ Error: Index is not valid JSON"
-      exit 1
-    fi
-    
-    local ITEM_COUNT=$(echo "$INDEX_BODY" | jq '.items | length // 0')
-    echo "      ✅ Index accessible, found $ITEM_COUNT item(s)"
-    
-    # Sample items (up to SAMPLE_SIZE)
-    local SAMPLE_COUNT=$((ITEM_COUNT < SAMPLE_SIZE ? ITEM_COUNT : SAMPLE_SIZE))
-    
-    if [ "$SAMPLE_COUNT" -eq 0 ]; then
-      echo "      ⚠️  No items to sample"
-      continue
-    fi
-    
-    echo "      Testing $SAMPLE_COUNT sample item(s)..."
-    
-    # Test each sampled item's entryUrl
-    local ITEM_INDEX=0
-    echo "$INDEX_BODY" | jq -c ".items[0:$SAMPLE_COUNT][]" | while IFS= read -r item; do
-      ITEM_INDEX=$((ITEM_INDEX + 1))
-      local ITEM_ID=$(echo "$item" | jq -r '.id // "unknown"')
-      local ENTRY_URL=$(echo "$item" | jq -r '.entryUrl // ""')
+    while [ -n "$CURRENT_PAGE_URL" ] && [ "$PAGE_NUM" -lt "$MAX_PAGES" ]; do
+      PAGE_NUM=$((PAGE_NUM + 1))
       
-      if [ -z "$ENTRY_URL" ]; then
-        echo "         ❌ Item $ITEM_INDEX ($ITEM_ID): Missing entryUrl"
+      # Loop detection
+      if echo "$VISITED_PAGES" | grep -q "^${CURRENT_PAGE_URL}$"; then
+        echo "      ❌ Error: Pagination loop detected at $CURRENT_PAGE_URL"
+        exit 1
+      fi
+      VISITED_PAGES="${VISITED_PAGES}${CURRENT_PAGE_URL}
+"
+      
+      local INDEX_URL="${BASE_URL}${CURRENT_PAGE_URL}"
+      
+      if [ "$PAGE_NUM" -eq 1 ]; then
+        echo "   📄 Testing section $SECTION_INDEX ($SECTION_ID): $INDEX_URL"
+      else
+        echo "      📄 Page $PAGE_NUM: $CURRENT_PAGE_URL"
+      fi
+      
+      # Fetch page
+      local INDEX_RESPONSE=$(curl -s -w "\n%{http_code}" "$INDEX_URL")
+      local INDEX_HTTP_CODE=$(echo "$INDEX_RESPONSE" | tail -n1)
+      local INDEX_BODY=$(echo "$INDEX_RESPONSE" | sed '$d')
+      
+      if [ "$INDEX_HTTP_CODE" != "200" ] && [ "$INDEX_HTTP_CODE" != "304" ]; then
+        echo "      ❌ Error: Page returned HTTP $INDEX_HTTP_CODE"
         exit 1
       fi
       
-      local ENTRY_FULL_URL="${BASE_URL}${ENTRY_URL}"
-      
-      # Fetch entry
-      local ENTRY_RESPONSE=$(curl -s -w "\n%{http_code}" "$ENTRY_FULL_URL")
-      local ENTRY_HTTP_CODE=$(echo "$ENTRY_RESPONSE" | tail -n1)
-      local ENTRY_BODY=$(echo "$ENTRY_RESPONSE" | sed '$d')
-      
-      if [ "$ENTRY_HTTP_CODE" != "200" ] && [ "$ENTRY_HTTP_CODE" != "304" ]; then
-        echo "         ❌ Item $ITEM_INDEX ($ITEM_ID): Entry returned HTTP $ENTRY_HTTP_CODE"
-        echo "            URL: $ENTRY_FULL_URL"
+      # Validate JSON
+      if ! echo "$INDEX_BODY" | jq empty 2>/dev/null; then
+        echo "      ❌ Error: Page is not valid JSON"
         exit 1
       fi
       
-      # Validate entry JSON
-      if ! echo "$ENTRY_BODY" | jq empty 2>/dev/null; then
-        echo "         ❌ Item $ITEM_INDEX ($ITEM_ID): Entry is not valid JSON"
-        echo "            URL: $ENTRY_FULL_URL"
-        exit 1
+      local PAGE_ITEM_COUNT=$(echo "$INDEX_BODY" | jq '.items | length // 0')
+      TOTAL_ITEMS=$((TOTAL_ITEMS + PAGE_ITEM_COUNT))
+      
+      # Store first page metadata for invariant checks
+      if [ "$PAGE_NUM" -eq 1 ]; then
+        FIRST_PAGE_VERSION=$(echo "$INDEX_BODY" | jq -r '.version // ""')
+        FIRST_PAGE_KIND=$(echo "$INDEX_BODY" | jq -r '.kind // ""')
+        FIRST_PAGE_PAGESIZE=$(echo "$INDEX_BODY" | jq -r '.pageSize // 0')
+        FIRST_PAGE_TOTAL=$(echo "$INDEX_BODY" | jq -r '.total // 0')
+        echo "      ✅ Page 1 accessible, found $PAGE_ITEM_COUNT item(s)"
+      else
+        # Check invariants match first page
+        local THIS_VERSION=$(echo "$INDEX_BODY" | jq -r '.version // ""')
+        local THIS_KIND=$(echo "$INDEX_BODY" | jq -r '.kind // ""')
+        local THIS_PAGESIZE=$(echo "$INDEX_BODY" | jq -r '.pageSize // 0')
+        local THIS_TOTAL=$(echo "$INDEX_BODY" | jq -r '.total // 0')
+        
+        if [ "$THIS_VERSION" != "$FIRST_PAGE_VERSION" ]; then
+          echo "      ❌ Error: version mismatch (page $PAGE_NUM: $THIS_VERSION vs page 1: $FIRST_PAGE_VERSION)"
+          exit 1
+        fi
+        if [ "$THIS_KIND" != "$FIRST_PAGE_KIND" ]; then
+          echo "      ❌ Error: kind mismatch (page $PAGE_NUM: $THIS_KIND vs page 1: $FIRST_PAGE_KIND)"
+          exit 1
+        fi
+        if [ "$THIS_PAGESIZE" != "$FIRST_PAGE_PAGESIZE" ]; then
+          echo "      ❌ Error: pageSize mismatch (page $PAGE_NUM: $THIS_PAGESIZE vs page 1: $FIRST_PAGE_PAGESIZE)"
+          exit 1
+        fi
+        if [ "$THIS_TOTAL" != "$FIRST_PAGE_TOTAL" ]; then
+          echo "      ❌ Error: total mismatch (page $PAGE_NUM: $THIS_TOTAL vs page 1: $FIRST_PAGE_TOTAL)"
+          exit 1
+        fi
+        
+        echo "      ✅ Page $PAGE_NUM accessible, found $PAGE_ITEM_COUNT item(s)"
       fi
       
-      # Validate entry has required fields
-      local ENTRY_ID=$(echo "$ENTRY_BODY" | jq -r '.id // ""')
-      local ENTRY_KIND=$(echo "$ENTRY_BODY" | jq -r '.kind // ""')
-      
-      if [ -z "$ENTRY_ID" ] || [ -z "$ENTRY_KIND" ]; then
-        echo "         ❌ Item $ITEM_INDEX ($ITEM_ID): Entry missing required fields (id or kind)"
-        exit 1
+      # Sample items from this page (only sample from first page to keep it quick)
+      if [ "$PAGE_NUM" -eq 1 ]; then
+        local SAMPLE_COUNT=$((PAGE_ITEM_COUNT < SAMPLE_SIZE ? PAGE_ITEM_COUNT : SAMPLE_SIZE))
+        
+        if [ "$SAMPLE_COUNT" -gt 0 ]; then
+          echo "      Testing $SAMPLE_COUNT sample item(s)..."
+          
+          local ITEM_INDEX=0
+          echo "$INDEX_BODY" | jq -c ".items[0:$SAMPLE_COUNT][]" | while IFS= read -r item; do
+            ITEM_INDEX=$((ITEM_INDEX + 1))
+            local ITEM_ID=$(echo "$item" | jq -r '.id // "unknown"')
+            local ENTRY_URL=$(echo "$item" | jq -r '.entryUrl // ""')
+            
+            if [ -z "$ENTRY_URL" ]; then
+              echo "         ❌ Item $ITEM_INDEX ($ITEM_ID): Missing entryUrl"
+              exit 1
+            fi
+            
+            local ENTRY_FULL_URL="${BASE_URL}${ENTRY_URL}"
+            
+            # Fetch entry
+            local ENTRY_RESPONSE=$(curl -s -w "\n%{http_code}" "$ENTRY_FULL_URL")
+            local ENTRY_HTTP_CODE=$(echo "$ENTRY_RESPONSE" | tail -n1)
+            local ENTRY_BODY=$(echo "$ENTRY_RESPONSE" | sed '$d')
+            
+            if [ "$ENTRY_HTTP_CODE" != "200" ] && [ "$ENTRY_HTTP_CODE" != "304" ]; then
+              echo "         ❌ Item $ITEM_INDEX ($ITEM_ID): Entry returned HTTP $ENTRY_HTTP_CODE"
+              echo "            URL: $ENTRY_FULL_URL"
+              exit 1
+            fi
+            
+            if ! echo "$ENTRY_BODY" | jq empty 2>/dev/null; then
+              echo "         ❌ Item $ITEM_INDEX ($ITEM_ID): Entry is not valid JSON"
+              exit 1
+            fi
+            
+            local ENTRY_ID=$(echo "$ENTRY_BODY" | jq -r '.id // ""')
+            local ENTRY_KIND=$(echo "$ENTRY_BODY" | jq -r '.kind // ""')
+            
+            if [ -z "$ENTRY_ID" ] || [ -z "$ENTRY_KIND" ]; then
+              echo "         ❌ Item $ITEM_INDEX ($ITEM_ID): Entry missing required fields"
+              exit 1
+            fi
+            
+            echo "         ✅ Item $ITEM_INDEX ($ITEM_ID): Entry accessible and valid"
+          done
+          
+          if [ $? -ne 0 ]; then
+            exit 1
+          fi
+        fi
       fi
       
-      echo "         ✅ Item $ITEM_INDEX ($ITEM_ID): Entry accessible and valid"
+      # Get next page URL
+      if [ "$FOLLOW_NEXT_PAGE" = true ]; then
+        CURRENT_PAGE_URL=$(echo "$INDEX_BODY" | jq -r '.nextPage // ""')
+        if [ "$CURRENT_PAGE_URL" = "null" ]; then
+          CURRENT_PAGE_URL=""
+        fi
+      else
+        CURRENT_PAGE_URL=""
+      fi
     done
+    
+    if [ "$PAGE_NUM" -gt 1 ]; then
+      echo "      📊 Total: $PAGE_NUM pages, $TOTAL_ITEMS items"
+      
+      # Validate total matches
+      if [ "$TOTAL_ITEMS" -ne "$FIRST_PAGE_TOTAL" ]; then
+        echo "      ❌ Error: Declared total ($FIRST_PAGE_TOTAL) doesn't match actual items ($TOTAL_ITEMS)"
+        exit 1
+      fi
+    fi
     
     if [ $? -ne 0 ]; then
       exit 1

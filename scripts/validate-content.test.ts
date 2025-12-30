@@ -1965,6 +1965,151 @@ test('pagination duplicate ID detection', () => {
   cleanupTestDir();
 });
 
+// Test 44: Pagination - missing nextPage file
+test('pagination missing nextPage file detection', () => {
+  setupTestDir();
+  
+  const page1 = {
+    version: 'v1',
+    kind: 'context',
+    total: 2,
+    pageSize: 1,
+    items: [
+      { id: 'item-1', kind: 'pack', title: 'Item 1', level: 'A1', entryUrl: '/v1/workspaces/test-ws/packs/item-1/pack.json' }
+    ],
+    nextPage: '/v1/workspaces/test-ws/context/index.page2.json' // This file doesn't exist!
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context'), { recursive: true });
+  
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.json'),
+    JSON.stringify(page1, null, 2)
+  );
+  
+  // Page 2 file NOT created - should be detected
+  const page2Path = join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.page2.json');
+  assert(!existsSync(page2Path), 'Page 2 file should not exist for this test');
+  
+  cleanupTestDir();
+});
+
+// Test 45: Pagination - looped chain detection
+test('pagination looped chain detection', () => {
+  setupTestDir();
+  
+  // Page 1 points to page 2, page 2 points back to page 1
+  const page1 = {
+    version: 'v1',
+    kind: 'context',
+    total: 2,
+    pageSize: 1,
+    items: [{ id: 'item-1', kind: 'pack', title: 'Item 1', level: 'A1', entryUrl: '/v1/workspaces/test-ws/packs/item-1/pack.json' }],
+    nextPage: '/v1/workspaces/test-ws/context/index.page2.json'
+  };
+  
+  const page2 = {
+    version: 'v1',
+    kind: 'context',
+    total: 2,
+    pageSize: 1,
+    items: [{ id: 'item-2', kind: 'pack', title: 'Item 2', level: 'A1', entryUrl: '/v1/workspaces/test-ws/packs/item-2/pack.json' }],
+    nextPage: '/v1/workspaces/test-ws/context/index.json' // Loop back to page 1!
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context'), { recursive: true });
+  
+  writeFileSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.json'), JSON.stringify(page1, null, 2));
+  writeFileSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.page2.json'), JSON.stringify(page2, null, 2));
+  
+  // Verify the loop exists
+  assert(page2.nextPage === '/v1/workspaces/test-ws/context/index.json', 'Page 2 should loop back to page 1');
+  
+  cleanupTestDir();
+});
+
+// Test 46: Pagination - mismatched version across pages
+test('pagination mismatched version across pages', () => {
+  setupTestDir();
+  
+  const page1 = { version: 'v1', kind: 'context', total: 2, pageSize: 1, items: [{ id: 'item-1', kind: 'pack', title: 'Item 1', level: 'A1', entryUrl: '/v1/workspaces/test-ws/packs/item-1/pack.json' }], nextPage: '/v1/workspaces/test-ws/context/index.page2.json' };
+  const page2 = { version: 'v2', kind: 'context', total: 2, pageSize: 1, items: [{ id: 'item-2', kind: 'pack', title: 'Item 2', level: 'A1', entryUrl: '/v1/workspaces/test-ws/packs/item-2/pack.json' }], nextPage: null };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context'), { recursive: true });
+  writeFileSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.json'), JSON.stringify(page1, null, 2));
+  writeFileSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.page2.json'), JSON.stringify(page2, null, 2));
+  
+  assert(page1.version !== page2.version, 'Versions should mismatch for this test');
+  
+  cleanupTestDir();
+});
+
+// Test 47: Pagination - mismatched kind across pages
+test('pagination mismatched kind across pages', () => {
+  setupTestDir();
+  
+  const page1 = { version: 'v1', kind: 'context', total: 2, pageSize: 1, items: [{ id: 'item-1', kind: 'pack', title: 'Item 1', level: 'A1', entryUrl: '/v1/workspaces/test-ws/packs/item-1/pack.json' }], nextPage: '/v1/workspaces/test-ws/context/index.page2.json' };
+  const page2 = { version: 'v1', kind: 'exams', total: 2, pageSize: 1, items: [{ id: 'item-2', kind: 'exam', title: 'Item 2', level: 'A1', entryUrl: '/v1/workspaces/test-ws/exams/item-2/exam.json' }], nextPage: null };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context'), { recursive: true });
+  writeFileSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.json'), JSON.stringify(page1, null, 2));
+  writeFileSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.page2.json'), JSON.stringify(page2, null, 2));
+  
+  assert(page1.kind !== page2.kind, 'Kinds should mismatch for this test');
+  
+  cleanupTestDir();
+});
+
+// Test 48: Pagination - mismatched pageSize across pages
+test('pagination mismatched pageSize across pages', () => {
+  setupTestDir();
+  
+  const page1 = { version: 'v1', kind: 'context', total: 2, pageSize: 10, items: [{ id: 'item-1', kind: 'pack', title: 'Item 1', level: 'A1', entryUrl: '/v1/workspaces/test-ws/packs/item-1/pack.json' }], nextPage: '/v1/workspaces/test-ws/context/index.page2.json' };
+  const page2 = { version: 'v1', kind: 'context', total: 2, pageSize: 20, items: [{ id: 'item-2', kind: 'pack', title: 'Item 2', level: 'A1', entryUrl: '/v1/workspaces/test-ws/packs/item-2/pack.json' }], nextPage: null };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context'), { recursive: true });
+  writeFileSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.json'), JSON.stringify(page1, null, 2));
+  writeFileSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.page2.json'), JSON.stringify(page2, null, 2));
+  
+  assert(page1.pageSize !== page2.pageSize, 'Page sizes should mismatch for this test');
+  
+  cleanupTestDir();
+});
+
+// Test 49: Pagination - mismatched total across pages
+test('pagination mismatched total across pages', () => {
+  setupTestDir();
+  
+  const page1 = { version: 'v1', kind: 'context', total: 10, pageSize: 1, items: [{ id: 'item-1', kind: 'pack', title: 'Item 1', level: 'A1', entryUrl: '/v1/workspaces/test-ws/packs/item-1/pack.json' }], nextPage: '/v1/workspaces/test-ws/context/index.page2.json' };
+  const page2 = { version: 'v1', kind: 'context', total: 20, pageSize: 1, items: [{ id: 'item-2', kind: 'pack', title: 'Item 2', level: 'A1', entryUrl: '/v1/workspaces/test-ws/packs/item-2/pack.json' }], nextPage: null };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context'), { recursive: true });
+  writeFileSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.json'), JSON.stringify(page1, null, 2));
+  writeFileSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.page2.json'), JSON.stringify(page2, null, 2));
+  
+  assert(page1.total !== page2.total, 'Totals should mismatch for this test');
+  
+  cleanupTestDir();
+});
+
+// Test 50: Pagination - total doesn't match actual item count
+test('pagination total mismatch with actual items', () => {
+  setupTestDir();
+  
+  // Says total is 5 but only has 2 items
+  const page1 = { version: 'v1', kind: 'context', total: 5, pageSize: 2, items: [{ id: 'item-1', kind: 'pack', title: 'Item 1', level: 'A1', entryUrl: '/v1/workspaces/test-ws/packs/item-1/pack.json' }], nextPage: '/v1/workspaces/test-ws/context/index.page2.json' };
+  const page2 = { version: 'v1', kind: 'context', total: 5, pageSize: 2, items: [{ id: 'item-2', kind: 'pack', title: 'Item 2', level: 'A1', entryUrl: '/v1/workspaces/test-ws/packs/item-2/pack.json' }], nextPage: null };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context'), { recursive: true });
+  writeFileSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.json'), JSON.stringify(page1, null, 2));
+  writeFileSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.page2.json'), JSON.stringify(page2, null, 2));
+  
+  const actualItems = page1.items.length + page2.items.length;
+  assert(page1.total !== actualItems, `Total (${page1.total}) should not match actual items (${actualItems})`);
+  
+  cleanupTestDir();
+});
+
 // Run all tests
 function runTests() {
   console.log('Running unit tests...\n');

@@ -1,0 +1,52 @@
+{
+  "id": "akkusativ_prepositions_a1",
+  "kind": "drill",
+  "title": "Accusative Prepositions",
+  "level": "A1",
+  "estimatedMinutes": 10,
+  "description": "Practice using prepositions that always take the accusative case: durch, für, gegen, ohne, um.",
+  "instructions": "Choose the correct article form for each sentence.",
+  "exercises": [
+    {
+      "id": "ex-001",
+      "type": "multiple-choice",
+      "prompt": "Wir gehen durch ___ Park.",
+      "options": ["der", "den", "dem", "des"],
+      "answer": "den",
+      "hint": "durch takes accusative: der → den"
+    },
+    {
+      "id": "ex-002",
+      "type": "multiple-choice",
+      "prompt": "Das Geschenk ist für ___ Mutter.",
+      "options": ["die", "der", "dem", "das"],
+      "answer": "die",
+      "hint": "für takes accusative: die stays die (feminine)"
+    },
+    {
+      "id": "ex-003",
+      "type": "multiple-choice",
+      "prompt": "Er läuft gegen ___ Wand.",
+      "options": ["die", "der", "dem", "den"],
+      "answer": "die",
+      "hint": "gegen takes accusative: die stays die"
+    },
+    {
+      "id": "ex-004",
+      "type": "fill-blank",
+      "prompt": "Ich gehe ohne ___ (mein Bruder) zur Schule.",
+      "answer": "meinen Bruder",
+      "hint": "ohne takes accusative: mein → meinen"
+    },
+    {
+      "id": "ex-005",
+      "type": "fill-blank",
+      "prompt": "Wir sitzen um ___ (der Tisch).",
+      "answer": "den Tisch",
+      "hint": "um takes accusative: der → den"
+    }
+  ],
+  "passingScore": 70,
+  "tags": ["grammar", "prepositions", "accusative", "cases"]
+}
+

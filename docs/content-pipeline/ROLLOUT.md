@@ -338,8 +338,55 @@ The smoke test:
 - Reads `manifest.staging.json`
 - Fetches catalog and validates JSON
 - Tests all section indexes
+- **Follows pagination chains** (validates all pages in multi-page indexes)
 - Samples N items and verifies entry documents
 - Fails on any 404 or invalid JSON
+- Validates pagination invariants (version, kind, pageSize, total consistent across pages)
+
+### Smoke Test Pagination Options
+
+```bash
+# Default: follows nextPage chains
+./scripts/smoke-test-content.sh
+
+# Skip pagination following
+./scripts/smoke-test-content.sh --no-follow-next-page
+
+# Limit max pages per section (default: 20)
+./scripts/smoke-test-content.sh --max-pages 5
+```
+
+## Pagination Acceptance Checks
+
+For sections with pagination (`nextPage` links), verify:
+
+1. **Validator passes locally**:
+   ```bash
+   npm run content:validate
+   ```
+
+2. **Smoke test follows nextPage chain**:
+   ```bash
+   ./scripts/smoke-test-content.sh --sample 5
+   ```
+   Look for output like: `📊 Total: 2 pages, 4 items`
+
+3. **Live endpoints accessible**:
+   ```bash
+   # Page 1
+   curl -s https://getverba-content-api.simpumind-apps.workers.dev/v1/workspaces/de/mechanics/index.json | jq '{total, pageSize, itemCount: (.items | length), nextPage}'
+   
+   # Page 2
+   curl -s https://getverba-content-api.simpumind-apps.workers.dev/v1/workspaces/de/mechanics/index.page2.json | jq '{total, pageSize, itemCount: (.items | length), nextPage}'
+   ```
+
+4. **Invariants match across pages**:
+   - `version` is the same
+   - `kind` is the same
+   - `pageSize` is the same
+   - `total` is the same
+   - No duplicate `items[].id` across pages
+   - Sum of items equals `total`
 
 ## Summary
 

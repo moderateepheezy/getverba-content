@@ -1,8 +1,8 @@
 {
   "version": "v1",
   "kind": "drills",
-  "total": 2,
-  "pageSize": 20,
+  "total": 4,
+  "pageSize": 2,
   "items": [
     {
       "id": "verb_endings_a1",
@@ -21,6 +21,5 @@
       "entryUrl": "/v1/workspaces/de/drills/dative_case_a1/drill.json"
     }
   ],
-  "nextPage": null
+  "nextPage": "/v1/workspaces/de/mechanics/index.page2.json"
 }
-
