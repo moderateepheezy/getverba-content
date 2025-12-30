@@ -1,7 +1,7 @@
 {
   "version": "v1",
   "kind": "context",
-  "total": 2,
+  "total": 3,
   "pageSize": 20,
   "items": [
     {
@@ -19,6 +19,14 @@
       "level": "A2",
       "durationMinutes": 20,
       "entryUrl": "/v1/workspaces/de/packs/restaurant_conversations/pack.json"
+    },
+    {
+      "id": "work_1",
+      "kind": "pack",
+      "title": "Work Conversations - Part 1",
+      "level": "A2",
+      "durationMinutes": 20,
+      "entryUrl": "/v1/workspaces/de/packs/work_1/pack.json"
     }
   ],
   "nextPage": null

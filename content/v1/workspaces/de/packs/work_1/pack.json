@@ -1,0 +1,67 @@
+{
+  "id": "work_1",
+  "kind": "pack",
+  "title": "Work Conversations - Part 1",
+  "level": "A2",
+  "estimatedMinutes": 20,
+  "description": "Essential German phrases for workplace conversations. Learn how to communicate professionally in office settings, meetings, and work-related interactions.",
+  "outline": [
+    "Office Greetings",
+    "Meeting Phrases",
+    "Work Requests"
+  ],
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Guten Morgen, wie geht es Ihnen?",
+      "translation": "Good morning, how are you?",
+      "audioUrl": "/v1/audio/work_1/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Können wir einen Termin vereinbaren?",
+      "translation": "Can we schedule an appointment?",
+      "audioUrl": "/v1/audio/work_1/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "Könnten Sie mir bitte helfen?",
+      "translation": "Could you please help me?",
+      "audioUrl": "/v1/audio/work_1/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Wann ist die Besprechung?",
+      "translation": "When is the meeting?",
+      "audioUrl": "/v1/audio/work_1/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Vielen Dank für Ihre Hilfe",
+      "translation": "Thank you very much for your help",
+      "audioUrl": "/v1/audio/work_1/prompt-005.mp3"
+    }
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "greetings",
+        "title": "Office Greetings",
+        "promptIds": ["prompt-001"]
+      },
+      {
+        "id": "meetings",
+        "title": "Meeting Phrases",
+        "promptIds": ["prompt-002", "prompt-004"]
+      },
+      {
+        "id": "requests",
+        "title": "Work Requests",
+        "promptIds": ["prompt-003", "prompt-005"]
+      }
+    ]
+  },
+  "tags": ["work", "office", "professional", "meetings"]
+}
+
