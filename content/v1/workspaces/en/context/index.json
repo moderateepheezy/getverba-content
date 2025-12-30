@@ -20,12 +20,15 @@
       ],
       "analyticsSummary": {
         "primaryStructure": "basic_phrases",
+        "scenario": "intro_lesson",
+        "register": "neutral",
         "variationSlots": [
           "subject",
           "verb",
           "object",
           "modifier"
         ],
+        "targetResponseSeconds": 2.5,
         "drillType": "substitution",
         "cognitiveLoad": "medium",
         "goal": "Practice intro_lesson scenarios at A1 level",
