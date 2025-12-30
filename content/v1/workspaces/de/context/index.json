@@ -6,6 +6,7 @@
   "items": [
     {
       "id": "basic_greetings",
+      "kind": "pack",
       "title": "Basic German Greetings",
       "level": "A1",
       "durationMinutes": 15,
@@ -13,6 +14,7 @@
     },
     {
       "id": "restaurant_conversations",
+      "kind": "pack",
       "title": "Restaurant Conversations",
       "level": "A2",
       "durationMinutes": 20,

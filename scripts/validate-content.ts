@@ -77,6 +77,85 @@ function validateEntryUrlPattern(entryUrl: string, itemId: string, kind: string,
   }
 }
 
+function validateEntryDocument(entryPath: string, kind: string, contextFile: string, itemIdx: number): void {
+  try {
+    const content = readFileSync(entryPath, 'utf-8');
+    const entry = JSON.parse(content);
+    
+    const normalizedKind = kind.toLowerCase();
+    
+    // Common required fields for all entry types
+    if (!entry.id || typeof entry.id !== 'string') {
+      addError(contextFile, `Item ${itemIdx} entry document missing or invalid field: id (must be string)`);
+    }
+    if (!entry.kind || typeof entry.kind !== 'string') {
+      addError(contextFile, `Item ${itemIdx} entry document missing or invalid field: kind (must be string)`);
+    } else if (entry.kind.toLowerCase() !== normalizedKind) {
+      addError(contextFile, `Item ${itemIdx} entry document kind "${entry.kind}" does not match item kind "${kind}"`);
+    }
+    if (!entry.title || typeof entry.title !== 'string') {
+      addError(contextFile, `Item ${itemIdx} entry document missing or invalid field: title (must be string)`);
+    }
+    if (typeof entry.estimatedMinutes !== 'number') {
+      addError(contextFile, `Item ${itemIdx} entry document missing or invalid field: estimatedMinutes (must be number)`);
+    }
+    
+    // Pack-specific validation
+    if (normalizedKind === 'pack') {
+      if (!entry.description || typeof entry.description !== 'string') {
+        addError(contextFile, `Item ${itemIdx} pack entry missing or invalid field: description (must be string)`);
+      }
+      if (!Array.isArray(entry.outline) || entry.outline.length === 0) {
+        addError(contextFile, `Item ${itemIdx} pack entry missing or invalid field: outline (must be non-empty array)`);
+      }
+      // Prompts are optional but if present, validate structure
+      if (entry.prompts !== undefined) {
+        if (!Array.isArray(entry.prompts)) {
+          addError(contextFile, `Item ${itemIdx} pack entry prompts must be an array if present`);
+        } else {
+          entry.prompts.forEach((prompt: any, pIdx: number) => {
+            if (!prompt.id || typeof prompt.id !== 'string') {
+              addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} missing or invalid field: id`);
+            }
+            if (!prompt.text || typeof prompt.text !== 'string') {
+              addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} missing or invalid field: text`);
+            }
+          });
+        }
+      }
+      // If promptsUrl is used instead, validate it's a string
+      if (entry.promptsUrl !== undefined && typeof entry.promptsUrl !== 'string') {
+        addError(contextFile, `Item ${itemIdx} pack entry promptsUrl must be a string if present`);
+      }
+    }
+    
+    // Exam-specific validation
+    if (normalizedKind === 'exam') {
+      if (!entry.level || typeof entry.level !== 'string') {
+        addError(contextFile, `Item ${itemIdx} exam entry missing or invalid field: level (must be string)`);
+      }
+      // Description is optional for exams
+      if (entry.description !== undefined && typeof entry.description !== 'string') {
+        addError(contextFile, `Item ${itemIdx} exam entry description must be a string if present`);
+      }
+    }
+    
+    // Drill-specific validation
+    if (normalizedKind === 'drill') {
+      // Level is optional for drills
+      if (entry.level !== undefined && typeof entry.level !== 'string') {
+        addError(contextFile, `Item ${itemIdx} drill entry level must be a string if present`);
+      }
+      // Description is optional for drills
+      if (entry.description !== undefined && typeof entry.description !== 'string') {
+        addError(contextFile, `Item ${itemIdx} drill entry description must be a string if present`);
+      }
+    }
+  } catch (err: any) {
+    addError(contextFile, `Item ${itemIdx} entry document validation failed: ${err.message}`);
+  }
+}
+
 function validateJsonPath(path: string, context: string): void {
   if (!isValidJsonPath(path)) {
     return; // Not a JSON path, skip
@@ -207,6 +286,15 @@ function validateIndex(indexPath: string): void {
       if (!item.id || typeof item.id !== 'string') {
         addError(indexPath, `Item ${idx} missing or invalid field: id (must be string)`);
       }
+      if (!item.kind || typeof item.kind !== 'string') {
+        addError(indexPath, `Item ${idx} missing or invalid field: kind (must be string: "pack", "exam", or "drill")`);
+      } else {
+        // Validate kind is one of the allowed values
+        const validKinds = ['pack', 'exam', 'drill'];
+        if (!validKinds.includes(item.kind.toLowerCase())) {
+          addError(indexPath, `Item ${idx} kind must be one of: "pack", "exam", "drill"`);
+        }
+      }
       if (!item.title || typeof item.title !== 'string') {
         addError(indexPath, `Item ${idx} missing or invalid field: title (must be string)`);
       }
@@ -221,12 +309,17 @@ function validateIndex(indexPath: string): void {
           addError(indexPath, `Item ${idx} entryUrl must start with /v1/ and end with .json`);
         } else {
           // Validate entryUrl matches canonical pattern based on kind
-          const sectionKind = index.kind;
-          const itemKind = item.kind || sectionKind; // Use item.kind if present, fallback to section kind
-          validateEntryUrlPattern(item.entryUrl, item.id, itemKind || sectionKind, indexPath, idx);
+          const itemKind = item.kind || index.kind; // Prefer item.kind, fallback to section kind
+          validateEntryUrlPattern(item.entryUrl, item.id, itemKind, indexPath, idx);
           
           // Validate entryUrl file exists
           validateJsonPath(item.entryUrl, `items[${idx}].entryUrl`);
+          
+          // Validate entry document schema
+          const entryPath = resolveContentPath(item.entryUrl);
+          if (existsSync(entryPath)) {
+            validateEntryDocument(entryPath, item.kind, indexPath, idx);
+          }
         }
       }
       // durationMinutes is optional but validate type if present

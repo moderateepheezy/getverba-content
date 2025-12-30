@@ -6,6 +6,7 @@
   "items": [
     {
       "id": "a1_level_test",
+      "kind": "exam",
       "title": "A1 Level Test",
       "level": "A1",
       "durationMinutes": 30,
