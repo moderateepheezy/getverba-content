@@ -459,12 +459,20 @@ function main() {
     process.exit(1);
   }
 
-  // Validate manifest.json exists and is valid
+  // Validate manifest.json exists and is valid (production)
   const manifestPath = join(META_DIR, 'manifest.json');
   if (!existsSync(manifestPath)) {
     addError(manifestPath, 'manifest.json not found in content/meta/');
   } else {
     validateManifest(manifestPath);
+  }
+
+  // Validate manifest.staging.json exists and is valid (staging)
+  const stagingManifestPath = join(META_DIR, 'manifest.staging.json');
+  if (!existsSync(stagingManifestPath)) {
+    addError(stagingManifestPath, 'manifest.staging.json not found in content/meta/');
+  } else {
+    validateManifest(stagingManifestPath);
   }
 
   // Validate release.json exists

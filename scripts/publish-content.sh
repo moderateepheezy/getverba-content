@@ -1,7 +1,10 @@
 #!/bin/bash
 
 # Publish content to Cloudflare R2
-# Usage: ./scripts/publish-content.sh [--dry-run|--sanity-check]
+# Usage: ./scripts/publish-content.sh [--dry-run|--sanity-check|--publish-prod-manifest]
+# 
+# By default, publishes staging manifest (manifest.staging.json).
+# Use --publish-prod-manifest to also publish production manifest (manifest.json).
 
 set -e
 
@@ -78,18 +81,27 @@ fi
 
 # Determine if dry-run or sanity-check
 DRY_RUN=""
-if [ "$1" == "--dry-run" ]; then
-  DRY_RUN="--dryrun"
-  echo "🔍 DRY RUN MODE - No files will be uploaded"
-elif [ "$1" == "--sanity-check" ]; then
-  echo "🔍 SANITY CHECK - Testing bucket access..."
-  AWS_ACCESS_KEY_ID="$R2_ACCESS_KEY_ID" \
-  AWS_SECRET_ACCESS_KEY="$R2_SECRET_ACCESS_KEY" \
-  aws s3 ls "s3://$BUCKET" --endpoint-url "$R2_ENDPOINT"
-  echo ""
-  echo "✅ Bucket access successful!"
-  exit 0
-fi
+PUBLISH_PROD_MANIFEST=false
+for arg in "$@"; do
+  case "$arg" in
+    --dry-run)
+      DRY_RUN="--dryrun"
+      echo "🔍 DRY RUN MODE - No files will be uploaded"
+      ;;
+    --sanity-check)
+      echo "🔍 SANITY CHECK - Testing bucket access..."
+      AWS_ACCESS_KEY_ID="$R2_ACCESS_KEY_ID" \
+      AWS_SECRET_ACCESS_KEY="$R2_SECRET_ACCESS_KEY" \
+      aws s3 ls "s3://$BUCKET" --endpoint-url "$R2_ENDPOINT"
+      echo ""
+      echo "✅ Bucket access successful!"
+      exit 0
+      ;;
+    --publish-prod-manifest)
+      PUBLISH_PROD_MANIFEST=true
+      ;;
+  esac
+done
 
 echo "📦 Publishing content to R2..."
 echo "   Bucket: $BUCKET"
@@ -113,10 +125,22 @@ aws s3 sync "$CONTENT_DIR" "s3://$BUCKET/v1/" \
   $DRY_RUN
 
 echo "📤 Syncing meta files to R2..."
-aws s3 sync "$META_DIR" "s3://$BUCKET/meta/" \
-  --endpoint-url "$R2_ENDPOINT" \
-  --exclude ".*" \
-  $DRY_RUN
+# By default, exclude production manifest (only publish staging)
+# Use --publish-prod-manifest to include production manifest
+if [ "$PUBLISH_PROD_MANIFEST" = false ]; then
+  echo "   (Excluding manifest.json - use --publish-prod-manifest to include)"
+  aws s3 sync "$META_DIR" "s3://$BUCKET/meta/" \
+    --endpoint-url "$R2_ENDPOINT" \
+    --exclude ".*" \
+    --exclude "manifest.json" \
+    $DRY_RUN
+else
+  echo "   (Including production manifest.json)"
+  aws s3 sync "$META_DIR" "s3://$BUCKET/meta/" \
+    --endpoint-url "$R2_ENDPOINT" \
+    --exclude ".*" \
+    $DRY_RUN
+fi
 
 if [ "$1" != "--dry-run" ]; then
   echo ""
@@ -138,9 +162,16 @@ if [ "$1" != "--dry-run" ]; then
   done
 
   # Find all JSON files in content/meta and set content-type and cache-control
+  # Skip manifest.json unless --publish-prod-manifes is set
   find "$META_DIR" -type f -name "*.json" -print0 | while IFS= read -r -d '' file; do
     # Get relative path from content/meta
     rel_path="${file#$META_DIR/}"
+    
+    # Skip production manifest unless explicitly requested
+    if [ "$rel_path" = "manifest.json" ] && [ "$PUBLISH_PROD_MANIFEST" = false ]; then
+      continue
+    fi
+    
     s3_path="s3://$BUCKET/meta/$rel_path"
     
     echo "   Setting content-type and cache-control for: meta/$rel_path"
