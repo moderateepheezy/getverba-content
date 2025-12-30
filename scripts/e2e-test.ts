@@ -355,6 +355,7 @@ test('verify publish dry-run works', () => {
     
     assert(output.includes('DRY RUN MODE'), 'Should indicate dry-run mode');
     assert(output.includes('upload:') || output.includes('(dryrun)'), 'Should show files to be uploaded');
+    assert(output.includes('Excluding manifest.json'), 'Should exclude production manifest by default');
   } catch (err: any) {
     // If credentials are missing, that's okay for dry-run
     if (err.message.includes('credentials') || err.message.includes('R2_')) {
@@ -363,6 +364,95 @@ test('verify publish dry-run works', () => {
     }
     throw new Error(`Publish dry-run failed: ${err.message}`);
   }
+});
+
+// E2E Test 12: Verify staging manifest exists
+test('verify staging manifest exists and is valid', () => {
+  const stagingManifestPath = join(META_DIR, 'manifest.staging.json');
+  assert(existsSync(stagingManifestPath), 'manifest.staging.json should exist');
+  
+  const staging = JSON.parse(readFileSync(stagingManifestPath, 'utf-8'));
+  assert(staging.activeVersion, 'Staging manifest should have activeVersion');
+  assert(staging.activeWorkspace, 'Staging manifest should have activeWorkspace');
+  assert(staging.workspaces, 'Staging manifest should have workspaces');
+  assert(typeof staging.workspaces === 'object', 'Staging workspaces should be an object');
+});
+
+// E2E Test 13: Verify production and staging manifests are both valid
+test('verify production and staging manifests are both valid', () => {
+  const prodManifestPath = join(META_DIR, 'manifest.json');
+  const stagingManifestPath = join(META_DIR, 'manifest.staging.json');
+  
+  assert(existsSync(prodManifestPath), 'Production manifest should exist');
+  assert(existsSync(stagingManifestPath), 'Staging manifest should exist');
+  
+  const prod = JSON.parse(readFileSync(prodManifestPath, 'utf-8'));
+  const staging = JSON.parse(readFileSync(stagingManifestPath, 'utf-8'));
+  
+  // Both should have required fields
+  assert(prod.activeVersion, 'Production manifest should have activeVersion');
+  assert(staging.activeVersion, 'Staging manifest should have activeVersion');
+  assert(prod.workspaces, 'Production manifest should have workspaces');
+  assert(staging.workspaces, 'Staging manifest should have workspaces');
+  
+  // Both should reference valid catalog paths
+  Object.values(prod.workspaces).forEach((catalogPath: any) => {
+    assert(typeof catalogPath === 'string', 'Production catalog path should be string');
+    assert(catalogPath.startsWith('/v1/'), 'Production catalog path should start with /v1/');
+  });
+  
+  Object.values(staging.workspaces).forEach((catalogPath: any) => {
+    assert(typeof catalogPath === 'string', 'Staging catalog path should be string');
+    assert(catalogPath.startsWith('/v1/'), 'Staging catalog path should start with /v1/');
+  });
+});
+
+// E2E Test 14: Verify promote script dry-run works
+test('verify promote script dry-run works', () => {
+  console.log('  Running: ./scripts/promote-staging.sh --dry-run');
+  try {
+    const output = execSync('./scripts/promote-staging.sh --dry-run', {
+      cwd: join(__dirname, '..'),
+      encoding: 'utf-8',
+      stdio: 'pipe',
+      env: {
+        ...process.env,
+      }
+    });
+    
+    assert(output.includes('DRY RUN MODE'), 'Should indicate dry-run mode');
+    assert(output.includes('Would upload: meta/manifest.json'), 'Should show manifest.json upload');
+    assert(output.includes('Would upload: meta/release.json'), 'Should show release.json upload');
+  } catch (err: any) {
+    // If credentials are missing, that's okay for dry-run
+    if (err.message.includes('credentials') || err.message.includes('R2_')) {
+      console.warn(`  ⚠️  Skipping promote dry-run test: ${err.message}`);
+      return;
+    }
+    throw new Error(`Promote dry-run failed: ${err.message}`);
+  }
+});
+
+// E2E Test 15: Verify staging manifest structure matches production
+test('verify staging manifest structure matches production', () => {
+  const prodManifestPath = join(META_DIR, 'manifest.json');
+  const stagingManifestPath = join(META_DIR, 'manifest.staging.json');
+  
+  const prod = JSON.parse(readFileSync(prodManifestPath, 'utf-8'));
+  const staging = JSON.parse(readFileSync(stagingManifestPath, 'utf-8'));
+  
+  // Both should have the same structure (same keys)
+  const prodKeys = Object.keys(prod).sort();
+  const stagingKeys = Object.keys(staging).sort();
+  
+  assert(
+    JSON.stringify(prodKeys) === JSON.stringify(stagingKeys),
+    'Staging and production manifests should have the same structure (same keys)'
+  );
+  
+  // Both should have workspaces object
+  assert(typeof prod.workspaces === 'object', 'Production should have workspaces object');
+  assert(typeof staging.workspaces === 'object', 'Staging should have workspaces object');
 });
 
 // Run all tests

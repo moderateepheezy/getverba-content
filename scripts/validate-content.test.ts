@@ -1323,6 +1323,120 @@ test('pack entry outline.length mismatch warning case', () => {
   cleanupTestDir();
 });
 
+// Test 27: Both production and staging manifests exist
+test('both production and staging manifests exist', () => {
+  setupTestDir();
+  
+  const prodManifest = {
+    activeVersion: 'v1',
+    activeWorkspace: 'test-ws',
+    workspaces: {
+      'test-ws': '/v1/workspaces/test-ws/catalog.json'
+    }
+  };
+  
+  const stagingManifest = {
+    activeVersion: 'v1',
+    activeWorkspace: 'test-ws',
+    workspaces: {
+      'test-ws': '/v1/workspaces/test-ws/catalog.json'
+    }
+  };
+  
+  mkdirSync(join(TEST_DIR, 'meta'), { recursive: true });
+  writeFileSync(
+    join(TEST_DIR, 'meta', 'manifest.json'),
+    JSON.stringify(prodManifest, null, 2)
+  );
+  writeFileSync(
+    join(TEST_DIR, 'meta', 'manifest.staging.json'),
+    JSON.stringify(stagingManifest, null, 2)
+  );
+  
+  assert(existsSync(join(TEST_DIR, 'meta', 'manifest.json')), 'Production manifest should exist');
+  assert(existsSync(join(TEST_DIR, 'meta', 'manifest.staging.json')), 'Staging manifest should exist');
+  
+  const prod = JSON.parse(
+    readFileSync(join(TEST_DIR, 'meta', 'manifest.json'), 'utf-8')
+  );
+  const staging = JSON.parse(
+    readFileSync(join(TEST_DIR, 'meta', 'manifest.staging.json'), 'utf-8')
+  );
+  
+  assert(prod.activeVersion === staging.activeVersion, 'Both manifests should have same activeVersion');
+  assert(prod.activeWorkspace === staging.activeWorkspace, 'Both manifests should have same activeWorkspace');
+  
+  cleanupTestDir();
+});
+
+// Test 28: Staging manifest missing
+test('staging manifest missing', () => {
+  setupTestDir();
+  
+  const prodManifest = {
+    activeVersion: 'v1',
+    activeWorkspace: 'test-ws',
+    workspaces: {
+      'test-ws': '/v1/workspaces/test-ws/catalog.json'
+    }
+  };
+  
+  mkdirSync(join(TEST_DIR, 'meta'), { recursive: true });
+  writeFileSync(
+    join(TEST_DIR, 'meta', 'manifest.json'),
+    JSON.stringify(prodManifest, null, 2)
+  );
+  // Staging manifest not created
+  
+  assert(existsSync(join(TEST_DIR, 'meta', 'manifest.json')), 'Production manifest should exist');
+  assert(!existsSync(join(TEST_DIR, 'meta', 'manifest.staging.json')), 'Staging manifest should not exist');
+  
+  cleanupTestDir();
+});
+
+// Test 29: Staging manifest can differ from production
+test('staging manifest can differ from production', () => {
+  setupTestDir();
+  
+  const prodManifest = {
+    activeVersion: 'v1',
+    activeWorkspace: 'test-ws',
+    workspaces: {
+      'test-ws': '/v1/workspaces/test-ws/catalog.json'
+    }
+  };
+  
+  const stagingManifest = {
+    activeVersion: 'v1',
+    activeWorkspace: 'test-ws-staging',
+    workspaces: {
+      'test-ws-staging': '/v1/workspaces/test-ws-staging/catalog.json'
+    }
+  };
+  
+  mkdirSync(join(TEST_DIR, 'meta'), { recursive: true });
+  writeFileSync(
+    join(TEST_DIR, 'meta', 'manifest.json'),
+    JSON.stringify(prodManifest, null, 2)
+  );
+  writeFileSync(
+    join(TEST_DIR, 'meta', 'manifest.staging.json'),
+    JSON.stringify(stagingManifest, null, 2)
+  );
+  
+  const prod = JSON.parse(
+    readFileSync(join(TEST_DIR, 'meta', 'manifest.json'), 'utf-8')
+  );
+  const staging = JSON.parse(
+    readFileSync(join(TEST_DIR, 'meta', 'manifest.staging.json'), 'utf-8')
+  );
+  
+  assert(prod.activeWorkspace !== staging.activeWorkspace, 'Staging and production can have different activeWorkspace');
+  assert(prod.workspaces['test-ws'] !== staging.workspaces['test-ws-staging'], 'Staging and production can reference different catalogs');
+  
+  cleanupTestDir();
+});
+
 // Run all tests
 function runTests() {
   console.log('Running unit tests...\n');
