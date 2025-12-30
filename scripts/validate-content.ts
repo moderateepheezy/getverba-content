@@ -95,9 +95,20 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
     }
     if (!entry.title || typeof entry.title !== 'string') {
       addError(contextFile, `Item ${itemIdx} entry document missing or invalid field: title (must be string)`);
+    } else if (entry.title.length > MAX_TITLE_LENGTH) {
+      addError(contextFile, `Item ${itemIdx} entry document title is too long (${entry.title.length} chars). Max is ${MAX_TITLE_LENGTH} chars.`);
     }
     if (typeof entry.estimatedMinutes !== 'number') {
       addError(contextFile, `Item ${itemIdx} entry document missing or invalid field: estimatedMinutes (must be number)`);
+    } else if (entry.estimatedMinutes < MIN_DURATION_MINUTES || entry.estimatedMinutes > MAX_DURATION_MINUTES) {
+      addError(contextFile, `Item ${itemIdx} entry document estimatedMinutes (${entry.estimatedMinutes}) is outside valid range [${MIN_DURATION_MINUTES}-${MAX_DURATION_MINUTES}]`);
+    }
+    
+    // Validate level is CEFR if present
+    if (entry.level && typeof entry.level === 'string') {
+      if (!VALID_CEFR_LEVELS.includes(entry.level.toUpperCase())) {
+        addError(contextFile, `Item ${itemIdx} entry document level "${entry.level}" is not a valid CEFR level. Must be one of: ${VALID_CEFR_LEVELS.join(', ')}`);
+      }
     }
     
     // Pack-specific validation
@@ -314,6 +325,86 @@ function validateCatalog(catalogPath: string): void {
   }
 }
 
+// Valid CEFR levels
+const VALID_CEFR_LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+
+// Reasonable duration bounds
+const MIN_DURATION_MINUTES = 1;
+const MAX_DURATION_MINUTES = 120;
+
+// Title length bounds
+const MAX_TITLE_LENGTH = 100;
+
+function validateCefrLevel(level: string, context: string, itemIdx: number): void {
+  if (!VALID_CEFR_LEVELS.includes(level.toUpperCase())) {
+    addError(context, `Item ${itemIdx} level "${level}" is not a valid CEFR level. Must be one of: ${VALID_CEFR_LEVELS.join(', ')}`);
+  }
+}
+
+function validateDuration(minutes: number, context: string, itemIdx: number, fieldName: string): void {
+  if (minutes < MIN_DURATION_MINUTES || minutes > MAX_DURATION_MINUTES) {
+    addError(context, `Item ${itemIdx} ${fieldName} (${minutes}) is outside valid range [${MIN_DURATION_MINUTES}-${MAX_DURATION_MINUTES}]`);
+  }
+}
+
+function validateTitle(title: string, context: string, itemIdx: number): void {
+  if (title.length > MAX_TITLE_LENGTH) {
+    addError(context, `Item ${itemIdx} title is too long (${title.length} chars). Max is ${MAX_TITLE_LENGTH} chars.`);
+  }
+}
+
+/**
+ * Validate pagination across all pages of an index
+ * Returns: { totalItems: number, allItemIds: Set<string> }
+ */
+function validatePaginatedIndex(indexPath: string, visitedPages: Set<string> = new Set()): { totalItems: number; allItemIds: Set<string> } {
+  const result = { totalItems: 0, allItemIds: new Set<string>() };
+  
+  if (visitedPages.has(indexPath)) {
+    addError(indexPath, 'Circular reference detected in nextPage chain');
+    return result;
+  }
+  visitedPages.add(indexPath);
+  
+  try {
+    const resolvedPath = resolveContentPath(indexPath.replace(/^\/v1\//, ''));
+    if (!existsSync(resolvedPath)) {
+      return result;
+    }
+    
+    const content = readFileSync(resolvedPath, 'utf-8');
+    const index = JSON.parse(content);
+    
+    if (Array.isArray(index.items)) {
+      index.items.forEach((item: any) => {
+        if (item.id) {
+          if (result.allItemIds.has(item.id)) {
+            addError(indexPath, `Duplicate item ID "${item.id}" found across pagination pages`);
+          }
+          result.allItemIds.add(item.id);
+        }
+      });
+      result.totalItems += index.items.length;
+    }
+    
+    // Follow nextPage recursively
+    if (typeof index.nextPage === 'string') {
+      const nextResult = validatePaginatedIndex(index.nextPage, visitedPages);
+      result.totalItems += nextResult.totalItems;
+      nextResult.allItemIds.forEach(id => {
+        if (result.allItemIds.has(id)) {
+          addError(indexPath, `Duplicate item ID "${id}" found across pagination pages`);
+        }
+        result.allItemIds.add(id);
+      });
+    }
+    
+    return result;
+  } catch (err: any) {
+    return result;
+  }
+}
+
 function validateIndex(indexPath: string): void {
   try {
     const content = readFileSync(indexPath, 'utf-8');
@@ -358,9 +449,15 @@ function validateIndex(indexPath: string): void {
       }
       if (!item.title || typeof item.title !== 'string') {
         addError(indexPath, `Item ${idx} missing or invalid field: title (must be string)`);
+      } else {
+        // Validate title length
+        validateTitle(item.title, indexPath, idx);
       }
       if (!item.level || typeof item.level !== 'string' || item.level.trim() === '') {
         addError(indexPath, `Item ${idx} missing or invalid field: level (must be non-empty string)`);
+      } else {
+        // Validate CEFR level
+        validateCefrLevel(item.level, indexPath, idx);
       }
       if (!item.entryUrl || typeof item.entryUrl !== 'string') {
         addError(indexPath, `Item ${idx} missing or invalid field: entryUrl (must be string)`);
@@ -383,9 +480,13 @@ function validateIndex(indexPath: string): void {
           }
         }
       }
-      // durationMinutes is optional but validate type if present
-      if (item.durationMinutes !== undefined && typeof item.durationMinutes !== 'number') {
-        addError(indexPath, `Item ${idx} durationMinutes must be a number if present`);
+      // durationMinutes - validate type and bounds
+      if (item.durationMinutes !== undefined) {
+        if (typeof item.durationMinutes !== 'number') {
+          addError(indexPath, `Item ${idx} durationMinutes must be a number if present`);
+        } else {
+          validateDuration(item.durationMinutes, indexPath, idx, 'durationMinutes');
+        }
       }
     });
 
@@ -395,6 +496,16 @@ function validateIndex(indexPath: string): void {
         addError(indexPath, 'nextPage must start with /v1/ and end with .json');
       } else {
         validateJsonPath(index.nextPage, 'nextPage');
+      }
+    }
+    
+    // For first page (index.json), validate total matches sum of all pages
+    if (indexPath.endsWith('index.json') && !indexPath.includes('.page')) {
+      const relPath = '/' + relative(join(CONTENT_DIR, '..'), indexPath).replace(/\\/g, '/');
+      const paginationResult = validatePaginatedIndex(relPath);
+      
+      if (typeof index.total === 'number' && paginationResult.totalItems !== index.total) {
+        addError(indexPath, `total (${index.total}) does not match actual item count across all pages (${paginationResult.totalItems})`);
       }
     }
   } catch (err: any) {

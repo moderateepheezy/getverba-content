@@ -1,0 +1,43 @@
+{
+  "id": "welcome_english",
+  "kind": "pack",
+  "title": "Welcome to English",
+  "level": "A1",
+  "estimatedMinutes": 10,
+  "description": "A brief introduction to learning English with GetVerba. Get comfortable with the app and basic vocabulary.",
+  "outline": [
+    "Introduction",
+    "Basic Phrases"
+  ],
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Hello",
+      "translation": "Hello",
+      "audioUrl": "/v1/audio/welcome_english/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Welcome",
+      "translation": "Welcome",
+      "audioUrl": "/v1/audio/welcome_english/prompt-002.mp3"
+    }
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "intro",
+        "title": "Introduction",
+        "promptIds": ["prompt-001"]
+      },
+      {
+        "id": "phrases",
+        "title": "Basic Phrases",
+        "promptIds": ["prompt-002"]
+      }
+    ]
+  },
+  "tags": ["intro", "basics"]
+}
+

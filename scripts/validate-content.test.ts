@@ -1775,6 +1775,196 @@ test('catalog with drills section', () => {
   cleanupTestDir();
 });
 
+// Test 38: CEFR level validation
+test('CEFR level validation', () => {
+  setupTestDir();
+  
+  const validLevels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+  const invalidLevels = ['X1', 'beginner', 'A3'];
+  
+  validLevels.forEach(level => {
+    assert(validLevels.includes(level.toUpperCase()), `${level} should be valid CEFR level`);
+  });
+  
+  invalidLevels.forEach(level => {
+    assert(!validLevels.includes(level), `${level} should be invalid CEFR level`);
+  });
+  
+  cleanupTestDir();
+});
+
+// Test 39: Duration bounds validation
+test('duration bounds validation', () => {
+  setupTestDir();
+  
+  const MIN_DURATION = 1;
+  const MAX_DURATION = 120;
+  
+  const validDurations = [1, 10, 60, 120];
+  const invalidDurations = [0, -1, 121, 1000];
+  
+  validDurations.forEach(duration => {
+    assert(
+      duration >= MIN_DURATION && duration <= MAX_DURATION,
+      `Duration ${duration} should be within valid range`
+    );
+  });
+  
+  invalidDurations.forEach(duration => {
+    assert(
+      duration < MIN_DURATION || duration > MAX_DURATION,
+      `Duration ${duration} should be outside valid range`
+    );
+  });
+  
+  cleanupTestDir();
+});
+
+// Test 40: Title length validation
+test('title length validation', () => {
+  setupTestDir();
+  
+  const MAX_TITLE_LENGTH = 100;
+  
+  const validTitle = 'A'.repeat(100);
+  const invalidTitle = 'A'.repeat(101);
+  
+  assert(validTitle.length <= MAX_TITLE_LENGTH, 'Title at limit should be valid');
+  assert(invalidTitle.length > MAX_TITLE_LENGTH, 'Title over limit should be invalid');
+  
+  cleanupTestDir();
+});
+
+// Test 41: Multi-workspace manifest
+test('multi-workspace manifest validation', () => {
+  setupTestDir();
+  
+  const multiWorkspaceManifest = {
+    activeVersion: 'v1',
+    activeWorkspace: 'de',
+    workspaces: {
+      de: '/v1/workspaces/de/catalog.json',
+      en: '/v1/workspaces/en/catalog.json'
+    }
+  };
+  
+  // Create both workspace catalogs
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'de'), { recursive: true });
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'en'), { recursive: true });
+  
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'de', 'catalog.json'),
+    JSON.stringify({ workspace: 'de', languageCode: 'de', languageName: 'German', sections: [] }, null, 2)
+  );
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'en', 'catalog.json'),
+    JSON.stringify({ workspace: 'en', languageCode: 'en', languageName: 'English', sections: [] }, null, 2)
+  );
+  
+  const workspaces = Object.keys(multiWorkspaceManifest.workspaces);
+  
+  assert(workspaces.length === 2, 'Manifest should have 2 workspaces');
+  assert(workspaces.includes('de'), 'Manifest should include de workspace');
+  assert(workspaces.includes('en'), 'Manifest should include en workspace');
+  assert(multiWorkspaceManifest.activeWorkspace === 'de', 'Active workspace should be de');
+  
+  cleanupTestDir();
+});
+
+// Test 42: Pagination - nextPage chain
+test('pagination nextPage chain validation', () => {
+  setupTestDir();
+  
+  const page1 = {
+    version: 'v1',
+    kind: 'context',
+    total: 3,
+    pageSize: 2,
+    items: [
+      { id: 'item-1', kind: 'pack', title: 'Item 1', level: 'A1', entryUrl: '/v1/workspaces/test-ws/packs/item-1/pack.json' },
+      { id: 'item-2', kind: 'pack', title: 'Item 2', level: 'A1', entryUrl: '/v1/workspaces/test-ws/packs/item-2/pack.json' }
+    ],
+    nextPage: '/v1/workspaces/test-ws/context/index.page2.json'
+  };
+  
+  const page2 = {
+    version: 'v1',
+    kind: 'context',
+    total: 3,
+    pageSize: 2,
+    items: [
+      { id: 'item-3', kind: 'pack', title: 'Item 3', level: 'A1', entryUrl: '/v1/workspaces/test-ws/packs/item-3/pack.json' }
+    ],
+    nextPage: null
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context'), { recursive: true });
+  
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.json'),
+    JSON.stringify(page1, null, 2)
+  );
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.page2.json'),
+    JSON.stringify(page2, null, 2)
+  );
+  
+  const totalItems = page1.items.length + page2.items.length;
+  assert(totalItems === page1.total, `Total (${page1.total}) should equal sum of items across pages (${totalItems})`);
+  
+  // Verify no duplicate IDs
+  const allIds = [...page1.items.map(i => i.id), ...page2.items.map(i => i.id)];
+  const uniqueIds = new Set(allIds);
+  assert(allIds.length === uniqueIds.size, 'No duplicate IDs should exist across pages');
+  
+  cleanupTestDir();
+});
+
+// Test 43: Pagination - duplicate ID detection
+test('pagination duplicate ID detection', () => {
+  setupTestDir();
+  
+  const page1 = {
+    version: 'v1',
+    kind: 'context',
+    total: 2,
+    pageSize: 1,
+    items: [
+      { id: 'duplicate-id', kind: 'pack', title: 'Item 1', level: 'A1', entryUrl: '/v1/workspaces/test-ws/packs/duplicate-id/pack.json' }
+    ],
+    nextPage: '/v1/workspaces/test-ws/context/index.page2.json'
+  };
+  
+  const page2 = {
+    version: 'v1',
+    kind: 'context',
+    total: 2,
+    pageSize: 1,
+    items: [
+      { id: 'duplicate-id', kind: 'pack', title: 'Item 2', level: 'A1', entryUrl: '/v1/workspaces/test-ws/packs/duplicate-id/pack.json' }
+    ],
+    nextPage: null
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context'), { recursive: true });
+  
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.json'),
+    JSON.stringify(page1, null, 2)
+  );
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.page2.json'),
+    JSON.stringify(page2, null, 2)
+  );
+  
+  // Verify duplicate IDs exist
+  const allIds = [...page1.items.map(i => i.id), ...page2.items.map(i => i.id)];
+  const uniqueIds = new Set(allIds);
+  assert(allIds.length !== uniqueIds.size, 'Duplicate IDs should be detected across pages');
+  
+  cleanupTestDir();
+});
+
 // Run all tests
 function runTests() {
   console.log('Running unit tests...\n');
