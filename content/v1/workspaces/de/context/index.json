@@ -1,21 +1,24 @@
 {
+  "version": "v1",
+  "kind": "context",
+  "total": 2,
+  "pageSize": 20,
   "items": [
     {
       "id": "pack-001",
       "title": "Basic German Greetings",
-      "type": "context",
       "level": "A1",
-      "durationMins": 15,
-      "packUrl": "/v1/packs/pack-001.json"
+      "durationMinutes": 15,
+      "entryUrl": "/v1/packs/pack-001.json"
     },
     {
       "id": "pack-002",
       "title": "Restaurant Conversations",
-      "type": "context",
       "level": "A2",
-      "durationMins": 20,
-      "packUrl": "/v1/packs/pack-002.json"
+      "durationMinutes": 20,
+      "entryUrl": "/v1/packs/pack-002.json"
     }
-  ]
+  ],
+  "nextPage": null
 }
 

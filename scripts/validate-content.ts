@@ -127,6 +127,75 @@ function validateCatalog(catalogPath: string): void {
   }
 }
 
+function validateIndex(indexPath: string): void {
+  try {
+    const content = readFileSync(indexPath, 'utf-8');
+    const index = JSON.parse(content);
+
+    // Validate required fields
+    if (!index.version || typeof index.version !== 'string') {
+      addError(indexPath, 'Missing or invalid field: version (must be string)');
+    }
+    if (!index.kind || typeof index.kind !== 'string') {
+      addError(indexPath, 'Missing or invalid field: kind (must be string)');
+    }
+    if (typeof index.total !== 'number') {
+      addError(indexPath, 'Missing or invalid field: total (must be number)');
+    }
+    if (typeof index.pageSize !== 'number') {
+      addError(indexPath, 'Missing or invalid field: pageSize (must be number)');
+    }
+    if (!Array.isArray(index.items)) {
+      addError(indexPath, 'Missing or invalid field: items (must be an array)');
+      return;
+    }
+
+    // Validate nextPage
+    if (index.nextPage !== null && typeof index.nextPage !== 'string') {
+      addError(indexPath, 'Invalid field: nextPage (must be null or string)');
+    }
+
+    // Validate items
+    index.items.forEach((item: any, idx: number) => {
+      if (!item.id || typeof item.id !== 'string') {
+        addError(indexPath, `Item ${idx} missing or invalid field: id (must be string)`);
+      }
+      if (!item.title || typeof item.title !== 'string') {
+        addError(indexPath, `Item ${idx} missing or invalid field: title (must be string)`);
+      }
+      if (!item.level || typeof item.level !== 'string' || item.level.trim() === '') {
+        addError(indexPath, `Item ${idx} missing or invalid field: level (must be non-empty string)`);
+      }
+      if (!item.entryUrl || typeof item.entryUrl !== 'string') {
+        addError(indexPath, `Item ${idx} missing or invalid field: entryUrl (must be string)`);
+      } else {
+        // Validate entryUrl format
+        if (!item.entryUrl.startsWith('/v1/') || !item.entryUrl.endsWith('.json')) {
+          addError(indexPath, `Item ${idx} entryUrl must start with /v1/ and end with .json`);
+        } else {
+          // Validate entryUrl file exists
+          validateJsonPath(item.entryUrl, `items[${idx}].entryUrl`);
+        }
+      }
+      // durationMinutes is optional but validate type if present
+      if (item.durationMinutes !== undefined && typeof item.durationMinutes !== 'number') {
+        addError(indexPath, `Item ${idx} durationMinutes must be a number if present`);
+      }
+    });
+
+    // Validate nextPage file exists if it's a string
+    if (typeof index.nextPage === 'string') {
+      if (!index.nextPage.startsWith('/v1/') || !index.nextPage.endsWith('.json')) {
+        addError(indexPath, 'nextPage must start with /v1/ and end with .json');
+      } else {
+        validateJsonPath(index.nextPage, 'nextPage');
+      }
+    }
+  } catch (err: any) {
+    addError(indexPath, `Failed to parse JSON: ${err.message}`);
+  }
+}
+
 function validateJsonFile(filePath: string): void {
   try {
     const content = readFileSync(filePath, 'utf-8');
@@ -213,6 +282,16 @@ function main() {
     validateJsonFile(file);
   });
 
+  // Validate index files (index.json under workspaces)
+  const indexFiles = jsonFiles.filter(file => {
+    const relPath = relative(CONTENT_DIR, file);
+    return relPath.includes('workspaces/') && file.endsWith('index.json');
+  });
+
+  indexFiles.forEach(file => {
+    validateIndex(file);
+  });
+
   // Find and validate workspace catalogs
   const workspacesDir = join(CONTENT_DIR, 'workspaces');
   if (!existsSync(workspacesDir)) {
@@ -251,6 +330,9 @@ function main() {
 
   console.log('✅ All content files are valid!');
   console.log(`   Validated ${jsonFiles.length} JSON file(s)`);
+  if (indexFiles.length > 0) {
+    console.log(`   Validated ${indexFiles.length} index file(s) with pagination schema`);
+  }
 }
 
 main();

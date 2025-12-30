@@ -1,13 +1,17 @@
 {
+  "version": "v1",
+  "kind": "exams",
+  "total": 1,
+  "pageSize": 20,
   "items": [
     {
       "id": "pack-003",
       "title": "A1 Level Test",
-      "type": "exam",
       "level": "A1",
-      "durationMins": 30,
-      "packUrl": "/v1/packs/pack-003.json"
+      "durationMinutes": 30,
+      "entryUrl": "/v1/packs/pack-003.json"
     }
-  ]
+  ],
+  "nextPage": null
 }
 
