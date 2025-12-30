@@ -195,6 +195,54 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
         }
       }
       
+      // Validate primaryStructure (optional, encouraged)
+      if (entry.primaryStructure !== undefined) {
+        if (typeof entry.primaryStructure !== 'object' || entry.primaryStructure === null) {
+          addError(contextFile, `Item ${itemIdx} pack entry primaryStructure must be an object if present`);
+        } else {
+          if (!entry.primaryStructure.id || typeof entry.primaryStructure.id !== 'string') {
+            addError(contextFile, `Item ${itemIdx} pack entry primaryStructure.id must be a string`);
+          } else {
+            // Validate kebab-case and length
+            if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(entry.primaryStructure.id)) {
+              addError(contextFile, `Item ${itemIdx} pack entry primaryStructure.id must be kebab-case (lowercase letters, numbers, hyphens only)`);
+            }
+            if (entry.primaryStructure.id.length > MAX_PRIMARY_STRUCTURE_ID_LENGTH) {
+              addError(contextFile, `Item ${itemIdx} pack entry primaryStructure.id is too long (${entry.primaryStructure.id.length} chars). Max is ${MAX_PRIMARY_STRUCTURE_ID_LENGTH} chars.`);
+            }
+          }
+          if (!entry.primaryStructure.label || typeof entry.primaryStructure.label !== 'string') {
+            addError(contextFile, `Item ${itemIdx} pack entry primaryStructure.label must be a string`);
+          } else if (entry.primaryStructure.label.length > MAX_PRIMARY_STRUCTURE_LABEL_LENGTH) {
+            addError(contextFile, `Item ${itemIdx} pack entry primaryStructure.label is too long (${entry.primaryStructure.label.length} chars). Max is ${MAX_PRIMARY_STRUCTURE_LABEL_LENGTH} chars.`);
+          }
+        }
+      }
+      
+      // Validate microNotes (optional, reserved for future use)
+      if (entry.microNotes !== undefined) {
+        if (!Array.isArray(entry.microNotes)) {
+          addError(contextFile, `Item ${itemIdx} pack entry microNotes must be an array if present`);
+        } else {
+          entry.microNotes.forEach((note: any, nIdx: number) => {
+            if (!note.id || typeof note.id !== 'string') {
+              addError(contextFile, `Item ${itemIdx} pack entry microNotes[${nIdx}] missing or invalid field: id (must be string)`);
+            }
+            if (!note.text || typeof note.text !== 'string') {
+              addError(contextFile, `Item ${itemIdx} pack entry microNotes[${nIdx}] missing or invalid field: text (must be string)`);
+            } else if (note.text.length > MAX_MICRO_NOTE_LENGTH) {
+              addError(contextFile, `Item ${itemIdx} pack entry microNotes[${nIdx}].text is too long (${note.text.length} chars). Max is ${MAX_MICRO_NOTE_LENGTH} chars.`);
+            }
+          });
+          
+          // Ensure microNotes are not referenced in sessionPlan (they're disabled by design)
+          if (entry.sessionPlan && Array.isArray(entry.sessionPlan.steps)) {
+            // This is just a check - microNotes are not referenced, so this is informational
+            // We don't fail validation, but we could warn if needed
+          }
+        }
+      }
+      
       // Prompts are optional but if present, validate structure
       if (entry.prompts !== undefined) {
         if (!Array.isArray(entry.prompts)) {
@@ -206,6 +254,51 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
             }
             if (!prompt.text || typeof prompt.text !== 'string') {
               addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} missing or invalid field: text`);
+            } else {
+              // Prompt quality guardrails
+              if (prompt.text.length < MIN_PROMPT_TEXT_LENGTH) {
+                addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} text is too short (${prompt.text.length} chars). Min is ${MIN_PROMPT_TEXT_LENGTH} chars.`);
+              }
+              if (prompt.text.length > MAX_PROMPT_TEXT_LENGTH) {
+                addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} text is too long (${prompt.text.length} chars). Max is ${MAX_PROMPT_TEXT_LENGTH} chars.`);
+              }
+              
+              // Check for verb-like token (warning only for now)
+              // Simple heuristic: look for common verb patterns or verb endings
+              const verbPatterns = /\b(gehen|kommen|sein|haben|werden|machen|sagen|geben|sehen|wissen|können|müssen|sollen|dürfen|wollen|mögen|sein|haben|ist|sind|war|waren|hat|haben|wird|werden|macht|machen|sagt|sagen|geht|gehen|kommt|kommen|gibt|geben|sieht|sehen|weiß|wissen|kann|können|muss|müssen|soll|sollen|darf|dürfen|will|wollen|mag|mögen)\b/i;
+              if (!verbPatterns.test(prompt.text)) {
+                // This is a warning, not an error (for now)
+                console.warn(`⚠️  Item ${itemIdx} pack entry prompt ${pIdx} text may not contain a verb-like token: "${prompt.text.substring(0, 50)}..."`);
+              }
+            }
+            
+            // Validate slots (optional)
+            if (prompt.slots !== undefined) {
+              if (typeof prompt.slots !== 'object' || prompt.slots === null || Array.isArray(prompt.slots)) {
+                addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} slots must be an object if present`);
+              } else {
+                const slotKeys = Object.keys(prompt.slots);
+                for (const slotKey of slotKeys) {
+                  if (!VALID_SLOT_KEYS.includes(slotKey)) {
+                    addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} slots has invalid key "${slotKey}". Valid keys are: ${VALID_SLOT_KEYS.join(', ')}`);
+                  } else {
+                    const slotValue = prompt.slots[slotKey];
+                    if (!Array.isArray(slotValue)) {
+                      addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} slots["${slotKey}"] must be an array`);
+                    } else {
+                      // Validate that slot values are substrings of text
+                      const promptText = prompt.text || '';
+                      slotValue.forEach((slotText: any, sIdx: number) => {
+                        if (typeof slotText !== 'string') {
+                          addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} slots["${slotKey}"][${sIdx}] must be a string`);
+                        } else if (!promptText.includes(slotText)) {
+                          addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} slots["${slotKey}"][${sIdx}] value "${slotText}" is not a substring of prompt text "${promptText}"`);
+                        }
+                      });
+                    }
+                  }
+                }
+              }
             }
           });
         }
@@ -352,6 +445,20 @@ const MAX_DURATION_MINUTES = 120;
 
 // Title length bounds
 const MAX_TITLE_LENGTH = 100;
+
+// Prompt quality bounds
+const MIN_PROMPT_TEXT_LENGTH = 12;
+const MAX_PROMPT_TEXT_LENGTH = 140;
+
+// Primary structure bounds
+const MAX_PRIMARY_STRUCTURE_ID_LENGTH = 40;
+const MAX_PRIMARY_STRUCTURE_LABEL_LENGTH = 80;
+
+// Micro notes bounds
+const MAX_MICRO_NOTE_LENGTH = 240;
+
+// Valid slot keys for prompt slots
+const VALID_SLOT_KEYS = ['subject', 'verb', 'object', 'modifier', 'complement'];
 
 // Schema versioning
 const SUPPORTED_SCHEMA_VERSIONS = [1];

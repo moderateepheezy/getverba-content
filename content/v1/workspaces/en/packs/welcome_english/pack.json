@@ -13,14 +13,14 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Hello",
-      "translation": "Hello",
+      "text": "Hello, welcome to English learning",
+      "translation": "Hallo, willkommen beim Englischlernen",
       "audioUrl": "/v1/audio/welcome_english/prompt-001.mp3"
     },
     {
       "id": "prompt-002",
-      "text": "Welcome",
-      "translation": "Welcome",
+      "text": "Welcome to our language course today",
+      "translation": "Willkommen zu unserem Sprachkurs heute",
       "audioUrl": "/v1/audio/welcome_english/prompt-002.mp3"
     }
   ],

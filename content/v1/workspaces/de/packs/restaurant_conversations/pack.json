@@ -6,6 +6,10 @@
   "level": "A2",
   "estimatedMinutes": 20,
   "description": "Master essential phrases for dining out in Germany. Learn how to order food, ask questions, and handle restaurant interactions confidently.",
+  "primaryStructure": {
+    "id": "modal-verbs-requests",
+    "label": "Modal verbs for polite requests"
+  },
   "outline": [
     "Making a Reservation",
     "Ordering Food",
@@ -15,21 +19,48 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Ich hätte gern einen Tisch für zwei",
-      "translation": "I would like a table for two",
-      "audioUrl": "/v1/audio/restaurant_conversations/prompt-001.mp3"
+      "text": "Ich hätte gern einen Tisch für zwei Personen",
+      "translation": "I would like a table for two people",
+      "audioUrl": "/v1/audio/restaurant_conversations/prompt-001.mp3",
+      "slots": {
+        "subject": ["Ich"],
+        "verb": ["hätte"],
+        "object": ["einen Tisch für zwei Personen"]
+      }
     },
     {
       "id": "prompt-002",
-      "text": "Können wir die Speisekarte sehen?",
-      "translation": "Can we see the menu?",
-      "audioUrl": "/v1/audio/restaurant_conversations/prompt-002.mp3"
+      "text": "Können wir die Speisekarte sehen bitte?",
+      "translation": "Can we see the menu please?",
+      "audioUrl": "/v1/audio/restaurant_conversations/prompt-002.mp3",
+      "slots": {
+        "verb": ["Können"],
+        "subject": ["wir"],
+        "object": ["die Speisekarte"],
+        "modifier": ["bitte"]
+      }
     },
     {
       "id": "prompt-003",
-      "text": "Ich nehme das Schnitzel",
-      "translation": "I'll have the schnitzel",
-      "audioUrl": "/v1/audio/restaurant_conversations/prompt-003.mp3"
+      "text": "Ich nehme das Schnitzel mit Pommes",
+      "translation": "I'll have the schnitzel with fries",
+      "audioUrl": "/v1/audio/restaurant_conversations/prompt-003.mp3",
+      "slots": {
+        "subject": ["Ich"],
+        "verb": ["nehme"],
+        "object": ["das Schnitzel", "Pommes"],
+        "modifier": ["mit"]
+      }
+    }
+  ],
+  "microNotes": [
+    {
+      "id": "note-modal-verbs",
+      "text": "Modal verbs like 'hätte' (would like) and 'können' (can) are used for polite requests in German."
+    },
+    {
+      "id": "note-word-order",
+      "text": "In German, the verb typically comes second in main clauses, even with modal verbs."
     }
   ],
   "sessionPlan": {

@@ -14,32 +14,32 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Guten Morgen",
-      "translation": "Good morning",
+      "text": "Guten Morgen, wie geht es Ihnen?",
+      "translation": "Good morning, how are you?",
       "audioUrl": "/v1/audio/basic_greetings/prompt-001.mp3"
     },
     {
       "id": "prompt-002",
-      "text": "Guten Tag",
-      "translation": "Good day",
+      "text": "Guten Tag, schön Sie zu sehen",
+      "translation": "Good day, nice to see you",
       "audioUrl": "/v1/audio/basic_greetings/prompt-002.mp3"
     },
     {
       "id": "prompt-003",
-      "text": "Guten Abend",
-      "translation": "Good evening",
+      "text": "Guten Abend, wie war Ihr Tag?",
+      "translation": "Good evening, how was your day?",
       "audioUrl": "/v1/audio/basic_greetings/prompt-003.mp3"
     },
     {
       "id": "prompt-004",
-      "text": "Auf Wiedersehen",
-      "translation": "Goodbye",
+      "text": "Auf Wiedersehen, bis zum nächsten Mal",
+      "translation": "Goodbye, until next time",
       "audioUrl": "/v1/audio/basic_greetings/prompt-004.mp3"
     },
     {
       "id": "prompt-005",
-      "text": "Tschüss",
-      "translation": "Bye",
+      "text": "Tschüss, wir sehen uns später",
+      "translation": "Bye, see you later",
       "audioUrl": "/v1/audio/basic_greetings/prompt-005.mp3"
     }
   ],
