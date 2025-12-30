@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "scenarioId": "shopping",
+  "defaultRegister": "neutral",
+  "primaryStructure": "accusative_prepositions",
+  "variationSlots": ["subject", "verb", "object", "modifier", "time"],
+  "slotBanks": {
+    "subjects": ["Ich", "Wir", "Sie"],
+    "verbs": ["kaufe", "suche", "nehme", "bezahle", "kann", "möchte", "würde"],
+    "objects": ["das Hemd", "die Hose", "den Pullover", "die Schuhe", "den Rabatt", "die Quittung"],
+    "modifiers": ["gerne", "bitte", "vielleicht", "günstig", "teuer"],
+    "time": ["heute", "morgen", "am Wochenende", "später", "jetzt"],
+    "location": ["im Laden", "an der Kasse", "im Geschäft", "online"],
+    "polarity": []
+  },
+  "requiredTokens": ["kaufen", "laden", "kasse", "zahlung", "rabatt", "quittung", "preis", "kosten", "store", "checkout"],
+  "stepBlueprint": [
+    {
+      "id": "browsing",
+      "title": "Browsing Items",
+      "promptCount": 2,
+      "rules": {
+        "requiredSlots": ["subject", "verb", "object"]
+      }
+    },
+    {
+      "id": "purchasing",
+      "title": "Making a Purchase",
+      "promptCount": 3,
+      "rules": {
+        "requiredSlots": ["subject", "verb", "object", "modifier"]
+      }
+    },
+    {
+      "id": "payment",
+      "title": "Payment and Returns",
+      "promptCount": 2,
+      "rules": {
+        "requiredSlots": ["subject", "verb", "object"]
+      }
+    }
+  ],
+  "constraints": {
+    "verbPosition": "second",
+    "requiredTokensPerPrompt": 2
+  }
+}
+

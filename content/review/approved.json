@@ -1,0 +1,35 @@
+[
+  {
+    "id": "de:basic_greetings",
+    "kind": "pack",
+    "workspace": "de",
+    "entryUrl": "/v1/workspaces/de/packs/basic_greetings/pack.json",
+    "approvedAt": "2025-12-30T19:05:00.000Z",
+    "approvedBy": "system"
+  },
+  {
+    "id": "de:restaurant_conversations",
+    "kind": "pack",
+    "workspace": "de",
+    "entryUrl": "/v1/workspaces/de/packs/restaurant_conversations/pack.json",
+    "approvedAt": "2025-12-30T19:05:00.000Z",
+    "approvedBy": "system"
+  },
+  {
+    "id": "de:work_1",
+    "kind": "pack",
+    "workspace": "de",
+    "entryUrl": "/v1/workspaces/de/packs/work_1/pack.json",
+    "approvedAt": "2025-12-30T19:05:00.000Z",
+    "approvedBy": "system"
+  },
+  {
+    "id": "en:welcome_english",
+    "kind": "pack",
+    "workspace": "en",
+    "entryUrl": "/v1/workspaces/en/packs/welcome_english/pack.json",
+    "approvedAt": "2025-12-30T19:05:00.000Z",
+    "approvedBy": "system"
+  }
+]
+

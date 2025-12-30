@@ -46,7 +46,10 @@ Array of prompt objects for practice.
     {
       "id": "prompt-001",
       "text": "Ich gehe morgen zur Arbeit.",
-      "translation": "I go to work tomorrow.",
+      "intent": "inform",
+      "register": "neutral",
+      "gloss_en": "I'm going to work tomorrow.",
+      "alt_de": "Morgen fahre ich ins Büro.",
       "audioUrl": "/v1/audio/pack-id/prompt-001.mp3",
       "slots": {
         "subject": ["Ich"],
@@ -65,7 +68,12 @@ Array of prompt objects for practice.
 |-------|------|----------|-------------|
 | `id` | string | ✅ | Unique prompt identifier |
 | `text` | string | ✅ | Prompt text (12-140 chars) |
-| `translation` | string | ❌ | English translation |
+| `intent` | string | ✅ | Intent category (enum: "greet", "request", "apologize", "inform", "ask", "confirm", "schedule", "order", "ask_price", "thank", "goodbye") |
+| `register` | string | ❌ | Formality level (enum: "formal", "neutral", "informal", "casual"). Defaults to pack-level register if missing. |
+| `gloss_en` | string | ✅ | Natural English meaning anchor (6-180 chars). Must be genuine English, not literal translation. |
+| `natural_en` | string | ⚠️ | Native English paraphrase (6-180 chars). Required for `government_office` scenario or A2+ level. Optional but recommended for A1 non-government scenarios. Must be idiomatic English, not identical to `gloss_en`. |
+| `alt_de` | string | ❌ | Optional native German paraphrase (6-240 chars). Should differ meaningfully from main prompt. |
+| `translation` | string | ❌ | English translation (deprecated, use gloss_en instead) |
 | `audioUrl` | string | ❌ | Audio file URL |
 | `slots` | object | ❌ | Slot metadata (see below) |
 | `slotsChanged` | string[] | ❌ | Array of slot types that differ from previous prompt in the same step. Values must be from `variationSlots`. Used for multi-slot variation enforcement. |

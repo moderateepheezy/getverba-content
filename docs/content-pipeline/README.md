@@ -183,6 +183,121 @@ Required fields:
   - `title`: Display title (string)
   - `itemsUrl`: Path to index file (optional, but validated if present)
 
+## Template-Based Pack Generation
+
+Templates enable scalable, deterministic pack generation that produces "rich-by-default" content that passes quality gates.
+
+### What Are Templates?
+
+Templates are structured blueprints that define:
+- Scenario-specific content structure
+- Slot dictionaries for multi-slot variation
+- Generation rules for combining slots into prompts
+- Step plans that map to session plans
+
+**Important**: Templates are **dev-time only**. They generate static JSON pack files. No runtime AI is involved.
+
+### How to Add a Template
+
+1. Create a template file at:
+   ```
+   content/v1/workspaces/{workspace}/templates/{templateId}.json
+   ```
+
+2. Define the template structure (see [TEMPLATE_SCHEMA.md](./TEMPLATE_SCHEMA.md)):
+   ```json
+   {
+     "schemaVersion": 1,
+     "id": "work_meetings_a2",
+     "kind": "template",
+     "title": "Work Meetings - A2",
+     "level": "A2",
+     "scenario": "work",
+     "register": "formal",
+     "primaryStructure": "modal_verbs_requests",
+     "variationSlots": ["subject", "verb", "object", "time"],
+     "requiredScenarioTokens": ["meeting", "manager", "schedule", "office"],
+     "steps": [...],
+     "slots": {...},
+     "format": {...}
+   }
+   ```
+
+3. Ensure template dictionaries contain scenario tokens that satisfy quality gates (see [QUALITY_GATES.md](./QUALITY_GATES.md))
+
+4. Validate the template:
+   ```bash
+   npm run content:validate
+   ```
+
+### How to Generate a Pack
+
+Use the generator script to create a pack from a template:
+
+```bash
+tsx scripts/generate-pack-from-template.ts \
+  --workspace de \
+  --template work_meetings_a2 \
+  --packId work_2 \
+  --title "Work Conversations - Part 2" \
+  --level A2
+```
+
+**Parameters:**
+- `--workspace`: Workspace identifier (e.g., `de`)
+- `--template`: Template ID (without `.json` extension)
+- `--packId`: Pack ID for the generated pack
+- `--title`: Optional pack title (defaults to template title)
+- `--level`: Optional CEFR level (defaults to template level)
+
+**Output:**
+- Creates `content/v1/workspaces/{workspace}/packs/{packId}/pack.json`
+- Generates prompts deterministically using cartesian combinations of slots
+- Ensures 30% of prompts change 2+ slots (via `slotsChanged` metadata)
+- Creates session plan automatically from template steps
+
+**After Generation:**
+1. Validate the generated pack:
+   ```bash
+   npm run content:validate
+   ```
+
+2. Update section index (if needed):
+   - Add entry to `content/v1/workspaces/{workspace}/context/index.json`
+   - Ensure `entryUrl` is canonical: `/v1/workspaces/{workspace}/packs/{packId}/pack.json`
+
+### How This Preserves Non-Generic Richness
+
+Templates ensure generated packs are "rich-by-default" by:
+
+1. **Scenario-Specific Tokens**: `requiredScenarioTokens` ensures each prompt contains scenario-specific vocabulary (e.g., "meeting", "manager" for work scenario)
+
+2. **Multi-Slot Variation**: Templates define multiple slot values, and the generator ensures at least 30% of prompts change 2+ slots
+
+3. **Quality Gate Compliance**: Generated packs automatically include:
+   - Scenario tokens (2+ per prompt)
+   - Concreteness markers (times, dates, amounts)
+   - Register consistency (formal packs include "Sie"/"Ihnen")
+   - Multi-slot variation metadata
+
+4. **Deterministic Generation**: Same template + same inputs = same output. This enables:
+   - Version control of generated content
+   - Reproducible pack generation
+   - No runtime AI dependencies
+
+### Template Coverage Tests
+
+Templates are validated to ensure they can generate valid packs:
+
+1. **Schema Validation**: Templates must conform to [TEMPLATE_SCHEMA.md](./TEMPLATE_SCHEMA.md)
+2. **Scenario Token Validation**: `requiredScenarioTokens` must be subset of scenario dictionary
+3. **Generator Output Validation**: Generated packs must pass all quality gates
+
+Run tests:
+```bash
+npm test
+```
+
 ## Future-Proofing
 
 ### Authentication

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "language": "de",
+  "type": "calque_denylist",
+  "description": "Phrases that indicate literal/word-for-word translation from English (calques). These are hard-failed to prevent non-native German.",
+  "phrases": [
+    "ich bin beschäftigt",
+    "ich bin müde",
+    "ich bin hungrig",
+    "ich bin durstig",
+    "ich bin fertig",
+    "ich bin bereit",
+    "ich bin sicher",
+    "ich bin beschäftigt mit",
+    "ich bin interessiert in",
+    "ich bin traurig über",
+    "ich bin glücklich über",
+    "ich bin wütend auf",
+    "ich bin überrascht von",
+    "ich bin enttäuscht von",
+    "ich bin stolz von",
+    "ich bin stolz auf dich",
+    "ich bin stolz auf mich",
+    "ich bin stolz auf uns",
+    "ich bin stolz auf sie",
+    "ich bin stolz auf ihn",
+    "ich bin stolz auf es",
+    "ich bin stolz auf euch",
+    "ich bin stolz auf Sie"
+  ],
+  "notes": "This list will grow over time. Calques are literal translations that sound unnatural in German. Examples: 'Ich bin beschäftigt' (I am busy) should be 'Ich habe viel zu tun' or 'Ich bin im Stress'."
+}
+

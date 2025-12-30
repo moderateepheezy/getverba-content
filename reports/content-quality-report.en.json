@@ -1,0 +1,64 @@
+{
+  "workspace": "en",
+  "timestamp": "2025-12-30T17:42:42.122Z",
+  "packs": {
+    "total": 1,
+    "byScenario": {
+      "intro_lesson": 1
+    },
+    "byPrimaryStructure": {
+      "basic_phrases": 1
+    },
+    "byLevel": {
+      "A1": 1
+    }
+  },
+  "metrics": {
+    "scenarioCoverage": {
+      "distribution": {
+        "intro_lesson": 1
+      },
+      "failures": [
+        "Scenario \"intro_lesson\" is 100.0% of packs (max: 40%)",
+        "Scenario \"intro_lesson\" has only 1 pack(s) (minimum: 2)"
+      ],
+      "warnings": []
+    },
+    "primaryStructureDiversity": {
+      "distribution": {
+        "basic_phrases": 1
+      },
+      "failures": [
+        "Primary structure \"basic_phrases\" is 100.0% of packs (max: 35%)"
+      ]
+    },
+    "variationSlotDepth": {
+      "workspaceAverage": 2,
+      "multiSlotPercentage": 100,
+      "packFailures": [],
+      "failures": []
+    },
+    "sentenceReuse": {
+      "duplicateSentences": [],
+      "skeletonRepeats": [],
+      "failures": []
+    },
+    "contextTokenDensity": {
+      "workspaceAverage": 0,
+      "packFailures": [],
+      "failures": [
+        "Workspace average context token density is 0.00 (minimum: 2.3)"
+      ]
+    },
+    "cefrBalance": {
+      "distribution": {
+        "A1": 1
+      },
+      "warnings": [
+        "Level \"A1\" is 100.0% of packs (consider balancing)"
+      ]
+    }
+  },
+  "hasFailures": true,
+  "hasWarnings": true
+}

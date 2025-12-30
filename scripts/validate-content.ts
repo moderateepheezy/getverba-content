@@ -297,6 +297,9 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
               }
             }
             
+            // Prompt Meaning Contract v1: Validate meaning contract fields
+            validatePromptMeaningContract(prompt, entry, contextFile, itemIdx, pIdx);
+            
           });
         }
         
@@ -462,6 +465,15 @@ const MAX_MICRO_NOTE_LENGTH = 240;
 // Valid slot keys for prompt slots
 const VALID_SLOT_KEYS = ['subject', 'verb', 'object', 'modifier', 'complement'];
 
+// Prompt Meaning Contract v1: Valid intent values
+const VALID_INTENTS = ['greet', 'request', 'apologize', 'inform', 'ask', 'confirm', 'schedule', 'order', 'ask_price', 'thank', 'goodbye'];
+
+// Prompt Meaning Contract v1: Valid register values
+const VALID_REGISTERS = ['formal', 'neutral', 'informal', 'casual'];
+
+// Prompt Meaning Contract v1: German tokens that should not appear in gloss_en (literal translation check)
+const GERMAN_TOKENS_IN_GLOSS = ['bitte', 'termin', 'entschuldigung', 'entschuldige', 'entschuldigen', 'guten tag', 'guten morgen', 'guten abend', 'auf wiedersehen', 'tschüss', 'danke', 'bitte schön', 'gern geschehen', 'vielen dank', 'kein problem', 'keine ursache', 'wie geht es', 'wie gehts', 'was ist los', 'was machst du', 'wie heißt du', 'woher kommst du', 'wo wohnst du', 'wie alt bist du', 'was machst du beruflich', 'ich heiße', 'ich komme aus', 'ich wohne in', 'ich bin', 'ich habe', 'ich kann', 'ich muss', 'ich will', 'ich möchte', 'ich würde', 'ich könnte', 'ich sollte', 'ich dürfte'];
+
 // Quality Gates v1: Generic template denylist
 const DENYLIST_PHRASES = [
   "in today's lesson",
@@ -487,6 +499,299 @@ const SUPPORTED_SCHEMA_VERSIONS = [1];
  * Validate schemaVersion field
  * Hard-fails on missing or unknown versions
  */
+/**
+ * Prompt Meaning Contract v1: Load calque denylist
+ */
+function loadCalqueDenylist(): string[] {
+  try {
+    const denylistPath = join(META_DIR, 'denylists', 'de_calques.json');
+    if (!existsSync(denylistPath)) {
+      return [];
+    }
+    const content = readFileSync(denylistPath, 'utf-8');
+    const denylist = JSON.parse(content);
+    return denylist.phrases || [];
+  } catch (err: any) {
+    console.warn(`⚠️  Failed to load calque denylist: ${err.message}`);
+    return [];
+  }
+}
+
+/**
+ * Prompt Meaning Contract v1: Load pragmatics rules
+ */
+function loadPragmaticsRules(): any[] {
+  try {
+    const rulesPath = join(META_DIR, 'pragmatics', 'de_rules.json');
+    if (!existsSync(rulesPath)) {
+      return [];
+    }
+    const content = readFileSync(rulesPath, 'utf-8');
+    const rules = JSON.parse(content);
+    return rules.rules || [];
+  } catch (err: any) {
+    console.warn(`⚠️  Failed to load pragmatics rules: ${err.message}`);
+    return [];
+  }
+}
+
+/**
+ * Prompt Meaning Contract v1: Check if text contains German tokens (literal translation check)
+ */
+function containsGermanTokens(text: string): boolean {
+  const textLower = text.toLowerCase();
+  for (const token of GERMAN_TOKENS_IN_GLOSS) {
+    if (textLower.includes(token.toLowerCase())) {
+      return true;
+    }
+  }
+  return false;
+}
+
+/**
+ * Prompt Meaning Contract v1: Check if prompt matches a pragmatics rule
+ */
+function matchesPragmaticsRule(prompt: any, entry: any, rule: any): boolean {
+  const match = rule.match || {};
+  
+  // Check scenario
+  if (match.scenario && entry.scenario !== match.scenario) {
+    return false;
+  }
+  
+  // Check intent
+  if (match.intent) {
+    const ruleIntents = Array.isArray(match.intent) ? match.intent : [match.intent];
+    if (!ruleIntents.includes(prompt.intent)) {
+      return false;
+    }
+  }
+  
+  // Check register
+  if (match.register) {
+    const promptRegister = prompt.register || entry.register;
+    const ruleRegisters = Array.isArray(match.register) ? match.register : [match.register];
+    if (!ruleRegisters.includes(promptRegister)) {
+      return false;
+    }
+  }
+  
+  // Check primaryStructure
+  if (match.primaryStructure && entry.primaryStructure !== match.primaryStructure) {
+    return false;
+  }
+  
+  return true;
+}
+
+/**
+ * Prompt Meaning Contract v1: Check if prompt satisfies pragmatics rule requirements
+ */
+function satisfiesPragmaticsRule(prompt: any, rule: any): boolean {
+  const textLower = prompt.text.toLowerCase().replace(/\s+/g, ' ');
+  
+  // Check requireAnyTokens (at least one must appear)
+  if (rule.requireAnyTokens && rule.requireAnyTokens.length > 0) {
+    let found = false;
+    for (const token of rule.requireAnyTokens) {
+      const tokenLower = token.toLowerCase();
+      if (textLower.includes(tokenLower)) {
+        found = true;
+        break;
+      }
+    }
+    if (!found) {
+      return false;
+    }
+  }
+  
+  // Check forbidTokens (none may appear)
+  if (rule.forbidTokens && rule.forbidTokens.length > 0) {
+    for (const token of rule.forbidTokens) {
+      const tokenLower = token.toLowerCase();
+      if (textLower.includes(tokenLower)) {
+        return false;
+      }
+    }
+  }
+  
+  return true;
+}
+
+/**
+ * Prompt Meaning Contract v1: Compute similarity between two texts
+ */
+function computeTextSimilarity(text1: string, text2: string): number {
+  // Normalize texts
+  const norm1 = text1.toLowerCase().replace(/[.,!?;:]/g, '').replace(/\s+/g, ' ').trim();
+  const norm2 = text2.toLowerCase().replace(/[.,!?;:]/g, '').replace(/\s+/g, ' ').trim();
+  
+  if (norm1 === norm2) return 1.0;
+  if (norm1.length === 0 || norm2.length === 0) return 0;
+  
+  // Jaccard similarity (token overlap)
+  const tokens1 = new Set(norm1.split(/\s+/));
+  const tokens2 = new Set(norm2.split(/\s+/));
+  const intersection = new Set([...tokens1].filter(x => tokens2.has(x)));
+  const union = new Set([...tokens1, ...tokens2]);
+  const jaccard = union.size > 0 ? intersection.size / union.size : 0;
+  
+  // Simple Levenshtein distance (normalized)
+  const maxLen = Math.max(norm1.length, norm2.length);
+  let distance = 0;
+  const minLen = Math.min(norm1.length, norm2.length);
+  for (let i = 0; i < minLen; i++) {
+    if (norm1[i] !== norm2[i]) distance++;
+  }
+  distance += Math.abs(norm1.length - norm2.length);
+  const editSimilarity = 1 - (distance / maxLen);
+  
+  // Weighted average
+  return (jaccard * 0.7) + (editSimilarity * 0.3);
+}
+
+/**
+ * Prompt Meaning Contract v1: Validate prompt meaning contract
+ */
+function validatePromptMeaningContract(prompt: any, entry: any, contextFile: string, itemIdx: number, pIdx: number): void {
+  // 1. Validate intent (required)
+  if (!prompt.intent || typeof prompt.intent !== 'string') {
+    addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} missing or invalid field: intent (required, must be one of: ${VALID_INTENTS.join(', ')})`);
+  } else if (!VALID_INTENTS.includes(prompt.intent)) {
+    addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} invalid intent "${prompt.intent}". Must be one of: ${VALID_INTENTS.join(', ')}`);
+  }
+  
+  // 2. Validate register (optional, but if present must be valid)
+  if (prompt.register !== undefined) {
+    if (typeof prompt.register !== 'string' || !VALID_REGISTERS.includes(prompt.register)) {
+      addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} invalid register "${prompt.register}". Must be one of: ${VALID_REGISTERS.join(', ')}`);
+    }
+  }
+  
+  // Validate pack-level register
+  if (entry.register && typeof entry.register === 'string' && !VALID_REGISTERS.includes(entry.register)) {
+    addError(contextFile, `Item ${itemIdx} pack entry invalid register "${entry.register}". Must be one of: ${VALID_REGISTERS.join(', ')}`);
+  }
+  
+  // 3. Validate gloss_en (required)
+  if (!prompt.gloss_en || typeof prompt.gloss_en !== 'string') {
+    addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} missing or invalid field: gloss_en (required, 6-180 chars)`);
+  } else {
+    if (prompt.gloss_en.length < 6) {
+      addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} gloss_en is too short (${prompt.gloss_en.length} chars). Min is 6 chars.`);
+    }
+    if (prompt.gloss_en.length > 180) {
+      addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} gloss_en is too long (${prompt.gloss_en.length} chars). Max is 180 chars.`);
+    }
+    
+    // Check for German tokens (literal translation)
+    if (containsGermanTokens(prompt.gloss_en)) {
+      addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} gloss_en contains German tokens (literal translation). gloss_en must be natural English, not a word-for-word translation.`);
+    }
+  }
+  
+  // 4. Validate natural_en (required for government_office or A2+)
+  const scenario = entry.scenario || '';
+  const level = entry.level || '';
+  const isGovernmentOffice = scenario === 'government_office';
+  const isA2OrHigher = ['A2', 'B1', 'B2', 'C1', 'C2'].includes(level.toUpperCase());
+  const requiresNaturalEn = isGovernmentOffice || isA2OrHigher;
+  
+  if (requiresNaturalEn) {
+    if (!prompt.natural_en || typeof prompt.natural_en !== 'string') {
+      addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} missing or invalid field: natural_en (required for ${isGovernmentOffice ? 'government_office scenario' : 'A2+ level'}, 6-180 chars)`);
+    } else {
+      if (prompt.natural_en.length < 6) {
+        addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} natural_en is too short (${prompt.natural_en.length} chars). Min is 6 chars.`);
+      }
+      if (prompt.natural_en.length > 180) {
+        addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} natural_en is too long (${prompt.natural_en.length} chars). Max is 180 chars.`);
+      }
+      
+      // Check for German tokens (literal translation)
+      if (containsGermanTokens(prompt.natural_en)) {
+        addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} natural_en contains German tokens (literal translation). natural_en must be natural English, not a word-for-word translation.`);
+      }
+      
+      // Warn if natural_en is identical to gloss_en (should be different)
+      if (prompt.gloss_en && prompt.natural_en === prompt.gloss_en) {
+        addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} natural_en should differ from gloss_en (natural_en should be a native English paraphrase, not identical to gloss_en)`);
+      }
+    }
+  } else {
+    // For A1 non-government scenarios: optional but recommended
+    if (!prompt.natural_en) {
+      // Warning only, not an error
+      console.warn(`⚠️  Item ${itemIdx} pack entry prompt ${pIdx} missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)`);
+    } else if (typeof prompt.natural_en !== 'string') {
+      addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} natural_en must be a string if present`);
+    } else {
+      if (prompt.natural_en.length < 6) {
+        addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} natural_en is too short (${prompt.natural_en.length} chars). Min is 6 chars.`);
+      }
+      if (prompt.natural_en.length > 180) {
+        addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} natural_en is too long (${prompt.natural_en.length} chars). Max is 180 chars.`);
+      }
+    }
+  }
+  
+  // 5. Validate alt_de (optional)
+  if (prompt.alt_de !== undefined) {
+    if (typeof prompt.alt_de !== 'string') {
+      addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} alt_de must be a string if present`);
+    } else {
+      if (prompt.alt_de.length < 6) {
+        addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} alt_de is too short (${prompt.alt_de.length} chars). Min is 6 chars.`);
+      }
+      if (prompt.alt_de.length > 240) {
+        addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} alt_de is too long (${prompt.alt_de.length} chars). Max is 240 chars.`);
+      }
+      
+      // Warning: alt_de too similar to text
+      if (prompt.text && typeof prompt.text === 'string') {
+        const similarity = computeTextSimilarity(prompt.text, prompt.alt_de);
+        if (similarity > 0.85) {
+          console.warn(`⚠️  Item ${itemIdx} pack entry prompt ${pIdx} alt_de is too similar to text (similarity: ${(similarity * 100).toFixed(1)}%). alt_de should provide meaningful alternative phrasing.`);
+        }
+      }
+    }
+  }
+  
+  // 5. Check calque denylist
+  if (prompt.text && typeof prompt.text === 'string') {
+    const calqueDenylist = loadCalqueDenylist();
+    const textLower = prompt.text.toLowerCase();
+    for (const phrase of calqueDenylist) {
+      if (textLower.includes(phrase.toLowerCase())) {
+        addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} contains calque phrase "${phrase}" (literal translation). This phrase sounds unnatural in German.`);
+        break; // Only report first match
+      }
+    }
+  }
+  
+  // 6. Check pragmatics rules
+  if (prompt.intent && prompt.text && typeof prompt.text === 'string') {
+    const pragmaticsRules = loadPragmaticsRules();
+    for (const rule of pragmaticsRules) {
+      if (matchesPragmaticsRule(prompt, entry, rule)) {
+        if (!satisfiesPragmaticsRule(prompt, rule)) {
+          const missing = rule.requireAnyTokens ? rule.requireAnyTokens.join(', ') : '';
+          const forbidden = rule.forbidTokens ? rule.forbidTokens.join(', ') : '';
+          let msg = `Item ${itemIdx} pack entry prompt ${pIdx} violates pragmatics rule "${rule.id || 'unknown'}": `;
+          if (missing) {
+            msg += `missing required tokens (at least one of: ${missing})`;
+          }
+          if (forbidden) {
+            msg += missing ? `; ` : '';
+            msg += `contains forbidden tokens (none of: ${forbidden})`;
+          }
+          addError(contextFile, msg);
+        }
+      }
+    }
+  }
+}
+
 /**
  * Quality Gates v1: Validate pack quality
  */
@@ -631,6 +936,133 @@ function validatePackQualityGates(entry: any, contextFile: string, itemIdx: numb
   if (concretenessCount < 2) {
     addError(contextFile, `Item ${itemIdx} pack entry Quality Gate violation: insufficient concreteness markers (found ${concretenessCount} prompt(s) with markers, required: 2)`);
   }
+  
+  // Quality Gates v2: Near-duplicate detection
+  let nearDuplicateCount = 0;
+  const similarityThreshold = 0.92;
+  
+  function normalizePrompt(text: string): string {
+    return text
+      .toLowerCase()
+      .replace(/[.,!?;:]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+  
+  function jaccardSimilarity(text1: string, text2: string): number {
+    const tokens1 = new Set(normalizePrompt(text1).split(/\s+/));
+    const tokens2 = new Set(normalizePrompt(text2).split(/\s+/));
+    const intersection = new Set([...tokens1].filter(x => tokens2.has(x)));
+    const union = new Set([...tokens1, ...tokens2]);
+    if (union.size === 0) return 1.0;
+    return intersection.size / union.size;
+  }
+  
+  function normalizedEditDistance(text1: string, text2: string): number {
+    const norm1 = normalizePrompt(text1);
+    const norm2 = normalizePrompt(text2);
+    if (norm1 === norm2) return 0;
+    if (norm1.length === 0 || norm2.length === 0) return 1;
+    
+    // Simple Levenshtein approximation
+    const maxLen = Math.max(norm1.length, norm2.length);
+    let distance = 0;
+    const minLen = Math.min(norm1.length, norm2.length);
+    for (let i = 0; i < minLen; i++) {
+      if (norm1[i] !== norm2[i]) distance++;
+    }
+    distance += Math.abs(norm1.length - norm2.length);
+    return distance / maxLen;
+  }
+  
+  function computeSimilarity(text1: string, text2: string): number {
+    const jaccard = jaccardSimilarity(text1, text2);
+    const editDist = 1 - normalizedEditDistance(text1, text2);
+    return (jaccard * 0.7) + (editDist * 0.3);
+  }
+  
+  for (let i = 0; i < prompts.length - 1; i++) {
+    const similarity = computeSimilarity(prompts[i].text, prompts[i + 1].text);
+    if (similarity >= similarityThreshold) {
+      nearDuplicateCount++;
+    }
+  }
+  
+  const nearDuplicateRate = prompts.length > 1 ? nearDuplicateCount / (prompts.length - 1) : 0;
+  if (nearDuplicateRate > 0.20) {
+    addError(contextFile, `Item ${itemIdx} pack entry Quality Gate v2 violation: near-duplicate rate too high (${(nearDuplicateRate * 100).toFixed(1)}%, threshold: 20%). Pack "${entry.id}" has ${nearDuplicateCount} near-duplicate prompt pair(s).`);
+  }
+  
+  // Quality Gates v2: Scenario richness
+  const SCENARIO_TOKEN_DICTS: Record<string, string[]> = {
+    work: ['meeting', 'shift', 'manager', 'schedule', 'invoice', 'deadline', 'office', 'colleague', 'project', 'task', 'besprechung', 'termin', 'büro', 'kollege', 'projekt', 'aufgabe', 'arbeit'],
+    restaurant: ['menu', 'order', 'bill', 'reservation', 'waiter', 'table', 'food', 'drink', 'kitchen', 'service', 'speisekarte', 'bestellen', 'kellner', 'tisch', 'essen', 'trinken', 'reservierung'],
+    shopping: ['price', 'buy', 'cost', 'store', 'cashier', 'payment', 'discount', 'receipt', 'cart', 'checkout', 'kaufen', 'laden', 'kasse', 'zahlung', 'rabatt', 'quittung', 'warenkorb'],
+    doctor: ['appointment', 'symptom', 'prescription', 'medicine', 'treatment', 'diagnosis', 'health', 'patient', 'clinic', 'examination', 'termin', 'symptom', 'rezept', 'medizin', 'behandlung', 'diagnose', 'gesundheit', 'patient', 'klinik', 'untersuchung', 'arzt'],
+    housing: ['apartment', 'rent', 'lease', 'landlord', 'tenant', 'deposit', 'utilities', 'furniture', 'neighborhood', 'address', 'wohnung', 'miete', 'mietvertrag', 'vermieter', 'mieter', 'kaution', 'nebenkosten', 'möbel', 'nachbarschaft', 'adresse'],
+    government_office: ['termin', 'formular', 'anmeldung', 'bescheinigung', 'unterlagen', 'ausweis', 'amt', 'beamte', 'sachbearbeiter', 'aufenthaltserlaubnis', 'pass', 'bürgeramt', 'ausländeramt', 'jobcenter', 'krankenkasse'],
+    casual_greeting: ['greeting', 'hello', 'goodbye', 'morning', 'evening', 'day', 'see', 'meet', 'friend', 'time', 'grüßen', 'hallo', 'auf wiedersehen', 'morgen', 'abend', 'tag', 'sehen', 'treffen', 'freund', 'zeit', 'tschüss']
+  };
+  
+  const scenarioTokens = SCENARIO_TOKEN_DICTS[entry.scenario] || [];
+  if (scenarioTokens.length > 0) {
+    const uniqueScenarioTokens = new Set<string>();
+    prompts.forEach(p => {
+      const textLower = p.text.toLowerCase();
+      scenarioTokens.forEach(token => {
+        if (textLower.includes(token.toLowerCase())) {
+          uniqueScenarioTokens.add(token);
+        }
+      });
+    });
+    
+    // Require at least 6 unique tokens for packs with >= 8 prompts
+    if (prompts.length >= 8 && uniqueScenarioTokens.size < 6) {
+      addError(contextFile, `Item ${itemIdx} pack entry Quality Gate v2 violation: insufficient scenario token richness. Pack "${entry.id}" has ${uniqueScenarioTokens.size} unique scenario tokens (required: 6 for packs with >= 8 prompts)`);
+    }
+    
+    // Check per-step scenario token presence
+    if (entry.sessionPlan && Array.isArray(entry.sessionPlan.steps)) {
+      entry.sessionPlan.steps.forEach((step: any, stepIdx: number) => {
+        let stepHasToken = false;
+        if (Array.isArray(step.promptIds)) {
+          step.promptIds.forEach((promptId: string) => {
+            const prompt = prompts.find(p => p.id === promptId);
+            if (prompt) {
+              const textLower = prompt.text.toLowerCase();
+              for (const token of scenarioTokens) {
+                if (textLower.includes(token.toLowerCase())) {
+                  stepHasToken = true;
+                  break;
+                }
+              }
+            }
+          });
+        }
+        if (!stepHasToken) {
+          addError(contextFile, `Item ${itemIdx} pack entry Quality Gate v2 violation: step "${step.id}" (index ${stepIdx}) in pack "${entry.id}" has no scenario tokens. All steps must contain at least one scenario token.`);
+        }
+      });
+    }
+  }
+  
+  // Quality Gates v2: Slot coverage
+  if (entry.variationSlots && Array.isArray(entry.variationSlots) && entry.variationSlots.length > 0) {
+    const usedSlots = new Set<string>();
+    prompts.forEach(p => {
+      if (p.slotsChanged && Array.isArray(p.slotsChanged)) {
+        p.slotsChanged.forEach(slot => usedSlots.add(slot));
+      }
+      if (p.slots && typeof p.slots === 'object') {
+        Object.keys(p.slots).forEach(slot => usedSlots.add(slot));
+      }
+    });
+    
+    const missingSlots = entry.variationSlots.filter(slot => !usedSlots.has(slot));
+    if (missingSlots.length > 0) {
+      addError(contextFile, `Item ${itemIdx} pack entry Quality Gate v2 violation: variation slots declared but not used. Pack "${entry.id}" declares slots [${entry.variationSlots.join(', ')}] but never uses [${missingSlots.join(', ')}] in any prompt.`);
+    }
+  }
 }
 
 function validateSchemaVersion(docType: string, doc: any, filePath: string): void {
@@ -753,6 +1185,43 @@ function validateSchemaV1RequiredFields(docType: string, doc: any, filePath: str
     }
     if (typeof doc.estimatedMinutes !== 'number') {
       addError(filePath, 'DrillEntry schemaVersion 1: missing or invalid required field: estimatedMinutes');
+    }
+  } else if (docType === 'Template') {
+    if (!doc.id || typeof doc.id !== 'string') {
+      addError(filePath, 'Template schemaVersion 1: missing or invalid required field: id');
+    }
+    if (!doc.kind || typeof doc.kind !== 'string') {
+      addError(filePath, 'Template schemaVersion 1: missing or invalid required field: kind');
+    }
+    if (!doc.title || typeof doc.title !== 'string') {
+      addError(filePath, 'Template schemaVersion 1: missing or invalid required field: title');
+    }
+    if (!doc.level || typeof doc.level !== 'string') {
+      addError(filePath, 'Template schemaVersion 1: missing or invalid required field: level');
+    }
+    if (!doc.scenario || typeof doc.scenario !== 'string') {
+      addError(filePath, 'Template schemaVersion 1: missing or invalid required field: scenario');
+    }
+    if (!doc.register || typeof doc.register !== 'string') {
+      addError(filePath, 'Template schemaVersion 1: missing or invalid required field: register');
+    }
+    if (!doc.primaryStructure || typeof doc.primaryStructure !== 'string') {
+      addError(filePath, 'Template schemaVersion 1: missing or invalid required field: primaryStructure');
+    }
+    if (!Array.isArray(doc.variationSlots)) {
+      addError(filePath, 'Template schemaVersion 1: missing or invalid required field: variationSlots (must be array)');
+    }
+    if (!Array.isArray(doc.requiredScenarioTokens)) {
+      addError(filePath, 'Template schemaVersion 1: missing or invalid required field: requiredScenarioTokens (must be array)');
+    }
+    if (!Array.isArray(doc.steps)) {
+      addError(filePath, 'Template schemaVersion 1: missing or invalid required field: steps (must be array)');
+    }
+    if (!doc.slots || typeof doc.slots !== 'object') {
+      addError(filePath, 'Template schemaVersion 1: missing or invalid required field: slots (must be object)');
+    }
+    if (!doc.format || typeof doc.format !== 'object') {
+      addError(filePath, 'Template schemaVersion 1: missing or invalid required field: format (must be object)');
     }
   } else if (docType === 'Manifest') {
     if (!doc.activeVersion || typeof doc.activeVersion !== 'string') {
@@ -1130,6 +1599,146 @@ function validateJsonFile(filePath: string): void {
   }
 }
 
+/**
+ * Validate template document
+ */
+function validateTemplate(templatePath: string): void {
+  try {
+    const content = readFileSync(templatePath, 'utf-8');
+    const template = JSON.parse(content);
+    
+    // Validate schemaVersion
+    validateSchemaVersion('Template', template, templatePath);
+    
+    // Required fields
+    if (!template.id || typeof template.id !== 'string') {
+      addError(templatePath, 'Template missing or invalid field: id (must be string)');
+    }
+    if (!template.kind || template.kind !== 'template') {
+      addError(templatePath, 'Template missing or invalid field: kind (must be "template")');
+    }
+    if (!template.title || typeof template.title !== 'string') {
+      addError(templatePath, 'Template missing or invalid field: title (must be string)');
+    } else if (template.title.length > MAX_TITLE_LENGTH) {
+      addError(templatePath, `Template title is too long (${template.title.length} chars). Max is ${MAX_TITLE_LENGTH} chars.`);
+    }
+    if (!template.level || typeof template.level !== 'string') {
+      addError(templatePath, 'Template missing or invalid field: level (must be string)');
+    } else if (!VALID_CEFR_LEVELS.includes(template.level.toUpperCase())) {
+      addError(templatePath, `Template level "${template.level}" is not a valid CEFR level. Must be one of: ${VALID_CEFR_LEVELS.join(', ')}`);
+    }
+    if (!template.scenario || typeof template.scenario !== 'string') {
+      addError(templatePath, 'Template missing or invalid field: scenario (must be string, 3-40 chars)');
+    } else if (template.scenario.length < 3 || template.scenario.length > 40) {
+      addError(templatePath, `Template scenario length is invalid (${template.scenario.length} chars). Must be 3-40 chars.`);
+    }
+    if (!template.register || typeof template.register !== 'string') {
+      addError(templatePath, 'Template missing or invalid field: register (must be "formal", "neutral", or "informal")');
+    } else if (!['formal', 'neutral', 'casual', 'informal'].includes(template.register)) {
+      addError(templatePath, `Template register must be one of: "formal", "neutral", "informal"`);
+    }
+    if (!template.primaryStructure || typeof template.primaryStructure !== 'string') {
+      addError(templatePath, 'Template missing or invalid field: primaryStructure (must be string, 3-60 chars)');
+    } else if (template.primaryStructure.length < 3 || template.primaryStructure.length > 60) {
+      addError(templatePath, `Template primaryStructure length is invalid (${template.primaryStructure.length} chars). Must be 3-60 chars.`);
+    }
+    if (!Array.isArray(template.variationSlots) || template.variationSlots.length === 0) {
+      addError(templatePath, 'Template missing or invalid field: variationSlots (must be non-empty array)');
+    } else {
+      const validSlots = ['subject', 'verb', 'object', 'modifier', 'tense', 'polarity', 'time', 'location'];
+      for (const slot of template.variationSlots) {
+        if (!validSlots.includes(slot)) {
+          addError(templatePath, `Template variationSlots contains invalid slot "${slot}". Valid slots: ${validSlots.join(', ')}`);
+        }
+      }
+    }
+    if (!Array.isArray(template.requiredScenarioTokens) || template.requiredScenarioTokens.length === 0) {
+      addError(templatePath, 'Template missing or invalid field: requiredScenarioTokens (must be non-empty array)');
+    }
+    if (!Array.isArray(template.steps) || template.steps.length === 0) {
+      addError(templatePath, 'Template missing or invalid field: steps (must be non-empty array)');
+    } else {
+      template.steps.forEach((step: any, idx: number) => {
+        if (!step.id || typeof step.id !== 'string') {
+          addError(templatePath, `Template steps[${idx}] missing or invalid field: id (must be string)`);
+        }
+        if (!step.title || typeof step.title !== 'string') {
+          addError(templatePath, `Template steps[${idx}] missing or invalid field: title (must be string)`);
+        }
+        if (typeof step.promptCount !== 'number' || step.promptCount < 1) {
+          addError(templatePath, `Template steps[${idx}] missing or invalid field: promptCount (must be number >= 1)`);
+        }
+        if (!Array.isArray(step.slots) || step.slots.length === 0) {
+          addError(templatePath, `Template steps[${idx}] missing or invalid field: slots (must be non-empty array)`);
+        } else {
+          // Validate step slots are subset of variationSlots
+          for (const slot of step.slots) {
+            if (!template.variationSlots.includes(slot)) {
+              addError(templatePath, `Template steps[${idx}].slots contains "${slot}" which is not in variationSlots`);
+            }
+          }
+        }
+      });
+    }
+    if (!template.slots || typeof template.slots !== 'object') {
+      addError(templatePath, 'Template missing or invalid field: slots (must be object)');
+    } else {
+      const slotKeys = Object.keys(template.slots);
+      if (slotKeys.length === 0) {
+        addError(templatePath, 'Template slots must contain at least one slot type');
+      } else {
+        for (const slotKey of slotKeys) {
+          const slotValues = template.slots[slotKey];
+          if (!Array.isArray(slotValues) || slotValues.length === 0) {
+            addError(templatePath, `Template slots["${slotKey}"] must be a non-empty array`);
+          } else {
+            for (const value of slotValues) {
+              if (typeof value !== 'string' || value.trim() === '') {
+                addError(templatePath, `Template slots["${slotKey}"] contains invalid value (must be non-empty string)`);
+              }
+            }
+          }
+        }
+      }
+    }
+    if (!template.format || typeof template.format !== 'object') {
+      addError(templatePath, 'Template missing or invalid field: format (must be object)');
+    } else if (!template.format.pattern || typeof template.format.pattern !== 'string') {
+      addError(templatePath, 'Template format.pattern must be a string');
+    }
+    
+    // Validate requiredScenarioTokens are scenario-appropriate
+    // Scenario token dictionaries (from QUALITY_GATES.md)
+    const SCENARIO_TOKEN_DICTS: Record<string, string[]> = {
+      work: ['meeting', 'shift', 'manager', 'schedule', 'invoice', 'deadline', 'office', 'colleague', 'project', 'task', 'besprechung', 'termin', 'büro', 'kollege', 'projekt', 'aufgabe', 'arbeit'],
+      restaurant: ['menu', 'order', 'bill', 'reservation', 'waiter', 'table', 'food', 'drink', 'kitchen', 'service', 'speisekarte', 'bestellen', 'kellner', 'tisch', 'essen', 'trinken', 'reservierung'],
+      shopping: ['price', 'buy', 'cost', 'store', 'cashier', 'payment', 'discount', 'receipt', 'cart', 'checkout', 'kaufen', 'laden', 'kasse', 'zahlung', 'rabatt', 'quittung', 'warenkorb'],
+      doctor: ['appointment', 'symptom', 'prescription', 'medicine', 'treatment', 'diagnosis', 'health', 'patient', 'clinic', 'examination', 'termin', 'symptom', 'rezept', 'medizin', 'behandlung', 'diagnose', 'gesundheit', 'patient', 'klinik', 'untersuchung', 'arzt'],
+      housing: ['apartment', 'rent', 'lease', 'landlord', 'tenant', 'deposit', 'utilities', 'furniture', 'neighborhood', 'address', 'wohnung', 'miete', 'mietvertrag', 'vermieter', 'mieter', 'kaution', 'nebenkosten', 'möbel', 'nachbarschaft', 'adresse'],
+      government_office: ['termin', 'formular', 'anmeldung', 'bescheinigung', 'unterlagen', 'ausweis', 'amt', 'beamte', 'sachbearbeiter', 'aufenthaltserlaubnis', 'pass', 'bürgeramt', 'ausländeramt', 'jobcenter', 'krankenkasse'],
+      casual_greeting: ['greeting', 'hello', 'goodbye', 'morning', 'evening', 'day', 'see', 'meet', 'friend', 'time', 'grüßen', 'hallo', 'auf wiedersehen', 'morgen', 'abend', 'tag', 'sehen', 'treffen', 'freund', 'zeit', 'tschüss']
+    };
+    
+    const scenarioTokens = SCENARIO_TOKEN_DICTS[template.scenario] || [];
+    if (scenarioTokens.length > 0) {
+      // Check that requiredScenarioTokens are subset of scenario dictionary
+      for (const token of template.requiredScenarioTokens) {
+        const tokenLower = token.toLowerCase();
+        const found = scenarioTokens.some(st => st.toLowerCase() === tokenLower);
+        if (!found) {
+          // Warn but don't fail - allows custom tokens
+          console.warn(`⚠️  ${templatePath}: requiredScenarioTokens contains "${token}" which is not in scenario "${template.scenario}" dictionary. This is allowed but may cause quality gate failures.`);
+        }
+      }
+    } else {
+      console.warn(`⚠️  ${templatePath}: Scenario "${template.scenario}" has no token dictionary defined. Quality gates may skip scenario token validation.`);
+    }
+    
+  } catch (err: any) {
+    addError(templatePath, `Template validation failed: ${err.message}`);
+  }
+}
+
 function validateManifest(manifestPath: string): void {
   try {
     const content = readFileSync(manifestPath, 'utf-8');
@@ -1258,6 +1867,16 @@ function main() {
   // Validate all JSON files parse correctly
   jsonFiles.forEach(file => {
     validateJsonFile(file);
+  });
+
+  // Validate template files
+  const templateFiles = jsonFiles.filter(file => {
+    const relPath = relative(CONTENT_DIR, file);
+    return relPath.includes('workspaces/') && relPath.includes('/templates/') && file.endsWith('.json');
+  });
+
+  templateFiles.forEach(file => {
+    validateTemplate(file);
   });
 
   // Validate index files (index.json under workspaces)

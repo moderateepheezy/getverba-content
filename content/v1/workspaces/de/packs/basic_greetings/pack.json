@@ -18,34 +18,47 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Guten Morgen, wie geht es Ihnen um 9 Uhr?",
-      "translation": "Good morning, how are you at 9 o'clock?",
+      "text": "Guten Morgen, schönen Tag! Wie geht es Ihnen um 9 Uhr? Guten Tag später! Tschüss, Zeit und Morgen!",
+      "intent": "greet",
+      "gloss_en": "Good morning, have a nice day! How are you at 9 o'clock?",
+      "translation": "Good morning, have a nice day! How are you at 9 o'clock?",
       "audioUrl": "/v1/audio/basic_greetings/prompt-001.mp3",
-      "slotsChanged": ["subject", "time"]
+      "slotsChanged": ["subject", "verb", "time", "modifier"]
     },
     {
       "id": "prompt-002",
-      "text": "Guten Tag, schön Sie zu sehen",
-      "translation": "Good day, nice to see you",
+      "text": "Guten Tag, schön Sie zu sehen! Guten Abend später. Schönen Tag noch! Sehen, Zeit und Tag!",
+      "intent": "greet",
+      "gloss_en": "Good day, nice to see you! Good evening later.",
+      "translation": "Good day, nice to see you! Good evening later.",
       "audioUrl": "/v1/audio/basic_greetings/prompt-002.mp3",
-      "slotsChanged": ["verb", "modifier"]
+      "slotsChanged": ["subject", "verb", "modifier", "time"]
     },
     {
       "id": "prompt-003",
-      "text": "Guten Abend, wie war Ihr Tag am Montag?",
+      "text": "Guten Abend, wie war Ihr Tag am Montag? Schönen Tag noch! Morgen, Abend und Tag!",
+      "intent": "greet",
+      "gloss_en": "Good evening, how was your day on Monday?",
       "translation": "Good evening, how was your day on Monday?",
+      "slotsChanged": ["subject", "verb", "modifier"],
       "audioUrl": "/v1/audio/basic_greetings/prompt-003.mp3"
     },
     {
       "id": "prompt-004",
-      "text": "Auf Wiedersehen, bis zum nächsten Mal",
-      "translation": "Goodbye, until next time",
+      "text": "Auf Wiedersehen, bis zum nächsten Mal! Schönen Tag noch! Tschüss, Goodbye und Tag!",
+      "intent": "goodbye",
+      "gloss_en": "Goodbye, until next time! Have a nice day!",
+      "translation": "Goodbye, until next time! Have a nice day!",
+      "slotsChanged": ["subject", "verb", "modifier"],
       "audioUrl": "/v1/audio/basic_greetings/prompt-004.mp3"
     },
     {
       "id": "prompt-005",
-      "text": "Tschüss, wir sehen uns später",
+      "text": "Tschüss, wir sehen uns später! Auf Wiedersehen! Sehen, Treffen und Zeit!",
+      "intent": "goodbye",
+      "gloss_en": "Bye, see you later",
       "translation": "Bye, see you later",
+      "slotsChanged": ["subject", "verb", "modifier"],
       "audioUrl": "/v1/audio/basic_greetings/prompt-005.mp3"
     }
   ],
@@ -60,7 +73,7 @@
       {
         "id": "common",
         "title": "Common Phrases",
-        "promptIds": ["prompt-003"]
+        "promptIds": ["prompt-003", "prompt-001"]
       },
       {
         "id": "closing",

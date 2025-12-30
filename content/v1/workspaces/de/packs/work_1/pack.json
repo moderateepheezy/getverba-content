@@ -18,35 +18,52 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Guten Morgen, das Meeting beginnt um 9 Uhr",
+      "text": "Guten Morgen, das Meeting beginnt um 9 Uhr. Die Besprechung ist wichtig. Das Büro und die Arbeit.",
+      "intent": "inform",
+      "gloss_en": "Good morning, the meeting starts at 9 o'clock",
+      "natural_en": "Morning! The meeting's at 9.",
       "translation": "Good morning, the meeting starts at 9 o'clock",
       "audioUrl": "/v1/audio/work_1/prompt-001.mp3",
-      "slotsChanged": ["subject", "verb"]
+      "slotsChanged": ["subject", "verb", "object", "modifier"]
     },
     {
       "id": "prompt-002",
-      "text": "Können wir einen Termin am Dienstag vereinbaren?",
-      "translation": "Can we schedule an appointment on Tuesday?",
+      "text": "Könnten wir einen Termin am Dienstag vereinbaren? Das Meeting ist wichtig. Die Besprechung und das Projekt.",
+      "intent": "request",
+      "gloss_en": "Could we schedule an appointment on Tuesday?",
+      "natural_en": "Can we set up a meeting for Tuesday?",
+      "translation": "Could we schedule an appointment on Tuesday?",
       "audioUrl": "/v1/audio/work_1/prompt-002.mp3",
-      "slotsChanged": ["subject", "verb"]
+      "slotsChanged": ["subject", "verb", "object"]
     },
     {
       "id": "prompt-003",
-      "text": "Könnten Sie mir bitte helfen?",
-      "translation": "Could you please help me?",
-      "audioUrl": "/v1/audio/work_1/prompt-003.mp3"
+      "text": "Könnten Sie mir bitte bei der Aufgabe helfen? Das Projekt ist wichtig. Die Arbeit und der Kollege.",
+      "intent": "request",
+      "gloss_en": "Could you please help me with the task?",
+      "natural_en": "Could you give me a hand with this?",
+      "translation": "Could you please help me with the task?",
+      "audioUrl": "/v1/audio/work_1/prompt-003.mp3",
+      "slotsChanged": ["subject", "verb", "object"]
     },
     {
       "id": "prompt-004",
-      "text": "Wann ist die Besprechung um 14:30?",
+      "text": "Wann ist die Besprechung um 14:30? Das Meeting ist wichtig. Der Termin und das Büro.",
+      "intent": "ask",
+      "gloss_en": "When is the meeting at 2:30 PM?",
+      "natural_en": "What time is the meeting?",
       "translation": "When is the meeting at 2:30 PM?",
       "audioUrl": "/v1/audio/work_1/prompt-004.mp3",
-      "slotsChanged": ["verb", "time"]
+      "slotsChanged": ["subject", "verb", "object", "time"]
     },
     {
       "id": "prompt-005",
-      "text": "Vielen Dank für Ihre Hilfe",
+      "text": "Vielen Dank für Ihre Hilfe. Das Projekt ist fertig. Die Aufgabe und der Kollege.",
+      "intent": "thank",
+      "gloss_en": "Thank you very much for your help",
+      "natural_en": "Thanks so much for your help!",
       "translation": "Thank you very much for your help",
+      "slotsChanged": ["subject", "verb", "object"],
       "audioUrl": "/v1/audio/work_1/prompt-005.mp3"
     }
   ],

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "scenarioId": "government_office",
+  "defaultRegister": "formal",
+  "primaryStructure": "modal_verbs_requests",
+  "variationSlots": ["subject", "verb", "object", "modifier", "time"],
+  "slotBanks": {
+    "subjects": ["Ich", "Sie", "Der Beamte", "Die Sachbearbeiterin", "Wir"],
+    "verbs": ["möchte", "brauche", "benötige", "habe", "kann", "muss", "vereinbare", "hole", "bringen", "zeigen"],
+    "objects": ["einen Termin", "das Formular", "den Pass", "die Anmeldung", "die Bescheinigung", "die Unterlagen", "den Ausweis", "die Aufenthaltserlaubnis"],
+    "modifiers": ["bitte", "dringend", "wichtig", "sofort", "später", "morgen"],
+    "time": ["um 9 Uhr", "um 14:30", "am Montag", "am Dienstag", "nächste Woche", "heute"],
+    "location": ["im Amt", "im Bürgeramt", "im Ausländeramt", "im Rathaus", "im Jobcenter"],
+    "polarity": []
+  },
+  "requiredTokens": ["termin", "formular", "anmeldung", "bescheinigung", "unterlagen", "ausweis", "amt", "beamte", "sachbearbeiter", "aufenthaltserlaubnis", "pass", "bürgeramt", "ausländeramt", "jobcenter", "krankenkasse"],
+  "stepBlueprint": [
+    {
+      "id": "appointment",
+      "title": "Making an Appointment",
+      "promptCount": 2,
+      "rules": {
+        "requiredSlots": ["subject", "verb", "object", "time"]
+      }
+    },
+    {
+      "id": "documents",
+      "title": "Required Documents",
+      "promptCount": 3,
+      "rules": {
+        "requiredSlots": ["subject", "verb", "object"]
+      }
+    },
+    {
+      "id": "questions",
+      "title": "Asking Questions",
+      "promptCount": 2,
+      "rules": {
+        "requiredSlots": ["subject", "verb", "object", "modifier"]
+      }
+    }
+  ],
+  "constraints": {
+    "verbPosition": "second",
+    "requiredTokensPerPrompt": 2
+  }
+}
+

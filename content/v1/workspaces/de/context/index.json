@@ -29,7 +29,7 @@
       "entryUrl": "/v1/workspaces/de/packs/restaurant_conversations/pack.json",
       "scenario": "restaurant",
       "register": "formal",
-      "primaryStructure": "modal_verbs_requests",
+      "primaryStructure": "verb_position",
       "tags": [
         "restaurant",
         "food",

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "scenarioId": "restaurant",
+  "defaultRegister": "neutral",
+  "primaryStructure": "modal_verbs_requests",
+  "variationSlots": ["subject", "verb", "object", "modifier", "time"],
+  "slotBanks": {
+    "subjects": ["Ich", "Wir", "Sie"],
+    "verbs": ["hätte", "möchte", "bestelle", "nehme", "kann", "könnte", "würde"],
+    "objects": ["einen Tisch", "die Speisekarte", "die Rechnung", "das Menü", "einen Kaffee", "das Essen"],
+    "modifiers": ["gerne", "bitte", "vielleicht", "zuerst", "später"],
+    "time": ["um 19 Uhr", "um 20:30", "heute Abend", "am Wochenende", "später"],
+    "location": ["im Restaurant", "am Tisch", "im Garten", "drinnen"],
+    "polarity": []
+  },
+  "requiredTokens": ["speisekarte", "bestellen", "kellner", "tisch", "essen", "trinken", "rechnung", "reservierung", "menü", "service"],
+  "stepBlueprint": [
+    {
+      "id": "reservation",
+      "title": "Making a Reservation",
+      "promptCount": 2,
+      "rules": {
+        "requiredSlots": ["subject", "verb", "object", "time"]
+      }
+    },
+    {
+      "id": "ordering",
+      "title": "Ordering Food",
+      "promptCount": 3,
+      "rules": {
+        "requiredSlots": ["subject", "verb", "object"]
+      }
+    },
+    {
+      "id": "payment",
+      "title": "Paying the Bill",
+      "promptCount": 2,
+      "rules": {
+        "requiredSlots": ["subject", "verb", "object"]
+      }
+    }
+  ],
+  "constraints": {
+    "verbPosition": "second",
+    "requiredTokensPerPrompt": 2
+  }
+}
+

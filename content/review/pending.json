@@ -1,0 +1,92 @@
+[
+  {
+    "id": "test_review_harness",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "government_office",
+    "level": "A1",
+    "title": "Government Office - A1",
+    "createdAt": "2025-12-30T18:35:11.639Z",
+    "sourceTemplate": "government_office.json"
+  },
+  {
+    "id": "e2e-test-1767119965837",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T18:39:26.211Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-validation-1767119966226",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T18:39:26.571Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-deterministic-1-1767119966869",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T18:39:27.444Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-deterministic-2-1767119966869",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T18:39:27.847Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-work-1767119967863",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T18:39:28.169Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-restaurant-1767119968179",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T18:39:28.508Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-shopping-1767119968517",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "shopping",
+    "level": "A2",
+    "title": "Shopping - A2",
+    "createdAt": "2025-12-30T18:39:28.861Z",
+    "sourceTemplate": "shopping.json"
+  },
+  {
+    "id": "e2e-test-newpack-1767119969186",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T18:39:29.495Z",
+    "sourceTemplate": "work.json"
+  }
+]

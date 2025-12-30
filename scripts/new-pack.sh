@@ -2,9 +2,11 @@
 #
 # Create a new pack entry with canonical folder structure
 # Usage: ./scripts/new-pack.sh <pack-id> [--workspace <ws>] [--title <title>] [--level <level>]
+#        ./scripts/new-pack.sh <pack-id> --generate --scenario <scenario> [--level <level>] [--seed <seed>]
 #
 # Example:
 #   ./scripts/new-pack.sh shopping_conversations --title "Shopping Conversations" --level A2
+#   ./scripts/new-pack.sh work_2 --generate --scenario work --level A2 --seed 42
 #
 
 set -e
@@ -17,6 +19,9 @@ WORKSPACE="de"
 LEVEL="A1"
 TITLE=""
 PACK_ID=""
+GENERATE=false
+SCENARIO=""
+SEED=1
 
 # Parse arguments
 while [[ $# -gt 0 ]]; do
@@ -33,6 +38,18 @@ while [[ $# -gt 0 ]]; do
       LEVEL="$2"
       shift 2
       ;;
+    --generate|-g)
+      GENERATE=true
+      shift
+      ;;
+    --scenario|-s)
+      SCENARIO="$2"
+      shift 2
+      ;;
+    --seed)
+      SEED="$2"
+      shift 2
+      ;;
     -h|--help)
       echo "Usage: $0 <pack-id> [options]"
       echo ""
@@ -40,9 +57,13 @@ while [[ $# -gt 0 ]]; do
       echo "  --workspace, -w   Workspace ID (default: de)"
       echo "  --title, -t       Pack title (default: generated from ID)"
       echo "  --level, -l       CEFR level (default: A1)"
+      echo "  --generate, -g    Generate pack from template (requires --scenario)"
+      echo "  --scenario, -s    Scenario ID (work, restaurant, shopping) - required with --generate"
+      echo "  --seed            Random seed for deterministic generation (default: 1)"
       echo ""
-      echo "Example:"
+      echo "Examples:"
       echo "  $0 shopping_conversations --title 'Shopping Conversations' --level A2"
+      echo "  $0 work_2 --generate --scenario work --level A2 --seed 42"
       exit 0
       ;;
     *)
@@ -70,6 +91,50 @@ if [[ ! " $VALID_LEVELS " =~ " $LEVEL " ]]; then
   exit 1
 fi
 
+# If generate mode, validate scenario
+if [[ "$GENERATE" == true ]]; then
+  if [[ -z "$SCENARIO" ]]; then
+    echo "❌ Error: --scenario is required when using --generate"
+    exit 1
+  fi
+  
+  # Run generator
+  echo "📦 Generating pack from template..."
+  npx tsx "$SCRIPT_DIR/generate-pack.ts" \
+    --workspace "$WORKSPACE" \
+    --packId "$PACK_ID" \
+    --scenario "$SCENARIO" \
+    --level "$LEVEL" \
+    --seed "$SEED"
+  
+  # Generate indexes
+  echo ""
+  echo "🔄 Regenerating section indexes..."
+  npm run content:generate-indexes -- --workspace "$WORKSPACE"
+  
+  # Run validation
+  echo ""
+  echo "🔍 Running validation..."
+  npm run content:validate
+  
+  # Run quality check
+  echo ""
+  echo "🔍 Running quality check..."
+  npm run content:quality
+  
+  # Get entry URL
+  ENTRY_URL="/v1/workspaces/$WORKSPACE/packs/$PACK_ID/pack.json"
+  INDEX_PATH="$CONTENT_DIR/workspaces/$WORKSPACE/context/index.json"
+  
+  echo ""
+  echo "✅ Pack generated successfully!"
+  echo ""
+  echo "📋 Entry URL: $ENTRY_URL"
+  echo "📋 Section index: $INDEX_PATH"
+  exit 0
+fi
+
+# Manual mode (original behavior)
 # Generate title from ID if not provided
 if [[ -z "$TITLE" ]]; then
   TITLE=$(echo "$PACK_ID" | sed 's/_/ /g' | sed 's/\b\(.\)/\u\1/g')
@@ -124,7 +189,9 @@ cat > "$PACK_FILE" << EOF
     {
       "id": "prompt-001",
       "text": "TODO: Add prompt text",
-      "translation": "TODO: Add translation",
+      "intent": "TODO: Add intent (greet, request, apologize, inform, ask, confirm, schedule, order, ask_price, thank, goodbye)",
+      "gloss_en": "TODO: Add natural English meaning (6-180 chars, must be genuine English, not literal translation)",
+      "alt_de": "TODO: Optional native German paraphrase (6-240 chars)",
       "audioUrl": "/v1/audio/$PACK_ID/prompt-001.mp3"
     }
   ],
@@ -169,7 +236,11 @@ echo "✅ Pack created successfully!"
 echo ""
 echo "Next steps:"
 echo "  1. Edit $PACK_FILE to add real content"
-echo "  2. Run: npm run content:validate"
-echo "  3. Publish: ./scripts/publish-content.sh"
-echo "  4. Promote: ./scripts/promote-staging.sh"
+echo "  2. Fill meaning contract fields (intent, gloss_en, optional alt_de) for each prompt"
+echo "  3. Run: npm run content:validate"
+echo "  4. Run: npm run content:report (review report)"
+echo "  5. Publish: ./scripts/publish-content.sh"
+echo "  6. Promote: ./scripts/promote-staging.sh"
+echo ""
+echo "⚠️  Remember: Fill meaning contract fields (intent, gloss_en) before publishing!"
 

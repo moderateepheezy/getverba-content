@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "scenarioId": "housing",
+  "defaultRegister": "neutral",
+  "primaryStructure": "dative_case",
+  "variationSlots": ["subject", "verb", "object", "modifier", "time"],
+  "slotBanks": {
+    "subjects": ["Ich", "Wir", "Der Vermieter", "Die Vermieterin", "Sie"],
+    "verbs": ["suche", "finde", "miete", "wohne", "brauche", "kann", "möchte", "zeige"],
+    "objects": ["eine Wohnung", "das Zimmer", "die Miete", "die Kaution", "den Mietvertrag", "die Adresse"],
+    "modifiers": ["gerne", "bitte", "günstig", "zentral", "ruhig"],
+    "time": ["ab nächstem Monat", "ab Januar", "sofort", "später"],
+    "location": ["in der Stadt", "im Zentrum", "in der Nähe", "am Stadtrand"],
+    "polarity": []
+  },
+  "requiredTokens": ["wohnung", "zimmer", "miete", "kaution", "mietvertrag", "adresse", "vermieter", "mieter", "nachbarschaft", "möbel"],
+  "stepBlueprint": [
+    {
+      "id": "searching",
+      "title": "Searching for Housing",
+      "promptCount": 2,
+      "rules": {
+        "requiredSlots": ["subject", "verb", "object"]
+      }
+    },
+    {
+      "id": "viewing",
+      "title": "Viewing Apartments",
+      "promptCount": 3,
+      "rules": {
+        "requiredSlots": ["subject", "verb", "object", "modifier"]
+      }
+    },
+    {
+      "id": "rental",
+      "title": "Rental Agreement",
+      "promptCount": 2,
+      "rules": {
+        "requiredSlots": ["subject", "verb", "object"]
+      }
+    }
+  ],
+  "constraints": {
+    "verbPosition": "second",
+    "requiredTokensPerPrompt": 2
+  }
+}
+

@@ -31,6 +31,23 @@ This regenerates all section indexes from entry documents on disk. The generator
 
 **Note**: The `new-pack.sh` and `new-drill.sh` scripts automatically regenerate indexes after creating entries.
 
+### Step 1.25: Content Expansion Sprint (Optional)
+
+For batch generation of multiple packs/drills:
+
+```bash
+# Generate government office packs
+./scripts/generate-government-office-packs.sh
+
+# Or use the general batch generator
+./scripts/expand-content.sh --workspace de --section context --count 20 --scenario government_office --level A1
+
+# Generate sprint report
+./scripts/sprint-report.sh --workspace de
+```
+
+This generates content deterministically from scenario templates. All generated content must pass quality gates before publishing.
+
 ### Step 1.5: Quality Gates Validation
 
 All packs must pass Content Quality Gates v1 before publishing. The validator automatically enforces:

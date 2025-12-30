@@ -1,0 +1,71 @@
+{
+  "workspace": "de",
+  "timestamp": "2025-12-30T19:09:49.406Z",
+  "packs": {
+    "total": 3,
+    "byScenario": {
+      "casual_greeting": 1,
+      "restaurant": 1,
+      "work": 1
+    },
+    "byPrimaryStructure": {
+      "formal_pronouns": 1,
+      "verb_position": 1,
+      "modal_verbs_requests": 1
+    },
+    "byLevel": {
+      "A1": 1,
+      "A2": 2
+    }
+  },
+  "metrics": {
+    "scenarioCoverage": {
+      "distribution": {
+        "casual_greeting": 1,
+        "restaurant": 1,
+        "work": 1
+      },
+      "failures": [],
+      "warnings": [
+        "Scenario \"casual_greeting\" has only 1 pack(s) (minimum: 2, but only 3 total packs)",
+        "Scenario \"restaurant\" has only 1 pack(s) (minimum: 2, but only 3 total packs)",
+        "Scenario \"work\" has only 1 pack(s) (minimum: 2, but only 3 total packs)"
+      ]
+    },
+    "primaryStructureDiversity": {
+      "distribution": {
+        "formal_pronouns": 1,
+        "verb_position": 1,
+        "modal_verbs_requests": 1
+      },
+      "failures": []
+    },
+    "variationSlotDepth": {
+      "workspaceAverage": 3.230769230769231,
+      "multiSlotPercentage": 100,
+      "packFailures": [],
+      "failures": []
+    },
+    "sentenceReuse": {
+      "duplicateSentences": [],
+      "skeletonRepeats": [],
+      "failures": []
+    },
+    "contextTokenDensity": {
+      "workspaceAverage": 3.6923076923076925,
+      "packFailures": [],
+      "failures": []
+    },
+    "cefrBalance": {
+      "distribution": {
+        "A1": 1,
+        "A2": 2
+      },
+      "warnings": [
+        "Level \"A2\" is 66.7% of packs (consider balancing)"
+      ]
+    }
+  },
+  "hasFailures": false,
+  "hasWarnings": true
+}

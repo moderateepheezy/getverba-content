@@ -1,17 +1,8 @@
 {
   "version": "v1",
   "kind": "exams",
-  "total": 1,
+  "total": 0,
   "pageSize": 20,
-  "items": [
-    {
-      "id": "a1_level_test",
-      "kind": "exam",
-      "title": "A1 Level Test",
-      "level": "A1",
-      "durationMinutes": 30,
-      "entryUrl": "/v1/workspaces/de/exams/a1_level_test/exam.json"
-    }
-  ],
+  "items": [],
   "nextPage": null
 }

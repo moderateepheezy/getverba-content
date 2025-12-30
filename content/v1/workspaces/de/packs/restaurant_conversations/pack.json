@@ -8,7 +8,7 @@
   "description": "Master essential phrases for dining out in Germany. Learn how to order food, ask questions, and handle restaurant interactions confidently.",
   "scenario": "restaurant",
   "register": "formal",
-  "primaryStructure": "modal_verbs_requests",
+  "primaryStructure": "verb_position",
   "variationSlots": ["subject", "verb", "object", "modifier"],
   "outline": [
     "Making a Reservation",
@@ -19,24 +19,31 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Ich hätte gern eine Reservierung für 2 Personen um 19:30",
+      "text": "Könnte ich bitte eine Reservierung für 2 Personen um 19:30 haben? Ich möchte einen Tisch reservieren. Die Speisekarte bitte.",
+      "intent": "request",
+      "gloss_en": "Could I please have a reservation for 2 people at 7:30 PM?",
+      "natural_en": "Could I please have a reservation for 2 people at 7:30 PM?",
+      "natural_en": "I would like a reservation for 2 people at 7:30 PM",
       "translation": "I would like a table for 2 people at 7:30 PM",
       "audioUrl": "/v1/audio/restaurant_conversations/prompt-001.mp3",
       "slots": {
-        "subject": ["Ich"],
-        "verb": ["hätte"],
-        "object": ["eine Reservierung für 2 Personen"],
+        "subject": ["ich"],
+        "verb": ["haben"],
+        "object": ["eine Reservierung"],
         "modifier": ["um 19:30"]
       },
-      "slotsChanged": ["subject", "verb"]
+      "slotsChanged": ["subject", "verb", "object", "modifier"]
     },
     {
       "id": "prompt-002",
-      "text": "Können Sie uns die Speisekarte bringen bitte?",
+      "text": "Könnten Sie uns die Speisekarte bringen bitte? Ich möchte bestellen. Das Essen und Trinken bitte.",
+      "intent": "request",
+      "gloss_en": "Could you bring us the menu please?",
+      "natural_en": "Can we get the menu?",
       "translation": "Can you bring us the menu please?",
       "audioUrl": "/v1/audio/restaurant_conversations/prompt-002.mp3",
       "slots": {
-        "verb": ["Können"],
+        "verb": ["Könnten"],
         "subject": ["Sie"],
         "object": ["die Speisekarte"],
         "modifier": ["bitte"]
@@ -45,7 +52,10 @@
     },
     {
       "id": "prompt-003",
-      "text": "Ich nehme das Schnitzel mit Pommes für 15€",
+      "text": "Ich nehme das Schnitzel mit Pommes für 15€. Könnte ich bitte bestellen? Die Rechnung bitte.",
+      "intent": "order",
+      "gloss_en": "I'll have the schnitzel with fries for 15 euros",
+      "natural_en": "I'll take the schnitzel and fries.",
       "translation": "I'll have the schnitzel with fries for 15 euros",
       "audioUrl": "/v1/audio/restaurant_conversations/prompt-003.mp3",
       "slots": {

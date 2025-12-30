@@ -4,14 +4,19 @@
   "description": "GetVerba content pipeline - versioned JSON content for the GetVerba platform",
   "type": "module",
   "scripts": {
-    "content:validate": "tsx scripts/validate-content.ts",
+    "content:validate": "tsx scripts/validate-content.ts && tsx scripts/content-quality-report.ts && tsx scripts/content-expansion-report.ts",
+    "content:quality": "tsx scripts/quality-report.ts --fail-on-red",
+    "content:quality-report": "tsx scripts/content-quality-report.ts",
+    "content:dedupe": "tsx scripts/dedupe-content.ts",
+    "content:report": "tsx scripts/review-report.ts",
     "content:verify": "node scripts/verify-content.mjs",
     "content:generate-indexes": "tsx scripts/generate-indexes.ts",
     "content:publish": "./scripts/publish-content.sh",
     "content:load-env": "source scripts/load-env.sh",
     "test": "tsx scripts/validate-content.test.ts",
+    "test:review": "tsx scripts/review-harness.test.ts",
     "test:e2e": "tsx scripts/e2e-test.ts",
-    "test:all": "npm test && npm run test:e2e"
+    "test:all": "npm test && npm run test:review && npm run test:e2e"
   },
   "keywords": [
     "getverba",

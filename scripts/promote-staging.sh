@@ -96,6 +96,37 @@ else
   echo ""
 fi
 
+# Step 1.5: Run quality report
+if [ "$DRY_RUN" != "--dryrun" ]; then
+  echo "🔍 Running quality report..."
+  if ! npm run content:quality > /dev/null 2>&1; then
+    echo "❌ Quality check failed. Promotion aborted."
+    echo "   Review quality report in docs/content-pipeline/reports/"
+    exit 1
+  fi
+  echo "   ✅ Quality check passed"
+  echo ""
+else
+  echo "🔍 Quality report will run before promotion (dry-run mode)"
+  echo ""
+fi
+
+# Step 1.6: Check approval status
+if [ "$DRY_RUN" != "--dryrun" ]; then
+  echo "🔍 Checking approval status..."
+  if ! npx tsx "$SCRIPT_DIR/check-approvals.ts" "$STAGING_MANIFEST" > /dev/null 2>&1; then
+    echo "❌ Approval check failed. Promotion aborted."
+    echo "   Some items in staging manifest are not approved."
+    echo "   Run: npx tsx $SCRIPT_DIR/check-approvals.ts $STAGING_MANIFEST"
+    exit 1
+  fi
+  echo "   ✅ All items are approved"
+  echo ""
+else
+  echo "🔍 Approval check will run before promotion (dry-run mode)"
+  echo ""
+fi
+
 # Step 2: Verify workspace hashes match computed values
 if [ "$DRY_RUN" != "--dryrun" ]; then
   echo "🔍 Verifying workspace hashes..."

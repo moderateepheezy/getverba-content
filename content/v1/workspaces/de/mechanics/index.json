@@ -1,37 +1,8 @@
 {
   "version": "v1",
-  "kind": "drills",
-  "total": 4,
-  "pageSize": 2,
-  "items": [
-    {
-      "id": "akkusativ_prepositions_a1",
-      "kind": "drill",
-      "title": "Accusative Prepositions",
-      "level": "A1",
-      "durationMinutes": 10,
-      "entryUrl": "/v1/workspaces/de/drills/akkusativ_prepositions_a1/drill.json",
-      "tags": [
-        "grammar",
-        "prepositions",
-        "accusative",
-        "cases"
-      ]
-    },
-    {
-      "id": "dative_case_a1",
-      "kind": "drill",
-      "title": "Dative Case Practice",
-      "level": "A1",
-      "durationMinutes": 12,
-      "entryUrl": "/v1/workspaces/de/drills/dative_case_a1/drill.json",
-      "tags": [
-        "grammar",
-        "cases",
-        "dative",
-        "articles"
-      ]
-    }
-  ],
-  "nextPage": "/v1/workspaces/de/mechanics/index.page2.json"
+  "kind": "mechanics",
+  "total": 0,
+  "pageSize": 20,
+  "items": [],
+  "nextPage": null
 }

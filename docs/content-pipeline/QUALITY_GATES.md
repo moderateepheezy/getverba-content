@@ -65,6 +65,7 @@ These gates are **hard constraints** - packs that fail cannot be published. No e
 - `shopping`: ["price", "buy", "cost", "store", "cashier", "payment", "discount", "receipt", "cart", "checkout"]
 - `doctor`: ["appointment", "symptom", "prescription", "medicine", "treatment", "diagnosis", "health", "patient", "clinic", "examination"]
 - `housing`: ["apartment", "rent", "lease", "landlord", "tenant", "deposit", "utilities", "furniture", "neighborhood", "address"]
+- `government_office`: ["termin", "formular", "anmeldung", "bescheinigung", "unterlagen", "ausweis", "amt", "beamte", "sachbearbeiter", "aufenthaltserlaubnis", "pass", "bürgeramt", "ausländeramt", "jobcenter", "krankenkasse"]
 - `casual_greeting`: ["greeting", "hello", "goodbye", "morning", "evening", "day", "see", "meet", "friend", "time"]
 
 **Why**: Ensures prompts are contextual and scenario-specific, not generic filler.
@@ -319,8 +320,52 @@ Quality Gates are enforced:
 - **During smoke test**: Smoke test includes validation, so failing packs block deployment
 - **Before publish**: Publish scripts run validation, preventing invalid content from reaching R2
 
+### 6. Native Meaning Guard (Hard Fail for government_office or A2+)
+
+**Rule**: For `scenario === "government_office"` OR `level >= "A2"`, every prompt must have both `gloss_en` and `natural_en` fields.
+
+- `gloss_en`: Literal-ish scaffold (already required)
+- `natural_en`: Native meaning paraphrase (short, idiomatic English)
+
+**Why**: Prevents "literal meaning ≠ native meaning" drift. Ensures prompts have explicit native English paraphrases that capture the actual meaning, not just word-for-word translations.
+
+**Example - FAIL** (government_office pack missing natural_en):
+```json
+{
+  "scenario": "government_office",
+  "level": "A1",
+  "prompts": [
+    {
+      "id": "p1",
+      "text": "Ich brauche einen Termin.",
+      "gloss_en": "I need to make an appointment."
+      // Missing natural_en
+    }
+  ]
+}
+```
+
+**Example - PASS**:
+```json
+{
+  "scenario": "government_office",
+  "level": "A1",
+  "prompts": [
+    {
+      "id": "p1",
+      "text": "Ich brauche einen Termin.",
+      "gloss_en": "I need to make an appointment.",
+      "natural_en": "I'd like to schedule an appointment."
+    }
+  ]
+}
+```
+
+**For A1 non-government scenarios**: `natural_en` is optional but recommended (warning if missing, not a hard fail).
+
 ## Related Documentation
 
 - [Pack Schema](./PACK_SCHEMA.md) - Complete pack entry schema
 - [Rollout Guide](./ROLLOUT.md) - Deployment workflow including quality gates
+- [Review Harness](./REVIEW_HARNESS.md) - Content approval workflow
 

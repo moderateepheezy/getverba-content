@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "scenarioId": "work",
+  "defaultRegister": "formal",
+  "primaryStructure": "modal_verbs_requests",
+  "variationSlots": ["subject", "verb", "object", "modifier", "time"],
+  "slotBanks": {
+    "subjects": ["Ich", "Wir", "Sie", "Der Manager", "Die Kollegin"],
+    "verbs": ["beginne", "vereinbare", "helfe", "bespreche", "kann", "muss", "soll", "organisiere", "plane"],
+    "objects": ["das Meeting", "die Besprechung", "das Projekt", "den Termin", "die Aufgabe", "die Deadline"],
+    "modifiers": ["wichtig", "dringend", "regelmäßig", "wöchentlich", "monatlich"],
+    "time": ["um 9 Uhr", "um 14:30", "am Montag", "am Dienstag", "morgen", "nächste Woche"],
+    "location": ["im Büro", "im Konferenzraum", "im Meetingraum", "im Homeoffice"],
+    "polarity": []
+  },
+  "requiredTokens": ["meeting", "besprechung", "termin", "manager", "kollege", "projekt", "aufgabe", "deadline", "büro", "arbeit"],
+  "stepBlueprint": [
+    {
+      "id": "greetings",
+      "title": "Office Greetings",
+      "promptCount": 2,
+      "rules": {
+        "requiredSlots": ["subject", "verb", "time"]
+      }
+    },
+    {
+      "id": "meetings",
+      "title": "Meeting Phrases",
+      "promptCount": 3,
+      "rules": {
+        "requiredSlots": ["subject", "verb", "object", "time"]
+      }
+    },
+    {
+      "id": "requests",
+      "title": "Work Requests",
+      "promptCount": 2,
+      "rules": {
+        "requiredSlots": ["subject", "verb", "object"]
+      }
+    }
+  ],
+  "constraints": {
+    "verbPosition": "second",
+    "requiredTokensPerPrompt": 2
+  }
+}
+
