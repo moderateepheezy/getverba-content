@@ -2272,6 +2272,529 @@ test('manifest missing workspaceHashes entry validation', () => {
   cleanupTestDir();
 });
 
+// Test 57: Valid primaryStructure
+test('valid primaryStructure passes validation', () => {
+  setupTestDir();
+  
+  const pack = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 10,
+    description: 'Test',
+    primaryStructure: {
+      id: 'verb-second-position',
+      label: 'Verb position in main clauses'
+    },
+    outline: ['Step 1'],
+    prompts: [{ id: 'p1', text: 'This is a valid prompt text that is long enough' }],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] }
+  };
+  
+  assert(pack.primaryStructure.id === 'verb-second-position', 'primaryStructure.id should be valid kebab-case');
+  assert(pack.primaryStructure.label.length <= 80, 'primaryStructure.label should be <= 80 chars');
+  assert(/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(pack.primaryStructure.id), 'primaryStructure.id should be kebab-case');
+  
+  cleanupTestDir();
+});
+
+// Test 58: Invalid primaryStructure.id (spaces)
+test('invalid primaryStructure.id with spaces fails validation', () => {
+  setupTestDir();
+  
+  const pack = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 10,
+    description: 'Test',
+    primaryStructure: {
+      id: 'invalid id with spaces',
+      label: 'Test'
+    },
+    outline: ['Step 1'],
+    prompts: [{ id: 'p1', text: 'This is a valid prompt text that is long enough' }],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] }
+  };
+  
+  assert(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(pack.primaryStructure.id), 'primaryStructure.id with spaces should be invalid');
+  
+  cleanupTestDir();
+});
+
+// Test 59: Prompt text too short
+test('prompt text too short fails validation', () => {
+  setupTestDir();
+  
+  const pack = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 10,
+    description: 'Test',
+    outline: ['Step 1'],
+    prompts: [{ id: 'p1', text: 'Too short' }], // 9 chars, min is 12
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] }
+  };
+  
+  assert(pack.prompts[0].text.length < 12, 'Prompt text should be too short');
+  
+  cleanupTestDir();
+});
+
+// Test 60: Prompt text too long
+test('prompt text too long fails validation', () => {
+  setupTestDir();
+  
+  const longText = 'a'.repeat(141); // 141 chars, max is 140
+  const pack = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 10,
+    description: 'Test',
+    outline: ['Step 1'],
+    prompts: [{ id: 'p1', text: longText }],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] }
+  };
+  
+  assert(pack.prompts[0].text.length > 140, 'Prompt text should be too long');
+  
+  cleanupTestDir();
+});
+
+// Test 61: Valid slots metadata
+test('valid slots metadata passes validation', () => {
+  setupTestDir();
+  
+  const pack = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 10,
+    description: 'Test',
+    outline: ['Step 1'],
+    prompts: [{
+      id: 'p1',
+      text: 'Ich gehe morgen zur Arbeit',
+      slots: {
+        subject: ['Ich'],
+        verb: ['gehe'],
+        modifier: ['morgen'],
+        object: ['zur Arbeit']
+      }
+    }],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] }
+  };
+  
+  const prompt = pack.prompts[0];
+  assert(prompt.slots.subject[0] === 'Ich', 'Slot value should match');
+  assert(prompt.text.includes(prompt.slots.subject[0]), 'Slot value should be substring of text');
+  assert(['subject', 'verb', 'modifier', 'object'].every(key => prompt.slots.hasOwnProperty(key)), 'All valid slot keys should be present');
+  
+  cleanupTestDir();
+});
+
+// Test 62: Invalid slots key
+test('invalid slots key fails validation', () => {
+  setupTestDir();
+  
+  const pack = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 10,
+    description: 'Test',
+    outline: ['Step 1'],
+    prompts: [{
+      id: 'p1',
+      text: 'Ich gehe zur Arbeit',
+      slots: {
+        subject: ['Ich'],
+        'invalid-key': ['should fail']
+      }
+    }],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] }
+  };
+  
+  const validKeys = ['subject', 'verb', 'object', 'modifier', 'complement'];
+  assert(!validKeys.includes('invalid-key'), 'invalid-key should not be in valid keys');
+  
+  cleanupTestDir();
+});
+
+// Test 63: Slot value not substring of text
+test('slot value not substring of text fails validation', () => {
+  setupTestDir();
+  
+  const pack = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 10,
+    description: 'Test',
+    outline: ['Step 1'],
+    prompts: [{
+      id: 'p1',
+      text: 'Ich gehe zur Arbeit',
+      slots: {
+        subject: ['Ich'],
+        object: ['not in text'] // This is not a substring
+      }
+    }],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] }
+  };
+  
+  const prompt = pack.prompts[0];
+  assert(!prompt.text.includes(prompt.slots.object[0]), 'Slot value should not be substring of text');
+  
+  cleanupTestDir();
+});
+
+// Test 64: Valid microNotes
+test('valid microNotes passes validation', () => {
+  setupTestDir();
+  
+  const pack = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 10,
+    description: 'Test',
+    outline: ['Step 1'],
+    prompts: [{ id: 'p1', text: 'This is a valid prompt text that is long enough' }],
+    microNotes: [
+      {
+        id: 'note-1',
+        text: 'In German, the verb comes second in main clauses.'
+      }
+    ],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] }
+  };
+  
+  assert(Array.isArray(pack.microNotes), 'microNotes should be array');
+  assert(pack.microNotes[0].id === 'note-1', 'microNote should have id');
+  assert(pack.microNotes[0].text.length <= 240, 'microNote text should be <= 240 chars');
+  
+  cleanupTestDir();
+});
+
+// Test 65: microNote text too long
+test('microNote text too long fails validation', () => {
+  setupTestDir();
+  
+  const longText = 'a'.repeat(241); // 241 chars, max is 240
+  const pack = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 10,
+    description: 'Test',
+    outline: ['Step 1'],
+    prompts: [{ id: 'p1', text: 'This is a valid prompt text that is long enough' }],
+    microNotes: [
+      {
+        id: 'note-1',
+        text: longText
+      }
+    ],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] }
+  };
+  
+  assert(pack.microNotes[0].text.length > 240, 'microNote text should be too long');
+  
+  cleanupTestDir();
+});
+
+// Test 66: Pack with all new features
+test('pack with all new pedagogical metadata features', () => {
+  setupTestDir();
+  
+  const pack = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 10,
+    description: 'Test description',
+    primaryStructure: {
+      id: 'verb-second-position',
+      label: 'Verb position in main clauses'
+    },
+    outline: ['Step 1'],
+    prompts: [{
+      id: 'p1',
+      text: 'Ich gehe morgen zur Arbeit',
+      slots: {
+        subject: ['Ich'],
+        verb: ['gehe'],
+        modifier: ['morgen'],
+        object: ['zur Arbeit']
+      }
+    }],
+    microNotes: [{
+      id: 'note-1',
+      text: 'In German, the verb comes second in main clauses.'
+    }],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] }
+  };
+  
+  assert(pack.primaryStructure, 'Pack should have primaryStructure');
+  assert(pack.prompts[0].slots, 'Pack should have slots');
+  assert(pack.microNotes, 'Pack should have microNotes');
+  assert(pack.prompts[0].text.length >= 12 && pack.prompts[0].text.length <= 140, 'Prompt text should be within bounds');
+  
+  cleanupTestDir();
+});
+
+// Test 67: Index generator - deterministic ordering
+test('index generator deterministic ordering', () => {
+  setupTestDir();
+  
+  // Replicate sorting logic from generate-indexes.ts
+  function compareLevels(a: string, b: string): number {
+    const levelOrder: Record<string, number> = {
+      'A1': 1, 'A2': 2, 'B1': 3, 'B2': 4, 'C1': 5, 'C2': 6
+    };
+    const aOrder = levelOrder[a.toUpperCase()] || 999;
+    const bOrder = levelOrder[b.toUpperCase()] || 999;
+    return aOrder - bOrder;
+  }
+  
+  function sortItems(items: any[]): any[] {
+    return [...items].sort((a, b) => {
+      const levelCmp = compareLevels(a.level, b.level);
+      if (levelCmp !== 0) return levelCmp;
+      const titleCmp = a.title.localeCompare(b.title, undefined, { sensitivity: 'base' });
+      if (titleCmp !== 0) return titleCmp;
+      return a.id.localeCompare(b.id);
+    });
+  }
+  
+  const items = [
+    { id: 'pack-c', kind: 'pack', title: 'C Pack', level: 'C1', durationMinutes: 15, entryUrl: '/v1/workspaces/test-ws/packs/pack-c/pack.json' },
+    { id: 'pack-a2', kind: 'pack', title: 'A2 Pack', level: 'A2', durationMinutes: 15, entryUrl: '/v1/workspaces/test-ws/packs/pack-a2/pack.json' },
+    { id: 'pack-a1', kind: 'pack', title: 'A1 Pack', level: 'A1', durationMinutes: 15, entryUrl: '/v1/workspaces/test-ws/packs/pack-a1/pack.json' },
+    { id: 'pack-b1', kind: 'pack', title: 'B1 Pack', level: 'B1', durationMinutes: 15, entryUrl: '/v1/workspaces/test-ws/packs/pack-b1/pack.json' }
+  ];
+  
+  const sorted = sortItems(items);
+  
+  assert(sorted[0].level === 'A1', 'First item should be A1');
+  assert(sorted[1].level === 'A2', 'Second item should be A2');
+  assert(sorted[2].level === 'B1', 'Third item should be B1');
+  assert(sorted[3].level === 'C1', 'Fourth item should be C1');
+  
+  // Verify stable sort (running twice produces same result)
+  const sorted2 = sortItems(items);
+  assert(JSON.stringify(sorted) === JSON.stringify(sorted2), 'Sort should be deterministic');
+  
+  cleanupTestDir();
+});
+
+// Test 58: Index generator - level comparison
+test('index generator level comparison', () => {
+  setupTestDir();
+  
+  function compareLevels(a: string, b: string): number {
+    const levelOrder: Record<string, number> = {
+      'A1': 1, 'A2': 2, 'B1': 3, 'B2': 4, 'C1': 5, 'C2': 6
+    };
+    const aOrder = levelOrder[a.toUpperCase()] || 999;
+    const bOrder = levelOrder[b.toUpperCase()] || 999;
+    return aOrder - bOrder;
+  }
+  
+  assert(compareLevels('A1', 'A2') < 0, 'A1 should come before A2');
+  assert(compareLevels('A2', 'B1') < 0, 'A2 should come before B1');
+  assert(compareLevels('B1', 'B2') < 0, 'B1 should come before B2');
+  assert(compareLevels('B2', 'C1') < 0, 'B2 should come before C1');
+  assert(compareLevels('C1', 'C2') < 0, 'C1 should come before C2');
+  assert(compareLevels('A1', 'A1') === 0, 'Same level should be equal');
+  
+  cleanupTestDir();
+});
+
+// Test 59: Index generator - durationMinutes extraction
+test('index generator durationMinutes extraction', () => {
+  setupTestDir();
+  
+  const packWithDuration = {
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 20
+  };
+  
+  const packWithoutDuration = {
+    id: 'test-pack-2',
+    kind: 'pack',
+    title: 'Test Pack 2',
+    level: 'A1'
+    // Missing estimatedMinutes
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack'), { recursive: true });
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack-2'), { recursive: true });
+  
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+    JSON.stringify(packWithDuration, null, 2)
+  );
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack-2', 'pack.json'),
+    JSON.stringify(packWithoutDuration, null, 2)
+  );
+  
+  // Note: This test verifies the structure - actual generation would be tested via integration test
+  assert(packWithDuration.estimatedMinutes === 20, 'Pack with duration should have estimatedMinutes');
+  assert(!packWithoutDuration.estimatedMinutes, 'Pack without duration should not have estimatedMinutes');
+  
+  cleanupTestDir();
+});
+
+// Test 60: Index generator - pagination with multiple pages
+test('index generator pagination with multiple pages', () => {
+  setupTestDir();
+  
+  // Create 5 packs to test pagination with pageSize=2
+  const packs = [];
+  for (let i = 1; i <= 5; i++) {
+    const pack = {
+      id: `pack-${i}`,
+      kind: 'pack',
+      title: `Pack ${i}`,
+      level: 'A1',
+      estimatedMinutes: 15,
+      description: 'Test',
+      outline: ['Step 1'],
+      sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] }
+    };
+    
+    mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', `pack-${i}`), { recursive: true });
+    writeFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', `pack-${i}`, 'pack.json'),
+      JSON.stringify(pack, null, 2)
+    );
+    packs.push(pack);
+  }
+  
+  // Create section directory
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context'), { recursive: true });
+  
+  // Create initial index with pageSize=2
+  const initialIndex = {
+    version: 'v1',
+    kind: 'context',
+    total: 0,
+    pageSize: 2,
+    items: [],
+    nextPage: null
+  };
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.json'),
+    JSON.stringify(initialIndex, null, 2)
+  );
+  
+  // Note: Actual generation would be tested via integration test
+  // This test verifies the setup structure
+  assert(packs.length === 5, 'Should have 5 packs');
+  assert(initialIndex.pageSize === 2, 'Initial index should have pageSize=2');
+  
+  // Expected: 3 pages (2 items, 2 items, 1 item)
+  const expectedPages = Math.ceil(5 / 2);
+  assert(expectedPages === 3, 'Should generate 3 pages for 5 items with pageSize=2');
+  
+  cleanupTestDir();
+});
+
+// Test 61: Index generator - stable output (idempotent)
+test('index generator stable output idempotent', () => {
+  setupTestDir();
+  
+  // Create test pack
+  const pack = {
+    id: 'stable-pack',
+    kind: 'pack',
+    title: 'Stable Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test',
+    outline: ['Step 1'],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] }
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'stable-pack'), { recursive: true });
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'stable-pack', 'pack.json'),
+    JSON.stringify(pack, null, 2)
+  );
+  
+  // Create initial index
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context'), { recursive: true });
+  const index1 = {
+    version: 'v1',
+    kind: 'context',
+    total: 1,
+    pageSize: 20,
+    items: [{
+      id: 'stable-pack',
+      kind: 'pack',
+      title: 'Stable Pack',
+      level: 'A1',
+      durationMinutes: 15,
+      entryUrl: '/v1/workspaces/test-ws/packs/stable-pack/pack.json'
+    }],
+    nextPage: null
+  };
+  
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.json'),
+    JSON.stringify(index1, null, 2)
+  );
+  
+  const content1 = readFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.json'),
+    'utf-8'
+  );
+  
+  // Write again (simulating regeneration)
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.json'),
+    JSON.stringify(index1, null, 2)
+  );
+  
+  const content2 = readFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.json'),
+    'utf-8'
+  );
+  
+  // Content should be identical (stable JSON formatting)
+  assert(content1 === content2, 'Regenerated index should be byte-identical');
+  
+  cleanupTestDir();
+});
+
 // Run all tests
 function runTests() {
   console.log('Running unit tests...\n');

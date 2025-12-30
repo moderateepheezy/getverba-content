@@ -2,6 +2,8 @@
 
 This document defines the canonical pagination convention for section indexes.
 
+**⚠️ Important: Indexes are automatically generated from entry documents. Do not edit index files manually.**
+
 ## File Naming Convention
 
 | Page | File Path |

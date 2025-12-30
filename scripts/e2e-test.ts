@@ -700,7 +700,39 @@ test('verify smoke test script works', () => {
   }
 });
 
-// E2E Test 22: Verify Worker API pagination endpoints (if accessible)
+// E2E Test 22: Verify example pack has new pedagogical metadata
+test('verify example pack has new pedagogical metadata', () => {
+  const packPath = join(CONTENT_DIR, 'workspaces', 'de', 'packs', 'restaurant_conversations', 'pack.json');
+  assert(existsSync(packPath), 'restaurant_conversations pack should exist');
+  
+  const pack = JSON.parse(readFileSync(packPath, 'utf-8'));
+  
+  // Verify primaryStructure
+  assert(pack.primaryStructure, 'Pack should have primaryStructure');
+  assert(pack.primaryStructure.id === 'modal-verbs-requests', 'primaryStructure.id should match');
+  assert(pack.primaryStructure.label, 'primaryStructure should have label');
+  
+  // Verify slots
+  assert(Array.isArray(pack.prompts), 'Pack should have prompts');
+  assert(pack.prompts.length > 0, 'Pack should have at least one prompt');
+  assert(pack.prompts[0].slots, 'First prompt should have slots');
+  assert(pack.prompts[0].slots.subject, 'Prompt should have subject slot');
+  assert(pack.prompts[0].slots.verb, 'Prompt should have verb slot');
+  
+  // Verify microNotes
+  assert(Array.isArray(pack.microNotes), 'Pack should have microNotes array');
+  assert(pack.microNotes.length > 0, 'Pack should have at least one microNote');
+  assert(pack.microNotes[0].id, 'microNote should have id');
+  assert(pack.microNotes[0].text, 'microNote should have text');
+  
+  // Verify prompt quality (length)
+  pack.prompts.forEach((prompt: any) => {
+    assert(prompt.text.length >= 12, `Prompt "${prompt.id}" text should be >= 12 chars`);
+    assert(prompt.text.length <= 140, `Prompt "${prompt.id}" text should be <= 140 chars`);
+  });
+});
+
+// E2E Test 23: Verify Worker API pagination endpoints (if accessible)
 test('verify Worker API pagination endpoints', async () => {
   try {
     const manifest = await fetchJson(`${WORKER_BASE_URL}/manifest`);

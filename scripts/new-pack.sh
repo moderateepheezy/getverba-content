@@ -105,6 +105,7 @@ mkdir -p "$PACK_DIR"
 cat > "$PACK_FILE" << EOF
 {
   "id": "$PACK_ID",
+  "schemaVersion": 1,
   "kind": "pack",
   "title": "$TITLE",
   "level": "$LEVEL",
@@ -149,44 +150,10 @@ EOF
 
 echo "   ✅ Created $PACK_FILE"
 
-# Update index.json
-# Read current index
-INDEX_CONTENT=$(cat "$INDEX_FILE")
-
-# Extract current total
-CURRENT_TOTAL=$(echo "$INDEX_CONTENT" | grep -o '"total": *[0-9]*' | grep -o '[0-9]*')
-NEW_TOTAL=$((CURRENT_TOTAL + 1))
-
-# Create new item
-NEW_ITEM=$(cat << EOF
-    {
-      "id": "$PACK_ID",
-      "kind": "pack",
-      "title": "$TITLE",
-      "level": "$LEVEL",
-      "durationMinutes": 15,
-      "entryUrl": "/v1/workspaces/$WORKSPACE/packs/$PACK_ID/pack.json"
-    }
-EOF
-)
-
-# Add item to index (before the closing bracket of items array)
-# This is a simple approach - for production, use jq if available
-if command -v jq &> /dev/null; then
-  # Use jq for reliable JSON manipulation
-  jq --arg id "$PACK_ID" \
-     --arg title "$TITLE" \
-     --arg level "$LEVEL" \
-     --arg entryUrl "/v1/workspaces/$WORKSPACE/packs/$PACK_ID/pack.json" \
-     '.total = (.total + 1) | .items += [{id: $id, kind: "pack", title: $title, level: $level, durationMinutes: 15, entryUrl: $entryUrl}]' \
-     "$INDEX_FILE" > "$INDEX_FILE.tmp" && mv "$INDEX_FILE.tmp" "$INDEX_FILE"
-  echo "   ✅ Updated $INDEX_FILE (total: $NEW_TOTAL)"
-else
-  echo "   ⚠️  jq not found. Please manually add the item to $INDEX_FILE:"
-  echo ""
-  echo "$NEW_ITEM"
-  echo ""
-fi
+# Generate indexes (replaces manual index editing)
+echo ""
+echo "🔄 Regenerating section indexes..."
+npm run content:generate-indexes -- --workspace "$WORKSPACE"
 
 # Run validation
 echo ""

@@ -106,6 +106,7 @@ mkdir -p "$DRILL_DIR"
 cat > "$DRILL_FILE" << EOF
 {
   "id": "$DRILL_ID",
+  "schemaVersion": 1,
   "kind": "drill",
   "title": "$TITLE",
   "level": "$LEVEL",
@@ -136,33 +137,10 @@ EOF
 
 echo "   ✅ Created $DRILL_FILE"
 
-# Update index.json
-if command -v jq &> /dev/null; then
-  # Use jq for reliable JSON manipulation
-  jq --arg id "$DRILL_ID" \
-     --arg title "$TITLE" \
-     --arg level "$LEVEL" \
-     --arg entryUrl "/v1/workspaces/$WORKSPACE/drills/$DRILL_ID/drill.json" \
-     '.total = (.total + 1) | .items += [{id: $id, kind: "drill", title: $title, level: $level, durationMinutes: 10, entryUrl: $entryUrl}]' \
-     "$INDEX_FILE" > "$INDEX_FILE.tmp" && mv "$INDEX_FILE.tmp" "$INDEX_FILE"
-  
-  CURRENT_TOTAL=$(jq '.total' "$INDEX_FILE")
-  echo "   ✅ Updated $INDEX_FILE (total: $CURRENT_TOTAL)"
-else
-  echo "   ⚠️  jq not found. Please manually add the item to $INDEX_FILE:"
-  echo ""
-  cat << EOF
-    {
-      "id": "$DRILL_ID",
-      "kind": "drill",
-      "title": "$TITLE",
-      "level": "$LEVEL",
-      "durationMinutes": 10,
-      "entryUrl": "/v1/workspaces/$WORKSPACE/drills/$DRILL_ID/drill.json"
-    }
-EOF
-  echo ""
-fi
+# Generate indexes (replaces manual index editing)
+echo ""
+echo "🔄 Regenerating section indexes..."
+npm run content:generate-indexes -- --workspace "$WORKSPACE"
 
 # Run validation
 echo ""

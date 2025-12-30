@@ -15,7 +15,23 @@ This allows you to:
 
 ## Workflow
 
-### Step 1: Publish Content to Staging
+### Step 1: Generate Indexes (if needed)
+
+Before publishing, ensure all section indexes are up-to-date:
+
+```bash
+npm run content:generate-indexes
+```
+
+This regenerates all section indexes from entry documents on disk. The generator:
+- Scans all entry files (packs, drills, exams)
+- Sorts items deterministically (level, title, id)
+- Generates paginated index files
+- Preserves existing `pageSize` if present
+
+**Note**: The `new-pack.sh` and `new-drill.sh` scripts automatically regenerate indexes after creating entries.
+
+### Step 2: Publish Content to Staging
 
 Publish all content files and the staging manifest:
 
@@ -31,7 +47,7 @@ This will:
 
 **Note**: The production manifest (`manifest.json`) is **not** published by default. This prevents accidentally overwriting production.
 
-### Step 2: Verify Staging Content
+### Step 3: Verify Staging Content
 
 Test the staging endpoints manually:
 
@@ -46,7 +62,7 @@ curl https://getverba-content-api.simpumind-apps.workers.dev/v1/workspaces/de/pa
 
 **Important**: The Worker serves `/manifest` from `meta/manifest.json` (production). To test staging, you would need a separate staging Worker or test content files directly.
 
-### Step 3: Promote Staging to Production
+### Step 4: Promote Staging to Production
 
 Once you've verified the content is correct, promote it:
 
@@ -294,28 +310,33 @@ git show HEAD~1:content/meta/manifest.json > content/meta/manifest.staging.json
 ```bash
 # 1. Make content changes
 vim content/v1/workspaces/de/packs/new_pack/pack.json
-vim content/v1/workspaces/de/context/index.json
+# Note: Do NOT edit index.json manually - it's auto-generated
+
+# 2. Regenerate indexes (if needed, or use new-pack.sh which does this automatically)
+npm run content:generate-indexes
+
+# 3. Update manifest if needed
 vim content/meta/manifest.staging.json
 
-# 2. Validate
+# 4. Validate
 npm run content:validate
 
-# 3. Publish to staging
+# 5. Publish to staging
 ./scripts/publish-content.sh
 
-# 4. Verify (test content files directly)
+# 6. Verify (test content files directly)
 curl https://getverba-content-api.simpumind-apps.workers.dev/v1/workspaces/de/packs/new_pack/pack.json
 
-# 5. Run smoke test manually (optional)
+# 7. Run smoke test manually (optional)
 ./scripts/smoke-test-content.sh --sample 5
 
-# 6. Promote to production (includes smoke test)
+# 8. Promote to production (includes smoke test)
 ./scripts/promote-staging.sh
 
-# 7. Verify production
+# 9. Verify production
 curl https://getverba-content-api.simpumind-apps.workers.dev/manifest
 
-# 8. If needed, rollback
+# 10. If needed, rollback
 ./scripts/rollback.sh <previous-git-sha>
 ```
 

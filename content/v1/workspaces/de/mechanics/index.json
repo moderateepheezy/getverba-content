@@ -1,17 +1,16 @@
 {
   "version": "v1",
-  "schemaVersion": 1,
   "kind": "drills",
   "total": 4,
   "pageSize": 2,
   "items": [
     {
-      "id": "verb_endings_a1",
+      "id": "akkusativ_prepositions_a1",
       "kind": "drill",
-      "title": "Verb Endings - Present Tense",
+      "title": "Accusative Prepositions",
       "level": "A1",
       "durationMinutes": 10,
-      "entryUrl": "/v1/workspaces/de/drills/verb_endings_a1/drill.json"
+      "entryUrl": "/v1/workspaces/de/drills/akkusativ_prepositions_a1/drill.json"
     },
     {
       "id": "dative_case_a1",

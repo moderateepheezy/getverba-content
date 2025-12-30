@@ -6,6 +6,7 @@
   "scripts": {
     "content:validate": "tsx scripts/validate-content.ts",
     "content:verify": "node scripts/verify-content.mjs",
+    "content:generate-indexes": "tsx scripts/generate-indexes.ts",
     "content:publish": "./scripts/publish-content.sh",
     "content:load-env": "source scripts/load-env.sh",
     "test": "tsx scripts/validate-content.test.ts",
