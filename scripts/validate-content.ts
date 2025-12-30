@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const CONTENT_DIR = join(__dirname, '..', 'content', 'v1');
+const META_DIR = join(__dirname, '..', 'content', 'meta');
 
 interface ValidationError {
   file: string;
@@ -134,12 +135,68 @@ function validateJsonFile(filePath: string): void {
   }
 }
 
+function validateManifest(manifestPath: string): void {
+  try {
+    const content = readFileSync(manifestPath, 'utf-8');
+    const manifest = JSON.parse(content);
+
+    // Validate required fields
+    if (!manifest.activeVersion) {
+      addError(manifestPath, 'Missing required field: activeVersion');
+    }
+    // activeWorkspace is optional (defaults to first workspace if not provided)
+    if (!manifest.workspaces || typeof manifest.workspaces !== 'object') {
+      addError(manifestPath, 'Missing or invalid field: workspaces (must be an object)');
+      return;
+    }
+
+    // Validate that referenced catalog paths exist
+    for (const [workspaceId, catalogPath] of Object.entries(manifest.workspaces)) {
+      if (typeof catalogPath !== 'string') {
+        addError(manifestPath, `Workspace "${workspaceId}" catalog path must be a string`);
+        continue;
+      }
+
+      if (!catalogPath.startsWith('/v1/') || !catalogPath.endsWith('.json')) {
+        addError(manifestPath, `Workspace "${workspaceId}" catalog path must start with /v1/ and end with .json`);
+        continue;
+      }
+
+      // Resolve path relative to content/v1
+      const relativePath = catalogPath.replace(/^\/v1\//, '');
+      const fullPath = join(CONTENT_DIR, relativePath);
+
+      if (!existsSync(fullPath)) {
+        addError(manifestPath, `Workspace "${workspaceId}" catalog path "${catalogPath}" does not exist (resolved to: ${fullPath})`);
+      }
+    }
+  } catch (err: any) {
+    addError(manifestPath, `Failed to parse JSON: ${err.message}`);
+  }
+}
+
 function main() {
   console.log('Validating content structure...\n');
 
   if (!existsSync(CONTENT_DIR)) {
     console.error(`❌ Content directory not found: ${CONTENT_DIR}`);
     process.exit(1);
+  }
+
+  // Validate manifest.json exists and is valid
+  const manifestPath = join(META_DIR, 'manifest.json');
+  if (!existsSync(manifestPath)) {
+    addError(manifestPath, 'manifest.json not found in content/meta/');
+  } else {
+    validateManifest(manifestPath);
+  }
+
+  // Validate release.json exists
+  const releasePath = join(META_DIR, 'release.json');
+  if (!existsSync(releasePath)) {
+    addError(releasePath, 'release.json not found in content/meta/');
+  } else {
+    validateJsonFile(releasePath);
   }
 
   // Find all JSON files

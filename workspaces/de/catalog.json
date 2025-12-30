@@ -1,18 +1,10 @@
 {
-    "workspace": "de",
-    "language": "German",
-    "sections": [
-      {
-        "id": "context",
-        "kind": "context",
-        "title": "Context Library",
-        "itemsUrl": "/v1/workspaces/de/context/index.json"
-      },
-      {
-        "id": "exams",
-        "kind": "exams",
-        "title": "Exams",
-        "itemsUrl": "/v1/workspaces/de/exams/index.json"
-      }
-    ]
-  }
+  "version": "v1",
+  "workspace": "de",
+  "languageCode": "de",
+  "languageName": "German",
+  "sections": [
+    { "id": "context", "kind": "context", "title": "Context Library", "itemsUrl": "/v1/workspaces/de/context/index.json" },
+    { "id": "exams", "kind": "exams", "title": "Exams", "itemsUrl": "/v1/workspaces/de/exams/index.json" }
+  ]
+}

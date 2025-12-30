@@ -7,6 +7,7 @@ set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONTENT_DIR="$SCRIPT_DIR/../content/v1"
+META_DIR="$SCRIPT_DIR/../content/meta"
 BUCKET="${R2_BUCKET:-getverba-content-prod}"
 
 # Load environment variables from .env.local if it exists
@@ -62,6 +63,19 @@ if [ ! -d "$CONTENT_DIR" ]; then
   exit 1
 fi
 
+# Check if meta directory exists
+if [ ! -d "$META_DIR" ]; then
+  echo "❌ Error: Meta directory not found: $META_DIR"
+  exit 1
+fi
+
+# Generate release.json before publishing
+if [ "$1" != "--dry-run" ] && [ "$1" != "--sanity-check" ]; then
+  echo "📝 Generating release metadata..."
+  "$SCRIPT_DIR/generate-release.sh"
+  echo ""
+fi
+
 # Determine if dry-run or sanity-check
 DRY_RUN=""
 if [ "$1" == "--dry-run" ]; then
@@ -80,7 +94,8 @@ fi
 echo "📦 Publishing content to R2..."
 echo "   Bucket: $BUCKET"
 echo "   Endpoint: $R2_ENDPOINT"
-echo "   Source: $CONTENT_DIR"
+echo "   Content source: $CONTENT_DIR"
+echo "   Meta source: $META_DIR"
 echo ""
 
 # Export AWS credentials for this session
@@ -91,8 +106,14 @@ export AWS_DEFAULT_REGION="auto"
 # Sync files to R2
 # Note: aws s3 sync doesn't support setting content-type per file type easily
 # We'll sync first, then update content-type for JSON files
-echo "📤 Syncing files to R2..."
+echo "📤 Syncing content files to R2..."
 aws s3 sync "$CONTENT_DIR" "s3://$BUCKET/v1/" \
+  --endpoint-url "$R2_ENDPOINT" \
+  --exclude ".*" \
+  $DRY_RUN
+
+echo "📤 Syncing meta files to R2..."
+aws s3 sync "$META_DIR" "s3://$BUCKET/meta/" \
   --endpoint-url "$R2_ENDPOINT" \
   --exclude ".*" \
   $DRY_RUN
@@ -101,14 +122,28 @@ if [ "$1" != "--dry-run" ]; then
   echo ""
   echo "📝 Setting content-type and cache-control for JSON files..."
   
-  # Find all JSON files and set content-type and cache-control
+  # Find all JSON files in content/v1 and set content-type and cache-control
   # Use -print0 and read -d '' to safely handle filenames with spaces/newlines
   find "$CONTENT_DIR" -type f -name "*.json" -print0 | while IFS= read -r -d '' file; do
     # Get relative path from content/v1
     rel_path="${file#$CONTENT_DIR/}"
     s3_path="s3://$BUCKET/v1/$rel_path"
     
-    echo "   Setting content-type and cache-control for: $rel_path"
+    echo "   Setting content-type and cache-control for: v1/$rel_path"
+    aws s3 cp "$file" "$s3_path" \
+      --endpoint-url "$R2_ENDPOINT" \
+      --content-type "application/json" \
+      --cache-control "public, max-age=300, stale-while-revalidate=86400" \
+      --metadata-directive REPLACE
+  done
+
+  # Find all JSON files in content/meta and set content-type and cache-control
+  find "$META_DIR" -type f -name "*.json" -print0 | while IFS= read -r -d '' file; do
+    # Get relative path from content/meta
+    rel_path="${file#$META_DIR/}"
+    s3_path="s3://$BUCKET/meta/$rel_path"
+    
+    echo "   Setting content-type and cache-control for: meta/$rel_path"
     aws s3 cp "$file" "$s3_path" \
       --endpoint-url "$R2_ENDPOINT" \
       --content-type "application/json" \
