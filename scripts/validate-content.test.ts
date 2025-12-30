@@ -494,6 +494,420 @@ test('section index kind matches catalog section kind', () => {
   cleanupTestDir();
 });
 
+// Test 11: Section index item with kind field
+test('section index item includes kind field', () => {
+  setupTestDir();
+  
+  const index = {
+    version: 'v1',
+    kind: 'context',
+    total: 1,
+    pageSize: 20,
+    items: [
+      {
+        id: 'test-pack',
+        kind: 'pack',
+        title: 'Test Pack',
+        level: 'A1',
+        entryUrl: '/v1/workspaces/test-ws/packs/test-pack/pack.json'
+      }
+    ],
+    nextPage: null
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context'), { recursive: true });
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.json'),
+    JSON.stringify(index, null, 2)
+  );
+  
+  const content = JSON.parse(
+    readFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.json'),
+      'utf-8'
+    )
+  );
+  
+  assert(content.items[0].kind === 'pack', 'Item should have kind field');
+  assert(typeof content.items[0].kind === 'string', 'Item kind should be a string');
+  
+  cleanupTestDir();
+});
+
+// Test 12: EntryUrl pattern validation for pack
+test('entryUrl pattern validation for pack kind', () => {
+  setupTestDir();
+  
+  const validIndex = {
+    version: 'v1',
+    kind: 'context',
+    total: 1,
+    pageSize: 20,
+    items: [
+      {
+        id: 'test-pack',
+        kind: 'pack',
+        title: 'Test Pack',
+        level: 'A1',
+        entryUrl: '/v1/workspaces/test-ws/packs/test-pack/pack.json'
+      }
+    ],
+    nextPage: null
+  };
+  
+  const invalidIndex = {
+    version: 'v1',
+    kind: 'context',
+    total: 1,
+    pageSize: 20,
+    items: [
+      {
+        id: 'test-pack',
+        kind: 'pack',
+        title: 'Test Pack',
+        level: 'A1',
+        entryUrl: '/v1/packs/test-pack.json' // Wrong pattern
+      }
+    ],
+    nextPage: null
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context'), { recursive: true });
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack'), { recursive: true });
+  
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index-valid.json'),
+    JSON.stringify(validIndex, null, 2)
+  );
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index-invalid.json'),
+    JSON.stringify(invalidIndex, null, 2)
+  );
+  
+  const valid = JSON.parse(
+    readFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index-valid.json'),
+      'utf-8'
+    )
+  );
+  const invalid = JSON.parse(
+    readFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index-invalid.json'),
+      'utf-8'
+    )
+  );
+  
+  assert(
+    valid.items[0].entryUrl.match(/\/v1\/workspaces\/[^/]+\/packs\/[^/]+\/pack\.json$/),
+    'Valid pack entryUrl should match canonical pattern'
+  );
+  assert(
+    !invalid.items[0].entryUrl.match(/\/v1\/workspaces\/[^/]+\/packs\/[^/]+\/pack\.json$/),
+    'Invalid pack entryUrl should not match canonical pattern'
+  );
+  
+  cleanupTestDir();
+});
+
+// Test 13: EntryUrl pattern validation for exam
+test('entryUrl pattern validation for exam kind', () => {
+  setupTestDir();
+  
+  const index = {
+    version: 'v1',
+    kind: 'exams',
+    total: 1,
+    pageSize: 20,
+    items: [
+      {
+        id: 'test-exam',
+        kind: 'exam',
+        title: 'Test Exam',
+        level: 'A1',
+        entryUrl: '/v1/workspaces/test-ws/exams/test-exam/exam.json'
+      }
+    ],
+    nextPage: null
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'exams'), { recursive: true });
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'exams', 'index.json'),
+    JSON.stringify(index, null, 2)
+  );
+  
+  const content = JSON.parse(
+    readFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'exams', 'index.json'),
+      'utf-8'
+    )
+  );
+  
+  assert(
+    content.items[0].entryUrl.match(/\/v1\/workspaces\/[^/]+\/exams\/[^/]+\/exam\.json$/),
+    'Exam entryUrl should match canonical pattern'
+  );
+  
+  cleanupTestDir();
+});
+
+// Test 14: Pack entry document schema validation
+test('pack entry document schema validation', () => {
+  setupTestDir();
+  
+  const validPack = {
+    id: 'test-pack',
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test description',
+    outline: ['Section 1', 'Section 2'],
+    prompts: [
+      { id: 'p1', text: 'Hello' },
+      { id: 'p2', text: 'Goodbye' }
+    ]
+  };
+  
+  const invalidPack = {
+    id: 'test-pack-2',
+    kind: 'pack',
+    title: 'Test Pack 2',
+    // Missing required fields: estimatedMinutes, description, outline
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack'), { recursive: true });
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack-2'), { recursive: true });
+  
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+    JSON.stringify(validPack, null, 2)
+  );
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack-2', 'pack.json'),
+    JSON.stringify(invalidPack, null, 2)
+  );
+  
+  const valid = JSON.parse(
+    readFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+      'utf-8'
+    )
+  );
+  const invalid = JSON.parse(
+    readFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack-2', 'pack.json'),
+      'utf-8'
+    )
+  );
+  
+  assert(valid.id === 'test-pack', 'Valid pack should have id');
+  assert(valid.kind === 'pack', 'Valid pack should have kind');
+  assert(valid.description, 'Valid pack should have description');
+  assert(Array.isArray(valid.outline) && valid.outline.length > 0, 'Valid pack should have non-empty outline');
+  assert(typeof valid.estimatedMinutes === 'number', 'Valid pack should have estimatedMinutes');
+  assert(Array.isArray(valid.prompts), 'Valid pack should have prompts array');
+  
+  assert(!invalid.estimatedMinutes, 'Invalid pack should be missing estimatedMinutes');
+  assert(!invalid.description, 'Invalid pack should be missing description');
+  assert(!invalid.outline, 'Invalid pack should be missing outline');
+  
+  cleanupTestDir();
+});
+
+// Test 15: Exam entry document schema validation
+test('exam entry document schema validation', () => {
+  setupTestDir();
+  
+  const validExam = {
+    id: 'test-exam',
+    kind: 'exam',
+    title: 'Test Exam',
+    level: 'A1',
+    estimatedMinutes: 30
+  };
+  
+  const invalidExam = {
+    id: 'test-exam-2',
+    kind: 'exam',
+    title: 'Test Exam 2'
+    // Missing required fields: level, estimatedMinutes
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'exams', 'test-exam'), { recursive: true });
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'exams', 'test-exam-2'), { recursive: true });
+  
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'exams', 'test-exam', 'exam.json'),
+    JSON.stringify(validExam, null, 2)
+  );
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'exams', 'test-exam-2', 'exam.json'),
+    JSON.stringify(invalidExam, null, 2)
+  );
+  
+  const valid = JSON.parse(
+    readFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'exams', 'test-exam', 'exam.json'),
+      'utf-8'
+    )
+  );
+  const invalid = JSON.parse(
+    readFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'exams', 'test-exam-2', 'exam.json'),
+      'utf-8'
+    )
+  );
+  
+  assert(valid.id === 'test-exam', 'Valid exam should have id');
+  assert(valid.kind === 'exam', 'Valid exam should have kind');
+  assert(valid.level === 'A1', 'Valid exam should have level');
+  assert(typeof valid.estimatedMinutes === 'number', 'Valid exam should have estimatedMinutes');
+  
+  assert(!invalid.level, 'Invalid exam should be missing level');
+  assert(!invalid.estimatedMinutes, 'Invalid exam should be missing estimatedMinutes');
+  
+  cleanupTestDir();
+});
+
+// Test 16: EntryUrl ID matches item ID
+test('entryUrl ID matches item ID', () => {
+  setupTestDir();
+  
+  const matchingIndex = {
+    version: 'v1',
+    kind: 'context',
+    total: 1,
+    pageSize: 20,
+    items: [
+      {
+        id: 'test-pack',
+        kind: 'pack',
+        title: 'Test Pack',
+        level: 'A1',
+        entryUrl: '/v1/workspaces/test-ws/packs/test-pack/pack.json' // ID matches
+      }
+    ],
+    nextPage: null
+  };
+  
+  const mismatchedIndex = {
+    version: 'v1',
+    kind: 'context',
+    total: 1,
+    pageSize: 20,
+    items: [
+      {
+        id: 'test-pack',
+        kind: 'pack',
+        title: 'Test Pack',
+        level: 'A1',
+        entryUrl: '/v1/workspaces/test-ws/packs/different-id/pack.json' // ID doesn't match
+      }
+    ],
+    nextPage: null
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context'), { recursive: true });
+  
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index-matching.json'),
+    JSON.stringify(matchingIndex, null, 2)
+  );
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index-mismatched.json'),
+    JSON.stringify(mismatchedIndex, null, 2)
+  );
+  
+  const matching = JSON.parse(
+    readFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index-matching.json'),
+      'utf-8'
+    )
+  );
+  const mismatched = JSON.parse(
+    readFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index-mismatched.json'),
+      'utf-8'
+    )
+  );
+  
+  // Extract ID from entryUrl
+  const matchingUrlParts = matching.items[0].entryUrl.split('/');
+  const matchingUrlId = matchingUrlParts[matchingUrlParts.indexOf('packs') + 1];
+  assert(matchingUrlId === matching.items[0].id, 'EntryUrl ID should match item ID');
+  
+  const mismatchedUrlParts = mismatched.items[0].entryUrl.split('/');
+  const mismatchedUrlId = mismatchedUrlParts[mismatchedUrlParts.indexOf('packs') + 1];
+  assert(mismatchedUrlId !== mismatched.items[0].id, 'EntryUrl ID should not match item ID in mismatched case');
+  
+  cleanupTestDir();
+});
+
+// Test 17: Entry document kind matches item kind
+test('entry document kind matches item kind', () => {
+  setupTestDir();
+  
+  const index = {
+    version: 'v1',
+    kind: 'context',
+    total: 1,
+    pageSize: 20,
+    items: [
+      {
+        id: 'test-pack',
+        kind: 'pack',
+        title: 'Test Pack',
+        level: 'A1',
+        entryUrl: '/v1/workspaces/test-ws/packs/test-pack/pack.json'
+      }
+    ],
+    nextPage: null
+  };
+  
+  const packEntry = {
+    id: 'test-pack',
+    kind: 'pack', // Matches item kind
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test',
+    outline: ['Section 1']
+  };
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context'), { recursive: true });
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack'), { recursive: true });
+  
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.json'),
+    JSON.stringify(index, null, 2)
+  );
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+    JSON.stringify(packEntry, null, 2)
+  );
+  
+  const indexContent = JSON.parse(
+    readFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'index.json'),
+      'utf-8'
+    )
+  );
+  const entryContent = JSON.parse(
+    readFileSync(
+      join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+      'utf-8'
+    )
+  );
+  
+  assert(
+    indexContent.items[0].kind === entryContent.kind,
+    'Entry document kind should match item kind'
+  );
+  
+  cleanupTestDir();
+});
+
 // Run all tests
 function runTests() {
   console.log('Running unit tests...\n');
