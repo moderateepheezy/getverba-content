@@ -31,6 +31,21 @@
       "audioUrl": "/v1/audio/restaurant_conversations/prompt-003.mp3"
     }
   ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "reservation",
+        "title": "Making a Reservation",
+        "promptIds": ["prompt-001"]
+      },
+      {
+        "id": "ordering",
+        "title": "Ordering Food",
+        "promptIds": ["prompt-002", "prompt-003"]
+      }
+    ]
+  },
   "tags": ["restaurant", "food", "conversation"]
 }
 

@@ -70,7 +70,27 @@ All `entryUrl` values must follow these patterns based on the section `kind`:
       "translation": "Good day",
       "audioUrl": "/v1/audio/basic_greetings/prompt-002.mp3"
     }
-  ]
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "opening",
+        "title": "Opening: Greetings",
+        "promptIds": ["prompt-001", "prompt-002"]
+      },
+      {
+        "id": "common",
+        "title": "Common Phrases",
+        "promptIds": ["prompt-003"]
+      },
+      {
+        "id": "closing",
+        "title": "Closing: Goodbyes",
+        "promptIds": ["prompt-004", "prompt-005"]
+      }
+    ]
+  }
 }
 ```
 
@@ -84,13 +104,29 @@ All `entryUrl` values must follow these patterns based on the section `kind`:
 - `estimatedMinutes` (number): Estimated duration in minutes
 - `description` (string): 1-3 line description
 - `outline` (string[]): Array of section titles/headings
+- `sessionPlan` (object): Session plan defining the order and grouping of prompts
+  - `version` (number): Must be `1`
+  - `steps` (array): Non-empty array of step objects
+    - Each step must have:
+      - `id` (string): Unique step identifier
+      - `title` (string): Step display title
+      - `promptIds` (string[]): Non-empty array of prompt IDs that reference `prompts[].id`
 - `prompts` (array): Array of prompt objects OR `promptsUrl` (string) for large packs
+  - Required if `sessionPlan` references prompt IDs
 
 **Optional:**
 - `promptsUrl` (string): If pack has many prompts, can reference external file
   - Format: `/v1/workspaces/{workspace}/packs/{packId}/prompts.json`
+  - If used, prompts must be loaded separately and `sessionPlan.promptIds` must reference IDs in that file
 - `tags` (string[]): Taxonomy tags for filtering
 - `thumbnailUrl` (string): Preview image URL
+
+**Session Plan Rules:**
+- `sessionPlan.version` must be `1`
+- `sessionPlan.steps` must be a non-empty array
+- Each step's `promptIds` must be a non-empty array
+- Every `promptId` in `sessionPlan.steps[].promptIds` must exist in `prompts[].id` (or in the prompts loaded from `promptsUrl`)
+- `outline.length` should match `steps.length` (validator warns if different, but allows it)
 
 **Prompt Object:**
 - `id` (string): Unique prompt identifier

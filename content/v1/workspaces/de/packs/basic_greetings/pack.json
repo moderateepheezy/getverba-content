@@ -42,6 +42,26 @@
       "audioUrl": "/v1/audio/basic_greetings/prompt-005.mp3"
     }
   ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "opening",
+        "title": "Opening: Greetings",
+        "promptIds": ["prompt-001", "prompt-002"]
+      },
+      {
+        "id": "common",
+        "title": "Common Phrases",
+        "promptIds": ["prompt-003"]
+      },
+      {
+        "id": "closing",
+        "title": "Closing: Goodbyes",
+        "promptIds": ["prompt-004", "prompt-005"]
+      }
+    ]
+  },
   "tags": ["greetings", "basics", "conversation"]
 }
 

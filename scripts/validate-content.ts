@@ -108,6 +108,67 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
       if (!Array.isArray(entry.outline) || entry.outline.length === 0) {
         addError(contextFile, `Item ${itemIdx} pack entry missing or invalid field: outline (must be non-empty array)`);
       }
+      
+      // Validate sessionPlan (required for packs)
+      if (!entry.sessionPlan || typeof entry.sessionPlan !== 'object') {
+        addError(contextFile, `Item ${itemIdx} pack entry missing or invalid field: sessionPlan (must be object)`);
+      } else {
+        // Validate sessionPlan.version
+        if (entry.sessionPlan.version !== 1) {
+          addError(contextFile, `Item ${itemIdx} pack entry sessionPlan.version must be 1`);
+        }
+        
+        // Validate sessionPlan.steps
+        if (!Array.isArray(entry.sessionPlan.steps) || entry.sessionPlan.steps.length === 0) {
+          addError(contextFile, `Item ${itemIdx} pack entry sessionPlan.steps must be a non-empty array`);
+        } else {
+          entry.sessionPlan.steps.forEach((step: any, sIdx: number) => {
+            if (!step.id || typeof step.id !== 'string') {
+              addError(contextFile, `Item ${itemIdx} pack entry sessionPlan.steps[${sIdx}] missing or invalid field: id (must be string)`);
+            }
+            if (!step.title || typeof step.title !== 'string') {
+              addError(contextFile, `Item ${itemIdx} pack entry sessionPlan.steps[${sIdx}] missing or invalid field: title (must be string)`);
+            }
+            if (!Array.isArray(step.promptIds) || step.promptIds.length === 0) {
+              addError(contextFile, `Item ${itemIdx} pack entry sessionPlan.steps[${sIdx}] missing or invalid field: promptIds (must be non-empty array)`);
+            } else {
+              // Validate each promptId is a string
+              step.promptIds.forEach((promptId: any, pIdIdx: number) => {
+                if (typeof promptId !== 'string') {
+                  addError(contextFile, `Item ${itemIdx} pack entry sessionPlan.steps[${sIdx}].promptIds[${pIdIdx}] must be a string`);
+                }
+              });
+            }
+          });
+          
+          // Validate that all referenced promptIds exist in prompts array
+          if (entry.prompts && Array.isArray(entry.prompts)) {
+            const promptIds = new Set(entry.prompts.map((p: any) => p.id).filter(Boolean));
+            entry.sessionPlan.steps.forEach((step: any, sIdx: number) => {
+              if (Array.isArray(step.promptIds)) {
+                step.promptIds.forEach((promptId: string) => {
+                  if (!promptIds.has(promptId)) {
+                    addError(contextFile, `Item ${itemIdx} pack entry sessionPlan.steps[${sIdx}] references promptId "${promptId}" which does not exist in prompts array`);
+                  }
+                });
+              }
+            });
+          } else if (entry.promptsUrl) {
+            // If promptsUrl is used, we can't validate promptIds exist (they're in external file)
+            // This is acceptable - frontend will need to load promptsUrl and validate
+          } else {
+            // No prompts and no promptsUrl - can't validate promptIds
+            addError(contextFile, `Item ${itemIdx} pack entry has sessionPlan but no prompts array or promptsUrl. Prompts are required when sessionPlan references promptIds.`);
+          }
+          
+          // Warn if outline.length doesn't match steps.length (non-fatal)
+          if (Array.isArray(entry.outline) && entry.outline.length !== entry.sessionPlan.steps.length) {
+            // This is a warning, not an error - we'll just log it
+            console.warn(`⚠️  Item ${itemIdx} pack entry outline.length (${entry.outline.length}) does not match sessionPlan.steps.length (${entry.sessionPlan.steps.length}). This is allowed but may indicate a mismatch.`);
+          }
+        }
+      }
+      
       // Prompts are optional but if present, validate structure
       if (entry.prompts !== undefined) {
         if (!Array.isArray(entry.prompts)) {
