@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "id": "de_context_a2_work",
+  "workspace": "de",
+  "title": "Work Context (A2) — Professional Conversations",
+  "description": "Workplace conversations at A2 level: meetings, schedules, projects, and professional communication.",
+  "filters": {
+    "scenario": "work",
+    "levels": ["A2"]
+  },
+  "includeKinds": ["pack"],
+  "ordering": {
+    "by": ["level", "kind", "title"],
+    "stable": true
+  }
+}
+

@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "bundleId": "en_intro_a1",
+  "workspace": "en",
+  "title": "English Introduction (A1) — Basic Survival",
+  "description": "Essential English phrases for beginners: greetings, introductions, and basic conversation starters.",
+  "generatedAt": "2025-12-30T22:16:17.494Z",
+  "totalItems": 1,
+  "totalMinutes": 10,
+  "items": [
+    {
+      "kind": "pack",
+      "id": "welcome_english",
+      "title": "Welcome to English",
+      "level": "A1",
+      "estimatedMinutes": 10,
+      "entryUrl": "/v1/workspaces/en/packs/welcome_english/pack.json",
+      "scenario": "intro_lesson",
+      "register": "neutral",
+      "primaryStructure": "basic_phrases",
+      "tags": [
+        "intro",
+        "basics"
+      ],
+      "analytics": {
+        "targetLatencyMs": 2500,
+        "successDefinition": "2 consecutive passes with response time under 2.5 seconds",
+        "keyFailureModes": [
+          "vocabulary recall",
+          "register consistency",
+          "structure accuracy"
+        ],
+        "goal": "Practice intro_lesson scenarios at A1 level",
+        "whyThisWorks": [
+          "High-frequency intro_lesson vocabulary",
+          "Multi-slot substitution prevents chanting",
+          "Short response windows encourage retrieval speed"
+        ]
+      },
+      "sessionPlan": {
+        "steps": [
+          {
+            "id": "intro",
+            "title": "Introduction",
+            "promptCount": 2
+          },
+          {
+            "id": "phrases",
+            "title": "Basic Phrases",
+            "promptCount": 1
+          }
+        ]
+      }
+    }
+  ]
+}

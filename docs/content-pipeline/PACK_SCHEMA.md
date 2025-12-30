@@ -13,6 +13,7 @@ All pack entries must include `schemaVersion: 1`.
 | `schemaVersion` | number | Must be `1` |
 | `id` | string | Unique pack identifier (kebab-case) |
 | `kind` | string | Must be `"pack"` |
+| `packVersion` | string | Pack semantic version (required, semver format x.y.z, e.g., "1.0.0") |
 | `title` | string | Pack title (max 100 chars) |
 | `level` | string | CEFR level: `A1`, `A2`, `B1`, `B2`, `C1`, or `C2` |
 | `estimatedMinutes` | number | Estimated duration in minutes (1-120) |
@@ -23,7 +24,7 @@ All pack entries must include `schemaVersion: 1`.
 | `register` | string | Formality level: `"formal"`, `"neutral"`, or `"informal"` |
 | `primaryStructure` | string | Primary grammatical structure identifier (3-60 chars, lowercase snake_case recommended) |
 | `variationSlots` | string[] | Array of slot types that can be varied in prompts. Allowed values: `"subject"`, `"verb"`, `"object"`, `"modifier"`, `"tense"`, `"polarity"`, `"time"`, `"location"`. Must be non-empty. |
-| `analytics` | object | Analytics metadata block (required). See [ANALYTICS_METADATA.md](./ANALYTICS_METADATA.md) for details. |
+| `analytics` | object | Analytics metadata block (required). See [ANALYTICS_METADATA.md](./ANALYTICS_METADATA.md) for details. Must include `targetLatencyMs`, `successDefinition`, and `keyFailureModes` for telemetry readiness. |
 
 ## Quality Gates
 

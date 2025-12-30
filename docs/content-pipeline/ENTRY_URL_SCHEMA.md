@@ -99,6 +99,7 @@ All `entryUrl` values must follow these patterns based on the section `kind`:
 **Required:**
 - `id` (string): Pack identifier, must match `packId` in URL
 - `kind` (string): Must be `"pack"`
+- `packVersion` (string): Pack semantic version (semver format x.y.z, e.g., "1.0.0")
 - `title` (string): Display title
 - `level` (string): Language level (`"A1"`, `"A2"`, etc.)
 - `estimatedMinutes` (number): Estimated duration in minutes
@@ -109,6 +110,7 @@ All `entryUrl` values must follow these patterns based on the section `kind`:
 - `register` (string): Formality level: `"formal"`, `"neutral"`, or `"informal"`
 - `primaryStructure` (string): Primary grammatical structure identifier (e.g., "verb_position", "negation", "modal_verbs", "dative_case")
 - `variationSlots` (string[]): Array of slot types that can be varied. Allowed values: `"subject"`, `"verb"`, `"object"`, `"modifier"`, `"tense"`, `"polarity"`, `"time"`, `"location"`. Must be non-empty.
+- `analytics` (object): Analytics metadata block with telemetry fields (see [PACK_SCHEMA.md](./PACK_SCHEMA.md))
   - `version` (number): Must be `1`
   - `steps` (array): Non-empty array of step objects
     - Each step must have:

@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "id": "de_mechanics_a1",
+  "workspace": "de",
+  "title": "German Mechanics (A1) — Grammar Fundamentals",
+  "description": "Core grammatical structures for A1 level: verb position, basic cases, and sentence patterns.",
+  "filters": {
+    "levels": ["A1"]
+  },
+  "includeKinds": ["drill"],
+  "ordering": {
+    "by": ["level", "kind", "title"],
+    "stable": true
+  }
+}
+

@@ -17,8 +17,8 @@ import { execSync } from 'child_process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const EXPORTS_DIR = join(__dirname, '..', '..', 'exports');
-const META_DIR = join(__dirname, '..', '..', 'content', 'meta');
+const EXPORTS_DIR = join(__dirname, '..', 'exports');
+const META_DIR = join(__dirname, '..', 'content', 'meta');
 
 /**
  * Generate README.txt

@@ -21,9 +21,9 @@ import type {
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const CONTENT_DIR = join(__dirname, '..', '..', 'content', 'v1');
-const EXPORTS_DIR = join(__dirname, '..', '..', 'exports');
-const META_DIR = join(__dirname, '..', '..', 'content', 'meta');
+const CONTENT_DIR = join(__dirname, '..', 'content', 'v1');
+const EXPORTS_DIR = join(__dirname, '..', 'exports');
+const META_DIR = join(__dirname, '..', 'content', 'meta');
 
 // Configuration constants (must match generator)
 const MIN_PACKS_PER_BUNDLE = 3;

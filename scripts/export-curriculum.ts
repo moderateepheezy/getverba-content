@@ -1,576 +1,188 @@
 #!/usr/bin/env tsx
 
 /**
- * B2B Curriculum Export Pipeline
+ * B2B Curriculum Export CLI
  * 
- * Generates deterministic curriculum exports for schools/employers:
- * - CSV catalog (one row per pack)
- * - Markdown files (one per pack)
- * - ZIP bundle with snapshots
+ * Exports curriculum bundles with deterministic manifests, SCORM-like metadata,
+ * and human-readable syllabus for school/LMS distribution.
  * 
  * Usage:
- *   npm run content:export -- --workspace de --out exports/
- *   npm run content:export -- --workspace de --out exports/ --zip
+ *   npm run content:export-curriculum -- \
+ *     --workspace de \
+ *     --bundle-id gov_office_a1_v1 \
+ *     --title "German A1 — Government Office Survival" \
+ *     --levels A1 \
+ *     --scenarios government_office \
+ *     --include-sections context,mechanics \
+ *     --max-packs 12 \
+ *     --max-drills 8
+ * 
+ *   npm run content:export-curriculum -- \
+ *     --workspace de \
+ *     --bundle-id work_a2_interviews_v1 \
+ *     --title "German A2 — Work & Interviews" \
+ *     --include-pack-ids work_1,shopping_conversations,restaurant_conversations \
+ *     --include-drill-ids separable_verbs_a1,akkusativ_prepositions_a1
  */
 
-import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync, copyFileSync } from 'fs';
-import { execSync } from 'child_process';
-import { join, dirname, basename } from 'path';
+import { existsSync, mkdirSync } from 'fs';
+import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import type { BundleSelectionCriteria } from './exports/exportTypes.js';
+import { buildBundle, writeBundleArtifacts, createBundleZip } from './exports/bundleBuilder.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const CONTENT_DIR = join(__dirname, '..', 'content', 'v1');
-const META_DIR = join(__dirname, '..', 'content', 'meta');
-
-interface SectionIndex {
-  version: string;
-  kind: string;
-  total: number;
-  pageSize: number;
-  items: SectionIndexItem[];
-  nextPage: string | null;
-}
-
-interface SectionIndexItem {
-  id: string;
-  kind: string;
-  title: string;
-  level: string;
-  durationMinutes: number;
-  entryUrl: string;
-  scenario?: string;
-  register?: string;
-  primaryStructure?: string;
-  analyticsSummary?: {
-    primaryStructure: string;
-    variationSlots: string[];
-    drillType: string;
-    cognitiveLoad: string;
-    goal: string;
-    whyThisWorks: string[];
-  };
-}
-
-interface PackEntry {
-  id: string;
-  kind: string;
-  title: string;
-  level: string;
-  estimatedMinutes: number;
-  description?: string;
-  scenario: string;
-  register: string;
-  primaryStructure: string;
-  variationSlots: string[];
-  outline: string[];
-  prompts: Array<{
-    id: string;
-    text: string;
-    intent?: string;
-    gloss_en?: string;
-    alt_de?: string;
-  }>;
-  sessionPlan: {
-    version: number;
-    steps: Array<{
-      id: string;
-      title: string;
-      promptIds: string[];
-    }>;
-  };
-  analytics: {
-    goal: string;
-    successCriteria: string[];
-    drillType: string;
-    cognitiveLoad: string;
-  };
-}
-
-interface Catalog {
-  version: string;
-  schemaVersion: number;
-  workspace: string;
-  languageCode: string;
-  languageName: string;
-  sections: Array<{
-    id: string;
-    kind: string;
-    title: string;
-    itemsUrl: string;
-  }>;
-}
-
-interface CsvRow {
-  workspace: string;
-  sectionId: string;
-  sectionKind: string;
-  packId: string;
-  title: string;
-  level: string;
-  estimatedMinutes: number;
-  scenario: string;
-  register: string;
-  primaryStructure: string;
-  variationSlots: string;
-  goal: string;
-  whyThisWorks: string;
-  entryUrl: string;
-  promptCount: number;
-  stepCount: number;
-}
+const CONTENT_DIR = process.env.CONTENT_DIR || join(__dirname, '..', 'content', 'v1');
+const EXPORTS_DIR = process.env.EXPORTS_DIR || join(__dirname, '..', 'exports', 'bundles');
 
 /**
- * Escape CSV field
+ * Parse command line arguments
  */
-function escapeCsvField(field: string): string {
-  if (!field) return '';
-  if (field.includes(',') || field.includes('"') || field.includes('\n')) {
-    return `"${field.replace(/"/g, '""')}"`;
-  }
-  return field;
-}
-
-/**
- * Load all items from pagination chain
- */
-function loadAllItemsFromSection(firstPageUrl: string): SectionIndexItem[] {
-  const allItems: SectionIndexItem[] = [];
-  let currentUrl: string | null = firstPageUrl;
-  const visitedPages = new Set<string>();
+function parseArgs(): BundleSelectionCriteria {
+  const args = process.argv.slice(2);
   
-  while (currentUrl) {
-    if (visitedPages.has(currentUrl)) {
-      throw new Error(`Circular reference detected at ${currentUrl}`);
-    }
-    visitedPages.add(currentUrl);
+  let workspace: string | null = null;
+  let bundleId: string | null = null;
+  let title: string | null = null;
+  const levels: string[] = [];
+  const scenarios: string[] = [];
+  const tags: string[] = [];
+  const includeSections: string[] = [];
+  let maxPacks: number | undefined;
+  let maxDrills: number | undefined;
+  let maxExams: number | undefined;
+  const explicitPackIds: string[] = [];
+  const explicitDrillIds: string[] = [];
+  const explicitExamIds: string[] = [];
+  
+  for (let i = 0; i < args.length; i++) {
+    const arg = args[i];
     
-    const relativePath = currentUrl.replace(/^\/v1\//, '');
-    const indexPath = join(CONTENT_DIR, relativePath);
-    
-    if (!existsSync(indexPath)) {
-      throw new Error(`Index file not found: ${indexPath}`);
-    }
-    
-    const content = readFileSync(indexPath, 'utf-8');
-    const index: SectionIndex = JSON.parse(content);
-    
-    allItems.push(...index.items);
-    currentUrl = index.nextPage || null;
-  }
-  
-  return allItems;
-}
-
-/**
- * Load pack entry document
- */
-function loadPackEntry(entryUrl: string): PackEntry {
-  const relativePath = entryUrl.replace(/^\/v1\//, '');
-  const entryPath = join(CONTENT_DIR, relativePath);
-  
-  if (!existsSync(entryPath)) {
-    throw new Error(`Pack entry not found: ${entryPath}`);
-  }
-  
-  const content = readFileSync(entryPath, 'utf-8');
-  return JSON.parse(content);
-}
-
-/**
- * Generate CSV row from pack
- */
-function generateCsvRow(
-  workspace: string,
-  sectionId: string,
-  sectionKind: string,
-  indexItem: SectionIndexItem,
-  pack: PackEntry
-): CsvRow {
-  const analyticsSummary = indexItem.analyticsSummary || {
-    primaryStructure: pack.primaryStructure,
-    variationSlots: pack.variationSlots || [],
-    drillType: pack.analytics?.drillType || '',
-    cognitiveLoad: pack.analytics?.cognitiveLoad || '',
-    goal: pack.analytics?.goal || '',
-    whyThisWorks: pack.analytics?.successCriteria || []
-  };
-  
-  return {
-    workspace,
-    sectionId,
-    sectionKind,
-    packId: pack.id,
-    title: pack.title,
-    level: pack.level,
-    estimatedMinutes: pack.estimatedMinutes || indexItem.durationMinutes || 15,
-    scenario: pack.scenario || indexItem.scenario || '',
-    register: pack.register || indexItem.register || '',
-    primaryStructure: pack.primaryStructure || indexItem.primaryStructure || '',
-    variationSlots: (pack.variationSlots || []).join('|'),
-    goal: analyticsSummary.goal,
-    whyThisWorks: analyticsSummary.whyThisWorks.join('|'),
-    entryUrl: indexItem.entryUrl,
-    promptCount: pack.prompts?.length || 0,
-    stepCount: pack.sessionPlan?.steps?.length || 0
-  };
-}
-
-/**
- * Generate markdown for a pack
- */
-function generatePackMarkdown(pack: PackEntry, analyticsSummary: SectionIndexItem['analyticsSummary']): string {
-  const lines: string[] = [];
-  
-  // Title
-  lines.push(`# ${pack.title}`);
-  lines.push('');
-  
-  // Metadata block
-  lines.push('## Metadata');
-  lines.push('');
-  lines.push(`- **Level**: ${pack.level}`);
-  lines.push(`- **Estimated Time**: ${pack.estimatedMinutes || 15} minutes`);
-  lines.push(`- **Scenario**: ${pack.scenario}`);
-  lines.push(`- **Register**: ${pack.register}`);
-  lines.push(`- **Primary Structure**: ${pack.primaryStructure}`);
-  lines.push(`- **Variation Slots**: ${(pack.variationSlots || []).join(', ')}`);
-  if (analyticsSummary?.goal) {
-    lines.push(`- **Goal**: ${analyticsSummary.goal}`);
-  }
-  lines.push('');
-  
-  // Why this works
-  if (analyticsSummary?.whyThisWorks && analyticsSummary.whyThisWorks.length > 0) {
-    lines.push('## Why This Works');
-    lines.push('');
-    for (const bullet of analyticsSummary.whyThisWorks) {
-      lines.push(`- ${bullet}`);
-    }
-    lines.push('');
-  }
-  
-  // Outline
-  if (pack.outline && pack.outline.length > 0) {
-    lines.push('## Outline');
-    lines.push('');
-    pack.outline.forEach((item, idx) => {
-      lines.push(`${idx + 1}. ${item}`);
-    });
-    lines.push('');
-  }
-  
-  // Session Plan
-  if (pack.sessionPlan && pack.sessionPlan.steps) {
-    lines.push('## Session Plan');
-    lines.push('');
-    pack.sessionPlan.steps.forEach((step, idx) => {
-      lines.push(`### Step ${idx + 1}: ${step.title}`);
-      lines.push('');
-      lines.push(`**Prompt IDs**: ${step.promptIds.join(', ')}`);
-      lines.push('');
-    });
-  }
-  
-  // Prompts (in sessionPlan order)
-  if (pack.prompts && pack.prompts.length > 0) {
-    lines.push('## Prompts');
-    lines.push('');
-    
-    // Create prompt lookup
-    const promptMap = new Map(pack.prompts.map(p => [p.id, p]));
-    
-    // Output prompts in sessionPlan order
-    if (pack.sessionPlan && pack.sessionPlan.steps) {
-      for (const step of pack.sessionPlan.steps) {
-        for (const promptId of step.promptIds) {
-          const prompt = promptMap.get(promptId);
-          if (prompt) {
-            lines.push(`### ${prompt.id}`);
-            lines.push('');
-            lines.push(`**German**: ${prompt.text}`);
-            if (prompt.gloss_en) {
-              lines.push(`**English**: ${prompt.gloss_en}`);
-            }
-            if (prompt.intent) {
-              lines.push(`**Intent**: ${prompt.intent}`);
-            }
-            lines.push('');
-          }
-        }
-      }
-    } else {
-      // Fallback: output all prompts
-      for (const prompt of pack.prompts) {
-        lines.push(`### ${prompt.id}`);
-        lines.push('');
-        lines.push(`**German**: ${prompt.text}`);
-        if (prompt.gloss_en) {
-          lines.push(`**English**: ${prompt.gloss_en}`);
-        }
-        if (prompt.intent) {
-          lines.push(`**Intent**: ${prompt.intent}`);
-        }
-        lines.push('');
-      }
+    if ((arg === '--workspace' || arg === '-w') && i + 1 < args.length) {
+      workspace = args[i + 1];
+      i++;
+    } else if ((arg === '--bundle-id' || arg === '--bundleId') && i + 1 < args.length) {
+      bundleId = args[i + 1];
+      i++;
+    } else if (arg === '--title' && i + 1 < args.length) {
+      title = args[i + 1];
+      i++;
+    } else if (arg === '--levels' && i + 1 < args.length) {
+      levels.push(...args[i + 1].split(',').map(l => l.trim().toUpperCase()));
+      i++;
+    } else if (arg === '--scenarios' && i + 1 < args.length) {
+      scenarios.push(...args[i + 1].split(',').map(s => s.trim().toLowerCase()));
+      i++;
+    } else if (arg === '--tags' && i + 1 < args.length) {
+      tags.push(...args[i + 1].split(',').map(t => t.trim()));
+      i++;
+    } else if (arg === '--include-sections' && i + 1 < args.length) {
+      includeSections.push(...args[i + 1].split(',').map(s => s.trim()));
+      i++;
+    } else if (arg === '--max-packs' && i + 1 < args.length) {
+      maxPacks = parseInt(args[i + 1], 10);
+      i++;
+    } else if (arg === '--max-drills' && i + 1 < args.length) {
+      maxDrills = parseInt(args[i + 1], 10);
+      i++;
+    } else if (arg === '--max-exams' && i + 1 < args.length) {
+      maxExams = parseInt(args[i + 1], 10);
+      i++;
+    } else if (arg === '--include-pack-ids' && i + 1 < args.length) {
+      explicitPackIds.push(...args[i + 1].split(',').map(id => id.trim()));
+      i++;
+    } else if (arg === '--include-drill-ids' && i + 1 < args.length) {
+      explicitDrillIds.push(...args[i + 1].split(',').map(id => id.trim()));
+      i++;
+    } else if (arg === '--include-exam-ids' && i + 1 < args.length) {
+      explicitExamIds.push(...args[i + 1].split(',').map(id => id.trim()));
+      i++;
     }
   }
   
-  // Suggested delivery notes
-  lines.push('## Suggested Delivery');
-  lines.push('');
-  lines.push(`- **Time Box**: ${pack.estimatedMinutes || 15} minutes`);
-  lines.push(`- **Repetition Rule**: Practice each prompt 2-3 times`);
-  if (pack.variationSlots && pack.variationSlots.length > 0) {
-    lines.push(`- **Substitution Slots**: ${pack.variationSlots.join(', ')}`);
-  }
-  lines.push('');
-  
-  // Footer
-  lines.push('---');
-  lines.push('');
-  lines.push(`*Content Version: v1 | Pack ID: ${pack.id}*`);
-  
-  // Try to get git SHA
-  try {
-    const gitSha = execSync('git rev-parse HEAD', { encoding: 'utf-8', stdio: 'pipe' }).trim();
-    if (gitSha) {
-      lines.push(`*Generated from: ${gitSha.substring(0, 7)}*`);
-    }
-  } catch {
-    // Git not available, skip
-  }
-  
-  return lines.join('\n');
-}
-
-/**
- * Export curriculum for a workspace
- */
-function exportCurriculum(workspaceId: string, outputDir: string, createZip: boolean = false): void {
-  console.log(`📦 Exporting curriculum for workspace: ${workspaceId}`);
-  console.log(`   Output directory: ${outputDir}`);
-  
-  // Validate content schema first (schema validation only, not quality gates)
-  console.log('\n🔍 Validating content schema...');
-  try {
-    execSync('npx tsx scripts/validate-content.ts', { 
-      encoding: 'utf-8', 
-      stdio: 'pipe',
-      cwd: join(__dirname, '..')
-    });
-    console.log('   ✅ Schema validation passed');
-  } catch (error: any) {
-    console.error('   ❌ Schema validation failed');
-    if (error.stdout) {
-      // Filter out warnings, show only errors
-      const lines = error.stdout.split('\n');
-      const errorLines = lines.filter((line: string) => line.includes('❌') || line.includes('Error:'));
-      if (errorLines.length > 0) {
-        console.error(errorLines.join('\n'));
-      } else {
-        console.error(error.stdout);
-      }
-    }
-    if (error.stderr) {
-      console.error(error.stderr);
-    }
-    console.error('\n⚠️  Export aborted due to schema validation failures.');
-    console.error('   Fix schema errors before exporting.');
+  // Validate required arguments
+  if (!workspace) {
+    console.error('❌ Error: --workspace is required');
     process.exit(1);
   }
   
-  // Load catalog
-  const catalogPath = join(CONTENT_DIR, 'workspaces', workspaceId, 'catalog.json');
-  if (!existsSync(catalogPath)) {
-    throw new Error(`Catalog not found: ${catalogPath}`);
+  if (!bundleId) {
+    console.error('❌ Error: --bundle-id is required');
+    process.exit(1);
   }
   
-  const catalog: Catalog = JSON.parse(readFileSync(catalogPath, 'utf-8'));
-  
-  // Create output directories
-  const workspaceOutDir = join(outputDir, workspaceId);
-  const packsOutDir = join(workspaceOutDir, 'packs');
-  const snapshotOutDir = join(workspaceOutDir, 'snapshot');
-  const indexesOutDir = join(snapshotOutDir, 'indexes');
-  const metaOutDir = join(workspaceOutDir, 'meta');
-  
-  mkdirSync(packsOutDir, { recursive: true });
-  mkdirSync(indexesOutDir, { recursive: true });
-  mkdirSync(metaOutDir, { recursive: true });
-  
-  // Collect all pack items
-  const csvRows: CsvRow[] = [];
-  const packItems: Array<{ sectionId: string; sectionKind: string; indexItem: SectionIndexItem; pack: PackEntry }> = [];
-  
-  for (const section of catalog.sections) {
-    const itemsUrl = section.itemsUrl;
-    if (!itemsUrl) continue;
-    
-    // Load all items from pagination chain
-    const items = loadAllItemsFromSection(itemsUrl);
-    
-    // Process pack items
-    for (const indexItem of items) {
-      if (indexItem.kind === 'pack' || indexItem.kind === 'context') {
-        try {
-          const pack = loadPackEntry(indexItem.entryUrl);
-          packItems.push({
-            sectionId: section.id,
-            sectionKind: section.kind,
-            indexItem,
-            pack
-          });
-          
-          // Generate CSV row
-          const csvRow = generateCsvRow(workspaceId, section.id, section.kind, indexItem, pack);
-          csvRows.push(csvRow);
-          
-          // Generate markdown
-          const markdown = generatePackMarkdown(pack, indexItem.analyticsSummary);
-          const markdownPath = join(packsOutDir, `${pack.id}.md`);
-          writeFileSync(markdownPath, markdown, 'utf-8');
-          
-        } catch (error: any) {
-          // Skip missing pack entries (test artifacts, etc.)
-          console.warn(`⚠️  Skipping ${indexItem.id}: ${error.message}`);
-        }
-      }
-    }
-    
-    // Copy index files to snapshot
-    let currentUrl: string | null = itemsUrl;
-    const visitedPages = new Set<string>();
-    let pageNum = 1;
-    
-    while (currentUrl) {
-      if (visitedPages.has(currentUrl)) break;
-      visitedPages.add(currentUrl);
-      
-      const relativePath = currentUrl.replace(/^\/v1\//, '');
-      const indexPath = join(CONTENT_DIR, relativePath);
-      
-      if (existsSync(indexPath)) {
-        const indexFileName = pageNum === 1 
-          ? `${section.id}.json`
-          : `${section.id}.page${pageNum}.json`;
-        const snapshotIndexPath = join(indexesOutDir, indexFileName);
-        copyFileSync(indexPath, snapshotIndexPath);
-      }
-      
-      const content = readFileSync(indexPath, 'utf-8');
-      const index: SectionIndex = JSON.parse(content);
-      currentUrl = index.nextPage || null;
-      pageNum++;
-    }
+  if (!title) {
+    console.error('❌ Error: --title is required');
+    process.exit(1);
   }
   
-  // Generate CSV
-  const csvHeaders = [
-    'workspace', 'sectionId', 'sectionKind', 'packId', 'title', 'level',
-    'estimatedMinutes', 'scenario', 'register', 'primaryStructure',
-    'variationSlots', 'goal', 'whyThisWorks', 'entryUrl', 'promptCount', 'stepCount'
-  ];
+  const criteria: BundleSelectionCriteria = {
+    workspace,
+    bundleId,
+    title,
+    levels: levels.length > 0 ? levels : undefined,
+    scenarios: scenarios.length > 0 ? scenarios : undefined,
+    tags: tags.length > 0 ? tags : undefined,
+    includeSections: includeSections.length > 0 ? includeSections : undefined,
+    maxPacks,
+    maxDrills,
+    maxExams,
+    explicitPackIds: explicitPackIds.length > 0 ? explicitPackIds : undefined,
+    explicitDrillIds: explicitDrillIds.length > 0 ? explicitDrillIds : undefined,
+    explicitExamIds: explicitExamIds.length > 0 ? explicitExamIds : undefined
+  };
   
-  const csvLines = [
-    csvHeaders.join(','),
-    ...csvRows.map(row => [
-      escapeCsvField(row.workspace),
-      escapeCsvField(row.sectionId),
-      escapeCsvField(row.sectionKind),
-      escapeCsvField(row.packId),
-      escapeCsvField(row.title),
-      escapeCsvField(row.level),
-      row.estimatedMinutes.toString(),
-      escapeCsvField(row.scenario),
-      escapeCsvField(row.register),
-      escapeCsvField(row.primaryStructure),
-      escapeCsvField(row.variationSlots),
-      escapeCsvField(row.goal),
-      escapeCsvField(row.whyThisWorks),
-      escapeCsvField(row.entryUrl),
-      row.promptCount.toString(),
-      row.stepCount.toString()
-    ].join(','))
-  ];
-  
-  const csvPath = join(workspaceOutDir, 'catalog.csv');
-  writeFileSync(csvPath, csvLines.join('\n') + '\n', 'utf-8');
-  console.log(`\n✅ Generated CSV: ${csvPath} (${csvRows.length} rows)`);
-  console.log(`   Generated ${packItems.length} pack markdown files`);
-  
-  // Copy catalog to snapshot
-  const snapshotCatalogPath = join(snapshotOutDir, 'catalog.json');
-  copyFileSync(catalogPath, snapshotCatalogPath);
-  
-  // Copy manifest and release
-  const manifestPath = join(META_DIR, 'manifest.json');
-  const releasePath = join(META_DIR, 'release.json');
-  
-  if (existsSync(manifestPath)) {
-    copyFileSync(manifestPath, join(metaOutDir, 'manifest.json'));
-  }
-  if (existsSync(releasePath)) {
-    copyFileSync(releasePath, join(metaOutDir, 'release.json'));
-  }
-  
-  // Create ZIP if requested
-  if (createZip) {
-    const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, -5);
-    const zipPath = join(outputDir, `${workspaceId}_${timestamp}_curriculum.zip`);
-    
-    console.log(`\n📦 Creating ZIP bundle: ${zipPath}`);
-    
-    try {
-      // Use zip command if available
-      execSync(`cd "${workspaceOutDir}" && zip -r "${zipPath}" .`, {
-        stdio: 'pipe'
-      });
-      console.log(`   ✅ ZIP created: ${zipPath}`);
-    } catch (error: any) {
-      console.warn(`   ⚠️  ZIP creation failed (zip command not available): ${error.message}`);
-      console.log(`   📁 Export files available in: ${workspaceOutDir}`);
-    }
-  }
-  
-  console.log(`\n✅ Curriculum export complete!`);
-  console.log(`   Output: ${workspaceOutDir}`);
+  return criteria;
 }
 
 /**
  * Main function
  */
 function main() {
-  const args = process.argv.slice(2);
-  
-  let workspace: string | null = null;
-  let outputDir = 'exports';
-  let createZip = false;
+  console.log('📦 B2B Curriculum Export v2');
+  console.log('─'.repeat(50));
   
   // Parse arguments
-  for (let i = 0; i < args.length; i++) {
-    if ((args[i] === '--workspace' || args[i] === '-w') && i + 1 < args.length) {
-      workspace = args[i + 1];
-      i++;
-    } else if ((args[i] === '--out' || args[i] === '-o') && i + 1 < args.length) {
-      outputDir = args[i + 1];
-      i++;
-    } else if (args[i] === '--zip') {
-      createZip = true;
-    }
-  }
+  const criteria = parseArgs();
   
-  if (!workspace) {
-    console.error('Usage: export-curriculum.ts --workspace <ws> [--out <dir>] [--zip]');
-    console.error('Example: npm run content:export -- --workspace de --out exports/ --zip');
+  // Validate workspace exists
+  const workspacePath = join(CONTENT_DIR, 'workspaces', criteria.workspace);
+  if (!existsSync(workspacePath)) {
+    console.error(`❌ Error: Workspace not found: ${workspacePath}`);
     process.exit(1);
   }
   
   // Create output directory
-  mkdirSync(outputDir, { recursive: true });
+  mkdirSync(EXPORTS_DIR, { recursive: true });
   
-  exportCurriculum(workspace, outputDir, createZip);
+  const bundleOutputDir = join(EXPORTS_DIR, criteria.bundleId);
+  
+  try {
+    // Build bundle
+    const bundle = buildBundle(criteria, CONTENT_DIR, bundleOutputDir);
+    
+    // Write artifacts
+    writeBundleArtifacts(bundle, CONTENT_DIR, bundleOutputDir);
+    
+    // Create ZIP
+    const zipPath = join(EXPORTS_DIR, `${criteria.bundleId}.zip`);
+    createBundleZip(bundleOutputDir, zipPath);
+    
+    console.log(`\n✅ Bundle export complete!`);
+    console.log(`   Bundle directory: ${bundleOutputDir}`);
+    console.log(`   ZIP file: ${zipPath}`);
+    console.log(`   Modules: ${bundle.modules.length}`);
+    console.log(`   Total items: ${bundle.totals.packs + bundle.totals.drills + bundle.totals.exams}`);
+    console.log(`   Estimated time: ${bundle.totals.estimatedMinutes} minutes`);
+    
+  } catch (error: any) {
+    console.error(`\n❌ Export failed: ${error.message}`);
+    if (error.stack) {
+      console.error(error.stack);
+    }
+    process.exit(1);
+  }
 }
 
 main();
-

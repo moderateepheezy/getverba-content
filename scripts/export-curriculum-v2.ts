@@ -23,10 +23,10 @@ import type {
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const CONTENT_DIR = join(__dirname, '..', '..', 'content', 'v1');
-const META_DIR = join(__dirname, '..', '..', 'content', 'meta');
-const EXPORTS_DIR = join(__dirname, '..', '..', 'exports');
-const TEMPLATES_DIR = join(__dirname, '..', '..', 'content', 'templates', 'v1', 'curriculum');
+const CONTENT_DIR = join(__dirname, '..', 'content', 'v1');
+const META_DIR = join(__dirname, '..', 'content', 'meta');
+const EXPORTS_DIR = join(__dirname, '..', 'exports');
+const TEMPLATES_DIR = join(__dirname, '..', 'content', 'templates', 'v1', 'curriculum');
 
 // Configuration constants
 const MIN_PACKS_PER_BUNDLE = 3;

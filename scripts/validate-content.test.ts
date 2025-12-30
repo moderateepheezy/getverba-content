@@ -4768,6 +4768,824 @@ test('analytics exitConditions invalid completeWhen fails validation', () => {
   cleanupTestDir();
 });
 
+// Test: packVersion required and must be semver
+test('packVersion required and must be semver format', () => {
+  setupTestDir();
+  
+  const workspace = 'test-ws';
+  const packId = 'test-pack-version';
+  const CONTENT_DIR = join(__dirname, '..', 'content', 'v1');
+  
+  // Test missing packVersion
+  const packMissing = {
+    schemaVersion: 1,
+    id: packId,
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test description',
+    outline: ['Step 1'],
+    scenario: 'work',
+    register: 'neutral',
+    primaryStructure: 'verb_position',
+    variationSlots: ['subject', 'verb'],
+    analytics: {
+      goal: 'Test goal',
+      constraints: ['constraint1'],
+      levers: ['subject'],
+      successCriteria: ['criteria1'],
+      commonMistakes: ['mistake1'],
+      drillType: 'substitution',
+      cognitiveLoad: 'low',
+      targetLatencyMs: 800,
+      successDefinition: '2 consecutive passes',
+      keyFailureModes: ['verb position']
+    },
+    sessionPlan: {
+      version: 1,
+      steps: [{ id: 'step1', title: 'Step 1', promptIds: [] }]
+    }
+  };
+  
+  mkdirSync(join(CONTENT_DIR, 'workspaces', workspace, 'packs', packId), { recursive: true });
+  writeFileSync(
+    join(CONTENT_DIR, 'workspaces', workspace, 'packs', packId, 'pack.json'),
+    JSON.stringify(packMissing, null, 2)
+  );
+  
+  try {
+    const output = execSync('tsx scripts/validate-content.ts 2>&1', {
+      cwd: join(__dirname, '..'),
+      encoding: 'utf-8',
+      stdio: 'pipe'
+    });
+    assert(output.includes('packVersion'), 'Should fail validation for missing packVersion');
+  } catch (err: any) {
+    // Expected - validation should fail
+    assert(err.stdout?.includes('packVersion') || err.stderr?.includes('packVersion'), 'Should fail validation for missing packVersion');
+  }
+  
+  // Test invalid semver format
+  const packInvalid = { ...packMissing, packVersion: '1.0' }; // Missing patch version
+  writeFileSync(
+    join(CONTENT_DIR, 'workspaces', workspace, 'packs', packId, 'pack.json'),
+    JSON.stringify(packInvalid, null, 2)
+  );
+  
+  try {
+    const output = execSync('tsx scripts/validate-content.ts 2>&1', {
+      cwd: join(__dirname, '..'),
+      encoding: 'utf-8',
+      stdio: 'pipe'
+    });
+    assert(output.includes('semver') || output.includes('packVersion'), 'Should fail validation for invalid semver format');
+  } catch (err: any) {
+    // Expected - validation should fail
+    assert(err.stdout?.includes('semver') || err.stdout?.includes('packVersion') || err.stderr?.includes('semver') || err.stderr?.includes('packVersion'), 'Should fail validation for invalid semver format');
+  }
+  
+  cleanupTestDir();
+});
+
+// Test: Analytics telemetry fields required
+test('analytics telemetry fields (targetLatencyMs, successDefinition, keyFailureModes) required', () => {
+  setupTestDir();
+  
+  const workspace = 'test-ws';
+  const packId = 'test-pack-telemetry';
+  const CONTENT_DIR = join(__dirname, '..', 'content', 'v1');
+  
+  // Test missing targetLatencyMs
+  const packMissingLatency = {
+    schemaVersion: 1,
+    id: packId,
+    kind: 'pack',
+    packVersion: '1.0.0',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test description',
+    outline: ['Step 1'],
+    scenario: 'work',
+    register: 'neutral',
+    primaryStructure: 'verb_position',
+    variationSlots: ['subject', 'verb'],
+    analytics: {
+      goal: 'Test goal',
+      constraints: ['constraint1'],
+      levers: ['subject'],
+      successCriteria: ['criteria1'],
+      commonMistakes: ['mistake1'],
+      drillType: 'substitution',
+      cognitiveLoad: 'low',
+      successDefinition: '2 consecutive passes',
+      keyFailureModes: ['verb position']
+      // Missing targetLatencyMs
+    },
+    sessionPlan: {
+      version: 1,
+      steps: [{ id: 'step1', title: 'Step 1', promptIds: [] }]
+    }
+  };
+  
+  mkdirSync(join(CONTENT_DIR, 'workspaces', workspace, 'packs', packId), { recursive: true });
+  writeFileSync(
+    join(CONTENT_DIR, 'workspaces', workspace, 'packs', packId, 'pack.json'),
+    JSON.stringify(packMissingLatency, null, 2)
+  );
+  
+  try {
+    const output = execSync('tsx scripts/validate-content.ts 2>&1', {
+      cwd: join(__dirname, '..'),
+      encoding: 'utf-8',
+      stdio: 'pipe'
+    });
+    assert(output.includes('targetLatencyMs'), 'Should fail validation for missing targetLatencyMs');
+  } catch (err: any) {
+    // Expected - validation should fail
+    assert(err.stdout?.includes('targetLatencyMs') || err.stderr?.includes('targetLatencyMs'), 'Should fail validation for missing targetLatencyMs');
+  }
+  
+  // Test targetLatencyMs out of bounds
+  const packInvalidLatency = {
+    ...packMissingLatency,
+    analytics: {
+      ...packMissingLatency.analytics,
+      targetLatencyMs: 100 // Too low (< 200)
+    }
+  };
+  writeFileSync(
+    join(CONTENT_DIR, 'workspaces', workspace, 'packs', packId, 'pack.json'),
+    JSON.stringify(packInvalidLatency, null, 2)
+  );
+  
+  try {
+    const output = execSync('tsx scripts/validate-content.ts 2>&1', {
+      cwd: join(__dirname, '..'),
+      encoding: 'utf-8',
+      stdio: 'pipe'
+    });
+    assert(output.includes('targetLatencyMs') || output.includes('200'), 'Should fail validation for targetLatencyMs out of bounds');
+  } catch (err: any) {
+    // Expected - validation should fail
+    assert(err.stdout?.includes('targetLatencyMs') || err.stdout?.includes('200') || err.stderr?.includes('targetLatencyMs') || err.stderr?.includes('200'), 'Should fail validation for targetLatencyMs out of bounds');
+  }
+  
+  cleanupTestDir();
+});
+
+// Test: promptId uniqueness enforced
+test('promptId uniqueness enforced within pack', () => {
+  setupTestDir();
+  
+  const workspace = 'test-ws';
+  const packId = 'test-pack-duplicate-ids';
+  const CONTENT_DIR = join(__dirname, '..', 'content', 'v1');
+  
+  const packWithDuplicates = {
+    schemaVersion: 1,
+    id: packId,
+    kind: 'pack',
+    packVersion: '1.0.0',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test description',
+    outline: ['Step 1'],
+    scenario: 'work',
+    register: 'neutral',
+    primaryStructure: 'verb_position',
+    variationSlots: ['subject', 'verb'],
+    analytics: {
+      goal: 'Test goal',
+      constraints: ['constraint1'],
+      levers: ['subject'],
+      successCriteria: ['criteria1'],
+      commonMistakes: ['mistake1'],
+      drillType: 'substitution',
+      cognitiveLoad: 'low',
+      targetLatencyMs: 800,
+      successDefinition: '2 consecutive passes',
+      keyFailureModes: ['verb position']
+    },
+    prompts: [
+      { id: 'prompt-001', text: 'First prompt', intent: 'inform', gloss_en: 'First' },
+      { id: 'prompt-001', text: 'Duplicate ID', intent: 'inform', gloss_en: 'Duplicate' } // Duplicate ID
+    ],
+    sessionPlan: {
+      version: 1,
+      steps: [
+        {
+          id: 'step1',
+          title: 'Step 1',
+          promptIds: ['prompt-001']
+        }
+      ]
+    }
+  };
+  
+  mkdirSync(join(CONTENT_DIR, 'workspaces', workspace, 'packs', packId), { recursive: true });
+  writeFileSync(
+    join(CONTENT_DIR, 'workspaces', workspace, 'packs', packId, 'pack.json'),
+    JSON.stringify(packWithDuplicates, null, 2)
+  );
+  
+  try {
+    const output = execSync('tsx scripts/validate-content.ts 2>&1', {
+      cwd: join(__dirname, '..'),
+      encoding: 'utf-8',
+      stdio: 'pipe'
+    });
+    assert(output.includes('duplicate') || output.includes('prompt-001'), 'Should fail validation for duplicate prompt IDs');
+  } catch (err: any) {
+    // Expected - validation should fail
+    assert(err.stdout?.includes('duplicate') || err.stdout?.includes('prompt-001') || err.stderr?.includes('duplicate') || err.stderr?.includes('prompt-001'), 'Should fail validation for duplicate prompt IDs');
+  }
+  
+  cleanupTestDir();
+});
+
+// ============================================================================
+// COMPREHENSIVE TELEMETRY CONTRACT TESTS
+// ============================================================================
+
+// Test: packVersion - valid semver formats pass
+test('packVersion valid semver formats pass validation', () => {
+  setupTestDir();
+  
+  const workspace = 'test-ws';
+  const packId = 'test-pack-valid-version';
+  const CONTENT_DIR = join(__dirname, '..', 'content', 'v1');
+  
+  const validVersions = ['1.0.0', '0.1.0', '10.20.30', '1.2.3', '999.999.999'];
+  
+  for (const version of validVersions) {
+    const pack = {
+      schemaVersion: 1,
+      id: packId,
+      kind: 'pack',
+      packVersion: version,
+      title: 'Test Pack',
+      level: 'A1',
+      estimatedMinutes: 15,
+      description: 'Test description',
+      outline: ['Step 1'],
+      scenario: 'work',
+      register: 'neutral',
+      primaryStructure: 'verb_position',
+      variationSlots: ['subject', 'verb'],
+      analytics: {
+        goal: 'Test goal',
+        constraints: ['constraint1'],
+        levers: ['subject'],
+        successCriteria: ['criteria1'],
+        commonMistakes: ['mistake1'],
+        drillType: 'substitution',
+        cognitiveLoad: 'low',
+        targetLatencyMs: 800,
+        successDefinition: '2 consecutive passes',
+        keyFailureModes: ['verb position']
+      },
+      sessionPlan: {
+        version: 1,
+        steps: [{ id: 'step1', title: 'Step 1', promptIds: [] }]
+      }
+    };
+    
+    mkdirSync(join(CONTENT_DIR, 'workspaces', workspace, 'packs', packId), { recursive: true });
+    writeFileSync(
+      join(CONTENT_DIR, 'workspaces', workspace, 'packs', packId, 'pack.json'),
+      JSON.stringify(pack, null, 2)
+    );
+    
+    try {
+      const output = execSync('tsx scripts/validate-content.ts 2>&1', {
+        cwd: join(__dirname, '..'),
+        encoding: 'utf-8',
+        stdio: 'pipe'
+      });
+      // Should not contain packVersion error for valid versions
+      if (output.includes('packVersion') && !output.includes('✅')) {
+        throw new Error(`Valid version ${version} failed validation: ${output}`);
+      }
+    } catch (err: any) {
+      // If validation fails, check it's not due to packVersion
+      if (err.stdout && err.stdout.includes('packVersion') && !err.stdout.includes('✅')) {
+        throw new Error(`Valid version ${version} failed: ${err.stdout}`);
+      }
+    }
+  }
+  
+  cleanupTestDir();
+});
+
+// Test: packVersion - invalid semver formats fail
+test('packVersion invalid semver formats fail validation', () => {
+  setupTestDir();
+  
+  const workspace = 'test-ws';
+  const packId = 'test-pack-invalid-version';
+  const CONTENT_DIR = join(__dirname, '..', 'content', 'v1');
+  
+  const invalidVersions = ['1.0', '1', 'v1.0.0', '1.0.0-beta', '1.0.0.1', '1.0', '1.0.0.0', 'latest'];
+  
+  for (const version of invalidVersions) {
+    const pack = {
+      schemaVersion: 1,
+      id: packId,
+      kind: 'pack',
+      packVersion: version,
+      title: 'Test Pack',
+      level: 'A1',
+      estimatedMinutes: 15,
+      description: 'Test description',
+      outline: ['Step 1'],
+      scenario: 'work',
+      register: 'neutral',
+      primaryStructure: 'verb_position',
+      variationSlots: ['subject', 'verb'],
+      analytics: {
+        goal: 'Test goal',
+        constraints: ['constraint1'],
+        levers: ['subject'],
+        successCriteria: ['criteria1'],
+        commonMistakes: ['mistake1'],
+        drillType: 'substitution',
+        cognitiveLoad: 'low',
+        targetLatencyMs: 800,
+        successDefinition: '2 consecutive passes',
+        keyFailureModes: ['verb position']
+      },
+      sessionPlan: {
+        version: 1,
+        steps: [{ id: 'step1', title: 'Step 1', promptIds: [] }]
+      }
+    };
+    
+    mkdirSync(join(CONTENT_DIR, 'workspaces', workspace, 'packs', packId), { recursive: true });
+    writeFileSync(
+      join(CONTENT_DIR, 'workspaces', workspace, 'packs', packId, 'pack.json'),
+      JSON.stringify(pack, null, 2)
+    );
+    
+    try {
+      const output = execSync('tsx scripts/validate-content.ts 2>&1', {
+        cwd: join(__dirname, '..'),
+        encoding: 'utf-8',
+        stdio: 'pipe'
+      });
+      assert(output.includes('packVersion') || output.includes('semver'), `Invalid version ${version} should fail validation`);
+    } catch (err: any) {
+      // Expected - validation should fail
+      const errorOutput = err.stdout || err.stderr || '';
+      assert(errorOutput.includes('packVersion') || errorOutput.includes('semver'), `Invalid version ${version} should fail validation`);
+    }
+  }
+  
+  cleanupTestDir();
+});
+
+// Test: targetLatencyMs - all bounds tested
+test('targetLatencyMs bounds validation (200-5000)', () => {
+  setupTestDir();
+  
+  const workspace = 'test-ws';
+  const packId = 'test-pack-latency';
+  const CONTENT_DIR = join(__dirname, '..', 'content', 'v1');
+  
+  // Test values at and beyond bounds
+  const testCases = [
+    { value: 199, shouldFail: true, reason: 'below minimum' },
+    { value: 200, shouldFail: false, reason: 'at minimum' },
+    { value: 2500, shouldFail: false, reason: 'within range' },
+    { value: 5000, shouldFail: false, reason: 'at maximum' },
+    { value: 5001, shouldFail: true, reason: 'above maximum' },
+    { value: 0, shouldFail: true, reason: 'zero' },
+    { value: -100, shouldFail: true, reason: 'negative' }
+  ];
+  
+  for (const testCase of testCases) {
+    const pack = {
+      schemaVersion: 1,
+      id: packId,
+      kind: 'pack',
+      packVersion: '1.0.0',
+      title: 'Test Pack',
+      level: 'A1',
+      estimatedMinutes: 15,
+      description: 'Test description',
+      outline: ['Step 1'],
+      scenario: 'work',
+      register: 'neutral',
+      primaryStructure: 'verb_position',
+      variationSlots: ['subject', 'verb'],
+      analytics: {
+        goal: 'Test goal',
+        constraints: ['constraint1'],
+        levers: ['subject'],
+        successCriteria: ['criteria1'],
+        commonMistakes: ['mistake1'],
+        drillType: 'substitution',
+        cognitiveLoad: 'low',
+        targetLatencyMs: testCase.value,
+        successDefinition: '2 consecutive passes',
+        keyFailureModes: ['verb position']
+      },
+      sessionPlan: {
+        version: 1,
+        steps: [{ id: 'step1', title: 'Step 1', promptIds: [] }]
+      }
+    };
+    
+    mkdirSync(join(CONTENT_DIR, 'workspaces', workspace, 'packs', packId), { recursive: true });
+    writeFileSync(
+      join(CONTENT_DIR, 'workspaces', workspace, 'packs', packId, 'pack.json'),
+      JSON.stringify(pack, null, 2)
+    );
+    
+    try {
+      const output = execSync('tsx scripts/validate-content.ts 2>&1', {
+        cwd: join(__dirname, '..'),
+        encoding: 'utf-8',
+        stdio: 'pipe'
+      });
+      
+      if (testCase.shouldFail) {
+        assert(output.includes('targetLatencyMs') || output.includes('200') || output.includes('5000'), 
+          `targetLatencyMs ${testCase.value} (${testCase.reason}) should fail validation`);
+      } else {
+        // Should not have targetLatencyMs error
+        if (output.includes('targetLatencyMs') && !output.includes('✅')) {
+          throw new Error(`Valid targetLatencyMs ${testCase.value} (${testCase.reason}) failed: ${output}`);
+        }
+      }
+    } catch (err: any) {
+      const errorOutput = err.stdout || err.stderr || '';
+      if (testCase.shouldFail) {
+        assert(errorOutput.includes('targetLatencyMs') || errorOutput.includes('200') || errorOutput.includes('5000'), 
+          `targetLatencyMs ${testCase.value} (${testCase.reason}) should fail validation`);
+      } else {
+        throw new Error(`Valid targetLatencyMs ${testCase.value} (${testCase.reason}) should pass: ${errorOutput}`);
+      }
+    }
+  }
+  
+  cleanupTestDir();
+});
+
+// Test: successDefinition - length bounds
+test('successDefinition length validation (1-140 chars)', () => {
+  setupTestDir();
+  
+  const workspace = 'test-ws';
+  const packId = 'test-pack-success-def';
+  const CONTENT_DIR = join(__dirname, '..', 'content', 'v1');
+  
+  const testCases = [
+    { value: '', shouldFail: true, reason: 'empty string' },
+    { value: 'A', shouldFail: false, reason: '1 char (minimum)' },
+    { value: '2 consecutive passes', shouldFail: false, reason: 'within range' },
+    { value: 'A'.repeat(140), shouldFail: false, reason: '140 chars (maximum)' },
+    { value: 'A'.repeat(141), shouldFail: true, reason: '141 chars (over maximum)' }
+  ];
+  
+  for (const testCase of testCases) {
+    const pack = {
+      schemaVersion: 1,
+      id: packId,
+      kind: 'pack',
+      packVersion: '1.0.0',
+      title: 'Test Pack',
+      level: 'A1',
+      estimatedMinutes: 15,
+      description: 'Test description',
+      outline: ['Step 1'],
+      scenario: 'work',
+      register: 'neutral',
+      primaryStructure: 'verb_position',
+      variationSlots: ['subject', 'verb'],
+      analytics: {
+        goal: 'Test goal',
+        constraints: ['constraint1'],
+        levers: ['subject'],
+        successCriteria: ['criteria1'],
+        commonMistakes: ['mistake1'],
+        drillType: 'substitution',
+        cognitiveLoad: 'low',
+        targetLatencyMs: 800,
+        successDefinition: testCase.value,
+        keyFailureModes: ['verb position']
+      },
+      sessionPlan: {
+        version: 1,
+        steps: [{ id: 'step1', title: 'Step 1', promptIds: [] }]
+      }
+    };
+    
+    mkdirSync(join(CONTENT_DIR, 'workspaces', workspace, 'packs', packId), { recursive: true });
+    writeFileSync(
+      join(CONTENT_DIR, 'workspaces', workspace, 'packs', packId, 'pack.json'),
+      JSON.stringify(pack, null, 2)
+    );
+    
+    try {
+      const output = execSync('tsx scripts/validate-content.ts 2>&1', {
+        cwd: join(__dirname, '..'),
+        encoding: 'utf-8',
+        stdio: 'pipe'
+      });
+      
+      if (testCase.shouldFail) {
+        assert(output.includes('successDefinition') || output.includes('140'), 
+          `successDefinition "${testCase.value.substring(0, 20)}..." (${testCase.reason}) should fail validation`);
+      }
+    } catch (err: any) {
+      const errorOutput = err.stdout || err.stderr || '';
+      if (testCase.shouldFail) {
+        assert(errorOutput.includes('successDefinition') || errorOutput.includes('140'), 
+          `successDefinition "${testCase.value.substring(0, 20)}..." (${testCase.reason}) should fail validation`);
+      } else if (errorOutput.includes('successDefinition') && !errorOutput.includes('✅')) {
+        throw new Error(`Valid successDefinition (${testCase.reason}) should pass: ${errorOutput}`);
+      }
+    }
+  }
+  
+  cleanupTestDir();
+});
+
+// Test: keyFailureModes - array bounds and item length
+test('keyFailureModes array and item length validation', () => {
+  setupTestDir();
+  
+  const workspace = 'test-ws';
+  const packId = 'test-pack-failure-modes';
+  const CONTENT_DIR = join(__dirname, '..', 'content', 'v1');
+  
+  const testCases = [
+    { value: [], shouldFail: true, reason: 'empty array' },
+    { value: ['verb position'], shouldFail: false, reason: '1 item (minimum)' },
+    { value: ['mode1', 'mode2', 'mode3', 'mode4', 'mode5', 'mode6'], shouldFail: false, reason: '6 items (maximum)' },
+    { value: ['mode1', 'mode2', 'mode3', 'mode4', 'mode5', 'mode6', 'mode7'], shouldFail: true, reason: '7 items (over maximum)' },
+    { value: ['A'.repeat(40)], shouldFail: false, reason: '40 chars per item (maximum)' },
+    { value: ['A'.repeat(41)], shouldFail: true, reason: '41 chars per item (over maximum)' },
+    { value: [''], shouldFail: true, reason: 'empty string in array' }
+  ];
+  
+  for (const testCase of testCases) {
+    const pack = {
+      schemaVersion: 1,
+      id: packId,
+      kind: 'pack',
+      packVersion: '1.0.0',
+      title: 'Test Pack',
+      level: 'A1',
+      estimatedMinutes: 15,
+      description: 'Test description',
+      outline: ['Step 1'],
+      scenario: 'work',
+      register: 'neutral',
+      primaryStructure: 'verb_position',
+      variationSlots: ['subject', 'verb'],
+      analytics: {
+        goal: 'Test goal',
+        constraints: ['constraint1'],
+        levers: ['subject'],
+        successCriteria: ['criteria1'],
+        commonMistakes: ['mistake1'],
+        drillType: 'substitution',
+        cognitiveLoad: 'low',
+        targetLatencyMs: 800,
+        successDefinition: '2 consecutive passes',
+        keyFailureModes: testCase.value
+      },
+      sessionPlan: {
+        version: 1,
+        steps: [{ id: 'step1', title: 'Step 1', promptIds: [] }]
+      }
+    };
+    
+    mkdirSync(join(CONTENT_DIR, 'workspaces', workspace, 'packs', packId), { recursive: true });
+    writeFileSync(
+      join(CONTENT_DIR, 'workspaces', workspace, 'packs', packId, 'pack.json'),
+      JSON.stringify(pack, null, 2)
+    );
+    
+    try {
+      const output = execSync('tsx scripts/validate-content.ts 2>&1', {
+        cwd: join(__dirname, '..'),
+        encoding: 'utf-8',
+        stdio: 'pipe'
+      });
+      
+      if (testCase.shouldFail) {
+        assert(output.includes('keyFailureModes') || output.includes('40') || output.includes('6'), 
+          `keyFailureModes ${testCase.reason} should fail validation`);
+      }
+    } catch (err: any) {
+      const errorOutput = err.stdout || err.stderr || '';
+      if (testCase.shouldFail) {
+        assert(errorOutput.includes('keyFailureModes') || errorOutput.includes('40') || errorOutput.includes('6'), 
+          `keyFailureModes ${testCase.reason} should fail validation`);
+      } else if (errorOutput.includes('keyFailureModes') && !errorOutput.includes('✅')) {
+        throw new Error(`Valid keyFailureModes (${testCase.reason}) should pass: ${errorOutput}`);
+      }
+    }
+  }
+  
+  cleanupTestDir();
+});
+
+// Test: promptId uniqueness - multiple duplicates
+test('promptId uniqueness - multiple duplicates detected', () => {
+  setupTestDir();
+  
+  const workspace = 'test-ws';
+  const packId = 'test-pack-multiple-duplicates';
+  const CONTENT_DIR = join(__dirname, '..', 'content', 'v1');
+  
+  const pack = {
+    schemaVersion: 1,
+    id: packId,
+    kind: 'pack',
+    packVersion: '1.0.0',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test description',
+    outline: ['Step 1'],
+    scenario: 'work',
+    register: 'neutral',
+    primaryStructure: 'verb_position',
+    variationSlots: ['subject', 'verb'],
+    analytics: {
+      goal: 'Test goal',
+      constraints: ['constraint1'],
+      levers: ['subject'],
+      successCriteria: ['criteria1'],
+      commonMistakes: ['mistake1'],
+      drillType: 'substitution',
+      cognitiveLoad: 'low',
+      targetLatencyMs: 800,
+      successDefinition: '2 consecutive passes',
+      keyFailureModes: ['verb position']
+    },
+    prompts: [
+      { id: 'prompt-001', text: 'First', intent: 'inform', gloss_en: 'First' },
+      { id: 'prompt-001', text: 'Duplicate 1', intent: 'inform', gloss_en: 'Dup1' },
+      { id: 'prompt-002', text: 'Second', intent: 'inform', gloss_en: 'Second' },
+      { id: 'prompt-002', text: 'Duplicate 2', intent: 'inform', gloss_en: 'Dup2' },
+      { id: 'prompt-003', text: 'Third', intent: 'inform', gloss_en: 'Third' }
+    ],
+    sessionPlan: {
+      version: 1,
+      steps: [
+        {
+          id: 'step1',
+          title: 'Step 1',
+          promptIds: ['prompt-001', 'prompt-002', 'prompt-003']
+        }
+      ]
+    }
+  };
+  
+  mkdirSync(join(CONTENT_DIR, 'workspaces', workspace, 'packs', packId), { recursive: true });
+  writeFileSync(
+    join(CONTENT_DIR, 'workspaces', workspace, 'packs', packId, 'pack.json'),
+    JSON.stringify(pack, null, 2)
+  );
+  
+  try {
+    const output = execSync('tsx scripts/validate-content.ts 2>&1', {
+      cwd: join(__dirname, '..'),
+      encoding: 'utf-8',
+      stdio: 'pipe'
+    });
+    assert((output.includes('duplicate') || output.includes('prompt-001') || output.includes('prompt-002')), 
+      'Should detect multiple duplicate prompt IDs');
+  } catch (err: any) {
+    const errorOutput = err.stdout || err.stderr || '';
+    assert((errorOutput.includes('duplicate') || errorOutput.includes('prompt-001') || errorOutput.includes('prompt-002')), 
+      'Should detect multiple duplicate prompt IDs');
+  }
+  
+  cleanupTestDir();
+});
+
+// Test: Complete valid pack with all telemetry fields passes
+test('complete valid pack with all telemetry fields passes validation', () => {
+  setupTestDir();
+  
+  const workspace = 'test-ws';
+  const packId = 'test-pack-complete-valid';
+  const CONTENT_DIR = join(__dirname, '..', 'content', 'v1');
+  
+  const pack = {
+    schemaVersion: 1,
+    id: packId,
+    kind: 'pack',
+    packVersion: '1.0.0',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test description',
+    outline: ['Step 1', 'Step 2'],
+    scenario: 'work',
+    register: 'neutral',
+    primaryStructure: 'verb_position',
+    variationSlots: ['subject', 'verb', 'object'],
+    analytics: {
+      goal: 'Test goal',
+      constraints: ['constraint1', 'constraint2'],
+      levers: ['subject', 'verb'],
+      successCriteria: ['criteria1', 'criteria2'],
+      commonMistakes: ['mistake1', 'mistake2'],
+      drillType: 'substitution',
+      cognitiveLoad: 'low',
+      targetLatencyMs: 800,
+      successDefinition: '2 consecutive passes with response time under 800ms',
+      keyFailureModes: ['verb position', 'case ending'],
+      primaryStructure: 'verb_position',
+      variationSlots: ['subject', 'verb', 'object']
+    },
+    prompts: [
+      { 
+        id: 'prompt-001', 
+        text: 'Ich gehe zur Arbeit', 
+        intent: 'inform', 
+        gloss_en: 'I go to work',
+        slots: {
+          subject: ['Ich'],
+          verb: ['gehe'],
+          object: ['zur Arbeit']
+        }
+      },
+      { 
+        id: 'prompt-002', 
+        text: 'Wir fahren ins Büro', 
+        intent: 'inform', 
+        gloss_en: 'We drive to the office',
+        slots: {
+          subject: ['Wir'],
+          verb: ['fahren'],
+          object: ['ins Büro']
+        }
+      }
+    ],
+    sessionPlan: {
+      version: 1,
+      steps: [
+        {
+          id: 'step1',
+          title: 'Step 1',
+          promptIds: ['prompt-001', 'prompt-002']
+        }
+      ]
+    },
+    tags: ['test', 'telemetry']
+  };
+  
+  mkdirSync(join(CONTENT_DIR, 'workspaces', workspace, 'packs', packId), { recursive: true });
+  writeFileSync(
+    join(CONTENT_DIR, 'workspaces', workspace, 'packs', packId, 'pack.json'),
+    JSON.stringify(pack, null, 2)
+  );
+  
+  try {
+    const output = execSync('tsx scripts/validate-content.ts 2>&1', {
+      cwd: join(__dirname, '..'),
+      encoding: 'utf-8',
+      stdio: 'pipe'
+    });
+    // Should not have any errors related to telemetry fields
+    assert(!output.includes('packVersion') || output.includes('✅'), 'packVersion should be valid');
+    assert(!output.includes('targetLatencyMs') || output.includes('✅'), 'targetLatencyMs should be valid');
+    assert(!output.includes('successDefinition') || output.includes('✅'), 'successDefinition should be valid');
+    assert(!output.includes('keyFailureModes') || output.includes('✅'), 'keyFailureModes should be valid');
+    assert(!output.includes('duplicate'), 'Should not have duplicate prompt IDs');
+  } catch (err: any) {
+    const errorOutput = err.stdout || err.stderr || '';
+    // If there are errors, they should not be related to telemetry fields
+    if (errorOutput.includes('packVersion') && !errorOutput.includes('✅')) {
+      throw new Error(`Valid packVersion failed: ${errorOutput}`);
+    }
+    if (errorOutput.includes('targetLatencyMs') && !errorOutput.includes('✅')) {
+      throw new Error(`Valid targetLatencyMs failed: ${errorOutput}`);
+    }
+    if (errorOutput.includes('successDefinition') && !errorOutput.includes('✅')) {
+      throw new Error(`Valid successDefinition failed: ${errorOutput}`);
+    }
+    if (errorOutput.includes('keyFailureModes') && !errorOutput.includes('✅')) {
+      throw new Error(`Valid keyFailureModes failed: ${errorOutput}`);
+    }
+    if (errorOutput.includes('duplicate')) {
+      throw new Error(`Should not have duplicate IDs: ${errorOutput}`);
+    }
+  }
+  
+  cleanupTestDir();
+});
+
 // Run all tests
 function runTests() {
   console.log('Running unit tests...\n');

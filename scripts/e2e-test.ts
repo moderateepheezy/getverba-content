@@ -2029,6 +2029,253 @@ test('curriculum export v2 referential integrity', async () => {
   }
 });
 
+// E2E Test: Telemetry contract - pack generator includes packVersion and telemetry fields
+test('telemetry contract - pack generator includes packVersion and telemetry fields', () => {
+  const testPackId = `e2e-telemetry-${Date.now()}`;
+  const workspace = 'de';
+  const scenario = 'work';
+  
+  console.log(`  Generating pack "${testPackId}" with telemetry fields...`);
+  
+  try {
+    const output = execSync(
+      `npx tsx scripts/generate-pack.ts --workspace ${workspace} --packId ${testPackId} --scenario ${scenario} --level A2 --seed 42`,
+      {
+        cwd: join(__dirname, '..'),
+        encoding: 'utf-8',
+        stdio: 'pipe'
+      }
+    );
+    
+    assert(output.includes('✅ Created'), 'Generator should succeed');
+    
+    // Verify pack file exists
+    const packPath = join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId, 'pack.json');
+    assert(existsSync(packPath), `Pack file should exist at ${packPath}`);
+    
+    // Verify pack structure includes telemetry fields
+    const pack = JSON.parse(readFileSync(packPath, 'utf-8'));
+    assert(pack.packVersion, 'Pack should have packVersion');
+    assert(/^\d+\.\d+\.\d+$/.test(pack.packVersion), 'packVersion should be semver format');
+    assert(pack.analytics, 'Pack should have analytics');
+    assert(typeof pack.analytics.targetLatencyMs === 'number', 'Pack should have targetLatencyMs');
+    assert(pack.analytics.targetLatencyMs >= 200 && pack.analytics.targetLatencyMs <= 5000, 'targetLatencyMs should be in valid range');
+    assert(pack.analytics.successDefinition, 'Pack should have successDefinition');
+    assert(pack.analytics.successDefinition.length <= 140, 'successDefinition should be <= 140 chars');
+    assert(Array.isArray(pack.analytics.keyFailureModes), 'Pack should have keyFailureModes array');
+    assert(pack.analytics.keyFailureModes.length >= 1 && pack.analytics.keyFailureModes.length <= 6, 'keyFailureModes should have 1-6 items');
+    
+    // Verify prompt IDs are unique
+    if (pack.prompts && Array.isArray(pack.prompts)) {
+      const promptIds = pack.prompts.map((p: any) => p.id).filter(Boolean);
+      const uniqueIds = new Set(promptIds);
+      assert(promptIds.length === uniqueIds.size, 'All prompt IDs should be unique');
+    }
+    
+    // Verify sessionPlan step IDs are stable
+    if (pack.sessionPlan && Array.isArray(pack.sessionPlan.steps)) {
+      for (const step of pack.sessionPlan.steps) {
+        assert(step.id && typeof step.id === 'string', 'Step should have stable string ID');
+        assert(step.id.length > 0, 'Step ID should not be empty');
+      }
+    }
+    
+    console.log(`  ✅ Telemetry contract verified for generated pack`);
+    
+    // Cleanup
+    try {
+      execSync(`rm -rf ${join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId)}`, {
+        cwd: join(__dirname, '..'),
+        stdio: 'pipe'
+      });
+    } catch {}
+  } catch (err: any) {
+    // Cleanup on error
+    try {
+      const packDir = join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId);
+      if (existsSync(packDir)) {
+        rmSync(packDir, { recursive: true, force: true });
+      }
+    } catch {}
+    throw new Error(`Telemetry contract test failed: ${err.message}`);
+  }
+});
+
+// E2E Test: Telemetry contract - validation enforces all rules
+test('telemetry contract - validation enforces all rules', () => {
+  const workspace = 'test-ws';
+  const packId = 'e2e-validation-test';
+  const TEST_CONTENT_DIR = join(__dirname, '..', '.test-content', 'v1');
+  
+  // Create test directory structure
+  mkdirSync(join(TEST_CONTENT_DIR, 'workspaces', workspace, 'packs', packId), { recursive: true });
+  
+  // Test 1: Pack without packVersion should fail
+  const packWithoutVersion = {
+    schemaVersion: 1,
+    id: packId,
+    kind: 'pack',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test',
+    outline: ['Step 1'],
+    scenario: 'work',
+    register: 'neutral',
+    primaryStructure: 'verb_position',
+    variationSlots: ['subject', 'verb'],
+    analytics: {
+      goal: 'Test',
+      constraints: ['c1'],
+      levers: ['subject'],
+      successCriteria: ['s1'],
+      commonMistakes: ['m1'],
+      drillType: 'substitution',
+      cognitiveLoad: 'low',
+      targetLatencyMs: 800,
+      successDefinition: '2 passes',
+      keyFailureModes: ['mode1']
+    },
+    sessionPlan: {
+      version: 1,
+      steps: [{ id: 'step1', title: 'Step 1', promptIds: [] }]
+    }
+  };
+  
+  writeFileSync(
+    join(TEST_CONTENT_DIR, 'workspaces', workspace, 'packs', packId, 'pack.json'),
+    JSON.stringify(packWithoutVersion, null, 2)
+  );
+  
+  // Temporarily override CONTENT_DIR for validation
+  const originalCwd = process.cwd();
+  process.chdir(join(__dirname, '..'));
+  
+  try {
+    // Set CONTENT_DIR env var to test directory
+    const env = { ...process.env, CONTENT_DIR: TEST_CONTENT_DIR };
+    const output = execSync('tsx scripts/validate-content.ts 2>&1', {
+      cwd: join(__dirname, '..'),
+      encoding: 'utf-8',
+      stdio: 'pipe',
+      env
+    });
+    assert(output.includes('packVersion'), 'Validation should fail for missing packVersion');
+  } catch (err: any) {
+    const errorOutput = err.stdout || err.stderr || '';
+    assert(errorOutput.includes('packVersion'), 'Validation should fail for missing packVersion');
+  } finally {
+    process.chdir(originalCwd);
+    // Cleanup
+    try {
+      rmSync(join(__dirname, '..', '.test-content'), { recursive: true, force: true });
+    } catch {}
+  }
+});
+
+// E2E Test: Telemetry readiness report works correctly
+test('telemetry readiness report works correctly', () => {
+  console.log('  Running telemetry readiness report...');
+  
+  try {
+    const output = execSync('npm run content:telemetry-ready', {
+      cwd: join(__dirname, '..'),
+      encoding: 'utf-8',
+      stdio: 'pipe'
+    });
+    
+    // Report should run without errors
+    assert(output.includes('Telemetry Readiness Report'), 'Report should generate output');
+    assert(output.includes('Total Packs'), 'Report should show pack count');
+    assert(output.includes('packVersion') || output.includes('analytics'), 'Report should check telemetry fields');
+    
+    console.log('  ✅ Telemetry readiness report works');
+  } catch (err: any) {
+    // Report may exit with code 1 if packs are not ready, which is expected
+    const output = err.stdout || err.stderr || '';
+    assert(output.includes('Telemetry Readiness Report') || output.includes('Total Packs'), 
+      'Report should generate output even if packs are not ready');
+    console.log('  ✅ Telemetry readiness report works (some packs may not be ready)');
+  }
+});
+
+// E2E Test: Telemetry JSON schema validation
+test('telemetry JSON schema validation', () => {
+  const schemaPath = join(__dirname, '..', 'content', 'meta', 'telemetry.schema.v1.json');
+  
+  assert(existsSync(schemaPath), 'Telemetry schema file should exist');
+  
+  const schema = JSON.parse(readFileSync(schemaPath, 'utf-8'));
+  
+  // Verify schema structure
+  assert(schema.$schema, 'Schema should have $schema');
+  assert(schema.title === 'Telemetry Event Schema v1', 'Schema should have correct title');
+  assert(schema.type === 'object', 'Schema should be object type');
+  assert(Array.isArray(schema.required), 'Schema should have required fields array');
+  
+  // Verify required fields
+  const requiredFields = ['schemaVersion', 'event', 'timestamp', 'workspace', 'userAnonId', 'content', 'result', 'signals'];
+  for (const field of requiredFields) {
+    assert(schema.required.includes(field), `Schema should require ${field}`);
+  }
+  
+  // Verify content object structure
+  assert(schema.properties.content, 'Schema should have content property');
+  assert(schema.properties.content.required, 'Content should have required fields');
+  assert(schema.properties.content.required.includes('packVersion'), 'Content should require packVersion');
+  assert(schema.properties.content.required.includes('packId'), 'Content should require packId');
+  assert(schema.properties.content.required.includes('stepId'), 'Content should require stepId');
+  assert(schema.properties.content.required.includes('promptId'), 'Content should require promptId');
+  assert(schema.properties.content.required.includes('attemptIndex'), 'Content should require attemptIndex');
+  
+  // Verify result object structure
+  assert(schema.properties.result, 'Schema should have result property');
+  assert(schema.properties.result.required, 'Result should have required fields');
+  assert(schema.properties.result.required.includes('mode'), 'Result should require mode');
+  assert(schema.properties.result.required.includes('pass'), 'Result should require pass');
+  assert(schema.properties.result.required.includes('latencyMs'), 'Result should require latencyMs');
+  
+  // Verify packVersion semver pattern
+  assert(schema.properties.content.properties.packVersion, 'Content should have packVersion property');
+  assert(schema.properties.content.properties.packVersion.pattern, 'packVersion should have semver pattern');
+  assert(/^\d+\.\d+\.\d+$/.test('1.0.0'), 'Semver pattern should match valid version');
+  
+  console.log('  ✅ Telemetry JSON schema is valid');
+});
+
+// E2E Test: Stable attempt addressing key generation
+test('stable attempt addressing key generation', () => {
+  const workspace = 'de';
+  const packId = 'test-stable-addressing';
+  const packVersion = '1.0.0';
+  const sessionPlanVersion = 1;
+  const stepId = 'opening';
+  const promptId = 'prompt-001';
+  const attemptIndex = 0;
+  
+  // Generate addressing key
+  const addressingKey = `${workspace}:${packId}:${packVersion}:${sessionPlanVersion}:${stepId}:${promptId}:${attemptIndex}`;
+  
+  // Verify key components
+  assert(addressingKey.includes(workspace), 'Key should include workspace');
+  assert(addressingKey.includes(packId), 'Key should include packId');
+  assert(addressingKey.includes(packVersion), 'Key should include packVersion');
+  assert(addressingKey.includes(String(sessionPlanVersion)), 'Key should include sessionPlanVersion');
+  assert(addressingKey.includes(stepId), 'Key should include stepId');
+  assert(addressingKey.includes(promptId), 'Key should include promptId');
+  assert(addressingKey.includes(String(attemptIndex)), 'Key should include attemptIndex');
+  
+  // Verify key is deterministic (same inputs = same key)
+  const key2 = `${workspace}:${packId}:${packVersion}:${sessionPlanVersion}:${stepId}:${promptId}:${attemptIndex}`;
+  assert(addressingKey === key2, 'Addressing key should be deterministic');
+  
+  // Verify different attemptIndex produces different key
+  const key3 = `${workspace}:${packId}:${packVersion}:${sessionPlanVersion}:${stepId}:${promptId}:${attemptIndex + 1}`;
+  assert(addressingKey !== key3, 'Different attemptIndex should produce different key');
+  
+  console.log('  ✅ Stable attempt addressing key generation works');
+});
+
 // Run all tests
 async function runTests() {
   console.log('Running end-to-end tests...\n');

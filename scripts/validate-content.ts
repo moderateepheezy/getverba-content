@@ -154,6 +154,17 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
         addError(contextFile, `Item ${itemIdx} pack entry primaryStructure length is invalid (${entry.primaryStructure.length} chars). Must be 3-60 chars.`);
       }
       
+      // Pack version validation (required for telemetry)
+      if (!entry.packVersion || typeof entry.packVersion !== 'string') {
+        addError(contextFile, `Item ${itemIdx} pack entry missing or invalid field: packVersion (must be string, semver format x.y.z)`);
+      } else {
+        // Validate semver format (x.y.z)
+        const semverPattern = /^\d+\.\d+\.\d+$/;
+        if (!semverPattern.test(entry.packVersion)) {
+          addError(contextFile, `Item ${itemIdx} pack entry packVersion "${entry.packVersion}" is not valid semver format. Must be x.y.z (e.g., "1.0.0")`);
+        }
+      }
+      
       // Analytics metadata validation (required for all packs)
       if (!entry.analytics || typeof entry.analytics !== 'object') {
         addError(contextFile, `Item ${itemIdx} pack entry missing or invalid field: analytics (must be object)`);
@@ -308,6 +319,14 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
             validatePromptMeaningContract(prompt, entry, contextFile, itemIdx, pIdx);
             
           });
+          
+          // Validate promptId uniqueness within pack
+          const promptIds = entry.prompts.map((p: any) => p.id).filter(Boolean);
+          const uniquePromptIds = new Set(promptIds);
+          if (promptIds.length !== uniquePromptIds.size) {
+            const duplicates = promptIds.filter((id: string, idx: number) => promptIds.indexOf(id) !== idx);
+            addError(contextFile, `Item ${itemIdx} pack entry has duplicate prompt IDs: ${[...new Set(duplicates)].join(', ')}. Each prompt must have a unique id.`);
+          }
         }
         
         // Quality Gates v1: Validate pack quality
@@ -962,6 +981,44 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
     addError(contextFile, `Item ${itemIdx} pack entry analytics.cognitiveLoad "${analytics.cognitiveLoad}" is invalid. Must be one of: ${validCognitiveLoads.join(', ')}`);
   }
   
+  // Telemetry readiness fields (required for telemetry contract)
+  // Validate targetLatencyMs
+  if (typeof analytics.targetLatencyMs !== 'number') {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.targetLatencyMs missing or invalid (must be number, 200-5000)`);
+  } else if (analytics.targetLatencyMs < 200 || analytics.targetLatencyMs > 5000) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.targetLatencyMs is ${analytics.targetLatencyMs}. Must be between 200 and 5000 milliseconds.`);
+  }
+  
+  // Validate successDefinition
+  if (!analytics.successDefinition || typeof analytics.successDefinition !== 'string') {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.successDefinition missing or invalid (must be string, <= 140 chars)`);
+  } else if (analytics.successDefinition.length === 0 || analytics.successDefinition.length > 140) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.successDefinition length is invalid (${analytics.successDefinition.length} chars). Must be 1-140 chars.`);
+  }
+  
+  // Validate keyFailureModes array
+  if (!Array.isArray(analytics.keyFailureModes)) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.keyFailureModes must be an array`);
+  } else if (analytics.keyFailureModes.length === 0 || analytics.keyFailureModes.length > 6) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.keyFailureModes length is invalid (${analytics.keyFailureModes.length} items). Must be 1-6 items.`);
+  } else {
+    analytics.keyFailureModes.forEach((mode: any, idx: number) => {
+      if (typeof mode !== 'string') {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics.keyFailureModes[${idx}] must be a string`);
+      } else if (mode.length === 0 || mode.length > 40) {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics.keyFailureModes[${idx}] length is invalid (${mode.length} chars). Must be 1-40 chars.`);
+      }
+    });
+  }
+  
+  // Optional telemetry fields (mirrors of pack-level fields)
+  if (analytics.primaryStructure !== undefined && typeof analytics.primaryStructure !== 'string') {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.primaryStructure must be a string if present`);
+  }
+  if (analytics.variationSlots !== undefined && !Array.isArray(analytics.variationSlots)) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.variationSlots must be an array if present`);
+  }
+  
   // Alignment checks
   // If drillType is not 'substitution', scenario/register/primaryStructure must exist
   if (analytics.drillType && analytics.drillType !== 'substitution') {
@@ -1600,6 +1657,14 @@ function validateSchemaV1RequiredFields(docType: string, doc: any, filePath: str
     }
     if (!doc.primaryStructure || typeof doc.primaryStructure !== 'string') {
       addError(filePath, 'PackEntry schemaVersion 1: missing or invalid required field: primaryStructure');
+    }
+    if (!doc.packVersion || typeof doc.packVersion !== 'string') {
+      addError(filePath, 'PackEntry schemaVersion 1: missing or invalid required field: packVersion (must be semver format x.y.z)');
+    } else {
+      const semverPattern = /^\d+\.\d+\.\d+$/;
+      if (!semverPattern.test(doc.packVersion)) {
+        addError(filePath, `PackEntry schemaVersion 1: packVersion "${doc.packVersion}" is not valid semver format. Must be x.y.z (e.g., "1.0.0")`);
+      }
     }
   } else if (docType === 'ExamEntry') {
     if (!doc.id || typeof doc.id !== 'string') {
@@ -2402,6 +2467,58 @@ function main() {
   templateFiles.forEach(file => {
     validateTemplate(file);
   });
+
+  // Validate bundle definitions
+  const bundlesDir = join(META_DIR, 'bundles');
+  if (existsSync(bundlesDir)) {
+    const bundleFiles = readdirSync(bundlesDir)
+      .filter(file => file.endsWith('.json'))
+      .map(file => join(bundlesDir, file));
+    
+    bundleFiles.forEach(bundlePath => {
+      try {
+        const bundle = JSON.parse(readFileSync(bundlePath, 'utf-8'));
+        
+        // Validate schema
+        if (bundle.version !== 1) {
+          addError(bundlePath, `Bundle version must be 1 (got ${bundle.version})`);
+        }
+        if (!bundle.id || typeof bundle.id !== 'string') {
+          addError(bundlePath, 'Bundle missing or invalid id field');
+        }
+        if (!bundle.workspace || typeof bundle.workspace !== 'string') {
+          addError(bundlePath, 'Bundle missing or invalid workspace field');
+        }
+        if (!bundle.title || typeof bundle.title !== 'string') {
+          addError(bundlePath, 'Bundle missing or invalid title field');
+        }
+        if (!bundle.filters || typeof bundle.filters !== 'object') {
+          addError(bundlePath, 'Bundle missing or invalid filters field');
+        }
+        if (!Array.isArray(bundle.includeKinds) || bundle.includeKinds.length === 0) {
+          addError(bundlePath, 'Bundle missing or invalid includeKinds field (must be non-empty array)');
+        }
+        if (!bundle.ordering || typeof bundle.ordering !== 'object') {
+          addError(bundlePath, 'Bundle missing or invalid ordering field');
+        } else {
+          if (!Array.isArray(bundle.ordering.by) || bundle.ordering.by.length === 0) {
+            addError(bundlePath, 'Bundle ordering.by must be non-empty array');
+          }
+          if (bundle.ordering.stable !== true) {
+            addError(bundlePath, 'Bundle ordering.stable must be true (deterministic ordering required)');
+          }
+        }
+        
+        // Validate workspace exists
+        const workspacePath = join(CONTENT_DIR, 'workspaces', bundle.workspace);
+        if (!existsSync(workspacePath)) {
+          addError(bundlePath, `Bundle workspace "${bundle.workspace}" does not exist`);
+        }
+      } catch (err: any) {
+        addError(bundlePath, `Failed to parse bundle: ${err.message}`);
+      }
+    });
+  }
 
   // Validate index files (index.json under workspaces)
   const indexFiles = jsonFiles.filter(file => {
