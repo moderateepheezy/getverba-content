@@ -1,6 +1,6 @@
 [
   {
-    "id": "de:basic_greetings",
+    "id": "basic_greetings",
     "kind": "pack",
     "workspace": "de",
     "entryUrl": "/v1/workspaces/de/packs/basic_greetings/pack.json",
@@ -8,7 +8,7 @@
     "approvedBy": "system"
   },
   {
-    "id": "de:restaurant_conversations",
+    "id": "restaurant_conversations",
     "kind": "pack",
     "workspace": "de",
     "entryUrl": "/v1/workspaces/de/packs/restaurant_conversations/pack.json",
@@ -16,7 +16,7 @@
     "approvedBy": "system"
   },
   {
-    "id": "de:work_1",
+    "id": "work_1",
     "kind": "pack",
     "workspace": "de",
     "entryUrl": "/v1/workspaces/de/packs/work_1/pack.json",
@@ -24,7 +24,7 @@
     "approvedBy": "system"
   },
   {
-    "id": "en:welcome_english",
+    "id": "welcome_english",
     "kind": "pack",
     "workspace": "en",
     "entryUrl": "/v1/workspaces/en/packs/welcome_english/pack.json",
