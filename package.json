@@ -8,7 +8,9 @@
     "content:verify": "node scripts/verify-content.mjs",
     "content:publish": "./scripts/publish-content.sh",
     "content:load-env": "source scripts/load-env.sh",
-    "test": "tsx scripts/validate-content.test.ts"
+    "test": "tsx scripts/validate-content.test.ts",
+    "test:e2e": "tsx scripts/e2e-test.ts",
+    "test:all": "npm test && npm run test:e2e"
   },
   "keywords": [
     "getverba",

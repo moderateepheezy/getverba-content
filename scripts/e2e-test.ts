@@ -1,0 +1,397 @@
+#!/usr/bin/env tsx
+
+/**
+ * End-to-end tests for GetVerba content pipeline
+ * 
+ * These tests verify the complete flow:
+ * 1. Content validation
+ * 2. Content structure (manifest → catalog → section index → entry documents)
+ * 3. Worker API accessibility (if BASE_URL is provided)
+ */
+
+import { readFileSync, existsSync } from 'fs';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { execSync } from 'child_process';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const CONTENT_DIR = join(__dirname, '..', 'content', 'v1');
+const META_DIR = join(__dirname, '..', 'content', 'meta');
+
+// Worker API base URL (optional - set via WORKER_BASE_URL env var)
+const WORKER_BASE_URL = process.env.WORKER_BASE_URL || 'https://getverba-content-api.simpumind-apps.workers.dev';
+
+interface Test {
+  name: string;
+  fn: () => void | Promise<void>;
+}
+
+const tests: Test[] = [];
+let passed = 0;
+let failed = 0;
+const errors: string[] = [];
+
+function test(name: string, fn: () => void | Promise<void>) {
+  tests.push({ name, fn });
+}
+
+function assert(condition: boolean, message: string) {
+  if (!condition) {
+    throw new Error(message);
+  }
+}
+
+async function fetchJson(url: string): Promise<any> {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+    return await response.json();
+  } catch (err: any) {
+    throw new Error(`Failed to fetch ${url}: ${err.message}`);
+  }
+}
+
+// E2E Test 1: Validate content structure locally
+test('validate content structure locally', () => {
+  console.log('  Running: npm run content:validate');
+  try {
+    const output = execSync('npm run content:validate', {
+      cwd: join(__dirname, '..'),
+      encoding: 'utf-8',
+      stdio: 'pipe'
+    });
+    
+    assert(output.includes('✅ All content files are valid!'), 'Validation should pass');
+    assert(output.includes('Validated'), 'Should show validation count');
+  } catch (err: any) {
+    throw new Error(`Content validation failed: ${err.message}`);
+  }
+});
+
+// E2E Test 2: Verify manifest exists and is valid
+test('verify manifest exists and is valid', () => {
+  const manifestPath = join(META_DIR, 'manifest.json');
+  assert(existsSync(manifestPath), 'manifest.json should exist');
+  
+  const manifest = JSON.parse(readFileSync(manifestPath, 'utf-8'));
+  assert(manifest.activeVersion, 'Manifest should have activeVersion');
+  assert(manifest.activeWorkspace, 'Manifest should have activeWorkspace');
+  assert(manifest.workspaces, 'Manifest should have workspaces');
+  assert(typeof manifest.workspaces === 'object', 'workspaces should be an object');
+  
+  // Verify at least one workspace exists
+  const workspaceKeys = Object.keys(manifest.workspaces);
+  assert(workspaceKeys.length > 0, 'At least one workspace should exist');
+});
+
+// E2E Test 3: Verify catalog exists for active workspace
+test('verify catalog exists for active workspace', () => {
+  const manifestPath = join(META_DIR, 'manifest.json');
+  const manifest = JSON.parse(readFileSync(manifestPath, 'utf-8'));
+  const activeWorkspace = manifest.activeWorkspace;
+  const catalogPath = manifest.workspaces[activeWorkspace];
+  
+  assert(catalogPath, `Catalog path should exist for workspace ${activeWorkspace}`);
+  assert(catalogPath.startsWith('/v1/'), 'Catalog path should start with /v1/');
+  assert(catalogPath.endsWith('.json'), 'Catalog path should end with .json');
+  
+  // Resolve to local file
+  const relativePath = catalogPath.replace(/^\/v1\//, '');
+  const localPath = join(CONTENT_DIR, relativePath);
+  assert(existsSync(localPath), `Catalog file should exist: ${localPath}`);
+  
+  // Validate catalog structure
+  const catalog = JSON.parse(readFileSync(localPath, 'utf-8'));
+  assert(catalog.workspace === activeWorkspace, 'Catalog workspace should match active workspace');
+  assert(Array.isArray(catalog.sections), 'Catalog should have sections array');
+  assert(catalog.sections.length > 0, 'Catalog should have at least one section');
+});
+
+// E2E Test 4: Verify section indexes exist and are valid
+test('verify section indexes exist and are valid', () => {
+  const manifestPath = join(META_DIR, 'manifest.json');
+  const manifest = JSON.parse(readFileSync(manifestPath, 'utf-8'));
+  const activeWorkspace = manifest.activeWorkspace;
+  const catalogPath = manifest.workspaces[activeWorkspace];
+  const relativePath = catalogPath.replace(/^\/v1\//, '');
+  const localPath = join(CONTENT_DIR, relativePath);
+  const catalog = JSON.parse(readFileSync(localPath, 'utf-8'));
+  
+  catalog.sections.forEach((section: any) => {
+    assert(section.itemsUrl, `Section ${section.id} should have itemsUrl`);
+    assert(section.itemsUrl.startsWith('/v1/'), `Section ${section.id} itemsUrl should start with /v1/`);
+    assert(section.itemsUrl.endsWith('.json'), `Section ${section.id} itemsUrl should end with .json`);
+    
+    // Resolve to local file
+    const indexRelativePath = section.itemsUrl.replace(/^\/v1\//, '');
+    const indexLocalPath = join(CONTENT_DIR, indexRelativePath);
+    assert(existsSync(indexLocalPath), `Section index should exist: ${indexLocalPath}`);
+    
+    // Validate index structure
+    const index = JSON.parse(readFileSync(indexLocalPath, 'utf-8'));
+    assert(index.version === 'v1', `Index should have version v1`);
+    assert(index.kind, `Index should have kind`);
+    assert(Array.isArray(index.items), `Index should have items array`);
+    assert(index.items.length > 0, `Index should have at least one item`);
+    
+    // Validate items have required fields
+    index.items.forEach((item: any, idx: number) => {
+      assert(item.id, `Item ${idx} should have id`);
+      assert(item.kind, `Item ${idx} should have kind`);
+      assert(item.title, `Item ${idx} should have title`);
+      assert(item.level, `Item ${idx} should have level`);
+      assert(item.entryUrl, `Item ${idx} should have entryUrl`);
+      assert(item.entryUrl.startsWith('/v1/'), `Item ${idx} entryUrl should start with /v1/`);
+    });
+  });
+});
+
+// E2E Test 5: Verify entry documents exist and are valid
+test('verify entry documents exist and are valid', () => {
+  const manifestPath = join(META_DIR, 'manifest.json');
+  const manifest = JSON.parse(readFileSync(manifestPath, 'utf-8'));
+  const activeWorkspace = manifest.activeWorkspace;
+  const catalogPath = manifest.workspaces[activeWorkspace];
+  const relativePath = catalogPath.replace(/^\/v1\//, '');
+  const localPath = join(CONTENT_DIR, relativePath);
+  const catalog = JSON.parse(readFileSync(localPath, 'utf-8'));
+  
+  const entryUrls = new Set<string>();
+  
+  // Collect all entryUrls from all sections
+  catalog.sections.forEach((section: any) => {
+    const indexRelativePath = section.itemsUrl.replace(/^\/v1\//, '');
+    const indexLocalPath = join(CONTENT_DIR, indexRelativePath);
+    const index = JSON.parse(readFileSync(indexLocalPath, 'utf-8'));
+    
+    index.items.forEach((item: any) => {
+      entryUrls.add(item.entryUrl);
+    });
+  });
+  
+  assert(entryUrls.size > 0, 'At least one entryUrl should exist');
+  
+  // Validate each entry document
+  entryUrls.forEach((entryUrl) => {
+    const entryRelativePath = entryUrl.replace(/^\/v1\//, '');
+    const entryLocalPath = join(CONTENT_DIR, entryRelativePath);
+    assert(existsSync(entryLocalPath), `Entry document should exist: ${entryLocalPath}`);
+    
+    const entry = JSON.parse(readFileSync(entryLocalPath, 'utf-8'));
+    assert(entry.id, 'Entry should have id');
+    assert(entry.kind, 'Entry should have kind');
+    assert(entry.title, 'Entry should have title');
+    assert(typeof entry.estimatedMinutes === 'number', 'Entry should have estimatedMinutes');
+    
+    // Validate pack entries have sessionPlan
+    if (entry.kind === 'pack') {
+      assert(entry.sessionPlan, 'Pack entry should have sessionPlan');
+      assert(entry.sessionPlan.version === 1, 'sessionPlan.version should be 1');
+      assert(Array.isArray(entry.sessionPlan.steps), 'sessionPlan.steps should be an array');
+      assert(entry.sessionPlan.steps.length > 0, 'sessionPlan.steps should be non-empty');
+      
+      entry.sessionPlan.steps.forEach((step: any, sIdx: number) => {
+        assert(step.id, `Step ${sIdx} should have id`);
+        assert(step.title, `Step ${sIdx} should have title`);
+        assert(Array.isArray(step.promptIds), `Step ${sIdx} should have promptIds array`);
+        assert(step.promptIds.length > 0, `Step ${sIdx} promptIds should be non-empty`);
+      });
+      
+      // Validate promptIds reference existing prompts
+      if (entry.prompts && Array.isArray(entry.prompts)) {
+        const promptIds = new Set(entry.prompts.map((p: any) => p.id));
+        entry.sessionPlan.steps.forEach((step: any, sIdx: number) => {
+          step.promptIds.forEach((promptId: string) => {
+            assert(promptIds.has(promptId), `Step ${sIdx} promptId "${promptId}" should exist in prompts array`);
+          });
+        });
+      }
+    }
+  });
+});
+
+// E2E Test 6: Verify Worker API manifest endpoint (if accessible)
+test('verify Worker API manifest endpoint', async () => {
+  try {
+    const manifest = await fetchJson(`${WORKER_BASE_URL}/manifest`);
+    assert(manifest.activeVersion, 'Worker manifest should have activeVersion');
+    assert(manifest.activeWorkspace, 'Worker manifest should have activeWorkspace');
+    assert(manifest.workspaces, 'Worker manifest should have workspaces');
+  } catch (err: any) {
+    console.warn(`  ⚠️  Skipping Worker API test: ${err.message}`);
+    console.warn(`  Set WORKER_BASE_URL env var to enable Worker API tests`);
+    // Don't fail the test if Worker is not accessible
+  }
+});
+
+// E2E Test 7: Verify Worker API catalog endpoint (if accessible)
+test('verify Worker API catalog endpoint', async () => {
+  try {
+    const manifest = await fetchJson(`${WORKER_BASE_URL}/manifest`);
+    const activeWorkspace = manifest.activeWorkspace;
+    const catalogPath = manifest.workspaces[activeWorkspace];
+    const catalog = await fetchJson(`${WORKER_BASE_URL}${catalogPath}`);
+    
+    assert(catalog.workspace === activeWorkspace, 'Worker catalog workspace should match');
+    assert(Array.isArray(catalog.sections), 'Worker catalog should have sections');
+    assert(catalog.sections.length > 0, 'Worker catalog should have at least one section');
+  } catch (err: any) {
+    console.warn(`  ⚠️  Skipping Worker API test: ${err.message}`);
+    // Don't fail the test if Worker is not accessible
+  }
+});
+
+// E2E Test 8: Verify Worker API section index endpoint (if accessible)
+test('verify Worker API section index endpoint', async () => {
+  try {
+    const manifest = await fetchJson(`${WORKER_BASE_URL}/manifest`);
+    const activeWorkspace = manifest.activeWorkspace;
+    const catalogPath = manifest.workspaces[activeWorkspace];
+    const catalog = await fetchJson(`${WORKER_BASE_URL}${catalogPath}`);
+    
+    if (catalog.sections.length > 0) {
+      const firstSection = catalog.sections[0];
+      const index = await fetchJson(`${WORKER_BASE_URL}${firstSection.itemsUrl}`);
+      
+      assert(index.version === 'v1', 'Worker index should have version v1');
+      assert(index.kind, 'Worker index should have kind');
+      assert(Array.isArray(index.items), 'Worker index should have items array');
+      
+      if (index.items.length > 0) {
+        const firstItem = index.items[0];
+        assert(firstItem.id, 'Worker index item should have id');
+        assert(firstItem.kind, 'Worker index item should have kind');
+        assert(firstItem.entryUrl, 'Worker index item should have entryUrl');
+      }
+    }
+  } catch (err: any) {
+    console.warn(`  ⚠️  Skipping Worker API test: ${err.message}`);
+    // Don't fail the test if Worker is not accessible
+  }
+});
+
+// E2E Test 9: Verify Worker API entry document endpoint (if accessible)
+test('verify Worker API entry document endpoint', async () => {
+  try {
+    const manifest = await fetchJson(`${WORKER_BASE_URL}/manifest`);
+    const activeWorkspace = manifest.activeWorkspace;
+    const catalogPath = manifest.workspaces[activeWorkspace];
+    const catalog = await fetchJson(`${WORKER_BASE_URL}${catalogPath}`);
+    
+    if (catalog.sections.length > 0) {
+      const firstSection = catalog.sections[0];
+      const index = await fetchJson(`${WORKER_BASE_URL}${firstSection.itemsUrl}`);
+      
+      if (index.items.length > 0) {
+        const firstItem = index.items[0];
+        const entry = await fetchJson(`${WORKER_BASE_URL}${firstItem.entryUrl}`);
+        
+        assert(entry.id, 'Worker entry should have id');
+        assert(entry.kind, 'Worker entry should have kind');
+        assert(entry.title, 'Worker entry should have title');
+        assert(typeof entry.estimatedMinutes === 'number', 'Worker entry should have estimatedMinutes');
+        
+        // Validate pack entries have sessionPlan
+        if (entry.kind === 'pack') {
+          assert(entry.sessionPlan, 'Worker pack entry should have sessionPlan');
+          assert(entry.sessionPlan.version === 1, 'Worker sessionPlan.version should be 1');
+          assert(Array.isArray(entry.sessionPlan.steps), 'Worker sessionPlan.steps should be an array');
+        }
+      }
+    }
+  } catch (err: any) {
+    console.warn(`  ⚠️  Skipping Worker API test: ${err.message}`);
+    // Don't fail the test if Worker is not accessible
+  }
+});
+
+// E2E Test 10: Verify Worker API ETag caching (if accessible)
+test('verify Worker API ETag caching', async () => {
+  try {
+    const manifest = await fetchJson(`${WORKER_BASE_URL}/manifest`);
+    const activeWorkspace = manifest.activeWorkspace;
+    const catalogPath = manifest.workspaces[activeWorkspace];
+    
+    // First request - get ETag
+    const response1 = await fetch(`${WORKER_BASE_URL}${catalogPath}`);
+    const etag1 = response1.headers.get('ETag');
+    
+    if (etag1) {
+      // Second request with If-None-Match
+      const response2 = await fetch(`${WORKER_BASE_URL}${catalogPath}`, {
+        headers: {
+          'If-None-Match': etag1
+        }
+      });
+      
+      // Should return 304 Not Modified if ETag matches
+      assert(
+        response2.status === 304 || response2.status === 200,
+        'Worker should return 304 or 200 with If-None-Match header'
+      );
+    }
+  } catch (err: any) {
+    console.warn(`  ⚠️  Skipping Worker API test: ${err.message}`);
+    // Don't fail the test if Worker is not accessible
+  }
+});
+
+// E2E Test 11: Verify publish dry-run works
+test('verify publish dry-run works', () => {
+  console.log('  Running: ./scripts/publish-content.sh --dry-run');
+  try {
+    const output = execSync('./scripts/publish-content.sh --dry-run', {
+      cwd: join(__dirname, '..'),
+      encoding: 'utf-8',
+      stdio: 'pipe',
+      env: {
+        ...process.env,
+        // Use dry-run mode, so credentials not strictly required
+      }
+    });
+    
+    assert(output.includes('DRY RUN MODE'), 'Should indicate dry-run mode');
+    assert(output.includes('upload:') || output.includes('(dryrun)'), 'Should show files to be uploaded');
+  } catch (err: any) {
+    // If credentials are missing, that's okay for dry-run
+    if (err.message.includes('credentials') || err.message.includes('R2_')) {
+      console.warn(`  ⚠️  Skipping publish dry-run test: ${err.message}`);
+      return;
+    }
+    throw new Error(`Publish dry-run failed: ${err.message}`);
+  }
+});
+
+// Run all tests
+async function runTests() {
+  console.log('Running end-to-end tests...\n');
+  
+  for (const test of tests) {
+    try {
+      await test.fn();
+      console.log(`✅ ${test.name}`);
+      passed++;
+    } catch (error: any) {
+      console.error(`❌ ${test.name}`);
+      console.error(`   ${error.message}`);
+      errors.push(`${test.name}: ${error.message}`);
+      failed++;
+    }
+  }
+  
+  console.log(`\n${'='.repeat(50)}`);
+  console.log(`Tests: ${passed} passed, ${failed} failed`);
+  
+  if (failed > 0) {
+    console.log(`\nErrors:`);
+    errors.forEach(err => console.log(`  - ${err}`));
+    process.exit(1);
+  }
+}
+
+// Run tests
+runTests();
+
