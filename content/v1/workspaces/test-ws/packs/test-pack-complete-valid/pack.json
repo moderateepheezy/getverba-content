@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "id": "test-pack-complete-valid",
+  "kind": "pack",
+  "packVersion": "1.0.0",
+  "title": "Test Pack",
+  "level": "A1",
+  "estimatedMinutes": 15,
+  "description": "Test description",
+  "outline": [
+    "Step 1",
+    "Step 2"
+  ],
+  "scenario": "work",
+  "register": "neutral",
+  "primaryStructure": "verb_position",
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object"
+  ],
+  "analytics": {
+    "goal": "Test goal",
+    "constraints": [
+      "constraint1",
+      "constraint2"
+    ],
+    "levers": [
+      "subject",
+      "verb"
+    ],
+    "successCriteria": [
+      "criteria1",
+      "criteria2"
+    ],
+    "commonMistakes": [
+      "mistake1",
+      "mistake2"
+    ],
+    "drillType": "substitution",
+    "cognitiveLoad": "low",
+    "targetLatencyMs": 800,
+    "successDefinition": "2 consecutive passes with response time under 800ms",
+    "keyFailureModes": [
+      "verb position",
+      "case ending"
+    ],
+    "primaryStructure": "verb_position",
+    "variationSlots": [
+      "subject",
+      "verb",
+      "object"
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Ich gehe zur Arbeit",
+      "intent": "inform",
+      "gloss_en": "I go to work",
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "gehe"
+        ],
+        "object": [
+          "zur Arbeit"
+        ]
+      }
+    },
+    {
+      "id": "prompt-002",
+      "text": "Wir fahren ins Büro",
+      "intent": "inform",
+      "gloss_en": "We drive to the office",
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "fahren"
+        ],
+        "object": [
+          "ins Büro"
+        ]
+      }
+    }
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "step1",
+        "title": "Step 1",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ]
+      }
+    ]
+  },
+  "tags": [
+    "test",
+    "telemetry"
+  ]
+}

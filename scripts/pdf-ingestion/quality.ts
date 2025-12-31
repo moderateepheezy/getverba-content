@@ -55,6 +55,52 @@ function containsBannedPhrases(text: string): boolean {
 }
 
 /**
+ * Check if candidate is dialogue-like (not a heading or front matter)
+ */
+export function isDialogueLike(candidate: Candidate): boolean {
+  const text = candidate.text.trim();
+  
+  // Too short
+  if (text.length < 10) return false;
+  
+  // Too long (likely a paragraph, not dialogue)
+  if (text.length > 300) return false;
+  
+  // Check for heading patterns
+  const headingPatterns = [
+    /^[A-ZÄÖÜ][a-zäöüß]+\s*$/, // Single capitalized word
+    /^[A-ZÄÖÜ][a-zäöüß]+\s+[A-ZÄÖÜ][a-zäöüß]+\s*$/, // Two capitalized words
+    /^\d+\.\s+[A-ZÄÖÜ]/, // Numbered heading
+    /^[IVX]+\.\s+[A-ZÄÖÜ]/, // Roman numeral heading
+    /^Kapitel\s+\d+/i, // "Kapitel 1"
+    /^Chapter\s+\d+/i, // "Chapter 1"
+    /^Inhaltsverzeichnis/i, // Table of contents
+    /^Contents/i,
+    /^Index/i
+  ];
+  
+  for (const pattern of headingPatterns) {
+    if (pattern.test(text)) return false;
+  }
+  
+  // Check for dialogue indicators (quotes, question marks, etc.)
+  const hasDialogueIndicator = /["'„"«]/.test(text) || 
+                                text.includes('?') || 
+                                text.includes('!') ||
+                                /^(Ich|Du|Er|Sie|Wir|Ihr|Sie)\s/.test(text) ||
+                                /^(I|You|He|She|We|They)\s/.test(text);
+  
+  // If it has dialogue indicators, it's likely dialogue
+  if (hasDialogueIndicator) return true;
+  
+  // Otherwise, check if it looks like a sentence (has punctuation, multiple words)
+  const wordCount = text.split(/\s+/).filter(w => w.length > 0).length;
+  const hasPunctuation = /[.!?]/.test(text);
+  
+  return wordCount >= 3 && hasPunctuation;
+}
+
+/**
  * Check if text has concreteness marker
  */
 function hasConcretenessMarker(text: string): boolean {

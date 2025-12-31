@@ -1,0 +1,35 @@
+{
+  "pdfId": "example",
+  "language": "de",
+  "defaultScenarios": [
+    "government_office",
+    "work",
+    "school"
+  ],
+  "anchors": [
+    "Termin",
+    "Büro",
+    "Anmeldung"
+  ],
+  "skipPages": {
+    "ranges": ["0-12", "350-380"]
+  },
+  "preferPageRanges": [
+    "50-200",
+    "250-300"
+  ],
+  "windowSizePages": 30,
+  "minScenarioHits": 3,
+  "scoringTweaks": {
+    "dialogueBonus": 1.2,
+    "headingPenalty": 0.5,
+    "tablePenalty": 0.3
+  },
+  "rejectSections": [
+    "Inhaltsverzeichnis",
+    "Kapitel",
+    "Grammatik",
+    "Vokabelliste"
+  ]
+}
+

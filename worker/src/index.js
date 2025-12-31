@@ -41,6 +41,18 @@ export default {
       return serveArchivedManifest(request, env, gitSha);
     }
 
+    // --- List archived reports ---
+    if (url.pathname === "/reports") {
+      return listArchivedReports(request, env, url);
+    }
+
+    // --- Fetch specific archived report ---
+    const reportMatch = url.pathname.match(/^\/reports\/([a-f0-9]{7,40})$/);
+    if (reportMatch) {
+      const gitSha = reportMatch[1];
+      return serveArchivedReport(request, env, gitSha);
+    }
+
     // --- Active catalog redirect ---
     if (url.pathname === "/active") {
       const manifest = await getJsonObject(env, "meta/manifest.json");
@@ -341,8 +353,151 @@ function json(obj) {
   });
 }
 
+/**
+ * List archived reports from R2
+ * GET /reports?limit=50&cursor=...
+ */
+async function listArchivedReports(request, env, url) {
+  try {
+    const bucket = env.CONTENT_BUCKET;
+    
+    // Parse query params
+    const limitParam = url.searchParams.get("limit");
+    let limit = parseInt(limitParam, 10) || 50;
+    limit = Math.min(Math.max(limit, 1), 200); // Clamp between 1-200
+    
+    const cursor = url.searchParams.get("cursor") || undefined;
+    
+    // List objects with prefix
+    const listResult = await bucket.list({
+      prefix: "meta/reports/",
+      limit,
+      cursor,
+    });
+    
+    // Map to response format
+    const items = listResult.objects
+      .filter(obj => obj.key.endsWith(".coherence.json") || obj.key.endsWith(".coherence.md"))
+      .map(obj => {
+        // Extract gitSha from key: meta/reports/<gitSha>.coherence.{json,md}
+        const match = obj.key.match(/meta\/reports\/([a-f0-9]+)\.coherence\.(json|md)$/);
+        if (!match) return null;
+        
+        const gitSha = match[1];
+        const format = match[2];
+        
+        return {
+          gitSha,
+          format,
+          key: obj.key,
+          lastModified: obj.uploaded?.toISOString() || null,
+        };
+      })
+      .filter(item => item !== null);
+    
+    // Group by gitSha
+    const reportsBySha = {};
+    for (const item of items) {
+      if (!reportsBySha[item.gitSha]) {
+        reportsBySha[item.gitSha] = {
+          gitSha: item.gitSha,
+          lastModified: item.lastModified,
+          formats: {},
+        };
+      }
+      reportsBySha[item.gitSha].formats[item.format] = {
+        key: item.key,
+        lastModified: item.lastModified,
+      };
+    }
+    
+    // Convert to array and sort by lastModified descending
+    const reports = Object.values(reportsBySha);
+    reports.sort((a, b) => {
+      if (!a.lastModified) return 1;
+      if (!b.lastModified) return -1;
+      return new Date(b.lastModified).getTime() - new Date(a.lastModified).getTime();
+    });
+    
+    const response = {
+      reports,
+      ...(listResult.truncated && listResult.cursor ? { cursor: listResult.cursor } : {}),
+    };
+    
+    const headers = new Headers();
+    headers.set("Content-Type", "application/json");
+    headers.set("Cache-Control", "public, max-age=30, stale-while-revalidate=300");
+    for (const [k, v] of Object.entries(corsHeaders())) {
+      headers.set(k, v);
+    }
+    
+    return new Response(JSON.stringify(response), { headers });
+  } catch (err) {
+    console.error("listArchivedReports error:", err);
+    return new Response("Internal Server Error", {
+      status: 500,
+      headers: corsHeaders(),
+    });
+  }
+}
+
+/**
+ * Serve a specific archived report
+ * GET /reports/:gitSha
+ * Returns JSON with URLs to both JSON and Markdown versions
+ */
+async function serveArchivedReport(request, env, gitSha) {
+  // Validate gitSha format
+  if (!/^[a-f0-9]{7,40}$/.test(gitSha)) {
+    return new Response(JSON.stringify({ error: "Invalid git SHA format" }), {
+      status: 400,
+      headers: {
+        "Content-Type": "application/json",
+        ...corsHeaders(),
+      },
+    });
+  }
+  
+  const baseUrl = new URL(request.url).origin;
+  
+  // Check if JSON and MD exist
+  const jsonKey = `meta/reports/${gitSha}.coherence.json`;
+  const mdKey = `meta/reports/${gitSha}.coherence.md`;
+  
+  const bucket = env.CONTENT_BUCKET;
+  const jsonObject = await bucket.get(jsonKey);
+  const mdObject = await bucket.get(mdKey);
+  
+  if (!jsonObject && !mdObject) {
+    return new Response(JSON.stringify({ error: "Report not found" }), {
+      status: 404,
+      headers: {
+        "Content-Type": "application/json",
+        ...corsHeaders(),
+      },
+    });
+  }
+  
+  // Return URLs to both formats
+  const response = {
+    gitSha,
+    json: jsonObject ? `${baseUrl}/v1/${jsonKey}` : null,
+    markdown: mdObject ? `${baseUrl}/v1/${mdKey}` : null,
+  };
+  
+  const headers = new Headers();
+  headers.set("Content-Type", "application/json");
+  headers.set("Cache-Control", "public, max-age=30, stale-while-revalidate=300");
+  for (const [k, v] of Object.entries(corsHeaders())) {
+    headers.set(k, v);
+  }
+  
+  return new Response(JSON.stringify(response), { headers });
+}
+
 function guessContentType(key) {
   if (key.endsWith(".json")) return "application/json";
+  if (key.endsWith(".md")) return "text/markdown; charset=utf-8";
   if (key.endsWith(".txt")) return "text/plain; charset=utf-8";
   return "application/octet-stream";
 }

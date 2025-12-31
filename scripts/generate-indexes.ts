@@ -31,6 +31,10 @@ const SECTION_CONFIG: Record<string, { kind: string; folders: string[] }> = {
   exams: {
     kind: 'exams',
     folders: ['exams']
+  },
+  tracks: {
+    kind: 'tracks',
+    folders: ['tracks']
   }
 };
 
@@ -368,11 +372,67 @@ function readEntryDocument(
 }
 
 /**
+ * Read track document and extract index item data
+ */
+function readTrackDocument(
+  entryPath: string,
+  workspaceId: string
+): SectionIndexItem | null {
+  try {
+    const content = readFileSync(entryPath, 'utf-8');
+    const entry: any = JSON.parse(content);
+    
+    // Validate required fields
+    if (!entry.id || !entry.kind || !entry.title || !entry.level) {
+      console.warn(`⚠️  Skipping ${entryPath}: missing required fields`);
+      return null;
+    }
+    
+    if (entry.kind !== 'track') {
+      console.warn(`⚠️  Skipping ${entryPath}: kind is not "track"`);
+      return null;
+    }
+    
+    // Determine entry URL pattern
+    const entryUrl = `/v1/workspaces/${workspaceId}/tracks/${entry.id}/track.json`;
+    
+    // Extract durationMinutes from estimatedMinutes
+    const durationMinutes = entry.estimatedMinutes || 15; // fallback
+    
+    // Build index item (tracks don't have telemetry identifiers)
+    const item: SectionIndexItem = {
+      id: entry.id,
+      kind: entry.kind,
+      title: entry.title,
+      level: entry.level,
+      durationMinutes,
+      entryUrl,
+      // Tracks don't have telemetry identifiers, use placeholder values
+      contentId: `${workspaceId}:track:${entry.id}`,
+      revisionId: '000000000000'
+    };
+    
+    // Add optional metadata fields if present
+    if (entry.scenario) {
+      item.scenario = entry.scenario;
+    }
+    if (entry.tags && Array.isArray(entry.tags)) {
+      item.tags = entry.tags;
+    }
+    
+    return item;
+  } catch (error: any) {
+    console.warn(`⚠️  Failed to read ${entryPath}: ${error.message}`);
+    return null;
+  }
+}
+
+/**
  * Scan directory for entry files
  */
 function scanEntryDirectory(
   dirPath: string,
-  entryType: 'pack' | 'drill' | 'exam',
+  entryType: 'pack' | 'drill' | 'exam' | 'track',
   workspaceId: string
 ): SectionIndexItem[] {
   const items: SectionIndexItem[] = [];
@@ -386,12 +446,26 @@ function scanEntryDirectory(
   for (const entry of entries) {
     if (!entry.isDirectory()) continue;
     
-    const entryFileName = entryType === 'pack' ? 'pack.json' : 
-                         entryType === 'exam' ? 'exam.json' : 'drill.json';
+    let entryFileName: string;
+    if (entryType === 'pack') {
+      entryFileName = 'pack.json';
+    } else if (entryType === 'exam') {
+      entryFileName = 'exam.json';
+    } else if (entryType === 'track') {
+      entryFileName = 'track.json';
+    } else {
+      entryFileName = 'drill.json';
+    }
+    
     const entryPath = join(dirPath, entry.name, entryFileName);
     
     if (existsSync(entryPath)) {
-      const item = readEntryDocument(entryPath, workspaceId, entryType);
+      let item: SectionIndexItem | null;
+      if (entryType === 'track') {
+        item = readTrackDocument(entryPath, workspaceId);
+      } else {
+        item = readEntryDocument(entryPath, workspaceId, entryType as 'pack' | 'drill' | 'exam');
+      }
       if (item) {
         items.push(item);
       }
@@ -445,12 +519,14 @@ function generateIndex(
   
   for (const folder of config.folders) {
     const folderPath = join(workspaceDir, folder);
-    let entryType: 'pack' | 'drill' | 'exam';
+    let entryType: 'pack' | 'drill' | 'exam' | 'track';
     
     if (folder === 'packs') {
       entryType = 'pack';
     } else if (folder === 'exams') {
       entryType = 'exam';
+    } else if (folder === 'tracks') {
+      entryType = 'track';
     } else {
       entryType = 'drill';
     }

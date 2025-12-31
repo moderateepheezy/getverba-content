@@ -32,7 +32,28 @@ This regenerates all section indexes from entry documents on disk. The generator
 
 **Note**: The `new-pack.sh` and `new-drill.sh` scripts automatically regenerate indexes after creating entries.
 
-### Step 1.1: Generate Catalog Rollups (if needed)
+### Step 1.1: Generate Featured Content (if needed)
+
+Generate featured.json for each workspace:
+
+```bash
+npm run content:generate-featured -- --workspace de
+```
+
+This creates deterministic featured content that tells the app what to show on Home:
+- Hero card (track, pack, exam, or drill)
+- 2-4 secondary cards (packs, drills, exams)
+
+**Selection rules**:
+- Default hero for de workspace = `gov_office_a1_default` track (if exists and approved)
+- Fallback hero = first approved pack at A1/A2 (stable sorting)
+- Cards: 1-2 mechanics drills at A1 (matching hero scenario), 1 pack at same level, 0-1 exam
+
+**Deterministic**: Same content state → same featured.json (no random selection, no LLM calls)
+
+See [FEATURED_CONTRACT.md](./FEATURED_CONTRACT.md) for schema and generation rules.
+
+### Step 1.2: Generate Catalog Rollups (if needed)
 
 Generate analytics rollups for catalog sections:
 
@@ -54,30 +75,50 @@ These rollups enable fast filtering in the frontend without fetching all pack en
 For batch generation of multiple packs/drills:
 
 ```bash
-# Run expansion sprint orchestrator (recommended)
-./scripts/run-expansion-sprint.sh \
+# Run expansion sprint orchestrator
+npx tsx scripts/expansion-sprint.ts \
   --workspace de \
-  --scenario government_office \
-  --packs 20 \
-  --drills 10 \
-  --level A1
+  --scenarios government_office,work,doctor,housing \
+  --levels A1,A2 \
+  --packsCount 35 \
+  --drillsCount 15
 
-# Or generate manually
-./scripts/expand-content.sh --workspace de --section context --count 20 --scenario government_office --level A1
-
-# Generate sprint report
-./scripts/sprint-report.sh --workspace de
-
-# Export curriculum bundle (for B2B sharing)
-npm run content:export-bundle -- \
-  --workspace de \
-  --section all \
-  --scenario government_office \
-  --level A1 \
-  --out ./exports
+# Generate sprint report (after sprint completes)
+npx tsx scripts/sprint-report.ts --workspace de
 ```
 
-This generates content deterministically from scenario templates. All generated content must pass quality gates before publishing.
+**What it does:**
+- Generates 20-50 new units deterministically (70% packs, 30% drills)
+- Uses existing deterministic generators only (no PDF ingestion, no LLM-at-runtime)
+- All generated content defaults to `review.status="needs_review"`
+- Runs full validation after generation
+- Enforces quality gates and dedupe checks
+- Aborts sprint if validation fails
+
+**Scenarios supported:**
+- `government_office` (highest priority)
+- `work`
+- `doctor`
+- `housing`
+
+**Levels:** A1 and A2 only
+
+**Sprint Report:**
+After generation, the sprint report (`docs/reports/expansion-sprint-v1.md` and `.json`) provides proof artifacts:
+- Pack count by scenario and level
+- `primaryStructure` distribution
+- `slotSwitchDensity` histogram
+- `scenarioCoverageScore` ranges (min/avg/max)
+- Zero-duplicate confirmation
+
+This proves content is:
+- Non-random
+- Non-generic
+- Structurally intentional
+- Scalable without quality collapse
+
+**Review Queue:**
+All generated content is added to `content/review/pending.json`. Only top-quality packs should be approved; low-quality packs remain blocked by the approval gate. This proves safety at scale.
 
 **Export Bundle**: After expansion sprint, generate curriculum exports for B2B sharing. The export includes `bundle.json`, `teacher_notes.md`, and `qa_report.json` proving catalog coherence at scale. See [CURRICULUM_EXPORTS.md](./CURRICULUM_EXPORTS.md) for details.
 
@@ -91,8 +132,11 @@ All packs must pass Content Quality Gates v1 before publishing. The validator au
 - **Concreteness markers**: ≥2 prompts must contain digits, currency, time, or weekday markers
 - **Duplicate detection**: Hard fails if exact duplicate prompts are found across workspace
 - **Provenance and review**: Generated content must have provenance metadata and review.status
+- **Meaning-safety gates**: Approved generated packs must have non-empty `gloss_en` and `intent` for all prompts
 
 See [QUALITY_GATES.md](./QUALITY_GATES.md) for detailed rules and how to fix failing packs.
+
+**Meaning-Safety**: Before promoting approved generated content, ensure all prompts have complete `gloss_en` and `intent` fields. The approval gate will block promotion if these are missing.
 
 **Validation runs automatically**:
 - During `npm run content:validate`
@@ -201,6 +245,7 @@ This will:
 - Fetches the catalog from staging manifest
 - Tests all section indexes (follows pagination chains)
 - Samples N items (default: 5) and verifies their entry documents are accessible
+- Tests featured.json if present (validates hero and cards entries are accessible)
 - Validates exports exist and parse correctly (JSON + CSV)
 - Fails if any 404 or invalid JSON is found
 
@@ -580,9 +625,56 @@ This tells older app versions to show "update required" instead of crashing.
 
 This workflow ensures you never have half-published states or production 404s.
 
+## TODO (Deferred)
+
+### B2B/Curriculum Exports v2 (SCORM-ish Bundles)
+
+**Status**: Deferred
+
+**Planned Features**:
+- SCORM-compatible curriculum bundles
+- Teacher notes and QA reports
+- Multi-workspace curriculum exports
+- Versioned curriculum packages
+
+**Current Status**: Basic curriculum exports (v1) are available via `npm run content:export-curriculum-v2`. Full B2B/SCORM integration is deferred to a future milestone.
+
+## Acceptance Checklist
+
+### Featured / Home Hero Feature
+
+When implementing featured content, verify:
+
+- ✅ Generated file exists at `content/v1/workspaces/de/featured/featured.json`
+- ✅ `npm run content:generate-featured -- --workspace de` produces valid featured.json
+- ✅ `npm run content:validate` passes (validates FeaturedV1 schema)
+- ✅ Live endpoint works after publish: `curl .../v1/workspaces/de/featured/featured.json` returns 200
+- ✅ Hero entryUrl resolves to existing entry (track/pack/exam/drill)
+- ✅ All card entryUrls resolve to existing entries
+- ✅ Smoke test validates featured.json and all referenced entries
+- ✅ Deterministic: running generator twice produces identical output (unless content changes)
+- ✅ If referenced entries are generated content, they must be approved (validation enforces this)
+
+### Tracks Feature
+
+When implementing tracks (curated learning paths), verify:
+
+- ✅ `curl /v1/workspaces/de/tracks/index.json` returns at least 1 item (e.g., `gov_office_a1_default`)
+- ✅ `curl /v1/workspaces/de/tracks/gov_office_a1_default/track.json` returns a valid TrackEntry
+- ✅ `npm run content:validate` passes (no validation errors)
+- ✅ Smoke test includes tracks section and validates referenced entryUrls
+- ✅ All track items' `entryUrl` values exist and are valid
+- ✅ Track scenario matches all pack items' scenarios (drills may omit scenario)
+- ✅ No duplicate `entryUrl` values in track `items` array
+- ✅ Track `ordering.type` is `"fixed"` (deterministic ordering)
+- ✅ Catalog includes tracks section with correct `itemsUrl`
+
+See [TRACK_SCHEMA.md](./TRACK_SCHEMA.md) for complete track schema documentation.
+
 ## Related Documentation
 
 - [Rollback Drill](./ROLLBACK_DRILL.md) - Step-by-step guide to test rollback in production
 - [Entry URL Schema](./ENTRY_URL_SCHEMA.md) - Canonical URL patterns for entry documents
 - [Section Index Schema](../SECTION_INDEX_SCHEMA.md) - Pagination schema for indexes
+- [Track Schema](./TRACK_SCHEMA.md) - Track entry schema and validation rules
 

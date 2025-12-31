@@ -1,0 +1,303 @@
+{
+  "schemaVersion": 1,
+  "id": "doctor_pack_2_a1",
+  "kind": "pack",
+  "packVersion": "1.0.0",
+  "title": "Doctor - A1",
+  "level": "A1",
+  "estimatedMinutes": 15,
+  "description": "Practice doctor scenarios at A1 level.",
+  "scenario": "doctor",
+  "register": "neutral",
+  "primaryStructure": "modal_verbs_requests",
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier",
+    "time"
+  ],
+  "outline": [
+    "Making an Appointment",
+    "Describing Symptoms",
+    "Getting Prescription"
+  ],
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Die Ärztin möchte die Medikamente am Montag",
+      "intent": "request",
+      "gloss_en": "I would like to request something.",
+      "natural_en": "I'd like to request that.",
+      "audioUrl": "/v1/audio/doctor_pack_2_a1/prompt-001.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Die Ärztin"
+        ],
+        "verb": [
+          "möchte"
+        ],
+        "object": [
+          "die Medikamente"
+        ],
+        "modifier": [
+          "am Montag"
+        ]
+      }
+    },
+    {
+      "id": "prompt-002",
+      "text": "Sie kann die Untersuchung um 15:00",
+      "intent": "request",
+      "gloss_en": "I would like to request something.",
+      "natural_en": "I'd like to request that.",
+      "audioUrl": "/v1/audio/doctor_pack_2_a1/prompt-002.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "kann"
+        ],
+        "object": [
+          "die Untersuchung"
+        ],
+        "modifier": [
+          "um 15:00"
+        ]
+      }
+    },
+    {
+      "id": "prompt-003",
+      "text": "Sie haben die Diagnose",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/doctor_pack_2_a1/prompt-003.mp3",
+      "slotsChanged": [
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "haben"
+        ],
+        "object": [
+          "die Diagnose"
+        ]
+      }
+    },
+    {
+      "id": "prompt-004",
+      "text": "Ich vereinbare die Symptome",
+      "intent": "schedule",
+      "gloss_en": "I need to schedule something.",
+      "natural_en": "I need to schedule that.",
+      "audioUrl": "/v1/audio/doctor_pack_2_a1/prompt-004.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "vereinbare"
+        ],
+        "object": [
+          "die Symptome"
+        ]
+      }
+    },
+    {
+      "id": "prompt-005",
+      "text": "Die Ärztin braucht die Diagnose",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/doctor_pack_2_a1/prompt-005.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Die Ärztin"
+        ],
+        "verb": [
+          "braucht"
+        ],
+        "object": [
+          "die Diagnose"
+        ]
+      }
+    },
+    {
+      "id": "prompt-006",
+      "text": "Der Arzt fühlt einen Termin",
+      "intent": "schedule",
+      "gloss_en": "I need to schedule something.",
+      "natural_en": "I need to schedule that.",
+      "audioUrl": "/v1/audio/doctor_pack_2_a1/prompt-006.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Der Arzt"
+        ],
+        "verb": [
+          "fühlt"
+        ],
+        "object": [
+          "einen Termin"
+        ]
+      }
+    },
+    {
+      "id": "prompt-007",
+      "text": "Sie haben einen Termin",
+      "intent": "schedule",
+      "gloss_en": "I need to schedule something.",
+      "natural_en": "I need to schedule that.",
+      "audioUrl": "/v1/audio/doctor_pack_2_a1/prompt-007.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "haben"
+        ],
+        "object": [
+          "einen Termin"
+        ]
+      }
+    }
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "appointment",
+        "title": "Making an Appointment",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ]
+      },
+      {
+        "id": "symptoms",
+        "title": "Describing Symptoms",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004",
+          "prompt-005"
+        ]
+      },
+      {
+        "id": "prescription",
+        "title": "Getting Prescription",
+        "promptIds": [
+          "prompt-006",
+          "prompt-007"
+        ]
+      }
+    ]
+  },
+  "tags": [
+    "doctor"
+  ],
+  "analytics": {
+    "goal": "Practice doctor appointments and health conversations at A1 level",
+    "constraints": [
+      "neutral register maintained",
+      "doctor scenario context",
+      "modal_verbs_requests structure focus",
+      "verb position: second"
+    ],
+    "levers": [
+      "subject variation",
+      "verb substitution",
+      "object variation",
+      "modifier changes",
+      "time expressions"
+    ],
+    "successCriteria": [
+      "Uses appointment scheduling phrases",
+      "Includes symptom/health vocabulary",
+      "Maintains appropriate formality"
+    ],
+    "commonMistakes": [
+      "Missing appointment vocabulary",
+      "Incorrect symptom description forms",
+      "Mixing formal/informal address"
+    ],
+    "drillType": "substitution",
+    "version": 1,
+    "qualityGateVersion": "qg-2025-01-01",
+    "promptCount": 7,
+    "multiSlotRate": 1,
+    "scenarioTokenHitAvg": 0.14285714285714285,
+    "scenarioTokenQualifiedRate": 0,
+    "uniqueTokenRate": 0.6285714285714286,
+    "bannedPhraseViolations": 0,
+    "passesQualityGates": false,
+    "focus": "modal_verbs",
+    "cognitiveLoad": "high",
+    "responseSpeedTargetMs": 1800,
+    "fluencyOutcome": "health_appointments",
+    "whyThisWorks": [
+      "Uses appointment scheduling phrases",
+      "Includes symptom/health vocabulary",
+      "Maintains appropriate formality"
+    ],
+    "primaryStructure": "modal_verbs_requests",
+    "variationSlots": [
+      "subject",
+      "verb",
+      "object",
+      "modifier",
+      "time"
+    ],
+    "slotSwitchDensity": 1,
+    "promptDiversityScore": 0.5041426980589818,
+    "scenarioCoverageScore": 0.5714285714285714,
+    "estimatedCognitiveLoad": "high",
+    "intendedOutcome": "A1 doctor readiness"
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "doctor",
+    "extractorVersion": "1.0.0",
+    "generatedAt": "2025-12-31T07:35:41.684Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:pack:doctor_pack_2_a1",
+  "contentHash": "c7e6abd7be4a8cda6af8860ae62f69681dffb9e926e675a06041886a388df0cc",
+  "revisionId": "c7e6abd7be4a"
+}

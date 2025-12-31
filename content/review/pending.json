@@ -1658,5 +1658,565 @@
     "title": "Work - A2",
     "createdAt": "2025-12-30T21:45:17.121Z",
     "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-1767136917087",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T23:21:57.630Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-validation-1767136917650",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T23:21:58.018Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-deterministic-1-1767136918344",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T23:21:58.702Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-deterministic-2-1767136918344",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T23:21:59.085Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-work-1767136919104",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T23:21:59.493Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-restaurant-1767136919504",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-30T23:21:59.874Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-shopping-1767136919886",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "shopping",
+    "level": "A2",
+    "title": "Shopping - A2",
+    "createdAt": "2025-12-30T23:22:00.336Z",
+    "sourceTemplate": "shopping.json"
+  },
+  {
+    "id": "e2e-test-newpack-1767136920726",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T23:22:01.089Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-provenance-1767136926531",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T23:22:06.903Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-dedup-1-1767136926914",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T23:22:07.301Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-dedup-2-1767136926914",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T23:22:07.686Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-approval-1767136928043",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T23:22:08.910Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-review-queue-1767136929323",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T23:22:09.662Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-telemetry-1767136931509",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-30T23:22:11.855Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "anmeldung_address_registration_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "government_office",
+    "level": "A1",
+    "title": "Government Office - A1",
+    "createdAt": "2025-12-31T07:34:24.066Z",
+    "sourceTemplate": "government_office.json"
+  },
+  {
+    "id": "residence_permit_appointment_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "government_office",
+    "level": "A2",
+    "title": "Government Office - A2",
+    "createdAt": "2025-12-31T07:34:24.526Z",
+    "sourceTemplate": "government_office.json"
+  },
+  {
+    "id": "passport_pickup_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "government_office",
+    "level": "A1",
+    "title": "Government Office - A1",
+    "createdAt": "2025-12-31T07:34:24.892Z",
+    "sourceTemplate": "government_office.json"
+  },
+  {
+    "id": "immigration_office_questions_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "government_office",
+    "level": "A2",
+    "title": "Government Office - A2",
+    "createdAt": "2025-12-31T07:34:25.310Z",
+    "sourceTemplate": "government_office.json"
+  },
+  {
+    "id": "health_insurance_basic_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "government_office",
+    "level": "A1",
+    "title": "Government Office - A1",
+    "createdAt": "2025-12-31T07:34:25.763Z",
+    "sourceTemplate": "government_office.json"
+  },
+  {
+    "id": "jobcenter_basic_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "government_office",
+    "level": "A2",
+    "title": "Government Office - A2",
+    "createdAt": "2025-12-31T07:34:26.159Z",
+    "sourceTemplate": "government_office.json"
+  },
+  {
+    "id": "housing_pack_1_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "housing",
+    "level": "A1",
+    "title": "Housing - A1",
+    "createdAt": "2025-12-31T07:35:12.770Z",
+    "sourceTemplate": "housing.json"
+  },
+  {
+    "id": "housing_pack_2_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "housing",
+    "level": "A1",
+    "title": "Housing - A1",
+    "createdAt": "2025-12-31T07:35:13.092Z",
+    "sourceTemplate": "housing.json"
+  },
+  {
+    "id": "housing_pack_3_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "housing",
+    "level": "A1",
+    "title": "Housing - A1",
+    "createdAt": "2025-12-31T07:35:13.424Z",
+    "sourceTemplate": "housing.json"
+  },
+  {
+    "id": "housing_pack_4_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "housing",
+    "level": "A1",
+    "title": "Housing - A1",
+    "createdAt": "2025-12-31T07:35:13.778Z",
+    "sourceTemplate": "housing.json"
+  },
+  {
+    "id": "housing_pack_5_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "housing",
+    "level": "A1",
+    "title": "Housing - A1",
+    "createdAt": "2025-12-31T07:35:14.143Z",
+    "sourceTemplate": "housing.json"
+  },
+  {
+    "id": "housing_pack_6_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "housing",
+    "level": "A1",
+    "title": "Housing - A1",
+    "createdAt": "2025-12-31T07:35:14.505Z",
+    "sourceTemplate": "housing.json"
+  },
+  {
+    "id": "housing_pack_7_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "housing",
+    "level": "A1",
+    "title": "Housing - A1",
+    "createdAt": "2025-12-31T07:35:14.877Z",
+    "sourceTemplate": "housing.json"
+  },
+  {
+    "id": "housing_pack_8_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "housing",
+    "level": "A1",
+    "title": "Housing - A1",
+    "createdAt": "2025-12-31T07:35:15.272Z",
+    "sourceTemplate": "housing.json"
+  },
+  {
+    "id": "housing_pack_9_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "housing",
+    "level": "A1",
+    "title": "Housing - A1",
+    "createdAt": "2025-12-31T07:35:15.631Z",
+    "sourceTemplate": "housing.json"
+  },
+  {
+    "id": "housing_pack_10_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "housing",
+    "level": "A1",
+    "title": "Housing - A1",
+    "createdAt": "2025-12-31T07:35:15.962Z",
+    "sourceTemplate": "housing.json"
+  },
+  {
+    "id": "housing_pack_1_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "housing",
+    "level": "A2",
+    "title": "Housing - A2",
+    "createdAt": "2025-12-31T07:35:28.748Z",
+    "sourceTemplate": "housing.json"
+  },
+  {
+    "id": "housing_pack_2_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "housing",
+    "level": "A2",
+    "title": "Housing - A2",
+    "createdAt": "2025-12-31T07:35:29.118Z",
+    "sourceTemplate": "housing.json"
+  },
+  {
+    "id": "housing_pack_3_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "housing",
+    "level": "A2",
+    "title": "Housing - A2",
+    "createdAt": "2025-12-31T07:35:29.475Z",
+    "sourceTemplate": "housing.json"
+  },
+  {
+    "id": "housing_pack_4_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "housing",
+    "level": "A2",
+    "title": "Housing - A2",
+    "createdAt": "2025-12-31T07:35:29.830Z",
+    "sourceTemplate": "housing.json"
+  },
+  {
+    "id": "housing_pack_5_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "housing",
+    "level": "A2",
+    "title": "Housing - A2",
+    "createdAt": "2025-12-31T07:35:30.174Z",
+    "sourceTemplate": "housing.json"
+  },
+  {
+    "id": "housing_pack_6_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "housing",
+    "level": "A2",
+    "title": "Housing - A2",
+    "createdAt": "2025-12-31T07:35:30.522Z",
+    "sourceTemplate": "housing.json"
+  },
+  {
+    "id": "housing_pack_7_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "housing",
+    "level": "A2",
+    "title": "Housing - A2",
+    "createdAt": "2025-12-31T07:35:30.874Z",
+    "sourceTemplate": "housing.json"
+  },
+  {
+    "id": "housing_pack_8_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "housing",
+    "level": "A2",
+    "title": "Housing - A2",
+    "createdAt": "2025-12-31T07:35:31.207Z",
+    "sourceTemplate": "housing.json"
+  },
+  {
+    "id": "housing_pack_9_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "housing",
+    "level": "A2",
+    "title": "Housing - A2",
+    "createdAt": "2025-12-31T07:35:31.641Z",
+    "sourceTemplate": "housing.json"
+  },
+  {
+    "id": "housing_pack_10_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "housing",
+    "level": "A2",
+    "title": "Housing - A2",
+    "createdAt": "2025-12-31T07:35:32.007Z",
+    "sourceTemplate": "housing.json"
+  },
+  {
+    "id": "doctor_pack_1_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "doctor",
+    "level": "A1",
+    "title": "Doctor - A1",
+    "createdAt": "2025-12-31T07:35:41.344Z",
+    "sourceTemplate": "doctor.json"
+  },
+  {
+    "id": "doctor_pack_2_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "doctor",
+    "level": "A1",
+    "title": "Doctor - A1",
+    "createdAt": "2025-12-31T07:35:41.687Z",
+    "sourceTemplate": "doctor.json"
+  },
+  {
+    "id": "doctor_pack_3_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "doctor",
+    "level": "A1",
+    "title": "Doctor - A1",
+    "createdAt": "2025-12-31T07:35:42.133Z",
+    "sourceTemplate": "doctor.json"
+  },
+  {
+    "id": "doctor_pack_4_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "doctor",
+    "level": "A1",
+    "title": "Doctor - A1",
+    "createdAt": "2025-12-31T07:35:42.484Z",
+    "sourceTemplate": "doctor.json"
+  },
+  {
+    "id": "doctor_pack_5_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "doctor",
+    "level": "A1",
+    "title": "Doctor - A1",
+    "createdAt": "2025-12-31T07:35:42.845Z",
+    "sourceTemplate": "doctor.json"
+  },
+  {
+    "id": "doctor_pack_6_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "doctor",
+    "level": "A1",
+    "title": "Doctor - A1",
+    "createdAt": "2025-12-31T07:35:43.184Z",
+    "sourceTemplate": "doctor.json"
+  },
+  {
+    "id": "doctor_pack_7_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "doctor",
+    "level": "A1",
+    "title": "Doctor - A1",
+    "createdAt": "2025-12-31T07:35:43.533Z",
+    "sourceTemplate": "doctor.json"
+  },
+  {
+    "id": "doctor_pack_8_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "doctor",
+    "level": "A1",
+    "title": "Doctor - A1",
+    "createdAt": "2025-12-31T07:35:43.866Z",
+    "sourceTemplate": "doctor.json"
+  },
+  {
+    "id": "doctor_pack_1_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "doctor",
+    "level": "A2",
+    "title": "Doctor - A2",
+    "createdAt": "2025-12-31T07:35:50.397Z",
+    "sourceTemplate": "doctor.json"
+  },
+  {
+    "id": "doctor_pack_2_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "doctor",
+    "level": "A2",
+    "title": "Doctor - A2",
+    "createdAt": "2025-12-31T07:35:50.753Z",
+    "sourceTemplate": "doctor.json"
+  },
+  {
+    "id": "doctor_pack_3_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "doctor",
+    "level": "A2",
+    "title": "Doctor - A2",
+    "createdAt": "2025-12-31T07:35:51.106Z",
+    "sourceTemplate": "doctor.json"
+  },
+  {
+    "id": "doctor_pack_4_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "doctor",
+    "level": "A2",
+    "title": "Doctor - A2",
+    "createdAt": "2025-12-31T07:35:51.424Z",
+    "sourceTemplate": "doctor.json"
+  },
+  {
+    "id": "doctor_pack_5_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "doctor",
+    "level": "A2",
+    "title": "Doctor - A2",
+    "createdAt": "2025-12-31T07:35:51.753Z",
+    "sourceTemplate": "doctor.json"
+  },
+  {
+    "id": "doctor_pack_6_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "doctor",
+    "level": "A2",
+    "title": "Doctor - A2",
+    "createdAt": "2025-12-31T07:35:52.119Z",
+    "sourceTemplate": "doctor.json"
+  },
+  {
+    "id": "doctor_pack_7_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "doctor",
+    "level": "A2",
+    "title": "Doctor - A2",
+    "createdAt": "2025-12-31T07:35:52.467Z",
+    "sourceTemplate": "doctor.json"
+  },
+  {
+    "id": "doctor_pack_8_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "doctor",
+    "level": "A2",
+    "title": "Doctor - A2",
+    "createdAt": "2025-12-31T07:35:52.804Z",
+    "sourceTemplate": "doctor.json"
   }
 ]

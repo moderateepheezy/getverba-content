@@ -51,6 +51,10 @@ function validateEntryUrlPattern(entryUrl: string, itemId: string, kind: string,
     // Drill pattern: /v1/workspaces/{workspace}/drills/{drillId}/drill.json
     expectedPattern = /^\/v1\/workspaces\/[^/]+\/drills\/[^/]+\/drill\.json$/;
     expectedSuffix = '/drill.json';
+  } else if (normalizedKind === 'tracks' || normalizedKind === 'track') {
+    // Track pattern: /v1/workspaces/{workspace}/tracks/{trackId}/track.json
+    expectedPattern = /^\/v1\/workspaces\/[^/]+\/tracks\/[^/]+\/track\.json$/;
+    expectedSuffix = '/track.json';
   } else {
     // Unknown kind - skip pattern validation but warn
     return;
@@ -93,6 +97,8 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
       docType = 'ExamEntry';
     } else if (normalizedKind === 'drill') {
       docType = 'DrillEntry';
+    } else if (normalizedKind === 'track') {
+      docType = 'TrackEntry';
     } else {
       docType = 'Entry';
     }
@@ -127,36 +133,38 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
       }
     }
     
-    // Telemetry identifiers validation (required for all entry types)
-    if (!entry.contentId || typeof entry.contentId !== 'string') {
-      addError(contextFile, `Item ${itemIdx} entry document missing or invalid field: contentId (must be string)`);
-    } else {
-      // Validate contentId pattern: {workspace}:{kind}:{id}
-      const contentIdPattern = /^[a-z0-9_-]+:(pack|drill|exam):[a-z0-9_-]+$/;
-      if (!contentIdPattern.test(entry.contentId)) {
-        addError(contextFile, `Item ${itemIdx} entry document contentId "${entry.contentId}" does not match required pattern: {workspace}:{kind}:{id}`);
+    // Telemetry identifiers validation (required for all entry types except tracks)
+    if (normalizedKind !== 'track') {
+      if (!entry.contentId || typeof entry.contentId !== 'string') {
+        addError(contextFile, `Item ${itemIdx} entry document missing or invalid field: contentId (must be string)`);
+      } else {
+        // Validate contentId pattern: {workspace}:{kind}:{id}
+        const contentIdPattern = /^[a-z0-9_-]+:(pack|drill|exam):[a-z0-9_-]+$/;
+        if (!contentIdPattern.test(entry.contentId)) {
+          addError(contextFile, `Item ${itemIdx} entry document contentId "${entry.contentId}" does not match required pattern: {workspace}:{kind}:{id}`);
+        }
       }
-    }
-    
-    if (!entry.contentHash || typeof entry.contentHash !== 'string') {
-      addError(contextFile, `Item ${itemIdx} entry document missing or invalid field: contentHash (must be string)`);
-    } else {
-      // Validate contentHash is valid SHA256 hex (64 chars)
-      if (!/^[a-f0-9]{64}$/.test(entry.contentHash)) {
-        addError(contextFile, `Item ${itemIdx} entry document contentHash "${entry.contentHash}" is not a valid SHA256 hash (must be 64 hex characters)`);
+      
+      if (!entry.contentHash || typeof entry.contentHash !== 'string') {
+        addError(contextFile, `Item ${itemIdx} entry document missing or invalid field: contentHash (must be string)`);
+      } else {
+        // Validate contentHash is valid SHA256 hex (64 chars)
+        if (!/^[a-f0-9]{64}$/.test(entry.contentHash)) {
+          addError(contextFile, `Item ${itemIdx} entry document contentHash "${entry.contentHash}" is not a valid SHA256 hash (must be 64 hex characters)`);
+        }
       }
-    }
-    
-    if (!entry.revisionId || typeof entry.revisionId !== 'string') {
-      addError(contextFile, `Item ${itemIdx} entry document missing or invalid field: revisionId (must be string)`);
-    } else {
-      // Validate revisionId is derived from contentHash (first 12 chars)
-      if (entry.contentHash && entry.revisionId !== entry.contentHash.substring(0, 12)) {
-        addError(contextFile, `Item ${itemIdx} entry document revisionId "${entry.revisionId}" is not derived from contentHash (must be first 12 characters of contentHash)`);
-      }
-      // Validate revisionId format (12 hex chars)
-      if (!/^[a-f0-9]{12}$/.test(entry.revisionId)) {
-        addError(contextFile, `Item ${itemIdx} entry document revisionId "${entry.revisionId}" is not valid (must be 12 hex characters)`);
+      
+      if (!entry.revisionId || typeof entry.revisionId !== 'string') {
+        addError(contextFile, `Item ${itemIdx} entry document missing or invalid field: revisionId (must be string)`);
+      } else {
+        // Validate revisionId is derived from contentHash (first 12 chars)
+        if (entry.contentHash && entry.revisionId !== entry.contentHash.substring(0, 12)) {
+          addError(contextFile, `Item ${itemIdx} entry document revisionId "${entry.revisionId}" is not derived from contentHash (must be first 12 characters of contentHash)`);
+        }
+        // Validate revisionId format (12 hex chars)
+        if (!/^[a-f0-9]{12}$/.test(entry.revisionId)) {
+          addError(contextFile, `Item ${itemIdx} entry document revisionId "${entry.revisionId}" is not valid (must be 12 hex characters)`);
+        }
       }
     }
     
@@ -464,6 +472,106 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
         addError(contextFile, `Item ${itemIdx} drill entry missing or invalid field: analytics (must be object)`);
       } else {
         validateDrillAnalytics(entry.analytics, entry, contextFile, itemIdx);
+      }
+    }
+    
+    // Track-specific validation
+    if (normalizedKind === 'track') {
+      if (!entry.level || typeof entry.level !== 'string') {
+        addError(contextFile, `Item ${itemIdx} track entry missing or invalid field: level (must be string)`);
+      }
+      if (!entry.scenario || typeof entry.scenario !== 'string') {
+        addError(contextFile, `Item ${itemIdx} track entry missing or invalid field: scenario (must be string)`);
+      }
+      if (!entry.description || typeof entry.description !== 'string') {
+        addError(contextFile, `Item ${itemIdx} track entry missing or invalid field: description (must be string)`);
+      }
+      if (!Array.isArray(entry.items) || entry.items.length === 0) {
+        addError(contextFile, `Item ${itemIdx} track entry missing or invalid field: items (must be non-empty array)`);
+      } else {
+        // Validate items array (6-14 items recommended)
+        if (entry.items.length < 6) {
+          addError(contextFile, `Item ${itemIdx} track entry items array too short (${entry.items.length} items, minimum 6)`);
+        }
+        if (entry.items.length > 14) {
+          addError(contextFile, `Item ${itemIdx} track entry items array too long (${entry.items.length} items, maximum 14)`);
+        }
+        
+        // Validate each item
+        const seenEntryUrls = new Set<string>();
+        entry.items.forEach((item: any, itemIdx: number) => {
+          if (!item.kind || typeof item.kind !== 'string') {
+            addError(contextFile, `Item ${itemIdx} track entry items[${itemIdx}] missing or invalid field: kind (must be "pack" or "drill")`);
+          } else if (!['pack', 'drill'].includes(item.kind.toLowerCase())) {
+            addError(contextFile, `Item ${itemIdx} track entry items[${itemIdx}] kind must be "pack" or "drill"`);
+          }
+          
+          if (!item.entryUrl || typeof item.entryUrl !== 'string') {
+            addError(contextFile, `Item ${itemIdx} track entry items[${itemIdx}] missing or invalid field: entryUrl (must be string)`);
+          } else {
+            // Validate entryUrl pattern matches kind
+            const itemKind = item.kind.toLowerCase();
+            if (itemKind === 'pack') {
+              const packPattern = /^\/v1\/workspaces\/[^/]+\/packs\/[^/]+\/pack\.json$/;
+              if (!packPattern.test(item.entryUrl)) {
+                addError(contextFile, `Item ${itemIdx} track entry items[${itemIdx}] entryUrl does not match pack pattern: ${item.entryUrl}`);
+              }
+            } else if (itemKind === 'drill') {
+              const drillPattern = /^\/v1\/workspaces\/[^/]+\/drills\/[^/]+\/drill\.json$/;
+              if (!drillPattern.test(item.entryUrl)) {
+                addError(contextFile, `Item ${itemIdx} track entry items[${itemIdx}] entryUrl does not match drill pattern: ${item.entryUrl}`);
+              }
+            }
+            
+            // Validate entryUrl exists
+            const entryPath = resolveContentPath(item.entryUrl);
+            if (!existsSync(entryPath)) {
+              addError(contextFile, `Item ${itemIdx} track entry items[${itemIdx}] entryUrl does not exist: ${item.entryUrl}`);
+            } else {
+              // Validate referenced entry document
+              validateEntryDocument(entryPath, item.kind, contextFile, itemIdx);
+              
+              // Validate scenario consistency (packs must match track scenario, drills may omit)
+              if (item.kind === 'pack') {
+                try {
+                  const entryContent = readFileSync(entryPath, 'utf-8');
+                  const referencedEntry = JSON.parse(entryContent);
+                  if (entry.scenario && referencedEntry.scenario && entry.scenario !== referencedEntry.scenario) {
+                    addError(contextFile, `Item ${itemIdx} track entry items[${itemIdx}] pack scenario "${referencedEntry.scenario}" does not match track scenario "${entry.scenario}"`);
+                  }
+                } catch (err: any) {
+                  // Entry validation will catch parse errors
+                }
+              }
+            }
+            
+            // Check for duplicate entryUrls
+            if (seenEntryUrls.has(item.entryUrl)) {
+              addError(contextFile, `Item ${itemIdx} track entry items[${itemIdx}] duplicate entryUrl: ${item.entryUrl}`);
+            }
+            seenEntryUrls.add(item.entryUrl);
+          }
+          
+          if (item.required !== undefined && typeof item.required !== 'boolean') {
+            addError(contextFile, `Item ${itemIdx} track entry items[${itemIdx}] required must be boolean if present`);
+          }
+        });
+      }
+      
+      // Validate ordering
+      if (!entry.ordering || typeof entry.ordering !== 'object') {
+        addError(contextFile, `Item ${itemIdx} track entry missing or invalid field: ordering (must be object)`);
+      } else {
+        if (!entry.ordering.type || entry.ordering.type !== 'fixed') {
+          addError(contextFile, `Item ${itemIdx} track entry ordering.type must be "fixed" (deterministic ordering required)`);
+        }
+      }
+      
+      // Validate version
+      if (typeof entry.version !== 'number') {
+        addError(contextFile, `Item ${itemIdx} track entry missing or invalid field: version (must be number)`);
+      } else if (entry.version !== 1) {
+        addError(contextFile, `Item ${itemIdx} track entry version must be 1 (got ${entry.version})`);
       }
     }
   } catch (err: any) {
@@ -2061,6 +2169,37 @@ function validateSchemaV1RequiredFields(docType: string, doc: any, filePath: str
     if (typeof doc.estimatedMinutes !== 'number') {
       addError(filePath, 'DrillEntry schemaVersion 1: missing or invalid required field: estimatedMinutes');
     }
+  } else if (docType === 'TrackEntry') {
+    if (!doc.id || typeof doc.id !== 'string') {
+      addError(filePath, 'TrackEntry schemaVersion 1: missing or invalid required field: id');
+    }
+    if (!doc.kind || typeof doc.kind !== 'string') {
+      addError(filePath, 'TrackEntry schemaVersion 1: missing or invalid required field: kind');
+    }
+    if (!doc.title || typeof doc.title !== 'string') {
+      addError(filePath, 'TrackEntry schemaVersion 1: missing or invalid required field: title');
+    }
+    if (!doc.level || typeof doc.level !== 'string') {
+      addError(filePath, 'TrackEntry schemaVersion 1: missing or invalid required field: level');
+    }
+    if (!doc.scenario || typeof doc.scenario !== 'string') {
+      addError(filePath, 'TrackEntry schemaVersion 1: missing or invalid required field: scenario');
+    }
+    if (typeof doc.estimatedMinutes !== 'number') {
+      addError(filePath, 'TrackEntry schemaVersion 1: missing or invalid required field: estimatedMinutes');
+    }
+    if (!doc.description || typeof doc.description !== 'string') {
+      addError(filePath, 'TrackEntry schemaVersion 1: missing or invalid required field: description');
+    }
+    if (!Array.isArray(doc.items)) {
+      addError(filePath, 'TrackEntry schemaVersion 1: missing or invalid required field: items (must be array)');
+    }
+    if (!doc.ordering || typeof doc.ordering !== 'object') {
+      addError(filePath, 'TrackEntry schemaVersion 1: missing or invalid required field: ordering');
+    }
+    if (typeof doc.version !== 'number') {
+      addError(filePath, 'TrackEntry schemaVersion 1: missing or invalid required field: version');
+    }
   } else if (docType === 'Template') {
     if (!doc.id || typeof doc.id !== 'string') {
       addError(filePath, 'Template schemaVersion 1: missing or invalid required field: id');
@@ -2334,9 +2473,9 @@ function validateIndex(indexPath: string): void {
         addError(indexPath, `Item ${idx} missing or invalid field: kind (must be string: "pack", "exam", or "drill")`);
       } else {
         // Validate kind is one of the allowed values
-        const validKinds = ['pack', 'exam', 'drill'];
+        const validKinds = ['pack', 'exam', 'drill', 'track'];
         if (!validKinds.includes(item.kind.toLowerCase())) {
-          addError(indexPath, `Item ${idx} kind must be one of: "pack", "exam", "drill"`);
+          addError(indexPath, `Item ${idx} kind must be one of: "pack", "exam", "drill", "track"`);
         }
       }
       if (!item.title || typeof item.title !== 'string') {
@@ -2368,7 +2507,13 @@ function validateIndex(indexPath: string): void {
           // Validate entry document schema
           const entryPath = resolveContentPath(item.entryUrl);
           if (existsSync(entryPath)) {
-            validateEntryDocument(entryPath, item.kind, indexPath, idx);
+            // Tracks don't have telemetry identifiers, skip that validation
+            if (item.kind === 'track') {
+              // Track validation is done in validateEntryDocument, but we skip telemetry checks
+              validateEntryDocument(entryPath, item.kind, indexPath, idx);
+            } else {
+              validateEntryDocument(entryPath, item.kind, indexPath, idx);
+            }
             
             // Validate index item metadata matches pack metadata (if present)
             if (item.kind === 'pack' || item.kind === 'context') {
@@ -2542,6 +2687,176 @@ function validateIndex(indexPath: string): void {
     }
   } catch (err: any) {
     addError(indexPath, `Failed to parse JSON: ${err.message}`);
+  }
+}
+
+function validateFeatured(featuredPath: string): void {
+  try {
+    const content = readFileSync(featuredPath, 'utf-8');
+    const featured = JSON.parse(content);
+    
+    // Validate required fields
+    if (featured.version !== 1) {
+      addError(featuredPath, 'Featured version must be 1');
+    }
+    if (!featured.workspace || typeof featured.workspace !== 'string') {
+      addError(featuredPath, 'Missing or invalid field: workspace (must be string)');
+    }
+    if (!featured.generatedAt || typeof featured.generatedAt !== 'string') {
+      addError(featuredPath, 'Missing or invalid field: generatedAt (must be string)');
+    } else {
+      // Validate ISO date
+      const date = new Date(featured.generatedAt);
+      if (isNaN(date.getTime())) {
+        addError(featuredPath, 'generatedAt must be valid ISO 8601 format');
+      }
+    }
+    
+    // Validate hero (required)
+    if (!featured.hero || typeof featured.hero !== 'object') {
+      addError(featuredPath, 'Missing or invalid field: hero (must be object)');
+      return; // Can't continue without hero
+    }
+    
+    const hero = featured.hero;
+    if (!['track', 'pack', 'exam', 'drill'].includes(hero.kind)) {
+      addError(featuredPath, `hero.kind must be one of: track, pack, exam, drill, got "${hero.kind}"`);
+    }
+    if (!hero.entryUrl || typeof hero.entryUrl !== 'string') {
+      addError(featuredPath, 'hero.entryUrl is required and must be a string');
+    } else {
+      // Validate entryUrl pattern matches kind
+      const normalizedKind = hero.kind.toLowerCase();
+      let expectedPattern: RegExp;
+      if (normalizedKind === 'pack') {
+        expectedPattern = /^\/v1\/workspaces\/[^/]+\/packs\/[^/]+\/pack\.json$/;
+      } else if (normalizedKind === 'exam') {
+        expectedPattern = /^\/v1\/workspaces\/[^/]+\/exams\/[^/]+\/exam\.json$/;
+      } else if (normalizedKind === 'drill') {
+        expectedPattern = /^\/v1\/workspaces\/[^/]+\/drills\/[^/]+\/drill\.json$/;
+      } else if (normalizedKind === 'track') {
+        expectedPattern = /^\/v1\/workspaces\/[^/]+\/tracks\/[^/]+\/track\.json$/;
+      } else {
+        expectedPattern = /^\/v1\/workspaces\/[^/]+\/[^/]+\/[^/]+\/[^/]+\.json$/;
+      }
+      
+      if (!expectedPattern.test(hero.entryUrl)) {
+        addError(featuredPath, `hero.entryUrl "${hero.entryUrl}" does not match canonical pattern for kind "${hero.kind}"`);
+      } else {
+        // Validate entry exists
+        const entryPath = resolveContentPath(hero.entryUrl);
+        if (!existsSync(entryPath)) {
+          addError(featuredPath, `hero.entryUrl "${hero.entryUrl}" does not exist (resolved to: ${entryPath})`);
+        } else {
+          // Validate entry kind matches
+          try {
+            const entryContent = readFileSync(entryPath, 'utf-8');
+            const entry = JSON.parse(entryContent);
+            if (entry.kind && entry.kind.toLowerCase() !== normalizedKind) {
+              addError(featuredPath, `hero.entryUrl kind "${entry.kind}" does not match hero.kind "${hero.kind}"`);
+            }
+            
+            // If referenced entry is generated content, it must be approved
+            if (entry.provenance && entry.provenance.source !== 'handcrafted') {
+              if (!entry.review || entry.review.status !== 'approved') {
+                addError(featuredPath, `hero.entryUrl references generated content that is not approved (status: ${entry.review?.status || 'missing'})`);
+              }
+            }
+          } catch (err: any) {
+            addError(featuredPath, `Failed to read hero entry: ${err.message}`);
+          }
+        }
+      }
+    }
+    
+    if (!hero.cta || typeof hero.cta !== 'object') {
+      addError(featuredPath, 'hero.cta is required and must be an object');
+    } else {
+      if (!hero.cta.label || typeof hero.cta.label !== 'string') {
+        addError(featuredPath, 'hero.cta.label is required and must be a string');
+      }
+      if (hero.cta.action !== 'open_entry') {
+        addError(featuredPath, `hero.cta.action must be "open_entry", got "${hero.cta.action}"`);
+      }
+    }
+    
+    // Validate cards (0-4)
+    if (!Array.isArray(featured.cards)) {
+      addError(featuredPath, 'cards must be an array');
+    } else {
+      if (featured.cards.length > 4) {
+        addError(featuredPath, `cards length must be 0-4, got ${featured.cards.length}`);
+      }
+      
+      const usedEntryUrls = new Set<string>();
+      if (hero.entryUrl) {
+        usedEntryUrls.add(hero.entryUrl);
+      }
+      
+      featured.cards.forEach((card: any, idx: number) => {
+        if (!card.id || typeof card.id !== 'string') {
+          addError(featuredPath, `cards[${idx}].id is required and must be a string`);
+        }
+        if (!['pack', 'drill', 'exam', 'track'].includes(card.kind)) {
+          addError(featuredPath, `cards[${idx}].kind must be one of: pack, drill, exam, track, got "${card.kind}"`);
+        }
+        if (!card.entryUrl || typeof card.entryUrl !== 'string') {
+          addError(featuredPath, `cards[${idx}].entryUrl is required and must be a string`);
+        } else {
+          // Check for duplicates
+          if (usedEntryUrls.has(card.entryUrl)) {
+            addError(featuredPath, `cards[${idx}].entryUrl "${card.entryUrl}" is duplicate (already used in hero or another card)`);
+          }
+          usedEntryUrls.add(card.entryUrl);
+          
+          // Validate entryUrl pattern matches kind
+          const normalizedKind = card.kind.toLowerCase();
+          let expectedPattern: RegExp;
+          if (normalizedKind === 'pack') {
+            expectedPattern = /^\/v1\/workspaces\/[^/]+\/packs\/[^/]+\/pack\.json$/;
+          } else if (normalizedKind === 'exam') {
+            expectedPattern = /^\/v1\/workspaces\/[^/]+\/exams\/[^/]+\/exam\.json$/;
+          } else if (normalizedKind === 'drill') {
+            expectedPattern = /^\/v1\/workspaces\/[^/]+\/drills\/[^/]+\/drill\.json$/;
+          } else if (normalizedKind === 'track') {
+            expectedPattern = /^\/v1\/workspaces\/[^/]+\/tracks\/[^/]+\/track\.json$/;
+          } else {
+            expectedPattern = /^\/v1\/workspaces\/[^/]+\/[^/]+\/[^/]+\/[^/]+\.json$/;
+          }
+          
+          if (!expectedPattern.test(card.entryUrl)) {
+            addError(featuredPath, `cards[${idx}].entryUrl "${card.entryUrl}" does not match canonical pattern for kind "${card.kind}"`);
+          } else {
+            // Validate entry exists
+            const entryPath = resolveContentPath(card.entryUrl);
+            if (!existsSync(entryPath)) {
+              addError(featuredPath, `cards[${idx}].entryUrl "${card.entryUrl}" does not exist (resolved to: ${entryPath})`);
+            } else {
+              // Validate entry kind matches
+              try {
+                const entryContent = readFileSync(entryPath, 'utf-8');
+                const entry = JSON.parse(entryContent);
+                if (entry.kind && entry.kind.toLowerCase() !== normalizedKind) {
+                  addError(featuredPath, `cards[${idx}].entryUrl kind "${entry.kind}" does not match card.kind "${card.kind}"`);
+                }
+                
+                // If referenced entry is generated content, it must be approved
+                if (entry.provenance && entry.provenance.source !== 'handcrafted') {
+                  if (!entry.review || entry.review.status !== 'approved') {
+                    addError(featuredPath, `cards[${idx}].entryUrl references generated content that is not approved (status: ${entry.review?.status || 'missing'})`);
+                  }
+                }
+              } catch (err: any) {
+                addError(featuredPath, `Failed to read card[${idx}] entry: ${err.message}`);
+              }
+            }
+          }
+        }
+      });
+    }
+    
+  } catch (err: any) {
+    addError(featuredPath, `Failed to parse featured.json: ${err.message}`);
   }
 }
 
@@ -2916,6 +3231,12 @@ function main() {
           addError(catalogPath, `Workspace "${workspace}" missing catalog.json`);
         } else {
           validateCatalog(catalogPath);
+        }
+        
+        // Validate featured.json if it exists
+        const featuredPath = join(workspacesDir, workspace, 'featured', 'featured.json');
+        if (existsSync(featuredPath)) {
+          validateFeatured(featuredPath);
         }
       });
     }

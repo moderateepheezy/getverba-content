@@ -76,7 +76,7 @@ function looksLikeHeading(text: string): boolean {
 /**
  * Count concreteness markers
  */
-function countConcretenessMarkers(text: string): number {
+export function countConcretenessMarkers(text: string): number {
   let count = 0;
   
   // Digits

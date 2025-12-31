@@ -38,6 +38,403 @@ The pipeline works best with **text-based PDFs** that have selectable text:
 2. Use online OCR tools (e.g., OCR.space, Adobe's online tool)
 3. Export as searchable PDF
 
+## PDF Profiles + Cache + Run History Workflow
+
+**Purpose**: Fast, reproducible, and reviewable PDF→packs generation using versioned profiles and cached extraction.
+
+### Overview
+
+The PDF Profiles + Cache system enables:
+- **Versioned recipes**: PDF processing configuration committed to git
+- **Fast iteration**: Cached extraction avoids re-extracting large PDFs
+- **Reproducible runs**: Same profile + same cache = same output
+- **Reviewable artifacts**: Run history with diffs and comparisons
+
+### Workflow
+
+1. **Create PDF Profile** (`content/meta/pdf-profiles/<profileId>.json`)
+2. **Run batch generation** using profile
+3. **Review run artifacts** (`reports/pdf-runs/<profileId>/<timestamp>/`)
+4. **Approve and promote** packs
+
+### Step 1: Create PDF Profile
+
+Create a profile file in `content/meta/pdf-profiles/`:
+
+```json
+{
+  "id": "deutschimblick",
+  "workspace": "de",
+  "file": "imports/deutschimblick.pdf",
+  "language": "de",
+  "defaultScenario": "auto",
+  "defaultLevel": "A1",
+  "search": {
+    "skipFrontMatter": true,
+    "windowSizePages": 25,
+    "minScenarioHits": 2,
+    "anchors": ["Termin", "Büro"]
+  },
+  "notes": "German textbook, chapters 3-5 contain work scenarios"
+}
+```
+
+**Commit to git**: Profiles are versioned and reviewed.
+
+See [PDF_PROFILES.md](./PDF_PROFILES.md) for complete schema documentation.
+
+### Step 2: Run Batch Generation
+
+Use the profile to generate packs:
+
+```bash
+tsx scripts/pdf-ingestion/runProfileBatch.ts \
+  --profile deutschimblick \
+  --packs 10 \
+  --promptsPerPack 12 \
+  --scenario auto \
+  --level A1
+```
+
+**What happens**:
+1. Loads profile from `content/meta/pdf-profiles/deutschimblick.json`
+2. Checks extraction cache (or extracts if missing)
+3. Runs scenario discovery + window search
+4. Generates batch packs
+5. Emits run artifacts under `reports/pdf-runs/deutschimblick/<timestamp>/`
+
+**First run**: Extracts PDF and caches extraction (may take time for large PDFs)
+
+**Subsequent runs**: Reuses cached extraction (fast)
+
+### Step 3: Review Run Artifacts
+
+Each run produces:
+- `run.json`: Machine-readable run metadata (inputs, chosen scenario, cache key)
+- `run.md`: Human-readable run report
+
+Compare runs by reviewing artifacts in `reports/pdf-runs/<profileId>/`.
+
+### Step 4: Approve and Promote
+
+After reviewing generated packs:
+1. Review queue: `./scripts/review-open.sh --workspace de --limit 20`
+2. Approve batches: `./scripts/approve-top.sh --scenario work --level A1 --limit 10`
+3. Promote to staging: `./scripts/promote-staging.sh`
+
+### Cache Management
+
+**Cache location**: `content/meta/pdf-cache/<profileId>/<cacheKey>.json`
+
+**Cache key**: Computed from file hash + extraction version
+
+**Cache invalidation**: 
+- Change extraction version in `extractAndCache.ts` to invalidate all caches
+- Delete cache file manually to force re-extraction
+
+**Cache is not committed**: `.gitignore` excludes `content/meta/pdf-cache/`
+
+### Benefits
+
+- **Fast iteration**: No re-extraction on subsequent runs
+- **Reproducible**: Same profile + cache = same output
+- **Reviewable**: Run artifacts enable comparison and debugging
+- **Versioned**: Profiles in git provide audit trail
+
+## PDF Ingestion Profiles
+
+**Purpose**: Per-document calibration for deterministic, high-quality PDF ingestion. Profiles tell the pipeline what "good" looks like for a specific PDF.
+
+**Note**: PDF Ingestion Profiles (`imports/profiles/`) are different from PDF Profiles (`content/meta/pdf-profiles/`). See [PDF_PROFILES.md](./PDF_PROFILES.md) for details.
+
+### Profile Location
+
+Profiles are stored in `imports/profiles/<pdfId>.json`. The pipeline automatically loads a profile when `--pdfId <id>` is provided.
+
+### Profile Schema
+
+```json
+{
+  "pdfId": "deutschimblick",
+  "language": "de",
+  "defaultScenarios": ["government_office", "work", "school"],
+  "anchors": ["Termin", "Büro", "Anmeldung"],
+  "skipPages": {
+    "ranges": ["0-12", "350-380"]
+  },
+  "preferPageRanges": ["50-200", "250-300"],
+  "windowSizePages": 30,
+  "minScenarioHits": 3,
+  "scoringTweaks": {
+    "dialogueBonus": 1.2,
+    "headingPenalty": 0.5,
+    "tablePenalty": 0.3
+  },
+  "rejectSections": [
+    "Inhaltsverzeichnis",
+    "Kapitel",
+    "Grammatik",
+    "Vokabelliste"
+  ]
+}
+```
+
+### Profile Fields
+
+- **`pdfId`** (string, required): PDF identifier (must match filename without `.json`)
+- **`language`** ("de" | "en", required): Language of PDF content
+- **`defaultScenarios`** (string[], required): Ordered list of preferred scenarios (used when `--scenario auto`)
+- **`anchors`** (string[], required): German phrases that must appear (hard constraints)
+- **`skipPages`** (number[] | { ranges: string[] }, optional): Pages to skip
+  - Array format: `[0, 1, 2, 10, 11]`
+  - Ranges format: `{ "ranges": ["0-12", "350-380"] }`
+- **`preferPageRanges`** (string[], optional): Preferred page ranges (e.g., `["50-200", "250-300"]`)
+- **`windowSizePages`** (number, optional): Override default window size
+- **`minScenarioHits`** (number, optional): Override minimum scenario token hits
+- **`scoringTweaks`** (object, optional): Scoring adjustments
+  - `dialogueBonus`: Multiplier for dialogue-like text
+  - `headingPenalty`: Penalty for heading-like text
+  - `tablePenalty`: Penalty for table-like text
+- **`rejectSections`** (string[], optional): Keywords that cause candidate rejection
+
+### Using Profiles
+
+**Automatic loading (recommended)**:
+```bash
+tsx scripts/pdf-ingestion/pdf-to-packs-batch.ts \
+  --workspace de \
+  --pdfId deutschimblick \
+  --pdf ./imports/deutschimblick.pdf \
+  --scenario auto \
+  --level A1 \
+  --packs 10
+```
+
+The pipeline will:
+1. Load `imports/profiles/deutschimblick.json` automatically
+2. Apply `skipPages` and `preferPageRanges` before window search
+3. Use `defaultScenarios` ordering when `--scenario auto`
+4. Require anchor hits (warns if 0 hits found)
+5. Reject candidates matching `rejectSections` keywords
+
+**Explicit profile path**:
+```bash
+tsx scripts/pdf-ingestion/pdf-to-packs-batch.ts \
+  --workspace de \
+  --profile ./custom-profiles/my-profile.json \
+  --pdf ./imports/some.pdf \
+  --scenario auto
+```
+
+### Profile Examples
+
+**Example 1: Government Office Textbook**
+```json
+{
+  "pdfId": "gov-office-textbook",
+  "language": "de",
+  "defaultScenarios": ["government_office", "work"],
+  "anchors": ["Termin", "Anmeldung", "Formular"],
+  "skipPages": { "ranges": ["0-15"] },
+  "preferPageRanges": ["50-150"],
+  "rejectSections": ["Inhaltsverzeichnis", "Kapitel"]
+}
+```
+
+**Example 2: Work Dialogue Book**
+```json
+{
+  "pdfId": "work-dialogues",
+  "language": "de",
+  "defaultScenarios": ["work", "restaurant"],
+  "anchors": ["Büro", "Meeting", "Termin"],
+  "skipPages": [0, 1, 2],
+  "windowSizePages": 20,
+  "minScenarioHits": 2
+}
+```
+
+## Token Mining + Proposal + Apply + Regenerate Workflow
+
+**Purpose**: Iteratively improve scenario token dictionaries based on real PDF content, then regenerate packs with improved token coverage.
+
+### Workflow Overview
+
+1. **Mine tokens** from PDF windows
+2. **Create proposal** from mining report
+3. **Review and edit** proposal (human approval)
+4. **Apply proposal** to update scenario dictionaries
+5. **Regenerate packs** with improved tokens
+
+### Step 1: Mine Tokens
+
+Extract candidate tokens/phrases from the best window for a scenario:
+
+```bash
+tsx scripts/pdf-ingestion/tokenMining.ts \
+  --workspace de \
+  --pdf ./imports/deutschimblick.pdf \
+  --pdfId deutschimblick \
+  --scenario school \
+  --mode search \
+  --topN 80 \
+  --ngrams 1,2,3
+```
+
+**Outputs**:
+- `reports/token-mining/<pdfId>.<scenario>.<timestamp>/report.json` (machine-readable)
+- `reports/token-mining/<pdfId>.<scenario>.<timestamp>/report.md` (human-readable)
+
+**What it does**:
+- Finds best window for scenario (reuses existing pipeline)
+- Extracts n-grams (1, 2, 3-word phrases) from qualified candidates
+- Filters stopwords, banned phrases, existing tokens
+- Ranks by frequency
+- Suggests strong tokens (multi-word phrases with high frequency)
+
+### Step 2: Create Token Proposal
+
+Generate a proposal file from the mining report:
+
+```bash
+tsx scripts/pdf-ingestion/create-token-proposal.ts \
+  --fromReport ./reports/token-mining/deutschimblick.school.2025-01-01/report.json \
+  --scenario school \
+  --pdfId deutschimblick \
+  --notes "Tokens from Deutsch im Blick chapter 3"
+```
+
+**Output**: `content/meta/token-proposals/deutschimblick.school.json`
+
+**Proposal structure**:
+```json
+{
+  "pdfId": "deutschimblick",
+  "scenario": "school",
+  "createdAt": "2025-01-01T12:00:00Z",
+  "add": {
+    "tokens": ["student", "studentin", "klasse", "hausaufgabe"],
+    "strongTokens": ["studieren", "prüfung", "vorlesung"],
+    "phrases": ["in der uni", "zur vorlesung gehen"]
+  },
+  "notes": "Tokens from Deutsch im Blick chapter 3"
+}
+```
+
+### Step 3: Review and Edit Proposal
+
+**Human approval required**: Edit the proposal file to remove unwanted tokens:
+
+```bash
+# Review proposal
+cat content/meta/token-proposals/deutschimblick.school.json
+
+# Edit if needed
+vim content/meta/token-proposals/deutschimblick.school.json
+```
+
+### Step 4: Apply Token Proposal
+
+Merge approved tokens into scenario dictionaries:
+
+```bash
+./scripts/apply-token-proposal.sh content/meta/token-proposals/deutschimblick.school.json
+```
+
+**What it does**:
+- Updates `SCENARIO_TOKEN_DICTS` in key files:
+  - `scripts/content-quality/computeAnalytics.ts`
+  - `scripts/pdf-ingestion/pdf-to-packs-batch.ts`
+  - `scripts/pdf-ingestion/tokenMining.ts`
+- Deduplicates tokens (keeps sorted)
+- Runs validation and quality checks
+- Prints next command to regenerate packs
+
+### Step 5: Regenerate Packs
+
+Re-run batch generation with updated tokens:
+
+```bash
+tsx scripts/pdf-ingestion/pdf-to-packs-batch.ts \
+  --workspace de \
+  --pdfId deutschimblick \
+  --pdf ./imports/deutschimblick.pdf \
+  --scenario school \
+  --level A1 \
+  --packs 10
+```
+
+**Expected improvement**: More qualified candidates, better token coverage, higher quality packs.
+
+### Automatic Token Mining Hints
+
+When batch generation detects insufficient qualified candidates, it automatically suggests token mining:
+
+```
+💡 Token Mining Suggestion:
+   Low qualified candidates detected. Consider mining tokens from this PDF:
+   tsx scripts/pdf-ingestion/tokenMining.ts \
+     --workspace de \
+     --pdf "./imports/deutschimblick.pdf" \
+     --pdfId deutschimblick \
+     --scenario school \
+     --mode search \
+     --topN 80 \
+     --ngrams 1,2,3
+```
+
+**Disable hints**: Use `--emitTokenMiningHint false` to suppress suggestions.
+
+### Why This Works
+
+- **Grounded in real language**: Tokens come from actual PDF content, not guesses
+- **Deterministic**: Same PDF + same tokens = same results
+- **Iterative**: Each cycle improves token coverage
+- **Human-approved**: No auto-landing; review before applying
+- **Prevents generic content**: Real tokens ensure authentic scenarios
+
+### Example: Complete Iteration
+
+```bash
+# 1. Initial batch (low qualified candidates)
+tsx scripts/pdf-ingestion/pdf-to-packs-batch.ts \
+  --workspace de --pdfId deutschimblick --scenario school --packs 10
+# → Only 5 qualified candidates found
+
+# 2. Mine tokens
+tsx scripts/pdf-ingestion/tokenMining.ts \
+  --workspace de --pdfId deutschimblick --scenario school --topN 80
+
+# 3. Create proposal
+tsx scripts/pdf-ingestion/create-token-proposal.ts \
+  --fromReport reports/token-mining/deutschimblick.school.*/report.json \
+  --scenario school --pdfId deutschimblick
+
+# 4. Review proposal
+vim content/meta/token-proposals/deutschimblick.school.json
+
+# 5. Apply proposal
+./scripts/apply-token-proposal.sh content/meta/token-proposals/deutschimblick.school.json
+
+# 6. Regenerate (should have more qualified candidates)
+tsx scripts/pdf-ingestion/pdf-to-packs-batch.ts \
+  --workspace de --pdfId deutschimblick --scenario school --packs 10
+# → Now 25 qualified candidates found ✓
+```
+
+## Meaning-Safety Requirements
+
+Generated prompts from PDF ingestion must include meaning-safety fields before approval:
+
+- **`gloss_en`**: Literal meaning in English (required for approved content)
+- **`intent`**: What the speaker is trying to accomplish (required for approved content)
+- **`registerNote`**: Optional formal/informal nuance
+- **`culturalNote`**: Optional cultural context (max 1 sentence)
+
+**Enforcement**: The approval gate (`check-approval-gate.ts`) and validator enforce that approved generated packs have non-empty `gloss_en` and `intent` for all prompts. Promotion will fail if these fields are missing.
+
+See [QUALITY_GATES.md](./QUALITY_GATES.md#meaning-safety-gates) for details.
+
 ## Usage
 
 ### Basic Command
@@ -344,8 +741,19 @@ content/v1/workspaces/de/packs/gov-office-government_office-a1-part1/pack.json
 - [ ] LLM-based gloss generation (optional)
 - [ ] Multi-language support
 - [ ] Better intent detection
-- [ ] Automatic scenario detection
 - [ ] Template-based pack structure generation
+
+## TODO: B2B/Curriculum Exports v2
+
+**Status**: Deferred
+
+B2B/curriculum exports v2 (SCORM-ish bundles) are planned for a future release. This includes:
+- SCORM-compatible content bundles
+- Curriculum-level exports
+- Multi-pack bundles with sequencing
+- Progress tracking metadata
+
+See [BUNDLE_EXPORT_SYSTEM.md](../BUNDLE_EXPORT_SYSTEM.md) for current export capabilities.
 
 ## Dependencies
 
@@ -390,6 +798,145 @@ npm run content:pdf-to-packs \
   --dryRun true
 ```
 
+## Batch Generation Workflow (v1.1)
+
+The batch generation workflow allows you to generate multiple packs from a single PDF with automatic scenario discovery, window search, and a review queue.
+
+### Batch Command
+
+```bash
+tsx scripts/pdf-ingestion/pdf-to-packs-batch.ts \
+  --workspace de \
+  --pdf ./imports/deutschimblick.pdf \
+  --mode search \
+  --discoverScenarios true \
+  --scenario auto \
+  --level A1 \
+  --packs 10 \
+  --promptsPerPack 12 \
+  --windowSizePages 25 \
+  --minScenarioHits 2 \
+  --skipFrontMatter true \
+  --seed 42
+```
+
+### Batch Arguments
+
+#### Required
+- `--workspace <id>`: Workspace identifier
+- `--pdf <path>`: Path to PDF file
+- `--level <level>`: CEFR level
+- `--scenario <scenario|auto>`: Scenario identifier or `auto` for discovery
+
+#### Optional
+- `--mode <search|range>`: Selection mode. Default: `search`
+- `--discoverScenarios <true|false>`: Enable scenario discovery. Default: `true`
+- `--packs <number>`: Number of packs to generate. Default: `10`
+- `--promptsPerPack <number>`: Prompts per pack. Default: `12`
+- `--windowSizePages <number>`: Window size for search. Default: `25`
+- `--minScenarioHits <number>`: Minimum scenario token hits. Default: `2`
+- `--skipFrontMatter <true|false>`: Skip front matter. Default: `true`
+- `--seed <hex>`: Deterministic seed
+- `--register <register>`: Formality level. Default: `neutral`
+
+### Batch Workflow Steps
+
+1. **Generate Batch**
+   ```bash
+   tsx scripts/pdf-ingestion/pdf-to-packs-batch.ts \
+     --workspace de \
+     --pdf ./imports/deutschimblick.pdf \
+     --scenario auto \
+     --level A1 \
+     --packs 10
+   ```
+
+2. **Review Report**
+   - Check `reports/pdf-ingestion/{timestamp}-{pdfSlug}/summary.md`
+   - Review the scenario ranking table
+   - Check the review queue (sorted by quality score)
+   - Review rejected candidates if any
+
+3. **Approve Top Packs**
+   ```bash
+   ./scripts/approve-batch.sh \
+     --sourceRef "deutschimblick" \
+     --limit 5 \
+     --reviewer "Your Name"
+   ```
+
+4. **Verify Approval Gate**
+   ```bash
+   tsx scripts/check-approval-gate.ts
+   ```
+
+5. **Promote to Production**
+   ```bash
+   ./scripts/promote-staging.sh
+   ```
+
+### Batch Report Structure
+
+The batch report includes:
+
+- **PDF Statistics**: Pages, characters, candidates found
+- **Scenario Ranking**: Top 5 scenarios with token hits and qualified candidates
+- **Top Windows**: Best page windows for scenario content
+- **Generated Packs**: Details for each generated pack including:
+  - Pack ID, title, level, scenario
+  - Window used
+  - Qualified prompts count
+  - Token hits summary
+  - Multi-slot variation score
+  - Quality score
+- **Review Queue**: Packs sorted by quality score (descending)
+- **Rejected Candidates**: List of candidates that were filtered out with reasons
+
+### Review Queue Filtering
+
+Filter the review queue by PDF source:
+
+```bash
+./scripts/review-queue.sh --sourceRef "deutschimblick"
+```
+
+This shows only packs generated from PDFs matching the sourceRef filter.
+
+### Batch Approval
+
+The `approve-batch.sh` script:
+- Loads the most recent batch report for the given sourceRef
+- Sorts packs by quality score (from report)
+- Approves the top N packs
+- Runs validation and quality checks
+- Updates review status to `approved` with reviewer and timestamp
+
+### Safety Features
+
+1. **Provenance Tracking**: All generated packs include:
+   - `provenance.source: "pdf"`
+   - `provenance.sourceRef`: PDF filename + window pages
+   - `provenance.extractorVersion`: Version of extractor used
+   - `provenance.generatedAt`: ISO timestamp
+
+2. **Review Gates**: All generated packs default to:
+   - `review.status: "needs_review"`
+   - No reviewer or reviewedAt fields
+
+3. **Approval Gate**: Promotion hard-fails if any generated content is not approved
+
+4. **Duplicate Detection**: Quality check includes dedupe across entire workspace
+
+5. **Reject List**: Tracks rejected candidates with reasons (heading, too short, no tokens, banned phrase, etc.)
+
+### Stop Conditions
+
+If the pipeline cannot produce at least `--packs` packs that pass validation:
+- Produces as many as possible
+- Exits non-zero
+- Writes report with exact reasons
+- Maintains reject list in report
+
 ## Integration with Existing Workflow
 
 The PDF ingestion pipeline integrates seamlessly with existing content pipeline tools:
@@ -398,6 +945,7 @@ The PDF ingestion pipeline integrates seamlessly with existing content pipeline 
 2. **Validation**: Runs `npm run content:validate` after generation
 3. **Quality Gates**: Uses same quality gates as `generate-pack.ts`
 4. **Staging/Promote**: Generated packs follow same staging → promote workflow
+5. **Batch Workflow**: Supports batch generation with review queue and approval workflow
 
 ## Troubleshooting
 

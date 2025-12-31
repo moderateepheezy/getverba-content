@@ -1,0 +1,309 @@
+{
+  "schemaVersion": 1,
+  "id": "immigration_office_questions_a2",
+  "kind": "pack",
+  "packVersion": "1.0.0",
+  "title": "Government Office - A2",
+  "level": "A2",
+  "estimatedMinutes": 15,
+  "description": "Practice government_office scenarios at A2 level.",
+  "scenario": "government_office",
+  "register": "formal",
+  "primaryStructure": "modal_verbs_requests",
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier",
+    "time"
+  ],
+  "outline": [
+    "Making an Appointment",
+    "Required Documents",
+    "Asking Questions"
+  ],
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Wir haben das Formular um 9 Uhr",
+      "intent": "schedule",
+      "gloss_en": "I need the form.",
+      "natural_en": "Could I get the form, please?",
+      "audioUrl": "/v1/audio/immigration_office_questions_a2/prompt-001.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "haben"
+        ],
+        "object": [
+          "das Formular"
+        ],
+        "modifier": [
+          "um 9 Uhr"
+        ]
+      }
+    },
+    {
+      "id": "prompt-002",
+      "text": "Sie muss einen Termin heute um 18:30",
+      "intent": "schedule",
+      "gloss_en": "I need to make an appointment.",
+      "natural_en": "I'd like to schedule an appointment.",
+      "audioUrl": "/v1/audio/immigration_office_questions_a2/prompt-002.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "muss"
+        ],
+        "object": [
+          "einen Termin"
+        ],
+        "modifier": [
+          "heute"
+        ]
+      }
+    },
+    {
+      "id": "prompt-003",
+      "text": "Die Sachbearbeiterin vereinbart den Ausweis",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/immigration_office_questions_a2/prompt-003.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Die Sachbearbeiterin"
+        ],
+        "verb": [
+          "vereinbart"
+        ],
+        "object": [
+          "den Ausweis"
+        ]
+      }
+    },
+    {
+      "id": "prompt-004",
+      "text": "Sie holen die Aufenthaltserlaubnis",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/immigration_office_questions_a2/prompt-004.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "holen"
+        ],
+        "object": [
+          "die Aufenthaltserlaubnis"
+        ]
+      }
+    },
+    {
+      "id": "prompt-005",
+      "text": "Der Beamte holt die Anmeldung",
+      "intent": "inform",
+      "gloss_en": "I need to register my address.",
+      "natural_en": "I need to register my address.",
+      "audioUrl": "/v1/audio/immigration_office_questions_a2/prompt-005.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Der Beamte"
+        ],
+        "verb": [
+          "holt"
+        ],
+        "object": [
+          "die Anmeldung"
+        ]
+      }
+    },
+    {
+      "id": "prompt-006",
+      "text": "Der Beamte holt die Aufenthaltserlaubnis morgen",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/immigration_office_questions_a2/prompt-006.mp3",
+      "slotsChanged": [
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Der Beamte"
+        ],
+        "verb": [
+          "holt"
+        ],
+        "object": [
+          "die Aufenthaltserlaubnis"
+        ],
+        "modifier": [
+          "morgen"
+        ]
+      }
+    },
+    {
+      "id": "prompt-007",
+      "text": "Der Beamte hat den Ausweis dringend",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/immigration_office_questions_a2/prompt-007.mp3",
+      "slotsChanged": [
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Der Beamte"
+        ],
+        "verb": [
+          "hat"
+        ],
+        "object": [
+          "den Ausweis"
+        ],
+        "modifier": [
+          "dringend"
+        ]
+      }
+    }
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "appointment",
+        "title": "Making an Appointment",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ]
+      },
+      {
+        "id": "documents",
+        "title": "Required Documents",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004",
+          "prompt-005"
+        ]
+      },
+      {
+        "id": "questions",
+        "title": "Asking Questions",
+        "promptIds": [
+          "prompt-006",
+          "prompt-007"
+        ]
+      }
+    ]
+  },
+  "tags": [
+    "government_office"
+  ],
+  "analytics": {
+    "goal": "Practice formal government_office interactions at A2 level",
+    "constraints": [
+      "formal register maintained",
+      "government_office scenario context",
+      "modal_verbs_requests structure focus",
+      "verb position: second"
+    ],
+    "levers": [
+      "subject variation",
+      "verb substitution",
+      "object variation",
+      "modifier changes",
+      "time expressions"
+    ],
+    "successCriteria": [
+      "Uses formal address (Sie/Ihnen) correctly",
+      "Includes required scenario tokens (Termin, Formular, etc.)",
+      "Maintains polite modal verb constructions"
+    ],
+    "commonMistakes": [
+      "Forgetting formal address (using \"du\" instead of \"Sie\")",
+      "Missing required documents vocabulary",
+      "Incorrect modal verb conjugation"
+    ],
+    "drillType": "roleplay-bounded",
+    "version": 1,
+    "qualityGateVersion": "qg-2025-01-01",
+    "promptCount": 7,
+    "multiSlotRate": 1,
+    "scenarioTokenHitAvg": 2,
+    "scenarioTokenQualifiedRate": 0.5714285714285714,
+    "uniqueTokenRate": 0.675,
+    "bannedPhraseViolations": 0,
+    "passesQualityGates": false,
+    "focus": "modal_verbs",
+    "cognitiveLoad": "high",
+    "responseSpeedTargetMs": 1500,
+    "fluencyOutcome": "polite_requests",
+    "whyThisWorks": [
+      "Uses formal address (Sie/Ihnen) correctly",
+      "Includes required scenario tokens (Termin, Formular, etc.)",
+      "Maintains polite modal verb constructions"
+    ],
+    "primaryStructure": "modal_verbs_requests",
+    "variationSlots": [
+      "subject",
+      "verb",
+      "object",
+      "modifier",
+      "time"
+    ],
+    "slotSwitchDensity": 1,
+    "promptDiversityScore": 0.5265832691319599,
+    "scenarioCoverageScore": 0.8,
+    "estimatedCognitiveLoad": "high",
+    "intendedOutcome": "A2 government office readiness"
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "government_office",
+    "extractorVersion": "1.0.0",
+    "generatedAt": "2025-12-31T07:34:25.307Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:pack:immigration_office_questions_a2",
+  "contentHash": "d33a028980da803a35c9738c209b6b83fd3f49816c0f2f6db48fb2bc9b68077c",
+  "revisionId": "d33a028980da"
+}

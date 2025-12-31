@@ -5902,6 +5902,277 @@ function runTests() {
     }
   }
   
+// Helper function to run validation
+function runValidation(): { success: boolean; output: string; errors: string[] } {
+  try {
+    const output = execSync('tsx scripts/validate-content.ts 2>&1', {
+      cwd: join(__dirname, '..'),
+      encoding: 'utf-8',
+      env: { ...process.env, CONTENT_DIR: join(TEST_DIR, 'v1') },
+      stdio: 'pipe'
+    });
+    return { success: true, output, errors: [] };
+  } catch (error: any) {
+    const output = error.stdout || error.stderr || error.message || '';
+    const errors = output.split('\n').filter((line: string) => 
+      line.includes('❌') || line.includes('missing') || line.includes('invalid') || line.includes('Error')
+    );
+    return { success: false, output, errors };
+  }
+}
+
+// Test: Catalog-level analytics validation - required fields
+test('catalog analytics: validates required catalog-level analytics fields', () => {
+  setupTestDir();
+  setupCatalogAndIndex('test-ws', 'test-pack');
+  
+  const packEntry = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    packVersion: '1.0.0',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test',
+    scenario: 'work',
+    register: 'neutral',
+    primaryStructure: 'modal_verbs_requests',
+    variationSlots: ['subject', 'verb'],
+    outline: ['Step 1'],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] },
+    prompts: [
+      { id: 'p1', text: 'Das Meeting beginnt um 14:30.', slotsChanged: ['subject', 'verb'] }
+    ],
+    analytics: {
+      primaryStructure: 'modal_verbs_requests',
+      variationSlots: ['subject', 'verb'],
+      slotSwitchDensity: 1.0,
+      promptDiversityScore: 0.5,
+      scenarioCoverageScore: 0.8,
+      estimatedCognitiveLoad: 'medium',
+      intendedOutcome: 'A1 work readiness'
+    }
+  };
+  
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+    JSON.stringify(packEntry, null, 2)
+  );
+  
+  const result = runValidation();
+  
+  // Should pass validation with all required analytics fields
+  // Note: May have other validation errors, but analytics should be valid
+  const hasAnalyticsErrors = result.errors.some((e: string) => 
+    e.includes('slotSwitchDensity') || e.includes('promptDiversityScore') || 
+    e.includes('scenarioCoverageScore') || e.includes('estimatedCognitiveLoad') ||
+    e.includes('intendedOutcome')
+  );
+  assert(!hasAnalyticsErrors, 'Pack with complete catalog analytics should not have analytics errors');
+  
+  cleanupTestDir();
+});
+
+// Test: Catalog-level analytics validation - missing required fields
+test('catalog analytics: fails validation when required fields are missing', () => {
+  setupTestDir();
+  setupCatalogAndIndex('test-ws', 'test-pack');
+  
+  const packEntry = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    packVersion: '1.0.0',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test',
+    scenario: 'work',
+    register: 'neutral',
+    primaryStructure: 'modal_verbs_requests',
+    variationSlots: ['subject', 'verb'],
+    outline: ['Step 1'],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] },
+    prompts: [
+      { id: 'p1', text: 'Das Meeting beginnt um 14:30.', slotsChanged: ['subject', 'verb'] }
+    ],
+    analytics: {
+      // Missing required catalog-level fields
+      primaryStructure: 'modal_verbs_requests'
+    }
+  };
+  
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+    JSON.stringify(packEntry, null, 2)
+  );
+  
+  const result = runValidation();
+  
+  // Should fail validation due to missing required fields
+  const hasMissingFieldErrors = result.errors.some((e: string) => 
+    (e.includes('slotSwitchDensity') || e.includes('promptDiversityScore') || 
+     e.includes('scenarioCoverageScore') || e.includes('estimatedCognitiveLoad') ||
+     e.includes('intendedOutcome')) && 
+    (e.includes('missing') || e.includes('invalid'))
+  );
+  assert(hasMissingFieldErrors, 'Should report missing analytics fields');
+  
+  cleanupTestDir();
+});
+
+// Test: Catalog-level analytics validation - field matching
+test('catalog analytics: validates analytics fields match pack metadata', () => {
+  setupTestDir();
+  setupCatalogAndIndex('test-ws', 'test-pack');
+  
+  const packEntry = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    packVersion: '1.0.0',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test',
+    scenario: 'work',
+    register: 'neutral',
+    primaryStructure: 'modal_verbs_requests',
+    variationSlots: ['subject', 'verb'],
+    outline: ['Step 1'],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] },
+    prompts: [
+      { id: 'p1', text: 'Das Meeting beginnt um 14:30.', slotsChanged: ['subject', 'verb'] }
+    ],
+    analytics: {
+      primaryStructure: 'different_structure', // Mismatch!
+      variationSlots: ['subject', 'verb'],
+      slotSwitchDensity: 1.0,
+      promptDiversityScore: 0.5,
+      scenarioCoverageScore: 0.8,
+      estimatedCognitiveLoad: 'medium',
+      intendedOutcome: 'A1 work readiness'
+    }
+  };
+  
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+    JSON.stringify(packEntry, null, 2)
+  );
+  
+  const result = runValidation();
+  
+  // Should fail validation due to mismatch
+  const hasMismatchError = result.errors.some((e: string) => 
+    e.includes('primaryStructure') && e.includes('does not match')
+  ) || result.output.includes('primaryStructure') && result.output.includes('does not match');
+  assert(hasMismatchError, 'Should report primaryStructure mismatch');
+  
+  cleanupTestDir();
+});
+
+// Test: Catalog-level analytics validation - TODO marker rejection
+test('catalog analytics: rejects intendedOutcome with TODO markers', () => {
+  setupTestDir();
+  setupCatalogAndIndex('test-ws', 'test-pack');
+  
+  const packEntry = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    packVersion: '1.0.0',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test',
+    scenario: 'work',
+    register: 'neutral',
+    primaryStructure: 'modal_verbs_requests',
+    variationSlots: ['subject', 'verb'],
+    outline: ['Step 1'],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] },
+    prompts: [
+      { id: 'p1', text: 'Das Meeting beginnt um 14:30.', slotsChanged: ['subject', 'verb'] }
+    ],
+    analytics: {
+      primaryStructure: 'modal_verbs_requests',
+      variationSlots: ['subject', 'verb'],
+      slotSwitchDensity: 1.0,
+      promptDiversityScore: 0.5,
+      scenarioCoverageScore: 0.8,
+      estimatedCognitiveLoad: 'medium',
+      intendedOutcome: 'TODO: Replace with human-written outcome' // TODO marker
+    }
+  };
+  
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+    JSON.stringify(packEntry, null, 2)
+  );
+  
+  const result = runValidation();
+  
+  // Should fail validation due to TODO marker
+  const hasTodoError = result.errors.some((e: string) => 
+    e.includes('intendedOutcome') && (e.includes('TODO') || e.includes('placeholder') || e.includes('FIXME'))
+  ) || result.output.includes('intendedOutcome') && 
+    (result.output.includes('TODO') || result.output.includes('placeholder') || result.output.includes('FIXME'));
+  assert(hasTodoError, 'Should report TODO marker in intendedOutcome');
+  
+  cleanupTestDir();
+});
+
+// Test: Catalog-level analytics validation - numeric bounds
+test('catalog analytics: validates numeric fields are in valid ranges', () => {
+  setupTestDir();
+  setupCatalogAndIndex('test-ws', 'test-pack');
+  
+  const packEntry = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    packVersion: '1.0.0',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test',
+    scenario: 'work',
+    register: 'neutral',
+    primaryStructure: 'modal_verbs_requests',
+    variationSlots: ['subject', 'verb'],
+    outline: ['Step 1'],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] },
+    prompts: [
+      { id: 'p1', text: 'Das Meeting beginnt um 14:30.', slotsChanged: ['subject', 'verb'] }
+    ],
+    analytics: {
+      primaryStructure: 'modal_verbs_requests',
+      variationSlots: ['subject', 'verb'],
+      slotSwitchDensity: 1.5, // Invalid: > 1.0
+      promptDiversityScore: 0.5,
+      scenarioCoverageScore: 0.8,
+      estimatedCognitiveLoad: 'medium',
+      intendedOutcome: 'A1 work readiness'
+    }
+  };
+  
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+    JSON.stringify(packEntry, null, 2)
+  );
+  
+  const result = runValidation();
+  
+  // Should fail validation due to out-of-range value
+  const hasRangeError = result.errors.some((e: string) => 
+    e.includes('slotSwitchDensity') && e.includes('between 0.0 and 1.0')
+  ) || result.output.includes('slotSwitchDensity') && result.output.includes('between 0.0 and 1.0');
+  assert(hasRangeError, 'Should report out-of-range slotSwitchDensity');
+  
+  cleanupTestDir();
+});
+
   console.log(`\n${'='.repeat(50)}`);
   console.log(`Tests: ${passed} passed, ${failed} failed`);
   

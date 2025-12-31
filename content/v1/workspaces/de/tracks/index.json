@@ -1,0 +1,20 @@
+{
+  "version": "v1",
+  "kind": "tracks",
+  "total": 1,
+  "pageSize": 20,
+  "items": [
+    {
+      "id": "gov_office_a1_default",
+      "kind": "track",
+      "title": "Government Office Basics (A1)",
+      "level": "A1",
+      "durationMinutes": 25,
+      "entryUrl": "/v1/workspaces/de/tracks/gov_office_a1_default/track.json",
+      "contentId": "de:track:gov_office_a1_default",
+      "revisionId": "000000000000",
+      "scenario": "government_office"
+    }
+  ],
+  "nextPage": null
+}

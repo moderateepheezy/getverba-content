@@ -1,0 +1,309 @@
+{
+  "schemaVersion": 1,
+  "id": "passport_pickup_a1",
+  "kind": "pack",
+  "packVersion": "1.0.0",
+  "title": "Government Office - A1",
+  "level": "A1",
+  "estimatedMinutes": 15,
+  "description": "Practice government_office scenarios at A1 level.",
+  "scenario": "government_office",
+  "register": "formal",
+  "primaryStructure": "modal_verbs_requests",
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier",
+    "time"
+  ],
+  "outline": [
+    "Making an Appointment",
+    "Required Documents",
+    "Asking Questions"
+  ],
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Die Sachbearbeiterin möchte die Anmeldung um 9 Uhr",
+      "intent": "request",
+      "gloss_en": "I need to register my address.",
+      "natural_en": "I need to register my address.",
+      "audioUrl": "/v1/audio/passport_pickup_a1/prompt-001.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Die Sachbearbeiterin"
+        ],
+        "verb": [
+          "möchte"
+        ],
+        "object": [
+          "die Anmeldung"
+        ],
+        "modifier": [
+          "um 9 Uhr"
+        ]
+      }
+    },
+    {
+      "id": "prompt-002",
+      "text": "Die Sachbearbeiterin kann die Anmeldung um 9 Uhr",
+      "intent": "request",
+      "gloss_en": "I need to register my address.",
+      "natural_en": "I need to register my address.",
+      "audioUrl": "/v1/audio/passport_pickup_a1/prompt-002.mp3",
+      "slotsChanged": [
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "Die Sachbearbeiterin"
+        ],
+        "verb": [
+          "kann"
+        ],
+        "object": [
+          "die Anmeldung"
+        ],
+        "modifier": [
+          "um 9 Uhr"
+        ]
+      }
+    },
+    {
+      "id": "prompt-003",
+      "text": "Sie muss das Formular",
+      "intent": "inform",
+      "gloss_en": "I need the form.",
+      "natural_en": "Could I get the form, please?",
+      "audioUrl": "/v1/audio/passport_pickup_a1/prompt-003.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "muss"
+        ],
+        "object": [
+          "das Formular"
+        ]
+      }
+    },
+    {
+      "id": "prompt-004",
+      "text": "Ich hole die Anmeldung",
+      "intent": "inform",
+      "gloss_en": "I need to register my address.",
+      "natural_en": "I need to register my address.",
+      "audioUrl": "/v1/audio/passport_pickup_a1/prompt-004.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "hole"
+        ],
+        "object": [
+          "die Anmeldung"
+        ]
+      }
+    },
+    {
+      "id": "prompt-005",
+      "text": "Die Sachbearbeiterin bringt den Pass",
+      "intent": "inform",
+      "gloss_en": "I need to pick up my passport.",
+      "natural_en": "I'm here to collect my passport.",
+      "audioUrl": "/v1/audio/passport_pickup_a1/prompt-005.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Die Sachbearbeiterin"
+        ],
+        "verb": [
+          "bringt"
+        ],
+        "object": [
+          "den Pass"
+        ]
+      }
+    },
+    {
+      "id": "prompt-006",
+      "text": "Die Sachbearbeiterin benötigt die Unterlagen sofort",
+      "intent": "inform",
+      "gloss_en": "I need the documents.",
+      "natural_en": "I need those documents.",
+      "audioUrl": "/v1/audio/passport_pickup_a1/prompt-006.mp3",
+      "slotsChanged": [
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Die Sachbearbeiterin"
+        ],
+        "verb": [
+          "benötigt"
+        ],
+        "object": [
+          "die Unterlagen"
+        ],
+        "modifier": [
+          "sofort"
+        ]
+      }
+    },
+    {
+      "id": "prompt-007",
+      "text": "Wir muss einen Termin morgen",
+      "intent": "schedule",
+      "gloss_en": "I need to make an appointment.",
+      "natural_en": "I'd like to schedule an appointment.",
+      "audioUrl": "/v1/audio/passport_pickup_a1/prompt-007.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "muss"
+        ],
+        "object": [
+          "einen Termin"
+        ],
+        "modifier": [
+          "morgen"
+        ]
+      }
+    }
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "appointment",
+        "title": "Making an Appointment",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ]
+      },
+      {
+        "id": "documents",
+        "title": "Required Documents",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004",
+          "prompt-005"
+        ]
+      },
+      {
+        "id": "questions",
+        "title": "Asking Questions",
+        "promptIds": [
+          "prompt-006",
+          "prompt-007"
+        ]
+      }
+    ]
+  },
+  "tags": [
+    "government_office"
+  ],
+  "analytics": {
+    "goal": "Practice formal government_office interactions at A1 level",
+    "constraints": [
+      "formal register maintained",
+      "government_office scenario context",
+      "modal_verbs_requests structure focus",
+      "verb position: second"
+    ],
+    "levers": [
+      "subject variation",
+      "verb substitution",
+      "object variation",
+      "modifier changes",
+      "time expressions"
+    ],
+    "successCriteria": [
+      "Uses formal address (Sie/Ihnen) correctly",
+      "Includes required scenario tokens (Termin, Formular, etc.)",
+      "Maintains polite modal verb constructions"
+    ],
+    "commonMistakes": [
+      "Forgetting formal address (using \"du\" instead of \"Sie\")",
+      "Missing required documents vocabulary",
+      "Incorrect modal verb conjugation"
+    ],
+    "drillType": "roleplay-bounded",
+    "version": 1,
+    "qualityGateVersion": "qg-2025-01-01",
+    "promptCount": 7,
+    "multiSlotRate": 0.8571428571428571,
+    "scenarioTokenHitAvg": 1.5714285714285714,
+    "scenarioTokenQualifiedRate": 0.5714285714285714,
+    "uniqueTokenRate": 0.6,
+    "bannedPhraseViolations": 0,
+    "passesQualityGates": false,
+    "focus": "modal_verbs",
+    "cognitiveLoad": "high",
+    "responseSpeedTargetMs": 1800,
+    "fluencyOutcome": "polite_requests",
+    "whyThisWorks": [
+      "Uses formal address (Sie/Ihnen) correctly",
+      "Includes required scenario tokens (Termin, Formular, etc.)",
+      "Maintains polite modal verb constructions"
+    ],
+    "primaryStructure": "modal_verbs_requests",
+    "variationSlots": [
+      "subject",
+      "verb",
+      "object",
+      "modifier",
+      "time"
+    ],
+    "slotSwitchDensity": 0.8571428571428571,
+    "promptDiversityScore": 0.5028402076289045,
+    "scenarioCoverageScore": 0.8,
+    "estimatedCognitiveLoad": "high",
+    "intendedOutcome": "A1 government office readiness"
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "government_office",
+    "extractorVersion": "1.0.0",
+    "generatedAt": "2025-12-31T07:34:24.891Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:pack:passport_pickup_a1",
+  "contentHash": "247bdba4297fc51ed376ffeb068da81f58f2b7aa7a1e1dbfa042202ade173af9",
+  "revisionId": "247bdba4297f"
+}

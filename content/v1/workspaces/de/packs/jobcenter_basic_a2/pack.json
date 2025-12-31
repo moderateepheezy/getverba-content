@@ -1,0 +1,308 @@
+{
+  "schemaVersion": 1,
+  "id": "jobcenter_basic_a2",
+  "kind": "pack",
+  "packVersion": "1.0.0",
+  "title": "Government Office - A2",
+  "level": "A2",
+  "estimatedMinutes": 15,
+  "description": "Practice government_office scenarios at A2 level.",
+  "scenario": "government_office",
+  "register": "formal",
+  "primaryStructure": "modal_verbs_requests",
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier",
+    "time"
+  ],
+  "outline": [
+    "Making an Appointment",
+    "Required Documents",
+    "Asking Questions"
+  ],
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Der Beamte möchte die Unterlagen um 14:30",
+      "intent": "request",
+      "gloss_en": "I need the documents.",
+      "natural_en": "I need those documents.",
+      "audioUrl": "/v1/audio/jobcenter_basic_a2/prompt-001.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "Der Beamte"
+        ],
+        "verb": [
+          "möchte"
+        ],
+        "object": [
+          "die Unterlagen"
+        ],
+        "modifier": [
+          "um 14:30"
+        ]
+      }
+    },
+    {
+      "id": "prompt-002",
+      "text": "Der Beamte möchte einen Termin heute um 18:30",
+      "intent": "request",
+      "gloss_en": "I need to make an appointment.",
+      "natural_en": "I'd like to schedule an appointment.",
+      "audioUrl": "/v1/audio/jobcenter_basic_a2/prompt-002.mp3",
+      "slotsChanged": [
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Der Beamte"
+        ],
+        "verb": [
+          "möchte"
+        ],
+        "object": [
+          "einen Termin"
+        ],
+        "modifier": [
+          "heute"
+        ]
+      }
+    },
+    {
+      "id": "prompt-003",
+      "text": "Wir benötigen die Aufenthaltserlaubnis",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/jobcenter_basic_a2/prompt-003.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "benötigen"
+        ],
+        "object": [
+          "die Aufenthaltserlaubnis"
+        ]
+      }
+    },
+    {
+      "id": "prompt-004",
+      "text": "Sie möchte einen Termin",
+      "intent": "request",
+      "gloss_en": "I need to make an appointment.",
+      "natural_en": "I'd like to schedule an appointment.",
+      "audioUrl": "/v1/audio/jobcenter_basic_a2/prompt-004.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "möchte"
+        ],
+        "object": [
+          "einen Termin"
+        ]
+      }
+    },
+    {
+      "id": "prompt-005",
+      "text": "Der Beamte holt die Unterlagen",
+      "intent": "inform",
+      "gloss_en": "I need the documents.",
+      "natural_en": "I need those documents.",
+      "audioUrl": "/v1/audio/jobcenter_basic_a2/prompt-005.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Der Beamte"
+        ],
+        "verb": [
+          "holt"
+        ],
+        "object": [
+          "die Unterlagen"
+        ]
+      }
+    },
+    {
+      "id": "prompt-006",
+      "text": "Der Beamte kann das Formular morgen",
+      "intent": "request",
+      "gloss_en": "I need the form.",
+      "natural_en": "Could I get the form, please?",
+      "audioUrl": "/v1/audio/jobcenter_basic_a2/prompt-006.mp3",
+      "slotsChanged": [
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Der Beamte"
+        ],
+        "verb": [
+          "kann"
+        ],
+        "object": [
+          "das Formular"
+        ],
+        "modifier": [
+          "morgen"
+        ]
+      }
+    },
+    {
+      "id": "prompt-007",
+      "text": "Wir benötigen die Aufenthaltserlaubnis morgen",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/jobcenter_basic_a2/prompt-007.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "benötigen"
+        ],
+        "object": [
+          "die Aufenthaltserlaubnis"
+        ],
+        "modifier": [
+          "morgen"
+        ]
+      }
+    }
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "appointment",
+        "title": "Making an Appointment",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ]
+      },
+      {
+        "id": "documents",
+        "title": "Required Documents",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004",
+          "prompt-005"
+        ]
+      },
+      {
+        "id": "questions",
+        "title": "Asking Questions",
+        "promptIds": [
+          "prompt-006",
+          "prompt-007"
+        ]
+      }
+    ]
+  },
+  "tags": [
+    "government_office"
+  ],
+  "analytics": {
+    "goal": "Practice formal government_office interactions at A2 level",
+    "constraints": [
+      "formal register maintained",
+      "government_office scenario context",
+      "modal_verbs_requests structure focus",
+      "verb position: second"
+    ],
+    "levers": [
+      "subject variation",
+      "verb substitution",
+      "object variation",
+      "modifier changes",
+      "time expressions"
+    ],
+    "successCriteria": [
+      "Uses formal address (Sie/Ihnen) correctly",
+      "Includes required scenario tokens (Termin, Formular, etc.)",
+      "Maintains polite modal verb constructions"
+    ],
+    "commonMistakes": [
+      "Forgetting formal address (using \"du\" instead of \"Sie\")",
+      "Missing required documents vocabulary",
+      "Incorrect modal verb conjugation"
+    ],
+    "drillType": "roleplay-bounded",
+    "version": 1,
+    "qualityGateVersion": "qg-2025-01-01",
+    "promptCount": 7,
+    "multiSlotRate": 1,
+    "scenarioTokenHitAvg": 2.142857142857143,
+    "scenarioTokenQualifiedRate": 0.5714285714285714,
+    "uniqueTokenRate": 0.5128205128205128,
+    "bannedPhraseViolations": 0,
+    "passesQualityGates": false,
+    "focus": "modal_verbs",
+    "cognitiveLoad": "high",
+    "responseSpeedTargetMs": 1500,
+    "fluencyOutcome": "polite_requests",
+    "whyThisWorks": [
+      "Uses formal address (Sie/Ihnen) correctly",
+      "Includes required scenario tokens (Termin, Formular, etc.)",
+      "Maintains polite modal verb constructions"
+    ],
+    "primaryStructure": "modal_verbs_requests",
+    "variationSlots": [
+      "subject",
+      "verb",
+      "object",
+      "modifier",
+      "time"
+    ],
+    "slotSwitchDensity": 1,
+    "promptDiversityScore": 0.43434327413691826,
+    "scenarioCoverageScore": 0.8,
+    "estimatedCognitiveLoad": "high",
+    "intendedOutcome": "A2 government office readiness"
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "government_office",
+    "extractorVersion": "1.0.0",
+    "generatedAt": "2025-12-31T07:34:26.157Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:pack:jobcenter_basic_a2",
+  "contentHash": "843b66dfd579f3e60b6683bbacce18d079cd559bac725cea8531edf60482199d",
+  "revisionId": "843b66dfd579"
+}

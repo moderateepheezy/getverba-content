@@ -1,0 +1,309 @@
+{
+  "schemaVersion": 1,
+  "id": "housing_pack_10_a1",
+  "kind": "pack",
+  "packVersion": "1.0.0",
+  "title": "Housing - A1",
+  "level": "A1",
+  "estimatedMinutes": 15,
+  "description": "Practice housing scenarios at A1 level.",
+  "scenario": "housing",
+  "register": "neutral",
+  "primaryStructure": "dative_case",
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier",
+    "time"
+  ],
+  "outline": [
+    "Searching for Housing",
+    "Viewing Apartments",
+    "Rental Agreement"
+  ],
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Der Vermieter zeigt den Mietvertrag um 9:00",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/housing_pack_10_a1/prompt-001.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Der Vermieter"
+        ],
+        "verb": [
+          "zeigt"
+        ],
+        "object": [
+          "den Mietvertrag"
+        ]
+      }
+    },
+    {
+      "id": "prompt-002",
+      "text": "Sie wohnen die Miete um 14:30",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/housing_pack_10_a1/prompt-002.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "wohnen"
+        ],
+        "object": [
+          "die Miete"
+        ]
+      }
+    },
+    {
+      "id": "prompt-003",
+      "text": "Wir suchen eine Wohnung ruhig",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/housing_pack_10_a1/prompt-003.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "suchen"
+        ],
+        "object": [
+          "eine Wohnung"
+        ],
+        "modifier": [
+          "ruhig"
+        ]
+      }
+    },
+    {
+      "id": "prompt-004",
+      "text": "Sie finden die Miete bitte",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/housing_pack_10_a1/prompt-004.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "finden"
+        ],
+        "object": [
+          "die Miete"
+        ],
+        "modifier": [
+          "bitte"
+        ]
+      }
+    },
+    {
+      "id": "prompt-005",
+      "text": "Der Vermieter zeigt das Zimmer ruhig",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/housing_pack_10_a1/prompt-005.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Der Vermieter"
+        ],
+        "verb": [
+          "zeigt"
+        ],
+        "object": [
+          "das Zimmer"
+        ],
+        "modifier": [
+          "ruhig"
+        ]
+      }
+    },
+    {
+      "id": "prompt-006",
+      "text": "Sie finden die Miete",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/housing_pack_10_a1/prompt-006.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "finden"
+        ],
+        "object": [
+          "die Miete"
+        ]
+      }
+    },
+    {
+      "id": "prompt-007",
+      "text": "Die Vermieterin braucht die Miete",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/housing_pack_10_a1/prompt-007.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "Die Vermieterin"
+        ],
+        "verb": [
+          "braucht"
+        ],
+        "object": [
+          "die Miete"
+        ]
+      }
+    }
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "searching",
+        "title": "Searching for Housing",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ]
+      },
+      {
+        "id": "viewing",
+        "title": "Viewing Apartments",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004",
+          "prompt-005"
+        ]
+      },
+      {
+        "id": "rental",
+        "title": "Rental Agreement",
+        "promptIds": [
+          "prompt-006",
+          "prompt-007"
+        ]
+      }
+    ]
+  },
+  "tags": [
+    "housing"
+  ],
+  "analytics": {
+    "goal": "Practice housing rental and maintenance conversations at A1 level",
+    "constraints": [
+      "neutral register maintained",
+      "housing scenario context",
+      "dative_case structure focus",
+      "verb position: second"
+    ],
+    "levers": [
+      "subject variation",
+      "verb substitution",
+      "object variation",
+      "modifier changes",
+      "time expressions"
+    ],
+    "successCriteria": [
+      "Uses rental/maintenance vocabulary",
+      "Includes address and location phrases",
+      "Varies time and urgency modifiers"
+    ],
+    "commonMistakes": [
+      "Missing rental-specific vocabulary",
+      "Incorrect dative prepositions",
+      "Missing urgency/time modifiers"
+    ],
+    "drillType": "substitution",
+    "version": 1,
+    "qualityGateVersion": "qg-2025-01-01",
+    "promptCount": 7,
+    "multiSlotRate": 1,
+    "scenarioTokenHitAvg": 0,
+    "scenarioTokenQualifiedRate": 0,
+    "uniqueTokenRate": 0.6052631578947368,
+    "bannedPhraseViolations": 0,
+    "passesQualityGates": false,
+    "focus": "case_system",
+    "cognitiveLoad": "high",
+    "responseSpeedTargetMs": 1800,
+    "fluencyOutcome": "rental_communication",
+    "whyThisWorks": [
+      "Uses rental/maintenance vocabulary",
+      "Includes address and location phrases",
+      "Varies time and urgency modifiers"
+    ],
+    "primaryStructure": "dative_case",
+    "variationSlots": [
+      "subject",
+      "verb",
+      "object",
+      "modifier",
+      "time"
+    ],
+    "slotSwitchDensity": 1,
+    "promptDiversityScore": 0.47361491042371123,
+    "scenarioCoverageScore": 0.2857142857142857,
+    "estimatedCognitiveLoad": "high",
+    "intendedOutcome": "A1 housing readiness"
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "housing",
+    "extractorVersion": "1.0.0",
+    "generatedAt": "2025-12-31T07:35:15.961Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:pack:housing_pack_10_a1",
+  "contentHash": "dc224403b1726727f4e63611fab0d63cd9bf4ff1480ff95086d575d450605aac",
+  "revisionId": "dc224403b172"
+}

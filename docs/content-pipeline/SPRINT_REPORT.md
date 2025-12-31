@@ -1,86 +1,83 @@
 # Content Expansion Sprint Report
 
-**Generated:** 2025-12-30 19:18:42 UTC  
+**Generated:** 2025-12-31 07:37:22 UTC  
 **Workspace:** de
 
 ---
 
 ## Summary
 
-- **Total Packs:** 4
-- **Total Drills:** 0
-- **Total Items:** 4
+- **Total Packs:** 42
+- **Total Drills:** 3
+- **Total Items:** 45
 
 ---
 
 ## Distribution by Scenario
 
-- **work:** 1 pack(s)
-- **shopping:** 1 pack(s)
-- **restaurant:** 1 pack(s)
-- **casual_greeting:** 1 pack(s)
+- **housing:** 20 pack(s)
+- **doctor:** 16 pack(s)
+- **government_office:** 6 pack(s)
 
 ---
 
 ## Distribution by Level
 
-- **A1:** 2 pack(s)
-- **A2:** 2 pack(s)
+- **A1:** 21 pack(s)
+- **A2:** 21 pack(s)
 
 ---
 
 ## Distribution by Register
 
-- **formal:** 3 pack(s)
-- **neutral:** 1 pack(s)
+- **formal:** 6 pack(s)
+- **neutral:** 36 pack(s)
 
 ---
 
 ## Top Primary Structures
 
-- **verb_position:** 2 pack(s)
-- **modal_verbs_requests:** 1 pack(s)
-- **formal_pronouns:** 1 pack(s)
+- **modal_verbs_requests:** 22 pack(s)
+- **dative_case:** 20 pack(s)
 
 ---
 
 ## Validation Results
 
-❌ **Validation Errors:** 3
+❌ **Validation Errors:** 2
 
 ### Error Summary
 
 ```
-❌ Fail: Pack "shopping_payment_options" has average 1.33 context tokens per prompt (minimum: 2.0)
-❌ Fail: Primary structure "verb_position" is 50.0% of packs (max: 35%)
-❌ Quality regression detected. Build should fail.
+❌ Validation errors:
+❌ Validation failed with 160 error(s)
 ```
 
-⚠️  **Validation Warnings:** 27
+⚠️  **Validation Warnings:** 110
 
 ### Warning Summary
 
 ```
-⚠️  Item 0 pack entry prompt 0 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
-⚠️  Item 0 pack entry prompt 1 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
-⚠️  Item 0 pack entry prompt 2 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
-⚠️  Item 0 pack entry prompt 3 text may not contain a verb-like token: "Auf Wiedersehen, bis zum nächsten Mal! Schönen Tag..."
-⚠️  Item 0 pack entry prompt 3 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
-⚠️  Item 0 pack entry prompt 4 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
-⚠️  Item 1 pack entry prompt 0 text may not contain a verb-like token: "Ich zahle 50€ an der Kasse...."
-⚠️  Item 1 pack entry prompt 0 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
-⚠️  Item 1 pack entry prompt 1 text may not contain a verb-like token: "Die Zahlung kostet 35€ im Laden...."
-⚠️  Item 1 pack entry prompt 1 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
-⚠️  Item 1 pack entry prompt 2 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
-⚠️  Item 1 pack entry prompt 3 text may not contain a verb-like token: "Ich kaufe das für 40€ mit Karte...."
-⚠️  Item 1 pack entry prompt 3 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
-⚠️  Item 1 pack entry prompt 4 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
-⚠️  Item 1 pack entry prompt 5 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
-⚠️  Item 1 pack entry prompt 6 text may not contain a verb-like token: "Wir zahlen 60€ an der Kasse am Montag...."
-⚠️  Item 1 pack entry prompt 6 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
-⚠️  Item 1 pack entry prompt 7 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
-⚠️  Item 1 pack entry prompt 8 text may not contain a verb-like token: "Ich hole die Zahlung für 45€ am Dienstag um 9 Uhr...."
-⚠️  Item 1 pack entry prompt 8 missing natural_en (recommended for all prompts, optional for A1 non-government scenarios)
+⚠️  Item 0 pack entry prompt 1 text may not contain a verb-like token: "Sie möchte die Behandlung morgen um 18:00..."
+⚠️  Item 0 pack entry prompt 2 text may not contain a verb-like token: "Der Arzt fühlt die Untersuchung..."
+⚠️  Item 0 pack entry prompt 3 text may not contain a verb-like token: "Der Arzt braucht die Untersuchung..."
+⚠️  Item 0 pack entry prompt 4 text may not contain a verb-like token: "Ich brauche die Untersuchung..."
+⚠️  Item 0 pack entry prompt 5 text may not contain a verb-like token: "Ich vereinbare die Diagnose..."
+⚠️  Item 0 pack entry prompt 6 text may not contain a verb-like token: "Der Arzt braucht einen Termin..."
+⚠️  Item 1 pack entry prompt 0 text may not contain a verb-like token: "Die Ärztin möchte die Medikamente am Montag..."
+⚠️  Item 1 pack entry prompt 3 text may not contain a verb-like token: "Ich vereinbare die Symptome..."
+⚠️  Item 1 pack entry prompt 4 text may not contain a verb-like token: "Die Ärztin braucht die Diagnose..."
+⚠️  Item 1 pack entry prompt 5 text may not contain a verb-like token: "Der Arzt fühlt einen Termin..."
+⚠️  Item 2 pack entry prompt 1 text may not contain a verb-like token: "Sie vereinbaren die Untersuchung um 10 Uhr..."
+⚠️  Item 2 pack entry prompt 2 text may not contain a verb-like token: "Der Arzt nehmt die Medikamente..."
+⚠️  Item 2 pack entry prompt 4 text may not contain a verb-like token: "Sie fühlen die Medikamente..."
+⚠️  Item 2 pack entry prompt 5 text may not contain a verb-like token: "Die Ärztin möchte die Diagnose..."
+⚠️  Item 3 pack entry prompt 0 text may not contain a verb-like token: "Sie möchte die Medikamente um 10 Uhr..."
+⚠️  Item 3 pack entry prompt 1 text may not contain a verb-like token: "Ich nehme einen Termin nächste Woche um 18:00..."
+⚠️  Item 3 pack entry prompt 6 text may not contain a verb-like token: "Sie vereinbaren die Untersuchung..."
+⚠️  Item 4 pack entry prompt 1 text may not contain a verb-like token: "Ich nehme die Diagnose am Montag..."
+⚠️  Item 4 pack entry prompt 2 text may not contain a verb-like token: "Sie brauchen die Diagnose..."
+⚠️  Item 4 pack entry prompt 4 text may not contain a verb-like token: "Der Arzt möchte die Symptome..."
 ```
 
 ---
@@ -118,6 +115,12 @@
 ## Pack Metadata Completeness
 
 - Run enhanced metrics to see metadata completeness
+
+---
+
+## Analytics Summary
+
+- Run `npm run content:export-analytics -- --workspace de` to generate analytics summary
 
 ---
 

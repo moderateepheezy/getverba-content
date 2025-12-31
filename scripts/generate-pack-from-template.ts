@@ -3,6 +3,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { computeTelemetryIds } from './telemetry-ids';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -74,6 +75,10 @@ interface PackEntry {
     }>;
   };
   tags?: string[];
+  // Telemetry identifiers (required)
+  contentId: string;
+  contentHash: string;
+  revisionId: string;
 }
 
 /**
@@ -378,6 +383,7 @@ function generatePromptsForStep(
 function generatePack(
   template: TemplateDocument,
   packId: string,
+  workspace: string,
   title?: string,
   level?: string
 ): PackEntry {
@@ -431,7 +437,8 @@ function generatePack(
   // Calculate estimated minutes (rough: 1 minute per prompt + 2 minutes overhead)
   const estimatedMinutes = Math.max(15, Math.min(120, allPrompts.length + 2));
   
-  const pack: PackEntry = {
+  // Create pack object (without telemetry IDs first)
+  const packWithoutTelemetry = {
     schemaVersion: 1,
     id: packId,
     kind: 'pack',
@@ -450,6 +457,17 @@ function generatePack(
       steps: sessionSteps
     },
     tags: [template.scenario, template.level.toLowerCase()]
+  };
+  
+  // Compute telemetry identifiers (must be computed after all fields are set)
+  const telemetryIds = computeTelemetryIds(packWithoutTelemetry, workspace);
+  
+  // Create final pack with telemetry IDs
+  const pack: PackEntry = {
+    ...packWithoutTelemetry,
+    contentId: telemetryIds.contentId,
+    contentHash: telemetryIds.contentHash,
+    revisionId: telemetryIds.revisionId
   };
   
   return pack;
@@ -510,7 +528,7 @@ function main() {
   
   // Generate pack
   console.log(`Generating pack "${packId}" from template "${templateId}"...`);
-  const pack = generatePack(template, packId, title, level);
+  const pack = generatePack(template, packId, workspace, title, level);
   
   // Write pack file
   const packDir = join(CONTENT_DIR, 'workspaces', workspace, 'packs', packId);

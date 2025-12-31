@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "gov_office_a1_default",
+  "kind": "track",
+  "title": "Government Office Basics (A1)",
+  "level": "A1",
+  "scenario": "government_office",
+  "estimatedMinutes": 25,
+  "description": "Essential routines for navigating German government offices: address registration (Anmeldung), appointments, residence permits, passport/ID documents, and basic counter interactions.",
+  "items": [
+    {
+      "kind": "pack",
+      "entryUrl": "/v1/workspaces/de/packs/anmeldung_basics/pack.json",
+      "required": true
+    },
+    {
+      "kind": "pack",
+      "entryUrl": "/v1/workspaces/de/packs/terminvereinbarung/pack.json",
+      "required": true
+    },
+    {
+      "kind": "pack",
+      "entryUrl": "/v1/workspaces/de/packs/aufenthaltstitel_basics/pack.json",
+      "required": true
+    },
+    {
+      "kind": "pack",
+      "entryUrl": "/v1/workspaces/de/packs/passport_documents/pack.json",
+      "required": true
+    },
+    {
+      "kind": "pack",
+      "entryUrl": "/v1/workspaces/de/packs/counter_qa_basics/pack.json",
+      "required": true
+    },
+    {
+      "kind": "drill",
+      "entryUrl": "/v1/workspaces/de/drills/formal_address_a1/drill.json",
+      "required": true
+    },
+    {
+      "kind": "drill",
+      "entryUrl": "/v1/workspaces/de/drills/document_vocabulary_a1/drill.json",
+      "required": true
+    }
+  ],
+  "ordering": {
+    "type": "fixed"
+  },
+  "version": 1
+}
+

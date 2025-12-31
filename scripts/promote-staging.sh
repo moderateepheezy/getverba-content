@@ -156,7 +156,40 @@ else
   echo ""
 fi
 
-# Step 1.8: Generate catalog rollups
+# Step 1.8: Generate coherence report
+if [ "$DRY_RUN" != "--dryrun" ]; then
+  echo "📊 Generating coherence report..."
+  REPORTS_DIR="$SCRIPT_DIR/../content/meta/reports"
+  mkdir -p "$REPORTS_DIR"
+  
+  if npx tsx "$SCRIPT_DIR/catalog-coherence-report.ts" --workspace all --manifest staging --outDir "$REPORTS_DIR" > /dev/null 2>&1; then
+    # Move reports to git SHA named files
+    if [ "$GIT_SHA" != "unknown" ]; then
+      if [ -f "$REPORTS_DIR/coherence.json" ]; then
+        mv "$REPORTS_DIR/coherence.json" "$REPORTS_DIR/${GIT_SHA}.coherence.json"
+        echo "   ✅ Coherence JSON: ${GIT_SHA}.coherence.json"
+      fi
+      if [ -f "$REPORTS_DIR/coherence.md" ]; then
+        mv "$REPORTS_DIR/coherence.md" "$REPORTS_DIR/${GIT_SHA}.coherence.md"
+        echo "   ✅ Coherence Markdown: ${GIT_SHA}.coherence.md"
+      fi
+    else
+      echo "   ⚠️  Git SHA unknown, reports saved without SHA prefix"
+    fi
+    echo "   ✅ Coherence report generated"
+  else
+    echo "   ⚠️  Coherence report generation failed (non-fatal)"
+  fi
+  echo ""
+else
+  echo "📊 Coherence report will be generated before promotion (dry-run mode)"
+  if [ "$GIT_SHA" != "unknown" ]; then
+    echo "   Would generate: content/meta/reports/${GIT_SHA}.coherence.{json,md}"
+  fi
+  echo ""
+fi
+
+# Step 1.9: Generate catalog rollups
 if [ "$DRY_RUN" != "--dryrun" ]; then
   echo "📦 Generating catalog rollups..."
   if ! npm run content:generate-catalog-rollups > /dev/null 2>&1; then
@@ -170,7 +203,7 @@ else
   echo ""
 fi
 
-# Step 1.9: Generate exports
+# Step 1.10: Generate exports
 if [ "$DRY_RUN" != "--dryrun" ]; then
   echo "📦 Generating curriculum exports..."
   if ! npm run content:generate-exports > /dev/null 2>&1; then
@@ -287,6 +320,8 @@ if [ "$DRY_RUN" == "--dryrun" ]; then
   echo "   (dryrun) Would upload: meta/release.json"
   if [ "$GIT_SHA" != "unknown" ]; then
     echo "   (dryrun) Would archive: meta/manifests/${GIT_SHA}.json"
+    echo "   (dryrun) Would archive: meta/reports/${GIT_SHA}.coherence.json"
+    echo "   (dryrun) Would archive: meta/reports/${GIT_SHA}.coherence.md"
   fi
 else
   # Upload manifest.json
@@ -321,6 +356,29 @@ else
       --metadata-directive REPLACE
   else
     echo "   ⚠️  Warning: release.json not found, skipping upload"
+  fi
+  
+  # Upload coherence reports (immutable)
+  REPORTS_DIR="$META_DIR/reports"
+  if [ "$GIT_SHA" != "unknown" ] && [ -d "$REPORTS_DIR" ]; then
+    if [ -f "$REPORTS_DIR/${GIT_SHA}.coherence.json" ]; then
+      echo "   Uploading coherence report JSON..."
+      aws s3 cp "$REPORTS_DIR/${GIT_SHA}.coherence.json" "s3://$BUCKET/meta/reports/${GIT_SHA}.coherence.json" \
+        --endpoint-url "$R2_ENDPOINT" \
+        --content-type "application/json" \
+        --cache-control "public, max-age=31536000, immutable" \
+        --metadata-directive REPLACE
+      echo "   ✅ Coherence JSON archived"
+    fi
+    if [ -f "$REPORTS_DIR/${GIT_SHA}.coherence.md" ]; then
+      echo "   Uploading coherence report Markdown..."
+      aws s3 cp "$REPORTS_DIR/${GIT_SHA}.coherence.md" "s3://$BUCKET/meta/reports/${GIT_SHA}.coherence.md" \
+        --endpoint-url "$R2_ENDPOINT" \
+        --content-type "text/markdown" \
+        --cache-control "public, max-age=31536000, immutable" \
+        --metadata-directive REPLACE
+      echo "   ✅ Coherence Markdown archived"
+    fi
   fi
 fi
 

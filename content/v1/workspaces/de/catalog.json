@@ -37,6 +37,17 @@
         "levels": {},
         "primaryStructures": {}
       }
+    },
+    {
+      "id": "tracks",
+      "kind": "tracks",
+      "title": "Guided Tracks",
+      "itemsUrl": "/v1/workspaces/de/tracks/index.json",
+      "analyticsRollup": {
+        "scenarios": {},
+        "levels": {},
+        "primaryStructures": {}
+      }
     }
   ]
 }

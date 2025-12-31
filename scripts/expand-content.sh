@@ -149,11 +149,12 @@ GENERATED_ITEMS=()
 if [[ "$ITEM_TYPE" == "pack" ]]; then
   # Generate packs using generate-pack.ts
   for ((i=1; i<=COUNT; i++)); do
-    # Generate pack ID
+    # Generate pack ID (convert LEVEL to lowercase for compatibility)
+    LEVEL_LOWER=$(echo "$LEVEL" | tr '[:upper:]' '[:lower:]')
     if [[ -n "$SCENARIO" ]]; then
-      PACK_ID="${SCENARIO}_pack_${i}_${LEVEL,,}"
+      PACK_ID="${SCENARIO}_pack_${i}_${LEVEL_LOWER}"
     else
-      PACK_ID="pack_${i}_${LEVEL,,}"
+      PACK_ID="pack_${i}_${LEVEL_LOWER}"
     fi
     
     # Check if pack already exists
@@ -198,7 +199,8 @@ elif [[ "$ITEM_TYPE" == "drill" ]]; then
     # Use template name with level
     TEMPLATE_INDEX=$(( (i - 1) % ${#DRILL_TEMPLATES[@]} ))
     TEMPLATE_NAME="${DRILL_TEMPLATES[$TEMPLATE_INDEX]}"
-    DRILL_ID="${TEMPLATE_NAME}_${LEVEL,,}_${i}"
+    LEVEL_LOWER=$(echo "$LEVEL" | tr '[:upper:]' '[:lower:]')
+    DRILL_ID="${TEMPLATE_NAME}_${LEVEL_LOWER}_${i}"
     
     # Check if drill already exists
     DRILL_DIR="$CONTENT_DIR/workspaces/$WORKSPACE/drills/$DRILL_ID"

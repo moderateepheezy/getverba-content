@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "test-pack-valid-version",
+  "kind": "pack",
+  "packVersion": "999.999.999",
+  "title": "Test Pack",
+  "level": "A1",
+  "estimatedMinutes": 15,
+  "description": "Test description",
+  "outline": [
+    "Step 1"
+  ],
+  "scenario": "work",
+  "register": "neutral",
+  "primaryStructure": "verb_position",
+  "variationSlots": [
+    "subject",
+    "verb"
+  ],
+  "analytics": {
+    "goal": "Test goal",
+    "constraints": [
+      "constraint1"
+    ],
+    "levers": [
+      "subject"
+    ],
+    "successCriteria": [
+      "criteria1"
+    ],
+    "commonMistakes": [
+      "mistake1"
+    ],
+    "drillType": "substitution",
+    "cognitiveLoad": "low",
+    "targetLatencyMs": 800,
+    "successDefinition": "2 consecutive passes",
+    "keyFailureModes": [
+      "verb position"
+    ]
+  },
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "step1",
+        "title": "Step 1",
+        "promptIds": []
+      }
+    ]
+  }
+}

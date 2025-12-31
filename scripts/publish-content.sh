@@ -1,10 +1,11 @@
 #!/bin/bash
 
 # Publish content to Cloudflare R2
-# Usage: ./scripts/publish-content.sh [--dry-run|--sanity-check|--publish-prod-manifest]
+# Usage: ./scripts/publish-content.sh [--dry-run|--sanity-check|--publish-prod-manifest|--include-sprint-artifacts]
 # 
 # By default, publishes staging manifest (manifest.staging.json).
 # Use --publish-prod-manifest to also publish production manifest (manifest.json).
+# Use --include-sprint-artifacts to publish sprint reports and coherence artifacts (staging only).
 
 set -e
 
@@ -82,6 +83,7 @@ fi
 # Determine if dry-run or sanity-check
 DRY_RUN=""
 PUBLISH_PROD_MANIFEST=false
+INCLUDE_SPRINT_ARTIFACTS=false
 for arg in "$@"; do
   case "$arg" in
     --dry-run)
@@ -100,6 +102,9 @@ for arg in "$@"; do
     --publish-prod-manifest)
       PUBLISH_PROD_MANIFEST=true
       ;;
+    --include-sprint-artifacts)
+      INCLUDE_SPRINT_ARTIFACTS=true
+      ;;
   esac
 done
 
@@ -108,6 +113,9 @@ echo "   Bucket: $BUCKET"
 echo "   Endpoint: $R2_ENDPOINT"
 echo "   Content source: $CONTENT_DIR"
 echo "   Meta source: $META_DIR"
+if [ "$INCLUDE_SPRINT_ARTIFACTS" = true ]; then
+  echo "   Including sprint artifacts: Yes"
+fi
 echo ""
 
 # Export AWS credentials for this session
@@ -181,6 +189,41 @@ if [ "$1" != "--dry-run" ]; then
       --cache-control "public, max-age=300, stale-while-revalidate=86400" \
       --metadata-directive REPLACE
   done
+  
+  # Publish sprint artifacts if requested (staging manifest only)
+  if [ "$INCLUDE_SPRINT_ARTIFACTS" = true ] && [ "$PUBLISH_PROD_MANIFEST" = false ]; then
+    SPRINTS_DIR="$META_DIR/sprints"
+    if [ -d "$SPRINTS_DIR" ]; then
+      echo ""
+      echo "📤 Publishing sprint artifacts..."
+      
+      # Sync all sprint directories
+      find "$SPRINTS_DIR" -type f \( -name "*.json" -o -name "*.md" \) -print0 | while IFS= read -r -d '' file; do
+        # Get relative path from content/meta
+        rel_path="${file#$META_DIR/}"
+        s3_path="s3://$BUCKET/meta/$rel_path"
+        
+        # Determine content type
+        if [[ "$file" == *.json ]]; then
+          content_type="application/json"
+        else
+          content_type="text/markdown"
+        fi
+        
+        echo "   Uploading: meta/$rel_path"
+        aws s3 cp "$file" "$s3_path" \
+          --endpoint-url "$R2_ENDPOINT" \
+          --content-type "$content_type" \
+          --cache-control "public, max-age=31536000, immutable" \
+          --metadata-directive REPLACE
+      done
+      
+      echo "   ✅ Sprint artifacts published"
+    else
+      echo ""
+      echo "⚠️  Sprint artifacts directory not found: $SPRINTS_DIR"
+    fi
+  fi
 fi
 
 echo ""

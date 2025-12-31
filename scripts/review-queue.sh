@@ -2,13 +2,32 @@
 
 # Review Queue
 # Lists all packs/drills with review.status="needs_review", grouped by scenario/level
+# Usage: ./scripts/review-queue.sh [--sourceRef "<pdfSlug>"]
 
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONTENT_DIR="$SCRIPT_DIR/../content/v1"
 
+# Parse arguments
+SOURCE_REF_FILTER=""
+
+for i in "$@"; do
+  case $i in
+    --sourceRef)
+      SOURCE_REF_FILTER="$2"
+      shift 2
+      ;;
+    *)
+      shift
+      ;;
+  esac
+done
+
 echo "📋 Review Queue"
+if [ -n "$SOURCE_REF_FILTER" ]; then
+  echo "   Filter: sourceRef contains \"$SOURCE_REF_FILTER\""
+fi
 echo ""
 
 # Find all pack.json and drill.json files
@@ -32,11 +51,22 @@ find "$CONTENT_DIR/workspaces" -name "pack.json" -o -name "drill.json" | while r
     scenario=$(jq -r '.scenario // "unknown"' "$file" 2>/dev/null || echo "unknown")
     level=$(jq -r '.level // "unknown"' "$file" 2>/dev/null || echo "unknown")
     provenance_source=$(jq -r '.provenance.source // "unknown"' "$file" 2>/dev/null || echo "unknown")
+    provenance_sourceRef=$(jq -r '.provenance.sourceRef // ""' "$file" 2>/dev/null || echo "")
+    
+    # Filter by sourceRef if specified
+    if [ -n "$SOURCE_REF_FILTER" ]; then
+      if [[ "$provenance_sourceRef" != *"$SOURCE_REF_FILTER"* ]]; then
+        continue
+      fi
+    fi
     
     echo "  $entry_type/$id"
     echo "    Title: $title"
     echo "    Scenario: $scenario | Level: $level"
     echo "    Source: $provenance_source"
+    if [ -n "$provenance_sourceRef" ]; then
+      echo "    SourceRef: $provenance_sourceRef"
+    fi
     echo "    Path: $file"
     echo ""
   fi

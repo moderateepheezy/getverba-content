@@ -1,0 +1,12 @@
+{
+  "pdfId": "test-pdf",
+  "language": "de",
+  "defaultScenarios": [
+    "government_office",
+    "work"
+  ],
+  "anchors": [
+    "Termin",
+    "Büro"
+  ]
+}

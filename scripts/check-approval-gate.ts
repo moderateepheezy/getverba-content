@@ -181,6 +181,34 @@ function checkEntryApproval(entry: EntryReference): UnapprovedEntry | null {
       };
     }
     
+    // Meaning-safety gate: If approved and generated, all prompts must have gloss_en and intent
+    if (review.status === 'approved' && provenance && provenance.source !== 'handcrafted') {
+      const prompts = entryDoc.prompts;
+      if (Array.isArray(prompts)) {
+        for (let i = 0; i < prompts.length; i++) {
+          const prompt = prompts[i];
+          if (!prompt.gloss_en || typeof prompt.gloss_en !== 'string' || prompt.gloss_en.trim() === '') {
+            return {
+              entry,
+              reason: `Prompt ${i} missing or empty gloss_en (required for approved generated content)`,
+              packPath: entryPath,
+              reviewStatus: review.status,
+              provenanceSource: provenance.source
+            };
+          }
+          if (!prompt.intent || typeof prompt.intent !== 'string' || prompt.intent.trim() === '') {
+            return {
+              entry,
+              reason: `Prompt ${i} missing or empty intent (required for approved generated content)`,
+              packPath: entryPath,
+              reviewStatus: review.status,
+              provenanceSource: provenance.source
+            };
+          }
+        }
+      }
+    }
+    
     return null; // Approved
   } catch (error: any) {
     return {

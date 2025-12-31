@@ -60,8 +60,9 @@ function extractPrompts(packPath: string, packId: string): Array<{ id: string; t
 /**
  * Detect duplicates across a workspace
  */
-export function detectDuplicates(workspace: string): DedupeResult {
-  const workspaceDir = join(CONTENT_DIR, 'workspaces', workspace);
+export function detectDuplicates(workspace: string, customContentDir?: string): DedupeResult {
+  const contentDir = customContentDir || CONTENT_DIR;
+  const workspaceDir = join(contentDir, 'workspaces', workspace);
   
   if (!existsSync(workspaceDir)) {
     throw new Error(`Workspace not found: ${workspace}`);

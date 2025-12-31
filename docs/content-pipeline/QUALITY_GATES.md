@@ -463,9 +463,159 @@ Section index items for packs include derived `signals` object:
 - `standard`: A1-A2 with standard structures
 - `stretch`: B1+ or complex/advanced structures
 
+## Meaning-Safety Gates
+
+**Purpose**: Ensure that "native meaning vs literal meaning" cannot be lost in production. Generated content may be `needs_review` without perfect nuance, but promotion requires meaning-safety fields.
+
+### Required Fields for Generated Prompts
+
+For generated prompts (where `provenance.source !== "handcrafted"`), the following fields are required when `review.status === "approved"`:
+
+- **`gloss_en`** (string, required): Literal meaning in English. Must be non-empty for approved generated content.
+- **`intent`** (string, required): What the speaker is trying to accomplish. Must be non-empty for approved generated content.
+- **`registerNote`** (string, optional): Formal/informal nuance (max 1 sentence).
+- **`culturalNote`** (string, optional): Cultural context (only when needed; max 1 sentence).
+
+### Enforcement Rules
+
+1. **Generation time**: These fields may be empty or placeholder ONLY while `review.status === "needs_review"`.
+2. **Approval gate** (hard fail on promote):
+   - If `review.status === "approved"` and `provenance.source !== "handcrafted"`:
+     - Every prompt must have non-empty `gloss_en` and `intent`
+     - `registerNote` and `culturalNote` are optional
+3. **Validation**: The validator enforces meaning-safety on approved generated packs.
+
+**Why**: Prevents "lost meaning" from shipping to production. Reviewers must ensure meaning-safety fields are complete before approving generated content.
+
+**Example - FAIL (promotion blocked)**:
+```json
+{
+  "provenance": { "source": "template" },
+  "review": { "status": "approved" },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Ich brauche einen Termin.",
+      "intent": "request",
+      "gloss_en": ""  // ❌ Empty - promotion will fail
+    }
+  ]
+}
+```
+
+**Example - PASS**:
+```json
+{
+  "provenance": { "source": "template" },
+  "review": { "status": "approved" },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Ich brauche einen Termin.",
+      "intent": "request",
+      "gloss_en": "I need an appointment.",
+      "registerNote": "Formal register appropriate for government office"
+    }
+  ]
+}
+```
+
+## Catalog Coherence Report
+
+**Purpose**: Prove catalog coherence at scale (20-50 packs). The coherence report is a deterministic artifact that demonstrates the catalog is not random and maintains quality standards.
+
+### Running the Coherence Report
+
+```bash
+npm run content:coherence -- --workspace de --outDir ./reports/coherence
+```
+
+### Report Contents
+
+The coherence report includes:
+
+1. **Coverage Matrix**: Scenario × Level × PrimaryStructure × Register (counts)
+   - Shows distribution of packs across dimensions
+   - Identifies gaps or over-concentration
+
+2. **Variation Slots Distribution**: Count of packs using each variation slot type
+   - Ensures diversity in slot usage
+
+3. **Token Density Stats**: Per-scenario statistics
+   - Average tokens per prompt
+   - Total tokens
+   - Unique tokens
+
+4. **Generic Phrase Count**: Should be 0 (hard fail if >0)
+   - Detects generic template phrases that should not appear in production
+   - Lists all occurrences with pack/prompt IDs
+
+5. **Near-Duplicate Detection**: Similarity threshold 0.92
+   - Uses Jaccard similarity on normalized text
+   - Reports clusters of similar prompts
+   - Does not hard fail, but marks "review required"
+
+6. **Orphan Checks**: Index items vs entry documents
+   - Verifies entry files exist
+   - Checks metadata matches (level, title)
+   - Reports mismatches
+
+### Interpreting the Report
+
+**✅ Good Signs**:
+- Coverage matrix shows balanced distribution
+- Generic phrase count = 0
+- No orphan issues
+- Near-duplicate clusters are minimal or intentional
+
+**⚠️ Warning Signs**:
+- Generic phrase count > 0 (hard fail)
+- Large near-duplicate clusters (review required)
+- Orphan issues (metadata mismatches)
+- Over-concentration in one scenario/level combination
+
+**Example Report Structure**:
+```markdown
+# Catalog Coherence Report
+
+## Coverage Matrix
+- government_office / A1 / verb_position / formal: 5 pack(s)
+- work / A1 / verb_position / neutral: 3 pack(s)
+
+## Generic Phrases
+✅ No generic phrases found
+
+## Near-Duplicate Clusters
+⚠️ Found 2 near-duplicate cluster(s)
+- Cluster 1: Packs work_1, work_2 (similarity: 92.5%)
+
+## Orphan Checks
+✅ No orphan issues found
+```
+
+### Integration with Sprint Runner
+
+The coherence report is automatically generated at the end of expansion sprints:
+
+```bash
+./scripts/run-expansion-sprint.sh --workspace de --templateScenarios government_office --levels A1
+```
+
+The sprint runner will:
+1. Generate packs
+2. Run validation and quality checks
+3. **Generate coherence report**
+4. Generate sprint report
+
+### Report Output
+
+- **JSON**: `reports/coherence/coherence.<timestamp>.json` (machine-readable)
+- **Markdown**: `reports/coherence/coherence.<timestamp>.md` (human-readable)
+
 ## Related Documentation
 
 - [Pack Schema](./PACK_SCHEMA.md) - Complete pack entry schema
 - [Rollout Guide](./ROLLOUT.md) - Deployment workflow including quality gates
 - [Review Harness](./REVIEW_HARNESS.md) - Content approval workflow
+- [PDF Ingestion](./PDF_INGESTION.md) - PDF ingestion profiles and workflow
 

@@ -340,7 +340,83 @@ test_workspace() {
     return 1
   fi
   
-  # Test 3: Validate exports exist and parse
+  # Test 3: Test featured.json if it exists
+  echo "   🎯 Testing featured content..."
+  
+  local FEATURED_URL="${BASE_URL}/v1/workspaces/${WORKSPACE}/featured/featured.json"
+  local FEATURED_RESPONSE=$(curl -s -w "\n%{http_code}" "$FEATURED_URL")
+  local FEATURED_HTTP_CODE=$(echo "$FEATURED_RESPONSE" | tail -n1)
+  local FEATURED_BODY=$(echo "$FEATURED_RESPONSE" | sed '$d')
+  
+  if [ "$FEATURED_HTTP_CODE" != "200" ] && [ "$FEATURED_HTTP_CODE" != "304" ]; then
+    echo "      ⚠️  Warning: Featured content returned HTTP $FEATURED_HTTP_CODE (may not be published yet)"
+  else
+    if ! echo "$FEATURED_BODY" | jq empty 2>/dev/null; then
+      echo "      ❌ Error: Featured content is not valid JSON"
+      return 1
+    fi
+    
+    # Validate featured structure
+    local HERO_URL=$(echo "$FEATURED_BODY" | jq -r '.hero.entryUrl // ""')
+    if [ -z "$HERO_URL" ]; then
+      echo "      ❌ Error: Featured content missing hero.entryUrl"
+      return 1
+    fi
+    
+    # Test hero entry
+    local HERO_FULL_URL="${BASE_URL}${HERO_URL}"
+    local HERO_RESPONSE=$(curl -s -w "\n%{http_code}" "$HERO_FULL_URL")
+    local HERO_HTTP_CODE=$(echo "$HERO_RESPONSE" | tail -n1)
+    
+    if [ "$HERO_HTTP_CODE" != "200" ] && [ "$HERO_HTTP_CODE" != "304" ]; then
+      echo "      ❌ Error: Hero entry returned HTTP $HERO_HTTP_CODE"
+      echo "         URL: $HERO_FULL_URL"
+      return 1
+    fi
+    
+    echo "      ✅ Featured hero accessible"
+    
+    # Test cards entries
+    local CARD_COUNT=$(echo "$FEATURED_BODY" | jq '.cards | length // 0')
+    if [ "$CARD_COUNT" -gt 4 ]; then
+      echo "      ❌ Error: Featured cards length ($CARD_COUNT) exceeds maximum of 4"
+      return 1
+    fi
+    
+    if [ "$CARD_COUNT" -gt 0 ]; then
+      echo "      Testing $CARD_COUNT card(s)..."
+      local CARD_INDEX=0
+      echo "$FEATURED_BODY" | jq -c '.cards[]' | while IFS= read -r card; do
+        CARD_INDEX=$((CARD_INDEX + 1))
+        local CARD_ENTRY_URL=$(echo "$card" | jq -r '.entryUrl // ""')
+        
+        if [ -z "$CARD_ENTRY_URL" ]; then
+          echo "         ❌ Card $CARD_INDEX: Missing entryUrl"
+          exit 1
+        fi
+        
+        local CARD_FULL_URL="${BASE_URL}${CARD_ENTRY_URL}"
+        local CARD_RESPONSE=$(curl -s -w "\n%{http_code}" "$CARD_FULL_URL")
+        local CARD_HTTP_CODE=$(echo "$CARD_RESPONSE" | tail -n1)
+        
+        if [ "$CARD_HTTP_CODE" != "200" ] && [ "$CARD_HTTP_CODE" != "304" ]; then
+          echo "         ❌ Card $CARD_INDEX: Entry returned HTTP $CARD_HTTP_CODE"
+          echo "            URL: $CARD_FULL_URL"
+          exit 1
+        fi
+        
+        echo "         ✅ Card $CARD_INDEX: Entry accessible"
+      done
+      
+      if [ $? -ne 0 ]; then
+        return 1
+      fi
+    fi
+    
+    echo "      ✅ Featured content accessible and valid"
+  fi
+  
+  # Test 4: Validate exports exist and parse
   echo "   📊 Testing exports..."
   
   local EXPORTS_JSON_URL="${BASE_URL}/v1/workspaces/${WORKSPACE}/exports/catalog_export.json"

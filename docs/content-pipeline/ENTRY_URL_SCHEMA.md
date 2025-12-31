@@ -30,6 +30,14 @@ All `entryUrl` values must follow these patterns based on the section `kind`:
 
 **Schema**: See [Drill Entry Schema](#drill-entry-schema)
 
+### Track Entry URL
+
+**Pattern**: `/v1/workspaces/{workspace}/tracks/{trackId}/track.json`
+
+**Example**: `/v1/workspaces/de/tracks/gov_office_a1_default/track.json`
+
+**Schema**: See [Track Entry Schema](#track-entry-schema)
+
 ## Validation Rules
 
 1. ✅ `entryUrl` must start with `/v1/` and end with `.json`
@@ -37,8 +45,9 @@ All `entryUrl` values must follow these patterns based on the section `kind`:
    - If `kind === "context"` or `kind === "pack"` → must match pack pattern
    - If `kind === "exams"` or `kind === "exam"` → must match exam pattern
    - If `kind === "drills"` or `kind === "drill"` → must match drill pattern
+   - If `kind === "tracks"` or `kind === "track"` → must match track pattern
 3. ✅ The file referenced by `entryUrl` must exist locally
-4. ✅ The `packId`/`examId`/`drillId` in the URL must match the item `id` (case-insensitive, normalized)
+4. ✅ The `packId`/`examId`/`drillId`/`trackId` in the URL must match the item `id` (case-insensitive, normalized)
 
 ## Pack Entry Schema
 
@@ -223,6 +232,65 @@ All `entryUrl` values must follow these patterns based on the section `kind`:
 - `description` (string): Drill description
 - `outline` (string[]): Section outline
 - `exercises` (array): Array of exercise objects OR `exercisesUrl` (string)
+
+## Track Entry Schema
+
+**File**: `/v1/workspaces/{workspace}/tracks/{trackId}/track.json`
+
+```json
+{
+  "id": "gov_office_a1_default",
+  "kind": "track",
+  "title": "Government Office Basics (A1)",
+  "level": "A1",
+  "scenario": "government_office",
+  "estimatedMinutes": 25,
+  "description": "Essential routines for navigating German government offices.",
+  "items": [
+    {
+      "kind": "pack",
+      "entryUrl": "/v1/workspaces/de/packs/anmeldung_basics/pack.json",
+      "required": true
+    },
+    {
+      "kind": "drill",
+      "entryUrl": "/v1/workspaces/de/drills/formal_address_a1/drill.json",
+      "required": true
+    }
+  ],
+  "ordering": {
+    "type": "fixed"
+  },
+  "version": 1
+}
+```
+
+### Track Entry Fields
+
+**Required:**
+- `id` (string): Track identifier, must match `trackId` in URL
+- `kind` (string): Must be `"track"`
+- `title` (string): Display title
+- `level` (string): Language level (`"A1"`, `"A2"`, etc.)
+- `scenario` (string): Content scenario identifier
+- `estimatedMinutes` (number): Estimated duration in minutes (sum of all items)
+- `description` (string): Track description (1-3 lines)
+- `items` (array): Array of track item objects (6-14 items recommended)
+  - Each item must have:
+    - `kind` (string): Must be `"pack"` or `"drill"`
+    - `entryUrl` (string): Canonical entry URL matching pattern for kind
+    - `required` (boolean): Whether this item is required (default: `true`)
+- `ordering` (object): Ordering configuration
+  - `type` (string): Must be `"fixed"` for deterministic tracks
+- `version` (number): Track version (currently `1`)
+
+**Validation:**
+- Each `items[].entryUrl` must exist locally
+- Each `items[].entryUrl` must match the pattern for `items[].kind`
+- No duplicate `entryUrl` values in `items` array
+- If `scenario` is set, all pack items must have matching `scenario` (drills may omit scenario)
+
+See [TRACK_SCHEMA.md](./TRACK_SCHEMA.md) for complete track schema documentation.
 
 ## Migration from Old Pattern
 

@@ -25,3 +25,6 @@ dist/
 Thumbs.db
 
 worker/node_modules/
+
+# PDF cache (large files, not versioned)
+content/meta/pdf-cache/

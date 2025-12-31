@@ -1,14 +1,14 @@
 # Content Review Report
 
-**Generated:** 12/30/2025, 10:45:23 PM
-**Git SHA:** 803100e2b4c503194a490ffd7442e4a0a7c09d6c
+**Generated:** 12/31/2025, 12:22:05 AM
+**Git SHA:** 895dcd4f50d32a6c43457e20dda481e112fca938
 
 ## Summary
 
-- **Total Packs:** 1
-- **Total Prompts:** 2
-- **Packs with Warnings:** 1
-- **Total Warnings:** 2
+- **Total Packs:** 3
+- **Total Prompts:** 4
+- **Packs with Warnings:** 2
+- **Total Warnings:** 5
 
 ## Aggregate Metrics
 
@@ -16,20 +16,22 @@
 
 | Intent | Count | Percentage |
 |--------|-------|------------|
-| greet | 1 | 50.0% |
-| inform | 1 | 50.0% |
+| inform | 3 | 75.0% |
+| greet | 1 | 25.0% |
 
 ### Register Distribution
 
 | Register | Count | Percentage |
 |----------|-------|------------|
-| neutral | 2 | 100.0% |
+| neutral | 4 | 100.0% |
 
 ## Pack List
 
 | Pack ID | Title | Scenario | Register | Level | Prompts | Warnings |
 |---------|-------|----------|----------|-------|---------|----------|
 | welcome_english | Welcome to English | intro_lesson | neutral | A1 | 2 | ⚠️ 2 |
+| test-pack-complete-valid | Test Pack | work | neutral | A1 | 2 | ⚠️ 3 |
+| test-pack-valid-version | Test Pack | work | neutral | A1 | 0 | ✅ 0 |
 
 ## Warnings by Pack
 
@@ -41,5 +43,17 @@
 - **Prompts:** 2
 
 **Warnings:**
+- Prompt prompt-001 (1): Missing optional alt_de (recommended for variety)
+- Prompt prompt-002 (2): Missing optional alt_de (recommended for variety)
+
+### test-pack-complete-valid: Test Pack
+
+- **Scenario:** work
+- **Register:** neutral
+- **Level:** A1
+- **Prompts:** 2
+
+**Warnings:**
+- Outline length (2) does not match sessionPlan.steps.length (1)
 - Prompt prompt-001 (1): Missing optional alt_de (recommended for variety)
 - Prompt prompt-002 (2): Missing optional alt_de (recommended for variety)
