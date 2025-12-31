@@ -2451,6 +2451,89 @@ function validatePaginatedIndex(indexPath: string, visitedPages: Set<string> = n
   }
 }
 
+/**
+ * Normalize title for duplicate detection
+ * 
+ * Deterministic normalization:
+ * - trim() whitespace
+ * - collapse internal whitespace to single spaces
+ * - case-fold to lower-case
+ */
+function normalizeTitle(title: string): string {
+  return title.trim().replace(/\s+/g, ' ').toLowerCase();
+}
+
+/**
+ * Quality Gate: Validate no duplicate titles in scenario/context index
+ * 
+ * For each context/{scenario}/index.json:
+ * - Build a map from normalizedTitle -> { raw: string, ids: string[] }
+ * - If any title has more than 1 id, fail validation
+ * - Error must list the duplicate title and all offending IDs
+ * 
+ * This prevents recurrence of duplicate titles that make different content appear identical.
+ */
+function validateNoDuplicateTitles(
+  indexPath: string,
+  items: Array<{ id?: string; title?: string; scenario?: string }>
+): void {
+  // Check if this is a scenario-specific index (context/{scenario}/index.json)
+  const isScenarioSpecificIndex = indexPath.includes('/context/') && 
+                                   indexPath.match(/\/context\/[^/]+\/index\.json$/);
+  
+  // Map: normalizedTitle -> { raw: string, ids: string[] }
+  const titleMap = new Map<string, { raw: string; ids: string[] }>();
+  
+  for (const item of items) {
+    if (!item.title || typeof item.title !== 'string') {
+      continue; // Skip items without titles (will be caught by other validations)
+    }
+    
+    const normalized = normalizeTitle(item.title);
+    const existing = titleMap.get(normalized);
+    
+    if (!existing) {
+      // First occurrence of this normalized title
+      titleMap.set(normalized, {
+        raw: item.title.trim(),
+        ids: [item.id || 'unknown']
+      });
+    } else {
+      // Duplicate detected - add this ID to the list
+      existing.ids.push(item.id || 'unknown');
+    }
+  }
+  
+  // Find all duplicates
+  const duplicates = Array.from(titleMap.values()).filter(v => v.ids.length > 1);
+  
+  if (duplicates.length === 0) {
+    return; // No duplicates found
+  }
+  
+  // Build error message with all duplicates
+  const errorLines = duplicates.map(dup => {
+    return `- "${dup.raw}" used by: ${dup.ids.join(', ')}`;
+  });
+  
+  if (isScenarioSpecificIndex) {
+    // Extract scenario from file path for better error message
+    const scenarioMatch = indexPath.match(/\/context\/([^/]+)\/index\.json$/);
+    const scenario = scenarioMatch ? scenarioMatch[1] : 'unknown';
+    addError(
+      indexPath,
+      `QUALITY GATE FAILED: Duplicate titles detected in context/${scenario}/index.json\n` +
+      errorLines.join('\n')
+    );
+  } else {
+    addError(
+      indexPath,
+      `QUALITY GATE FAILED: Duplicate titles detected in ${indexPath}\n` +
+      errorLines.join('\n')
+    );
+  }
+}
+
 function validateIndex(indexPath: string): void {
   try {
     const content = readFileSync(indexPath, 'utf-8');
@@ -2671,6 +2754,10 @@ function validateIndex(indexPath: string): void {
         }
       }
     });
+
+    // Quality Gate: Validate unique titles within scenario/context index
+    // Normalize titles and check for duplicates (fails publish if found)
+    validateNoDuplicateTitles(indexPath, index.items);
 
     // Validate nextPage file exists if it's a string
     if (typeof index.nextPage === 'string') {

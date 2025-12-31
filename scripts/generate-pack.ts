@@ -785,6 +785,162 @@ function computeSimilarity(text1: string, text2: string): number {
 }
 
 /**
+ * Parse pack ID into (seriesKey, order, level)
+ * 
+ * For IDs like "friends_small_talk_pack_3_a1":
+ * - seriesKey: "friends_small_talk"
+ * - order: 3
+ * - level: "A1"
+ * 
+ * Pattern: {seriesKey}_pack_{order}_{level}
+ */
+function parsePackId(packId: string): { seriesKey: string; order: number; level: string } | null {
+  // Split by _pack_ to separate seriesKey and rest
+  const parts = packId.split('_pack_');
+  if (parts.length !== 2) {
+    return null;
+  }
+  
+  const seriesKey = parts[0];
+  const tail = parts[1];
+  
+  // The tail is {order}_{level} (level can be lower/upper case)
+  // Match: digits, underscore, then level (A1, a1, A2, etc.)
+  const match = tail.match(/^(\d+)_([aA]\d+)$/);
+  if (!match) {
+    return null;
+  }
+  
+  const order = parseInt(match[1], 10);
+  const level = match[2].toUpperCase(); // Normalize to uppercase
+  
+  return { seriesKey, order, level };
+}
+
+/**
+ * Deterministic phase labels per scenario/series
+ * Used to generate semantic labels for ordered packs
+ */
+const PHASE_LABELS_BY_SCENARIO: Record<string, string[]> = {
+  friends_small_talk: [
+    'Opening',
+    'Suggestions',
+    'Preferences',
+    'Rescheduling',
+    'Follow-ups',
+    'Ending politely',
+    'Making Plans',
+    'Responding',
+    'Confirming',
+    'Declining politely'
+  ],
+  // Add more scenarios as needed
+  // work: ['Greetings', 'Meetings', 'Requests', ...],
+  // restaurant: ['Reservations', 'Ordering', 'Payment', ...],
+};
+
+/**
+ * Get deterministic label for a given order in a series
+ * 
+ * @param order 1-based order number
+ * @param scenarioId Scenario identifier (e.g., "friends_small_talk")
+ * @param stepBlueprint Fallback to step blueprint titles if no labels defined
+ * @returns Deterministic label for this order
+ */
+function getPhaseLabel(
+  order: number,
+  scenarioId: string,
+  stepBlueprint: Template['stepBlueprint']
+): string {
+  // Check if we have predefined labels for this scenario
+  const labels = PHASE_LABELS_BY_SCENARIO[scenarioId];
+  if (labels && labels.length > 0) {
+    // Use modulo to cycle through labels deterministically
+    const index = (order - 1) % labels.length;
+    return labels[index];
+  }
+  
+  // Fallback to step blueprint titles
+  if (stepBlueprint.length > 0) {
+    const stepIndex = (order - 1) % stepBlueprint.length;
+    return stepBlueprint[stepIndex].title;
+  }
+  
+  // Ultimate fallback: deterministic "Part N"
+  return `Part ${order}`;
+}
+
+/**
+ * Convert series key to display name
+ * 
+ * @param seriesKey e.g., "friends_small_talk"
+ * @returns Display name e.g., "Friends Small Talk"
+ */
+function seriesKeyToDisplayName(seriesKey: string): string {
+  return seriesKey
+    .split('_')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+/**
+ * Generate unique title from packId using Scheme B (strict ordering)
+ * 
+ * Deterministic title generation for ordered pack series.
+ * 
+ * Scheme B format: "{Series Display Name} {Level} — {Order}: {Label}"
+ * Example: "Friends Small Talk A1 — 3: Preferences"
+ * 
+ * Rules:
+ * 1. Parse ID into (seriesKey, order, level)
+ * 2. Determine label for the order (from phase labels or step blueprint)
+ * 3. Produce title deterministically
+ * 
+ * This ensures:
+ * - No ad-hoc titles for ordered pack series
+ * - Uniqueness guaranteed by order number
+ * - Deterministic: same ID always produces same title
+ */
+function generateUniqueTitle(
+  packId: string,
+  scenarioId: string,
+  level: string,
+  stepBlueprint: Template['stepBlueprint'],
+  customTitle?: string | null
+): string {
+  // Use custom title if provided (allows manual override when needed)
+  if (customTitle) {
+    return customTitle;
+  }
+  
+  // Parse pack ID into structured components
+  const parsed = parsePackId(packId);
+  
+  if (!parsed) {
+    // Fallback for non-standard IDs (shouldn't happen for generated packs)
+    // Use scenario-based naming as fallback
+    const scenarioName = seriesKeyToDisplayName(scenarioId);
+    const fallbackLabel = stepBlueprint.length > 0 ? stepBlueprint[0].title : 'Practice';
+    return `${scenarioName} ${level} — ${fallbackLabel}`;
+  }
+  
+  const { seriesKey, order, level: parsedLevel } = parsed;
+  
+  // Use parsed level if available, otherwise fall back to provided level
+  const finalLevel = parsedLevel || level;
+  
+  // Convert series key to display name
+  const seriesDisplayName = seriesKeyToDisplayName(seriesKey);
+  
+  // Get deterministic label for this order
+  const label = getPhaseLabel(order, scenarioId, stepBlueprint);
+  
+  // Scheme B: Strict ordering format
+  // "{Series Display Name} {Level} — {Order}: {Label}"
+  return `${seriesDisplayName} ${finalLevel} — ${order}: ${label}`;
+}
+
+/**
  * Generate pack from template
  */
 function generatePack(
@@ -797,11 +953,8 @@ function generatePack(
 ): PackEntry {
   const rng = new SeededRNG(seed);
   
-  // Generate title from scenario or use custom title
-  const title = customTitle || (template.scenarioId
-    .split('_')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ') + ` - ${level}`);
+  // Generate unique title from packId, scenario, and step blueprint
+  const title = generateUniqueTitle(packId, template.scenarioId, level, template.stepBlueprint, customTitle);
   
   // Generate description
   const description = `Practice ${template.scenarioId} scenarios at ${level} level.`;
