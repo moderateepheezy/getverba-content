@@ -107,6 +107,7 @@ For `kind="pack"` items in section indexes, `analyticsSummary` is **required** a
 - `housing`: ["apartment", "rent", "lease", "landlord", "tenant", "deposit", "utilities", "furniture", "neighborhood", "address"]
 - `government_office`: ["termin", "formular", "anmeldung", "bescheinigung", "unterlagen", "ausweis", "amt", "beamte", "sachbearbeiter", "aufenthaltserlaubnis", "pass", "bürgeramt", "ausländeramt", "jobcenter", "krankenkasse"]
 - `casual_greeting`: ["greeting", "hello", "goodbye", "morning", "evening", "day", "see", "meet", "friend", "time"]
+- `friends_small_talk`: ["wochenende", "heute", "morgen", "spaeter", "abends", "zeit", "lust", "plan", "idee", "treffen", "mitkommen", "kino", "cafe", "restaurant", "spaziergang", "park", "training", "gym", "serie", "film", "konzert", "bar", "pizza", "kaffee", "hast du lust", "lass uns", "wie waere es", "hast du zeit", "wollen wir", "ich haette lust", "kommst du mit", "ich kann heute nicht"]
 
 **Why**: Ensures prompts are contextual and scenario-specific, not generic filler.
 

@@ -291,7 +291,18 @@
     "promptDiversityScore": 0.4551938577921323,
     "scenarioCoverageScore": 0.5714285714285714,
     "estimatedCognitiveLoad": "high",
-    "intendedOutcome": "A2 housing readiness"
+    "intendedOutcome": "A2 housing readiness",
+    "targetLatencyMs": 1500,
+    "successDefinition": "Practice housing rental and maintenance conversations at A2 level",
+    "keyFailureModes": [
+      "Missing rental-specific vocabulary",
+      "Incorrect dative prepositions",
+      "Missing urgency/time modifiers"
+    ],
+    "exitConditions": {
+      "targetMinutes": 15,
+      "completeWhen": "sessionPlan_completed_twice"
+    }
   },
   "provenance": {
     "source": "template",
@@ -300,7 +311,9 @@
     "generatedAt": "2025-12-31T07:35:30.519Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "Afees",
+    "reviewedAt": "2025-12-31T08:31:40Z"
   },
   "contentId": "de:pack:housing_pack_6_a2",
   "contentHash": "3d69fac371a7d97170315d40361b091604eb53c9ba1d839bbe6a55cd078587c5",

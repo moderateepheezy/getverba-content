@@ -2218,5 +2218,775 @@
     "title": "Doctor - A2",
     "createdAt": "2025-12-31T07:35:52.804Z",
     "sourceTemplate": "doctor.json"
+  },
+  {
+    "id": "work_sample_1_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A1",
+    "title": "Work - A1",
+    "createdAt": "2025-12-31T07:59:40.829Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "work_sample_2_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A1",
+    "title": "Work - A1",
+    "createdAt": "2025-12-31T07:59:48.772Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "work_sample_3_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T07:59:49.151Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-1767168447520",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:07:27.920Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-validation-1767168447944",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-31T08:07:28.333Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-deterministic-1-1767168448671",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:07:29.017Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-deterministic-2-1767168448671",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:07:29.398Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-work-1767168449415",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:07:29.783Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-restaurant-1767168449793",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-31T08:07:30.124Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-shopping-1767168450133",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "shopping",
+    "level": "A2",
+    "title": "Shopping - A2",
+    "createdAt": "2025-12-31T08:07:30.494Z",
+    "sourceTemplate": "shopping.json"
+  },
+  {
+    "id": "e2e-test-newpack-1767168450895",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:07:31.262Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-provenance-1767168457250",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:07:37.913Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-dedup-1-1767168457926",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:07:38.325Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-dedup-2-1767168457926",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:07:39.012Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-approval-1767168459455",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:07:40.100Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-review-queue-1767168460126",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:07:40.505Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-telemetry-1767168462499",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:07:42.868Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-analytics-1767168463602",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:07:43.958Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "friends_plans_weekend_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "friends_small_talk",
+    "level": "A1",
+    "title": "Plans for the Weekend",
+    "createdAt": "2025-12-31T08:08:16.879Z",
+    "sourceTemplate": "friends_small_talk.json"
+  },
+  {
+    "id": "friends_cafe_meetup_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "friends_small_talk",
+    "level": "A1",
+    "title": "Café Meetup",
+    "createdAt": "2025-12-31T08:08:22.901Z",
+    "sourceTemplate": "friends_small_talk.json"
+  },
+  {
+    "id": "friends_movies_series_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "friends_small_talk",
+    "level": "A1",
+    "title": "Movies & Series",
+    "createdAt": "2025-12-31T08:08:23.266Z",
+    "sourceTemplate": "friends_small_talk.json"
+  },
+  {
+    "id": "friends_suggestions_activity_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "friends_small_talk",
+    "level": "A2",
+    "title": "Activity Suggestions",
+    "createdAt": "2025-12-31T08:08:23.597Z",
+    "sourceTemplate": "friends_small_talk.json"
+  },
+  {
+    "id": "friends_opinions_recommendations_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "friends_small_talk",
+    "level": "A2",
+    "title": "Opinions & Recommendations",
+    "createdAt": "2025-12-31T08:08:23.968Z",
+    "sourceTemplate": "friends_small_talk.json"
+  },
+  {
+    "id": "friends_reschedule_and_decline_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "friends_small_talk",
+    "level": "A2",
+    "title": "Rescheduling & Declining",
+    "createdAt": "2025-12-31T08:08:24.346Z",
+    "sourceTemplate": "friends_small_talk.json"
+  },
+  {
+    "id": "e2e-test-1767169308239",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:21:48.608Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-validation-1767169308626",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-31T08:21:48.971Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-deterministic-1-1767169309341",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:21:49.692Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-deterministic-2-1767169309341",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:21:50.040Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-work-1767169310055",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:21:50.370Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-test-restaurant-1767169310379",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "restaurant",
+    "level": "A2",
+    "title": "Restaurant - A2",
+    "createdAt": "2025-12-31T08:21:50.741Z",
+    "sourceTemplate": "restaurant.json"
+  },
+  {
+    "id": "e2e-test-shopping-1767169310750",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "shopping",
+    "level": "A2",
+    "title": "Shopping - A2",
+    "createdAt": "2025-12-31T08:21:51.093Z",
+    "sourceTemplate": "shopping.json"
+  },
+  {
+    "id": "e2e-test-newpack-1767169311431",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:21:51.758Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-provenance-1767169316929",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:21:57.279Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-dedup-1-1767169317290",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:21:57.621Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-dedup-2-1767169317290",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:21:57.939Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-approval-1767169318299",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:21:58.650Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-review-queue-1767169318669",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:21:58.981Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-telemetry-1767169320970",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:22:01.334Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "e2e-analytics-1767169321771",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:22:02.120Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "work_pack_1_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:23:01.065Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "work_pack_2_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:23:01.420Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "work_pack_3_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:23:01.746Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "work_pack_4_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:23:02.076Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "work_pack_5_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:23:02.431Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "work_pack_6_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:23:02.784Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "work_pack_7_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:23:03.093Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "work_pack_8_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:23:03.431Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "work_pack_9_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:23:03.776Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "work_pack_10_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:23:04.115Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "work_pack_11_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:23:04.432Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "work_pack_12_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "A2",
+    "title": "Work - A2",
+    "createdAt": "2025-12-31T08:23:04.776Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "work_pack_1_b1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "B1",
+    "title": "Work - B1",
+    "createdAt": "2025-12-31T08:23:12.980Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "work_pack_2_b1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "B1",
+    "title": "Work - B1",
+    "createdAt": "2025-12-31T08:23:13.327Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "work_pack_3_b1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "B1",
+    "title": "Work - B1",
+    "createdAt": "2025-12-31T08:23:13.679Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "work_pack_4_b1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "B1",
+    "title": "Work - B1",
+    "createdAt": "2025-12-31T08:23:14.005Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "work_pack_5_b1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "B1",
+    "title": "Work - B1",
+    "createdAt": "2025-12-31T08:23:14.330Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "work_pack_6_b1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "B1",
+    "title": "Work - B1",
+    "createdAt": "2025-12-31T08:23:14.682Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "work_pack_7_b1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "B1",
+    "title": "Work - B1",
+    "createdAt": "2025-12-31T08:23:15.029Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "work_pack_8_b1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "work",
+    "level": "B1",
+    "title": "Work - B1",
+    "createdAt": "2025-12-31T08:23:15.338Z",
+    "sourceTemplate": "work.json"
+  },
+  {
+    "id": "friends_small_talk_pack_1_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "friends_small_talk",
+    "level": "A1",
+    "title": "Friends Small Talk - A1",
+    "createdAt": "2025-12-31T08:23:43.546Z",
+    "sourceTemplate": "friends_small_talk.json"
+  },
+  {
+    "id": "friends_small_talk_pack_2_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "friends_small_talk",
+    "level": "A1",
+    "title": "Friends Small Talk - A1",
+    "createdAt": "2025-12-31T08:23:43.910Z",
+    "sourceTemplate": "friends_small_talk.json"
+  },
+  {
+    "id": "friends_small_talk_pack_3_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "friends_small_talk",
+    "level": "A1",
+    "title": "Friends Small Talk - A1",
+    "createdAt": "2025-12-31T08:23:44.250Z",
+    "sourceTemplate": "friends_small_talk.json"
+  },
+  {
+    "id": "friends_small_talk_pack_4_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "friends_small_talk",
+    "level": "A1",
+    "title": "Friends Small Talk - A1",
+    "createdAt": "2025-12-31T08:23:44.592Z",
+    "sourceTemplate": "friends_small_talk.json"
+  },
+  {
+    "id": "friends_small_talk_pack_5_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "friends_small_talk",
+    "level": "A1",
+    "title": "Friends Small Talk - A1",
+    "createdAt": "2025-12-31T08:23:44.944Z",
+    "sourceTemplate": "friends_small_talk.json"
+  },
+  {
+    "id": "friends_small_talk_pack_6_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "friends_small_talk",
+    "level": "A1",
+    "title": "Friends Small Talk - A1",
+    "createdAt": "2025-12-31T08:23:45.364Z",
+    "sourceTemplate": "friends_small_talk.json"
+  },
+  {
+    "id": "friends_small_talk_pack_7_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "friends_small_talk",
+    "level": "A1",
+    "title": "Friends Small Talk - A1",
+    "createdAt": "2025-12-31T08:23:45.694Z",
+    "sourceTemplate": "friends_small_talk.json"
+  },
+  {
+    "id": "friends_small_talk_pack_8_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "friends_small_talk",
+    "level": "A1",
+    "title": "Friends Small Talk - A1",
+    "createdAt": "2025-12-31T08:23:46.024Z",
+    "sourceTemplate": "friends_small_talk.json"
+  },
+  {
+    "id": "friends_small_talk_pack_9_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "friends_small_talk",
+    "level": "A1",
+    "title": "Friends Small Talk - A1",
+    "createdAt": "2025-12-31T08:23:46.377Z",
+    "sourceTemplate": "friends_small_talk.json"
+  },
+  {
+    "id": "friends_small_talk_pack_10_a1",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "friends_small_talk",
+    "level": "A1",
+    "title": "Friends Small Talk - A1",
+    "createdAt": "2025-12-31T08:23:46.719Z",
+    "sourceTemplate": "friends_small_talk.json"
+  },
+  {
+    "id": "friends_small_talk_pack_1_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "friends_small_talk",
+    "level": "A2",
+    "title": "Friends Small Talk - A2",
+    "createdAt": "2025-12-31T08:23:47.722Z",
+    "sourceTemplate": "friends_small_talk.json"
+  },
+  {
+    "id": "friends_small_talk_pack_2_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "friends_small_talk",
+    "level": "A2",
+    "title": "Friends Small Talk - A2",
+    "createdAt": "2025-12-31T08:23:48.054Z",
+    "sourceTemplate": "friends_small_talk.json"
+  },
+  {
+    "id": "friends_small_talk_pack_3_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "friends_small_talk",
+    "level": "A2",
+    "title": "Friends Small Talk - A2",
+    "createdAt": "2025-12-31T08:23:48.371Z",
+    "sourceTemplate": "friends_small_talk.json"
+  },
+  {
+    "id": "friends_small_talk_pack_4_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "friends_small_talk",
+    "level": "A2",
+    "title": "Friends Small Talk - A2",
+    "createdAt": "2025-12-31T08:23:48.721Z",
+    "sourceTemplate": "friends_small_talk.json"
+  },
+  {
+    "id": "friends_small_talk_pack_5_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "friends_small_talk",
+    "level": "A2",
+    "title": "Friends Small Talk - A2",
+    "createdAt": "2025-12-31T08:23:49.071Z",
+    "sourceTemplate": "friends_small_talk.json"
+  },
+  {
+    "id": "friends_small_talk_pack_6_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "friends_small_talk",
+    "level": "A2",
+    "title": "Friends Small Talk - A2",
+    "createdAt": "2025-12-31T08:23:49.390Z",
+    "sourceTemplate": "friends_small_talk.json"
+  },
+  {
+    "id": "friends_small_talk_pack_7_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "friends_small_talk",
+    "level": "A2",
+    "title": "Friends Small Talk - A2",
+    "createdAt": "2025-12-31T08:23:49.710Z",
+    "sourceTemplate": "friends_small_talk.json"
+  },
+  {
+    "id": "friends_small_talk_pack_8_a2",
+    "kind": "pack",
+    "workspace": "de",
+    "scenario": "friends_small_talk",
+    "level": "A2",
+    "title": "Friends Small Talk - A2",
+    "createdAt": "2025-12-31T08:23:50.064Z",
+    "sourceTemplate": "friends_small_talk.json"
   }
 ]

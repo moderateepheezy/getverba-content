@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "activeVersion": "v1",
+  "activeWorkspace": "de",
+  "workspaces": {
+    "de": "/v1/workspaces/de/catalog.json"
+  },
+  "workspaceHashes": {
+    "de": "6d930cb9568964e26766716cd260884237811dbf49896c335b6f9ac9740b461e"
+  }
+}

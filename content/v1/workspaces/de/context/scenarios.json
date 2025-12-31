@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "kind": "scenario_index",
+  "scenarios": [
+    {
+      "id": "doctor",
+      "title": "Doctor",
+      "subtitle": "Making an Appointment · Describing Symptoms · Getting Prescription",
+      "icon": "medical",
+      "itemCount": 16,
+      "itemsUrl": "/v1/workspaces/de/context/doctor/index.json"
+    },
+    {
+      "id": "friends_small_talk",
+      "title": "Friends Small Talk",
+      "subtitle": "Making Plans · Suggestions & Preferences · Responding & Rescheduling",
+      "icon": "sparkle",
+      "itemCount": 24,
+      "itemsUrl": "/v1/workspaces/de/context/friends_small_talk/index.json"
+    },
+    {
+      "id": "government_office",
+      "title": "Government Office",
+      "subtitle": "Making an Appointment · Required Documents · Asking Questions",
+      "icon": "building",
+      "itemCount": 6,
+      "itemsUrl": "/v1/workspaces/de/context/government_office/index.json"
+    },
+    {
+      "id": "housing",
+      "title": "Housing",
+      "subtitle": "Searching for Housing · Viewing Apartments · Rental Agreement",
+      "icon": "home",
+      "itemCount": 20,
+      "itemsUrl": "/v1/workspaces/de/context/housing/index.json"
+    },
+    {
+      "id": "work",
+      "title": "Work",
+      "subtitle": "Office Greetings · Meeting Phrases · Work Requests",
+      "icon": "briefcase",
+      "itemCount": 23,
+      "itemsUrl": "/v1/workspaces/de/context/work/index.json"
+    }
+  ]
+}

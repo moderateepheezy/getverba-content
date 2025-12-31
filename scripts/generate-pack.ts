@@ -30,7 +30,8 @@ const SCENARIO_TOKEN_DICTS: Record<string, string[]> = {
   shopping: ['price', 'buy', 'cost', 'store', 'cashier', 'payment', 'discount', 'receipt', 'cart', 'checkout', 'kaufen', 'laden', 'kasse', 'zahlung', 'rabatt', 'quittung'],
   doctor: ['appointment', 'symptom', 'prescription', 'medicine', 'treatment', 'diagnosis', 'health', 'patient', 'clinic', 'examination'],
   housing: ['apartment', 'rent', 'lease', 'landlord', 'tenant', 'deposit', 'utilities', 'furniture', 'neighborhood', 'address'],
-  casual_greeting: ['greeting', 'hello', 'goodbye', 'morning', 'evening', 'day', 'see', 'meet', 'friend', 'time']
+  casual_greeting: ['greeting', 'hello', 'goodbye', 'morning', 'evening', 'day', 'see', 'meet', 'friend', 'time'],
+  friends_small_talk: ['wochenende', 'heute', 'morgen', 'spaeter', 'abends', 'zeit', 'lust', 'plan', 'idee', 'treffen', 'mitkommen', 'kino', 'cafe', 'restaurant', 'spaziergang', 'park', 'training', 'gym', 'serie', 'film', 'konzert', 'bar', 'pizza', 'kaffee', 'hast du lust', 'lass uns', 'wie waere es', 'hast du zeit', 'wollen wir', 'ich haette lust', 'kommst du mit', 'ich kann heute nicht']
 };
 
 // Generic template denylist
@@ -150,6 +151,14 @@ interface PackEntry {
     uniqueTokenRate?: number;
     bannedPhraseViolations?: number;
     passesQualityGates?: boolean;
+    // Telemetry readiness fields (required for telemetry contract)
+    targetLatencyMs?: number;
+    successDefinition?: string;
+    keyFailureModes?: string[];
+    exitConditions?: {
+      targetMinutes: number;
+      completeWhen: 'sessionPlan_completed_once' | 'sessionPlan_completed_twice' | 'manual_mark_complete';
+    };
   };
   provenance: {
     source: 'pdf' | 'template' | 'handcrafted';
@@ -783,15 +792,16 @@ function generatePack(
   packId: string,
   level: string,
   seed: number,
-  workspace: string
+  workspace: string,
+  customTitle?: string | null
 ): PackEntry {
   const rng = new SeededRNG(seed);
   
-  // Generate title from scenario
-  const title = template.scenarioId
+  // Generate title from scenario or use custom title
+  const title = customTitle || (template.scenarioId
     .split('_')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ') + ` - ${level}`;
+    .join(' ') + ` - ${level}`);
   
   // Generate description
   const description = `Practice ${template.scenarioId} scenarios at ${level} level.`;
@@ -960,6 +970,30 @@ function generatePack(
     level
   );
   
+  // Generate telemetry readiness fields
+  // targetLatencyMs: same as responseSpeedTargetMs (already in milliseconds)
+  const targetLatencyMs = responseSpeedTargetMs;
+  
+  // successDefinition: concise description of what success looks like (1-140 chars)
+  const successDefinition = baseAnalytics.goal && baseAnalytics.goal.length <= 140
+    ? baseAnalytics.goal
+    : `Successfully complete ${template.scenarioId} scenarios at ${level} level using ${template.primaryStructure}`.substring(0, 140);
+  
+  // keyFailureModes: truncate commonMistakes to 40 chars each, limit to 6 items
+  const keyFailureModes = (baseAnalytics.commonMistakes || []).slice(0, 6).map((mistake: string) => 
+    mistake.length > 40 ? mistake.substring(0, 37) + '...' : mistake
+  );
+  // Ensure at least one failure mode
+  if (keyFailureModes.length === 0) {
+    keyFailureModes.push('Incorrect grammar or vocabulary usage');
+  }
+  
+  // exitConditions: determine based on level and cognitive load
+  const targetMinutes = estimatedMinutes;
+  const completeWhen = level === 'A1' || cognitiveLoad === 'low' 
+    ? 'sessionPlan_completed_once' 
+    : 'sessionPlan_completed_twice';
+  
   // Merge base analytics with computed metrics and catalog-level analytics
   const analytics: PackEntry['analytics'] = {
     ...baseAnalytics,
@@ -984,7 +1018,15 @@ function generatePack(
     promptDiversityScore: catalogAnalytics.promptDiversityScore,
     scenarioCoverageScore: catalogAnalytics.scenarioCoverageScore,
     estimatedCognitiveLoad: catalogAnalytics.estimatedCognitiveLoad,
-    intendedOutcome
+    intendedOutcome,
+    // Telemetry readiness fields (required for telemetry contract)
+    targetLatencyMs,
+    successDefinition,
+    keyFailureModes,
+    exitConditions: {
+      targetMinutes,
+      completeWhen
+    }
   };
   
   // Create pack object (without telemetry IDs first)
@@ -1045,7 +1087,8 @@ function generateIntendedOutcome(scenario: string, level: string, primaryStructu
     restaurant: 'restaurant',
     shopping: 'shopping',
     doctor: 'doctor',
-    housing: 'housing'
+    housing: 'housing',
+    friends_small_talk: 'friends small talk'
   };
   
   const scenarioName = scenarioNames[scenario] || scenario;
@@ -1162,6 +1205,13 @@ function deriveFluencyOutcome(scenario: string, primaryStructure: string): strin
   
   if (scenarioLower === 'housing') {
     return 'rental_communication';
+  }
+  
+  if (scenarioLower === 'friends_small_talk') {
+    if (structureLower.includes('modal') || structureLower.includes('suggestion')) {
+      return 'casual_planning';
+    }
+    return 'friends_conversations';
   }
   
   // Structure-based outcomes
@@ -1286,7 +1336,8 @@ function generateAnalytics(
     shopping: `Practice ${scenarioId} transactions and inquiries at ${level} level`,
     doctor: `Practice ${scenarioId} appointments and health conversations at ${level} level`,
     housing: `Practice ${scenarioId} rental and maintenance conversations at ${level} level`,
-    casual_greeting: `Practice ${scenarioId} phrases and polite conversation at ${level} level`
+    casual_greeting: `Practice ${scenarioId} phrases and polite conversation at ${level} level`,
+    friends_small_talk: `Practice casual friends conversations: making plans, suggestions, and small talk at ${level} level`
   };
   
   const goal = goalTemplates[scenarioId] || `Practice ${scenarioId} scenarios at ${level} level`;
@@ -1359,6 +1410,12 @@ function generateAnalytics(
       'Uses appropriate greeting phrases',
       'Varies time-of-day expressions',
       'Includes polite closing phrases'
+    ],
+    friends_small_talk: [
+      'Uses casual planning and suggestion phrases',
+      'Varies time expressions (heute, morgen, am Wochenende)',
+      'Includes activity and preference vocabulary',
+      'Maintains casual register without slang'
     ]
   };
   
@@ -1404,6 +1461,12 @@ function generateAnalytics(
       'Mixing formal and casual greetings',
       'Missing time-of-day context',
       'Incorrect goodbye phrase usage'
+    ],
+    friends_small_talk: [
+      'Using formal language in casual context',
+      'Missing time/activity vocabulary',
+      'Incorrect modal verb usage in suggestions',
+      'Overusing generic greetings instead of specific plans'
     ]
   };
   
@@ -1436,6 +1499,7 @@ function main() {
   let scenario: string | null = null;
   let level = 'A1';
   let seed = 1;
+  let title: string | null = null;
   
   // Parse arguments
   for (let i = 0; i < args.length; i++) {
@@ -1453,6 +1517,9 @@ function main() {
       i++;
     } else if (args[i] === '--seed' && i + 1 < args.length) {
       seed = parseInt(args[i + 1], 10);
+      i++;
+    } else if (args[i] === '--title' && i + 1 < args.length) {
+      title = args[i + 1];
       i++;
     }
   }
@@ -1492,7 +1559,7 @@ function main() {
   console.log(`   Seed: ${seed}`);
   console.log(`   Workspace: ${workspace}`);
   
-  const pack = generatePack(template, packId, level, seed, workspace);
+  const pack = generatePack(template, packId, level, seed, workspace, title);
   
   // Write pack.json
   const packDir = join(CONTENT_DIR, 'workspaces', workspace, 'packs', packId);

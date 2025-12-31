@@ -92,7 +92,8 @@ const SCENARIO_TOKEN_DICTS: Record<string, string[]> = {
   doctor: ['appointment', 'symptom', 'prescription', 'medicine', 'treatment', 'diagnosis', 'health', 'patient', 'clinic', 'examination'],
   housing: ['apartment', 'rent', 'lease', 'landlord', 'tenant', 'deposit', 'utilities', 'furniture', 'neighborhood', 'address'],
   casual_greeting: ['greeting', 'hello', 'goodbye', 'morning', 'evening', 'day', 'see', 'meet', 'friend', 'time', 'grüßen', 'hallo', 'auf wiedersehen', 'morgen', 'abend', 'tag', 'sehen', 'treffen', 'freund', 'zeit', 'tschüss'],
-  intro_lesson: ['welcome', 'course', 'lesson', 'learn', 'language', 'english', 'start', 'begin', 'offer', 'introduction', 'willkommen', 'kurs', 'lernen', 'sprache', 'englisch', 'beginnen', 'anbieten', 'einführung']
+  intro_lesson: ['welcome', 'course', 'lesson', 'learn', 'language', 'english', 'start', 'begin', 'offer', 'introduction', 'willkommen', 'kurs', 'lernen', 'sprache', 'englisch', 'beginnen', 'anbieten', 'einführung'],
+  friends_small_talk: ['wochenende', 'heute', 'morgen', 'spaeter', 'abends', 'zeit', 'lust', 'plan', 'idee', 'treffen', 'mitkommen', 'kino', 'cafe', 'restaurant', 'spaziergang', 'park', 'training', 'gym', 'serie', 'film', 'konzert', 'bar', 'pizza', 'kaffee', 'hast du lust', 'lass uns', 'wie waere es', 'hast du zeit', 'wollen wir', 'ich haette lust', 'kommst du mit', 'ich kann heute nicht']
 };
 
 /**

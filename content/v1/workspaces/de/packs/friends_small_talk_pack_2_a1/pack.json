@@ -1,0 +1,470 @@
+{
+  "schemaVersion": 1,
+  "id": "friends_small_talk_pack_2_a1",
+  "kind": "pack",
+  "packVersion": "1.0.0",
+  "title": "Friends Small Talk - A1",
+  "level": "A1",
+  "estimatedMinutes": 15,
+  "description": "Practice friends_small_talk scenarios at A1 level.",
+  "scenario": "friends_small_talk",
+  "register": "casual",
+  "primaryStructure": "modal_verbs_suggestions",
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier",
+    "time",
+    "location",
+    "polarity"
+  ],
+  "outline": [
+    "Making Plans",
+    "Suggestions & Preferences",
+    "Responding & Rescheduling"
+  ],
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Lass uns sollen ins Kino abends um 9:30",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/friends_small_talk_pack_2_a1/prompt-001.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Lass uns"
+        ],
+        "verb": [
+          "sollen"
+        ],
+        "object": [
+          "ins Kino"
+        ],
+        "modifier": [
+          "abends"
+        ]
+      }
+    },
+    {
+      "id": "prompt-002",
+      "text": "Sollen wir gehen zum Park später um 9:30",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/friends_small_talk_pack_2_a1/prompt-002.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Sollen wir"
+        ],
+        "verb": [
+          "gehen"
+        ],
+        "object": [
+          "zum Park"
+        ],
+        "modifier": [
+          "später"
+        ]
+      }
+    },
+    {
+      "id": "prompt-003",
+      "text": "Lass uns möchtest ein Konzert morgen",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/friends_small_talk_pack_2_a1/prompt-003.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "polarity"
+      ],
+      "slots": {
+        "subject": [
+          "Lass uns"
+        ],
+        "verb": [
+          "möchtest"
+        ],
+        "object": [
+          "ein Konzert"
+        ],
+        "modifier": [
+          "morgen"
+        ]
+      }
+    },
+    {
+      "id": "prompt-004",
+      "text": "Wir schauen ins Training morgen",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/friends_small_talk_pack_2_a1/prompt-004.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "schauen"
+        ],
+        "object": [
+          "ins Training"
+        ],
+        "modifier": [
+          "morgen"
+        ]
+      }
+    },
+    {
+      "id": "prompt-005",
+      "text": "Lass uns wollen Kaffee",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/friends_small_talk_pack_2_a1/prompt-005.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Lass uns"
+        ],
+        "verb": [
+          "wollen"
+        ],
+        "object": [
+          "Kaffee"
+        ]
+      }
+    },
+    {
+      "id": "prompt-006",
+      "text": "Ich essen Zeit",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/friends_small_talk_pack_2_a1/prompt-006.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "essen"
+        ],
+        "object": [
+          "Zeit"
+        ]
+      }
+    },
+    {
+      "id": "prompt-007",
+      "text": "Ich kannst Lust",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/friends_small_talk_pack_2_a1/prompt-007.mp3",
+      "slotsChanged": [
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "kannst"
+        ],
+        "object": [
+          "Lust"
+        ]
+      }
+    },
+    {
+      "id": "prompt-008",
+      "text": "Sollen wir können zum Gym",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/friends_small_talk_pack_2_a1/prompt-008.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sollen wir"
+        ],
+        "verb": [
+          "können"
+        ],
+        "object": [
+          "zum Gym"
+        ]
+      }
+    },
+    {
+      "id": "prompt-009",
+      "text": "Sollen wir willst einen Spaziergang",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/friends_small_talk_pack_2_a1/prompt-009.mp3",
+      "slotsChanged": [
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sollen wir"
+        ],
+        "verb": [
+          "willst"
+        ],
+        "object": [
+          "einen Spaziergang"
+        ]
+      }
+    },
+    {
+      "id": "prompt-010",
+      "text": "Wir hasten zum Park heute",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/friends_small_talk_pack_2_a1/prompt-010.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "hasten"
+        ],
+        "object": [
+          "zum Park"
+        ],
+        "modifier": [
+          "heute"
+        ]
+      }
+    },
+    {
+      "id": "prompt-011",
+      "text": "Ich trinken ein Konzert heute",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/friends_small_talk_pack_2_a1/prompt-011.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "trinken"
+        ],
+        "object": [
+          "ein Konzert"
+        ],
+        "modifier": [
+          "heute"
+        ]
+      }
+    },
+    {
+      "id": "prompt-012",
+      "text": "Sollen wir möchtest Kaffee abends",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/friends_small_talk_pack_2_a1/prompt-012.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Sollen wir"
+        ],
+        "verb": [
+          "möchtest"
+        ],
+        "object": [
+          "Kaffee"
+        ],
+        "modifier": [
+          "abends"
+        ]
+      }
+    }
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "opening",
+        "title": "Making Plans",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002",
+          "prompt-003",
+          "prompt-004"
+        ]
+      },
+      {
+        "id": "variation",
+        "title": "Suggestions & Preferences",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006",
+          "prompt-007",
+          "prompt-008",
+          "prompt-009"
+        ]
+      },
+      {
+        "id": "switch",
+        "title": "Responding & Rescheduling",
+        "promptIds": [
+          "prompt-010",
+          "prompt-011",
+          "prompt-012"
+        ]
+      }
+    ]
+  },
+  "tags": [
+    "friends_small_talk"
+  ],
+  "analytics": {
+    "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level",
+    "constraints": [
+      "casual register maintained",
+      "friends_small_talk scenario context",
+      "modal_verbs_suggestions structure focus",
+      "verb position: second"
+    ],
+    "levers": [
+      "subject variation",
+      "verb substitution",
+      "object variation",
+      "modifier changes",
+      "time expressions",
+      "location phrases"
+    ],
+    "successCriteria": [
+      "Uses casual planning and suggestion phrases",
+      "Varies time expressions (heute, morgen, am Wochenende)",
+      "Includes activity and preference vocabulary",
+      "Maintains casual register without slang"
+    ],
+    "commonMistakes": [
+      "Using formal language in casual context",
+      "Missing time/activity vocabulary",
+      "Incorrect modal verb usage in suggestions",
+      "Overusing generic greetings instead of specific plans"
+    ],
+    "drillType": "substitution",
+    "version": 1,
+    "qualityGateVersion": "qg-2025-01-01",
+    "promptCount": 12,
+    "multiSlotRate": 1,
+    "scenarioTokenHitAvg": 1.75,
+    "scenarioTokenQualifiedRate": 0.5833333333333334,
+    "uniqueTokenRate": 0.5483870967741935,
+    "bannedPhraseViolations": 0,
+    "passesQualityGates": false,
+    "focus": "modal_verbs",
+    "cognitiveLoad": "high",
+    "responseSpeedTargetMs": 1800,
+    "fluencyOutcome": "casual_planning",
+    "whyThisWorks": [
+      "Uses casual planning and suggestion phrases",
+      "Varies time expressions (heute, morgen, am Wochenende)",
+      "Includes activity and preference vocabulary",
+      "Maintains casual register without slang"
+    ],
+    "primaryStructure": "modal_verbs_suggestions",
+    "variationSlots": [
+      "subject",
+      "verb",
+      "object",
+      "modifier",
+      "time",
+      "location",
+      "polarity"
+    ],
+    "slotSwitchDensity": 1,
+    "promptDiversityScore": 0.47203645399171895,
+    "scenarioCoverageScore": 0.8181818181818182,
+    "estimatedCognitiveLoad": "high",
+    "intendedOutcome": "A1 friends small talk readiness",
+    "targetLatencyMs": 1800,
+    "successDefinition": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level",
+    "keyFailureModes": [
+      "Using formal language in casual context",
+      "Missing time/activity vocabulary",
+      "Incorrect modal verb usage in suggest...",
+      "Overusing generic greetings instead o..."
+    ],
+    "exitConditions": {
+      "targetMinutes": 15,
+      "completeWhen": "sessionPlan_completed_once"
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "friends_small_talk",
+    "extractorVersion": "1.0.0",
+    "generatedAt": "2025-12-31T08:23:43.908Z"
+  },
+  "review": {
+    "status": "approved",
+    "reviewer": "Afees",
+    "reviewedAt": "2025-12-31T08:31:18Z"
+  },
+  "contentId": "de:pack:friends_small_talk_pack_2_a1",
+  "contentHash": "53412ec6b84d4cd2bdca616895a5e0c0b8dd9904157a7a031106d2e42abfed7e",
+  "revisionId": "53412ec6b84d"
+}

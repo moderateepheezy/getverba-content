@@ -10,7 +10,7 @@
  *   npm run content:generate-indexes [--workspace <ws>]
  */
 
-import { readFileSync, writeFileSync, readdirSync, existsSync, rmSync } from 'fs';
+import { readFileSync, writeFileSync, readdirSync, existsSync, rmSync, mkdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -618,6 +618,231 @@ function generateIndex(
 }
 
 /**
+ * Icon mapping for scenarios
+ */
+function getScenarioIcon(scenarioId: string): string {
+  const iconMap: Record<string, string> = {
+    work: 'briefcase',
+    travel: 'airplane',
+    social: 'users',
+    government_office: 'building',
+    doctor: 'medical',
+    housing: 'home',
+    restaurant: 'utensils',
+    shopping: 'shopping-cart'
+  };
+  return iconMap[scenarioId] || 'sparkle';
+}
+
+/**
+ * Generate subtitle from scenario template
+ */
+function getScenarioSubtitle(scenarioId: string, workspaceId: string): string {
+  const templatesDir = join(__dirname, '..', 'content', 'templates', 'v1', 'scenarios');
+  const templatePath = join(templatesDir, `${scenarioId}.json`);
+  
+  if (existsSync(templatePath)) {
+    try {
+      const content = readFileSync(templatePath, 'utf-8');
+      const template = JSON.parse(content);
+      
+      // Extract subtopics from stepBlueprint titles (up to 3)
+      if (template.stepBlueprint && Array.isArray(template.stepBlueprint)) {
+        const subtopics = template.stepBlueprint
+          .slice(0, 3)
+          .map((step: any) => step.title)
+          .filter((title: string) => title && typeof title === 'string');
+        
+        if (subtopics.length > 0) {
+          return subtopics.join(' · ');
+        }
+      }
+    } catch (error) {
+      // Fall through to default
+    }
+  }
+  
+  return 'Common situations';
+}
+
+/**
+ * Generate scenario-specific paginated index
+ */
+function generateScenarioIndex(
+  workspaceId: string,
+  scenarioId: string,
+  items: SectionIndexItem[],
+  defaultPageSize: number = 12
+): number {
+  const workspaceDir = join(CONTENT_DIR, 'workspaces', workspaceId);
+  const scenarioDir = join(workspaceDir, 'context', scenarioId);
+  
+  // Create scenario directory if it doesn't exist
+  if (!existsSync(scenarioDir)) {
+    mkdirSync(scenarioDir, { recursive: true });
+  }
+  
+  // Get pageSize from existing index if present
+  const existingIndexPath = join(scenarioDir, 'index.json');
+  const pageSize = getPageSizeFromExistingIndex(existingIndexPath) || defaultPageSize;
+  
+  if (items.length === 0) {
+    // Create empty index
+    const emptyIndex: SectionIndex = {
+      version: 'v1',
+      kind: 'context',
+      total: 0,
+      pageSize: pageSize,
+      items: [],
+      nextPage: null
+    };
+    
+    writeFileSync(existingIndexPath, JSON.stringify(emptyIndex, null, 2), 'utf-8');
+    console.log(`   📝 Created empty scenario index: context/${scenarioId} (no items)`);
+    
+    // Remove old pagination files
+    let pageNum = 2;
+    while (true) {
+      const pagePath = join(scenarioDir, `index.page${pageNum}.json`);
+      if (existsSync(pagePath)) {
+        rmSync(pagePath, { force: true });
+        pageNum++;
+      } else {
+        break;
+      }
+    }
+    return 0;
+  }
+  
+  // Sort deterministically
+  const sortedItems = sortItems(items);
+  
+  // Paginate
+  const total = sortedItems.length;
+  const pages: SectionIndexItem[][] = [];
+  
+  for (let i = 0; i < sortedItems.length; i += pageSize) {
+    pages.push(sortedItems.slice(i, i + pageSize));
+  }
+  
+  // Remove old pagination files
+  if (existsSync(scenarioDir)) {
+    const files = readdirSync(scenarioDir);
+    for (const file of files) {
+      if (file.match(/^index\.page\d+\.json$/)) {
+        const filePath = join(scenarioDir, file);
+        rmSync(filePath);
+      }
+    }
+  }
+  
+  // Write paginated index files
+  for (let pageNum = 0; pageNum < pages.length; pageNum++) {
+    const pageItems = pages[pageNum];
+    const isLastPage = pageNum === pages.length - 1;
+    
+    const index: SectionIndex = {
+      version: 'v1',
+      kind: 'context',
+      total,
+      pageSize,
+      items: pageItems,
+      nextPage: isLastPage ? null : `/v1/workspaces/${workspaceId}/context/${scenarioId}/index.page${pageNum + 2}.json`
+    };
+    
+    let fileName: string;
+    if (pageNum === 0) {
+      fileName = 'index.json';
+    } else {
+      fileName = `index.page${pageNum + 1}.json`;
+    }
+    
+    const filePath = join(scenarioDir, fileName);
+    const jsonContent = JSON.stringify(index, null, 2);
+    
+    writeFileSync(filePath, jsonContent + '\n', 'utf-8');
+  }
+  
+  return total;
+}
+
+/**
+ * Generate scenario index (context/scenarios.json)
+ */
+function generateScenarioIndexFile(workspaceId: string, allContextItems: SectionIndexItem[]): void {
+  const workspaceDir = join(CONTENT_DIR, 'workspaces', workspaceId);
+  const contextDir = join(workspaceDir, 'context');
+  
+  // Group items by scenario
+  const scenarioGroups = new Map<string, SectionIndexItem[]>();
+  
+  for (const item of allContextItems) {
+    if (item.scenario) {
+      if (!scenarioGroups.has(item.scenario)) {
+        scenarioGroups.set(item.scenario, []);
+      }
+      scenarioGroups.get(item.scenario)!.push(item);
+    }
+  }
+  
+  // Generate scenario-specific indexes and collect metadata
+  const scenarioItems: Array<{
+    id: string;
+    title: string;
+    subtitle: string;
+    icon: string;
+    itemCount: number;
+    itemsUrl: string;
+  }> = [];
+  
+  // Sort scenarios deterministically (alphabetically)
+  const sortedScenarioIds = Array.from(scenarioGroups.keys()).sort();
+  
+  for (const scenarioId of sortedScenarioIds) {
+    const items = scenarioGroups.get(scenarioId)!;
+    
+    // Generate scenario-specific index
+    const itemCount = generateScenarioIndex(workspaceId, scenarioId, items, 12);
+    
+    // Generate title (capitalize first letter, replace underscores with spaces)
+    const title = scenarioId
+      .split('_')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+    
+    // Get subtitle and icon
+    const subtitle = getScenarioSubtitle(scenarioId, workspaceId);
+    const icon = getScenarioIcon(scenarioId);
+    
+    scenarioItems.push({
+      id: scenarioId,
+      title,
+      subtitle,
+      icon,
+      itemCount,
+      itemsUrl: `/v1/workspaces/${workspaceId}/context/${scenarioId}/index.json`
+    });
+  }
+  
+  // Only create scenarios.json if we have scenarios
+  if (scenarioItems.length === 0) {
+    return;
+  }
+  
+  // Create scenario index document
+  const scenarioIndex = {
+    version: 1,
+    kind: 'scenario_index',
+    scenarios: scenarioItems
+  };
+  
+  const scenarioIndexPath = join(contextDir, 'scenarios.json');
+  writeFileSync(scenarioIndexPath, JSON.stringify(scenarioIndex, null, 2) + '\n', 'utf-8');
+  
+  console.log(`✅ Generated ${workspaceId}/context/scenarios.json (${scenarioItems.length} scenario(s))`);
+}
+
+/**
  * Main function
  */
 function main() {
@@ -666,6 +891,34 @@ function main() {
     
     for (const [sectionId, config] of Object.entries(SECTION_CONFIG)) {
       generateIndex(workspaceId, sectionId, config);
+      
+      // Generate scenario index for context section
+      if (sectionId === 'context') {
+        // Collect all context items to generate scenario index
+        const workspaceDir = join(CONTENT_DIR, 'workspaces', workspaceId);
+        const allContextItems: SectionIndexItem[] = [];
+        
+        for (const folder of config.folders) {
+          const folderPath = join(workspaceDir, folder);
+          let entryType: 'pack' | 'drill' | 'exam' | 'track';
+          
+          if (folder === 'packs') {
+            entryType = 'pack';
+          } else if (folder === 'exams') {
+            entryType = 'exam';
+          } else if (folder === 'tracks') {
+            entryType = 'track';
+          } else {
+            entryType = 'drill';
+          }
+          
+          const items = scanEntryDirectory(folderPath, entryType, workspaceId);
+          allContextItems.push(...items);
+        }
+        
+        // Generate scenario index
+        generateScenarioIndexFile(workspaceId, allContextItems);
+      }
     }
   }
   

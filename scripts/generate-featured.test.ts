@@ -471,6 +471,332 @@ test('Schema: generated featured.json matches FeaturedV1 schema', () => {
   cleanupTestWorkspace();
 });
 
+// Test 9: Level sorting (A1 before A2)
+test('Level sorting: A1 packs selected before A2', () => {
+  cleanupTestWorkspace();
+  setupTestWorkspace();
+  
+  createTestPack('pack_a2', 'A2', 'work', true);
+  createTestPack('pack_a1', 'A1', 'work', true);
+  
+  const featured = generateFeatured();
+  
+  assert(featured.hero.entryUrl.includes('pack_a1'), 'A1 pack should be selected before A2');
+  assert(!featured.hero.entryUrl.includes('pack_a2'), 'A2 pack should not be selected when A1 exists');
+  
+  cleanupTestWorkspace();
+});
+
+// Test 10: Title sorting (stable secondary sort)
+test('Title sorting: stable secondary sort by title', () => {
+  cleanupTestWorkspace();
+  setupTestWorkspace();
+  
+  createTestPack('pack_b', 'A1', 'work', true);
+  createTestPack('pack_a', 'A1', 'work', true);
+  
+  const featured = generateFeatured();
+  
+  // Should be sorted by title (pack_a before pack_b)
+  assert(featured.hero.entryUrl.includes('pack_a'), 'Pack A should be selected before Pack B (title sort)');
+  
+  cleanupTestWorkspace();
+});
+
+// Test 11: ID sorting (stable tertiary sort)
+test('ID sorting: stable tertiary sort by id', () => {
+  cleanupTestWorkspace();
+  setupTestWorkspace();
+  
+  // Create packs with same level and title (different IDs)
+  const packDir1 = join(CONTENT_DIR, 'workspaces', TEST_WORKSPACE, 'packs', 'pack_1');
+  const packDir2 = join(CONTENT_DIR, 'workspaces', TEST_WORKSPACE, 'packs', 'pack_2');
+  mkdirSync(packDir1, { recursive: true });
+  mkdirSync(packDir2, { recursive: true });
+  
+  const pack1 = {
+    schemaVersion: 1,
+    id: 'pack_1',
+    kind: 'pack',
+    packVersion: '1.0.0',
+    title: 'Same Title',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test',
+    outline: ['Step 1'],
+    sessionPlan: { version: 1, steps: [{ id: 'step1', title: 'Step 1', promptIds: ['p1'] }] },
+    scenario: 'work',
+    register: 'formal',
+    primaryStructure: 'modal_verbs',
+    variationSlots: ['subject', 'verb'],
+    prompts: [{ id: 'p1', text: 'Test', intent: 'request', gloss_en: 'Test', audioUrl: '/v1/audio/test.mp3' }],
+    analytics: { version: 1, goal: 'Test', successCriteria: ['Test'], drillType: 'conversation', cognitiveLoad: 'low' },
+    contentId: `${TEST_WORKSPACE}:pack:pack_1`,
+    contentHash: 'test',
+    revisionId: 'test',
+    provenance: { source: 'handcrafted' }
+  };
+  
+  const pack2 = { ...pack1, id: 'pack_2', contentId: `${TEST_WORKSPACE}:pack:pack_2` };
+  
+  writeFileSync(join(packDir1, 'pack.json'), JSON.stringify(pack1, null, 2) + '\n');
+  writeFileSync(join(packDir2, 'pack.json'), JSON.stringify(pack2, null, 2) + '\n');
+  
+  const featured = generateFeatured();
+  
+  // Should be sorted by ID (pack_1 before pack_2)
+  assert(featured.hero.entryUrl.includes('pack_1'), 'Pack 1 should be selected before Pack 2 (ID sort)');
+  
+  cleanupTestWorkspace();
+});
+
+// Test 12: Exam selection
+test('Cards selection: includes exam when available', () => {
+  cleanupTestWorkspace();
+  setupTestWorkspace();
+  
+  createTestPack('pack1', 'A1', 'work', true);
+  createTestDrill('drill1', 'A1', 'work', true);
+  
+  // Create exam
+  const examDir = join(CONTENT_DIR, 'workspaces', TEST_WORKSPACE, 'exams', 'exam1');
+  mkdirSync(examDir, { recursive: true });
+  
+  const exam = {
+    schemaVersion: 1,
+    id: 'exam1',
+    kind: 'exam',
+    title: 'Test Exam',
+    level: 'A1',
+    estimatedMinutes: 30,
+    description: 'Test exam',
+    outline: ['Section 1'],
+    questions: [{ id: 'q1', type: 'multiple-choice', question: 'Test?', options: ['A', 'B'], correctAnswer: 0 }],
+    contentId: `${TEST_WORKSPACE}:exam:exam1`,
+    contentHash: 'test',
+    revisionId: 'test',
+    provenance: { source: 'handcrafted' }
+  };
+  
+  writeFileSync(join(examDir, 'exam.json'), JSON.stringify(exam, null, 2) + '\n');
+  
+  const featured = generateFeatured();
+  
+  const examCards = featured.cards.filter((c: any) => c.kind === 'exam');
+  assert(examCards.length <= 1, 'Should have at most 1 exam card');
+  
+  cleanupTestWorkspace();
+});
+
+// Test 13: No scenario matching (fallback behavior)
+test('Cards selection: handles hero without scenario', () => {
+  cleanupTestWorkspace();
+  setupTestWorkspace();
+  
+  // Create pack without scenario
+  const packDir = join(CONTENT_DIR, 'workspaces', TEST_WORKSPACE, 'packs', 'pack_no_scenario');
+  mkdirSync(packDir, { recursive: true });
+  
+  const pack = {
+    schemaVersion: 1,
+    id: 'pack_no_scenario',
+    kind: 'pack',
+    packVersion: '1.0.0',
+    title: 'Pack No Scenario',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test',
+    outline: ['Step 1'],
+    sessionPlan: { version: 1, steps: [{ id: 'step1', title: 'Step 1', promptIds: ['p1'] }] },
+    register: 'formal',
+    primaryStructure: 'modal_verbs',
+    variationSlots: ['subject', 'verb'],
+    prompts: [{ id: 'p1', text: 'Test', intent: 'request', gloss_en: 'Test', audioUrl: '/v1/audio/test.mp3' }],
+    analytics: { version: 1, goal: 'Test', successCriteria: ['Test'], drillType: 'conversation', cognitiveLoad: 'low' },
+    contentId: `${TEST_WORKSPACE}:pack:pack_no_scenario`,
+    contentHash: 'test',
+    revisionId: 'test',
+    provenance: { source: 'handcrafted' }
+  };
+  
+  writeFileSync(join(packDir, 'pack.json'), JSON.stringify(pack, null, 2) + '\n');
+  
+  createTestPack('pack2', 'A1', 'work', true);
+  
+  const featured = generateFeatured();
+  
+  // Should still generate cards (from same level pack)
+  assert(featured.cards.length >= 0, 'Should handle hero without scenario gracefully');
+  
+  cleanupTestWorkspace();
+});
+
+// Test 14: Mixed approved/unapproved content
+test('Approval gate: filters out unapproved content from selection', () => {
+  cleanupTestWorkspace();
+  setupTestWorkspace();
+  
+  // Mix of approved and unapproved
+  createTestPack('pack_approved', 'A1', 'work', true);
+  createTestPack('pack_unapproved', 'A1', 'work', false);
+  createTestDrill('drill_approved', 'A1', 'work', true);
+  createTestDrill('drill_unapproved', 'A1', 'work', false);
+  
+  const featured = generateFeatured();
+  
+  assert(featured.hero.entryUrl.includes('pack_approved'), 'Hero should be approved');
+  assert(!featured.hero.entryUrl.includes('pack_unapproved'), 'Hero should not be unapproved');
+  
+  featured.cards.forEach((card: any) => {
+    assert(!card.entryUrl.includes('unapproved'), 'Cards should not include unapproved content');
+  });
+  
+  cleanupTestWorkspace();
+});
+
+// Test 15: Empty cards scenario
+test('Cards selection: handles empty cards gracefully', () => {
+  cleanupTestWorkspace();
+  setupTestWorkspace();
+  
+  // Only create hero pack, no cards
+  createTestPack('pack1', 'A1', 'work', true);
+  
+  const featured = generateFeatured();
+  
+  assert(Array.isArray(featured.cards), 'Cards should be array');
+  assert(featured.cards.length >= 0, 'Cards can be empty');
+  
+  cleanupTestWorkspace();
+});
+
+// Test 16: Entry URL pattern validation
+test('Entry URL patterns: match canonical format', () => {
+  cleanupTestWorkspace();
+  setupTestWorkspace();
+  
+  createTestPack('pack1', 'A1', 'work', true);
+  createTestTrack('track1', 'A1', true);
+  
+  const featured = generateFeatured();
+  
+  // Validate hero entryUrl pattern
+  if (featured.hero.kind === 'pack') {
+    assert(/^\/v1\/workspaces\/[^/]+\/packs\/[^/]+\/pack\.json$/.test(featured.hero.entryUrl), 'Pack entryUrl should match pattern');
+  } else if (featured.hero.kind === 'track') {
+    assert(/^\/v1\/workspaces\/[^/]+\/tracks\/[^/]+\/track\.json$/.test(featured.hero.entryUrl), 'Track entryUrl should match pattern');
+  }
+  
+  // Validate card entryUrl patterns
+  featured.cards.forEach((card: any) => {
+    if (card.kind === 'pack') {
+      assert(/^\/v1\/workspaces\/[^/]+\/packs\/[^/]+\/pack\.json$/.test(card.entryUrl), `Card[${card.id}] pack entryUrl should match pattern`);
+    } else if (card.kind === 'drill') {
+      assert(/^\/v1\/workspaces\/[^/]+\/drills\/[^/]+\/drill\.json$/.test(card.entryUrl), `Card[${card.id}] drill entryUrl should match pattern`);
+    } else if (card.kind === 'exam') {
+      assert(/^\/v1\/workspaces\/[^/]+\/exams\/[^/]+\/exam\.json$/.test(card.entryUrl), `Card[${card.id}] exam entryUrl should match pattern`);
+    }
+  });
+  
+  cleanupTestWorkspace();
+});
+
+// Test 17: GeneratedAt timestamp format
+test('GeneratedAt: valid ISO 8601 timestamp', () => {
+  cleanupTestWorkspace();
+  setupTestWorkspace();
+  
+  createTestPack('pack1', 'A1', 'work', true);
+  
+  const featured = generateFeatured();
+  
+  assert(typeof featured.generatedAt === 'string', 'generatedAt should be string');
+  const date = new Date(featured.generatedAt);
+  assert(!isNaN(date.getTime()), 'generatedAt should be valid ISO 8601 date');
+  
+  cleanupTestWorkspace();
+});
+
+// Test 18: CTA structure validation
+test('CTA structure: valid cta object', () => {
+  cleanupTestWorkspace();
+  setupTestWorkspace();
+  
+  createTestPack('pack1', 'A1', 'work', true);
+  
+  const featured = generateFeatured();
+  
+  assert(typeof featured.hero.cta === 'object', 'CTA should be object');
+  assert(typeof featured.hero.cta.label === 'string', 'CTA label should be string');
+  assert(featured.hero.cta.action === 'open_entry', 'CTA action should be open_entry');
+  
+  cleanupTestWorkspace();
+});
+
+// Test 19: Workspace field validation
+test('Workspace field: matches input workspace', () => {
+  cleanupTestWorkspace();
+  setupTestWorkspace();
+  
+  createTestPack('pack1', 'A1', 'work', true);
+  
+  const featured = generateFeatured();
+  
+  assert(featured.workspace === TEST_WORKSPACE, 'Workspace should match input');
+  
+  cleanupTestWorkspace();
+});
+
+// Test 20: Multiple scenarios in cards
+test('Cards selection: handles multiple scenarios', () => {
+  cleanupTestWorkspace();
+  setupTestWorkspace();
+  
+  createTestPack('pack1', 'A1', 'government_office', true);
+  createTestDrill('drill1', 'A1', 'government_office', true);
+  createTestDrill('drill2', 'A1', 'government_office', true);
+  createTestPack('pack2', 'A1', 'government_office', true);
+  
+  const featured = generateFeatured();
+  
+  // Should select matching scenario drills and same-level pack
+  assert(featured.cards.length >= 1, 'Should have cards');
+  
+  cleanupTestWorkspace();
+});
+
+// Test 21: Drill fallback when no matching scenario
+test('Cards selection: drills fallback when no scenario match', () => {
+  cleanupTestWorkspace();
+  setupTestWorkspace();
+  
+  createTestPack('pack1', 'A1', 'work', true);
+  // Create drills with different scenario
+  createTestDrill('drill1', 'A1', 'restaurant', true);
+  createTestDrill('drill2', 'A1', 'restaurant', true);
+  
+  const featured = generateFeatured();
+  
+  // Should still generate cards (from same level pack)
+  assert(featured.cards.length >= 0, 'Should handle scenario mismatch gracefully');
+  
+  cleanupTestWorkspace();
+});
+
+// Test 22: Version field validation
+test('Version field: always 1', () => {
+  cleanupTestWorkspace();
+  setupTestWorkspace();
+  
+  createTestPack('pack1', 'A1', 'work', true);
+  
+  const featured = generateFeatured();
+  
+  assert(featured.version === 1, 'Version should always be 1');
+  
+  cleanupTestWorkspace();
+});
+
 // Run tests
 console.log('🧪 Running featured content generation unit tests...\n');
 

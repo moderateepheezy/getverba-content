@@ -290,7 +290,18 @@
     "promptDiversityScore": 0.5154422863405994,
     "scenarioCoverageScore": 0.6,
     "estimatedCognitiveLoad": "high",
-    "intendedOutcome": "A1 government office readiness"
+    "intendedOutcome": "A1 government office readiness",
+    "targetLatencyMs": 1800,
+    "successDefinition": "Practice formal government_office interactions at A1 level",
+    "keyFailureModes": [
+      "Forgetting formal address (using \"du\"...",
+      "Missing required documents vocabulary",
+      "Incorrect modal verb conjugation"
+    ],
+    "exitConditions": {
+      "targetMinutes": 15,
+      "completeWhen": "sessionPlan_completed_once"
+    }
   },
   "provenance": {
     "source": "template",
@@ -299,7 +310,9 @@
     "generatedAt": "2025-12-31T07:34:24.063Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "Afees",
+    "reviewedAt": "2025-12-31T08:31:18Z"
   },
   "contentId": "de:pack:anmeldung_address_registration_a1",
   "contentHash": "2a2fe75ffaee74f47952d9da2d9273cb6c17e4f456e749c99559b62b70fd2b51",

@@ -1,0 +1,466 @@
+{
+  "schemaVersion": 1,
+  "id": "friends_reschedule_and_decline_a2",
+  "kind": "pack",
+  "packVersion": "1.0.0",
+  "title": "Rescheduling & Declining",
+  "level": "A2",
+  "estimatedMinutes": 15,
+  "description": "Practice friends_small_talk scenarios at A2 level.",
+  "scenario": "friends_small_talk",
+  "register": "casual",
+  "primaryStructure": "modal_verbs_suggestions",
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier",
+    "time",
+    "location",
+    "polarity"
+  ],
+  "outline": [
+    "Making Plans",
+    "Suggestions & Preferences",
+    "Responding & Rescheduling"
+  ],
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Wir trinken Lust abends um 18:00",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/friends_reschedule_and_decline_a2/prompt-001.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "trinken"
+        ],
+        "object": [
+          "Lust"
+        ],
+        "modifier": [
+          "abends"
+        ]
+      }
+    },
+    {
+      "id": "prompt-002",
+      "text": "Ich können eine Serie abends um 9:00",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/friends_reschedule_and_decline_a2/prompt-002.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "können"
+        ],
+        "object": [
+          "eine Serie"
+        ],
+        "modifier": [
+          "abends"
+        ]
+      }
+    },
+    {
+      "id": "prompt-003",
+      "text": "Du gehen einen Plan heute",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/friends_reschedule_and_decline_a2/prompt-003.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "polarity"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "gehen"
+        ],
+        "object": [
+          "einen Plan"
+        ],
+        "modifier": [
+          "heute"
+        ]
+      }
+    },
+    {
+      "id": "prompt-004",
+      "text": "Ich möchte ins Café am Wochenende",
+      "intent": "request",
+      "gloss_en": "I would like to request something.",
+      "natural_en": "I'd like to request that.",
+      "audioUrl": "/v1/audio/friends_reschedule_and_decline_a2/prompt-004.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "möchte"
+        ],
+        "object": [
+          "ins Café"
+        ],
+        "modifier": [
+          "am Wochenende"
+        ]
+      }
+    },
+    {
+      "id": "prompt-005",
+      "text": "Sollen wir möchtest Lust",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/friends_reschedule_and_decline_a2/prompt-005.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sollen wir"
+        ],
+        "verb": [
+          "möchtest"
+        ],
+        "object": [
+          "Lust"
+        ]
+      }
+    },
+    {
+      "id": "prompt-006",
+      "text": "Lass uns können eine Idee",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/friends_reschedule_and_decline_a2/prompt-006.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Lass uns"
+        ],
+        "verb": [
+          "können"
+        ],
+        "object": [
+          "eine Idee"
+        ]
+      }
+    },
+    {
+      "id": "prompt-007",
+      "text": "Lass uns können zum Gym",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/friends_reschedule_and_decline_a2/prompt-007.mp3",
+      "slotsChanged": [
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Lass uns"
+        ],
+        "verb": [
+          "können"
+        ],
+        "object": [
+          "zum Gym"
+        ]
+      }
+    },
+    {
+      "id": "prompt-008",
+      "text": "Hast du können zum Park",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/friends_reschedule_and_decline_a2/prompt-008.mp3",
+      "slotsChanged": [
+        "subject",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Hast du"
+        ],
+        "verb": [
+          "können"
+        ],
+        "object": [
+          "zum Park"
+        ]
+      }
+    },
+    {
+      "id": "prompt-009",
+      "text": "Lass uns kannst zum Gym",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/friends_reschedule_and_decline_a2/prompt-009.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Lass uns"
+        ],
+        "verb": [
+          "kannst"
+        ],
+        "object": [
+          "zum Gym"
+        ]
+      }
+    },
+    {
+      "id": "prompt-010",
+      "text": "Lass uns trinken in die Bar morgen",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/friends_reschedule_and_decline_a2/prompt-010.mp3",
+      "slotsChanged": [
+        "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Lass uns"
+        ],
+        "verb": [
+          "trinken"
+        ],
+        "object": [
+          "in die Bar"
+        ],
+        "modifier": [
+          "morgen"
+        ]
+      }
+    },
+    {
+      "id": "prompt-011",
+      "text": "Du essen ins Training abends",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/friends_reschedule_and_decline_a2/prompt-011.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "essen"
+        ],
+        "object": [
+          "ins Training"
+        ],
+        "modifier": [
+          "abends"
+        ]
+      }
+    },
+    {
+      "id": "prompt-012",
+      "text": "Sollen wir essen einen Plan später",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/friends_reschedule_and_decline_a2/prompt-012.mp3",
+      "slotsChanged": [
+        "subject",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Sollen wir"
+        ],
+        "verb": [
+          "essen"
+        ],
+        "object": [
+          "einen Plan"
+        ],
+        "modifier": [
+          "später"
+        ]
+      }
+    }
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "opening",
+        "title": "Making Plans",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002",
+          "prompt-003",
+          "prompt-004"
+        ]
+      },
+      {
+        "id": "variation",
+        "title": "Suggestions & Preferences",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006",
+          "prompt-007",
+          "prompt-008",
+          "prompt-009"
+        ]
+      },
+      {
+        "id": "switch",
+        "title": "Responding & Rescheduling",
+        "promptIds": [
+          "prompt-010",
+          "prompt-011",
+          "prompt-012"
+        ]
+      }
+    ]
+  },
+  "tags": [
+    "friends_small_talk"
+  ],
+  "analytics": {
+    "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level",
+    "constraints": [
+      "casual register maintained",
+      "friends_small_talk scenario context",
+      "modal_verbs_suggestions structure focus",
+      "verb position: second"
+    ],
+    "levers": [
+      "subject variation",
+      "verb substitution",
+      "object variation",
+      "modifier changes",
+      "time expressions",
+      "location phrases"
+    ],
+    "successCriteria": [
+      "Uses casual planning and suggestion phrases",
+      "Varies time expressions (heute, morgen, am Wochenende)",
+      "Includes activity and preference vocabulary",
+      "Maintains casual register without slang"
+    ],
+    "commonMistakes": [
+      "Using formal language in casual context",
+      "Missing time/activity vocabulary",
+      "Incorrect modal verb usage in suggestions",
+      "Overusing generic greetings instead of specific plans"
+    ],
+    "drillType": "substitution",
+    "version": 1,
+    "qualityGateVersion": "qg-2025-01-01",
+    "promptCount": 12,
+    "multiSlotRate": 0.9166666666666666,
+    "scenarioTokenHitAvg": 1.75,
+    "scenarioTokenQualifiedRate": 0.6666666666666666,
+    "uniqueTokenRate": 0.5757575757575758,
+    "bannedPhraseViolations": 0,
+    "passesQualityGates": false,
+    "focus": "modal_verbs",
+    "cognitiveLoad": "high",
+    "responseSpeedTargetMs": 1500,
+    "fluencyOutcome": "casual_planning",
+    "whyThisWorks": [
+      "Uses casual planning and suggestion phrases",
+      "Varies time expressions (heute, morgen, am Wochenende)",
+      "Includes activity and preference vocabulary",
+      "Maintains casual register without slang"
+    ],
+    "primaryStructure": "modal_verbs_suggestions",
+    "variationSlots": [
+      "subject",
+      "verb",
+      "object",
+      "modifier",
+      "time",
+      "location",
+      "polarity"
+    ],
+    "slotSwitchDensity": 0.9166666666666666,
+    "promptDiversityScore": 0.450268052327636,
+    "scenarioCoverageScore": 0.6363636363636364,
+    "estimatedCognitiveLoad": "high",
+    "intendedOutcome": "A2 friends small talk readiness",
+    "targetLatencyMs": 1500,
+    "successDefinition": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level",
+    "keyFailureModes": [
+      "Using formal language in casual context",
+      "Missing time/activity vocabulary",
+      "Incorrect modal verb usage in suggest...",
+      "Overusing generic greetings instead o..."
+    ],
+    "exitConditions": {
+      "targetMinutes": 15,
+      "completeWhen": "sessionPlan_completed_twice"
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "friends_small_talk",
+    "extractorVersion": "1.0.0",
+    "generatedAt": "2025-12-31T08:08:24.343Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:pack:friends_reschedule_and_decline_a2",
+  "contentHash": "85e97ed0f8b6d886aa3ddd96f3279332c83ba491dfabc0962de3c3bcdb165fcd",
+  "revisionId": "85e97ed0f8b6"
+}

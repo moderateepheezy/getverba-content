@@ -1,0 +1,549 @@
+{
+  "version": "v1",
+  "kind": "context",
+  "total": 16,
+  "pageSize": 12,
+  "items": [
+    {
+      "id": "doctor_pack_1_a1",
+      "kind": "pack",
+      "title": "Doctor - A1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/doctor_pack_1_a1/pack.json",
+      "contentId": "de:pack:doctor_pack_1_a1",
+      "revisionId": "bf5d0d8a4ec6",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "doctor"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "health_appointments",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "doctor",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice doctor appointments and health conversations at A1 level",
+        "whyThisWorks": [
+          "Uses appointment scheduling phrases",
+          "Includes symptom/health vocabulary",
+          "Maintains appropriate formality"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases"
+    },
+    {
+      "id": "doctor_pack_2_a1",
+      "kind": "pack",
+      "title": "Doctor - A1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/doctor_pack_2_a1/pack.json",
+      "contentId": "de:pack:doctor_pack_2_a1",
+      "revisionId": "c7e6abd7be4a",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "doctor"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "health_appointments",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "doctor",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice doctor appointments and health conversations at A1 level",
+        "whyThisWorks": [
+          "Uses appointment scheduling phrases",
+          "Includes symptom/health vocabulary",
+          "Maintains appropriate formality"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases"
+    },
+    {
+      "id": "doctor_pack_3_a1",
+      "kind": "pack",
+      "title": "Doctor - A1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/doctor_pack_3_a1/pack.json",
+      "contentId": "de:pack:doctor_pack_3_a1",
+      "revisionId": "cd19562cdf9d",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "doctor"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "health_appointments",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "doctor",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice doctor appointments and health conversations at A1 level",
+        "whyThisWorks": [
+          "Uses appointment scheduling phrases",
+          "Includes symptom/health vocabulary",
+          "Maintains appropriate formality"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases"
+    },
+    {
+      "id": "doctor_pack_4_a1",
+      "kind": "pack",
+      "title": "Doctor - A1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/doctor_pack_4_a1/pack.json",
+      "contentId": "de:pack:doctor_pack_4_a1",
+      "revisionId": "a8d97179b99e",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "doctor"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "health_appointments",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "doctor",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice doctor appointments and health conversations at A1 level",
+        "whyThisWorks": [
+          "Uses appointment scheduling phrases",
+          "Includes symptom/health vocabulary",
+          "Maintains appropriate formality"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases"
+    },
+    {
+      "id": "doctor_pack_5_a1",
+      "kind": "pack",
+      "title": "Doctor - A1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/doctor_pack_5_a1/pack.json",
+      "contentId": "de:pack:doctor_pack_5_a1",
+      "revisionId": "ecc55bd74d8a",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "doctor"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "health_appointments",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "doctor",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice doctor appointments and health conversations at A1 level",
+        "whyThisWorks": [
+          "Uses appointment scheduling phrases",
+          "Includes symptom/health vocabulary",
+          "Maintains appropriate formality"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases"
+    },
+    {
+      "id": "doctor_pack_6_a1",
+      "kind": "pack",
+      "title": "Doctor - A1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/doctor_pack_6_a1/pack.json",
+      "contentId": "de:pack:doctor_pack_6_a1",
+      "revisionId": "4bf0a9469a02",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "doctor"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "health_appointments",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "doctor",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice doctor appointments and health conversations at A1 level",
+        "whyThisWorks": [
+          "Uses appointment scheduling phrases",
+          "Includes symptom/health vocabulary",
+          "Maintains appropriate formality"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases"
+    },
+    {
+      "id": "doctor_pack_7_a1",
+      "kind": "pack",
+      "title": "Doctor - A1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/doctor_pack_7_a1/pack.json",
+      "contentId": "de:pack:doctor_pack_7_a1",
+      "revisionId": "c0d2be4a745d",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "doctor"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "health_appointments",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "doctor",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice doctor appointments and health conversations at A1 level",
+        "whyThisWorks": [
+          "Uses appointment scheduling phrases",
+          "Includes symptom/health vocabulary",
+          "Maintains appropriate formality"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases"
+    },
+    {
+      "id": "doctor_pack_8_a1",
+      "kind": "pack",
+      "title": "Doctor - A1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/doctor_pack_8_a1/pack.json",
+      "contentId": "de:pack:doctor_pack_8_a1",
+      "revisionId": "30cdfd3662ff",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "doctor"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "health_appointments",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "doctor",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice doctor appointments and health conversations at A1 level",
+        "whyThisWorks": [
+          "Uses appointment scheduling phrases",
+          "Includes symptom/health vocabulary",
+          "Maintains appropriate formality"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases"
+    },
+    {
+      "id": "doctor_pack_1_a2",
+      "kind": "pack",
+      "title": "Doctor - A2",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/doctor_pack_1_a2/pack.json",
+      "contentId": "de:pack:doctor_pack_1_a2",
+      "revisionId": "a285fedcaa5b",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "doctor"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "health_appointments",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "doctor",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice doctor appointments and health conversations at A2 level",
+        "whyThisWorks": [
+          "Uses appointment scheduling phrases",
+          "Includes symptom/health vocabulary",
+          "Maintains appropriate formality"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases"
+    },
+    {
+      "id": "doctor_pack_2_a2",
+      "kind": "pack",
+      "title": "Doctor - A2",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/doctor_pack_2_a2/pack.json",
+      "contentId": "de:pack:doctor_pack_2_a2",
+      "revisionId": "ddb2fbc960c7",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "doctor"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "health_appointments",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "doctor",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice doctor appointments and health conversations at A2 level",
+        "whyThisWorks": [
+          "Uses appointment scheduling phrases",
+          "Includes symptom/health vocabulary",
+          "Maintains appropriate formality"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases"
+    },
+    {
+      "id": "doctor_pack_3_a2",
+      "kind": "pack",
+      "title": "Doctor - A2",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/doctor_pack_3_a2/pack.json",
+      "contentId": "de:pack:doctor_pack_3_a2",
+      "revisionId": "b318ce2ae367",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "doctor"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "health_appointments",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "doctor",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice doctor appointments and health conversations at A2 level",
+        "whyThisWorks": [
+          "Uses appointment scheduling phrases",
+          "Includes symptom/health vocabulary",
+          "Maintains appropriate formality"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases"
+    },
+    {
+      "id": "doctor_pack_4_a2",
+      "kind": "pack",
+      "title": "Doctor - A2",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/doctor_pack_4_a2/pack.json",
+      "contentId": "de:pack:doctor_pack_4_a2",
+      "revisionId": "1dc683e1aa02",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "doctor"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "health_appointments",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "doctor",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice doctor appointments and health conversations at A2 level",
+        "whyThisWorks": [
+          "Uses appointment scheduling phrases",
+          "Includes symptom/health vocabulary",
+          "Maintains appropriate formality"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases"
+    }
+  ],
+  "nextPage": "/v1/workspaces/de/context/doctor/index.page2.json"
+}

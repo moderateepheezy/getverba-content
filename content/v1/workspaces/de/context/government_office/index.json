@@ -1,0 +1,279 @@
+{
+  "version": "v1",
+  "kind": "context",
+  "total": 6,
+  "pageSize": 12,
+  "items": [
+    {
+      "id": "anmeldung_address_registration_a1",
+      "kind": "pack",
+      "title": "Government Office - A1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/anmeldung_address_registration_a1/pack.json",
+      "contentId": "de:pack:anmeldung_address_registration_a1",
+      "revisionId": "2a2fe75ffaee",
+      "scenario": "government_office",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "government_office"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "polite_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "government_office",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice formal government_office interactions at A1 level",
+        "whyThisWorks": [
+          "Uses formal address (Sie/Ihnen) correctly",
+          "Includes required scenario tokens (Termin, Formular, etc.)",
+          "Maintains polite modal verb constructions"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice formal government_office interactions at A1 level Uses formal address (Sie/Ihnen) correctly"
+    },
+    {
+      "id": "health_insurance_basic_a1",
+      "kind": "pack",
+      "title": "Government Office - A1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/health_insurance_basic_a1/pack.json",
+      "contentId": "de:pack:health_insurance_basic_a1",
+      "revisionId": "638378c578d5",
+      "scenario": "government_office",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "government_office"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "polite_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "government_office",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice formal government_office interactions at A1 level",
+        "whyThisWorks": [
+          "Uses formal address (Sie/Ihnen) correctly",
+          "Includes required scenario tokens (Termin, Formular, etc.)",
+          "Maintains polite modal verb constructions"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice formal government_office interactions at A1 level Uses formal address (Sie/Ihnen) correctly"
+    },
+    {
+      "id": "passport_pickup_a1",
+      "kind": "pack",
+      "title": "Government Office - A1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/passport_pickup_a1/pack.json",
+      "contentId": "de:pack:passport_pickup_a1",
+      "revisionId": "247bdba4297f",
+      "scenario": "government_office",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "government_office"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "polite_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "government_office",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice formal government_office interactions at A1 level",
+        "whyThisWorks": [
+          "Uses formal address (Sie/Ihnen) correctly",
+          "Includes required scenario tokens (Termin, Formular, etc.)",
+          "Maintains polite modal verb constructions"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice formal government_office interactions at A1 level Uses formal address (Sie/Ihnen) correctly"
+    },
+    {
+      "id": "immigration_office_questions_a2",
+      "kind": "pack",
+      "title": "Government Office - A2",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/immigration_office_questions_a2/pack.json",
+      "contentId": "de:pack:immigration_office_questions_a2",
+      "revisionId": "d33a028980da",
+      "scenario": "government_office",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "government_office"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "polite_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "government_office",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice formal government_office interactions at A2 level",
+        "whyThisWorks": [
+          "Uses formal address (Sie/Ihnen) correctly",
+          "Includes required scenario tokens (Termin, Formular, etc.)",
+          "Maintains polite modal verb constructions"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice formal government_office interactions at A2 level Uses formal address (Sie/Ihnen) correctly"
+    },
+    {
+      "id": "jobcenter_basic_a2",
+      "kind": "pack",
+      "title": "Government Office - A2",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/jobcenter_basic_a2/pack.json",
+      "contentId": "de:pack:jobcenter_basic_a2",
+      "revisionId": "843b66dfd579",
+      "scenario": "government_office",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "government_office"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "polite_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "government_office",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice formal government_office interactions at A2 level",
+        "whyThisWorks": [
+          "Uses formal address (Sie/Ihnen) correctly",
+          "Includes required scenario tokens (Termin, Formular, etc.)",
+          "Maintains polite modal verb constructions"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice formal government_office interactions at A2 level Uses formal address (Sie/Ihnen) correctly"
+    },
+    {
+      "id": "residence_permit_appointment_a2",
+      "kind": "pack",
+      "title": "Government Office - A2",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/residence_permit_appointment_a2/pack.json",
+      "contentId": "de:pack:residence_permit_appointment_a2",
+      "revisionId": "ff43cce07d05",
+      "scenario": "government_office",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "government_office"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "polite_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "government_office",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice formal government_office interactions at A2 level",
+        "whyThisWorks": [
+          "Uses formal address (Sie/Ihnen) correctly",
+          "Includes required scenario tokens (Termin, Formular, etc.)",
+          "Maintains polite modal verb constructions"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice formal government_office interactions at A2 level Uses formal address (Sie/Ihnen) correctly"
+    }
+  ],
+  "nextPage": null
+}

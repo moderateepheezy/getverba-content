@@ -291,7 +291,18 @@
     "promptDiversityScore": 0.43434327413691826,
     "scenarioCoverageScore": 0.8,
     "estimatedCognitiveLoad": "high",
-    "intendedOutcome": "A2 government office readiness"
+    "intendedOutcome": "A2 government office readiness",
+    "targetLatencyMs": 1500,
+    "successDefinition": "Practice formal government_office interactions at A2 level",
+    "keyFailureModes": [
+      "Forgetting formal address (using \"du\"...",
+      "Missing required documents vocabulary",
+      "Incorrect modal verb conjugation"
+    ],
+    "exitConditions": {
+      "targetMinutes": 15,
+      "completeWhen": "sessionPlan_completed_twice"
+    }
   },
   "provenance": {
     "source": "template",
@@ -300,7 +311,9 @@
     "generatedAt": "2025-12-31T07:34:26.157Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "Afees",
+    "reviewedAt": "2025-12-31T08:31:18Z"
   },
   "contentId": "de:pack:jobcenter_basic_a2",
   "contentHash": "843b66dfd579f3e60b6683bbacce18d079cd559bac725cea8531edf60482199d",

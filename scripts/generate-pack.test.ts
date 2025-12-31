@@ -475,6 +475,186 @@ function main() {
     assert(cognitiveLoad === 'high', 'A2 with 4 variationSlots should generate high cognitiveLoad');
   });
 
+  // Test: friends_small_talk scenario generation
+  test('friends_small_talk scenario generates valid pack', () => {
+    const workspace = 'de';
+    const packId = 'test-friends-small-talk';
+    
+    try {
+      cleanupPack(workspace, packId);
+      
+      runGenerator([
+        '--workspace', workspace,
+        '--packId', packId,
+        '--scenario', 'friends_small_talk',
+        '--level', 'A1',
+        '--seed', '5001',
+        '--title', 'Test Friends Small Talk'
+      ]);
+      
+      const pack = readGeneratedPack(workspace, packId);
+      
+      // Verify scenario
+      assert(pack.scenario === 'friends_small_talk', 'Pack should have friends_small_talk scenario');
+      assert(pack.register === 'casual', 'Pack should have casual register');
+      assert(pack.primaryStructure === 'modal_verbs_suggestions', 'Pack should have modal_verbs_suggestions structure');
+      
+      // Verify required tokens are present
+      const templatePath = join(TEMPLATES_DIR, 'friends_small_talk.json');
+      const template = JSON.parse(readFileSync(templatePath, 'utf-8'));
+      
+      let tokenCount = 0;
+      for (const prompt of pack.prompts) {
+        const textLower = prompt.text.toLowerCase();
+        for (const token of template.requiredTokens) {
+          if (textLower.includes(token.toLowerCase())) {
+            tokenCount++;
+            break; // Count once per prompt
+          }
+        }
+      }
+      
+      // At least 80% of prompts should have scenario tokens
+      const tokenRate = tokenCount / pack.prompts.length;
+      assert(tokenRate >= 0.8, `At least 80% of prompts should have scenario tokens, got ${(tokenRate * 100).toFixed(1)}%`);
+      
+      // Verify no banned generic greetings
+      const bannedPhrases = ['hallo', 'wie geht', 'mein name ist', 'nice to meet you'];
+      for (const prompt of pack.prompts) {
+        const textLower = prompt.text.toLowerCase();
+        for (const phrase of bannedPhrases) {
+          // Allow if contextualized (contains other scenario tokens)
+          const hasContext = template.requiredTokens.some(t => textLower.includes(t.toLowerCase()));
+          if (textLower.includes(phrase) && !hasContext) {
+            throw new Error(`Prompt "${prompt.id}" contains banned generic phrase: "${phrase}"`);
+          }
+        }
+      }
+      
+      // Verify casual register (no formal Sie/Ihnen)
+      for (const prompt of pack.prompts) {
+        assert(!/\bSie\b/.test(prompt.text) || prompt.text.includes('Lass uns'), 
+          'Casual register should not use formal Sie (except in "Lass uns" constructions)');
+      }
+      
+      console.log('   ✅ friends_small_talk scenario test passed');
+    } finally {
+      cleanupPack(workspace, packId);
+    }
+  });
+  
+  // Test: friends_small_talk token matching (including phrase tokens)
+  test('friends_small_talk token matching includes phrase tokens', () => {
+    const workspace = 'de';
+    const packId = 'test-friends-tokens';
+    
+    try {
+      cleanupPack(workspace, packId);
+      
+      runGenerator([
+        '--workspace', workspace,
+        '--packId', packId,
+        '--scenario', 'friends_small_talk',
+        '--level', 'A2',
+        '--seed', '5002'
+      ]);
+      
+      const pack = readGeneratedPack(workspace, packId);
+      const templatePath = join(TEMPLATES_DIR, 'friends_small_talk.json');
+      const template = JSON.parse(readFileSync(templatePath, 'utf-8'));
+      
+      // Check for phrase tokens in prompts
+      const phraseTokens = [
+        'hast du lust',
+        'lass uns',
+        'wie waere es',
+        'hast du zeit',
+        'wollen wir',
+        'ich haette lust',
+        'kommst du mit',
+        'ich kann heute nicht'
+      ];
+      
+      let phraseTokenFound = false;
+      for (const prompt of pack.prompts) {
+        const textLower = prompt.text.toLowerCase();
+        for (const phrase of phraseTokens) {
+          if (textLower.includes(phrase)) {
+            phraseTokenFound = true;
+            break;
+          }
+        }
+        if (phraseTokenFound) break;
+      }
+      
+      // At least one prompt should contain a phrase token (not just single-word tokens)
+      // This is a soft requirement - phrase tokens are preferred but not required
+      if (!phraseTokenFound) {
+        console.warn('   ⚠️  No phrase tokens found (this is acceptable but preferred)');
+      }
+      
+      // Verify at least 2 tokens per prompt (single or phrase tokens)
+      for (const prompt of pack.prompts) {
+        const textLower = prompt.text.toLowerCase();
+        let tokenMatches = 0;
+        for (const token of template.requiredTokens) {
+          if (textLower.includes(token.toLowerCase())) {
+            tokenMatches++;
+          }
+        }
+        // Quality gates require >= 2 tokens per prompt
+        assert(tokenMatches >= 2, `Prompt "${prompt.id}" should have >= 2 scenario tokens, got ${tokenMatches}`);
+      }
+      
+      console.log('   ✅ friends_small_talk token matching test passed');
+    } finally {
+      cleanupPack(workspace, packId);
+    }
+  });
+  
+  // Test: friends_small_talk multi-slot variation
+  test('friends_small_talk maintains multi-slot variation', () => {
+    const workspace = 'de';
+    const packId = 'test-friends-variation';
+    
+    try {
+      cleanupPack(workspace, packId);
+      
+      runGenerator([
+        '--workspace', workspace,
+        '--packId', packId,
+        '--scenario', 'friends_small_talk',
+        '--level', 'A1',
+        '--seed', '5003'
+      ]);
+      
+      const pack = readGeneratedPack(workspace, packId);
+      
+      // Verify multi-slot variation (>=30% with 2+ slotsChanged)
+      const multiSlotCount = pack.prompts.filter((p: any) => 
+        p.slotsChanged && p.slotsChanged.length >= 2
+      ).length;
+      const multiSlotRate = pack.prompts.length > 0 ? multiSlotCount / pack.prompts.length : 0;
+      
+      assert(multiSlotRate >= 0.3, `Multi-slot rate should be >= 30%, got ${(multiSlotRate * 100).toFixed(1)}%`);
+      
+      // Verify variation slots are used
+      const usedSlots = new Set<string>();
+      for (const prompt of pack.prompts) {
+        if (prompt.slotsChanged) {
+          prompt.slotsChanged.forEach((slot: string) => usedSlots.add(slot));
+        }
+      }
+      
+      // At least 3 different slots should be varied
+      assert(usedSlots.size >= 3, `Should vary at least 3 different slots, got ${usedSlots.size}`);
+      
+      console.log('   ✅ friends_small_talk multi-slot variation test passed');
+    } finally {
+      cleanupPack(workspace, packId);
+    }
+  });
+
   if (failed > 0) {
     process.exit(1);
   }

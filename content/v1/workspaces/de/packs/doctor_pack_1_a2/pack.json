@@ -283,7 +283,18 @@
     "promptDiversityScore": 0.5031846676241338,
     "scenarioCoverageScore": 0.5714285714285714,
     "estimatedCognitiveLoad": "high",
-    "intendedOutcome": "A2 doctor readiness"
+    "intendedOutcome": "A2 doctor readiness",
+    "targetLatencyMs": 1500,
+    "successDefinition": "Practice doctor appointments and health conversations at A2 level",
+    "keyFailureModes": [
+      "Missing appointment vocabulary",
+      "Incorrect symptom description forms",
+      "Mixing formal/informal address"
+    ],
+    "exitConditions": {
+      "targetMinutes": 15,
+      "completeWhen": "sessionPlan_completed_twice"
+    }
   },
   "provenance": {
     "source": "template",
@@ -292,7 +303,9 @@
     "generatedAt": "2025-12-31T07:35:50.394Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "Afees",
+    "reviewedAt": "2025-12-31T08:31:39Z"
   },
   "contentId": "de:pack:doctor_pack_1_a2",
   "contentHash": "a285fedcaa5b7e57fdf9b10c2720f794fa94fe28e722faaeee9202dea66a336a",

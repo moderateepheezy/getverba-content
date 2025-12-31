@@ -391,6 +391,141 @@ test('verify Worker API section index endpoint', async () => {
   }
 });
 
+// E2E Test 8.5: Verify scenario index exists and is valid (if exists)
+test('verify scenario index exists and is valid', () => {
+  const manifestPath = join(META_DIR, 'manifest.json');
+  const manifest = JSON.parse(readFileSync(manifestPath, 'utf-8'));
+  const activeWorkspace = manifest.activeWorkspace;
+  const catalogPath = manifest.workspaces[activeWorkspace];
+  const relativePath = catalogPath.replace(/^\/v1\//, '');
+  const localPath = join(CONTENT_DIR, relativePath);
+  const catalog = JSON.parse(readFileSync(localPath, 'utf-8'));
+  
+  // Find context section
+  const contextSection = catalog.sections.find((s: any) => s.id === 'context');
+  if (!contextSection) {
+    console.warn('  ⚠️  No context section found, skipping scenario index test');
+    return;
+  }
+  
+  // Check if scenario index exists
+  const scenarioIndexPath = join(CONTENT_DIR, 'workspaces', activeWorkspace, 'context', 'scenarios.json');
+  if (!existsSync(scenarioIndexPath)) {
+    console.warn('  ⚠️  Scenario index does not exist (optional), skipping test');
+    return;
+  }
+  
+  // Validate scenario index structure
+  const scenarioIndex = JSON.parse(readFileSync(scenarioIndexPath, 'utf-8'));
+  assert(scenarioIndex.version === 1, 'Scenario index should have version 1');
+  assert(scenarioIndex.kind === 'scenario_index', 'Scenario index should have kind scenario_index');
+  assert(Array.isArray(scenarioIndex.items), 'Scenario index should have items array');
+  
+  if (scenarioIndex.items.length > 0) {
+    // Validate each scenario item
+    scenarioIndex.items.forEach((item: any, idx: number) => {
+      assert(item.id, `Scenario item ${idx} should have id`);
+      assert(item.title, `Scenario item ${idx} should have title`);
+      assert(item.subtitle, `Scenario item ${idx} should have subtitle`);
+      assert(item.icon, `Scenario item ${idx} should have icon`);
+      assert(typeof item.itemCount === 'number', `Scenario item ${idx} should have itemCount`);
+      assert(item.itemsUrl, `Scenario item ${idx} should have itemsUrl`);
+      assert(item.itemsUrl.startsWith('/v1/'), `Scenario item ${idx} itemsUrl should start with /v1/`);
+      assert(item.itemsUrl.endsWith('.json'), `Scenario item ${idx} itemsUrl should end with .json`);
+      
+      // Validate scenario-specific index exists
+      const scenarioIndexRelativePath = item.itemsUrl.replace(/^\/v1\//, '');
+      const scenarioIndexLocalPath = join(CONTENT_DIR, scenarioIndexRelativePath);
+      assert(existsSync(scenarioIndexLocalPath), `Scenario index should exist: ${scenarioIndexLocalPath}`);
+      
+      // Validate scenario index structure
+      const scenarioSpecificIndex = JSON.parse(readFileSync(scenarioIndexLocalPath, 'utf-8'));
+      assert(scenarioSpecificIndex.version === 'v1', `Scenario index should have version v1`);
+      assert(scenarioSpecificIndex.kind === 'context', `Scenario index should have kind context`);
+      assert(typeof scenarioSpecificIndex.total === 'number', `Scenario index should have total`);
+      
+      // Validate itemCount matches total
+      assert(item.itemCount === scenarioSpecificIndex.total, 
+        `Scenario ${item.id} itemCount (${item.itemCount}) should match index total (${scenarioSpecificIndex.total})`);
+      
+      // Follow pagination if exists
+      let currentPageUrl: string | null = item.itemsUrl;
+      let totalItems = 0;
+      let pageCount = 0;
+      const visitedPages = new Set<string>();
+      
+      while (currentPageUrl) {
+        pageCount++;
+        assert(!visitedPages.has(currentPageUrl), `Pagination loop detected at ${currentPageUrl}`);
+        visitedPages.add(currentPageUrl);
+        
+        const pageRelativePath = currentPageUrl.replace(/^\/v1\//, '');
+        const pageLocalPath = join(CONTENT_DIR, pageRelativePath);
+        const page = JSON.parse(readFileSync(pageLocalPath, 'utf-8'));
+        
+        if (Array.isArray(page.items)) {
+          totalItems += page.items.length;
+        }
+        
+        currentPageUrl = page.nextPage || null;
+      }
+      
+      // Validate total matches
+      assert(totalItems === scenarioSpecificIndex.total, 
+        `Scenario ${item.id} total items (${totalItems}) should match declared total (${scenarioSpecificIndex.total})`);
+    });
+  }
+});
+
+// E2E Test 8.6: Verify Worker API scenario index endpoint (if accessible)
+test('verify Worker API scenario index endpoint', async () => {
+  try {
+    const manifest = await fetchJson(`${WORKER_BASE_URL}/manifest`);
+    const activeWorkspace = manifest.activeWorkspace;
+    const catalogPath = manifest.workspaces[activeWorkspace];
+    const catalog = await fetchJson(`${WORKER_BASE_URL}${catalogPath}`);
+    
+    // Find context section
+    const contextSection = catalog.sections.find((s: any) => s.id === 'context');
+    if (!contextSection) {
+      console.warn('  ⚠️  No context section found, skipping scenario index test');
+      return;
+    }
+    
+    // Try to fetch scenario index
+    const scenarioIndexUrl = `${WORKER_BASE_URL}/v1/workspaces/${activeWorkspace}/context/scenarios.json`;
+    try {
+      const scenarioIndex = await fetchJson(scenarioIndexUrl);
+      
+      assert(scenarioIndex.version === 1, 'Worker scenario index should have version 1');
+      assert(scenarioIndex.kind === 'scenario_index', 'Worker scenario index should have kind scenario_index');
+      assert(Array.isArray(scenarioIndex.items), 'Worker scenario index should have items array');
+      
+      if (scenarioIndex.items.length > 0) {
+        // Test first scenario's itemsUrl
+        const firstScenario = scenarioIndex.items[0];
+        const scenarioPage = await fetchJson(`${WORKER_BASE_URL}${firstScenario.itemsUrl}`);
+        
+        assert(scenarioPage.version === 'v1', 'Worker scenario page should have version v1');
+        assert(scenarioPage.kind === 'context', 'Worker scenario page should have kind context');
+        assert(typeof scenarioPage.total === 'number', 'Worker scenario page should have total');
+        assert(firstScenario.itemCount === scenarioPage.total, 
+          `Worker scenario itemCount (${firstScenario.itemCount}) should match page total (${scenarioPage.total})`);
+      }
+    } catch (err: any) {
+      // Scenario index is optional - don't fail if it doesn't exist
+      if (err.message.includes('404') || err.message.includes('not found')) {
+        console.warn('  ⚠️  Scenario index does not exist (optional), skipping test');
+        return;
+      }
+      throw err;
+    }
+  } catch (err: any) {
+    console.warn(`  ⚠️  Skipping Worker API test: ${err.message}`);
+    // Don't fail the test if Worker is not accessible
+  }
+});
+
 // E2E Test 9: Verify Worker API entry document endpoint (if accessible)
 test('verify Worker API entry document endpoint', async () => {
   try {
@@ -2815,6 +2950,205 @@ async function runTests() {
           }
         }
       }
+    }
+  });
+
+  // E2E Test 39: friends_small_talk scenario template exists and is valid
+  test('friends_small_talk scenario template exists and is valid', () => {
+    const templatePath = join(__dirname, '..', 'content', 'templates', 'v1', 'scenarios', 'friends_small_talk.json');
+    assert(existsSync(templatePath), 'friends_small_talk template should exist');
+    
+    const template = JSON.parse(readFileSync(templatePath, 'utf-8'));
+    assert(template.schemaVersion === 1, 'Template should have schemaVersion 1');
+    assert(template.scenarioId === 'friends_small_talk', 'Template scenarioId should be friends_small_talk');
+    assert(template.defaultRegister === 'casual', 'Template defaultRegister should be casual');
+    assert(template.primaryStructure, 'Template should have primaryStructure');
+    assert(Array.isArray(template.variationSlots), 'Template should have variationSlots array');
+    assert(template.variationSlots.length > 0, 'Template variationSlots should not be empty');
+    assert(Array.isArray(template.requiredTokens), 'Template should have requiredTokens array');
+    assert(template.requiredTokens.length >= 18, 'Template should have at least 18 required tokens');
+    assert(Array.isArray(template.stepBlueprint), 'Template should have stepBlueprint array');
+    assert(template.stepBlueprint.length >= 2, 'Template should have at least 2 steps');
+    
+    // Verify phrase tokens are included
+    const hasPhraseTokens = template.requiredTokens.some((token: string) => token.includes(' '));
+    assert(hasPhraseTokens, 'Template should include phrase tokens (multi-word tokens)');
+    
+    console.log('  ✅ friends_small_talk template is valid');
+  });
+  
+  // E2E Test 40: friends_small_talk packs can be generated
+  test('friends_small_talk packs can be generated', () => {
+    const testPackId = `e2e-friends-small-talk-${Date.now()}`;
+    const workspace = 'de';
+    
+    try {
+      console.log(`  Generating test pack: ${testPackId}`);
+      
+      const output = execSync(
+        `npx tsx scripts/generate-pack.ts --workspace ${workspace} --packId ${testPackId} --scenario friends_small_talk --level A1 --seed 6001 2>&1`,
+        {
+          cwd: join(__dirname, '..'),
+          encoding: 'utf-8',
+          stdio: 'pipe'
+        }
+      );
+      
+      const packPath = join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId, 'pack.json');
+      assert(existsSync(packPath), `Generated pack should exist at ${packPath}`);
+      
+      const pack = JSON.parse(readFileSync(packPath, 'utf-8'));
+      assert(pack.id === testPackId, 'Pack ID should match');
+      assert(pack.scenario === 'friends_small_talk', 'Pack scenario should be friends_small_talk');
+      assert(pack.register === 'casual', 'Pack register should be casual');
+      assert(Array.isArray(pack.prompts), 'Pack should have prompts array');
+      assert(pack.prompts.length >= 12, 'Pack should have at least 12 prompts');
+      assert(pack.sessionPlan, 'Pack should have sessionPlan');
+      assert(Array.isArray(pack.sessionPlan.steps), 'Pack sessionPlan should have steps');
+      
+      // Cleanup
+      execSync(`rm -rf ${join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId)}`, {
+        cwd: join(__dirname, '..'),
+        stdio: 'pipe'
+      });
+      
+      console.log('  ✅ friends_small_talk pack generation works');
+    } catch (err: any) {
+      // Cleanup on error
+      try {
+        execSync(`rm -rf ${join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId)}`, {
+          cwd: join(__dirname, '..'),
+          stdio: 'pipe'
+        });
+      } catch {}
+      throw new Error(`friends_small_talk pack generation failed: ${err.message}`);
+    }
+  });
+  
+  // E2E Test 41: friends_small_talk packs appear in index after generation
+  test('friends_small_talk packs appear in index after generation', () => {
+    const testPackId = `e2e-friends-index-${Date.now()}`;
+    const workspace = 'de';
+    
+    try {
+      // Generate pack
+      execSync(
+        `npx tsx scripts/generate-pack.ts --workspace ${workspace} --packId ${testPackId} --scenario friends_small_talk --level A1 --seed 6002 2>&1`,
+        {
+          cwd: join(__dirname, '..'),
+          encoding: 'utf-8',
+          stdio: 'pipe'
+        }
+      );
+      
+      // Regenerate indexes
+      execSync('npm run content:generate-indexes -- --workspace de', {
+        cwd: join(__dirname, '..'),
+        encoding: 'utf-8',
+        stdio: 'pipe'
+      });
+      
+      // Check index
+      const indexPath = join(CONTENT_DIR, 'workspaces', workspace, 'context', 'index.json');
+      assert(existsSync(indexPath), 'Context index should exist');
+      
+      const index = JSON.parse(readFileSync(indexPath, 'utf-8'));
+      const packItem = index.items?.find((item: any) => item.id === testPackId);
+      assert(packItem, `Pack ${testPackId} should appear in index`);
+      assert(packItem.scenario === 'friends_small_talk', 'Index item should have correct scenario');
+      assert(packItem.entryUrl === `/v1/workspaces/${workspace}/packs/${testPackId}/pack.json`, 'Index item should have correct entryUrl');
+      
+      // Cleanup
+      execSync(`rm -rf ${join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId)}`, {
+        cwd: join(__dirname, '..'),
+        stdio: 'pipe'
+      });
+      
+      console.log('  ✅ friends_small_talk packs appear in index');
+    } catch (err: any) {
+      // Cleanup on error
+      try {
+        execSync(`rm -rf ${join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId)}`, {
+          cwd: join(__dirname, '..'),
+          stdio: 'pipe'
+        });
+      } catch {}
+      throw new Error(`friends_small_talk index test failed: ${err.message}`);
+    }
+  });
+  
+  // E2E Test 42: friends_small_talk token matching works correctly
+  test('friends_small_talk token matching works correctly', () => {
+    const testPackId = `e2e-friends-tokens-${Date.now()}`;
+    const workspace = 'de';
+    
+    try {
+      // Generate pack
+      execSync(
+        `npx tsx scripts/generate-pack.ts --workspace ${workspace} --packId ${testPackId} --scenario friends_small_talk --level A2 --seed 6003 2>&1`,
+        {
+          cwd: join(__dirname, '..'),
+          encoding: 'utf-8',
+          stdio: 'pipe'
+        }
+      );
+      
+      const packPath = join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId, 'pack.json');
+      const pack = JSON.parse(readFileSync(packPath, 'utf-8'));
+      
+      // Load token dictionary
+      const templatePath = join(__dirname, '..', 'content', 'templates', 'v1', 'scenarios', 'friends_small_talk.json');
+      const template = JSON.parse(readFileSync(templatePath, 'utf-8'));
+      
+      // Verify each prompt has at least 2 tokens
+      for (const prompt of pack.prompts) {
+        const textLower = prompt.text.toLowerCase();
+        let tokenCount = 0;
+        
+        for (const token of template.requiredTokens) {
+          if (textLower.includes(token.toLowerCase())) {
+            tokenCount++;
+          }
+        }
+        
+        assert(tokenCount >= 2, `Prompt "${prompt.id}" should have >= 2 scenario tokens, got ${tokenCount}. Text: "${prompt.text}"`);
+      }
+      
+      // Verify at least one prompt contains a phrase token
+      const phraseTokens = template.requiredTokens.filter((t: string) => t.includes(' '));
+      let hasPhraseToken = false;
+      for (const prompt of pack.prompts) {
+        const textLower = prompt.text.toLowerCase();
+        for (const phrase of phraseTokens) {
+          if (textLower.includes(phrase.toLowerCase())) {
+            hasPhraseToken = true;
+            break;
+          }
+        }
+        if (hasPhraseToken) break;
+      }
+      
+      // Phrase tokens are preferred but not required (soft check)
+      if (!hasPhraseToken) {
+        console.warn('  ⚠️  No phrase tokens found in generated prompts (acceptable but preferred)');
+      }
+      
+      // Cleanup
+      execSync(`rm -rf ${join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId)}`, {
+        cwd: join(__dirname, '..'),
+        stdio: 'pipe'
+      });
+      
+      console.log('  ✅ friends_small_talk token matching works correctly');
+    } catch (err: any) {
+      // Cleanup on error
+      try {
+        execSync(`rm -rf ${join(CONTENT_DIR, 'workspaces', workspace, 'packs', testPackId)}`, {
+          cwd: join(__dirname, '..'),
+          stdio: 'pipe'
+        });
+      } catch {}
+      throw new Error(`friends_small_talk token matching test failed: ${err.message}`);
     }
   });
 

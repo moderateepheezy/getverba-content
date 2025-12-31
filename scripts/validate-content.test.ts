@@ -5886,6 +5886,282 @@ test('complete valid pack with all telemetry fields passes validation', () => {
   cleanupTestDir();
 });
 
+// Test: Scenario index validation - valid scenario index
+test('scenario index validation: valid scenario index', () => {
+  setupTestDir();
+  setupCatalogAndIndex('test-ws', 'test-pack');
+  
+  // Create scenario index
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context'), { recursive: true });
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'work'), { recursive: true });
+  
+  const scenarioIndex = {
+    version: 1,
+    kind: 'scenario_index',
+    items: [
+      {
+        id: 'work',
+        title: 'Work',
+        subtitle: 'Office Greetings · Meeting Phrases',
+        icon: 'briefcase',
+        itemCount: 1,
+        itemsUrl: '/v1/workspaces/test-ws/context/work/index.json'
+      }
+    ]
+  };
+  
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'scenarios.json'),
+    JSON.stringify(scenarioIndex, null, 2)
+  );
+  
+  // Create scenario-specific index
+  const workIndex = {
+    version: 'v1',
+    kind: 'context',
+    total: 1,
+    pageSize: 12,
+    items: [{
+      id: 'test-pack',
+      kind: 'pack',
+      title: 'Test Pack',
+      level: 'A1',
+      durationMinutes: 15,
+      entryUrl: '/v1/workspaces/test-ws/packs/test-pack/pack.json'
+    }],
+    nextPage: null
+  };
+  
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'work', 'index.json'),
+    JSON.stringify(workIndex, null, 2)
+  );
+  
+  // Create pack entry
+  const packEntry = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    packVersion: '1.0.0',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test',
+    scenario: 'work',
+    register: 'neutral',
+    primaryStructure: 'modal_verbs_requests',
+    variationSlots: ['subject', 'verb'],
+    outline: ['Step 1'],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] },
+    prompts: [{ id: 'p1', text: 'Test', intent: 'greet', gloss_en: 'Test' }],
+    contentId: 'test-ws:pack:test-pack',
+    contentHash: 'a'.repeat(64),
+    revisionId: 'a'.repeat(12),
+    analytics: {
+      goal: 'Test goal',
+      successCriteria: ['Criterion 1'],
+      drillType: 'substitution',
+      cognitiveLoad: 'medium',
+      primaryStructure: 'modal_verbs_requests',
+      variationSlots: ['subject', 'verb'],
+      slotSwitchDensity: 0.5,
+      promptDiversityScore: 0.5,
+      scenarioCoverageScore: 0.8,
+      estimatedCognitiveLoad: 'medium',
+      intendedOutcome: 'Test outcome',
+      focus: 'modal_verbs',
+      responseSpeedTargetMs: 2000,
+      fluencyOutcome: 'work_communication'
+    }
+  };
+  
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+    JSON.stringify(packEntry, null, 2)
+  );
+  
+  const result = runValidation();
+  
+  // Should pass validation
+  const hasScenarioIndexError = result.errors.some((e: string) => 
+    e.includes('scenarios.json') && (e.includes('version') || e.includes('kind') || e.includes('itemCount'))
+  );
+  assert(!hasScenarioIndexError, 'Valid scenario index should not have errors');
+  
+  cleanupTestDir();
+});
+
+// Test: Scenario index validation - itemCount mismatch
+test('scenario index validation: itemCount mismatch', () => {
+  setupTestDir();
+  setupCatalogAndIndex('test-ws', 'test-pack');
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context'), { recursive: true });
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'work'), { recursive: true });
+  
+  // Scenario index says itemCount: 5, but actual index has total: 1
+  const scenarioIndex = {
+    version: 1,
+    kind: 'scenario_index',
+    items: [
+      {
+        id: 'work',
+        title: 'Work',
+        subtitle: 'Office Greetings',
+        icon: 'briefcase',
+        itemCount: 5, // Wrong count
+        itemsUrl: '/v1/workspaces/test-ws/context/work/index.json'
+      }
+    ]
+  };
+  
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'scenarios.json'),
+    JSON.stringify(scenarioIndex, null, 2)
+  );
+  
+  const workIndex = {
+    version: 'v1',
+    kind: 'context',
+    total: 1, // Actual total
+    pageSize: 12,
+    items: [{
+      id: 'test-pack',
+      kind: 'pack',
+      title: 'Test Pack',
+      level: 'A1',
+      durationMinutes: 15,
+      entryUrl: '/v1/workspaces/test-ws/packs/test-pack/pack.json'
+    }],
+    nextPage: null
+  };
+  
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'work', 'index.json'),
+    JSON.stringify(workIndex, null, 2)
+  );
+  
+  const packEntry = {
+    schemaVersion: 1,
+    id: 'test-pack',
+    kind: 'pack',
+    packVersion: '1.0.0',
+    title: 'Test Pack',
+    level: 'A1',
+    estimatedMinutes: 15,
+    description: 'Test',
+    scenario: 'work',
+    register: 'neutral',
+    primaryStructure: 'modal_verbs_requests',
+    variationSlots: ['subject', 'verb'],
+    outline: ['Step 1'],
+    sessionPlan: { version: 1, steps: [{ id: 's1', title: 'Step 1', promptIds: ['p1'] }] },
+    prompts: [{ id: 'p1', text: 'Test', intent: 'greet', gloss_en: 'Test' }],
+    contentId: 'test-ws:pack:test-pack',
+    contentHash: 'a'.repeat(64),
+    revisionId: 'a'.repeat(12),
+    analytics: {
+      goal: 'Test goal',
+      successCriteria: ['Criterion 1'],
+      drillType: 'substitution',
+      cognitiveLoad: 'medium',
+      primaryStructure: 'modal_verbs_requests',
+      variationSlots: ['subject', 'verb'],
+      slotSwitchDensity: 0.5,
+      promptDiversityScore: 0.5,
+      scenarioCoverageScore: 0.8,
+      estimatedCognitiveLoad: 'medium',
+      intendedOutcome: 'Test outcome',
+      focus: 'modal_verbs',
+      responseSpeedTargetMs: 2000,
+      fluencyOutcome: 'work_communication'
+    }
+  };
+  
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'packs', 'test-pack', 'pack.json'),
+    JSON.stringify(packEntry, null, 2)
+  );
+  
+  const result = runValidation();
+  
+  // Should fail validation due to itemCount mismatch
+  const hasItemCountError = result.errors.some((e: string) => 
+    e.includes('itemCount') && e.includes('does not match')
+  ) || result.output.includes('itemCount') && result.output.includes('does not match');
+  assert(hasItemCountError, 'Should report itemCount mismatch');
+  
+  cleanupTestDir();
+});
+
+// Test: Scenario index validation - missing required fields
+test('scenario index validation: missing required fields', () => {
+  setupTestDir();
+  setupCatalogAndIndex('test-ws', 'test-pack');
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context'), { recursive: true });
+  
+  // Invalid scenario index - missing kind
+  const scenarioIndex = {
+    version: 1,
+    // kind: 'scenario_index', // Missing
+    items: []
+  };
+  
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'scenarios.json'),
+    JSON.stringify(scenarioIndex, null, 2)
+  );
+  
+  const result = runValidation();
+  
+  // Should fail validation
+  const hasKindError = result.errors.some((e: string) => 
+    e.includes('scenarios.json') && e.includes('kind')
+  ) || result.output.includes('scenarios.json') && result.output.includes('kind');
+  assert(hasKindError, 'Should report missing kind field');
+  
+  cleanupTestDir();
+});
+
+// Test: Scenario index validation - invalid itemsUrl
+test('scenario index validation: invalid itemsUrl', () => {
+  setupTestDir();
+  setupCatalogAndIndex('test-ws', 'test-pack');
+  
+  mkdirSync(join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context'), { recursive: true });
+  
+  const scenarioIndex = {
+    version: 1,
+    kind: 'scenario_index',
+    items: [
+      {
+        id: 'work',
+        title: 'Work',
+        subtitle: 'Office Greetings',
+        icon: 'briefcase',
+        itemCount: 0,
+        itemsUrl: '/v1/workspaces/test-ws/context/work/nonexistent.json' // Doesn't exist
+      }
+    ]
+  };
+  
+  writeFileSync(
+    join(TEST_DIR, 'v1', 'workspaces', 'test-ws', 'context', 'scenarios.json'),
+    JSON.stringify(scenarioIndex, null, 2)
+  );
+  
+  const result = runValidation();
+  
+  // Should fail validation due to missing itemsUrl file
+  const hasUrlError = result.errors.some((e: string) => 
+    e.includes('itemsUrl') && e.includes('does not exist')
+  ) || result.output.includes('itemsUrl') && result.output.includes('does not exist');
+  assert(hasUrlError, 'Should report missing itemsUrl file');
+  
+  cleanupTestDir();
+});
+
 // Run all tests
 function runTests() {
   console.log('Running unit tests...\n');

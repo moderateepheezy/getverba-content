@@ -1,0 +1,549 @@
+{
+  "version": "v1",
+  "kind": "context",
+  "total": 23,
+  "pageSize": 12,
+  "items": [
+    {
+      "id": "work_sample_1_a1",
+      "kind": "pack",
+      "title": "Work - A1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_sample_1_a1/pack.json",
+      "contentId": "de:pack:work_sample_1_a1",
+      "revisionId": "ef4cd17ff591",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A1 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A1 level Uses professional vocabulary appropriately"
+    },
+    {
+      "id": "work_sample_2_a1",
+      "kind": "pack",
+      "title": "Work - A1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_sample_2_a1/pack.json",
+      "contentId": "de:pack:work_sample_2_a1",
+      "revisionId": "4c0d5dfd1819",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A1 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A1 level Uses professional vocabulary appropriately"
+    },
+    {
+      "id": "work_pack_1_a2",
+      "kind": "pack",
+      "title": "Work - A2",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_1_a2/pack.json",
+      "contentId": "de:pack:work_pack_1_a2",
+      "revisionId": "208024c1ecb8",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A2 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A2 level Uses professional vocabulary appropriately"
+    },
+    {
+      "id": "work_pack_10_a2",
+      "kind": "pack",
+      "title": "Work - A2",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_10_a2/pack.json",
+      "contentId": "de:pack:work_pack_10_a2",
+      "revisionId": "8fdbc8f93cab",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A2 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A2 level Uses professional vocabulary appropriately"
+    },
+    {
+      "id": "work_pack_11_a2",
+      "kind": "pack",
+      "title": "Work - A2",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_11_a2/pack.json",
+      "contentId": "de:pack:work_pack_11_a2",
+      "revisionId": "5d8f1eb98493",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A2 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A2 level Uses professional vocabulary appropriately"
+    },
+    {
+      "id": "work_pack_12_a2",
+      "kind": "pack",
+      "title": "Work - A2",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_12_a2/pack.json",
+      "contentId": "de:pack:work_pack_12_a2",
+      "revisionId": "b0ebc48fef93",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A2 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A2 level Uses professional vocabulary appropriately"
+    },
+    {
+      "id": "work_pack_2_a2",
+      "kind": "pack",
+      "title": "Work - A2",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_2_a2/pack.json",
+      "contentId": "de:pack:work_pack_2_a2",
+      "revisionId": "6523a8822a37",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A2 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A2 level Uses professional vocabulary appropriately"
+    },
+    {
+      "id": "work_pack_3_a2",
+      "kind": "pack",
+      "title": "Work - A2",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_3_a2/pack.json",
+      "contentId": "de:pack:work_pack_3_a2",
+      "revisionId": "cb9ed2cc7daa",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A2 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A2 level Uses professional vocabulary appropriately"
+    },
+    {
+      "id": "work_pack_4_a2",
+      "kind": "pack",
+      "title": "Work - A2",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_4_a2/pack.json",
+      "contentId": "de:pack:work_pack_4_a2",
+      "revisionId": "de8762bf3758",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A2 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A2 level Uses professional vocabulary appropriately"
+    },
+    {
+      "id": "work_pack_5_a2",
+      "kind": "pack",
+      "title": "Work - A2",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_5_a2/pack.json",
+      "contentId": "de:pack:work_pack_5_a2",
+      "revisionId": "b0163b68f701",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A2 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A2 level Uses professional vocabulary appropriately"
+    },
+    {
+      "id": "work_pack_6_a2",
+      "kind": "pack",
+      "title": "Work - A2",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_6_a2/pack.json",
+      "contentId": "de:pack:work_pack_6_a2",
+      "revisionId": "53dc904819b5",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A2 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A2 level Uses professional vocabulary appropriately"
+    },
+    {
+      "id": "work_pack_7_a2",
+      "kind": "pack",
+      "title": "Work - A2",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_7_a2/pack.json",
+      "contentId": "de:pack:work_pack_7_a2",
+      "revisionId": "d68d33a333e4",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A2 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A2 level Uses professional vocabulary appropriately"
+    }
+  ],
+  "nextPage": "/v1/workspaces/de/context/work/index.page2.json"
+}

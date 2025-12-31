@@ -1,0 +1,585 @@
+{
+  "version": "v1",
+  "kind": "context",
+  "total": 24,
+  "pageSize": 12,
+  "items": [
+    {
+      "id": "friends_cafe_meetup_a1",
+      "kind": "pack",
+      "title": "Café Meetup",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_cafe_meetup_a1/pack.json",
+      "contentId": "de:pack:friends_cafe_meetup_a1",
+      "revisionId": "64b0acf4ca2e",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases"
+    },
+    {
+      "id": "friends_small_talk_pack_1_a1",
+      "kind": "pack",
+      "title": "Friends Small Talk - A1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_1_a1/pack.json",
+      "contentId": "de:pack:friends_small_talk_pack_1_a1",
+      "revisionId": "69f688116e7d",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases"
+    },
+    {
+      "id": "friends_small_talk_pack_10_a1",
+      "kind": "pack",
+      "title": "Friends Small Talk - A1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_10_a1/pack.json",
+      "contentId": "de:pack:friends_small_talk_pack_10_a1",
+      "revisionId": "b3646bfe985f",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases"
+    },
+    {
+      "id": "friends_small_talk_pack_2_a1",
+      "kind": "pack",
+      "title": "Friends Small Talk - A1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_2_a1/pack.json",
+      "contentId": "de:pack:friends_small_talk_pack_2_a1",
+      "revisionId": "53412ec6b84d",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases"
+    },
+    {
+      "id": "friends_small_talk_pack_3_a1",
+      "kind": "pack",
+      "title": "Friends Small Talk - A1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_3_a1/pack.json",
+      "contentId": "de:pack:friends_small_talk_pack_3_a1",
+      "revisionId": "80f93db42efb",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases"
+    },
+    {
+      "id": "friends_small_talk_pack_4_a1",
+      "kind": "pack",
+      "title": "Friends Small Talk - A1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_4_a1/pack.json",
+      "contentId": "de:pack:friends_small_talk_pack_4_a1",
+      "revisionId": "accf36350377",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases"
+    },
+    {
+      "id": "friends_small_talk_pack_5_a1",
+      "kind": "pack",
+      "title": "Friends Small Talk - A1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_5_a1/pack.json",
+      "contentId": "de:pack:friends_small_talk_pack_5_a1",
+      "revisionId": "3e85525a9def",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases"
+    },
+    {
+      "id": "friends_small_talk_pack_6_a1",
+      "kind": "pack",
+      "title": "Friends Small Talk - A1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_6_a1/pack.json",
+      "contentId": "de:pack:friends_small_talk_pack_6_a1",
+      "revisionId": "f86498873d0d",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases"
+    },
+    {
+      "id": "friends_small_talk_pack_7_a1",
+      "kind": "pack",
+      "title": "Friends Small Talk - A1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_7_a1/pack.json",
+      "contentId": "de:pack:friends_small_talk_pack_7_a1",
+      "revisionId": "18538d00245d",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases"
+    },
+    {
+      "id": "friends_small_talk_pack_8_a1",
+      "kind": "pack",
+      "title": "Friends Small Talk - A1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_8_a1/pack.json",
+      "contentId": "de:pack:friends_small_talk_pack_8_a1",
+      "revisionId": "dbed049a1db0",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases"
+    },
+    {
+      "id": "friends_small_talk_pack_9_a1",
+      "kind": "pack",
+      "title": "Friends Small Talk - A1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_9_a1/pack.json",
+      "contentId": "de:pack:friends_small_talk_pack_9_a1",
+      "revisionId": "2876b43e9715",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases"
+    },
+    {
+      "id": "friends_movies_series_a1",
+      "kind": "pack",
+      "title": "Movies & Series",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_movies_series_a1/pack.json",
+      "contentId": "de:pack:friends_movies_series_a1",
+      "revisionId": "737629c31ef8",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases"
+    }
+  ],
+  "nextPage": "/v1/workspaces/de/context/friends_small_talk/index.page2.json"
+}

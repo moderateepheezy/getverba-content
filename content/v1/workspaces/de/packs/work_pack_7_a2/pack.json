@@ -1,0 +1,317 @@
+{
+  "schemaVersion": 1,
+  "id": "work_pack_7_a2",
+  "kind": "pack",
+  "packVersion": "1.0.0",
+  "title": "Work - A2",
+  "level": "A2",
+  "estimatedMinutes": 15,
+  "description": "Practice work scenarios at A2 level.",
+  "scenario": "work",
+  "register": "formal",
+  "primaryStructure": "modal_verbs_requests",
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier",
+    "time"
+  ],
+  "outline": [
+    "Office Greetings",
+    "Meeting Phrases",
+    "Work Requests"
+  ],
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Ich beginne nächste Woche aufgabe",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/work_pack_7_a2/prompt-001.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "beginne"
+        ],
+        "modifier": [
+          "nächste Woche"
+        ]
+      }
+    },
+    {
+      "id": "prompt-002",
+      "text": "Sie besprechen am Montag termin",
+      "intent": "schedule",
+      "gloss_en": "I need to schedule something.",
+      "natural_en": "I need to schedule that.",
+      "audioUrl": "/v1/audio/work_pack_7_a2/prompt-002.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "besprechen"
+        ],
+        "modifier": [
+          "am Montag"
+        ]
+      }
+    },
+    {
+      "id": "prompt-003",
+      "text": "Sie soll die Besprechung um 9 Uhr",
+      "intent": "schedule",
+      "gloss_en": "I need to schedule something.",
+      "natural_en": "I need to schedule that.",
+      "audioUrl": "/v1/audio/work_pack_7_a2/prompt-003.mp3",
+      "slotsChanged": [
+        "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "soll"
+        ],
+        "object": [
+          "die Besprechung"
+        ],
+        "modifier": [
+          "um 9 Uhr"
+        ]
+      }
+    },
+    {
+      "id": "prompt-004",
+      "text": "Der Manager kann die Besprechung am Montag",
+      "intent": "request",
+      "gloss_en": "I would like to request something.",
+      "natural_en": "I'd like to request that.",
+      "audioUrl": "/v1/audio/work_pack_7_a2/prompt-004.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Der Manager"
+        ],
+        "verb": [
+          "kann"
+        ],
+        "object": [
+          "die Besprechung"
+        ],
+        "modifier": [
+          "am Montag"
+        ]
+      }
+    },
+    {
+      "id": "prompt-005",
+      "text": "Wir kann die Besprechung nächste Woche",
+      "intent": "request",
+      "gloss_en": "I would like to request something.",
+      "natural_en": "I'd like to request that.",
+      "audioUrl": "/v1/audio/work_pack_7_a2/prompt-005.mp3",
+      "slotsChanged": [
+        "subject",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "kann"
+        ],
+        "object": [
+          "die Besprechung"
+        ],
+        "modifier": [
+          "nächste Woche"
+        ]
+      }
+    },
+    {
+      "id": "prompt-006",
+      "text": "Wir organisieren die Besprechung",
+      "intent": "inform",
+      "gloss_en": "I am providing information.",
+      "natural_en": "Here's the information.",
+      "audioUrl": "/v1/audio/work_pack_7_a2/prompt-006.mp3",
+      "slotsChanged": [
+        "verb",
+        "subject"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "organisieren"
+        ],
+        "object": [
+          "die Besprechung"
+        ]
+      }
+    },
+    {
+      "id": "prompt-007",
+      "text": "Ich vereinbare die Besprechung",
+      "intent": "schedule",
+      "gloss_en": "I need to schedule something.",
+      "natural_en": "I need to schedule that.",
+      "audioUrl": "/v1/audio/work_pack_7_a2/prompt-007.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "vereinbare"
+        ],
+        "object": [
+          "die Besprechung"
+        ]
+      }
+    }
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "greetings",
+        "title": "Office Greetings",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ]
+      },
+      {
+        "id": "meetings",
+        "title": "Meeting Phrases",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004",
+          "prompt-005"
+        ]
+      },
+      {
+        "id": "requests",
+        "title": "Work Requests",
+        "promptIds": [
+          "prompt-006",
+          "prompt-007"
+        ]
+      }
+    ]
+  },
+  "tags": [
+    "work"
+  ],
+  "analytics": {
+    "goal": "Practice professional work communication at A2 level",
+    "constraints": [
+      "formal register maintained",
+      "work scenario context",
+      "modal_verbs_requests structure focus",
+      "verb position: second"
+    ],
+    "levers": [
+      "subject variation",
+      "verb substitution",
+      "object variation",
+      "modifier changes",
+      "time expressions"
+    ],
+    "successCriteria": [
+      "Uses professional vocabulary appropriately",
+      "Varies subject and verb across prompts",
+      "Includes time/meeting context markers"
+    ],
+    "commonMistakes": [
+      "Mixing formal and informal register",
+      "Missing time/meeting context",
+      "Incorrect verb position in questions"
+    ],
+    "drillType": "roleplay-bounded",
+    "version": 1,
+    "qualityGateVersion": "qg-2025-01-01",
+    "promptCount": 7,
+    "multiSlotRate": 1,
+    "scenarioTokenHitAvg": 1.1428571428571428,
+    "scenarioTokenQualifiedRate": 0.14285714285714285,
+    "uniqueTokenRate": 0.5789473684210527,
+    "bannedPhraseViolations": 0,
+    "passesQualityGates": false,
+    "focus": "modal_verbs",
+    "cognitiveLoad": "high",
+    "responseSpeedTargetMs": 1500,
+    "fluencyOutcome": "professional_requests",
+    "whyThisWorks": [
+      "Uses professional vocabulary appropriately",
+      "Varies subject and verb across prompts",
+      "Includes time/meeting context markers"
+    ],
+    "primaryStructure": "modal_verbs_requests",
+    "variationSlots": [
+      "subject",
+      "verb",
+      "object",
+      "modifier",
+      "time"
+    ],
+    "slotSwitchDensity": 1,
+    "promptDiversityScore": 0.47036482566764726,
+    "scenarioCoverageScore": 0.5,
+    "estimatedCognitiveLoad": "high",
+    "intendedOutcome": "A2 work readiness",
+    "targetLatencyMs": 1500,
+    "successDefinition": "Practice professional work communication at A2 level",
+    "keyFailureModes": [
+      "Mixing formal and informal register",
+      "Missing time/meeting context",
+      "Incorrect verb position in questions"
+    ],
+    "exitConditions": {
+      "targetMinutes": 15,
+      "completeWhen": "sessionPlan_completed_twice"
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "work",
+    "extractorVersion": "1.0.0",
+    "generatedAt": "2025-12-31T08:23:03.091Z"
+  },
+  "review": {
+    "status": "approved",
+    "reviewer": "Afees",
+    "reviewedAt": "2025-12-31T08:31:40Z"
+  },
+  "contentId": "de:pack:work_pack_7_a2",
+  "contentHash": "d68d33a333e4ed19f4d47ff315c25f2ffe9f1414ba0704ed96f3fa5e2936dddf",
+  "revisionId": "d68d33a333e4"
+}

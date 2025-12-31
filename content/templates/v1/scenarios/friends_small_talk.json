@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "scenarioId": "friends_small_talk",
+  "defaultRegister": "casual",
+  "primaryStructure": "modal_verbs_suggestions",
+  "variationSlots": ["subject", "verb", "object", "modifier", "time", "location", "polarity"],
+  "slotBanks": {
+    "subjects": ["Ich", "Du", "Wir", "Hast du", "Lass uns", "Sollen wir"],
+    "verbs": ["hast", "möchtest", "kannst", "willst", "sollen", "wollen", "können", "hätte", "möchte", "gehen", "treffen", "machen", "schauen", "essen", "trinken"],
+    "objects": ["Lust", "Zeit", "einen Plan", "eine Idee", "ins Kino", "ins Café", "zum Restaurant", "einen Spaziergang", "zum Park", "ins Training", "zum Gym", "eine Serie", "einen Film", "ein Konzert", "in die Bar", "Pizza", "Kaffee"],
+    "modifiers": ["vielleicht", "eigentlich", "mal", "heute", "morgen", "am Wochenende", "später", "abends"],
+    "time": ["heute", "morgen", "am Wochenende", "später", "abends", "um 19 Uhr", "um 20:30", "am Samstag", "am Sonntag"],
+    "location": ["im Café", "im Park", "im Kino", "im Restaurant", "im Gym", "zu Hause", "in der Stadt"],
+    "polarity": []
+  },
+  "requiredTokens": ["wochenende", "heute", "morgen", "spaeter", "abends", "zeit", "lust", "plan", "idee", "treffen", "mitkommen", "kino", "cafe", "restaurant", "spaziergang", "park", "training", "gym", "serie", "film", "konzert", "bar", "pizza", "kaffee"],
+  "stepBlueprint": [
+    {
+      "id": "opening",
+      "title": "Making Plans",
+      "promptCount": 4,
+      "rules": {
+        "requiredSlots": ["subject", "verb", "object", "time"]
+      }
+    },
+    {
+      "id": "variation",
+      "title": "Suggestions & Preferences",
+      "promptCount": 5,
+      "rules": {
+        "requiredSlots": ["subject", "verb", "object"]
+      }
+    },
+    {
+      "id": "switch",
+      "title": "Responding & Rescheduling",
+      "promptCount": 3,
+      "rules": {
+        "requiredSlots": ["subject", "verb", "object", "time"]
+      }
+    }
+  ],
+  "constraints": {
+    "verbPosition": "second",
+    "requiredTokensPerPrompt": 2
+  }
+}
+

@@ -340,6 +340,117 @@ test_workspace() {
     return 1
   fi
   
+  # Test 2.5: Test scenario index if it exists (for context section)
+  echo "   🎯 Testing scenario index..."
+  local SCENARIO_INDEX_URL="${BASE_URL}/v1/workspaces/${WORKSPACE}/context/scenarios.json"
+  local SCENARIO_RESPONSE=$(curl -s -w "\n%{http_code}" "$SCENARIO_INDEX_URL")
+  local SCENARIO_HTTP_CODE=$(echo "$SCENARIO_RESPONSE" | tail -n1)
+  local SCENARIO_BODY=$(echo "$SCENARIO_RESPONSE" | sed '$d')
+  
+  if [ "$SCENARIO_HTTP_CODE" != "200" ] && [ "$SCENARIO_HTTP_CODE" != "304" ]; then
+    echo "      ⚠️  Warning: Scenario index returned HTTP $SCENARIO_HTTP_CODE (may not exist yet)"
+  else
+    if ! echo "$SCENARIO_BODY" | jq empty 2>/dev/null; then
+      echo "      ❌ Error: Scenario index is not valid JSON"
+      return 1
+    fi
+    
+    # Validate scenario index structure
+    local SCENARIO_VERSION=$(echo "$SCENARIO_BODY" | jq -r '.version // ""')
+    local SCENARIO_KIND=$(echo "$SCENARIO_BODY" | jq -r '.kind // ""')
+    
+    if [ "$SCENARIO_VERSION" != "1" ]; then
+      echo "      ❌ Error: Scenario index version must be 1, got $SCENARIO_VERSION"
+      return 1
+    fi
+    if [ "$SCENARIO_KIND" != "scenario_index" ]; then
+      echo "      ❌ Error: Scenario index kind must be scenario_index, got $SCENARIO_KIND"
+      return 1
+    fi
+    
+    local SCENARIO_COUNT=$(echo "$SCENARIO_BODY" | jq '.items | length // 0')
+    echo "      ✅ Scenario index accessible, found $SCENARIO_COUNT scenario(s)"
+    
+    # Test each scenario's itemsUrl and follow pagination
+    if [ "$SCENARIO_COUNT" -gt 0 ]; then
+      echo "      Testing scenario pages..."
+      local SCENARIO_INDEX=0
+      echo "$SCENARIO_BODY" | jq -c '.items[]' | while IFS= read -r scenario; do
+        SCENARIO_INDEX=$((SCENARIO_INDEX + 1))
+        local SCENARIO_ID=$(echo "$scenario" | jq -r '.id // "unknown"')
+        local SCENARIO_ITEMS_URL=$(echo "$scenario" | jq -r '.itemsUrl // ""')
+        local SCENARIO_ITEM_COUNT=$(echo "$scenario" | jq -r '.itemCount // 0')
+        
+        if [ -z "$SCENARIO_ITEMS_URL" ]; then
+          echo "         ❌ Scenario $SCENARIO_INDEX ($SCENARIO_ID): Missing itemsUrl"
+          exit 1
+        fi
+        
+        # Follow pagination chain for this scenario
+        local SCENARIO_CURRENT_PAGE="$SCENARIO_ITEMS_URL"
+        local SCENARIO_PAGE_NUM=0
+        local SCENARIO_TOTAL_ITEMS=0
+        local SCENARIO_VISITED_PAGES=""
+        
+        while [ -n "$SCENARIO_CURRENT_PAGE" ] && [ "$SCENARIO_PAGE_NUM" -lt "$MAX_PAGES" ]; do
+          SCENARIO_PAGE_NUM=$((SCENARIO_PAGE_NUM + 1))
+          
+          # Loop detection
+          if echo "$SCENARIO_VISITED_PAGES" | grep -q "^${SCENARIO_CURRENT_PAGE}$"; then
+            echo "         ❌ Error: Pagination loop detected at $SCENARIO_CURRENT_PAGE"
+            exit 1
+          fi
+          SCENARIO_VISITED_PAGES="${SCENARIO_VISITED_PAGES}${SCENARIO_CURRENT_PAGE}
+"
+          
+          local SCENARIO_PAGE_URL="${BASE_URL}${SCENARIO_CURRENT_PAGE}"
+          
+          # Fetch page
+          local SCENARIO_PAGE_RESPONSE=$(curl -s -w "\n%{http_code}" "$SCENARIO_PAGE_URL")
+          local SCENARIO_PAGE_HTTP_CODE=$(echo "$SCENARIO_PAGE_RESPONSE" | tail -n1)
+          local SCENARIO_PAGE_BODY=$(echo "$SCENARIO_PAGE_RESPONSE" | sed '$d')
+          
+          if [ "$SCENARIO_PAGE_HTTP_CODE" != "200" ] && [ "$SCENARIO_PAGE_HTTP_CODE" != "304" ]; then
+            echo "         ❌ Error: Scenario $SCENARIO_ID page $SCENARIO_PAGE_NUM returned HTTP $SCENARIO_PAGE_HTTP_CODE"
+            exit 1
+          fi
+          
+          if ! echo "$SCENARIO_PAGE_BODY" | jq empty 2>/dev/null; then
+            echo "         ❌ Error: Scenario $SCENARIO_ID page $SCENARIO_PAGE_NUM is not valid JSON"
+            exit 1
+          fi
+          
+          local SCENARIO_PAGE_ITEM_COUNT=$(echo "$SCENARIO_PAGE_BODY" | jq '.items | length // 0')
+          SCENARIO_TOTAL_ITEMS=$((SCENARIO_TOTAL_ITEMS + SCENARIO_PAGE_ITEM_COUNT))
+          
+          # Get next page URL
+          if [ "$FOLLOW_NEXT_PAGE" = true ]; then
+            SCENARIO_CURRENT_PAGE=$(echo "$SCENARIO_PAGE_BODY" | jq -r '.nextPage // ""')
+            if [ "$SCENARIO_CURRENT_PAGE" = "null" ]; then
+              SCENARIO_CURRENT_PAGE=""
+            fi
+          else
+            SCENARIO_CURRENT_PAGE=""
+          fi
+        done
+        
+        # Validate itemCount matches actual items
+        if [ "$SCENARIO_TOTAL_ITEMS" -ne "$SCENARIO_ITEM_COUNT" ]; then
+          echo "         ❌ Error: Scenario $SCENARIO_ID itemCount ($SCENARIO_ITEM_COUNT) doesn't match actual items ($SCENARIO_TOTAL_ITEMS)"
+          exit 1
+        fi
+        
+        echo "         ✅ Scenario $SCENARIO_ID: $SCENARIO_TOTAL_ITEMS items across $SCENARIO_PAGE_NUM page(s)"
+      done
+      
+      if [ $? -ne 0 ]; then
+        return 1
+      fi
+    fi
+    
+    echo "      ✅ Scenario index accessible and valid"
+  fi
+  
   # Test 3: Test featured.json if it exists
   echo "   🎯 Testing featured content..."
   

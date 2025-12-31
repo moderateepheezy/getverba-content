@@ -292,7 +292,18 @@
     "promptDiversityScore": 0.5265832691319599,
     "scenarioCoverageScore": 0.8,
     "estimatedCognitiveLoad": "high",
-    "intendedOutcome": "A2 government office readiness"
+    "intendedOutcome": "A2 government office readiness",
+    "targetLatencyMs": 1500,
+    "successDefinition": "Practice formal government_office interactions at A2 level",
+    "keyFailureModes": [
+      "Forgetting formal address (using \"du\"...",
+      "Missing required documents vocabulary",
+      "Incorrect modal verb conjugation"
+    ],
+    "exitConditions": {
+      "targetMinutes": 15,
+      "completeWhen": "sessionPlan_completed_twice"
+    }
   },
   "provenance": {
     "source": "template",
@@ -301,7 +312,9 @@
     "generatedAt": "2025-12-31T07:34:25.307Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "Afees",
+    "reviewedAt": "2025-12-31T08:31:39Z"
   },
   "contentId": "de:pack:immigration_office_questions_a2",
   "contentHash": "d33a028980da803a35c9738c209b6b83fd3f49816c0f2f6db48fb2bc9b68077c",
