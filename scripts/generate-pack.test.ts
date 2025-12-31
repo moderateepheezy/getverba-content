@@ -378,7 +378,39 @@ function main() {
       assert(pack.analytics, 'Generated pack should have analytics');
       assert(typeof pack.analytics === 'object', 'Analytics should be an object');
       
-      // Verify analytics structure
+      // Verify catalog-level analytics (required)
+      assert(typeof pack.analytics.focus === 'string', 'Analytics should have focus (string)');
+      assert(pack.analytics.focus.length > 0, 'Focus should not be empty');
+      
+      assert(['low', 'medium', 'high'].includes(pack.analytics.cognitiveLoad), 
+        `Analytics should have cognitiveLoad (low|medium|high), got "${pack.analytics.cognitiveLoad}"`);
+      
+      assert(typeof pack.analytics.responseSpeedTargetMs === 'number', 
+        'Analytics should have responseSpeedTargetMs (number)');
+      assert(pack.analytics.responseSpeedTargetMs >= 500 && pack.analytics.responseSpeedTargetMs <= 3000,
+        `responseSpeedTargetMs should be 500-3000ms, got ${pack.analytics.responseSpeedTargetMs}`);
+      
+      assert(typeof pack.analytics.fluencyOutcome === 'string', 
+        'Analytics should have fluencyOutcome (string)');
+      assert(pack.analytics.fluencyOutcome.length > 0, 'Fluency outcome should not be empty');
+      
+      assert(Array.isArray(pack.analytics.whyThisWorks), 
+        'Analytics should have whyThisWorks (array)');
+      assert(pack.analytics.whyThisWorks.length >= 2, 
+        `whyThisWorks should have at least 2 items, got ${pack.analytics.whyThisWorks.length}`);
+      assert(pack.analytics.whyThisWorks.length <= 5, 
+        `whyThisWorks should have at most 5 items, got ${pack.analytics.whyThisWorks.length}`);
+      
+      // Verify each whyThisWorks bullet
+      for (let i = 0; i < pack.analytics.whyThisWorks.length; i++) {
+        const bullet = pack.analytics.whyThisWorks[i];
+        assert(typeof bullet === 'string', `whyThisWorks[${i}] should be a string`);
+        assert(bullet.length > 0, `whyThisWorks[${i}] should not be empty`);
+        assert(bullet.length <= 120, 
+          `whyThisWorks[${i}] should be <= 120 chars, got ${bullet.length}`);
+      }
+      
+      // Verify legacy analytics structure (optional)
       assert(pack.analytics.goal && typeof pack.analytics.goal === 'string', 'Analytics should have goal');
       assert(pack.analytics.goal.length <= 120, 'Analytics goal should be <= 120 chars');
       assert(Array.isArray(pack.analytics.constraints), 'Analytics should have constraints array');
@@ -386,7 +418,6 @@ function main() {
       assert(Array.isArray(pack.analytics.successCriteria), 'Analytics should have successCriteria array');
       assert(Array.isArray(pack.analytics.commonMistakes), 'Analytics should have commonMistakes array');
       assert(['substitution', 'pattern-switch', 'roleplay-bounded'].includes(pack.analytics.drillType), 'Analytics should have valid drillType');
-      assert(['low', 'medium', 'high'].includes(pack.analytics.cognitiveLoad), 'Analytics should have valid cognitiveLoad');
       
       // Verify levers reference variationSlots
       const variationSlots = pack.variationSlots || [];

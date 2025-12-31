@@ -1,376 +1,300 @@
-# Analytics Metadata Schema
+# Catalog-Level Analytics Metadata
 
-This document defines the analytics metadata block for Pack entries. Analytics metadata encodes deterministic "why this pack works" signals without ML/LLMs, enabling sorting, filtering, and future correlation with telemetry.
+This document defines the **Catalog-Level Analytics Metadata** system that provides deterministic, explainable analytics for every Pack. This metadata enables ranking, explanation, auditing, and exporting of packs without ML/LLM runtime.
 
-## Schema
+## Overview
 
-All pack entries must include an `analytics` object with the following structure:
+Catalog-level analytics metadata bridges the gap between:
+- "we generated good content"
+- "we can rank, explain, export, and sell it"
 
+Without this layer:
+- Expansion becomes noise
+- B2B exports are shallow
+- Frontend has nothing to surface intelligently
+- You can't defend quality claims
+
+## Core Principle
+
+**All analytics are deterministic and explainable.** No ML. No guessing. No free text generation at runtime.
+
+## Required Fields
+
+All generated packs must include the following catalog-level analytics fields:
+
+### `focus` (string, required)
+
+**Description:** Primary pedagogical focus of the pack.
+
+**Derivation:** Deterministically derived from `primaryStructure` using pattern matching.
+
+**Examples:**
+- `"verb_position"` - for packs focusing on verb-second position
+- `"modal_verbs"` - for packs focusing on modal verb constructions
+- `"word_order"` - for packs focusing on German word order
+- `"tense_usage"` - for packs focusing on tense selection
+- `"case_system"` - for packs focusing on German cases
+- `"prepositions"` - for packs focusing on preposition usage
+
+**Validation:**
+- Must be a non-empty string
+- Must be derived deterministically (no free text)
+
+### `cognitiveLoad` (enum, required)
+
+**Description:** Cognitive load level required to complete the pack.
+
+**Values:** `"low"`, `"medium"`, `"high"`
+
+**Derivation:** Deterministically computed from:
+- Number of `variationSlots`
+- `slotSwitchDensity`
+- Average prompt length (words)
+
+**Scoring System:**
+- Slot count: ≤2 slots = 1 point, ≤3 slots = 2 points, >3 slots = 3 points
+- Switch density: ≥0.5 = 2 points, ≥0.3 = 1 point, <0.3 = 0 points
+- Length: ≥10 words = 2 points, ≥6 words = 1 point, <6 words = 0 points
+- Total score: ≤2 = low, ≤4 = medium, >4 = high
+
+**Validation:**
+- Must be one of: `"low"`, `"medium"`, `"high"`
+- Must match `estimatedCognitiveLoad` (if present)
+
+### `responseSpeedTargetMs` (number, required)
+
+**Description:** Target response time in milliseconds for learners completing prompts in this pack.
+
+**Range:** 500-3000 milliseconds
+
+**Derivation:** Deterministically computed from:
+- CEFR level (base target)
+- `cognitiveLoad` (adjustment factor)
+
+**Base Targets by Level:**
+- A1: 1500ms
+- A2: 1200ms
+- B1: 1000ms
+- B2: 900ms
+- C1: 800ms
+- C2: 700ms
+
+**Adjustments by Cognitive Load:**
+- Low: -200ms
+- Medium: 0ms
+- High: +300ms
+
+**Examples:**
+- A1 + Low = 1300ms
+- A2 + Medium = 1200ms
+- B1 + High = 1300ms
+
+**Validation:**
+- Must be a number between 500 and 3000 (inclusive)
+
+### `fluencyOutcome` (string, required)
+
+**Description:** Intended fluency outcome that learners should achieve after completing this pack.
+
+**Derivation:** Deterministically derived from `scenario` and `primaryStructure` using pattern matching.
+
+**Examples:**
+- `"automatic_opening"` - for greeting/opening phrase packs
+- `"polite_requests"` - for modal verb request packs
+- `"professional_requests"` - for work scenario modal packs
+- `"meeting_scheduling"` - for work scenario time/schedule packs
+- `"workplace_communication"` - for general work scenario packs
+- `"polite_ordering"` - for restaurant scenario modal packs
+- `"restaurant_interactions"` - for general restaurant packs
+- `"transaction_phrases"` - for shopping scenario packs
+- `"health_appointments"` - for doctor scenario packs
+- `"rental_communication"` - for housing scenario packs
+- `"time_expressions"` - for time-focused packs
+- `"automatic_word_order"` - for verb position packs
+- `"fluent_expression"` - default generic outcome
+
+**Validation:**
+- Must be a non-empty string
+- Must be derived deterministically (no free text)
+
+### `whyThisWorks` (array of strings, required)
+
+**Description:** Array of 2-5 human-readable explanations (each ≤120 chars) explaining why this pack is effective.
+
+**Derivation:** 
+1. If `successCriteria` exists and has ≥2 items, use those (truncated to 120 chars each)
+2. Otherwise, generate deterministically from:
+   - `primaryStructure` (structure-based explanations)
+   - `scenario` (scenario-based explanations)
+   - `variationSlots` (variation-based explanations)
+   - `level` (level-appropriate explanations)
+
+**Examples:**
 ```json
-{
-  "analytics": {
-    "version": 1,
-    "goal": "string (1-120 chars)",
-    "constraints": ["string (1-80 chars each)", "..."],
-    "levers": ["string (1-80 chars each)", "..."],
-    "successCriteria": ["string (1-80 chars each)", "..."],
-    "commonMistakes": ["string (1-80 chars each)", "..."],
-    "drillType": "substitution" | "pattern-switch" | "roleplay-bounded",
-    "cognitiveLoad": "low" | "medium" | "high",
-    "whyThisWorks": ["string (1-120 chars each)", "..."],
-    "exitConditions": {
-      "targetMinutes": 5,
-      "completeWhen": "sessionPlan_completed_once" | "sessionPlan_completed_twice" | "manual_mark_complete"
-    },
-    "primaryStructure": "string (must match pack.primaryStructure)",
-    "scenario": "string (must match pack.scenario)",
-    "register": "formal" | "neutral" | "casual" | "informal (must match pack.register)",
-    "variationSlots": ["subject" | "verb" | "object" | "modifier" | "tense" | "polarity" | "time" | "location"],
-    "minDistinctSubjects": 3,
-    "minDistinctVerbs": 3,
-    "minMultiSlotRate": 0.30,
-    "targetResponseSeconds": 2.5,
-    "canonicalIntents": ["ask", "request", "confirm", "decline"],
-    "anchorPhrases": ["string (scenario-specific phrases)"]
-  }
+[
+  "forces verb-second position under time pressure",
+  "alternates subject + tense to prevent chanting",
+  "uses high-frequency office contexts"
+]
+```
+
+**Validation:**
+- Must be an array with 2-5 items
+- Each item must be a non-empty string ≤120 characters
+- Must be derived deterministically (no free text, no randomness)
+
+## Integration with Existing Analytics
+
+Catalog-level analytics complement existing computed metrics:
+
+**Computed Metrics (from `computePackAnalytics`):**
+- `version`, `qualityGateVersion`
+- `promptCount`, `multiSlotRate`
+- `scenarioTokenHitAvg`, `scenarioTokenQualifiedRate`
+- `uniqueTokenRate`, `bannedPhraseViolations`
+- `passesQualityGates`
+
+**Catalog Metrics (from `computePackCatalogAnalytics`):**
+- `primaryStructure`, `variationSlots`
+- `slotSwitchDensity`, `promptDiversityScore`
+- `scenarioCoverageScore`, `estimatedCognitiveLoad`
+
+**Catalog-Level Analytics (new, required):**
+- `focus`, `cognitiveLoad`, `responseSpeedTargetMs`
+- `fluencyOutcome`, `whyThisWorks`
+
+## Usage Examples
+
+### Smart Sorting
+
+```typescript
+// Sort packs by cognitive load and response speed
+packs.sort((a, b) => {
+  const loadOrder = { low: 1, medium: 2, high: 3 };
+  const loadCmp = loadOrder[a.analytics.cognitiveLoad] - loadOrder[b.analytics.cognitiveLoad];
+  if (loadCmp !== 0) return loadCmp;
+  return a.analytics.responseSpeedTargetMs - b.analytics.responseSpeedTargetMs;
+});
+
+// Filter by fluency outcome
+const openingPacks = packs.filter(p => 
+  p.analytics.fluencyOutcome === 'automatic_opening'
+);
+```
+
+### Frontend Copy Generation
+
+```typescript
+// Generate pack description from analytics
+function generatePackDescription(pack: PackEntry): string {
+  const { focus, cognitiveLoad, fluencyOutcome, whyThisWorks } = pack.analytics;
+  
+  return `This pack trains ${fluencyOutcome.replace(/_/g, ' ')}. ` +
+         `Focus: ${focus.replace(/_/g, ' ')}. ` +
+         `Cognitive load: ${cognitiveLoad}. ` +
+         whyThisWorks[0];
 }
 ```
 
-## Field Semantics
-
-### `goal` (required, 1-120 chars)
-
-**What this pack trains.** A concise description of the learning objective.
-
-**Examples:**
-- `"Practice formal government_office interactions at A1 level"`
-- `"Practice professional work communication at A2 level"`
-- `"Practice restaurant ordering and service requests at A1 level"`
-
-### `constraints` (required, 1-6 items, each 1-80 chars)
-
-**What is held constant.** Elements that remain fixed across prompts to focus learning.
-
-**Examples:**
-- `"formal register maintained"`
-- `"work scenario context"`
-- `"modal_verbs_requests structure focus"`
-- `"verb position: second"`
-
-**Rules:**
-- Must mention at least one non-lever slot or constant property (register/scenario/primaryStructure)
-- Should reference pack-level metadata (register, scenario, primaryStructure)
-
-### `levers` (required, 1-6 items, each 1-80 chars)
-
-**What changes across prompts.** Elements that vary to create practice diversity.
-
-**Examples:**
-- `"subject variation"`
-- `"verb substitution"`
-- `"object variation"`
-- `"time expressions"`
-
-**Rules:**
-- **Must reference `variationSlots`** - each lever should map to a slot in `pack.variationSlots`
-- Can also reference documented lever keywords: `subject`, `verb`, `object`, `modifier`, `tense`, `polarity`, `time`, `location`, `register`, `scenario`, `intent`
-- Validator will fail if lever doesn't reference a variationSlot or valid keyword
-
-### `successCriteria` (required, 1-6 items, each 1-80 chars)
-
-**What 'good' sounds like.** Observable indicators of successful performance.
-
-**Examples:**
-- `"Uses formal address (Sie/Ihnen) correctly"`
-- `"Includes required scenario tokens (Termin, Formular, etc.)"`
-- `"Maintains polite modal verb constructions"`
-- `"Varies subject and verb across prompts"`
-
-### `commonMistakes` (required, 1-6 items, each 1-80 chars)
-
-**Most likely failure modes.** Typical errors learners make with this pack.
-
-**Examples:**
-- `"Forgetting formal address (using 'du' instead of 'Sie')"`
-- `"Missing required documents vocabulary"`
-- `"Incorrect modal verb conjugation"`
-- `"Mixing formal and informal register"`
-
-**Warning:** Validator will warn (non-fatal) if `successCriteria` overlaps heavily with `commonMistakes` (simple string equality check).
-
-### `drillType` (required, enum)
-
-**Type of drill pattern.**
-
-- **`substitution`**: Simple slot substitution (e.g., changing subject/verb/object)
-- **`pattern-switch`**: Switching between grammatical patterns (e.g., question vs statement)
-- **`roleplay-bounded`**: Bounded roleplay scenarios (e.g., government office, restaurant, work)
-
-**Alignment Rules:**
-- If `drillType !== 'substitution'`, then `scenario`, `register`, and `primaryStructure` must exist (validator will fail if missing)
-
-### `cognitiveLoad` (required, enum)
-
-**Estimated cognitive load for learners.**
-
-- **`low`**: Simple patterns, few variations (typically A1 with ≤2 variationSlots)
-- **`medium`**: Moderate complexity (typically A1-A2 with 2-3 variationSlots)
-- **`high`**: Complex patterns, many variations (typically A2+ with ≥4 variationSlots)
-
-**Warning:** Validator will warn (non-fatal) if `cognitiveLoad === 'low'` while `variationSlots.length >= 4`.
-
-### `version` (required, number)
-
-**Analytics schema version.** Always `1` for v1 analytics.
-
-### `primaryStructure`, `scenario`, `register`, `variationSlots` (required)
-
-**Must match pack top-level fields exactly.** These fields ensure single source of truth and prevent drift between pack metadata and analytics.
-
-- `primaryStructure`: Must equal `pack.primaryStructure`
-- `scenario`: Must equal `pack.scenario`
-- `register`: Must equal `pack.register` (normalized: "informal" → "casual")
-- `variationSlots`: Must match `pack.variationSlots` array exactly (order-independent)
-
-**Hard fail if mismatch detected.**
-
-### `minDistinctSubjects` (required, number)
-
-**Minimum number of distinct subjects required across prompts.** Typically >= 3.
-
-**Computed validation**: Validator counts distinct subjects from prompts (using `slotsChanged`, `slots.subject`, or heuristic) and hard-fails if count < `minDistinctSubjects`.
-
-### `minDistinctVerbs` (required, number)
-
-**Minimum number of distinct verbs required across prompts.** Typically >= 3.
-
-**Computed validation**: Validator counts distinct verbs from prompts (using `slotsChanged`, `slots.verb`, or heuristic) and hard-fails if count < `minDistinctVerbs`.
-
-### `minMultiSlotRate` (required, number)
-
-**Minimum fraction of prompts that must change multiple slots.** Value between 0.0 and 1.0. Typically 0.30 (30%).
-
-**Computed validation**: Validator computes measured multi-slot rate from `slotsChanged` arrays and hard-fails if measured rate < `minMultiSlotRate`.
-
-### `targetResponseSeconds` (required, number)
-
-**Target response time in seconds.** Value between 0.5 and 6.0.
-
-**Examples:**
-- `2.5` - Moderate pace
-- `1.5` - Fast pace (for fluency drills)
-- `4.0` - Slower pace (for complex structures)
-
-### `canonicalIntents` (required, array, 3+ items)
-
-**Expected intent categories for this pack.** Each intent must appear in at least one prompt.
-
-**Allowed values**: `"greet"`, `"request"`, `"apologize"`, `"inform"`, `"ask"`, `"confirm"`, `"schedule"`, `"order"`, `"ask_price"`, `"thank"`, `"goodbye"`, `"decline"`
-
-**Computed validation**: Validator checks that each `canonicalIntent` appears in at least one prompt's `intent` field. Hard-fail if any intent is missing.
-
-### `anchorPhrases` (required, array, 3+ items)
-
-**Short, scenario-specific, language-specific phrases expected to appear in prompts.** These prove the pack is authentic to the scenario, not generic.
-
-**Examples for `government_office` scenario:**
-- `"Termin"`
-- `"Formular"`
-- `"Anmeldung"`
-- `"Bescheinigung"`
-
-**Computed validation**: Validator checks that each `anchorPhrase` appears (case-insensitive, normalized) in at least one prompt's `text`. Hard-fail if any phrase is missing.
-
-### `whyThisWorks` (required, 1-5 items, each 1-120 chars)
-
-**Why this pack is effective.** Concise explanations of the pedagogical rationale.
-
-**Examples:**
-- `"High-frequency bureaucratic intents"`
-- `"Multi-slot substitution to prevent chanting"`
-- `"Short response windows encourage retrieval speed"`
-- `"Forces verb position under time pressure"`
-- `"Reuses same skeleton with multi-slot variation"`
-
-**Rules:**
-- Must be non-empty array (1-5 items)
-- Each item must be 1-120 characters
-- Should be specific and actionable (not generic like "practice more" or "learn faster")
-- Validator will warn (non-fatal) if contains generic phrases from denylist
-
-### `exitConditions` (required, object)
-
-**When a session is considered complete.**
+### B2B Export
 
 ```json
 {
-  "targetMinutes": 5,
-  "completeWhen": "sessionPlan_completed_once"
-}
-```
-
-**Fields:**
-- **`targetMinutes`** (required, number): Target duration in minutes (1-20)
-- **`completeWhen`** (required, enum): Completion criteria
-  - `"sessionPlan_completed_once"`: Complete when all steps in sessionPlan are done once
-  - `"sessionPlan_completed_twice"`: Complete when all steps are done twice (for reinforcement)
-  - `"manual_mark_complete"`: Requires manual completion (for exams/assessments)
-
-**Rules:**
-- `targetMinutes` must be between 1 and 20
-- `completeWhen` must be one of the three enum values
-
-## Examples
-
-### Government Office Pack (A1)
-
-```json
-{
-  "analytics": {
-    "goal": "Practice formal government_office interactions at A1 level",
-    "constraints": [
-      "formal register maintained",
-      "government_office scenario context",
-      "modal_verbs_requests structure focus"
-    ],
-    "levers": [
-      "subject variation",
-      "verb substitution",
-      "object variation",
-      "time expressions"
-    ],
-    "successCriteria": [
-      "Uses formal address (Sie/Ihnen) correctly",
-      "Includes required scenario tokens (Termin, Formular, etc.)",
-      "Maintains polite modal verb constructions"
-    ],
-    "commonMistakes": [
-      "Forgetting formal address (using 'du' instead of 'Sie')",
-      "Missing required documents vocabulary",
-      "Incorrect modal verb conjugation"
-    ],
-    "drillType": "roleplay-bounded",
-    "cognitiveLoad": "medium"
-  }
-}
-```
-
-### Work Pack (A2)
-
-```json
-{
-  "analytics": {
-    "goal": "Practice professional work communication at A2 level",
-    "constraints": [
-      "formal register maintained",
-      "work scenario context",
-      "modal_verbs_requests structure focus"
-    ],
-    "levers": [
-      "subject variation",
-      "verb substitution",
-      "object variation",
-      "time expressions"
-    ],
-    "successCriteria": [
-      "Uses professional vocabulary appropriately",
-      "Varies subject and verb across prompts",
-      "Includes time/meeting context markers"
-    ],
-    "commonMistakes": [
-      "Mixing formal and informal register",
-      "Missing time/meeting context",
-      "Incorrect verb position in questions"
-    ],
-    "drillType": "roleplay-bounded",
-    "cognitiveLoad": "high"
-  }
-}
-```
-
-## Index-Level Summary
-
-Section index items include a subset of analytics for quick browsing:
-
-- **`drillType`**: Copied from `analytics.drillType`
-- **`cognitiveLoad`**: Copied from `analytics.cognitiveLoad`
-- **`whyThisWorks`**: Derived from `analytics.goal + first successCriteria` (max 200 chars)
-
-**Example index item:**
-```json
-{
-  "id": "government_office_basic",
-  "title": "Government Office - Basic",
-  "drillType": "roleplay-bounded",
+  "packId": "work_2",
+  "focus": "verb_position",
   "cognitiveLoad": "medium",
-  "whyThisWorks": "Practice formal government_office interactions at A1 level Uses formal address (Sie/Ihnen) correctly"
+  "responseSpeedTargetMs": 1200,
+  "fluencyOutcome": "automatic_opening",
+  "rationale": [
+    "forces verb-second position under time pressure",
+    "alternates subject + tense to prevent chanting",
+    "uses high-frequency office contexts"
+  ]
 }
 ```
 
-## Frontend Usage
+### Quality Audits
 
-### Index-Level Summary (Quick Browsing)
-
-Use `drillType`, `cognitiveLoad`, and `whyThisWorks` from section index items for:
-- Filtering packs by drill type
-- Sorting by cognitive load
-- Displaying "why this works" tooltips in pack selection UI
-
-### Entry-Level Full Analytics (Detailed View)
-
-Load full pack entry to access complete `analytics` block for:
-- Detailed learning objectives
-- Full constraint/lever analysis
-- Complete success criteria and common mistakes
-- Advanced filtering and correlation
-
-## Generator Defaults
-
-When generating packs:
-
-1. **`scripts/generate-pack.ts`**: Automatically generates analytics from template metadata
-2. **`scripts/new-pack.sh`**: Scaffolds analytics with TODO placeholders
-
-**Review Harness:** Detects incomplete analytics (TODO markers) and requires completion before approval.
-
-## Migration
-
-For existing packs without analytics:
-
-```bash
-# Migrate all packs in a workspace
-tsx scripts/migrate-analytics.ts --workspace de
-
-# Dry run to see what would be migrated
-tsx scripts/migrate-analytics.ts --workspace de --dry-run
+```typescript
+// Identify weak packs automatically
+function findWeakPacks(packs: PackEntry[]): PackEntry[] {
+  return packs.filter(pack => {
+    const { whyThisWorks, cognitiveLoad, responseSpeedTargetMs } = pack.analytics;
+    
+    // Weak indicators
+    if (whyThisWorks.length < 2) return true;
+    if (cognitiveLoad === 'high' && responseSpeedTargetMs < 1000) return true;
+    if (whyThisWorks.some(bullet => bullet.length < 20)) return true;
+    
+    return false;
+  });
+}
 ```
 
-Migration generates minimal analytics based on existing pack metadata (scenario, register, primaryStructure, variationSlots, level).
+## Implementation Details
 
-## Validation
+### Generator Integration
 
-All analytics fields are **hard-validated**:
+The `generate-pack.ts` script derives all catalog-level analytics deterministically:
 
-- ✅ `goal` non-empty, ≤120 chars
-- ✅ Arrays non-empty, 1-6 items each, each item 1-80 chars (except `whyThisWorks`: 1-5 items, each 1-120 chars)
-- ✅ `drillType` and `cognitiveLoad` enums only
-- ✅ `levers` must reference `variationSlots` or valid keywords
-- ✅ If `drillType !== 'substitution'`, scenario/register/primaryStructure must exist
-- ✅ `whyThisWorks` non-empty, 1-5 items, each 1-120 chars
-- ✅ `exitConditions.targetMinutes` between 1-20
-- ✅ `exitConditions.completeWhen` must be valid enum value
+```typescript
+const focus = deriveFocus(template.primaryStructure);
+const cognitiveLoad = catalogAnalytics.estimatedCognitiveLoad;
+const responseSpeedTargetMs = deriveResponseSpeedTargetMs(level, cognitiveLoad);
+const fluencyOutcome = deriveFluencyOutcome(template.scenarioId, template.primaryStructure);
+const whyThisWorks = deriveWhyThisWorks(
+  baseAnalytics.successCriteria,
+  template.primaryStructure,
+  template.scenarioId,
+  template.variationSlots,
+  level
+);
+```
 
-**Warnings (non-fatal):**
-- ⚠️ `successCriteria` overlaps with `commonMistakes`
-- ⚠️ `cognitiveLoad === 'low'` while `variationSlots.length >= 4`
-- ⚠️ `whyThisWorks` contains generic phrases (denylist: "practice more", "learn faster", "improve skills", "get better", "study hard")
+### Validator Enforcement
 
-## Sprint Report
+The `validate-content.ts` script enforces:
+- Hard-fail if any required catalog-level analytics field is missing
+- Validate allowed values (enums, ranges)
+- Enforce `responseSpeedTargetMs` range (500-3000ms)
+- Ensure `whyThisWorks` has 2-5 items, each ≤120 chars
+- Verify `cognitiveLoad` matches `estimatedCognitiveLoad`
 
-Sprint report includes analytics completeness metrics:
+### Index Propagation
 
-- % packs with analytics fully filled (no TODO markers)
-- Distribution of `drillType` values
-- Distribution of `cognitiveLoad` values
-- Missing fields summary
+The `generate-indexes.ts` script optionally includes catalog-level analytics in `SectionIndexItem`:
 
+```typescript
+interface SectionIndexItem {
+  // ... other fields ...
+  focus?: string;
+  cognitiveLoad?: 'low' | 'medium' | 'high';
+  fluencyOutcome?: string;
+}
+```
+
+This enables frontend filtering and sorting without loading full pack entries.
+
+## Acceptance Criteria
+
+✅ All packs have catalog-level analytics metadata  
+✅ Analytics are deterministic and validated  
+✅ Section indexes can expose analytics  
+✅ No frontend or engine changes required  
+✅ All validation rules enforced  
+✅ Documentation complete  
+
+## Related Documentation
+
+- [PACK_SCHEMA.md](./PACK_SCHEMA.md) - Full pack schema definition
+- [QUALITY_GATES.md](./QUALITY_GATES.md) - Quality gate definitions
+- [SECTION_INDEX_SCHEMA.md](../../SECTION_INDEX_SCHEMA.md) - Index schema
+
+## Future Enhancements
+
+Once analytics metadata is locked, future steps will include:
+1. Pack Effectiveness Telemetry hooks (FE-assisted, still cheap)
+2. Government Office onboarding spine (A1 default path)
+3. B2B export v2 (now actually meaningful)
+
+But do not jump ahead. This layer must be solid first.

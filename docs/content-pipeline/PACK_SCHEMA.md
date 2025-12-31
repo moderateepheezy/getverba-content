@@ -233,18 +233,38 @@ Analytics metadata block containing deterministic metrics that prove "why this p
     "uniqueTokenRate": 0.68,
     "bannedPhraseViolations": 0,
     "passesQualityGates": true,
+    "focus": "verb_position",
+    "cognitiveLoad": "medium",
+    "responseSpeedTargetMs": 1200,
+    "fluencyOutcome": "automatic_opening",
+    "whyThisWorks": [
+      "forces verb-second position under time pressure",
+      "alternates subject + tense to prevent chanting",
+      "uses high-frequency office contexts"
+    ],
     "goal": "Practice professional work communication at A2 level",
     "constraints": ["formal register maintained", "work scenario context"],
     "levers": ["subject variation", "verb substitution", "object variation"],
     "successCriteria": ["Uses professional vocabulary appropriately", "Varies subject and verb across prompts"],
     "commonMistakes": ["Mixing formal and informal register", "Missing time/meeting context"],
-    "drillType": "roleplay-bounded",
-    "cognitiveLoad": "medium"
+    "drillType": "roleplay-bounded"
   }
 }
 ```
 
 **Analytics Fields:**
+
+**Catalog-Level Analytics (Required for generated content):**
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `focus` | string | ✅ (generated) | Primary pedagogical focus (e.g., "verb_position", "modal_verbs", "word_order"). Derived deterministically from primaryStructure. |
+| `cognitiveLoad` | string | ✅ (generated) | Cognitive load level: `"low"`, `"medium"`, or `"high"`. Derived deterministically from variationSlots, slotSwitchDensity, and prompt characteristics. |
+| `responseSpeedTargetMs` | number | ✅ (generated) | Target response time in milliseconds (500-3000ms). Derived deterministically from level and cognitiveLoad. |
+| `fluencyOutcome` | string | ✅ (generated) | Intended fluency outcome (e.g., "automatic_opening", "polite_requests", "time_expressions"). Derived deterministically from scenario and primaryStructure. |
+| `whyThisWorks` | string[] | ✅ (generated) | Array of 2-5 human-readable explanations (each <= 120 chars) explaining why this pack is effective. Derived deterministically from successCriteria or structure/scenario. |
+
+**Computed Metrics (Required for generated content):**
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
@@ -261,21 +281,29 @@ Analytics metadata block containing deterministic metrics that prove "why this p
 | `uniqueTokenRate` | number | ✅ (generated) | Ratio (0..1) of unique tokens to total tokens |
 | `bannedPhraseViolations` | number | ✅ (generated) | Count of banned phrase violations (should be 0) |
 | `passesQualityGates` | boolean | ✅ (generated) | Must be `true` for generated content |
+
+**Legacy Analytics Fields (Optional, for backward compatibility):**
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
 | `goal` | string | ❌ | Learning goal description (<= 120 chars) |
 | `constraints` | string[] | ❌ | What is held constant |
 | `levers` | string[] | ❌ | What changes (references variationSlots) |
 | `successCriteria` | string[] | ❌ | Success criteria (2-6 items) |
 | `commonMistakes` | string[] | ❌ | Common mistakes to avoid |
 | `drillType` | string | ❌ | Type: "substitution", "pattern-switch", or "roleplay-bounded" |
-| `cognitiveLoad` | string | ❌ | Load level: "low", "medium", or "high" |
 
 **Validation Rules:**
 - Required if `provenance.source === "pdf"` or `"template"`
 - Optional if `provenance.source === "handcrafted"` (may be omitted entirely)
 - Validator recomputes metrics and hard-fails if mismatch (within 0.001 tolerance for floats)
 - `passesQualityGates` must be `true` for generated content
+- **Catalog-level analytics** (`focus`, `cognitiveLoad`, `responseSpeedTargetMs`, `fluencyOutcome`, `whyThisWorks`) are **required** for generated content
+- `responseSpeedTargetMs` must be between 500 and 3000 milliseconds
+- `whyThisWorks` must contain at least 2 items, each <= 120 characters
+- All catalog-level analytics must be derived deterministically (no free text, no randomness)
 
-See [QUALITY_GATES.md](./QUALITY_GATES.md#analytics-metrics) for detailed metric definitions.
+See [QUALITY_GATES.md](./QUALITY_GATES.md#analytics-metrics) and [ANALYTICS_METADATA.md](./ANALYTICS_METADATA.md) for detailed definitions.
 
 ## Complete Example
 

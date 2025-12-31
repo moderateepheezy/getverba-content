@@ -61,11 +61,17 @@ interface SectionIndexItem {
     difficultyHint: 'foundation' | 'standard' | 'stretch';
   };
   tags?: string[];
+  // Telemetry identifiers (required)
+  contentId: string;
+  revisionId: string;
+  // Catalog-level analytics fields (optional, for pack items)
+  focus?: string;
+  cognitiveLoad?: 'low' | 'medium' | 'high';
+  fluencyOutcome?: string;
   // Analytics summary (required for kind="pack")
   analyticsSummary?: AnalyticsSummary;
   // Legacy analytics fields (deprecated, use analyticsSummary)
   drillType?: string;
-  cognitiveLoad?: string;
   whyThisWorks?: string;
 }
 
@@ -89,12 +95,16 @@ interface EntryDocument {
   primaryStructure?: string;
   variationSlots?: string[];
   tags?: string[];
+  // Telemetry identifiers (required)
+  contentId?: string;
+  contentHash?: string;
+  revisionId?: string;
   analytics?: {
     version?: number;
     goal: string;
     successCriteria: string[];
     drillType: string;
-    cognitiveLoad: string;
+    cognitiveLoad: 'low' | 'medium' | 'high';
     targetResponseSeconds?: number;
     primaryStructure?: string;
     scenario?: string;
@@ -105,6 +115,11 @@ interface EntryDocument {
     minMultiSlotRate?: number;
     canonicalIntents?: string[];
     anchorPhrases?: string[];
+    // Catalog-level analytics (required for generated packs)
+    focus?: string;
+    responseSpeedTargetMs?: number;
+    fluencyOutcome?: string;
+    whyThisWorks?: string[];
   };
 }
 
@@ -177,6 +192,16 @@ function readEntryDocument(
     // Extract durationMinutes from estimatedMinutes
     const durationMinutes = entry.estimatedMinutes || 15; // fallback
     
+    // Validate telemetry identifiers are present
+    if (!entry.contentId || typeof entry.contentId !== 'string') {
+      console.warn(`⚠️  Entry ${entry.id} missing contentId, cannot generate index item`);
+      return null;
+    }
+    if (!entry.revisionId || typeof entry.revisionId !== 'string') {
+      console.warn(`⚠️  Entry ${entry.id} missing revisionId, cannot generate index item`);
+      return null;
+    }
+    
     // Enrich with pack metadata (scenario, register, primaryStructure, tags)
     const item: SectionIndexItem = {
       id: entry.id,
@@ -184,7 +209,9 @@ function readEntryDocument(
       title: entry.title,
       level: entry.level,
       durationMinutes,
-      entryUrl
+      entryUrl,
+      contentId: entry.contentId,
+      revisionId: entry.revisionId
     };
     
     // Add optional metadata fields if present in pack
@@ -199,6 +226,19 @@ function readEntryDocument(
     }
     if (entry.tags && Array.isArray(entry.tags)) {
       item.tags = entry.tags;
+    }
+    
+    // Add catalog-level analytics fields if present (for pack items)
+    if (entryType === 'pack' && entry.analytics && typeof entry.analytics === 'object') {
+      if (entry.analytics.focus && typeof entry.analytics.focus === 'string') {
+        item.focus = entry.analytics.focus;
+      }
+      if (entry.analytics.cognitiveLoad && typeof entry.analytics.cognitiveLoad === 'string') {
+        item.cognitiveLoad = entry.analytics.cognitiveLoad as 'low' | 'medium' | 'high';
+      }
+      if (entry.analytics.fluencyOutcome && typeof entry.analytics.fluencyOutcome === 'string') {
+        item.fluencyOutcome = entry.analytics.fluencyOutcome;
+      }
     }
     
     // Add analytics summary for pack items (required)

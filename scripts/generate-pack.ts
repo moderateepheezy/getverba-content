@@ -14,6 +14,8 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { computePackAnalytics } from './content-quality/computeAnalytics';
+import { computePackCatalogAnalytics } from './content-quality/computeCatalogAnalytics';
+import { computeTelemetryIds } from './telemetry-ids';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -84,6 +86,8 @@ interface GeneratedPrompt {
   audioUrl: string;
   slotsChanged?: string[];
   slots?: Record<string, string[]>;
+  registerNote?: string;
+  culturalNote?: string;
 }
 
 interface PackEntry {
@@ -110,25 +114,42 @@ interface PackEntry {
     }>;
   };
   tags: string[];
+  // Telemetry identifiers (required)
+  contentId: string;
+  contentHash: string;
+  revisionId: string;
   analytics: {
-    // Existing analytics fields
-    goal: string;
-    constraints: string[];
-    levers: string[];
-    successCriteria: string[];
-    commonMistakes: string[];
-    drillType: 'substitution' | 'pattern-switch' | 'roleplay-bounded';
+    // Catalog-level analytics (REQUIRED)
+    focus: string;
     cognitiveLoad: 'low' | 'medium' | 'high';
+    responseSpeedTargetMs: number;
+    fluencyOutcome: string;
+    whyThisWorks: string[];
+    primaryStructure: string;
+    variationSlots: string[];
+    slotSwitchDensity: number; // 0-1
+    promptDiversityScore: number; // 0-1
+    scenarioCoverageScore: number; // 0-1
+    estimatedCognitiveLoad: 'low' | 'medium' | 'high';
+    intendedOutcome: string; // Human-written, no TODO markers
+    
+    // Legacy analytics fields (optional, for backward compatibility)
+    goal?: string;
+    constraints?: string[];
+    levers?: string[];
+    successCriteria?: string[];
+    commonMistakes?: string[];
+    drillType?: 'substitution' | 'pattern-switch' | 'roleplay-bounded';
     // Computed metrics (deterministic)
-    version: number;
-    qualityGateVersion: string;
-    promptCount: number;
-    multiSlotRate: number;
-    scenarioTokenHitAvg: number;
-    scenarioTokenQualifiedRate: number;
-    uniqueTokenRate: number;
-    bannedPhraseViolations: number;
-    passesQualityGates: boolean;
+    version?: number;
+    qualityGateVersion?: string;
+    promptCount?: number;
+    multiSlotRate?: number;
+    scenarioTokenHitAvg?: number;
+    scenarioTokenQualifiedRate?: number;
+    uniqueTokenRate?: number;
+    bannedPhraseViolations?: number;
+    passesQualityGates?: boolean;
   };
   provenance: {
     source: 'pdf' | 'template' | 'handcrafted';
@@ -920,7 +941,26 @@ function generatePack(
   // Compute deterministic analytics metrics
   const computedAnalytics = computePackAnalytics(tempPackForAnalytics);
   
-  // Merge base analytics with computed metrics
+  // Compute catalog-level analytics (required)
+  const catalogAnalytics = computePackCatalogAnalytics(tempPackForAnalytics);
+  
+  // Generate intendedOutcome based on level and scenario (TODO: should be human-written, but auto-generate for now)
+  const intendedOutcome = generateIntendedOutcome(template.scenarioId, level, template.primaryStructure);
+  
+  // Derive catalog-level analytics fields deterministically
+  const focus = deriveFocus(template.primaryStructure);
+  const cognitiveLoad = catalogAnalytics.estimatedCognitiveLoad;
+  const responseSpeedTargetMs = deriveResponseSpeedTargetMs(level, cognitiveLoad);
+  const fluencyOutcome = deriveFluencyOutcome(template.scenarioId, template.primaryStructure);
+  const whyThisWorks = deriveWhyThisWorks(
+    baseAnalytics.successCriteria,
+    template.primaryStructure,
+    template.scenarioId,
+    template.variationSlots,
+    level
+  );
+  
+  // Merge base analytics with computed metrics and catalog-level analytics
   const analytics: PackEntry['analytics'] = {
     ...baseAnalytics,
     version: computedAnalytics.version,
@@ -931,10 +971,24 @@ function generatePack(
     scenarioTokenQualifiedRate: computedAnalytics.scenarioTokenQualifiedRate,
     uniqueTokenRate: computedAnalytics.uniqueTokenRate,
     bannedPhraseViolations: computedAnalytics.bannedPhraseViolations,
-    passesQualityGates: computedAnalytics.passesQualityGates
+    passesQualityGates: computedAnalytics.passesQualityGates,
+    // Catalog-level analytics (required)
+    focus,
+    cognitiveLoad,
+    responseSpeedTargetMs,
+    fluencyOutcome,
+    whyThisWorks,
+    primaryStructure: catalogAnalytics.primaryStructure,
+    variationSlots: catalogAnalytics.variationSlots,
+    slotSwitchDensity: catalogAnalytics.slotSwitchDensity,
+    promptDiversityScore: catalogAnalytics.promptDiversityScore,
+    scenarioCoverageScore: catalogAnalytics.scenarioCoverageScore,
+    estimatedCognitiveLoad: catalogAnalytics.estimatedCognitiveLoad,
+    intendedOutcome
   };
   
-  const pack: PackEntry = {
+  // Create pack object (without telemetry IDs first)
+  const packWithoutTelemetry = {
     schemaVersion: 1,
     id: packId,
     kind: 'pack',
@@ -956,17 +1010,245 @@ function generatePack(
     tags: [template.scenarioId],
     analytics,
     provenance: {
-      source: 'template',
+      source: 'template' as const,
       sourceRef: template.scenarioId || 'unknown-template',
       extractorVersion: '1.0.0',
       generatedAt: new Date().toISOString()
     },
     review: {
-      status: 'needs_review'
+      status: 'needs_review' as const
     }
   };
   
+  // Compute telemetry identifiers (must be computed after all fields are set)
+  const telemetryIds = computeTelemetryIds(packWithoutTelemetry, workspace);
+  
+  // Create final pack with telemetry IDs
+  const pack: PackEntry = {
+    ...packWithoutTelemetry,
+    contentId: telemetryIds.contentId,
+    contentHash: telemetryIds.contentHash,
+    revisionId: telemetryIds.revisionId
+  };
+  
   return pack;
+}
+
+/**
+ * Generate intendedOutcome string based on scenario, level, and structure
+ * TODO: This should be human-written, but auto-generate for now
+ */
+function generateIntendedOutcome(scenario: string, level: string, primaryStructure: string): string {
+  const scenarioNames: Record<string, string> = {
+    work: 'work',
+    government_office: 'government office',
+    restaurant: 'restaurant',
+    shopping: 'shopping',
+    doctor: 'doctor',
+    housing: 'housing'
+  };
+  
+  const scenarioName = scenarioNames[scenario] || scenario;
+  return `${level} ${scenarioName} readiness`;
+}
+
+/**
+ * Derive focus from primaryStructure deterministically
+ */
+function deriveFocus(primaryStructure: string): string {
+  const structureLower = primaryStructure.toLowerCase();
+  
+  // Map common structure patterns to focus types
+  if (structureLower.includes('verb') && structureLower.includes('position')) {
+    return 'verb_position';
+  }
+  if (structureLower.includes('verb') && structureLower.includes('second')) {
+    return 'verb_position';
+  }
+  if (structureLower.includes('modal')) {
+    return 'modal_verbs';
+  }
+  if (structureLower.includes('word_order') || structureLower.includes('wordorder')) {
+    return 'word_order';
+  }
+  if (structureLower.includes('tense') || structureLower.includes('tempus')) {
+    return 'tense_usage';
+  }
+  if (structureLower.includes('case') || structureLower.includes('kasus')) {
+    return 'case_system';
+  }
+  if (structureLower.includes('preposition') || structureLower.includes('präposition')) {
+    return 'prepositions';
+  }
+  if (structureLower.includes('article') || structureLower.includes('artikel')) {
+    return 'articles';
+  }
+  if (structureLower.includes('adjective') || structureLower.includes('adjektiv')) {
+    return 'adjective_declension';
+  }
+  
+  // Default: use primaryStructure as-is (normalized)
+  return primaryStructure.toLowerCase().replace(/[^a-z0-9_]/g, '_').replace(/_+/g, '_');
+}
+
+/**
+ * Derive responseSpeedTargetMs from level and cognitiveLoad deterministically
+ */
+function deriveResponseSpeedTargetMs(level: string, cognitiveLoad: 'low' | 'medium' | 'high'): number {
+  // Base targets by level (milliseconds)
+  const levelTargets: Record<string, number> = {
+    'A1': 1500,
+    'A2': 1200,
+    'B1': 1000,
+    'B2': 900,
+    'C1': 800,
+    'C2': 700
+  };
+  
+  const baseTarget = levelTargets[level.toUpperCase()] || 1200;
+  
+  // Adjust by cognitive load
+  const loadAdjustments: Record<string, number> = {
+    'low': -200,
+    'medium': 0,
+    'high': +300
+  };
+  
+  const adjusted = baseTarget + loadAdjustments[cognitiveLoad];
+  
+  // Clamp to valid range (500-3000ms)
+  return Math.max(500, Math.min(3000, adjusted));
+}
+
+/**
+ * Derive fluencyOutcome from scenario and primaryStructure deterministically
+ */
+function deriveFluencyOutcome(scenario: string, primaryStructure: string): string {
+  const structureLower = primaryStructure.toLowerCase();
+  const scenarioLower = scenario.toLowerCase();
+  
+  // Scenario-specific outcomes
+  if (scenarioLower.includes('government_office') || scenarioLower === 'government_office') {
+    if (structureLower.includes('modal') || structureLower.includes('request')) {
+      return 'polite_requests';
+    }
+    return 'formal_interactions';
+  }
+  
+  if (scenarioLower === 'work') {
+    if (structureLower.includes('modal') || structureLower.includes('request')) {
+      return 'professional_requests';
+    }
+    if (structureLower.includes('time') || structureLower.includes('schedule')) {
+      return 'meeting_scheduling';
+    }
+    return 'workplace_communication';
+  }
+  
+  if (scenarioLower === 'restaurant') {
+    if (structureLower.includes('modal') || structureLower.includes('request')) {
+      return 'polite_ordering';
+    }
+    return 'restaurant_interactions';
+  }
+  
+  if (scenarioLower === 'shopping') {
+    return 'transaction_phrases';
+  }
+  
+  if (scenarioLower === 'doctor') {
+    return 'health_appointments';
+  }
+  
+  if (scenarioLower === 'housing') {
+    return 'rental_communication';
+  }
+  
+  // Structure-based outcomes
+  if (structureLower.includes('verb') && structureLower.includes('position')) {
+    return 'automatic_word_order';
+  }
+  if (structureLower.includes('greeting') || structureLower.includes('greet')) {
+    return 'automatic_opening';
+  }
+  if (structureLower.includes('time') || structureLower.includes('temporal')) {
+    return 'time_expressions';
+  }
+  if (structureLower.includes('modal')) {
+    return 'polite_requests';
+  }
+  
+  // Default: generic fluency outcome
+  return 'fluent_expression';
+}
+
+/**
+ * Derive whyThisWorks from successCriteria or generate from structure/scenario
+ */
+function deriveWhyThisWorks(
+  successCriteria: string[] | undefined,
+  primaryStructure: string,
+  scenario: string,
+  variationSlots: string[],
+  level: string
+): string[] {
+  // If successCriteria exists and has at least 2 items, use them (truncated to 120 chars each)
+  if (successCriteria && successCriteria.length >= 2) {
+    return successCriteria
+      .slice(0, 5) // Max 5 items
+      .map(criterion => {
+        const trimmed = criterion.trim();
+        return trimmed.length > 120 ? trimmed.substring(0, 117) + '...' : trimmed;
+      })
+      .filter(c => c.length > 0);
+  }
+  
+  // Otherwise, generate deterministically from structure/scenario
+  const bullets: string[] = [];
+  const structureLower = primaryStructure.toLowerCase();
+  const scenarioLower = scenario.toLowerCase();
+  
+  // Structure-based explanations
+  if (structureLower.includes('verb') && structureLower.includes('position')) {
+    bullets.push('forces verb-second position under time pressure');
+    bullets.push('alternates subject + tense to prevent chanting');
+  } else if (structureLower.includes('modal')) {
+    bullets.push('practices polite modal verb constructions');
+    bullets.push('varies subject and context for natural usage');
+  } else if (structureLower.includes('word_order')) {
+    bullets.push('reinforces German word order patterns');
+    bullets.push('varies sentence structure to build automaticity');
+  } else {
+    bullets.push(`focuses on ${primaryStructure} structure`);
+    bullets.push('varies key elements to prevent memorization');
+  }
+  
+  // Scenario-based explanations
+  if (scenarioLower === 'work' || scenarioLower === 'government_office') {
+    bullets.push('uses high-frequency office contexts');
+  } else if (scenarioLower === 'restaurant') {
+    bullets.push('covers essential dining vocabulary');
+  } else if (scenarioLower === 'shopping') {
+    bullets.push('practices common transaction phrases');
+  }
+  
+  // Variation-based explanation
+  if (variationSlots.length >= 3) {
+    bullets.push(`varies ${variationSlots.slice(0, 2).join(' and ')} to maintain engagement`);
+  } else if (variationSlots.length >= 2) {
+    bullets.push(`alternates ${variationSlots.join(' and ')} to prevent repetition`);
+  }
+  
+  // Ensure we have at least 2 bullets
+  if (bullets.length < 2) {
+    bullets.push(`appropriate for ${level} level learners`);
+  }
+  
+  // Return 2-5 bullets, each <= 120 chars
+  return bullets.slice(0, 5).map(b => {
+    const trimmed = b.trim();
+    return trimmed.length > 120 ? trimmed.substring(0, 117) + '...' : trimmed;
+  });
 }
 
 /**
@@ -977,7 +1259,7 @@ function generateAnalytics(
   template: Template,
   level: string,
   promptCount: number
-): Omit<PackEntry['analytics'], 'version' | 'qualityGateVersion' | 'promptCount' | 'multiSlotRate' | 'scenarioTokenHitAvg' | 'scenarioTokenQualifiedRate' | 'uniqueTokenRate' | 'bannedPhraseViolations' | 'passesQualityGates'> {
+): Omit<PackEntry['analytics'], 'focus' | 'cognitiveLoad' | 'responseSpeedTargetMs' | 'fluencyOutcome' | 'whyThisWorks' | 'primaryStructure' | 'variationSlots' | 'slotSwitchDensity' | 'promptDiversityScore' | 'scenarioCoverageScore' | 'estimatedCognitiveLoad' | 'intendedOutcome' | 'version' | 'qualityGateVersion' | 'promptCount' | 'multiSlotRate' | 'scenarioTokenHitAvg' | 'scenarioTokenQualifiedRate' | 'uniqueTokenRate' | 'bannedPhraseViolations' | 'passesQualityGates'> {
   const scenarioId = template.scenarioId;
   const variationSlots = template.variationSlots;
   const primaryStructure = template.primaryStructure;
@@ -993,15 +1275,8 @@ function generateAnalytics(
     drillType = 'substitution';
   }
   
-  // Determine cognitiveLoad based on level and variation complexity
-  let cognitiveLoad: 'low' | 'medium' | 'high';
-  if (level === 'A1' && variationSlots.length <= 2) {
-    cognitiveLoad = 'low';
-  } else if (level === 'A1' || (level === 'A2' && variationSlots.length <= 3)) {
-    cognitiveLoad = 'medium';
-  } else {
-    cognitiveLoad = 'high';
-  }
+  // Note: cognitiveLoad is now a required catalog-level field derived from catalogAnalytics.estimatedCognitiveLoad
+  // It's computed separately in the main generation function, not here
   
   // Generate goal based on scenario
   const goalTemplates: Record<string, string> = {
@@ -1144,8 +1419,9 @@ function generateAnalytics(
     levers: levers.slice(0, 6),
     successCriteria: successCriteria.slice(0, 6),
     commonMistakes: commonMistakes.slice(0, 6),
-    drillType,
-    cognitiveLoad
+    drillType
+    // Note: cognitiveLoad is now a required catalog-level field derived from catalogAnalytics.estimatedCognitiveLoad
+    // It's not returned here because it's added separately in the main generation function
   };
 }
 

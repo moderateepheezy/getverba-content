@@ -127,6 +127,39 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
       }
     }
     
+    // Telemetry identifiers validation (required for all entry types)
+    if (!entry.contentId || typeof entry.contentId !== 'string') {
+      addError(contextFile, `Item ${itemIdx} entry document missing or invalid field: contentId (must be string)`);
+    } else {
+      // Validate contentId pattern: {workspace}:{kind}:{id}
+      const contentIdPattern = /^[a-z0-9_-]+:(pack|drill|exam):[a-z0-9_-]+$/;
+      if (!contentIdPattern.test(entry.contentId)) {
+        addError(contextFile, `Item ${itemIdx} entry document contentId "${entry.contentId}" does not match required pattern: {workspace}:{kind}:{id}`);
+      }
+    }
+    
+    if (!entry.contentHash || typeof entry.contentHash !== 'string') {
+      addError(contextFile, `Item ${itemIdx} entry document missing or invalid field: contentHash (must be string)`);
+    } else {
+      // Validate contentHash is valid SHA256 hex (64 chars)
+      if (!/^[a-f0-9]{64}$/.test(entry.contentHash)) {
+        addError(contextFile, `Item ${itemIdx} entry document contentHash "${entry.contentHash}" is not a valid SHA256 hash (must be 64 hex characters)`);
+      }
+    }
+    
+    if (!entry.revisionId || typeof entry.revisionId !== 'string') {
+      addError(contextFile, `Item ${itemIdx} entry document missing or invalid field: revisionId (must be string)`);
+    } else {
+      // Validate revisionId is derived from contentHash (first 12 chars)
+      if (entry.contentHash && entry.revisionId !== entry.contentHash.substring(0, 12)) {
+        addError(contextFile, `Item ${itemIdx} entry document revisionId "${entry.revisionId}" is not derived from contentHash (must be first 12 characters of contentHash)`);
+      }
+      // Validate revisionId format (12 hex chars)
+      if (!/^[a-f0-9]{12}$/.test(entry.revisionId)) {
+        addError(contextFile, `Item ${itemIdx} entry document revisionId "${entry.revisionId}" is not valid (must be 12 hex characters)`);
+      }
+    }
+    
     // Pack-specific validation
     if (normalizedKind === 'pack') {
       if (!entry.description || typeof entry.description !== 'string') {
@@ -424,6 +457,13 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
       // Description is optional for drills
       if (entry.description !== undefined && typeof entry.description !== 'string') {
         addError(contextFile, `Item ${itemIdx} drill entry description must be a string if present`);
+      }
+      
+      // Analytics metadata validation (required for all drills)
+      if (!entry.analytics || typeof entry.analytics !== 'object') {
+        addError(contextFile, `Item ${itemIdx} drill entry missing or invalid field: analytics (must be object)`);
+      } else {
+        validateDrillAnalytics(entry.analytics, entry, contextFile, itemIdx);
       }
     }
   } catch (err: any) {
@@ -767,11 +807,18 @@ function computeTextSimilarity(text1: string, text2: string): number {
  * Prompt Meaning Contract v1: Validate prompt meaning contract
  */
 function validatePromptMeaningContract(prompt: any, entry: any, contextFile: string, itemIdx: number, pIdx: number): void {
+  // Meaning-safety gate: If pack is approved and generated, gloss_en and intent must be non-empty
+  const provenance = entry.provenance;
+  const review = entry.review;
+  const isApprovedGenerated = review && review.status === 'approved' && provenance && provenance.source !== 'handcrafted';
+  
   // 1. Validate intent (required)
   if (!prompt.intent || typeof prompt.intent !== 'string') {
     addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} missing or invalid field: intent (required, must be one of: ${VALID_INTENTS.join(', ')})`);
   } else if (!VALID_INTENTS.includes(prompt.intent)) {
     addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} invalid intent "${prompt.intent}". Must be one of: ${VALID_INTENTS.join(', ')}`);
+  } else if (isApprovedGenerated && prompt.intent.trim() === '') {
+    addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} intent is empty (required for approved generated content)`);
   }
   
   // 2. Validate register (optional, but if present must be valid)
@@ -790,6 +837,11 @@ function validatePromptMeaningContract(prompt: any, entry: any, contextFile: str
   if (!prompt.gloss_en || typeof prompt.gloss_en !== 'string') {
     addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} missing or invalid field: gloss_en (required, 6-180 chars)`);
   } else {
+    // Meaning-safety: approved generated content must have non-empty gloss_en
+    if (isApprovedGenerated && prompt.gloss_en.trim() === '') {
+      addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} gloss_en is empty (required for approved generated content)`);
+    }
+    
     if (prompt.gloss_en.length < 6) {
       addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} gloss_en is too short (${prompt.gloss_en.length} chars). Min is 6 chars.`);
     }
@@ -912,6 +964,122 @@ function validatePromptMeaningContract(prompt: any, entry: any, contextFile: str
  * Validate analytics metadata block
  */
 function validateAnalytics(analytics: any, entry: any, contextFile: string, itemIdx: number): void {
+  // ============================================
+  // CATALOG-LEVEL ANALYTICS (REQUIRED)
+  // ============================================
+  
+  // Validate primaryStructure (required, must match pack)
+  if (!analytics.primaryStructure || typeof analytics.primaryStructure !== 'string') {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.primaryStructure missing or invalid (must be string, required)`);
+  } else if (entry.primaryStructure && analytics.primaryStructure !== entry.primaryStructure) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.primaryStructure "${analytics.primaryStructure}" does not match pack.primaryStructure "${entry.primaryStructure}"`);
+  }
+  
+  // Validate variationSlots (required, must match pack)
+  if (!Array.isArray(analytics.variationSlots)) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.variationSlots missing or invalid (must be array, required)`);
+  } else if (entry.variationSlots) {
+    const analyticsSlots = [...analytics.variationSlots].sort();
+    const packSlots = [...entry.variationSlots].sort();
+    if (JSON.stringify(analyticsSlots) !== JSON.stringify(packSlots)) {
+      addError(contextFile, `Item ${itemIdx} pack entry analytics.variationSlots does not match pack.variationSlots`);
+    }
+  }
+  
+  // Validate slotSwitchDensity (required, 0-1)
+  if (typeof analytics.slotSwitchDensity !== 'number') {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.slotSwitchDensity missing or invalid (must be number 0-1, required)`);
+  } else if (analytics.slotSwitchDensity < 0 || analytics.slotSwitchDensity > 1) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.slotSwitchDensity (${analytics.slotSwitchDensity}) must be between 0.0 and 1.0`);
+  }
+  
+  // Validate promptDiversityScore (required, 0-1)
+  if (typeof analytics.promptDiversityScore !== 'number') {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.promptDiversityScore missing or invalid (must be number 0-1, required)`);
+  } else if (analytics.promptDiversityScore < 0 || analytics.promptDiversityScore > 1) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.promptDiversityScore (${analytics.promptDiversityScore}) must be between 0.0 and 1.0`);
+  }
+  
+  // Validate scenarioCoverageScore (required, 0-1)
+  if (typeof analytics.scenarioCoverageScore !== 'number') {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.scenarioCoverageScore missing or invalid (must be number 0-1, required)`);
+  } else if (analytics.scenarioCoverageScore < 0 || analytics.scenarioCoverageScore > 1) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.scenarioCoverageScore (${analytics.scenarioCoverageScore}) must be between 0.0 and 1.0`);
+  }
+  
+  // Validate estimatedCognitiveLoad (required, enum)
+  const validEstimatedCognitiveLoads = ['low', 'medium', 'high'];
+  if (!analytics.estimatedCognitiveLoad || typeof analytics.estimatedCognitiveLoad !== 'string') {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.estimatedCognitiveLoad missing or invalid (must be one of: ${validEstimatedCognitiveLoads.join(', ')}, required)`);
+  } else if (!validEstimatedCognitiveLoads.includes(analytics.estimatedCognitiveLoad)) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.estimatedCognitiveLoad "${analytics.estimatedCognitiveLoad}" is invalid. Must be one of: ${validEstimatedCognitiveLoads.join(', ')}`);
+  }
+  
+  // Validate intendedOutcome (required, string, no TODO markers)
+  if (!analytics.intendedOutcome || typeof analytics.intendedOutcome !== 'string') {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.intendedOutcome missing or invalid (must be string, required)`);
+  } else if (analytics.intendedOutcome.length === 0) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.intendedOutcome must not be empty`);
+  } else if (analytics.intendedOutcome.toUpperCase().includes('TODO') || 
+             analytics.intendedOutcome.toUpperCase().includes('FIXME') || 
+             analytics.intendedOutcome.toUpperCase().includes('TBD')) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.intendedOutcome contains TODO/FIXME/TBD placeholder (must be human-written)`);
+  }
+  
+  // Validate focus (required, string)
+  if (!analytics.focus || typeof analytics.focus !== 'string') {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.focus missing or invalid (must be string, required)`);
+  } else if (analytics.focus.length === 0) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.focus must not be empty`);
+  }
+  
+  // Validate cognitiveLoad (required, enum) - must match estimatedCognitiveLoad
+  const validCognitiveLoads = ['low', 'medium', 'high'];
+  if (!analytics.cognitiveLoad || typeof analytics.cognitiveLoad !== 'string') {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.cognitiveLoad missing or invalid (must be one of: ${validCognitiveLoads.join(', ')}, required)`);
+  } else if (!validCognitiveLoads.includes(analytics.cognitiveLoad)) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.cognitiveLoad "${analytics.cognitiveLoad}" is invalid. Must be one of: ${validCognitiveLoads.join(', ')}`);
+  } else if (analytics.estimatedCognitiveLoad && analytics.cognitiveLoad !== analytics.estimatedCognitiveLoad) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.cognitiveLoad "${analytics.cognitiveLoad}" does not match analytics.estimatedCognitiveLoad "${analytics.estimatedCognitiveLoad}"`);
+  }
+  
+  // Validate responseSpeedTargetMs (required, number, 500-3000ms)
+  if (typeof analytics.responseSpeedTargetMs !== 'number') {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.responseSpeedTargetMs missing or invalid (must be number, required)`);
+  } else if (analytics.responseSpeedTargetMs < 500 || analytics.responseSpeedTargetMs > 3000) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.responseSpeedTargetMs (${analytics.responseSpeedTargetMs}) must be between 500 and 3000 milliseconds`);
+  }
+  
+  // Validate fluencyOutcome (required, string)
+  if (!analytics.fluencyOutcome || typeof analytics.fluencyOutcome !== 'string') {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.fluencyOutcome missing or invalid (must be string, required)`);
+  } else if (analytics.fluencyOutcome.length === 0) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.fluencyOutcome must not be empty`);
+  }
+  
+  // Validate whyThisWorks (required, array of strings, min 2, max 5, each <= 120 chars)
+  if (!Array.isArray(analytics.whyThisWorks)) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.whyThisWorks missing or invalid (must be array, required)`);
+  } else if (analytics.whyThisWorks.length < 2) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.whyThisWorks length is invalid (${analytics.whyThisWorks.length} items). Must have at least 2 items.`);
+  } else if (analytics.whyThisWorks.length > 5) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.whyThisWorks length is invalid (${analytics.whyThisWorks.length} items). Must have at most 5 items.`);
+  } else {
+    analytics.whyThisWorks.forEach((bullet: any, idx: number) => {
+      if (typeof bullet !== 'string') {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics.whyThisWorks[${idx}] must be a string`);
+      } else if (bullet.length === 0) {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics.whyThisWorks[${idx}] must not be empty`);
+      } else if (bullet.length > 120) {
+        addError(contextFile, `Item ${itemIdx} pack entry analytics.whyThisWorks[${idx}] length is invalid (${bullet.length} chars). Must be <= 120 chars.`);
+      }
+    });
+  }
+  
+  // ============================================
+  // LEGACY ANALYTICS (OPTIONAL, for backward compatibility)
+  // ============================================
+  
   // Validate version
   if (analytics.version !== undefined && analytics.version !== 1) {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.version must be 1 (got ${analytics.version})`);
@@ -1037,12 +1205,12 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
     addError(contextFile, `Item ${itemIdx} pack entry analytics.drillType "${analytics.drillType}" is invalid. Must be one of: ${validDrillTypes.join(', ')}`);
   }
   
-  // Validate cognitiveLoad enum
-  const validCognitiveLoads = ['low', 'medium', 'high'];
+  // Validate cognitiveLoad enum (legacy field)
+  const validLegacyCognitiveLoads = ['low', 'medium', 'high'];
   if (!analytics.cognitiveLoad || typeof analytics.cognitiveLoad !== 'string') {
-    addError(contextFile, `Item ${itemIdx} pack entry analytics.cognitiveLoad missing or invalid (must be one of: ${validCognitiveLoads.join(', ')})`);
-  } else if (!validCognitiveLoads.includes(analytics.cognitiveLoad)) {
-    addError(contextFile, `Item ${itemIdx} pack entry analytics.cognitiveLoad "${analytics.cognitiveLoad}" is invalid. Must be one of: ${validCognitiveLoads.join(', ')}`);
+    // Legacy field, optional
+  } else if (!validLegacyCognitiveLoads.includes(analytics.cognitiveLoad)) {
+    addError(contextFile, `Item ${itemIdx} pack entry analytics.cognitiveLoad "${analytics.cognitiveLoad}" is invalid. Must be one of: ${validLegacyCognitiveLoads.join(', ')}`);
   }
   
   // Telemetry readiness fields (required for telemetry contract)
@@ -1253,6 +1421,61 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
     } else if (!validCompleteWhen.includes(analytics.exitConditions.completeWhen)) {
       addError(contextFile, `Item ${itemIdx} pack entry analytics.exitConditions.completeWhen "${analytics.exitConditions.completeWhen}" is invalid. Must be one of: ${validCompleteWhen.join(', ')}`);
     }
+  }
+}
+
+/**
+ * Validate catalog-level analytics for drill entries
+ */
+function validateDrillAnalytics(analytics: any, entry: any, contextFile: string, itemIdx: number): void {
+  // Validate primaryStructure (required)
+  if (!analytics.primaryStructure || typeof analytics.primaryStructure !== 'string') {
+    addError(contextFile, `Item ${itemIdx} drill entry analytics.primaryStructure missing or invalid (must be string, required)`);
+  }
+  
+  // Validate variationSlots (required, array)
+  if (!Array.isArray(analytics.variationSlots)) {
+    addError(contextFile, `Item ${itemIdx} drill entry analytics.variationSlots missing or invalid (must be array, required)`);
+  }
+  
+  // Validate slotSwitchDensity (required, 0-1)
+  if (typeof analytics.slotSwitchDensity !== 'number') {
+    addError(contextFile, `Item ${itemIdx} drill entry analytics.slotSwitchDensity missing or invalid (must be number 0-1, required)`);
+  } else if (analytics.slotSwitchDensity < 0 || analytics.slotSwitchDensity > 1) {
+    addError(contextFile, `Item ${itemIdx} drill entry analytics.slotSwitchDensity (${analytics.slotSwitchDensity}) must be between 0.0 and 1.0`);
+  }
+  
+  // Validate promptDiversityScore (required, 0-1)
+  if (typeof analytics.promptDiversityScore !== 'number') {
+    addError(contextFile, `Item ${itemIdx} drill entry analytics.promptDiversityScore missing or invalid (must be number 0-1, required)`);
+  } else if (analytics.promptDiversityScore < 0 || analytics.promptDiversityScore > 1) {
+    addError(contextFile, `Item ${itemIdx} drill entry analytics.promptDiversityScore (${analytics.promptDiversityScore}) must be between 0.0 and 1.0`);
+  }
+  
+  // Validate scenarioCoverageScore (required, 0-1)
+  if (typeof analytics.scenarioCoverageScore !== 'number') {
+    addError(contextFile, `Item ${itemIdx} drill entry analytics.scenarioCoverageScore missing or invalid (must be number 0-1, required)`);
+  } else if (analytics.scenarioCoverageScore < 0 || analytics.scenarioCoverageScore > 1) {
+    addError(contextFile, `Item ${itemIdx} drill entry analytics.scenarioCoverageScore (${analytics.scenarioCoverageScore}) must be between 0.0 and 1.0`);
+  }
+  
+  // Validate estimatedCognitiveLoad (required, enum)
+  const validCognitiveLoads = ['low', 'medium', 'high'];
+  if (!analytics.estimatedCognitiveLoad || typeof analytics.estimatedCognitiveLoad !== 'string') {
+    addError(contextFile, `Item ${itemIdx} drill entry analytics.estimatedCognitiveLoad missing or invalid (must be one of: ${validCognitiveLoads.join(', ')}, required)`);
+  } else if (!validCognitiveLoads.includes(analytics.estimatedCognitiveLoad)) {
+    addError(contextFile, `Item ${itemIdx} drill entry analytics.estimatedCognitiveLoad "${analytics.estimatedCognitiveLoad}" is invalid. Must be one of: ${validCognitiveLoads.join(', ')}`);
+  }
+  
+  // Validate intendedOutcome (required, string, no TODO markers)
+  if (!analytics.intendedOutcome || typeof analytics.intendedOutcome !== 'string') {
+    addError(contextFile, `Item ${itemIdx} drill entry analytics.intendedOutcome missing or invalid (must be string, required)`);
+  } else if (analytics.intendedOutcome.length === 0) {
+    addError(contextFile, `Item ${itemIdx} drill entry analytics.intendedOutcome must not be empty`);
+  } else if (analytics.intendedOutcome.toUpperCase().includes('TODO') || 
+             analytics.intendedOutcome.toUpperCase().includes('FIXME') || 
+             analytics.intendedOutcome.toUpperCase().includes('TBD')) {
+    addError(contextFile, `Item ${itemIdx} drill entry analytics.intendedOutcome contains TODO/FIXME/TBD placeholder (must be human-written)`);
   }
 }
 
