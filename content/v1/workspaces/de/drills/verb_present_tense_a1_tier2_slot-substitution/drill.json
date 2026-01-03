@@ -6,9 +6,9 @@
   "workspace": "de",
   "language": "de",
   "level": "A1",
-  "title": "Verb Present Tense: A1 (Tier 2)",
-  "shortTitle": "Verb Present Tense A1",
-  "subtitle": "Tier 2 - slot substitution - Master present tense verb conju",
+  "title": "Verb Present Tense: A1 (Tier 2) - Slot",
+  "shortTitle": "Verb Present Tense A1 Slot",
+  "subtitle": "Tier 2 - slot substitution - Practice present tense verb con",
   "estimatedMinutes": 4,
   "mechanicId": "verb_present_tense",
   "mechanicLabel": "Verb Present Tense",
@@ -18,7 +18,8 @@
     "subject",
     "verb",
     "object",
-    "modifier"
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -63,157 +64,36 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Es esst Essen.",
+      "text": "Ich lerne heute viel Deutsch in der Schule.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Es esst Essen.",
+      "natural_en": "Ich lerne heute viel Deutsch in der Schule.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time"
       ],
       "slots": {
         "subject": [
-          "Es"
+          "Fallback"
         ],
         "verb": [
-          "esst"
-        ],
-        "object": [
-          "Essen"
+          "Fallback"
         ]
       },
       "audioUrl": "/v1/audio/verb_present_tense_A1_tier2/prompt-001.mp3"
     },
     {
       "id": "prompt-002",
-      "text": "Wir sehen Musik.",
+      "text": "Du liest am Abend Tennis.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir sehen Musik.",
+      "natural_en": "Du liest am Abend Tennis.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Wir"
-        ],
-        "verb": [
-          "sehen"
-        ],
-        "object": [
-          "Musik"
-        ]
-      },
-      "audioUrl": "/v1/audio/verb_present_tense_A1_tier2/prompt-002.mp3"
-    },
-    {
-      "id": "prompt-003",
-      "text": "Ich spiele Fußball.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ich spiele Fußball.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Ich"
-        ],
-        "verb": [
-          "spiele"
-        ],
-        "object": [
-          "Fußball"
-        ]
-      },
-      "audioUrl": "/v1/audio/verb_present_tense_A1_tier2/prompt-003.mp3"
-    },
-    {
-      "id": "prompt-004",
-      "text": "Er geht Fußball.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er geht Fußball.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Er"
-        ],
-        "verb": [
-          "geht"
-        ],
-        "object": [
-          "Fußball"
-        ]
-      },
-      "audioUrl": "/v1/audio/verb_present_tense_A1_tier2/prompt-004.mp3"
-    },
-    {
-      "id": "prompt-005",
-      "text": "Ihr spielt Gitarre.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ihr spielt Gitarre.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Ihr"
-        ],
-        "verb": [
-          "spielt"
-        ],
-        "object": [
-          "Gitarre"
-        ]
-      },
-      "audioUrl": "/v1/audio/verb_present_tense_A1_tier2/prompt-005.mp3"
-    },
-    {
-      "id": "prompt-006",
-      "text": "Sie kommt Kaffee.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie kommt Kaffee.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Sie"
-        ],
-        "verb": [
-          "kommt"
-        ],
-        "object": [
-          "Kaffee"
-        ]
-      },
-      "audioUrl": "/v1/audio/verb_present_tense_A1_tier2/prompt-006.mp3"
-    },
-    {
-      "id": "prompt-007",
-      "text": "Du arbeitst Buch.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du arbeitst Buch.",
-      "slotsChanged": [
-        "subject",
-        "verb",
+        "time",
         "object"
       ],
       "slots": {
@@ -221,23 +101,111 @@
           "Du"
         ],
         "verb": [
-          "arbeitst"
+          "liest"
         ],
         "object": [
-          "Buch"
+          "Tennis"
+        ],
+        "time": [
+          "am Abend"
         ]
       },
-      "audioUrl": "/v1/audio/verb_present_tense_A1_tier2/prompt-007.mp3"
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier2/prompt-002.mp3"
     },
     {
-      "id": "prompt-008",
-      "text": "Ihr geht Essen.",
+      "id": "prompt-003",
+      "text": "Er isst später die Hausaufgaben.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ihr geht Essen.",
+      "natural_en": "Er isst später die Hausaufgaben.",
       "slotsChanged": [
         "subject",
         "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "isst"
+        ],
+        "object": [
+          "die Hausaufgaben"
+        ],
+        "time": [
+          "später"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier2/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Sie spielt später Tennis.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie spielt später Tennis.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "spielt"
+        ],
+        "object": [
+          "Tennis"
+        ],
+        "time": [
+          "später"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier2/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "später schreiben wir Musik.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später schreiben wir Musik.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "schreiben"
+        ],
+        "object": [
+          "Musik"
+        ],
+        "time": [
+          "später"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier2/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Ihr seht oft die Hausaufgaben trinkt.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ihr seht oft die Hausaufgaben.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
         "object"
       ],
       "slots": {
@@ -245,10 +213,72 @@
           "Ihr"
         ],
         "verb": [
-          "geht"
+          "seht"
         ],
         "object": [
-          "Essen"
+          "die Hausaufgaben"
+        ],
+        "time": [
+          "oft"
+        ],
+        "modifier": [
+          "trinkt"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier2/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "heute mache ich die Hausaufgaben.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute mache ich die Hausaufgaben.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "mache"
+        ],
+        "object": [
+          "die Hausaufgaben"
+        ],
+        "time": [
+          "heute"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier2/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "selten lernst du Tennis.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "selten lernst du Tennis.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "lernst"
+        ],
+        "object": [
+          "Tennis"
+        ],
+        "time": [
+          "selten"
         ]
       },
       "audioUrl": "/v1/audio/verb_present_tense_A1_tier2/prompt-008.mp3"
@@ -259,9 +289,7 @@
     "mechanicId": "verb_present_tense",
     "loopType": "slot_substitution",
     "targetStructures": [
-      "present_tense_conjugation",
-      "verb_second_position",
-      "subject_verb_agreement"
+      "present_tense"
     ],
     "variationSlots": [
       "subject",
@@ -269,27 +297,26 @@
     ],
     "coverage": {
       "verbs": [
-        "esst",
-        "sehen",
-        "spiele",
-        "geht",
+        "Fallback",
+        "liest",
+        "isst",
         "spielt",
-        "kommt",
-        "arbeitst"
+        "schreiben",
+        "seht",
+        "mache",
+        "lernst"
       ],
       "subjects": [
-        "Es",
-        "Wir",
-        "Ich",
+        "Fallback",
+        "Du",
         "Er",
-        "Ihr",
         "Sie",
-        "Du"
+        "Wir",
+        "Ihr",
+        "Ich"
       ],
       "patterns": [
-        "present_tense_conjugation",
-        "verb_second_position",
-        "subject_verb_agreement"
+        "present_tense"
       ]
     },
     "difficultyTier": 2,
@@ -299,7 +326,7 @@
     "qualitySignals": {
       "tokenHitsCount": 8,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 7,
+      "uniqueVerbCount": 8,
       "uniqueSubjectCount": 7,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
@@ -309,12 +336,21 @@
     "source": "template",
     "sourceRef": "mechanics/verb_present_tense",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.652Z"
+    "generatedAt": "2026-01-03T09:52:17.371Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Verb Present Tense: A1 (Tier 2) - Slot"
+  },
+  "shortTitle_i18n": {
+    "en": "Verb Present Tense A1 Slot"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 2 - slot substitution - Practice present tense verb con"
+  },
   "contentId": "de:drill:verb_present_tense_a1_tier2_slot-substitution",
-  "contentHash": "dd5b49e43f6189bef323146f6264563ea93b7c876826b6ac1270c2f5b73e3364",
-  "revisionId": "dd5b49e43f61"
+  "contentHash": "d066399dce692291544eded67216ae35cdba23e02cfd7c5b0c51f73e6461e2f1",
+  "revisionId": "d066399dce69"
 }

@@ -9,6 +9,7 @@ This document summarizes the implementation of Drills v4, a complete overhaul of
 ### 1. Schema & Documentation ✅
 
 - **`docs/content-pipeline/DRILL_SCHEMA_V4.md`**: Complete v4 schema documentation
+- **`docs/content-pipeline/DRILLS_V4_BE_SHAPING.md`**: **Final BE shaping spec** - authoritative API contract for FE
 - **`docs/content-pipeline/ROLLOUT.md`**: Updated with Drills v4 workflow
 
 ### 2. Templates Library ✅
@@ -110,17 +111,29 @@ content/v1/workspaces/de/
 
 ## API Endpoints
 
-### Mechanics Index
+> **⚠️ Important**: The endpoints below describe the current implementation. For the **final API contract** that FE should build against, see [docs/content-pipeline/DRILLS_V4_BE_SHAPING.md](./docs/content-pipeline/DRILLS_V4_BE_SHAPING.md).
+
+### Final API Contract (Authoritative)
+
+```
+GET /v1/workspaces/{ws}/drills
+```
+
+Returns DrillGroups with nested DrillTiers. See [DRILLS_V4_BE_SHAPING.md](./docs/content-pipeline/DRILLS_V4_BE_SHAPING.md) for the complete specification.
+
+### Legacy Endpoints (Deprecated)
+
+#### Mechanics Index
 ```
 GET /v1/workspaces/{workspace}/mechanics/index.json
 ```
 
-### Per-Mechanic Drill Index
+#### Per-Mechanic Drill Index
 ```
 GET /v1/workspaces/{workspace}/mechanics/{mechanicId}/index.json
 ```
 
-### Drill Entry
+### Drill Entry (Unchanged)
 ```
 GET /v1/workspaces/{workspace}/drills/{drillId}/drill.json
 ```

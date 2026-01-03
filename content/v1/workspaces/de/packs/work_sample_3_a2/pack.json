@@ -45,6 +45,9 @@
         "modifier": [
           "nächste Woche"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -69,6 +72,9 @@
         "modifier": [
           "am Montag"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
@@ -97,6 +103,9 @@
         "modifier": [
           "nächste Woche"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -124,6 +133,9 @@
         "modifier": [
           "nächste Woche"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -152,6 +164,9 @@
         "modifier": [
           "am Montag"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "The meeting starts at the scheduled time."
       }
     },
     {
@@ -176,6 +191,9 @@
         "object": [
           "den Termin"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
@@ -200,6 +218,9 @@
         "object": [
           "die Besprechung"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     }
   ],
@@ -321,15 +342,55 @@
     "generatedAt": "2025-12-31T07:59:49.149Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T08:26:06.994Z"
   },
   "contentId": "de:pack:work_sample_3_a2",
   "contentHash": "c141635cdd5cb430368807a4af63ee1aa26b5ad76124751d579fbe04eb642c45",
   "revisionId": "c141635cdd5c",
   "title_i18n": {
-    "en": "Work A2 — Sample 3"
+    "en": "Work A2 — Sample 3",
+    "es": "Trabajo A2 - Muestra 3",
+    "fr": "Travail A2 - Échantillon 3",
+    "it": "Lavoro A2 - Campione 3",
+    "pt": "Trabalho A2 - Amostra 3",
+    "ru": "Работа A2 - Образец 3",
+    "ja": "作品A2 - サンプル3",
+    "ko": "작업 A2 - 샘플 3",
+    "zh-CN": "工作 A2 - 样本 3",
+    "zh-TW": "工作 A2 - 样本 3",
+    "ar": "العمل A2 - العينة 3",
+    "tr": "Çalışma A2 - Örnek 3",
+    "pl": "Praca A2 - Próbka 3",
+    "nl": "Werk A2 - Voorbeeld 3",
+    "sv": "Arbete A2 - Prov 3",
+    "no": "Arbeid A2 - Eksempel 3",
+    "da": "Arbejde A2 - Prøve 3",
+    "fi": "Työ A2 - Näyte 3",
+    "el": "Εργασία A2 - Δείγμα 3",
+    "cs": "Práce A2 - ukázka 3"
   },
   "description_i18n": {
-    "en": "Practice work scenarios at A2 level."
+    "en": "Practice work scenarios at A2 level.",
+    "es": "Practicar escenarios de trabajo a nivel A2.",
+    "fr": "Pratiquer des scénarios de travail au niveau A2.",
+    "it": "Esercitarsi in scenari di lavoro a livello A2.",
+    "pt": "Praticar cenários de trabalho ao nível A2.",
+    "ru": "Отработайте сценарии работы на уровне A2.",
+    "ja": "A2レベルの仕事のシナリオを練習する。",
+    "ko": "A2 수준의 업무 시나리오를 연습하세요.",
+    "zh-CN": "在 A2 级水平上练习工作场景。",
+    "zh-TW": "在 A2 级水平上练习工作场景。",
+    "ar": "ممارسة سيناريوهات العمل على المستوى A2.",
+    "tr": "A2 seviyesinde çalışma senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze pracy na poziomie A2.",
+    "nl": "Oefen werkscenario's op A2-niveau.",
+    "sv": "Öva på arbetsscenarier på A2-nivå.",
+    "no": "Øv deg på arbeidsscenarioer på A2-nivå.",
+    "da": "Øv dig i arbejdsscenarier på A2-niveau.",
+    "fi": "Harjoitellaan A2-tason työkuvioita.",
+    "el": "Πρακτική εξάσκηση σε σενάρια εργασίας σε επίπεδο Α2.",
+    "cs": "Procvičování pracovních scénářů na úrovni A2."
   }
 }

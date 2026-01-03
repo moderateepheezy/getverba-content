@@ -47,6 +47,9 @@
         "modifier": [
           "heute"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something."
       }
     },
     {
@@ -74,6 +77,9 @@
         "modifier": [
           "nächste Woche"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -81,7 +87,7 @@
       "text": "Der Beamte zeigt die Anmeldung",
       "intent": "inform",
       "gloss_en": "I need to register my address.",
-      "natural_en": "I need to register my address.",
+      "natural_en": "I'd say need to register my address.",
       "audioUrl": "/v1/audio/anmeldung_address_registration_a1/prompt-003.mp3",
       "slotsChanged": [
         "subject",
@@ -98,6 +104,9 @@
         "object": [
           "die Anmeldung"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to register my address."
       }
     },
     {
@@ -105,7 +114,7 @@
       "text": "Der Beamte braucht die Anmeldung",
       "intent": "inform",
       "gloss_en": "I need to register my address.",
-      "natural_en": "I need to register my address.",
+      "natural_en": "I'd say need to register my address.",
       "audioUrl": "/v1/audio/anmeldung_address_registration_a1/prompt-004.mp3",
       "slotsChanged": [
         "verb"
@@ -120,6 +129,9 @@
         "object": [
           "die Anmeldung"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to register my address."
       }
     },
     {
@@ -127,7 +139,7 @@
       "text": "Sie brauchen die Anmeldung",
       "intent": "inform",
       "gloss_en": "I need to register my address.",
-      "natural_en": "I need to register my address.",
+      "natural_en": "I'd say need to register my address.",
       "audioUrl": "/v1/audio/anmeldung_address_registration_a1/prompt-005.mp3",
       "slotsChanged": [
         "subject",
@@ -143,6 +155,9 @@
         "object": [
           "die Anmeldung"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to register my address."
       }
     },
     {
@@ -171,6 +186,9 @@
         "modifier": [
           "dringend"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -178,7 +196,7 @@
       "text": "Ich möchte die Anmeldung sofort",
       "intent": "request",
       "gloss_en": "I need to register my address.",
-      "natural_en": "I need to register my address.",
+      "natural_en": "I'd say need to register my address.",
       "audioUrl": "/v1/audio/anmeldung_address_registration_a1/prompt-007.mp3",
       "slotsChanged": [
         "verb",
@@ -198,6 +216,9 @@
         "modifier": [
           "sofort"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to register my address."
       }
     }
   ],
@@ -208,8 +229,8 @@
         "id": "appointment",
         "title": "Making an Appointment",
         "promptIds": [
-          "prompt-001",
-          "prompt-002"
+          "prompt-002",
+          "prompt-003"
         ],
         "title_i18n": {
           "en": "Making an Appointment"
@@ -327,9 +348,47 @@
   "contentHash": "2a2fe75ffaee74f47952d9da2d9273cb6c17e4f456e749c99559b62b70fd2b51",
   "revisionId": "2a2fe75ffaee",
   "title_i18n": {
-    "en": "Government Office A1 — Anmeldung Address Registration"
+    "en": "Government Office A1 — Anmeldung Address Registration",
+    "es": "Government Office A1 - Anmeldung Registro de direcciones",
+    "fr": "Government Office A1 - Anmeldung Enregistrement d'adresse",
+    "it": "Ufficio governativo A1 - Registrazione indirizzo Anmeldung",
+    "pt": "Government Office A1 - Registo de endereços Anmeldung",
+    "ru": "Правительственный офис A1 - Регистрация адреса Anmeldung",
+    "ja": "官庁A1 - 住所登録",
+    "ko": "관공서 A1 - 주소 등록",
+    "zh-CN": "政府办公室 A1 - 地址登记",
+    "zh-TW": "政府办公室 A1 - 地址登记",
+    "ar": "المكتب الحكومي A1 - تسجيل عنوان المكتب الحكومي A1 - تسجيل عنوان أنملدونغ",
+    "tr": "Devlet Dairesi A1 - Anmeldung Adres Kaydı",
+    "pl": "Biuro rządowe A1 - Rejestracja adresu Anmeldung",
+    "nl": "Overheidsinstelling A1 - Adresregistratie Anmeldung",
+    "sv": "Regeringskansliet A1 - Anmälan Adressregistrering",
+    "no": "Government Office A1 - Anmeldung Adresseregistrering",
+    "da": "Government Office A1 - Anmeldung Adresseregistrering",
+    "fi": "Valtioneuvoston kanslia A1 - Ilmoittautuminen Osoitteen rekisteröinti",
+    "el": "Κυβερνητικό Γραφείο A1 - Εγγραφή διεύθυνσης εγγραφής",
+    "cs": "Úřad vlády A1 - Registrace adresy Anmeldung"
   },
   "description_i18n": {
-    "en": "Practice government_office scenarios at A1 level."
+    "en": "Practice government_office scenarios at A1 level.",
+    "es": "Practicar escenarios de government_office en el nivel A1.",
+    "fr": "Pratiquez les scénarios government_office au niveau A1.",
+    "it": "Esercitatevi con gli scenari government_office a livello A1.",
+    "pt": "Praticar cenários government_office ao nível A1.",
+    "ru": "Отработайте сценарии government_office на уровне A1.",
+    "ja": "A1レベルのgovernment_officeシナリオを練習する。",
+    "ko": "A1 수준의 정부_오피스 시나리오를 연습하세요.",
+    "zh-CN": "练习 A1 级的政府办公情景。",
+    "zh-TW": "练习 A1 级的政府办公情景。",
+    "ar": "ممارسة سيناريوهات_المكاتب_الحكومية على المستوى A1.",
+    "tr": "A1 seviyesinde government_office senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze government_office na poziomie A1.",
+    "nl": "Oefen overheid_kantoor scenario's op A1 niveau.",
+    "sv": "Öva på scenarier för government_office på A1-nivå.",
+    "no": "Øv på scenarier for offentlige kontorer på A1-nivå.",
+    "da": "Øv dig på government_office-scenarier på A1-niveau.",
+    "fi": "Harjoittele government_office-skenaarioita A1-tasolla.",
+    "el": "Εξάσκηση σε σενάρια government_office σε επίπεδο A1.",
+    "cs": "Procvičování scénářů government_office na úrovni A1."
   }
 }

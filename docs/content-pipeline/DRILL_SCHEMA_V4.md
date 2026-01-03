@@ -2,6 +2,8 @@
 
 This document defines the Drill v4 schema for GetVerba content pipeline.
 
+> **⚠️ Important**: For the **API contract** that FE should build against, see [DRILLS_V4_BE_SHAPING.md](./DRILLS_V4_BE_SHAPING.md). This document describes the drill entry schema (the content files themselves), while the BE shaping spec defines how drills are exposed via the API endpoint.
+
 ## Overview
 
 Drills v4 train exactly ONE mechanical struggle (the "muscle"). Unlike Context packs (which train situations), drills focus on discrete grammar mechanics with deterministic grouping, loop types, and difficulty tiers.
@@ -15,14 +17,18 @@ Drills v4 train exactly ONE mechanical struggle (the "muscle"). Unlike Context p
 
 ## API Endpoints
 
-### Mechanics Index
+> **Note**: The endpoints below describe the current implementation. For the **final API contract** that FE should build against, see [DRILLS_V4_BE_SHAPING.md](./DRILLS_V4_BE_SHAPING.md). The BE shaping spec defines the authoritative endpoint: `GET /v1/workspaces/{ws}/drills` which returns DrillGroups with nested DrillTiers.
+
+### Mechanics Index (Legacy)
 ```
 GET /v1/workspaces/{workspace}/mechanics/index.json
 ```
 
 Returns a list of mechanic groups, each with an `itemsUrl` pointing to per-mechanic drill indexes.
 
-### Per-Mechanic Drill Index
+**⚠️ Deprecated**: This endpoint is superseded by the new `/v1/workspaces/{ws}/drills` endpoint defined in [DRILLS_V4_BE_SHAPING.md](./DRILLS_V4_BE_SHAPING.md).
+
+### Per-Mechanic Drill Index (Legacy)
 ```
 GET /v1/workspaces/{workspace}/mechanics/{mechanicId}/index.json
 GET /v1/workspaces/{workspace}/mechanics/{mechanicId}/pages/{n}.json
@@ -30,12 +36,14 @@ GET /v1/workspaces/{workspace}/mechanics/{mechanicId}/pages/{n}.json
 
 Returns a paginated index of drills for a specific mechanic. See [PAGINATION_CONTRACT.md](./PAGINATION_CONTRACT.md) for pagination details.
 
+**⚠️ Deprecated**: This endpoint is superseded by the new `/v1/workspaces/{ws}/drills` endpoint defined in [DRILLS_V4_BE_SHAPING.md](./DRILLS_V4_BE_SHAPING.md).
+
 ### Drill Entry Document
 ```
 GET /v1/workspaces/{workspace}/drills/{drillId}/drill.json
 ```
 
-Returns the full drill entry document.
+Returns the full drill entry document. This endpoint remains unchanged.
 
 ## Drill Entry Schema v4
 

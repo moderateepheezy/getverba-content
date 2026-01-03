@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A2",
-  "title": "Modal Verbs: A2 (Tier 2)",
-  "shortTitle": "Modal Verbs A2",
+  "title": "Modal Verbs: A2 (Tier 2) - Slot",
+  "shortTitle": "Modal Verbs A2 Slot",
   "subtitle": "Tier 2 - slot substitution - Master modal verb patterns (kön",
   "estimatedMinutes": 4,
   "mechanicId": "modal_verbs",
@@ -17,7 +17,9 @@
   "variationSlots": [
     "subject",
     "verb",
-    "object"
+    "object",
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -62,133 +64,49 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Er esst nach Hause.",
+      "text": "Du willst morgen unbedingt eine essen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er esst nach Hause.",
+      "natural_en": "Du willst morgen unbedingt eine essen.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Er"
-        ],
-        "verb": [
-          "esst"
-        ],
-        "object": [
-          "nach Hause"
-        ]
-      },
-      "audioUrl": "/v1/audio/modal_verbs_A2_tier2/prompt-001.mp3"
-    },
-    {
-      "id": "prompt-002",
-      "text": "Sie kommt die.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie kommt die.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Sie"
-        ],
-        "verb": [
-          "kommt"
-        ],
-        "object": [
-          "die"
-        ]
-      },
-      "audioUrl": "/v1/audio/modal_verbs_A2_tier2/prompt-002.mp3"
-    },
-    {
-      "id": "prompt-003",
-      "text": "Wir trinken eine.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir trinken eine.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Wir"
-        ],
-        "verb": [
-          "trinken"
-        ],
-        "object": [
-          "eine"
-        ]
-      },
-      "audioUrl": "/v1/audio/modal_verbs_A2_tier2/prompt-003.mp3"
-    },
-    {
-      "id": "prompt-004",
-      "text": "Du kaufst den.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du kaufst den.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
+        "object",
+        "time",
+        "modifier"
       ],
       "slots": {
         "subject": [
           "Du"
         ],
         "verb": [
-          "kaufst"
-        ],
-        "object": [
-          "den"
-        ]
-      },
-      "audioUrl": "/v1/audio/modal_verbs_A2_tier2/prompt-004.mp3"
-    },
-    {
-      "id": "prompt-005",
-      "text": "Sie kauft eine.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie kauft eine.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Sie"
-        ],
-        "verb": [
-          "kauft"
+          "willst"
         ],
         "object": [
           "eine"
+        ],
+        "modifier": [
+          "unbedingt"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "infinitive": [
+          "essen"
         ]
       },
-      "audioUrl": "/v1/audio/modal_verbs_A2_tier2/prompt-005.mp3"
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier2/prompt-001.mp3"
     },
     {
-      "id": "prompt-006",
-      "text": "Ich mache den.",
+      "id": "prompt-002",
+      "text": "Ich kann bald einen schlafen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ich mache den.",
+      "natural_en": "Ich kann bald einen schlafen.",
       "slotsChanged": [
         "subject",
         "verb",
+        "time",
         "object"
       ],
       "slots": {
@@ -196,58 +114,206 @@
           "Ich"
         ],
         "verb": [
-          "mache"
+          "kann"
         ],
         "object": [
-          "den"
+          "einen"
+        ],
+        "time": [
+          "bald"
+        ],
+        "infinitive": [
+          "schlafen"
         ]
       },
-      "audioUrl": "/v1/audio/modal_verbs_A2_tier2/prompt-006.mp3"
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier2/prompt-002.mp3"
     },
     {
-      "id": "prompt-007",
-      "text": "Du hörst die.",
+      "id": "prompt-003",
+      "text": "jetzt können wir wirklich es kaufen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du hörst die.",
+      "natural_en": "jetzt können wir wirklich es kaufen.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time",
+        "modifier"
       ],
       "slots": {
         "subject": [
-          "Du"
+          "Wir"
         ],
         "verb": [
-          "hörst"
+          "können"
         ],
         "object": [
-          "die"
+          "es"
+        ],
+        "modifier": [
+          "wirklich"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "infinitive": [
+          "kaufen"
         ]
       },
-      "audioUrl": "/v1/audio/modal_verbs_A2_tier2/prompt-007.mp3"
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier2/prompt-003.mp3"
     },
     {
-      "id": "prompt-008",
-      "text": "Sie kauft einen.",
+      "id": "prompt-004",
+      "text": "nächste Woche möchte Sie hören.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie kauft einen.",
+      "natural_en": "nächste Woche möchte Sie hören.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "time"
       ],
       "slots": {
         "subject": [
           "Sie"
         ],
         "verb": [
-          "kauft"
+          "möchte"
+        ],
+        "time": [
+          "nächste Woche"
+        ],
+        "infinitive": [
+          "hören"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier2/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Er kann nächste Woche die spielen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er kann nächste Woche die spielen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "kann"
         ],
         "object": [
-          "einen"
+          "die"
+        ],
+        "time": [
+          "nächste Woche"
+        ],
+        "infinitive": [
+          "spielen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier2/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Ihr könnt jetzt ins Kino kommen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ihr könnt jetzt ins Kino kommen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "könnt"
+        ],
+        "object": [
+          "ins Kino"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "infinitive": [
+          "kommen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier2/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "Du kannst morgen Deutsch machen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du kannst morgen Deutsch machen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "kannst"
+        ],
+        "object": [
+          "Deutsch"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "infinitive": [
+          "machen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier2/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "Ich kann morgen doch es gehen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich kann morgen doch es gehen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "kann"
+        ],
+        "object": [
+          "es"
+        ],
+        "modifier": [
+          "doch"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "infinitive": [
+          "gehen"
         ]
       },
       "audioUrl": "/v1/audio/modal_verbs_A2_tier2/prompt-008.mp3"
@@ -268,20 +334,20 @@
     ],
     "coverage": {
       "verbs": [
-        "esst",
-        "kommt",
-        "trinken",
-        "kaufst",
-        "kauft",
-        "mache",
-        "hörst"
+        "willst",
+        "kann",
+        "können",
+        "möchte",
+        "könnt",
+        "kannst"
       ],
       "subjects": [
-        "Er",
-        "Sie",
-        "Wir",
         "Du",
-        "Ich"
+        "Ich",
+        "Wir",
+        "Sie",
+        "Er",
+        "Ihr"
       ],
       "patterns": [
         "modal_verb_infinitive",
@@ -294,10 +360,10 @@
     "estPromptCount": 8,
     "timeboxMinutes": 4,
     "qualitySignals": {
-      "tokenHitsCount": 0,
+      "tokenHitsCount": 8,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 7,
-      "uniqueSubjectCount": 5,
+      "uniqueVerbCount": 6,
+      "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -306,12 +372,21 @@
     "source": "template",
     "sourceRef": "mechanics/modal_verbs",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.638Z"
+    "generatedAt": "2026-01-03T09:52:17.352Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Modal Verbs: A2 (Tier 2) - Slot"
+  },
+  "shortTitle_i18n": {
+    "en": "Modal Verbs A2 Slot"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 2 - slot substitution - Master modal verb patterns (kön"
+  },
   "contentId": "de:drill:modal_verbs_a2_tier2_slot-substitution",
-  "contentHash": "35052a936334df321379afe864562ff019616cc27ed6fabbcedcbce7e7d16612",
-  "revisionId": "35052a936334"
+  "contentHash": "50fe979abe68ee0a8968dfcc988010e66e892bf149097782585868b57461d308",
+  "revisionId": "50fe979abe68"
 }

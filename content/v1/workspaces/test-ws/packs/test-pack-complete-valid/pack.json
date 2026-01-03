@@ -68,6 +68,9 @@
         "object": [
           "zur Arbeit"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I go to work"
       }
     },
     {
@@ -85,6 +88,9 @@
         "object": [
           "ins Büro"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "We drive to the office"
       }
     }
   ],

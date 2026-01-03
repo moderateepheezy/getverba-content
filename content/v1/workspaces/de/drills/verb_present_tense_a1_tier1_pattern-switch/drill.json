@@ -6,9 +6,9 @@
   "workspace": "de",
   "language": "de",
   "level": "A1",
-  "title": "Verb Present Tense: A1 (Tier 1)",
-  "shortTitle": "Verb Present Tense A1",
-  "subtitle": "Tier 1 - pattern switch - Master present tense verb conjugat",
+  "title": "Verb Present Tense: A1 (Tier 1) - Pattern",
+  "shortTitle": "Verb Present Tens A1 Pattern",
+  "subtitle": "Tier 1 - pattern switch - Practice present tense verb conjug",
   "estimatedMinutes": 3,
   "mechanicId": "verb_present_tense",
   "mechanicLabel": "Verb Present Tense",
@@ -18,7 +18,8 @@
     "subject",
     "verb",
     "object",
-    "modifier"
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -61,10 +62,38 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Es seht Essen.",
+      "text": "Ich lese wirklich Wasser.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Es seht Essen.",
+      "natural_en": "Ich lese wirklich Wasser.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "lese"
+        ],
+        "object": [
+          "Wasser"
+        ],
+        "modifier": [
+          "wirklich"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier1/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Wir kommen die Hausaufgaben.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Wir kommen die Hausaufgaben.",
       "slotsChanged": [
         "subject",
         "verb",
@@ -72,24 +101,25 @@
       ],
       "slots": {
         "subject": [
-          "Es"
+          "Wir"
         ],
         "verb": [
-          "seht"
+          "kommen"
         ],
         "object": [
-          "Essen"
+          "die Hausaufgaben"
         ]
       },
-      "audioUrl": "/v1/audio/verb_present_tense_A1_tier1/prompt-001.mp3"
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier1/prompt-002.mp3"
     },
     {
-      "id": "prompt-002",
-      "text": "Du arbeitst Englisch.",
+      "id": "prompt-003",
+      "text": "jetzt trinkst du Musik.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du arbeitst Englisch.",
+      "natural_en": "jetzt trinkst du Musik.",
       "slotsChanged": [
+        "time",
         "subject",
         "verb",
         "object"
@@ -99,46 +129,81 @@
           "Du"
         ],
         "verb": [
-          "arbeitst"
+          "trinkst"
         ],
         "object": [
-          "Englisch"
-        ]
-      },
-      "audioUrl": "/v1/audio/verb_present_tense_A1_tier1/prompt-002.mp3"
-    },
-    {
-      "id": "prompt-003",
-      "text": "Ihr kommt Büro.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ihr kommt Büro.",
-      "slotsChanged": [
-        "time",
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Ihr"
+          "Musik"
         ],
-        "verb": [
-          "kommt"
-        ],
-        "object": [
-          "Büro"
+        "time": [
+          "jetzt"
         ]
       },
       "audioUrl": "/v1/audio/verb_present_tense_A1_tier1/prompt-003.mp3"
     },
     {
       "id": "prompt-004",
-      "text": "Ihr trinkt Essen.",
+      "text": "Er macht schnell eine Pizza.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ihr trinkt Essen.",
+      "natural_en": "Er macht schnell eine Pizza.",
       "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "macht"
+        ],
+        "object": [
+          "eine Pizza"
+        ],
+        "modifier": [
+          "schnell"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier1/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Sie schreibt alleine Kaffee.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie schreibt alleine Kaffee.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "schreibt"
+        ],
+        "object": [
+          "Kaffee"
+        ],
+        "modifier": [
+          "alleine"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier1/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "oft geht ihr ein Buch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "oft geht ihr ein Buch.",
+      "slotsChanged": [
+        "time",
         "subject",
         "verb",
         "object"
@@ -148,59 +213,13 @@
           "Ihr"
         ],
         "verb": [
-          "trinkt"
+          "geht"
         ],
         "object": [
-          "Essen"
-        ]
-      },
-      "audioUrl": "/v1/audio/verb_present_tense_A1_tier1/prompt-004.mp3"
-    },
-    {
-      "id": "prompt-005",
-      "text": "Es trinkt Deutsch.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Es trinkt Deutsch.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Es"
+          "ein Buch"
         ],
-        "verb": [
-          "trinkt"
-        ],
-        "object": [
-          "Deutsch"
-        ]
-      },
-      "audioUrl": "/v1/audio/verb_present_tense_A1_tier1/prompt-005.mp3"
-    },
-    {
-      "id": "prompt-006",
-      "text": "Sie lernt Kaffee.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie lernt Kaffee.",
-      "slotsChanged": [
-        "time",
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Sie"
-        ],
-        "verb": [
-          "lernt"
-        ],
-        "object": [
-          "Kaffee"
+        "time": [
+          "oft"
         ]
       },
       "audioUrl": "/v1/audio/verb_present_tense_A1_tier1/prompt-006.mp3"
@@ -211,9 +230,7 @@
     "mechanicId": "verb_present_tense",
     "loopType": "pattern_switch",
     "targetStructures": [
-      "present_tense_conjugation",
-      "verb_second_position",
-      "subject_verb_agreement"
+      "present_tense"
     ],
     "variationSlots": [
       "subject",
@@ -221,22 +238,23 @@
     ],
     "coverage": {
       "verbs": [
-        "seht",
-        "arbeitst",
-        "kommt",
-        "trinkt",
-        "lernt"
+        "lese",
+        "kommen",
+        "trinkst",
+        "macht",
+        "schreibt",
+        "geht"
       ],
       "subjects": [
-        "Es",
+        "Ich",
+        "Wir",
         "Du",
-        "Ihr",
-        "Sie"
+        "Er",
+        "Sie",
+        "Ihr"
       ],
       "patterns": [
-        "present_tense_conjugation",
-        "verb_second_position",
-        "subject_verb_agreement"
+        "present_tense"
       ]
     },
     "difficultyTier": 1,
@@ -246,8 +264,8 @@
     "qualitySignals": {
       "tokenHitsCount": 6,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 5,
-      "uniqueSubjectCount": 4,
+      "uniqueVerbCount": 6,
+      "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -256,12 +274,21 @@
     "source": "template",
     "sourceRef": "mechanics/verb_present_tense",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.652Z"
+    "generatedAt": "2026-01-03T09:52:17.371Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Verb Present Tense: A1 (Tier 1) - Pattern"
+  },
+  "shortTitle_i18n": {
+    "en": "Verb Present Tens A1 Pattern"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 1 - pattern switch - Practice present tense verb conjug"
+  },
   "contentId": "de:drill:verb_present_tense_a1_tier1_pattern-switch",
-  "contentHash": "2c073b31c30542e2a23f39b86cb5205926042013ec0a276cbc95a1a2143d0c3d",
-  "revisionId": "2c073b31c305"
+  "contentHash": "c9870dce7c3e3e0d9209418455161b14e9e89d7cef63e344ffd0a8ff1cc3ddbc",
+  "revisionId": "c9870dce7c3e"
 }

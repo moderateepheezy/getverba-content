@@ -6,9 +6,9 @@
   "workspace": "de",
   "language": "de",
   "level": "A2",
-  "title": "Verb Present Tense: A2 (Tier 1)",
-  "shortTitle": "Verb Present Tense A2",
-  "subtitle": "Tier 1 - pattern switch - Master present tense verb conjugat",
+  "title": "Verb Present Tense: A2 (Tier 1) - Pattern",
+  "shortTitle": "Verb Present Tens A2 Pattern",
+  "subtitle": "Tier 1 - pattern switch - Practice present tense verb conjug",
   "estimatedMinutes": 3,
   "mechanicId": "verb_present_tense",
   "mechanicLabel": "Verb Present Tense",
@@ -18,7 +18,8 @@
     "subject",
     "verb",
     "object",
-    "modifier"
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -61,11 +62,68 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Ich trinke Musik.",
+      "text": "Wir essen sehr Klavier.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ich trinke Musik.",
+      "natural_en": "Wir essen sehr Klavier.",
       "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "essen"
+        ],
+        "object": [
+          "Klavier"
+        ],
+        "modifier": [
+          "sehr"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Du wohnst viel eine Pizza.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du wohnst viel eine Pizza.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "wohnst"
+        ],
+        "object": [
+          "eine Pizza"
+        ],
+        "modifier": [
+          "viel"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "später trinke ich Klavier.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später trinke ich Klavier.",
+      "slotsChanged": [
+        "time",
         "subject",
         "verb",
         "object"
@@ -78,70 +136,49 @@
           "trinke"
         ],
         "object": [
-          "Musik"
-        ]
-      },
-      "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-001.mp3"
-    },
-    {
-      "id": "prompt-002",
-      "text": "Wir hören Büro.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir hören Büro.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Wir"
+          "Klavier"
         ],
-        "verb": [
-          "hören"
-        ],
-        "object": [
-          "Büro"
-        ]
-      },
-      "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-002.mp3"
-    },
-    {
-      "id": "prompt-003",
-      "text": "Sie hört Haus.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie hört Haus.",
-      "slotsChanged": [
-        "time",
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Sie"
-        ],
-        "verb": [
-          "hört"
-        ],
-        "object": [
-          "Haus"
+        "time": [
+          "später"
         ]
       },
       "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-003.mp3"
     },
     {
       "id": "prompt-004",
-      "text": "Sie lernt Haus.",
+      "text": "Er schreibt eine Pizza.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie lernt Haus.",
+      "natural_en": "Er schreibt eine Pizza.",
       "slotsChanged": [
         "subject",
         "verb",
         "object"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "schreibt"
+        ],
+        "object": [
+          "eine Pizza"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Sie lernt gerne Fußball.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie lernt gerne Fußball.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
@@ -151,41 +188,20 @@
           "lernt"
         ],
         "object": [
-          "Haus"
-        ]
-      },
-      "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-004.mp3"
-    },
-    {
-      "id": "prompt-005",
-      "text": "Ich lerne Haus.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ich lerne Haus.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Ich"
+          "Fußball"
         ],
-        "verb": [
-          "lerne"
-        ],
-        "object": [
-          "Haus"
+        "modifier": [
+          "gerne"
         ]
       },
       "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-005.mp3"
     },
     {
       "id": "prompt-006",
-      "text": "Sie esst Gitarre.",
+      "text": "oft macht ihr die Hausaufgaben.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie esst Gitarre.",
+      "natural_en": "oft macht ihr die Hausaufgaben.",
       "slotsChanged": [
         "time",
         "subject",
@@ -194,13 +210,16 @@
       ],
       "slots": {
         "subject": [
-          "Sie"
+          "Ihr"
         ],
         "verb": [
-          "esst"
+          "macht"
         ],
         "object": [
-          "Gitarre"
+          "die Hausaufgaben"
+        ],
+        "time": [
+          "oft"
         ]
       },
       "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-006.mp3"
@@ -211,9 +230,7 @@
     "mechanicId": "verb_present_tense",
     "loopType": "pattern_switch",
     "targetStructures": [
-      "present_tense_conjugation",
-      "verb_second_position",
-      "subject_verb_agreement"
+      "present_tense"
     ],
     "variationSlots": [
       "subject",
@@ -221,22 +238,23 @@
     ],
     "coverage": {
       "verbs": [
+        "essen",
+        "wohnst",
         "trinke",
-        "hören",
-        "hört",
+        "schreibt",
         "lernt",
-        "lerne",
-        "esst"
+        "macht"
       ],
       "subjects": [
-        "Ich",
         "Wir",
-        "Sie"
+        "Du",
+        "Ich",
+        "Er",
+        "Sie",
+        "Ihr"
       ],
       "patterns": [
-        "present_tense_conjugation",
-        "verb_second_position",
-        "subject_verb_agreement"
+        "present_tense"
       ]
     },
     "difficultyTier": 1,
@@ -247,7 +265,7 @@
       "tokenHitsCount": 6,
       "multiSlotRate": 1,
       "uniqueVerbCount": 6,
-      "uniqueSubjectCount": 3,
+      "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -256,12 +274,21 @@
     "source": "template",
     "sourceRef": "mechanics/verb_present_tense",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.654Z"
+    "generatedAt": "2026-01-03T09:52:17.372Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Verb Present Tense: A2 (Tier 1) - Pattern"
+  },
+  "shortTitle_i18n": {
+    "en": "Verb Present Tens A2 Pattern"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 1 - pattern switch - Practice present tense verb conjug"
+  },
   "contentId": "de:drill:verb_present_tense_a2_tier1_pattern-switch",
-  "contentHash": "2510a6148adf85c780c58e35607f48bef81ef8cb1202998584c3b0952446bfc5",
-  "revisionId": "2510a6148adf"
+  "contentHash": "8c253d85e65277694d7e476946e0b50fa94c0382b785169db214c06db4d6fc52",
+  "revisionId": "8c253d85e652"
 }

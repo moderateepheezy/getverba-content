@@ -25,7 +25,7 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Die Ärztin hat die Behandlung um 15:00",
+      "text": "Wir haben die Behandlung um 15:00",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -37,10 +37,10 @@
       ],
       "slots": {
         "subject": [
-          "Die Ärztin"
+          "Wir"
         ],
         "verb": [
-          "hat"
+          "haben"
         ],
         "object": [
           "die Behandlung"
@@ -48,6 +48,28 @@
         "modifier": [
           "um 15:00"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     },
     {
@@ -74,6 +96,28 @@
         "modifier": [
           "nächste Woche"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something.",
+        "es": "Necesito programar algo.",
+        "fr": "Je dois programmer quelque chose.",
+        "it": "Devo programmare qualcosa.",
+        "pt": "Preciso de marcar uma coisa.",
+        "ru": "Мне нужно кое-что запланировать.",
+        "ja": "何か予定を入れないと。",
+        "ko": "일정을 잡아야 합니다.",
+        "zh-CN": "我需要安排一些事情。",
+        "zh-TW": "我需要安排一些事情。",
+        "ar": "أحتاج إلى جدولة شيء ما.",
+        "tr": "Bir şeyler ayarlamam lazım.",
+        "pl": "Muszę coś zaplanować.",
+        "nl": "Ik moet iets plannen.",
+        "sv": "Jag måste planera in något.",
+        "no": "Jeg må planlegge noe.",
+        "da": "Jeg er nødt til at planlægge noget.",
+        "fi": "Minun on varattava aikaa.",
+        "el": "Πρέπει να προγραμματίσω κάτι.",
+        "cs": "Musím si něco naplánovat."
       }
     },
     {
@@ -98,6 +142,28 @@
         "object": [
           "die Symptome"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     },
     {
@@ -122,6 +188,28 @@
         "object": [
           "einen Termin"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something.",
+        "es": "Necesito programar algo.",
+        "fr": "Je dois programmer quelque chose.",
+        "it": "Devo programmare qualcosa.",
+        "pt": "Preciso de marcar uma coisa.",
+        "ru": "Мне нужно кое-что запланировать.",
+        "ja": "何か予定を入れないと。",
+        "ko": "일정을 잡아야 합니다.",
+        "zh-CN": "我需要安排一些事情。",
+        "zh-TW": "我需要安排一些事情。",
+        "ar": "أحتاج إلى جدولة شيء ما.",
+        "tr": "Bir şeyler ayarlamam lazım.",
+        "pl": "Muszę coś zaplanować.",
+        "nl": "Ik moet iets plannen.",
+        "sv": "Jag måste planera in något.",
+        "no": "Jeg må planlegge noe.",
+        "da": "Jeg er nødt til at planlægge noget.",
+        "fi": "Minun on varattava aikaa.",
+        "el": "Πρέπει να προγραμματίσω κάτι.",
+        "cs": "Musím si něco naplánovat."
       }
     },
     {
@@ -145,6 +233,28 @@
         "object": [
           "die Behandlung"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     },
     {
@@ -168,11 +278,33 @@
         "object": [
           "die Medikamente"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     },
     {
       "id": "prompt-007",
-      "text": "Sie fühlen die Medikamente",
+      "text": "Sie fühlen die Medikamente heute",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -190,7 +322,32 @@
         ],
         "object": [
           "die Medikamente"
+        ],
+        "modifier": [
+          "heute"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     }
   ],
@@ -268,7 +425,7 @@
     "multiSlotRate": 1,
     "scenarioTokenHitAvg": 0.14285714285714285,
     "scenarioTokenQualifiedRate": 0,
-    "uniqueTokenRate": 0.5128205128205128,
+    "uniqueTokenRate": 0.5897435897435898,
     "bannedPhraseViolations": 0,
     "passesQualityGates": false,
     "focus": "modal_verbs",
@@ -312,15 +469,55 @@
     "generatedAt": "2026-01-01T00:56:03.895Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T07:30:00.000Z"
   },
   "contentId": "de:pack:doctor_pack_6_a1",
   "contentHash": "e7ceaed78804b1fc55f9803a4d137b7d19cadef573e68987906a1cdfe2c24d5a",
   "revisionId": "e7ceaed78804",
   "title_i18n": {
-    "en": "Doctor A1 — 6: Getting Prescription"
+    "en": "Doctor A1 — 6: Getting Prescription",
+    "es": "Doctor A1 - 6: Conseguir la receta",
+    "fr": "Docteur A1 - 6 : Obtenir une ordonnance",
+    "it": "Medico A1 - 6: Ottenere la prescrizione",
+    "pt": "Doctor A1 - 6: Receber uma receita",
+    "ru": "Доктор A1 - 6: Получение рецепта",
+    "ja": "ドクターA1 - 6: 処方箋をもらう",
+    "ko": "닥터 A1 - 6: 처방전 받기",
+    "zh-CN": "医生 A1 - 6：获取处方",
+    "zh-TW": "医生 A1 - 6：获取处方",
+    "ar": "الطبيب أ 1 - 6: الحصول على وصفة طبية",
+    "tr": "Doktor A1 - 6: Reçete Alma",
+    "pl": "Doctor A1 - 6: Otrzymanie recepty",
+    "nl": "Dokter A1 - 6: een recept krijgen",
+    "sv": "Doktor A1 - 6: Att få recept",
+    "no": "Lege A1 - 6: Få resept",
+    "da": "Læge A1 - 6: At få recept",
+    "fi": "Lääkäri A1 - 6: Reseptin saaminen",
+    "el": "Γιατρός A1 - 6: Συνταγογράφηση",
+    "cs": "Lékař A1 - 6: Získání lékařského předpisu"
   },
   "description_i18n": {
-    "en": "Practice doctor scenarios at A1 level."
+    "en": "Practice doctor scenarios at A1 level.",
+    "es": "Practicar escenarios de médicos a nivel A1.",
+    "fr": "Pratiquer des scénarios de médecins au niveau A1.",
+    "it": "Esercitarsi in scenari medici di livello A1.",
+    "pt": "Praticar cenários médicos ao nível A1.",
+    "ru": "Практикуйте сценарии для врачей на уровне A1.",
+    "ja": "A1レベルの医師シナリオを練習する。",
+    "ko": "A1 수준의 의사 시나리오를 연습하세요.",
+    "zh-CN": "以 A1 水平练习医生情景。",
+    "zh-TW": "以 A1 水平练习医生情景。",
+    "ar": "تدرب على سيناريوهات الطبيب في المستوى A1.",
+    "tr": "A1 seviyesinde doktor senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze dla lekarzy na poziomie A1.",
+    "nl": "Oefen doktersscenario's op A1-niveau.",
+    "sv": "Öva på läkarscenarier på A1-nivå.",
+    "no": "Øv deg på legescenarioer på A1-nivå.",
+    "da": "Øv dig på lægescenarier på A1-niveau.",
+    "fi": "Harjoittele lääkärin skenaarioita A1-tasolla.",
+    "el": "Πρακτική εξάσκηση σε σενάρια γιατρών σε επίπεδο Α1.",
+    "cs": "Procvičování scénářů pro lékaře na úrovni A1."
   }
 }

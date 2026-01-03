@@ -1,107 +1,88 @@
 {
   "version": "v1",
   "kind": "drills",
-  "total": 149,
+  "total": 144,
   "pageSize": 20,
   "page": 8,
   "items": [
     {
-      "id": "word_order_main_clause_a2_tier1_error-trap",
-      "kind": "drill",
-      "title": "Word Order: Main Clause: A2 (Tier 1)",
-      "level": "A2",
-      "durationMinutes": 3,
-      "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a2_tier1_error-trap/drill.json",
-      "contentId": "de:drill:word_order_main_clause_a2_tier1_error-trap",
-      "revisionId": "24456e93dfd0",
-      "domainKind": "context"
-    },
-    {
-      "id": "word_order_main_clause_a2_tier1_pattern-switch",
-      "kind": "drill",
-      "title": "Word Order: Main Clause: A2 (Tier 1)",
-      "level": "A2",
-      "durationMinutes": 3,
-      "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a2_tier1_pattern-switch/drill.json",
-      "contentId": "de:drill:word_order_main_clause_a2_tier1_pattern-switch",
-      "revisionId": "66d9318c331e",
-      "domainKind": "context"
-    },
-    {
-      "id": "word_order_main_clause_a2_tier1_slot-substitution",
-      "kind": "drill",
-      "title": "Word Order: Main Clause: A2 (Tier 1)",
-      "level": "A2",
-      "durationMinutes": 3,
-      "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a2_tier1_slot-substitution/drill.json",
-      "contentId": "de:drill:word_order_main_clause_a2_tier1_slot-substitution",
-      "revisionId": "642fbcb34e72",
-      "domainKind": "context"
-    },
-    {
       "id": "word_order_main_clause_a2_tier2_error-trap",
       "kind": "drill",
-      "title": "Word Order: Main Clause: A2 (Tier 2)",
+      "title": "Word Order: Main Clause: A2 (Tier 2) - Trap",
       "level": "A2",
       "durationMinutes": 4,
       "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a2_tier2_error-trap/drill.json",
       "contentId": "de:drill:word_order_main_clause_a2_tier2_error-trap",
-      "revisionId": "344481e1a03e",
-      "domainKind": "context"
-    },
-    {
-      "id": "word_order_main_clause_a2_tier2_pattern-switch",
-      "kind": "drill",
-      "title": "Word Order: Main Clause: A2 (Tier 2)",
-      "level": "A2",
-      "durationMinutes": 4,
-      "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a2_tier2_pattern-switch/drill.json",
-      "contentId": "de:drill:word_order_main_clause_a2_tier2_pattern-switch",
-      "revisionId": "90e7afdeb668",
-      "domainKind": "context"
-    },
-    {
-      "id": "word_order_main_clause_a2_tier2_slot-substitution",
-      "kind": "drill",
-      "title": "Word Order: Main Clause: A2 (Tier 2)",
-      "level": "A2",
-      "durationMinutes": 4,
-      "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a2_tier2_slot-substitution/drill.json",
-      "contentId": "de:drill:word_order_main_clause_a2_tier2_slot-substitution",
-      "revisionId": "f63c13a6da67",
-      "domainKind": "context"
-    },
-    {
-      "id": "word_order_main_clause_a2_tier3_error-trap",
-      "kind": "drill",
-      "title": "Word Order: Main Clause: A2 (Tier 3)",
-      "level": "A2",
-      "durationMinutes": 5,
-      "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a2_tier3_error-trap/drill.json",
-      "contentId": "de:drill:word_order_main_clause_a2_tier3_error-trap",
-      "revisionId": "79e89c2981a0",
+      "revisionId": "92f3461c8c07",
+      "title_i18n": {
+        "en": "Word Order: Main Clause: A2 (Tier 2) - Trap"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - error trap - Master verb-second position in main cl"
+      },
+      "shortTitle_i18n": {
+        "en": "Word Order: Main Cla A2 Trap"
+      },
       "domainKind": "context"
     },
     {
       "id": "word_order_main_clause_a2_tier3_pattern-switch",
       "kind": "drill",
-      "title": "Word Order: Main Clause: A2 (Tier 3)",
+      "title": "Word Order: Main Clause: A2 (Tier 3) - Pattern",
       "level": "A2",
       "durationMinutes": 5,
       "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a2_tier3_pattern-switch/drill.json",
       "contentId": "de:drill:word_order_main_clause_a2_tier3_pattern-switch",
-      "revisionId": "839ef4ed90e6",
+      "revisionId": "06e23d3a4b1c",
+      "title_i18n": {
+        "en": "Word Order: Main Clause: A2 (Tier 3) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - pattern switch - Master verb-second position in mai"
+      },
+      "shortTitle_i18n": {
+        "en": "Word Order: Main  A2 Pattern"
+      },
       "domainKind": "context"
     },
     {
       "id": "word_order_main_clause_a2_tier3_slot-substitution",
       "kind": "drill",
-      "title": "Word Order: Main Clause: A2 (Tier 3)",
+      "title": "Word Order: Main Clause: A2 (Tier 3) - Slot",
       "level": "A2",
       "durationMinutes": 5,
       "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a2_tier3_slot-substitution/drill.json",
       "contentId": "de:drill:word_order_main_clause_a2_tier3_slot-substitution",
-      "revisionId": "1c3ede4d3192",
+      "revisionId": "2eb11b91a1f1",
+      "title_i18n": {
+        "en": "Word Order: Main Clause: A2 (Tier 3) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - slot substitution - Master verb-second position in "
+      },
+      "shortTitle_i18n": {
+        "en": "Word Order: Main Cla A2 Slot"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "word_order_main_clause_a2_tier3_error-trap",
+      "kind": "drill",
+      "title": "Word Order: Main Clause: A2 (Tier 3) - Trap",
+      "level": "A2",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a2_tier3_error-trap/drill.json",
+      "contentId": "de:drill:word_order_main_clause_a2_tier3_error-trap",
+      "revisionId": "2a4a7b7079db",
+      "title_i18n": {
+        "en": "Word Order: Main Clause: A2 (Tier 3) - Trap"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - error trap - Master verb-second position in main cl"
+      },
+      "shortTitle_i18n": {
+        "en": "Word Order: Main Cla A2 Trap"
+      },
       "domainKind": "context"
     }
   ],

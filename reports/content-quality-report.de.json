@@ -1,39 +1,2570 @@
 {
   "workspace": "de",
-  "timestamp": "2025-12-30T20:15:56.973Z",
+  "timestamp": "2026-01-03T10:32:03.466Z",
   "packs": {
-    "total": 0,
-    "byScenario": {},
-    "byPrimaryStructure": {},
-    "byLevel": {}
+    "total": 89,
+    "byScenario": {
+      "friends_small_talk": 24,
+      "doctor": 16,
+      "government_office": 6,
+      "housing": 20,
+      "work": 23
+    },
+    "byPrimaryStructure": {
+      "modal_verbs_suggestions": 24,
+      "modal_verbs_requests": 45,
+      "dative_case": 20
+    },
+    "byLevel": {
+      "A1": 36,
+      "A2": 45,
+      "B1": 8
+    }
   },
   "metrics": {
     "scenarioCoverage": {
-      "distribution": {},
+      "distribution": {
+        "friends_small_talk": 24,
+        "doctor": 16,
+        "government_office": 6,
+        "housing": 20,
+        "work": 23
+      },
       "failures": [],
       "warnings": []
     },
     "primaryStructureDiversity": {
-      "failures": [],
-      "warnings": []
+      "distribution": {
+        "modal_verbs_suggestions": 24,
+        "modal_verbs_requests": 45,
+        "dative_case": 20
+      },
+      "failures": [
+        "Primary structure \"modal_verbs_requests\" is 50.6% of packs (max: 35%)"
+      ]
     },
     "variationSlotDepth": {
-      "failures": [],
-      "warnings": []
+      "workspaceAverage": 3.11978465679677,
+      "multiSlotPercentage": 97.71197846567968,
+      "packFailures": [],
+      "failures": []
     },
     "sentenceReuse": {
-      "failures": [],
-      "warnings": []
+      "duplicateSentences": [
+        {
+          "sentence": "die ärztin hat die behandlung nächste woche um 1430",
+          "packs": [
+            "doctor_pack_1_a1",
+            "doctor_pack_1_a2"
+          ]
+        },
+        {
+          "sentence": "sie möchte die behandlung morgen um 1800",
+          "packs": [
+            "doctor_pack_1_a1",
+            "doctor_pack_1_a2"
+          ]
+        },
+        {
+          "sentence": "der arzt fühlt die untersuchung",
+          "packs": [
+            "doctor_pack_1_a1",
+            "doctor_pack_1_a2"
+          ]
+        },
+        {
+          "sentence": "der arzt braucht die untersuchung",
+          "packs": [
+            "doctor_pack_1_a1",
+            "doctor_pack_1_a2"
+          ]
+        },
+        {
+          "sentence": "ich brauche die untersuchung",
+          "packs": [
+            "doctor_pack_1_a1",
+            "doctor_pack_1_a2"
+          ]
+        },
+        {
+          "sentence": "ich vereinbare die diagnose",
+          "packs": [
+            "doctor_pack_1_a1",
+            "doctor_pack_1_a2"
+          ]
+        },
+        {
+          "sentence": "der arzt braucht einen termin",
+          "packs": [
+            "doctor_pack_1_a1",
+            "doctor_pack_1_a2"
+          ]
+        },
+        {
+          "sentence": "die ärztin möchte die medikamente am montag",
+          "packs": [
+            "doctor_pack_2_a1",
+            "doctor_pack_2_a2"
+          ]
+        },
+        {
+          "sentence": "sie kann die untersuchung um 1500",
+          "packs": [
+            "doctor_pack_2_a1",
+            "doctor_pack_2_a2"
+          ]
+        },
+        {
+          "sentence": "sie haben die diagnose",
+          "packs": [
+            "doctor_pack_2_a1",
+            "doctor_pack_2_a2"
+          ]
+        },
+        {
+          "sentence": "ich vereinbare die symptome",
+          "packs": [
+            "doctor_pack_2_a1",
+            "doctor_pack_2_a2"
+          ]
+        },
+        {
+          "sentence": "die ärztin braucht die diagnose",
+          "packs": [
+            "doctor_pack_2_a1",
+            "doctor_pack_2_a2"
+          ]
+        },
+        {
+          "sentence": "der arzt fühlt einen termin",
+          "packs": [
+            "doctor_pack_2_a1",
+            "doctor_pack_2_a2"
+          ]
+        },
+        {
+          "sentence": "sie haben einen termin",
+          "packs": [
+            "doctor_pack_2_a1",
+            "doctor_pack_2_a2"
+          ]
+        },
+        {
+          "sentence": "die ärztin hat die untersuchung um 10 uhr",
+          "packs": [
+            "doctor_pack_3_a1",
+            "doctor_pack_3_a2"
+          ]
+        },
+        {
+          "sentence": "sie vereinbaren die untersuchung um 10 uhr",
+          "packs": [
+            "doctor_pack_3_a1",
+            "doctor_pack_3_a2"
+          ]
+        },
+        {
+          "sentence": "der arzt nehmt die medikamente",
+          "packs": [
+            "doctor_pack_3_a1",
+            "doctor_pack_3_a2"
+          ]
+        },
+        {
+          "sentence": "ich kann die untersuchung",
+          "packs": [
+            "doctor_pack_3_a1",
+            "doctor_pack_3_a2"
+          ]
+        },
+        {
+          "sentence": "sie fühlen die medikamente",
+          "packs": [
+            "doctor_pack_3_a1",
+            "doctor_pack_6_a1",
+            "doctor_pack_3_a2",
+            "doctor_pack_6_a2"
+          ]
+        },
+        {
+          "sentence": "die ärztin möchte die diagnose",
+          "packs": [
+            "doctor_pack_3_a1",
+            "doctor_pack_3_a2"
+          ]
+        },
+        {
+          "sentence": "die ärztin muss die behandlung",
+          "packs": [
+            "doctor_pack_3_a1",
+            "doctor_pack_3_a2"
+          ]
+        },
+        {
+          "sentence": "sie möchte die medikamente um 10 uhr",
+          "packs": [
+            "doctor_pack_4_a1",
+            "doctor_pack_4_a2"
+          ]
+        },
+        {
+          "sentence": "ich nehme einen termin nächste woche um 1800",
+          "packs": [
+            "doctor_pack_4_a1",
+            "doctor_pack_4_a2"
+          ]
+        },
+        {
+          "sentence": "die ärztin kann die diagnose",
+          "packs": [
+            "doctor_pack_4_a1",
+            "doctor_pack_4_a2"
+          ]
+        },
+        {
+          "sentence": "der arzt kann die symptome",
+          "packs": [
+            "doctor_pack_4_a1",
+            "doctor_pack_4_a2"
+          ]
+        },
+        {
+          "sentence": "die ärztin kann die untersuchung",
+          "packs": [
+            "doctor_pack_4_a1",
+            "doctor_pack_4_a2"
+          ]
+        },
+        {
+          "sentence": "sie vereinbaren die untersuchung",
+          "packs": [
+            "doctor_pack_4_a1",
+            "doctor_pack_4_a2"
+          ]
+        },
+        {
+          "sentence": "ich nehme die diagnose am montag",
+          "packs": [
+            "doctor_pack_5_a1",
+            "doctor_pack_5_a2"
+          ]
+        },
+        {
+          "sentence": "sie brauchen die diagnose",
+          "packs": [
+            "doctor_pack_5_a1",
+            "doctor_pack_5_a2"
+          ]
+        },
+        {
+          "sentence": "die ärztin kann einen termin",
+          "packs": [
+            "doctor_pack_5_a1",
+            "doctor_pack_5_a2"
+          ]
+        },
+        {
+          "sentence": "der arzt möchte die symptome",
+          "packs": [
+            "doctor_pack_5_a1",
+            "doctor_pack_5_a2"
+          ]
+        },
+        {
+          "sentence": "der arzt muss die diagnose",
+          "packs": [
+            "doctor_pack_5_a1",
+            "doctor_pack_5_a2"
+          ]
+        },
+        {
+          "sentence": "der arzt hat die diagnose",
+          "packs": [
+            "doctor_pack_5_a1",
+            "doctor_pack_5_a2"
+          ]
+        },
+        {
+          "sentence": "die ärztin hat einen termin nächste woche um 1830",
+          "packs": [
+            "doctor_pack_6_a1",
+            "doctor_pack_6_a2"
+          ]
+        },
+        {
+          "sentence": "sie brauchen die symptome",
+          "packs": [
+            "doctor_pack_6_a1",
+            "doctor_pack_6_a2"
+          ]
+        },
+        {
+          "sentence": "der arzt hat einen termin",
+          "packs": [
+            "doctor_pack_6_a1",
+            "doctor_pack_6_a2"
+          ]
+        },
+        {
+          "sentence": "der arzt muss die behandlung",
+          "packs": [
+            "doctor_pack_6_a1",
+            "doctor_pack_6_a2"
+          ]
+        },
+        {
+          "sentence": "der arzt vereinbart die medikamente",
+          "packs": [
+            "doctor_pack_6_a1",
+            "doctor_pack_6_a2"
+          ]
+        },
+        {
+          "sentence": "ich habe die symptome morgen um 900",
+          "packs": [
+            "doctor_pack_7_a1",
+            "doctor_pack_7_a2"
+          ]
+        },
+        {
+          "sentence": "die ärztin kann die medikamente",
+          "packs": [
+            "doctor_pack_7_a1",
+            "doctor_pack_7_a2"
+          ]
+        },
+        {
+          "sentence": "ich muss die behandlung",
+          "packs": [
+            "doctor_pack_7_a1",
+            "doctor_pack_7_a2"
+          ]
+        },
+        {
+          "sentence": "ich möchte die medikamente",
+          "packs": [
+            "doctor_pack_7_a1",
+            "doctor_pack_7_a2"
+          ]
+        },
+        {
+          "sentence": "die ärztin möchte die symptome",
+          "packs": [
+            "doctor_pack_7_a1",
+            "doctor_pack_7_a2"
+          ]
+        },
+        {
+          "sentence": "ich fühle die medikamente",
+          "packs": [
+            "doctor_pack_7_a1",
+            "doctor_pack_7_a2"
+          ]
+        },
+        {
+          "sentence": "ich kann die medikamente morgen um 1800",
+          "packs": [
+            "doctor_pack_8_a1",
+            "doctor_pack_8_a2"
+          ]
+        },
+        {
+          "sentence": "die ärztin vereinbart die diagnose um 1500",
+          "packs": [
+            "doctor_pack_8_a1",
+            "doctor_pack_8_a2"
+          ]
+        },
+        {
+          "sentence": "die ärztin hat die behandlung",
+          "packs": [
+            "doctor_pack_8_a1",
+            "doctor_pack_8_a2"
+          ]
+        },
+        {
+          "sentence": "ich fühle die diagnose",
+          "packs": [
+            "doctor_pack_8_a1",
+            "doctor_pack_8_a2"
+          ]
+        },
+        {
+          "sentence": "ich brauche einen termin",
+          "packs": [
+            "doctor_pack_8_a1",
+            "doctor_pack_8_a2"
+          ]
+        },
+        {
+          "sentence": "die ärztin vereinbart die diagnose",
+          "packs": [
+            "doctor_pack_8_a1",
+            "doctor_pack_8_a2"
+          ]
+        },
+        {
+          "sentence": "hast du hast zum park am sonntag",
+          "packs": [
+            "friends_small_talk_pack_1_a1",
+            "friends_small_talk_pack_1_a2"
+          ]
+        },
+        {
+          "sentence": "sollen wir sollen zum gym um 2030",
+          "packs": [
+            "friends_small_talk_pack_1_a1",
+            "friends_small_talk_pack_1_a2"
+          ]
+        },
+        {
+          "sentence": "wir trinken einen spaziergang abends",
+          "packs": [
+            "friends_small_talk_pack_1_a1",
+            "friends_small_talk_pack_1_a2"
+          ]
+        },
+        {
+          "sentence": "ich können ins kino morgen",
+          "packs": [
+            "friends_small_talk_pack_1_a1",
+            "friends_small_talk_pack_1_a2"
+          ]
+        },
+        {
+          "sentence": "wir möchtesten zum restaurant",
+          "packs": [
+            "friends_small_talk_pack_1_a1",
+            "friends_small_talk_pack_1_a2"
+          ]
+        },
+        {
+          "sentence": "lass uns sollen eine idee",
+          "packs": [
+            "friends_small_talk_pack_1_a1",
+            "friends_small_talk_pack_1_a2"
+          ]
+        },
+        {
+          "sentence": "ich können zum gym",
+          "packs": [
+            "friends_small_talk_pack_1_a1",
+            "friends_small_talk_pack_1_a2"
+          ]
+        },
+        {
+          "sentence": "hast du möchte einen film",
+          "packs": [
+            "friends_small_talk_pack_1_a1",
+            "friends_small_talk_pack_1_a2"
+          ]
+        },
+        {
+          "sentence": "du treffen einen spaziergang um 2030",
+          "packs": [
+            "friends_small_talk_pack_1_a1",
+            "friends_small_talk_pack_1_a2"
+          ]
+        },
+        {
+          "sentence": "sollen wir willst einen film morgen",
+          "packs": [
+            "friends_small_talk_pack_1_a1",
+            "friends_small_talk_pack_1_a2"
+          ]
+        },
+        {
+          "sentence": "du können ins kino morgen",
+          "packs": [
+            "friends_small_talk_pack_1_a1",
+            "friends_small_talk_pack_1_a2"
+          ]
+        },
+        {
+          "sentence": "lass uns sollen ins kino abends um 930",
+          "packs": [
+            "friends_small_talk_pack_2_a1",
+            "friends_small_talk_pack_2_a2"
+          ]
+        },
+        {
+          "sentence": "sollen wir gehen zum park später um 930",
+          "packs": [
+            "friends_small_talk_pack_2_a1",
+            "friends_small_talk_pack_2_a2"
+          ]
+        },
+        {
+          "sentence": "lass uns möchtest ein konzert morgen",
+          "packs": [
+            "friends_small_talk_pack_2_a1",
+            "friends_small_talk_pack_2_a2"
+          ]
+        },
+        {
+          "sentence": "wir schauen ins training morgen",
+          "packs": [
+            "friends_small_talk_pack_2_a1",
+            "friends_small_talk_pack_2_a2"
+          ]
+        },
+        {
+          "sentence": "lass uns wollen kaffee",
+          "packs": [
+            "friends_small_talk_pack_2_a1",
+            "friends_small_talk_pack_2_a2"
+          ]
+        },
+        {
+          "sentence": "ich essen zeit",
+          "packs": [
+            "friends_small_talk_pack_2_a1",
+            "friends_small_talk_pack_2_a2"
+          ]
+        },
+        {
+          "sentence": "ich kannst lust",
+          "packs": [
+            "friends_small_talk_pack_2_a1",
+            "friends_small_talk_pack_2_a2"
+          ]
+        },
+        {
+          "sentence": "sollen wir können zum gym",
+          "packs": [
+            "friends_small_talk_pack_2_a1",
+            "friends_small_talk_pack_2_a2"
+          ]
+        },
+        {
+          "sentence": "sollen wir willst einen spaziergang",
+          "packs": [
+            "friends_small_talk_pack_2_a1",
+            "friends_small_talk_pack_2_a2"
+          ]
+        },
+        {
+          "sentence": "wir hasten zum park heute",
+          "packs": [
+            "friends_small_talk_pack_2_a1",
+            "friends_movies_series_a1",
+            "friends_small_talk_pack_2_a2"
+          ]
+        },
+        {
+          "sentence": "ich trinken ein konzert heute",
+          "packs": [
+            "friends_small_talk_pack_2_a1",
+            "friends_small_talk_pack_2_a2"
+          ]
+        },
+        {
+          "sentence": "sollen wir möchtest kaffee abends",
+          "packs": [
+            "friends_small_talk_pack_2_a1",
+            "friends_small_talk_pack_2_a2"
+          ]
+        },
+        {
+          "sentence": "lass uns hast einen spaziergang heute",
+          "packs": [
+            "friends_small_talk_pack_3_a1",
+            "friends_small_talk_pack_3_a2"
+          ]
+        },
+        {
+          "sentence": "lass uns hätte zum park morgen",
+          "packs": [
+            "friends_small_talk_pack_3_a1",
+            "friends_small_talk_pack_3_a2"
+          ]
+        },
+        {
+          "sentence": "du möchte eine idee heute",
+          "packs": [
+            "friends_small_talk_pack_3_a1",
+            "friends_small_talk_pack_3_a2"
+          ]
+        },
+        {
+          "sentence": "lass uns hätte ein konzert am samstag",
+          "packs": [
+            "friends_small_talk_pack_3_a1",
+            "friends_small_talk_pack_3_a2"
+          ]
+        },
+        {
+          "sentence": "du treffen ins kino",
+          "packs": [
+            "friends_small_talk_pack_3_a1",
+            "friends_small_talk_pack_3_a2"
+          ]
+        },
+        {
+          "sentence": "lass uns hätte in die bar",
+          "packs": [
+            "friends_small_talk_pack_3_a1",
+            "friends_small_talk_pack_3_a2"
+          ]
+        },
+        {
+          "sentence": "hast du hast in die bar",
+          "packs": [
+            "friends_small_talk_pack_3_a1",
+            "friends_small_talk_pack_3_a2"
+          ]
+        },
+        {
+          "sentence": "du trinken ein konzert",
+          "packs": [
+            "friends_small_talk_pack_3_a1",
+            "friends_small_talk_pack_3_a2"
+          ]
+        },
+        {
+          "sentence": "wir treffen einen plan",
+          "packs": [
+            "friends_small_talk_pack_3_a1",
+            "friends_small_talk_pack_3_a2"
+          ]
+        },
+        {
+          "sentence": "wir treffen lust heute",
+          "packs": [
+            "friends_small_talk_pack_3_a1",
+            "friends_small_talk_pack_3_a2"
+          ]
+        },
+        {
+          "sentence": "wir schauen zum gym um 2030",
+          "packs": [
+            "friends_small_talk_pack_3_a1",
+            "friends_small_talk_pack_3_a2"
+          ]
+        },
+        {
+          "sentence": "lass uns möchte ins training heute",
+          "packs": [
+            "friends_small_talk_pack_3_a1",
+            "friends_small_talk_pack_3_a2"
+          ]
+        },
+        {
+          "sentence": "sollen wir sollen eine idee heute",
+          "packs": [
+            "friends_small_talk_pack_4_a1",
+            "friends_small_talk_pack_4_a2"
+          ]
+        },
+        {
+          "sentence": "du hätte zeit am sonntag",
+          "packs": [
+            "friends_small_talk_pack_4_a1",
+            "friends_small_talk_pack_4_a2"
+          ]
+        },
+        {
+          "sentence": "hast du treffen ein konzert später",
+          "packs": [
+            "friends_small_talk_pack_4_a1",
+            "friends_small_talk_pack_4_a2"
+          ]
+        },
+        {
+          "sentence": "lass uns essen zum park um 2030",
+          "packs": [
+            "friends_small_talk_pack_4_a1",
+            "friends_small_talk_pack_4_a2"
+          ]
+        },
+        {
+          "sentence": "wir hätte einen film",
+          "packs": [
+            "friends_small_talk_pack_4_a1",
+            "friends_small_talk_pack_4_a2"
+          ]
+        },
+        {
+          "sentence": "sollen wir trinken zum park",
+          "packs": [
+            "friends_small_talk_pack_4_a1",
+            "friends_small_talk_pack_4_a2"
+          ]
+        },
+        {
+          "sentence": "wir machen ins kino",
+          "packs": [
+            "friends_small_talk_pack_4_a1",
+            "friends_small_talk_pack_4_a2"
+          ]
+        },
+        {
+          "sentence": "lass uns hätte ins café mitkommen",
+          "packs": [
+            "friends_small_talk_pack_4_a1",
+            "friends_small_talk_pack_4_a2"
+          ]
+        },
+        {
+          "sentence": "ich hätte ins training",
+          "packs": [
+            "friends_small_talk_pack_4_a1",
+            "friends_small_talk_pack_4_a2"
+          ]
+        },
+        {
+          "sentence": "lass uns möchtest ein konzert später",
+          "packs": [
+            "friends_small_talk_pack_4_a1",
+            "friends_small_talk_pack_4_a2"
+          ]
+        },
+        {
+          "sentence": "du möchte zeit um 19 uhr",
+          "packs": [
+            "friends_small_talk_pack_4_a1",
+            "friends_small_talk_pack_4_a2"
+          ]
+        },
+        {
+          "sentence": "du möchte einen plan am sonntag",
+          "packs": [
+            "friends_small_talk_pack_4_a1",
+            "friends_small_talk_pack_4_a2"
+          ]
+        },
+        {
+          "sentence": "lass uns machen eine idee um 19 uhr",
+          "packs": [
+            "friends_small_talk_pack_5_a1",
+            "friends_small_talk_pack_5_a2"
+          ]
+        },
+        {
+          "sentence": "ich möchte einen film abends",
+          "packs": [
+            "friends_small_talk_pack_5_a1",
+            "friends_small_talk_pack_5_a2"
+          ]
+        },
+        {
+          "sentence": "sollen wir willst ein konzert um 2030",
+          "packs": [
+            "friends_small_talk_pack_5_a1",
+            "friends_small_talk_pack_5_a2"
+          ]
+        },
+        {
+          "sentence": "hast du hast einen spaziergang am wochenende",
+          "packs": [
+            "friends_small_talk_pack_5_a1",
+            "friends_small_talk_pack_5_a2"
+          ]
+        },
+        {
+          "sentence": "sollen wir sollen einen film",
+          "packs": [
+            "friends_small_talk_pack_5_a1",
+            "friends_small_talk_pack_5_a2"
+          ]
+        },
+        {
+          "sentence": "lass uns willst lust",
+          "packs": [
+            "friends_small_talk_pack_5_a1",
+            "friends_small_talk_pack_5_a2"
+          ]
+        },
+        {
+          "sentence": "lass uns willst ins kino",
+          "packs": [
+            "friends_small_talk_pack_5_a1",
+            "friends_small_talk_pack_5_a2"
+          ]
+        },
+        {
+          "sentence": "ich hätte kaffee",
+          "packs": [
+            "friends_small_talk_pack_5_a1",
+            "friends_small_talk_pack_5_a2"
+          ]
+        },
+        {
+          "sentence": "du möchtest in die bar",
+          "packs": [
+            "friends_small_talk_pack_5_a1",
+            "friends_small_talk_pack_5_a2"
+          ]
+        },
+        {
+          "sentence": "du können kaffee am wochenende",
+          "packs": [
+            "friends_small_talk_pack_5_a1",
+            "friends_small_talk_pack_5_a2"
+          ]
+        },
+        {
+          "sentence": "wir willsten in die bar um 2030",
+          "packs": [
+            "friends_small_talk_pack_5_a1",
+            "friends_small_talk_pack_5_a2"
+          ]
+        },
+        {
+          "sentence": "sollen wir hätte ein konzert um 19 uhr",
+          "packs": [
+            "friends_small_talk_pack_5_a1",
+            "friends_small_talk_pack_5_a2"
+          ]
+        },
+        {
+          "sentence": "hast du hast eine serie morgen",
+          "packs": [
+            "friends_small_talk_pack_6_a1",
+            "friends_small_talk_pack_6_a2"
+          ]
+        },
+        {
+          "sentence": "hast du möchtest lust am sonntag",
+          "packs": [
+            "friends_small_talk_pack_6_a1",
+            "friends_small_talk_pack_6_a2"
+          ]
+        },
+        {
+          "sentence": "sollen wir willst pizza später",
+          "packs": [
+            "friends_small_talk_pack_6_a1",
+            "friends_small_talk_pack_6_a2"
+          ]
+        },
+        {
+          "sentence": "ich hast einen spaziergang am samstag",
+          "packs": [
+            "friends_small_talk_pack_6_a1",
+            "friends_small_talk_pack_6_a2"
+          ]
+        },
+        {
+          "sentence": "hast du hätte zum restaurant",
+          "packs": [
+            "friends_small_talk_pack_6_a1",
+            "friends_small_talk_pack_6_a2"
+          ]
+        },
+        {
+          "sentence": "du trinken kaffee",
+          "packs": [
+            "friends_small_talk_pack_6_a1",
+            "friends_small_talk_pack_6_a2"
+          ]
+        },
+        {
+          "sentence": "du trinken in die bar",
+          "packs": [
+            "friends_small_talk_pack_6_a1",
+            "friends_small_talk_pack_6_a2"
+          ]
+        },
+        {
+          "sentence": "sollen wir treffen kaffee",
+          "packs": [
+            "friends_small_talk_pack_6_a1",
+            "friends_small_talk_pack_6_a2"
+          ]
+        },
+        {
+          "sentence": "sollen wir trinken eine idee",
+          "packs": [
+            "friends_small_talk_pack_6_a1",
+            "friends_small_talk_pack_6_a2"
+          ]
+        },
+        {
+          "sentence": "hast du willst ins kino morgen",
+          "packs": [
+            "friends_small_talk_pack_6_a1",
+            "friends_small_talk_pack_6_a2"
+          ]
+        },
+        {
+          "sentence": "lass uns können ins training um 19 uhr",
+          "packs": [
+            "friends_small_talk_pack_6_a1",
+            "friends_small_talk_pack_6_a2"
+          ]
+        },
+        {
+          "sentence": "sollen wir möchte in die bar um 2030",
+          "packs": [
+            "friends_small_talk_pack_6_a1",
+            "friends_small_talk_pack_6_a2"
+          ]
+        },
+        {
+          "sentence": "ich hast kaffee um 2030",
+          "packs": [
+            "friends_small_talk_pack_7_a1",
+            "friends_small_talk_pack_7_a2"
+          ]
+        },
+        {
+          "sentence": "hast du können einen spaziergang am wochenende",
+          "packs": [
+            "friends_small_talk_pack_7_a1",
+            "friends_small_talk_pack_7_a2"
+          ]
+        },
+        {
+          "sentence": "hast du treffen ins kino morgen",
+          "packs": [
+            "friends_small_talk_pack_7_a1",
+            "friends_small_talk_pack_7_a2"
+          ]
+        },
+        {
+          "sentence": "lass uns hätte eine idee später",
+          "packs": [
+            "friends_small_talk_pack_7_a1",
+            "friends_small_talk_pack_7_a2"
+          ]
+        },
+        {
+          "sentence": "du möchte ins café kaffee",
+          "packs": [
+            "friends_small_talk_pack_7_a1",
+            "friends_small_talk_pack_7_a2"
+          ]
+        },
+        {
+          "sentence": "du essen eine idee",
+          "packs": [
+            "friends_small_talk_pack_7_a1",
+            "friends_small_talk_pack_7_a2"
+          ]
+        },
+        {
+          "sentence": "ich kannst ins kino",
+          "packs": [
+            "friends_small_talk_pack_7_a1",
+            "friends_small_talk_pack_7_a2"
+          ]
+        },
+        {
+          "sentence": "hast du machen zeit",
+          "packs": [
+            "friends_small_talk_pack_7_a1",
+            "friends_small_talk_pack_7_a2"
+          ]
+        },
+        {
+          "sentence": "sollen wir möchte zum gym",
+          "packs": [
+            "friends_small_talk_pack_7_a1",
+            "friends_small_talk_pack_7_a2"
+          ]
+        },
+        {
+          "sentence": "lass uns trinken zum gym am sonntag",
+          "packs": [
+            "friends_small_talk_pack_7_a1",
+            "friends_small_talk_pack_7_a2"
+          ]
+        },
+        {
+          "sentence": "lass uns hast einen plan später",
+          "packs": [
+            "friends_small_talk_pack_7_a1",
+            "friends_small_talk_pack_7_a2"
+          ]
+        },
+        {
+          "sentence": "wir hasten zeit um 2030",
+          "packs": [
+            "friends_small_talk_pack_7_a1",
+            "friends_small_talk_pack_7_a2"
+          ]
+        },
+        {
+          "sentence": "ich gehen ins café spaziergang um 2030",
+          "packs": [
+            "friends_small_talk_pack_8_a1",
+            "friends_small_talk_pack_8_a2"
+          ]
+        },
+        {
+          "sentence": "wir schauen ins kino abends",
+          "packs": [
+            "friends_small_talk_pack_8_a1",
+            "friends_small_talk_pack_8_a2"
+          ]
+        },
+        {
+          "sentence": "ich hätte zeit um 19 uhr",
+          "packs": [
+            "friends_small_talk_pack_8_a1",
+            "friends_small_talk_pack_8_a2"
+          ]
+        },
+        {
+          "sentence": "du kannst kaffee um 2030",
+          "packs": [
+            "friends_small_talk_pack_8_a1",
+            "friends_small_talk_pack_8_a2"
+          ]
+        },
+        {
+          "sentence": "ich möchtest lust",
+          "packs": [
+            "friends_small_talk_pack_8_a1",
+            "friends_small_talk_pack_8_a2"
+          ]
+        },
+        {
+          "sentence": "hast du können einen film",
+          "packs": [
+            "friends_small_talk_pack_8_a1",
+            "friends_small_talk_pack_8_a2"
+          ]
+        },
+        {
+          "sentence": "lass uns hast einen spaziergang",
+          "packs": [
+            "friends_small_talk_pack_8_a1",
+            "friends_small_talk_pack_8_a2"
+          ]
+        },
+        {
+          "sentence": "wir hätte ins café cafe",
+          "packs": [
+            "friends_small_talk_pack_8_a1",
+            "friends_small_talk_pack_8_a2"
+          ]
+        },
+        {
+          "sentence": "ich schauen ins café gym",
+          "packs": [
+            "friends_small_talk_pack_8_a1",
+            "friends_small_talk_pack_8_a2"
+          ]
+        },
+        {
+          "sentence": "sollen wir hätte eine serie um 2030",
+          "packs": [
+            "friends_small_talk_pack_8_a1",
+            "friends_small_talk_pack_8_a2"
+          ]
+        },
+        {
+          "sentence": "hast du sollen ins kino heute",
+          "packs": [
+            "friends_small_talk_pack_8_a1",
+            "friends_small_talk_pack_8_a2"
+          ]
+        },
+        {
+          "sentence": "du trinken ins training später",
+          "packs": [
+            "friends_small_talk_pack_8_a1",
+            "friends_small_talk_pack_8_a2"
+          ]
+        },
+        {
+          "sentence": "die vermieterin sucht die kaution um 1430",
+          "packs": [
+            "housing_pack_1_a1",
+            "housing_pack_5_a1",
+            "housing_pack_1_a2",
+            "housing_pack_5_a2"
+          ]
+        },
+        {
+          "sentence": "sie zeigen das zimmer um 900",
+          "packs": [
+            "housing_pack_1_a1",
+            "housing_pack_1_a2"
+          ]
+        },
+        {
+          "sentence": "die vermieterin kann die miete ruhig",
+          "packs": [
+            "housing_pack_1_a1",
+            "housing_pack_1_a2"
+          ]
+        },
+        {
+          "sentence": "der vermieter wohnt eine wohnung günstig",
+          "packs": [
+            "housing_pack_1_a1",
+            "housing_pack_1_a2"
+          ]
+        },
+        {
+          "sentence": "wir finden die miete gerne",
+          "packs": [
+            "housing_pack_1_a1",
+            "housing_pack_1_a2"
+          ]
+        },
+        {
+          "sentence": "wir möchte das zimmer",
+          "packs": [
+            "housing_pack_1_a1",
+            "housing_pack_1_a2"
+          ]
+        },
+        {
+          "sentence": "ich suche die miete",
+          "packs": [
+            "housing_pack_1_a1",
+            "housing_pack_1_a2"
+          ]
+        },
+        {
+          "sentence": "der vermieter zeigt den mietvertrag um 900",
+          "packs": [
+            "housing_pack_10_a1",
+            "housing_pack_10_a2"
+          ]
+        },
+        {
+          "sentence": "sie wohnen die miete um 1430",
+          "packs": [
+            "housing_pack_10_a1",
+            "housing_pack_10_a2"
+          ]
+        },
+        {
+          "sentence": "wir suchen eine wohnung ruhig",
+          "packs": [
+            "housing_pack_10_a1",
+            "housing_pack_10_a2"
+          ]
+        },
+        {
+          "sentence": "sie finden die miete bitte",
+          "packs": [
+            "housing_pack_10_a1",
+            "housing_pack_10_a2"
+          ]
+        },
+        {
+          "sentence": "der vermieter zeigt das zimmer ruhig",
+          "packs": [
+            "housing_pack_10_a1",
+            "housing_pack_10_a2"
+          ]
+        },
+        {
+          "sentence": "sie finden die miete",
+          "packs": [
+            "housing_pack_10_a1",
+            "housing_pack_10_a2"
+          ]
+        },
+        {
+          "sentence": "die vermieterin braucht die miete",
+          "packs": [
+            "housing_pack_10_a1",
+            "housing_pack_10_a2"
+          ]
+        },
+        {
+          "sentence": "die vermieterin mietet das zimmer um 930",
+          "packs": [
+            "housing_pack_2_a1",
+            "housing_pack_2_a2"
+          ]
+        },
+        {
+          "sentence": "der vermieter zeigt die kaution um 1430",
+          "packs": [
+            "housing_pack_2_a1",
+            "housing_pack_2_a2"
+          ]
+        },
+        {
+          "sentence": "der vermieter mietet den mietvertrag gerne",
+          "packs": [
+            "housing_pack_2_a1",
+            "housing_pack_2_a2"
+          ]
+        },
+        {
+          "sentence": "die vermieterin findt die miete ruhig",
+          "packs": [
+            "housing_pack_2_a1",
+            "housing_pack_2_a2"
+          ]
+        },
+        {
+          "sentence": "der vermieter findt den mietvertrag bitte",
+          "packs": [
+            "housing_pack_2_a1",
+            "housing_pack_2_a2"
+          ]
+        },
+        {
+          "sentence": "sie suchen die adresse",
+          "packs": [
+            "housing_pack_2_a1",
+            "housing_pack_2_a2"
+          ]
+        },
+        {
+          "sentence": "ich finde das zimmer",
+          "packs": [
+            "housing_pack_2_a1",
+            "housing_pack_2_a2"
+          ]
+        },
+        {
+          "sentence": "die vermieterin sucht die miete um 1800",
+          "packs": [
+            "housing_pack_3_a1",
+            "housing_pack_3_a2"
+          ]
+        },
+        {
+          "sentence": "ich möchte die miete um 1830",
+          "packs": [
+            "housing_pack_3_a1",
+            "housing_pack_3_a2"
+          ]
+        },
+        {
+          "sentence": "der vermieter findt das zimmer günstig",
+          "packs": [
+            "housing_pack_3_a1",
+            "housing_pack_3_a2"
+          ]
+        },
+        {
+          "sentence": "ich suche den mietvertrag günstig",
+          "packs": [
+            "housing_pack_3_a1",
+            "housing_pack_3_a2"
+          ]
+        },
+        {
+          "sentence": "die vermieterin zeigt das zimmer zentral",
+          "packs": [
+            "housing_pack_3_a1",
+            "housing_pack_3_a2"
+          ]
+        },
+        {
+          "sentence": "wir kann die kaution",
+          "packs": [
+            "housing_pack_3_a1",
+            "housing_pack_3_a2"
+          ]
+        },
+        {
+          "sentence": "sie brauchen eine wohnung",
+          "packs": [
+            "housing_pack_3_a1",
+            "housing_pack_3_a2"
+          ]
+        },
+        {
+          "sentence": "sie mieten das zimmer um 930",
+          "packs": [
+            "housing_pack_4_a1",
+            "housing_pack_4_a2"
+          ]
+        },
+        {
+          "sentence": "ich finde die kaution um 1400",
+          "packs": [
+            "housing_pack_4_a1",
+            "housing_pack_4_a2"
+          ]
+        },
+        {
+          "sentence": "ich zeige die kaution zentral",
+          "packs": [
+            "housing_pack_4_a1",
+            "housing_pack_4_a2"
+          ]
+        },
+        {
+          "sentence": "die vermieterin mietet den mietvertrag ruhig",
+          "packs": [
+            "housing_pack_4_a1",
+            "housing_pack_4_a2"
+          ]
+        },
+        {
+          "sentence": "der vermieter kann die miete günstig",
+          "packs": [
+            "housing_pack_4_a1",
+            "housing_pack_4_a2"
+          ]
+        },
+        {
+          "sentence": "die vermieterin zeigt die adresse",
+          "packs": [
+            "housing_pack_4_a1",
+            "housing_pack_4_a2"
+          ]
+        },
+        {
+          "sentence": "der vermieter mietet den mietvertrag",
+          "packs": [
+            "housing_pack_4_a1",
+            "housing_pack_4_a2"
+          ]
+        },
+        {
+          "sentence": "die vermieterin wohnt die adresse bitte",
+          "packs": [
+            "housing_pack_5_a1",
+            "housing_pack_5_a2"
+          ]
+        },
+        {
+          "sentence": "die vermieterin kann die kaution gerne",
+          "packs": [
+            "housing_pack_5_a1",
+            "housing_pack_5_a2"
+          ]
+        },
+        {
+          "sentence": "der vermieter mietet die adresse bitte",
+          "packs": [
+            "housing_pack_5_a1",
+            "housing_pack_5_a2"
+          ]
+        },
+        {
+          "sentence": "die vermieterin kann das zimmer",
+          "packs": [
+            "housing_pack_5_a1",
+            "housing_pack_5_a2"
+          ]
+        },
+        {
+          "sentence": "ich möchte das zimmer",
+          "packs": [
+            "housing_pack_5_a1",
+            "housing_pack_5_a2"
+          ]
+        },
+        {
+          "sentence": "der vermieter sucht die kaution um 1830",
+          "packs": [
+            "housing_pack_6_a1",
+            "housing_pack_6_a2"
+          ]
+        },
+        {
+          "sentence": "wir brauchen eine wohnung um 1830",
+          "packs": [
+            "housing_pack_6_a1",
+            "housing_pack_6_a2"
+          ]
+        },
+        {
+          "sentence": "ich zeige die adresse bitte",
+          "packs": [
+            "housing_pack_6_a1",
+            "housing_pack_6_a2"
+          ]
+        },
+        {
+          "sentence": "sie wohnen eine wohnung gerne",
+          "packs": [
+            "housing_pack_6_a1",
+            "housing_pack_6_a2"
+          ]
+        },
+        {
+          "sentence": "der vermieter möchte die kaution günstig",
+          "packs": [
+            "housing_pack_6_a1",
+            "housing_pack_6_a2"
+          ]
+        },
+        {
+          "sentence": "der vermieter findt die adresse",
+          "packs": [
+            "housing_pack_6_a1",
+            "housing_pack_6_a2"
+          ]
+        },
+        {
+          "sentence": "sie mieten die adresse",
+          "packs": [
+            "housing_pack_6_a1",
+            "housing_pack_6_a2"
+          ]
+        },
+        {
+          "sentence": "ich suche die adresse um 900",
+          "packs": [
+            "housing_pack_7_a1",
+            "housing_pack_7_a2"
+          ]
+        },
+        {
+          "sentence": "die vermieterin braucht die miete um 1430",
+          "packs": [
+            "housing_pack_7_a1",
+            "housing_pack_8_a1",
+            "housing_pack_7_a2",
+            "housing_pack_8_a2"
+          ]
+        },
+        {
+          "sentence": "der vermieter findt die kaution zentral",
+          "packs": [
+            "housing_pack_7_a1",
+            "housing_pack_7_a2"
+          ]
+        },
+        {
+          "sentence": "wir finden den mietvertrag günstig",
+          "packs": [
+            "housing_pack_7_a1",
+            "housing_pack_7_a2"
+          ]
+        },
+        {
+          "sentence": "ich miete das zimmer günstig",
+          "packs": [
+            "housing_pack_7_a1",
+            "housing_pack_7_a2"
+          ]
+        },
+        {
+          "sentence": "wir zeigen das zimmer",
+          "packs": [
+            "housing_pack_7_a1",
+            "housing_pack_7_a2"
+          ]
+        },
+        {
+          "sentence": "sie finden eine wohnung",
+          "packs": [
+            "housing_pack_7_a1",
+            "housing_pack_7_a2"
+          ]
+        },
+        {
+          "sentence": "ich kann das zimmer um 900",
+          "packs": [
+            "housing_pack_8_a1",
+            "housing_pack_8_a2"
+          ]
+        },
+        {
+          "sentence": "sie finden die kaution gerne",
+          "packs": [
+            "housing_pack_8_a1",
+            "housing_pack_8_a2"
+          ]
+        },
+        {
+          "sentence": "der vermieter sucht die kaution bitte",
+          "packs": [
+            "housing_pack_8_a1",
+            "housing_pack_8_a2"
+          ]
+        },
+        {
+          "sentence": "ich zeige den mietvertrag gerne",
+          "packs": [
+            "housing_pack_8_a1",
+            "housing_pack_8_a2"
+          ]
+        },
+        {
+          "sentence": "ich suche die kaution",
+          "packs": [
+            "housing_pack_8_a1",
+            "housing_pack_8_a2"
+          ]
+        },
+        {
+          "sentence": "der vermieter möchte den mietvertrag",
+          "packs": [
+            "housing_pack_8_a1",
+            "housing_pack_8_a2"
+          ]
+        },
+        {
+          "sentence": "ich möchte eine wohnung um 1800",
+          "packs": [
+            "housing_pack_9_a1",
+            "housing_pack_9_a2"
+          ]
+        },
+        {
+          "sentence": "sie kann den mietvertrag um 930",
+          "packs": [
+            "housing_pack_9_a1",
+            "housing_pack_9_a2"
+          ]
+        },
+        {
+          "sentence": "wir zeigen eine wohnung zentral",
+          "packs": [
+            "housing_pack_9_a1",
+            "housing_pack_9_a2"
+          ]
+        },
+        {
+          "sentence": "die vermieterin braucht das zimmer ruhig",
+          "packs": [
+            "housing_pack_9_a1",
+            "housing_pack_9_a2"
+          ]
+        },
+        {
+          "sentence": "wir kann die kaution bitte",
+          "packs": [
+            "housing_pack_9_a1",
+            "housing_pack_9_a2"
+          ]
+        },
+        {
+          "sentence": "der vermieter zeigt die adresse",
+          "packs": [
+            "housing_pack_9_a1",
+            "housing_pack_9_a2"
+          ]
+        },
+        {
+          "sentence": "der vermieter möchte das zimmer",
+          "packs": [
+            "housing_pack_9_a1",
+            "housing_pack_9_a2"
+          ]
+        },
+        {
+          "sentence": "wir soll den termin",
+          "packs": [
+            "work_sample_1_a1",
+            "work_pack_10_a2"
+          ]
+        },
+        {
+          "sentence": "der manager beginnt am dienstag",
+          "packs": [
+            "work_pack_1_a2",
+            "work_pack_5_a2",
+            "work_pack_1_b1",
+            "work_pack_5_b1"
+          ]
+        },
+        {
+          "sentence": "die kollegin plant um 1430 aufgabe",
+          "packs": [
+            "work_pack_1_a2",
+            "work_pack_1_b1"
+          ]
+        },
+        {
+          "sentence": "der manager besprecht die deadline am montag",
+          "packs": [
+            "work_pack_1_a2",
+            "work_pack_1_b1"
+          ]
+        },
+        {
+          "sentence": "sie vereinbaren das projekt um 1430",
+          "packs": [
+            "work_pack_1_a2",
+            "work_pack_1_b1"
+          ]
+        },
+        {
+          "sentence": "ich kann das meeting am montag",
+          "packs": [
+            "work_pack_1_a2",
+            "work_pack_1_b1"
+          ]
+        },
+        {
+          "sentence": "der manager helft die besprechung",
+          "packs": [
+            "work_pack_1_a2",
+            "work_pack_1_b1"
+          ]
+        },
+        {
+          "sentence": "ich bespreche den termin",
+          "packs": [
+            "work_pack_1_a2",
+            "work_pack_1_b1"
+          ]
+        },
+        {
+          "sentence": "der manager helft um 1430",
+          "packs": [
+            "work_pack_2_a2",
+            "work_pack_2_b1"
+          ]
+        },
+        {
+          "sentence": "sie organisieren am dienstag kollege",
+          "packs": [
+            "work_pack_2_a2",
+            "work_pack_2_b1"
+          ]
+        },
+        {
+          "sentence": "wir organisieren das meeting morgen",
+          "packs": [
+            "work_pack_2_a2",
+            "work_pack_2_b1"
+          ]
+        },
+        {
+          "sentence": "wir besprechen die deadline am dienstag",
+          "packs": [
+            "work_pack_2_a2",
+            "work_pack_2_b1"
+          ]
+        },
+        {
+          "sentence": "ich soll das projekt nächste woche",
+          "packs": [
+            "work_pack_2_a2",
+            "work_pack_2_b1"
+          ]
+        },
+        {
+          "sentence": "ich plane das meeting",
+          "packs": [
+            "work_pack_2_a2",
+            "work_pack_2_b1"
+          ]
+        },
+        {
+          "sentence": "ich vereinbare das meeting",
+          "packs": [
+            "work_pack_2_a2",
+            "work_pack_2_b1"
+          ]
+        },
+        {
+          "sentence": "der manager beginnt am montag",
+          "packs": [
+            "work_pack_3_a2",
+            "work_pack_3_b1"
+          ]
+        },
+        {
+          "sentence": "ich soll am montag kollege",
+          "packs": [
+            "work_pack_3_a2",
+            "work_pack_3_b1"
+          ]
+        },
+        {
+          "sentence": "ich helfe den termin um 1430",
+          "packs": [
+            "work_pack_3_a2",
+            "work_pack_3_b1"
+          ]
+        },
+        {
+          "sentence": "ich soll das projekt morgen",
+          "packs": [
+            "work_pack_3_a2",
+            "work_pack_3_b1"
+          ]
+        },
+        {
+          "sentence": "die kollegin helft die aufgabe um 1430",
+          "packs": [
+            "work_pack_3_a2",
+            "work_pack_3_b1"
+          ]
+        },
+        {
+          "sentence": "der manager kann die aufgabe",
+          "packs": [
+            "work_pack_3_a2",
+            "work_pack_3_b1"
+          ]
+        },
+        {
+          "sentence": "sie beginnen die deadline",
+          "packs": [
+            "work_pack_3_a2",
+            "work_pack_3_b1"
+          ]
+        },
+        {
+          "sentence": "die kollegin helft um 1430 meeting",
+          "packs": [
+            "work_pack_4_a2",
+            "work_pack_4_b1"
+          ]
+        },
+        {
+          "sentence": "wir kann um 9 uhr arbeit",
+          "packs": [
+            "work_pack_4_a2",
+            "work_pack_4_b1"
+          ]
+        },
+        {
+          "sentence": "der manager soll die aufgabe am montag",
+          "packs": [
+            "work_pack_4_a2",
+            "work_pack_4_b1"
+          ]
+        },
+        {
+          "sentence": "der manager organisiert den termin morgen",
+          "packs": [
+            "work_pack_4_a2",
+            "work_pack_4_b1"
+          ]
+        },
+        {
+          "sentence": "sie kann die aufgabe nächste woche",
+          "packs": [
+            "work_pack_4_a2",
+            "work_pack_4_b1"
+          ]
+        },
+        {
+          "sentence": "die kollegin kann das projekt",
+          "packs": [
+            "work_pack_4_a2",
+            "work_pack_4_b1"
+          ]
+        },
+        {
+          "sentence": "der manager helft die aufgabe",
+          "packs": [
+            "work_pack_4_a2",
+            "work_pack_4_b1"
+          ]
+        },
+        {
+          "sentence": "der manager soll um 1430",
+          "packs": [
+            "work_pack_5_a2",
+            "work_pack_9_a2",
+            "work_pack_5_b1"
+          ]
+        },
+        {
+          "sentence": "der manager kann die deadline um 1430",
+          "packs": [
+            "work_pack_5_a2",
+            "work_pack_5_b1"
+          ]
+        },
+        {
+          "sentence": "der manager soll den termin um 9 uhr",
+          "packs": [
+            "work_pack_5_a2",
+            "work_pack_5_b1"
+          ]
+        },
+        {
+          "sentence": "sie helfen die deadline um 1430",
+          "packs": [
+            "work_pack_5_a2",
+            "work_pack_9_a2",
+            "work_pack_5_b1"
+          ]
+        },
+        {
+          "sentence": "der manager soll die besprechung",
+          "packs": [
+            "work_pack_5_a2",
+            "work_pack_5_b1"
+          ]
+        },
+        {
+          "sentence": "ich organisiere die besprechung",
+          "packs": [
+            "work_pack_5_a2",
+            "work_pack_5_b1"
+          ]
+        },
+        {
+          "sentence": "sie beginnen am dienstag termin",
+          "packs": [
+            "work_pack_6_a2",
+            "work_pack_6_b1"
+          ]
+        },
+        {
+          "sentence": "sie beginnen um 9 uhr arbeit",
+          "packs": [
+            "work_pack_6_a2",
+            "work_pack_6_b1"
+          ]
+        },
+        {
+          "sentence": "die kollegin vereinbart die deadline am montag",
+          "packs": [
+            "work_pack_6_a2",
+            "work_pack_6_b1"
+          ]
+        },
+        {
+          "sentence": "ich beginne das projekt morgen",
+          "packs": [
+            "work_pack_6_a2",
+            "work_pack_6_b1"
+          ]
+        },
+        {
+          "sentence": "der manager kann das projekt um 1430",
+          "packs": [
+            "work_pack_6_a2",
+            "work_pack_6_b1"
+          ]
+        },
+        {
+          "sentence": "die kollegin plant die besprechung",
+          "packs": [
+            "work_pack_6_a2",
+            "work_pack_6_b1"
+          ]
+        },
+        {
+          "sentence": "die kollegin organisiert die deadline",
+          "packs": [
+            "work_pack_6_a2",
+            "work_pack_6_b1"
+          ]
+        },
+        {
+          "sentence": "ich beginne nächste woche aufgabe",
+          "packs": [
+            "work_pack_7_a2",
+            "work_pack_7_b1"
+          ]
+        },
+        {
+          "sentence": "sie besprechen am montag termin",
+          "packs": [
+            "work_pack_7_a2",
+            "work_pack_7_b1"
+          ]
+        },
+        {
+          "sentence": "sie soll die besprechung um 9 uhr",
+          "packs": [
+            "work_pack_7_a2",
+            "work_pack_7_b1"
+          ]
+        },
+        {
+          "sentence": "der manager kann die besprechung am montag",
+          "packs": [
+            "work_pack_7_a2",
+            "work_pack_7_b1"
+          ]
+        },
+        {
+          "sentence": "wir kann die besprechung nächste woche",
+          "packs": [
+            "work_pack_7_a2",
+            "work_pack_7_b1"
+          ]
+        },
+        {
+          "sentence": "wir organisieren die besprechung",
+          "packs": [
+            "work_pack_7_a2",
+            "work_pack_7_b1"
+          ]
+        },
+        {
+          "sentence": "ich vereinbare die besprechung",
+          "packs": [
+            "work_pack_7_a2",
+            "work_pack_7_b1"
+          ]
+        },
+        {
+          "sentence": "ich muss um 1430 aufgabe",
+          "packs": [
+            "work_pack_8_a2",
+            "work_pack_8_b1"
+          ]
+        },
+        {
+          "sentence": "sie kann morgen termin",
+          "packs": [
+            "work_pack_8_a2",
+            "work_pack_8_b1"
+          ]
+        },
+        {
+          "sentence": "sie beginnen den termin um 9 uhr",
+          "packs": [
+            "work_pack_8_a2",
+            "work_pack_8_b1"
+          ]
+        },
+        {
+          "sentence": "sie vereinbaren das meeting nächste woche",
+          "packs": [
+            "work_pack_8_a2",
+            "work_pack_8_b1"
+          ]
+        },
+        {
+          "sentence": "der manager beginnt das meeting um 9 uhr",
+          "packs": [
+            "work_pack_8_a2",
+            "work_pack_8_b1"
+          ]
+        },
+        {
+          "sentence": "sie besprechen die aufgabe",
+          "packs": [
+            "work_pack_8_a2",
+            "work_pack_8_b1"
+          ]
+        },
+        {
+          "sentence": "der manager beginnt das projekt",
+          "packs": [
+            "work_pack_8_a2",
+            "work_pack_8_b1"
+          ]
+        }
+      ],
+      "skeletonRepeats": [],
+      "failures": [
+        "Sentence \"die ärztin hat die behandlung nächste woche um 143...\" appears in 2 pack(s): doctor_pack_1_a1, doctor_pack_1_a2",
+        "Sentence \"sie möchte die behandlung morgen um 1800...\" appears in 2 pack(s): doctor_pack_1_a1, doctor_pack_1_a2",
+        "Sentence \"der arzt fühlt die untersuchung...\" appears in 2 pack(s): doctor_pack_1_a1, doctor_pack_1_a2",
+        "Sentence \"der arzt braucht die untersuchung...\" appears in 2 pack(s): doctor_pack_1_a1, doctor_pack_1_a2",
+        "Sentence \"ich brauche die untersuchung...\" appears in 2 pack(s): doctor_pack_1_a1, doctor_pack_1_a2",
+        "Sentence \"ich vereinbare die diagnose...\" appears in 2 pack(s): doctor_pack_1_a1, doctor_pack_1_a2",
+        "Sentence \"der arzt braucht einen termin...\" appears in 2 pack(s): doctor_pack_1_a1, doctor_pack_1_a2",
+        "Sentence \"die ärztin möchte die medikamente am montag...\" appears in 2 pack(s): doctor_pack_2_a1, doctor_pack_2_a2",
+        "Sentence \"sie kann die untersuchung um 1500...\" appears in 2 pack(s): doctor_pack_2_a1, doctor_pack_2_a2",
+        "Sentence \"sie haben die diagnose...\" appears in 2 pack(s): doctor_pack_2_a1, doctor_pack_2_a2",
+        "Sentence \"ich vereinbare die symptome...\" appears in 2 pack(s): doctor_pack_2_a1, doctor_pack_2_a2",
+        "Sentence \"die ärztin braucht die diagnose...\" appears in 2 pack(s): doctor_pack_2_a1, doctor_pack_2_a2",
+        "Sentence \"der arzt fühlt einen termin...\" appears in 2 pack(s): doctor_pack_2_a1, doctor_pack_2_a2",
+        "Sentence \"sie haben einen termin...\" appears in 2 pack(s): doctor_pack_2_a1, doctor_pack_2_a2",
+        "Sentence \"die ärztin hat die untersuchung um 10 uhr...\" appears in 2 pack(s): doctor_pack_3_a1, doctor_pack_3_a2",
+        "Sentence \"sie vereinbaren die untersuchung um 10 uhr...\" appears in 2 pack(s): doctor_pack_3_a1, doctor_pack_3_a2",
+        "Sentence \"der arzt nehmt die medikamente...\" appears in 2 pack(s): doctor_pack_3_a1, doctor_pack_3_a2",
+        "Sentence \"ich kann die untersuchung...\" appears in 2 pack(s): doctor_pack_3_a1, doctor_pack_3_a2",
+        "Sentence \"sie fühlen die medikamente...\" appears in 4 pack(s): doctor_pack_3_a1, doctor_pack_6_a1, doctor_pack_3_a2, doctor_pack_6_a2",
+        "Sentence \"die ärztin möchte die diagnose...\" appears in 2 pack(s): doctor_pack_3_a1, doctor_pack_3_a2",
+        "Sentence \"die ärztin muss die behandlung...\" appears in 2 pack(s): doctor_pack_3_a1, doctor_pack_3_a2",
+        "Sentence \"sie möchte die medikamente um 10 uhr...\" appears in 2 pack(s): doctor_pack_4_a1, doctor_pack_4_a2",
+        "Sentence \"ich nehme einen termin nächste woche um 1800...\" appears in 2 pack(s): doctor_pack_4_a1, doctor_pack_4_a2",
+        "Sentence \"die ärztin kann die diagnose...\" appears in 2 pack(s): doctor_pack_4_a1, doctor_pack_4_a2",
+        "Sentence \"der arzt kann die symptome...\" appears in 2 pack(s): doctor_pack_4_a1, doctor_pack_4_a2",
+        "Sentence \"die ärztin kann die untersuchung...\" appears in 2 pack(s): doctor_pack_4_a1, doctor_pack_4_a2",
+        "Sentence \"sie vereinbaren die untersuchung...\" appears in 2 pack(s): doctor_pack_4_a1, doctor_pack_4_a2",
+        "Sentence \"ich nehme die diagnose am montag...\" appears in 2 pack(s): doctor_pack_5_a1, doctor_pack_5_a2",
+        "Sentence \"sie brauchen die diagnose...\" appears in 2 pack(s): doctor_pack_5_a1, doctor_pack_5_a2",
+        "Sentence \"die ärztin kann einen termin...\" appears in 2 pack(s): doctor_pack_5_a1, doctor_pack_5_a2",
+        "Sentence \"der arzt möchte die symptome...\" appears in 2 pack(s): doctor_pack_5_a1, doctor_pack_5_a2",
+        "Sentence \"der arzt muss die diagnose...\" appears in 2 pack(s): doctor_pack_5_a1, doctor_pack_5_a2",
+        "Sentence \"der arzt hat die diagnose...\" appears in 2 pack(s): doctor_pack_5_a1, doctor_pack_5_a2",
+        "Sentence \"die ärztin hat einen termin nächste woche um 1830...\" appears in 2 pack(s): doctor_pack_6_a1, doctor_pack_6_a2",
+        "Sentence \"sie brauchen die symptome...\" appears in 2 pack(s): doctor_pack_6_a1, doctor_pack_6_a2",
+        "Sentence \"der arzt hat einen termin...\" appears in 2 pack(s): doctor_pack_6_a1, doctor_pack_6_a2",
+        "Sentence \"der arzt muss die behandlung...\" appears in 2 pack(s): doctor_pack_6_a1, doctor_pack_6_a2",
+        "Sentence \"der arzt vereinbart die medikamente...\" appears in 2 pack(s): doctor_pack_6_a1, doctor_pack_6_a2",
+        "Sentence \"ich habe die symptome morgen um 900...\" appears in 2 pack(s): doctor_pack_7_a1, doctor_pack_7_a2",
+        "Sentence \"die ärztin kann die medikamente...\" appears in 2 pack(s): doctor_pack_7_a1, doctor_pack_7_a2",
+        "Sentence \"ich muss die behandlung...\" appears in 2 pack(s): doctor_pack_7_a1, doctor_pack_7_a2",
+        "Sentence \"ich möchte die medikamente...\" appears in 2 pack(s): doctor_pack_7_a1, doctor_pack_7_a2",
+        "Sentence \"die ärztin möchte die symptome...\" appears in 2 pack(s): doctor_pack_7_a1, doctor_pack_7_a2",
+        "Sentence \"ich fühle die medikamente...\" appears in 2 pack(s): doctor_pack_7_a1, doctor_pack_7_a2",
+        "Sentence \"ich kann die medikamente morgen um 1800...\" appears in 2 pack(s): doctor_pack_8_a1, doctor_pack_8_a2",
+        "Sentence \"die ärztin vereinbart die diagnose um 1500...\" appears in 2 pack(s): doctor_pack_8_a1, doctor_pack_8_a2",
+        "Sentence \"die ärztin hat die behandlung...\" appears in 2 pack(s): doctor_pack_8_a1, doctor_pack_8_a2",
+        "Sentence \"ich fühle die diagnose...\" appears in 2 pack(s): doctor_pack_8_a1, doctor_pack_8_a2",
+        "Sentence \"ich brauche einen termin...\" appears in 2 pack(s): doctor_pack_8_a1, doctor_pack_8_a2",
+        "Sentence \"die ärztin vereinbart die diagnose...\" appears in 2 pack(s): doctor_pack_8_a1, doctor_pack_8_a2",
+        "Sentence \"hast du hast zum park am sonntag...\" appears in 2 pack(s): friends_small_talk_pack_1_a1, friends_small_talk_pack_1_a2",
+        "Sentence \"sollen wir sollen zum gym um 2030...\" appears in 2 pack(s): friends_small_talk_pack_1_a1, friends_small_talk_pack_1_a2",
+        "Sentence \"wir trinken einen spaziergang abends...\" appears in 2 pack(s): friends_small_talk_pack_1_a1, friends_small_talk_pack_1_a2",
+        "Sentence \"ich können ins kino morgen...\" appears in 2 pack(s): friends_small_talk_pack_1_a1, friends_small_talk_pack_1_a2",
+        "Sentence \"wir möchtesten zum restaurant...\" appears in 2 pack(s): friends_small_talk_pack_1_a1, friends_small_talk_pack_1_a2",
+        "Sentence \"lass uns sollen eine idee...\" appears in 2 pack(s): friends_small_talk_pack_1_a1, friends_small_talk_pack_1_a2",
+        "Sentence \"ich können zum gym...\" appears in 2 pack(s): friends_small_talk_pack_1_a1, friends_small_talk_pack_1_a2",
+        "Sentence \"hast du möchte einen film...\" appears in 2 pack(s): friends_small_talk_pack_1_a1, friends_small_talk_pack_1_a2",
+        "Sentence \"du treffen einen spaziergang um 2030...\" appears in 2 pack(s): friends_small_talk_pack_1_a1, friends_small_talk_pack_1_a2",
+        "Sentence \"sollen wir willst einen film morgen...\" appears in 2 pack(s): friends_small_talk_pack_1_a1, friends_small_talk_pack_1_a2",
+        "Sentence \"du können ins kino morgen...\" appears in 2 pack(s): friends_small_talk_pack_1_a1, friends_small_talk_pack_1_a2",
+        "Sentence \"lass uns sollen ins kino abends um 930...\" appears in 2 pack(s): friends_small_talk_pack_2_a1, friends_small_talk_pack_2_a2",
+        "Sentence \"sollen wir gehen zum park später um 930...\" appears in 2 pack(s): friends_small_talk_pack_2_a1, friends_small_talk_pack_2_a2",
+        "Sentence \"lass uns möchtest ein konzert morgen...\" appears in 2 pack(s): friends_small_talk_pack_2_a1, friends_small_talk_pack_2_a2",
+        "Sentence \"wir schauen ins training morgen...\" appears in 2 pack(s): friends_small_talk_pack_2_a1, friends_small_talk_pack_2_a2",
+        "Sentence \"lass uns wollen kaffee...\" appears in 2 pack(s): friends_small_talk_pack_2_a1, friends_small_talk_pack_2_a2",
+        "Sentence \"ich essen zeit...\" appears in 2 pack(s): friends_small_talk_pack_2_a1, friends_small_talk_pack_2_a2",
+        "Sentence \"ich kannst lust...\" appears in 2 pack(s): friends_small_talk_pack_2_a1, friends_small_talk_pack_2_a2",
+        "Sentence \"sollen wir können zum gym...\" appears in 2 pack(s): friends_small_talk_pack_2_a1, friends_small_talk_pack_2_a2",
+        "Sentence \"sollen wir willst einen spaziergang...\" appears in 2 pack(s): friends_small_talk_pack_2_a1, friends_small_talk_pack_2_a2",
+        "Sentence \"wir hasten zum park heute...\" appears in 3 pack(s): friends_small_talk_pack_2_a1, friends_movies_series_a1, friends_small_talk_pack_2_a2",
+        "Sentence \"ich trinken ein konzert heute...\" appears in 2 pack(s): friends_small_talk_pack_2_a1, friends_small_talk_pack_2_a2",
+        "Sentence \"sollen wir möchtest kaffee abends...\" appears in 2 pack(s): friends_small_talk_pack_2_a1, friends_small_talk_pack_2_a2",
+        "Sentence \"lass uns hast einen spaziergang heute...\" appears in 2 pack(s): friends_small_talk_pack_3_a1, friends_small_talk_pack_3_a2",
+        "Sentence \"lass uns hätte zum park morgen...\" appears in 2 pack(s): friends_small_talk_pack_3_a1, friends_small_talk_pack_3_a2",
+        "Sentence \"du möchte eine idee heute...\" appears in 2 pack(s): friends_small_talk_pack_3_a1, friends_small_talk_pack_3_a2",
+        "Sentence \"lass uns hätte ein konzert am samstag...\" appears in 2 pack(s): friends_small_talk_pack_3_a1, friends_small_talk_pack_3_a2",
+        "Sentence \"du treffen ins kino...\" appears in 2 pack(s): friends_small_talk_pack_3_a1, friends_small_talk_pack_3_a2",
+        "Sentence \"lass uns hätte in die bar...\" appears in 2 pack(s): friends_small_talk_pack_3_a1, friends_small_talk_pack_3_a2",
+        "Sentence \"hast du hast in die bar...\" appears in 2 pack(s): friends_small_talk_pack_3_a1, friends_small_talk_pack_3_a2",
+        "Sentence \"du trinken ein konzert...\" appears in 2 pack(s): friends_small_talk_pack_3_a1, friends_small_talk_pack_3_a2",
+        "Sentence \"wir treffen einen plan...\" appears in 2 pack(s): friends_small_talk_pack_3_a1, friends_small_talk_pack_3_a2",
+        "Sentence \"wir treffen lust heute...\" appears in 2 pack(s): friends_small_talk_pack_3_a1, friends_small_talk_pack_3_a2",
+        "Sentence \"wir schauen zum gym um 2030...\" appears in 2 pack(s): friends_small_talk_pack_3_a1, friends_small_talk_pack_3_a2",
+        "Sentence \"lass uns möchte ins training heute...\" appears in 2 pack(s): friends_small_talk_pack_3_a1, friends_small_talk_pack_3_a2",
+        "Sentence \"sollen wir sollen eine idee heute...\" appears in 2 pack(s): friends_small_talk_pack_4_a1, friends_small_talk_pack_4_a2",
+        "Sentence \"du hätte zeit am sonntag...\" appears in 2 pack(s): friends_small_talk_pack_4_a1, friends_small_talk_pack_4_a2",
+        "Sentence \"hast du treffen ein konzert später...\" appears in 2 pack(s): friends_small_talk_pack_4_a1, friends_small_talk_pack_4_a2",
+        "Sentence \"lass uns essen zum park um 2030...\" appears in 2 pack(s): friends_small_talk_pack_4_a1, friends_small_talk_pack_4_a2",
+        "Sentence \"wir hätte einen film...\" appears in 2 pack(s): friends_small_talk_pack_4_a1, friends_small_talk_pack_4_a2",
+        "Sentence \"sollen wir trinken zum park...\" appears in 2 pack(s): friends_small_talk_pack_4_a1, friends_small_talk_pack_4_a2",
+        "Sentence \"wir machen ins kino...\" appears in 2 pack(s): friends_small_talk_pack_4_a1, friends_small_talk_pack_4_a2",
+        "Sentence \"lass uns hätte ins café mitkommen...\" appears in 2 pack(s): friends_small_talk_pack_4_a1, friends_small_talk_pack_4_a2",
+        "Sentence \"ich hätte ins training...\" appears in 2 pack(s): friends_small_talk_pack_4_a1, friends_small_talk_pack_4_a2",
+        "Sentence \"lass uns möchtest ein konzert später...\" appears in 2 pack(s): friends_small_talk_pack_4_a1, friends_small_talk_pack_4_a2",
+        "Sentence \"du möchte zeit um 19 uhr...\" appears in 2 pack(s): friends_small_talk_pack_4_a1, friends_small_talk_pack_4_a2",
+        "Sentence \"du möchte einen plan am sonntag...\" appears in 2 pack(s): friends_small_talk_pack_4_a1, friends_small_talk_pack_4_a2",
+        "Sentence \"lass uns machen eine idee um 19 uhr...\" appears in 2 pack(s): friends_small_talk_pack_5_a1, friends_small_talk_pack_5_a2",
+        "Sentence \"ich möchte einen film abends...\" appears in 2 pack(s): friends_small_talk_pack_5_a1, friends_small_talk_pack_5_a2",
+        "Sentence \"sollen wir willst ein konzert um 2030...\" appears in 2 pack(s): friends_small_talk_pack_5_a1, friends_small_talk_pack_5_a2",
+        "Sentence \"hast du hast einen spaziergang am wochenende...\" appears in 2 pack(s): friends_small_talk_pack_5_a1, friends_small_talk_pack_5_a2",
+        "Sentence \"sollen wir sollen einen film...\" appears in 2 pack(s): friends_small_talk_pack_5_a1, friends_small_talk_pack_5_a2",
+        "Sentence \"lass uns willst lust...\" appears in 2 pack(s): friends_small_talk_pack_5_a1, friends_small_talk_pack_5_a2",
+        "Sentence \"lass uns willst ins kino...\" appears in 2 pack(s): friends_small_talk_pack_5_a1, friends_small_talk_pack_5_a2",
+        "Sentence \"ich hätte kaffee...\" appears in 2 pack(s): friends_small_talk_pack_5_a1, friends_small_talk_pack_5_a2",
+        "Sentence \"du möchtest in die bar...\" appears in 2 pack(s): friends_small_talk_pack_5_a1, friends_small_talk_pack_5_a2",
+        "Sentence \"du können kaffee am wochenende...\" appears in 2 pack(s): friends_small_talk_pack_5_a1, friends_small_talk_pack_5_a2",
+        "Sentence \"wir willsten in die bar um 2030...\" appears in 2 pack(s): friends_small_talk_pack_5_a1, friends_small_talk_pack_5_a2",
+        "Sentence \"sollen wir hätte ein konzert um 19 uhr...\" appears in 2 pack(s): friends_small_talk_pack_5_a1, friends_small_talk_pack_5_a2",
+        "Sentence \"hast du hast eine serie morgen...\" appears in 2 pack(s): friends_small_talk_pack_6_a1, friends_small_talk_pack_6_a2",
+        "Sentence \"hast du möchtest lust am sonntag...\" appears in 2 pack(s): friends_small_talk_pack_6_a1, friends_small_talk_pack_6_a2",
+        "Sentence \"sollen wir willst pizza später...\" appears in 2 pack(s): friends_small_talk_pack_6_a1, friends_small_talk_pack_6_a2",
+        "Sentence \"ich hast einen spaziergang am samstag...\" appears in 2 pack(s): friends_small_talk_pack_6_a1, friends_small_talk_pack_6_a2",
+        "Sentence \"hast du hätte zum restaurant...\" appears in 2 pack(s): friends_small_talk_pack_6_a1, friends_small_talk_pack_6_a2",
+        "Sentence \"du trinken kaffee...\" appears in 2 pack(s): friends_small_talk_pack_6_a1, friends_small_talk_pack_6_a2",
+        "Sentence \"du trinken in die bar...\" appears in 2 pack(s): friends_small_talk_pack_6_a1, friends_small_talk_pack_6_a2",
+        "Sentence \"sollen wir treffen kaffee...\" appears in 2 pack(s): friends_small_talk_pack_6_a1, friends_small_talk_pack_6_a2",
+        "Sentence \"sollen wir trinken eine idee...\" appears in 2 pack(s): friends_small_talk_pack_6_a1, friends_small_talk_pack_6_a2",
+        "Sentence \"hast du willst ins kino morgen...\" appears in 2 pack(s): friends_small_talk_pack_6_a1, friends_small_talk_pack_6_a2",
+        "Sentence \"lass uns können ins training um 19 uhr...\" appears in 2 pack(s): friends_small_talk_pack_6_a1, friends_small_talk_pack_6_a2",
+        "Sentence \"sollen wir möchte in die bar um 2030...\" appears in 2 pack(s): friends_small_talk_pack_6_a1, friends_small_talk_pack_6_a2",
+        "Sentence \"ich hast kaffee um 2030...\" appears in 2 pack(s): friends_small_talk_pack_7_a1, friends_small_talk_pack_7_a2",
+        "Sentence \"hast du können einen spaziergang am wochenende...\" appears in 2 pack(s): friends_small_talk_pack_7_a1, friends_small_talk_pack_7_a2",
+        "Sentence \"hast du treffen ins kino morgen...\" appears in 2 pack(s): friends_small_talk_pack_7_a1, friends_small_talk_pack_7_a2",
+        "Sentence \"lass uns hätte eine idee später...\" appears in 2 pack(s): friends_small_talk_pack_7_a1, friends_small_talk_pack_7_a2",
+        "Sentence \"du möchte ins café kaffee...\" appears in 2 pack(s): friends_small_talk_pack_7_a1, friends_small_talk_pack_7_a2",
+        "Sentence \"du essen eine idee...\" appears in 2 pack(s): friends_small_talk_pack_7_a1, friends_small_talk_pack_7_a2",
+        "Sentence \"ich kannst ins kino...\" appears in 2 pack(s): friends_small_talk_pack_7_a1, friends_small_talk_pack_7_a2",
+        "Sentence \"hast du machen zeit...\" appears in 2 pack(s): friends_small_talk_pack_7_a1, friends_small_talk_pack_7_a2",
+        "Sentence \"sollen wir möchte zum gym...\" appears in 2 pack(s): friends_small_talk_pack_7_a1, friends_small_talk_pack_7_a2",
+        "Sentence \"lass uns trinken zum gym am sonntag...\" appears in 2 pack(s): friends_small_talk_pack_7_a1, friends_small_talk_pack_7_a2",
+        "Sentence \"lass uns hast einen plan später...\" appears in 2 pack(s): friends_small_talk_pack_7_a1, friends_small_talk_pack_7_a2",
+        "Sentence \"wir hasten zeit um 2030...\" appears in 2 pack(s): friends_small_talk_pack_7_a1, friends_small_talk_pack_7_a2",
+        "Sentence \"ich gehen ins café spaziergang um 2030...\" appears in 2 pack(s): friends_small_talk_pack_8_a1, friends_small_talk_pack_8_a2",
+        "Sentence \"wir schauen ins kino abends...\" appears in 2 pack(s): friends_small_talk_pack_8_a1, friends_small_talk_pack_8_a2",
+        "Sentence \"ich hätte zeit um 19 uhr...\" appears in 2 pack(s): friends_small_talk_pack_8_a1, friends_small_talk_pack_8_a2",
+        "Sentence \"du kannst kaffee um 2030...\" appears in 2 pack(s): friends_small_talk_pack_8_a1, friends_small_talk_pack_8_a2",
+        "Sentence \"ich möchtest lust...\" appears in 2 pack(s): friends_small_talk_pack_8_a1, friends_small_talk_pack_8_a2",
+        "Sentence \"hast du können einen film...\" appears in 2 pack(s): friends_small_talk_pack_8_a1, friends_small_talk_pack_8_a2",
+        "Sentence \"lass uns hast einen spaziergang...\" appears in 2 pack(s): friends_small_talk_pack_8_a1, friends_small_talk_pack_8_a2",
+        "Sentence \"wir hätte ins café cafe...\" appears in 2 pack(s): friends_small_talk_pack_8_a1, friends_small_talk_pack_8_a2",
+        "Sentence \"ich schauen ins café gym...\" appears in 2 pack(s): friends_small_talk_pack_8_a1, friends_small_talk_pack_8_a2",
+        "Sentence \"sollen wir hätte eine serie um 2030...\" appears in 2 pack(s): friends_small_talk_pack_8_a1, friends_small_talk_pack_8_a2",
+        "Sentence \"hast du sollen ins kino heute...\" appears in 2 pack(s): friends_small_talk_pack_8_a1, friends_small_talk_pack_8_a2",
+        "Sentence \"du trinken ins training später...\" appears in 2 pack(s): friends_small_talk_pack_8_a1, friends_small_talk_pack_8_a2",
+        "Sentence \"die vermieterin sucht die kaution um 1430...\" appears in 4 pack(s): housing_pack_1_a1, housing_pack_5_a1, housing_pack_1_a2, housing_pack_5_a2",
+        "Sentence \"sie zeigen das zimmer um 900...\" appears in 2 pack(s): housing_pack_1_a1, housing_pack_1_a2",
+        "Sentence \"die vermieterin kann die miete ruhig...\" appears in 2 pack(s): housing_pack_1_a1, housing_pack_1_a2",
+        "Sentence \"der vermieter wohnt eine wohnung günstig...\" appears in 2 pack(s): housing_pack_1_a1, housing_pack_1_a2",
+        "Sentence \"wir finden die miete gerne...\" appears in 2 pack(s): housing_pack_1_a1, housing_pack_1_a2",
+        "Sentence \"wir möchte das zimmer...\" appears in 2 pack(s): housing_pack_1_a1, housing_pack_1_a2",
+        "Sentence \"ich suche die miete...\" appears in 2 pack(s): housing_pack_1_a1, housing_pack_1_a2",
+        "Sentence \"der vermieter zeigt den mietvertrag um 900...\" appears in 2 pack(s): housing_pack_10_a1, housing_pack_10_a2",
+        "Sentence \"sie wohnen die miete um 1430...\" appears in 2 pack(s): housing_pack_10_a1, housing_pack_10_a2",
+        "Sentence \"wir suchen eine wohnung ruhig...\" appears in 2 pack(s): housing_pack_10_a1, housing_pack_10_a2",
+        "Sentence \"sie finden die miete bitte...\" appears in 2 pack(s): housing_pack_10_a1, housing_pack_10_a2",
+        "Sentence \"der vermieter zeigt das zimmer ruhig...\" appears in 2 pack(s): housing_pack_10_a1, housing_pack_10_a2",
+        "Sentence \"sie finden die miete...\" appears in 2 pack(s): housing_pack_10_a1, housing_pack_10_a2",
+        "Sentence \"die vermieterin braucht die miete...\" appears in 2 pack(s): housing_pack_10_a1, housing_pack_10_a2",
+        "Sentence \"die vermieterin mietet das zimmer um 930...\" appears in 2 pack(s): housing_pack_2_a1, housing_pack_2_a2",
+        "Sentence \"der vermieter zeigt die kaution um 1430...\" appears in 2 pack(s): housing_pack_2_a1, housing_pack_2_a2",
+        "Sentence \"der vermieter mietet den mietvertrag gerne...\" appears in 2 pack(s): housing_pack_2_a1, housing_pack_2_a2",
+        "Sentence \"die vermieterin findt die miete ruhig...\" appears in 2 pack(s): housing_pack_2_a1, housing_pack_2_a2",
+        "Sentence \"der vermieter findt den mietvertrag bitte...\" appears in 2 pack(s): housing_pack_2_a1, housing_pack_2_a2",
+        "Sentence \"sie suchen die adresse...\" appears in 2 pack(s): housing_pack_2_a1, housing_pack_2_a2",
+        "Sentence \"ich finde das zimmer...\" appears in 2 pack(s): housing_pack_2_a1, housing_pack_2_a2",
+        "Sentence \"die vermieterin sucht die miete um 1800...\" appears in 2 pack(s): housing_pack_3_a1, housing_pack_3_a2",
+        "Sentence \"ich möchte die miete um 1830...\" appears in 2 pack(s): housing_pack_3_a1, housing_pack_3_a2",
+        "Sentence \"der vermieter findt das zimmer günstig...\" appears in 2 pack(s): housing_pack_3_a1, housing_pack_3_a2",
+        "Sentence \"ich suche den mietvertrag günstig...\" appears in 2 pack(s): housing_pack_3_a1, housing_pack_3_a2",
+        "Sentence \"die vermieterin zeigt das zimmer zentral...\" appears in 2 pack(s): housing_pack_3_a1, housing_pack_3_a2",
+        "Sentence \"wir kann die kaution...\" appears in 2 pack(s): housing_pack_3_a1, housing_pack_3_a2",
+        "Sentence \"sie brauchen eine wohnung...\" appears in 2 pack(s): housing_pack_3_a1, housing_pack_3_a2",
+        "Sentence \"sie mieten das zimmer um 930...\" appears in 2 pack(s): housing_pack_4_a1, housing_pack_4_a2",
+        "Sentence \"ich finde die kaution um 1400...\" appears in 2 pack(s): housing_pack_4_a1, housing_pack_4_a2",
+        "Sentence \"ich zeige die kaution zentral...\" appears in 2 pack(s): housing_pack_4_a1, housing_pack_4_a2",
+        "Sentence \"die vermieterin mietet den mietvertrag ruhig...\" appears in 2 pack(s): housing_pack_4_a1, housing_pack_4_a2",
+        "Sentence \"der vermieter kann die miete günstig...\" appears in 2 pack(s): housing_pack_4_a1, housing_pack_4_a2",
+        "Sentence \"die vermieterin zeigt die adresse...\" appears in 2 pack(s): housing_pack_4_a1, housing_pack_4_a2",
+        "Sentence \"der vermieter mietet den mietvertrag...\" appears in 2 pack(s): housing_pack_4_a1, housing_pack_4_a2",
+        "Sentence \"die vermieterin wohnt die adresse bitte...\" appears in 2 pack(s): housing_pack_5_a1, housing_pack_5_a2",
+        "Sentence \"die vermieterin kann die kaution gerne...\" appears in 2 pack(s): housing_pack_5_a1, housing_pack_5_a2",
+        "Sentence \"der vermieter mietet die adresse bitte...\" appears in 2 pack(s): housing_pack_5_a1, housing_pack_5_a2",
+        "Sentence \"die vermieterin kann das zimmer...\" appears in 2 pack(s): housing_pack_5_a1, housing_pack_5_a2",
+        "Sentence \"ich möchte das zimmer...\" appears in 2 pack(s): housing_pack_5_a1, housing_pack_5_a2",
+        "Sentence \"der vermieter sucht die kaution um 1830...\" appears in 2 pack(s): housing_pack_6_a1, housing_pack_6_a2",
+        "Sentence \"wir brauchen eine wohnung um 1830...\" appears in 2 pack(s): housing_pack_6_a1, housing_pack_6_a2",
+        "Sentence \"ich zeige die adresse bitte...\" appears in 2 pack(s): housing_pack_6_a1, housing_pack_6_a2",
+        "Sentence \"sie wohnen eine wohnung gerne...\" appears in 2 pack(s): housing_pack_6_a1, housing_pack_6_a2",
+        "Sentence \"der vermieter möchte die kaution günstig...\" appears in 2 pack(s): housing_pack_6_a1, housing_pack_6_a2",
+        "Sentence \"der vermieter findt die adresse...\" appears in 2 pack(s): housing_pack_6_a1, housing_pack_6_a2",
+        "Sentence \"sie mieten die adresse...\" appears in 2 pack(s): housing_pack_6_a1, housing_pack_6_a2",
+        "Sentence \"ich suche die adresse um 900...\" appears in 2 pack(s): housing_pack_7_a1, housing_pack_7_a2",
+        "Sentence \"die vermieterin braucht die miete um 1430...\" appears in 4 pack(s): housing_pack_7_a1, housing_pack_8_a1, housing_pack_7_a2, housing_pack_8_a2",
+        "Sentence \"der vermieter findt die kaution zentral...\" appears in 2 pack(s): housing_pack_7_a1, housing_pack_7_a2",
+        "Sentence \"wir finden den mietvertrag günstig...\" appears in 2 pack(s): housing_pack_7_a1, housing_pack_7_a2",
+        "Sentence \"ich miete das zimmer günstig...\" appears in 2 pack(s): housing_pack_7_a1, housing_pack_7_a2",
+        "Sentence \"wir zeigen das zimmer...\" appears in 2 pack(s): housing_pack_7_a1, housing_pack_7_a2",
+        "Sentence \"sie finden eine wohnung...\" appears in 2 pack(s): housing_pack_7_a1, housing_pack_7_a2",
+        "Sentence \"ich kann das zimmer um 900...\" appears in 2 pack(s): housing_pack_8_a1, housing_pack_8_a2",
+        "Sentence \"sie finden die kaution gerne...\" appears in 2 pack(s): housing_pack_8_a1, housing_pack_8_a2",
+        "Sentence \"der vermieter sucht die kaution bitte...\" appears in 2 pack(s): housing_pack_8_a1, housing_pack_8_a2",
+        "Sentence \"ich zeige den mietvertrag gerne...\" appears in 2 pack(s): housing_pack_8_a1, housing_pack_8_a2",
+        "Sentence \"ich suche die kaution...\" appears in 2 pack(s): housing_pack_8_a1, housing_pack_8_a2",
+        "Sentence \"der vermieter möchte den mietvertrag...\" appears in 2 pack(s): housing_pack_8_a1, housing_pack_8_a2",
+        "Sentence \"ich möchte eine wohnung um 1800...\" appears in 2 pack(s): housing_pack_9_a1, housing_pack_9_a2",
+        "Sentence \"sie kann den mietvertrag um 930...\" appears in 2 pack(s): housing_pack_9_a1, housing_pack_9_a2",
+        "Sentence \"wir zeigen eine wohnung zentral...\" appears in 2 pack(s): housing_pack_9_a1, housing_pack_9_a2",
+        "Sentence \"die vermieterin braucht das zimmer ruhig...\" appears in 2 pack(s): housing_pack_9_a1, housing_pack_9_a2",
+        "Sentence \"wir kann die kaution bitte...\" appears in 2 pack(s): housing_pack_9_a1, housing_pack_9_a2",
+        "Sentence \"der vermieter zeigt die adresse...\" appears in 2 pack(s): housing_pack_9_a1, housing_pack_9_a2",
+        "Sentence \"der vermieter möchte das zimmer...\" appears in 2 pack(s): housing_pack_9_a1, housing_pack_9_a2",
+        "Sentence \"wir soll den termin...\" appears in 2 pack(s): work_sample_1_a1, work_pack_10_a2",
+        "Sentence \"der manager beginnt am dienstag...\" appears in 4 pack(s): work_pack_1_a2, work_pack_5_a2, work_pack_1_b1, work_pack_5_b1",
+        "Sentence \"die kollegin plant um 1430 aufgabe...\" appears in 2 pack(s): work_pack_1_a2, work_pack_1_b1",
+        "Sentence \"der manager besprecht die deadline am montag...\" appears in 2 pack(s): work_pack_1_a2, work_pack_1_b1",
+        "Sentence \"sie vereinbaren das projekt um 1430...\" appears in 2 pack(s): work_pack_1_a2, work_pack_1_b1",
+        "Sentence \"ich kann das meeting am montag...\" appears in 2 pack(s): work_pack_1_a2, work_pack_1_b1",
+        "Sentence \"der manager helft die besprechung...\" appears in 2 pack(s): work_pack_1_a2, work_pack_1_b1",
+        "Sentence \"ich bespreche den termin...\" appears in 2 pack(s): work_pack_1_a2, work_pack_1_b1",
+        "Sentence \"der manager helft um 1430...\" appears in 2 pack(s): work_pack_2_a2, work_pack_2_b1",
+        "Sentence \"sie organisieren am dienstag kollege...\" appears in 2 pack(s): work_pack_2_a2, work_pack_2_b1",
+        "Sentence \"wir organisieren das meeting morgen...\" appears in 2 pack(s): work_pack_2_a2, work_pack_2_b1",
+        "Sentence \"wir besprechen die deadline am dienstag...\" appears in 2 pack(s): work_pack_2_a2, work_pack_2_b1",
+        "Sentence \"ich soll das projekt nächste woche...\" appears in 2 pack(s): work_pack_2_a2, work_pack_2_b1",
+        "Sentence \"ich plane das meeting...\" appears in 2 pack(s): work_pack_2_a2, work_pack_2_b1",
+        "Sentence \"ich vereinbare das meeting...\" appears in 2 pack(s): work_pack_2_a2, work_pack_2_b1",
+        "Sentence \"der manager beginnt am montag...\" appears in 2 pack(s): work_pack_3_a2, work_pack_3_b1",
+        "Sentence \"ich soll am montag kollege...\" appears in 2 pack(s): work_pack_3_a2, work_pack_3_b1",
+        "Sentence \"ich helfe den termin um 1430...\" appears in 2 pack(s): work_pack_3_a2, work_pack_3_b1",
+        "Sentence \"ich soll das projekt morgen...\" appears in 2 pack(s): work_pack_3_a2, work_pack_3_b1",
+        "Sentence \"die kollegin helft die aufgabe um 1430...\" appears in 2 pack(s): work_pack_3_a2, work_pack_3_b1",
+        "Sentence \"der manager kann die aufgabe...\" appears in 2 pack(s): work_pack_3_a2, work_pack_3_b1",
+        "Sentence \"sie beginnen die deadline...\" appears in 2 pack(s): work_pack_3_a2, work_pack_3_b1",
+        "Sentence \"die kollegin helft um 1430 meeting...\" appears in 2 pack(s): work_pack_4_a2, work_pack_4_b1",
+        "Sentence \"wir kann um 9 uhr arbeit...\" appears in 2 pack(s): work_pack_4_a2, work_pack_4_b1",
+        "Sentence \"der manager soll die aufgabe am montag...\" appears in 2 pack(s): work_pack_4_a2, work_pack_4_b1",
+        "Sentence \"der manager organisiert den termin morgen...\" appears in 2 pack(s): work_pack_4_a2, work_pack_4_b1",
+        "Sentence \"sie kann die aufgabe nächste woche...\" appears in 2 pack(s): work_pack_4_a2, work_pack_4_b1",
+        "Sentence \"die kollegin kann das projekt...\" appears in 2 pack(s): work_pack_4_a2, work_pack_4_b1",
+        "Sentence \"der manager helft die aufgabe...\" appears in 2 pack(s): work_pack_4_a2, work_pack_4_b1",
+        "Sentence \"der manager soll um 1430...\" appears in 3 pack(s): work_pack_5_a2, work_pack_9_a2, work_pack_5_b1",
+        "Sentence \"der manager kann die deadline um 1430...\" appears in 2 pack(s): work_pack_5_a2, work_pack_5_b1",
+        "Sentence \"der manager soll den termin um 9 uhr...\" appears in 2 pack(s): work_pack_5_a2, work_pack_5_b1",
+        "Sentence \"sie helfen die deadline um 1430...\" appears in 3 pack(s): work_pack_5_a2, work_pack_9_a2, work_pack_5_b1",
+        "Sentence \"der manager soll die besprechung...\" appears in 2 pack(s): work_pack_5_a2, work_pack_5_b1",
+        "Sentence \"ich organisiere die besprechung...\" appears in 2 pack(s): work_pack_5_a2, work_pack_5_b1",
+        "Sentence \"sie beginnen am dienstag termin...\" appears in 2 pack(s): work_pack_6_a2, work_pack_6_b1",
+        "Sentence \"sie beginnen um 9 uhr arbeit...\" appears in 2 pack(s): work_pack_6_a2, work_pack_6_b1",
+        "Sentence \"die kollegin vereinbart die deadline am montag...\" appears in 2 pack(s): work_pack_6_a2, work_pack_6_b1",
+        "Sentence \"ich beginne das projekt morgen...\" appears in 2 pack(s): work_pack_6_a2, work_pack_6_b1",
+        "Sentence \"der manager kann das projekt um 1430...\" appears in 2 pack(s): work_pack_6_a2, work_pack_6_b1",
+        "Sentence \"die kollegin plant die besprechung...\" appears in 2 pack(s): work_pack_6_a2, work_pack_6_b1",
+        "Sentence \"die kollegin organisiert die deadline...\" appears in 2 pack(s): work_pack_6_a2, work_pack_6_b1",
+        "Sentence \"ich beginne nächste woche aufgabe...\" appears in 2 pack(s): work_pack_7_a2, work_pack_7_b1",
+        "Sentence \"sie besprechen am montag termin...\" appears in 2 pack(s): work_pack_7_a2, work_pack_7_b1",
+        "Sentence \"sie soll die besprechung um 9 uhr...\" appears in 2 pack(s): work_pack_7_a2, work_pack_7_b1",
+        "Sentence \"der manager kann die besprechung am montag...\" appears in 2 pack(s): work_pack_7_a2, work_pack_7_b1",
+        "Sentence \"wir kann die besprechung nächste woche...\" appears in 2 pack(s): work_pack_7_a2, work_pack_7_b1",
+        "Sentence \"wir organisieren die besprechung...\" appears in 2 pack(s): work_pack_7_a2, work_pack_7_b1",
+        "Sentence \"ich vereinbare die besprechung...\" appears in 2 pack(s): work_pack_7_a2, work_pack_7_b1",
+        "Sentence \"ich muss um 1430 aufgabe...\" appears in 2 pack(s): work_pack_8_a2, work_pack_8_b1",
+        "Sentence \"sie kann morgen termin...\" appears in 2 pack(s): work_pack_8_a2, work_pack_8_b1",
+        "Sentence \"sie beginnen den termin um 9 uhr...\" appears in 2 pack(s): work_pack_8_a2, work_pack_8_b1",
+        "Sentence \"sie vereinbaren das meeting nächste woche...\" appears in 2 pack(s): work_pack_8_a2, work_pack_8_b1",
+        "Sentence \"der manager beginnt das meeting um 9 uhr...\" appears in 2 pack(s): work_pack_8_a2, work_pack_8_b1",
+        "Sentence \"sie besprechen die aufgabe...\" appears in 2 pack(s): work_pack_8_a2, work_pack_8_b1",
+        "Sentence \"der manager beginnt das projekt...\" appears in 2 pack(s): work_pack_8_a2, work_pack_8_b1"
+      ]
     },
     "contextTokenDensity": {
-      "failures": [],
-      "warnings": []
+      "workspaceAverage": 1.5121255349500713,
+      "packFailures": [
+        {
+          "packId": "friends_cafe_meetup_a1",
+          "average": 1.1666666666666667
+        },
+        {
+          "packId": "doctor_pack_1_a1",
+          "average": 1.4285714285714286
+        },
+        {
+          "packId": "doctor_pack_2_a1",
+          "average": 1.1428571428571428
+        },
+        {
+          "packId": "doctor_pack_3_a1",
+          "average": 0.8571428571428571
+        },
+        {
+          "packId": "doctor_pack_4_a1",
+          "average": 1.4285714285714286
+        },
+        {
+          "packId": "doctor_pack_5_a1",
+          "average": 1.4285714285714286
+        },
+        {
+          "packId": "doctor_pack_6_a1",
+          "average": 1.2857142857142858
+        },
+        {
+          "packId": "doctor_pack_7_a1",
+          "average": 0.8571428571428571
+        },
+        {
+          "packId": "doctor_pack_8_a1",
+          "average": 0.7142857142857143
+        },
+        {
+          "packId": "friends_small_talk_pack_1_a1",
+          "average": 1.5833333333333333
+        },
+        {
+          "packId": "friends_small_talk_pack_10_a1",
+          "average": 1.4166666666666667
+        },
+        {
+          "packId": "friends_small_talk_pack_2_a1",
+          "average": 1.75
+        },
+        {
+          "packId": "friends_small_talk_pack_4_a1",
+          "average": 1.4166666666666667
+        },
+        {
+          "packId": "friends_small_talk_pack_5_a1",
+          "average": 1.5
+        },
+        {
+          "packId": "friends_small_talk_pack_6_a1",
+          "average": 1.3333333333333333
+        },
+        {
+          "packId": "friends_small_talk_pack_7_a1",
+          "average": 1.5
+        },
+        {
+          "packId": "friends_small_talk_pack_8_a1",
+          "average": 1.25
+        },
+        {
+          "packId": "friends_small_talk_pack_9_a1",
+          "average": 1.3333333333333333
+        },
+        {
+          "packId": "housing_pack_1_a1",
+          "average": 1.8571428571428572
+        },
+        {
+          "packId": "housing_pack_3_a1",
+          "average": 1.8571428571428572
+        },
+        {
+          "packId": "housing_pack_7_a1",
+          "average": 1.5714285714285714
+        },
+        {
+          "packId": "friends_movies_series_a1",
+          "average": 1.25
+        },
+        {
+          "packId": "friends_plans_weekend_a1",
+          "average": 1.5833333333333333
+        },
+        {
+          "packId": "work_sample_1_a1",
+          "average": 1.1428571428571428
+        },
+        {
+          "packId": "work_sample_2_a1",
+          "average": 1
+        },
+        {
+          "packId": "friends_suggestions_activity_a2",
+          "average": 1.1666666666666667
+        },
+        {
+          "packId": "doctor_pack_1_a2",
+          "average": 1.4285714285714286
+        },
+        {
+          "packId": "doctor_pack_2_a2",
+          "average": 1.1428571428571428
+        },
+        {
+          "packId": "doctor_pack_3_a2",
+          "average": 0.8571428571428571
+        },
+        {
+          "packId": "doctor_pack_4_a2",
+          "average": 1.4285714285714286
+        },
+        {
+          "packId": "doctor_pack_5_a2",
+          "average": 1.4285714285714286
+        },
+        {
+          "packId": "doctor_pack_6_a2",
+          "average": 1.2857142857142858
+        },
+        {
+          "packId": "doctor_pack_7_a2",
+          "average": 0.8571428571428571
+        },
+        {
+          "packId": "doctor_pack_8_a2",
+          "average": 0.7142857142857143
+        },
+        {
+          "packId": "friends_small_talk_pack_1_a2",
+          "average": 1.5833333333333333
+        },
+        {
+          "packId": "friends_small_talk_pack_2_a2",
+          "average": 1.75
+        },
+        {
+          "packId": "friends_small_talk_pack_4_a2",
+          "average": 1.4166666666666667
+        },
+        {
+          "packId": "friends_small_talk_pack_5_a2",
+          "average": 1.5
+        },
+        {
+          "packId": "friends_small_talk_pack_6_a2",
+          "average": 1.3333333333333333
+        },
+        {
+          "packId": "friends_small_talk_pack_7_a2",
+          "average": 1.5
+        },
+        {
+          "packId": "friends_small_talk_pack_8_a2",
+          "average": 1.25
+        },
+        {
+          "packId": "housing_pack_1_a2",
+          "average": 1.8571428571428572
+        },
+        {
+          "packId": "housing_pack_3_a2",
+          "average": 1.8571428571428572
+        },
+        {
+          "packId": "housing_pack_7_a2",
+          "average": 1.5714285714285714
+        },
+        {
+          "packId": "friends_opinions_recommendations_a2",
+          "average": 1.6666666666666667
+        },
+        {
+          "packId": "friends_reschedule_and_decline_a2",
+          "average": 1.75
+        },
+        {
+          "packId": "work_pack_1_a2",
+          "average": 1.2857142857142858
+        },
+        {
+          "packId": "work_pack_10_a2",
+          "average": 1
+        },
+        {
+          "packId": "work_pack_11_a2",
+          "average": 1.1428571428571428
+        },
+        {
+          "packId": "work_pack_12_a2",
+          "average": 1
+        },
+        {
+          "packId": "work_pack_2_a2",
+          "average": 1
+        },
+        {
+          "packId": "work_pack_3_a2",
+          "average": 1.1428571428571428
+        },
+        {
+          "packId": "work_pack_4_a2",
+          "average": 1.4285714285714286
+        },
+        {
+          "packId": "work_pack_5_a2",
+          "average": 1.4285714285714286
+        },
+        {
+          "packId": "work_pack_6_a2",
+          "average": 1.1428571428571428
+        },
+        {
+          "packId": "work_pack_7_a2",
+          "average": 1.1428571428571428
+        },
+        {
+          "packId": "work_pack_8_a2",
+          "average": 1.2857142857142858
+        },
+        {
+          "packId": "work_pack_9_a2",
+          "average": 1.1428571428571428
+        },
+        {
+          "packId": "work_sample_3_a2",
+          "average": 1.1428571428571428
+        },
+        {
+          "packId": "work_pack_1_b1",
+          "average": 1.2857142857142858
+        },
+        {
+          "packId": "work_pack_2_b1",
+          "average": 1
+        },
+        {
+          "packId": "work_pack_3_b1",
+          "average": 1.1428571428571428
+        },
+        {
+          "packId": "work_pack_4_b1",
+          "average": 1.4285714285714286
+        },
+        {
+          "packId": "work_pack_5_b1",
+          "average": 1.4285714285714286
+        },
+        {
+          "packId": "work_pack_6_b1",
+          "average": 1.1428571428571428
+        },
+        {
+          "packId": "work_pack_7_b1",
+          "average": 1.1428571428571428
+        },
+        {
+          "packId": "work_pack_8_b1",
+          "average": 1.2857142857142858
+        }
+      ],
+      "failures": [
+        "Workspace average context token density is 1.51 (minimum: 2.3)",
+        "Pack \"friends_cafe_meetup_a1\" has average 1.17 context tokens per prompt (minimum: 2.0)",
+        "Pack \"doctor_pack_1_a1\" has average 1.43 context tokens per prompt (minimum: 2.0)",
+        "Pack \"doctor_pack_2_a1\" has average 1.14 context tokens per prompt (minimum: 2.0)",
+        "Pack \"doctor_pack_3_a1\" has average 0.86 context tokens per prompt (minimum: 2.0)",
+        "Pack \"doctor_pack_4_a1\" has average 1.43 context tokens per prompt (minimum: 2.0)",
+        "Pack \"doctor_pack_5_a1\" has average 1.43 context tokens per prompt (minimum: 2.0)",
+        "Pack \"doctor_pack_6_a1\" has average 1.29 context tokens per prompt (minimum: 2.0)",
+        "Pack \"doctor_pack_7_a1\" has average 0.86 context tokens per prompt (minimum: 2.0)",
+        "Pack \"doctor_pack_8_a1\" has average 0.71 context tokens per prompt (minimum: 2.0)",
+        "Pack \"friends_small_talk_pack_1_a1\" has average 1.58 context tokens per prompt (minimum: 2.0)",
+        "Pack \"friends_small_talk_pack_10_a1\" has average 1.42 context tokens per prompt (minimum: 2.0)",
+        "Pack \"friends_small_talk_pack_2_a1\" has average 1.75 context tokens per prompt (minimum: 2.0)",
+        "Pack \"friends_small_talk_pack_4_a1\" has average 1.42 context tokens per prompt (minimum: 2.0)",
+        "Pack \"friends_small_talk_pack_5_a1\" has average 1.50 context tokens per prompt (minimum: 2.0)",
+        "Pack \"friends_small_talk_pack_6_a1\" has average 1.33 context tokens per prompt (minimum: 2.0)",
+        "Pack \"friends_small_talk_pack_7_a1\" has average 1.50 context tokens per prompt (minimum: 2.0)",
+        "Pack \"friends_small_talk_pack_8_a1\" has average 1.25 context tokens per prompt (minimum: 2.0)",
+        "Pack \"friends_small_talk_pack_9_a1\" has average 1.33 context tokens per prompt (minimum: 2.0)",
+        "Pack \"housing_pack_1_a1\" has average 1.86 context tokens per prompt (minimum: 2.0)",
+        "Pack \"housing_pack_3_a1\" has average 1.86 context tokens per prompt (minimum: 2.0)",
+        "Pack \"housing_pack_7_a1\" has average 1.57 context tokens per prompt (minimum: 2.0)",
+        "Pack \"friends_movies_series_a1\" has average 1.25 context tokens per prompt (minimum: 2.0)",
+        "Pack \"friends_plans_weekend_a1\" has average 1.58 context tokens per prompt (minimum: 2.0)",
+        "Pack \"work_sample_1_a1\" has average 1.14 context tokens per prompt (minimum: 2.0)",
+        "Pack \"work_sample_2_a1\" has average 1.00 context tokens per prompt (minimum: 2.0)",
+        "Pack \"friends_suggestions_activity_a2\" has average 1.17 context tokens per prompt (minimum: 2.0)",
+        "Pack \"doctor_pack_1_a2\" has average 1.43 context tokens per prompt (minimum: 2.0)",
+        "Pack \"doctor_pack_2_a2\" has average 1.14 context tokens per prompt (minimum: 2.0)",
+        "Pack \"doctor_pack_3_a2\" has average 0.86 context tokens per prompt (minimum: 2.0)",
+        "Pack \"doctor_pack_4_a2\" has average 1.43 context tokens per prompt (minimum: 2.0)",
+        "Pack \"doctor_pack_5_a2\" has average 1.43 context tokens per prompt (minimum: 2.0)",
+        "Pack \"doctor_pack_6_a2\" has average 1.29 context tokens per prompt (minimum: 2.0)",
+        "Pack \"doctor_pack_7_a2\" has average 0.86 context tokens per prompt (minimum: 2.0)",
+        "Pack \"doctor_pack_8_a2\" has average 0.71 context tokens per prompt (minimum: 2.0)",
+        "Pack \"friends_small_talk_pack_1_a2\" has average 1.58 context tokens per prompt (minimum: 2.0)",
+        "Pack \"friends_small_talk_pack_2_a2\" has average 1.75 context tokens per prompt (minimum: 2.0)",
+        "Pack \"friends_small_talk_pack_4_a2\" has average 1.42 context tokens per prompt (minimum: 2.0)",
+        "Pack \"friends_small_talk_pack_5_a2\" has average 1.50 context tokens per prompt (minimum: 2.0)",
+        "Pack \"friends_small_talk_pack_6_a2\" has average 1.33 context tokens per prompt (minimum: 2.0)",
+        "Pack \"friends_small_talk_pack_7_a2\" has average 1.50 context tokens per prompt (minimum: 2.0)",
+        "Pack \"friends_small_talk_pack_8_a2\" has average 1.25 context tokens per prompt (minimum: 2.0)",
+        "Pack \"housing_pack_1_a2\" has average 1.86 context tokens per prompt (minimum: 2.0)",
+        "Pack \"housing_pack_3_a2\" has average 1.86 context tokens per prompt (minimum: 2.0)",
+        "Pack \"housing_pack_7_a2\" has average 1.57 context tokens per prompt (minimum: 2.0)",
+        "Pack \"friends_opinions_recommendations_a2\" has average 1.67 context tokens per prompt (minimum: 2.0)",
+        "Pack \"friends_reschedule_and_decline_a2\" has average 1.75 context tokens per prompt (minimum: 2.0)",
+        "Pack \"work_pack_1_a2\" has average 1.29 context tokens per prompt (minimum: 2.0)",
+        "Pack \"work_pack_10_a2\" has average 1.00 context tokens per prompt (minimum: 2.0)",
+        "Pack \"work_pack_11_a2\" has average 1.14 context tokens per prompt (minimum: 2.0)",
+        "Pack \"work_pack_12_a2\" has average 1.00 context tokens per prompt (minimum: 2.0)",
+        "Pack \"work_pack_2_a2\" has average 1.00 context tokens per prompt (minimum: 2.0)",
+        "Pack \"work_pack_3_a2\" has average 1.14 context tokens per prompt (minimum: 2.0)",
+        "Pack \"work_pack_4_a2\" has average 1.43 context tokens per prompt (minimum: 2.0)",
+        "Pack \"work_pack_5_a2\" has average 1.43 context tokens per prompt (minimum: 2.0)",
+        "Pack \"work_pack_6_a2\" has average 1.14 context tokens per prompt (minimum: 2.0)",
+        "Pack \"work_pack_7_a2\" has average 1.14 context tokens per prompt (minimum: 2.0)",
+        "Pack \"work_pack_8_a2\" has average 1.29 context tokens per prompt (minimum: 2.0)",
+        "Pack \"work_pack_9_a2\" has average 1.14 context tokens per prompt (minimum: 2.0)",
+        "Pack \"work_sample_3_a2\" has average 1.14 context tokens per prompt (minimum: 2.0)",
+        "Pack \"work_pack_1_b1\" has average 1.29 context tokens per prompt (minimum: 2.0)",
+        "Pack \"work_pack_2_b1\" has average 1.00 context tokens per prompt (minimum: 2.0)",
+        "Pack \"work_pack_3_b1\" has average 1.14 context tokens per prompt (minimum: 2.0)",
+        "Pack \"work_pack_4_b1\" has average 1.43 context tokens per prompt (minimum: 2.0)",
+        "Pack \"work_pack_5_b1\" has average 1.43 context tokens per prompt (minimum: 2.0)",
+        "Pack \"work_pack_6_b1\" has average 1.14 context tokens per prompt (minimum: 2.0)",
+        "Pack \"work_pack_7_b1\" has average 1.14 context tokens per prompt (minimum: 2.0)",
+        "Pack \"work_pack_8_b1\" has average 1.29 context tokens per prompt (minimum: 2.0)"
+      ]
     },
     "cefrBalance": {
-      "distribution": {},
-      "warnings": []
+      "distribution": {
+        "A1": 36,
+        "A2": 45,
+        "B1": 8
+      },
+      "warnings": [
+        "Level \"A2\" is 50.6% of packs (consider balancing)"
+      ]
     }
   },
-  "hasFailures": false,
-  "hasWarnings": false
+  "hasFailures": true,
+  "hasWarnings": true
 }

@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A1",
-  "title": "Modal Verbs: A1 (Tier 1)",
-  "shortTitle": "Modal Verbs A1",
+  "title": "Modal Verbs: A1 (Tier 1) - Pattern",
+  "shortTitle": "Modal Verbs A1 Pattern",
   "subtitle": "Tier 1 - pattern switch - Master modal verb patterns (können",
   "estimatedMinutes": 3,
   "mechanicId": "modal_verbs",
@@ -17,7 +17,9 @@
   "variationSlots": [
     "subject",
     "verb",
-    "object"
+    "object",
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -60,10 +62,103 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Du essst nach Hause.",
+      "text": "Sie will unbedingt Deutsch gehen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du essst nach Hause.",
+      "natural_en": "Sie will unbedingt Deutsch gehen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "will"
+        ],
+        "object": [
+          "Deutsch"
+        ],
+        "modifier": [
+          "unbedingt"
+        ],
+        "infinitive": [
+          "gehen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier1/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Du willst leider dort den sehen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du willst leider dort den sehen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "willst"
+        ],
+        "object": [
+          "den"
+        ],
+        "modifier": [
+          "leider"
+        ],
+        "location": [
+          "dort"
+        ],
+        "infinitive": [
+          "sehen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier1/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "am Wochenende wollen wir kommen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Wochenende wollen wir kommen.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "wollen"
+        ],
+        "time": [
+          "am Wochenende"
+        ],
+        "infinitive": [
+          "kommen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier1/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Ihr müsst nach Hause kaufen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ihr müsst nach Hause kaufen.",
       "slotsChanged": [
         "subject",
         "verb",
@@ -71,23 +166,26 @@
       ],
       "slots": {
         "subject": [
-          "Du"
+          "Ihr"
         ],
         "verb": [
-          "essst"
+          "müsst"
         ],
         "object": [
           "nach Hause"
+        ],
+        "infinitive": [
+          "kaufen"
         ]
       },
-      "audioUrl": "/v1/audio/modal_verbs_A1_tier1/prompt-001.mp3"
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier1/prompt-004.mp3"
     },
     {
-      "id": "prompt-002",
-      "text": "Ich mache das.",
+      "id": "prompt-005",
+      "text": "Ich möchte nach Hause machen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ich mache das.",
+      "natural_en": "Ich möchte nach Hause machen.",
       "slotsChanged": [
         "subject",
         "verb",
@@ -98,93 +196,23 @@
           "Ich"
         ],
         "verb": [
-          "mache"
-        ],
-        "object": [
-          "das"
-        ]
-      },
-      "audioUrl": "/v1/audio/modal_verbs_A1_tier1/prompt-002.mp3"
-    },
-    {
-      "id": "prompt-003",
-      "text": "Ihr seht die.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ihr seht die.",
-      "slotsChanged": [
-        "time",
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Ihr"
-        ],
-        "verb": [
-          "seht"
-        ],
-        "object": [
-          "die"
-        ]
-      },
-      "audioUrl": "/v1/audio/modal_verbs_A1_tier1/prompt-003.mp3"
-    },
-    {
-      "id": "prompt-004",
-      "text": "Wir essen einen.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir essen einen.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Wir"
-        ],
-        "verb": [
-          "essen"
-        ],
-        "object": [
-          "einen"
-        ]
-      },
-      "audioUrl": "/v1/audio/modal_verbs_A1_tier1/prompt-004.mp3"
-    },
-    {
-      "id": "prompt-005",
-      "text": "Du kaufst nach Hause.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du kaufst nach Hause.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Du"
-        ],
-        "verb": [
-          "kaufst"
+          "möchte"
         ],
         "object": [
           "nach Hause"
+        ],
+        "infinitive": [
+          "machen"
         ]
       },
       "audioUrl": "/v1/audio/modal_verbs_A1_tier1/prompt-005.mp3"
     },
     {
       "id": "prompt-006",
-      "text": "Sie geht zur Arbeit.",
+      "text": "morgen muss er zur Arbeit essen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie geht zur Arbeit.",
+      "natural_en": "morgen muss er zur Arbeit essen.",
       "slotsChanged": [
         "time",
         "subject",
@@ -193,13 +221,19 @@
       ],
       "slots": {
         "subject": [
-          "Sie"
+          "Er"
         ],
         "verb": [
-          "geht"
+          "muss"
         ],
         "object": [
           "zur Arbeit"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "infinitive": [
+          "essen"
         ]
       },
       "audioUrl": "/v1/audio/modal_verbs_A1_tier1/prompt-006.mp3"
@@ -220,19 +254,20 @@
     ],
     "coverage": {
       "verbs": [
-        "essst",
-        "mache",
-        "seht",
-        "essen",
-        "kaufst",
-        "geht"
+        "will",
+        "willst",
+        "wollen",
+        "müsst",
+        "möchte",
+        "muss"
       ],
       "subjects": [
+        "Sie",
         "Du",
-        "Ich",
-        "Ihr",
         "Wir",
-        "Sie"
+        "Ihr",
+        "Ich",
+        "Er"
       ],
       "patterns": [
         "modal_verb_infinitive",
@@ -245,10 +280,10 @@
     "estPromptCount": 6,
     "timeboxMinutes": 3,
     "qualitySignals": {
-      "tokenHitsCount": 0,
+      "tokenHitsCount": 6,
       "multiSlotRate": 1,
       "uniqueVerbCount": 6,
-      "uniqueSubjectCount": 5,
+      "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -257,12 +292,23 @@
     "source": "template",
     "sourceRef": "mechanics/modal_verbs",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.635Z"
+    "generatedAt": "2026-01-03T09:52:17.348Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T10:00:00.000Z"
+  },
+  "title_i18n": {
+    "en": "Modal Verbs: A1 (Tier 1) - Pattern"
+  },
+  "shortTitle_i18n": {
+    "en": "Modal Verbs A1 Pattern"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 1 - pattern switch - Master modal verb patterns (können"
   },
   "contentId": "de:drill:modal_verbs_a1_tier1_pattern-switch",
-  "contentHash": "9ec9e699032a03d7679bffee295e5dd87b7646ea333a67a4ee5aa7403bfbf460",
-  "revisionId": "9ec9e699032a"
+  "contentHash": "2b997362393156bb9a572ede887dcacad4d3e9f4f4e61515dfbd3aa25c6b5678",
+  "revisionId": "2b9973623931"
 }

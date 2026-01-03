@@ -1,0 +1,25 @@
+{
+  "totalGenerated": 0,
+  "totalRetries": 0,
+  "totalFallbacksUsed": 5,
+  "mechanicStats": {
+    "verb_present_tense_tier1": {
+      "generated": 24,
+      "retries": 0,
+      "fallbacks": 3,
+      "avgLen": 27.5
+    },
+    "verb_present_tense_tier2": {
+      "generated": 32,
+      "retries": 0,
+      "fallbacks": 2,
+      "avgLen": 27.25
+    },
+    "verb_present_tense_tier3": {
+      "generated": 40,
+      "retries": 0,
+      "fallbacks": 0,
+      "avgLen": 33
+    }
+  }
+}

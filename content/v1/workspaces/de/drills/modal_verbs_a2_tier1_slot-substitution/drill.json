@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A2",
-  "title": "Modal Verbs: A2 (Tier 1)",
-  "shortTitle": "Modal Verbs A2",
+  "title": "Modal Verbs: A2 (Tier 1) - Slot",
+  "shortTitle": "Modal Verbs A2 Slot",
   "subtitle": "Tier 1 - slot substitution - Master modal verb patterns (kön",
   "estimatedMinutes": 3,
   "mechanicId": "modal_verbs",
@@ -17,7 +17,9 @@
   "variationSlots": [
     "subject",
     "verb",
-    "object"
+    "object",
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -60,144 +62,190 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Ihr macht eine.",
+      "text": "Ihr müsst leider Deutsch gehen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ihr macht eine.",
+      "natural_en": "Ihr müsst leider Deutsch gehen.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
           "Ihr"
         ],
         "verb": [
-          "macht"
+          "müsst"
         ],
         "object": [
-          "eine"
+          "Deutsch"
+        ],
+        "modifier": [
+          "leider"
+        ],
+        "infinitive": [
+          "gehen"
         ]
       },
       "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-001.mp3"
     },
     {
       "id": "prompt-002",
-      "text": "Ihr esst die.",
+      "text": "Wir möchten unbedingt die essen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ihr esst die.",
+      "natural_en": "Wir möchten unbedingt die essen.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Ihr"
-        ],
-        "verb": [
-          "esst"
-        ],
-        "object": [
-          "die"
-        ]
-      },
-      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-002.mp3"
-    },
-    {
-      "id": "prompt-003",
-      "text": "Ich sehe den.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ich sehe den.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Ich"
-        ],
-        "verb": [
-          "sehe"
-        ],
-        "object": [
-          "den"
-        ]
-      },
-      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-003.mp3"
-    },
-    {
-      "id": "prompt-004",
-      "text": "Ich gehe zur Arbeit.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ich gehe zur Arbeit.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Ich"
-        ],
-        "verb": [
-          "gehe"
-        ],
-        "object": [
-          "zur Arbeit"
-        ]
-      },
-      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-004.mp3"
-    },
-    {
-      "id": "prompt-005",
-      "text": "Ich lerne eine.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ich lerne eine.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Ich"
-        ],
-        "verb": [
-          "lerne"
-        ],
-        "object": [
-          "eine"
-        ]
-      },
-      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-005.mp3"
-    },
-    {
-      "id": "prompt-006",
-      "text": "Wir essen ins Kino.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir essen ins Kino.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
           "Wir"
         ],
         "verb": [
-          "essen"
+          "möchten"
         ],
         "object": [
-          "ins Kino"
+          "die"
+        ],
+        "modifier": [
+          "unbedingt"
+        ],
+        "infinitive": [
+          "essen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "Ich möchte vielleicht den arbeiten.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich möchte vielleicht den arbeiten.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "möchte"
+        ],
+        "object": [
+          "den"
+        ],
+        "modifier": [
+          "vielleicht"
+        ],
+        "infinitive": [
+          "arbeiten"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Du musst leider hier das lernen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du musst leider hier das lernen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "musst"
+        ],
+        "object": [
+          "das"
+        ],
+        "modifier": [
+          "leider"
+        ],
+        "location": [
+          "hier"
+        ],
+        "infinitive": [
+          "lernen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Er muss wirklich eine kaufen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er muss wirklich eine kaufen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "muss"
+        ],
+        "object": [
+          "eine"
+        ],
+        "modifier": [
+          "wirklich"
+        ],
+        "infinitive": [
+          "kaufen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Sie will leider die trinken.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie will leider die trinken.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "will"
+        ],
+        "object": [
+          "die"
+        ],
+        "modifier": [
+          "leider"
+        ],
+        "infinitive": [
+          "trinken"
         ]
       },
       "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-006.mp3"
@@ -218,17 +266,20 @@
     ],
     "coverage": {
       "verbs": [
-        "macht",
-        "esst",
-        "sehe",
-        "gehe",
-        "lerne",
-        "essen"
+        "müsst",
+        "möchten",
+        "möchte",
+        "musst",
+        "muss",
+        "will"
       ],
       "subjects": [
         "Ihr",
+        "Wir",
         "Ich",
-        "Wir"
+        "Du",
+        "Er",
+        "Sie"
       ],
       "patterns": [
         "modal_verb_infinitive",
@@ -241,10 +292,10 @@
     "estPromptCount": 6,
     "timeboxMinutes": 3,
     "qualitySignals": {
-      "tokenHitsCount": 0,
+      "tokenHitsCount": 6,
       "multiSlotRate": 1,
       "uniqueVerbCount": 6,
-      "uniqueSubjectCount": 3,
+      "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -253,12 +304,21 @@
     "source": "template",
     "sourceRef": "mechanics/modal_verbs",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.637Z"
+    "generatedAt": "2026-01-03T09:52:17.352Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Modal Verbs: A2 (Tier 1) - Slot"
+  },
+  "shortTitle_i18n": {
+    "en": "Modal Verbs A2 Slot"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 1 - slot substitution - Master modal verb patterns (kön"
+  },
   "contentId": "de:drill:modal_verbs_a2_tier1_slot-substitution",
-  "contentHash": "8c15ecc0c32b9f00086234ade5e1549ecf82bbd88dc778800ced0b860765b9a1",
-  "revisionId": "8c15ecc0c32b"
+  "contentHash": "1186a792a001ff21e7ae6bb3ea9a07fa40a67b1a74766f30b37027ef7cd39d22",
+  "revisionId": "1186a792a001"
 }

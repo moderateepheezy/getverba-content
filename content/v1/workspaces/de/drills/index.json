@@ -1,230 +1,516 @@
 {
-  "version": "v1",
-  "kind": "drills",
-  "total": 149,
-  "pageSize": 20,
-  "page": 1,
-  "items": [
+  "drillGroups": [
     {
-      "id": "case_endings_akkusativ_a1_tier1_contrast-pairs",
-      "kind": "drill",
-      "title": "Case Endings: Akkusativ: A1 (Tier 1)",
-      "level": "A1",
-      "durationMinutes": 3,
-      "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier1_contrast-pairs/drill.json",
-      "contentId": "de:drill:case_endings_akkusativ_a1_tier1_contrast-pairs",
-      "revisionId": "8c366baebcec",
-      "domainKind": "context"
+      "id": "case_endings_akkusativ",
+      "kind": "drill_group",
+      "mechanic": "case_endings_akkusativ",
+      "title": "Case Endings: Akkusativ",
+      "subtitle": "Practice accusative case endings (den, die, das, einen, eine",
+      "description": "Practice accusative case endings (den, die, das, einen, eine)",
+      "estimatedDuration": "3–5 min",
+      "order": 1,
+      "tiers": [
+        {
+          "id": "case_endings_akkusativ_a1_t1",
+          "tier": 1,
+          "level": "A1",
+          "durationMinutes": 3,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier1_pattern-switch/drill.json"
+        },
+        {
+          "id": "case_endings_akkusativ_a1_t2",
+          "tier": 2,
+          "level": "A1",
+          "durationMinutes": 4,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier2_pattern-switch/drill.json"
+        },
+        {
+          "id": "case_endings_akkusativ_a1_t3",
+          "tier": 3,
+          "level": "A1",
+          "durationMinutes": 5,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier3_pattern-switch/drill.json"
+        },
+        {
+          "id": "case_endings_akkusativ_a2_t1",
+          "tier": 1,
+          "level": "A2",
+          "durationMinutes": 3,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a2_tier1_pattern-switch/drill.json"
+        },
+        {
+          "id": "case_endings_akkusativ_a2_t2",
+          "tier": 2,
+          "level": "A2",
+          "durationMinutes": 4,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a2_tier2_pattern-switch/drill.json"
+        },
+        {
+          "id": "case_endings_akkusativ_a2_t3",
+          "tier": 3,
+          "level": "A2",
+          "durationMinutes": 5,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a2_tier3_pattern-switch/drill.json"
+        }
+      ],
+      "description_i18n": {
+        "en": "Practice accusative case endings (den, die, das, einen, eine)",
+        "de": "Übe Akkusativ-Endungen (den, die, das, einen, eine)"
+      }
     },
     {
-      "id": "case_endings_akkusativ_a1_tier1_pattern-switch",
-      "kind": "drill",
-      "title": "Case Endings: Akkusativ: A1 (Tier 1)",
-      "level": "A1",
-      "durationMinutes": 3,
-      "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier1_pattern-switch/drill.json",
-      "contentId": "de:drill:case_endings_akkusativ_a1_tier1_pattern-switch",
-      "revisionId": "8d64e7ec49f1",
-      "domainKind": "context"
+      "id": "modal_verbs",
+      "kind": "drill_group",
+      "mechanic": "modal_verbs",
+      "title": "Modal Verbs",
+      "subtitle": "Practice modal verbs (können, müssen, sollen, wollen, möchte",
+      "description": "Practice modal verbs (können, müssen, sollen, wollen, möchten)",
+      "estimatedDuration": "3–5 min",
+      "order": 2,
+      "tiers": [
+        {
+          "id": "modal_verbs_a1_t1",
+          "tier": 1,
+          "level": "A1",
+          "durationMinutes": 3,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier1_pattern-switch/drill.json"
+        },
+        {
+          "id": "modal_verbs_a1_t2",
+          "tier": 2,
+          "level": "A1",
+          "durationMinutes": 4,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier2_pattern-switch/drill.json"
+        },
+        {
+          "id": "modal_verbs_a1_t3",
+          "tier": 3,
+          "level": "A1",
+          "durationMinutes": 5,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier3_pattern-switch/drill.json"
+        },
+        {
+          "id": "modal_verbs_a2_t1",
+          "tier": 1,
+          "level": "A2",
+          "durationMinutes": 3,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a2_tier1_pattern-switch/drill.json"
+        },
+        {
+          "id": "modal_verbs_a2_t2",
+          "tier": 2,
+          "level": "A2",
+          "durationMinutes": 4,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a2_tier2_pattern-switch/drill.json"
+        },
+        {
+          "id": "modal_verbs_a2_t3",
+          "tier": 3,
+          "level": "A2",
+          "durationMinutes": 5,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a2_tier3_pattern-switch/drill.json"
+        }
+      ],
+      "description_i18n": {
+        "en": "Practice modal verbs (können, müssen, sollen, wollen, möchten)",
+        "de": "Übe Modalverben (können, müssen, sollen, wollen, möchten)"
+      }
     },
     {
-      "id": "case_endings_akkusativ_a1_tier1_slot-substitution",
-      "kind": "drill",
-      "title": "Case Endings: Akkusativ: A1 (Tier 1)",
-      "level": "A1",
-      "durationMinutes": 3,
-      "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier1_slot-substitution/drill.json",
-      "contentId": "de:drill:case_endings_akkusativ_a1_tier1_slot-substitution",
-      "revisionId": "6352ab71dabc",
-      "domainKind": "context"
+      "id": "negation",
+      "kind": "drill_group",
+      "mechanic": "negation",
+      "title": "Negation",
+      "subtitle": "Practice negation (nicht, kein, keine, keinen)",
+      "description": "Practice negation (nicht, kein, keine, keinen)",
+      "estimatedDuration": "3–5 min",
+      "order": 3,
+      "tiers": [
+        {
+          "id": "negation_a1_t1",
+          "tier": 1,
+          "level": "A1",
+          "durationMinutes": 3,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/negation_a1_tier1_pattern-switch/drill.json"
+        },
+        {
+          "id": "negation_a1_t2",
+          "tier": 2,
+          "level": "A1",
+          "durationMinutes": 4,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/negation_a1_tier2_pattern-switch/drill.json"
+        },
+        {
+          "id": "negation_a1_t3",
+          "tier": 3,
+          "level": "A1",
+          "durationMinutes": 5,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/negation_a1_tier3_pattern-switch/drill.json"
+        },
+        {
+          "id": "negation_a2_t1",
+          "tier": 1,
+          "level": "A2",
+          "durationMinutes": 3,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier1_pattern-switch/drill.json"
+        },
+        {
+          "id": "negation_a2_t2",
+          "tier": 2,
+          "level": "A2",
+          "durationMinutes": 4,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier2_pattern-switch/drill.json"
+        },
+        {
+          "id": "negation_a2_t3",
+          "tier": 3,
+          "level": "A2",
+          "durationMinutes": 5,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier3_pattern-switch/drill.json"
+        }
+      ],
+      "description_i18n": {
+        "en": "Practice negation (nicht, kein, keine, keinen)",
+        "de": "Übe Verneinung (nicht, kein, keine, keinen)"
+      }
     },
     {
-      "id": "case_endings_akkusativ_a1_tier2_contrast-pairs",
-      "kind": "drill",
-      "title": "Case Endings: Akkusativ: A1 (Tier 2)",
-      "level": "A1",
-      "durationMinutes": 4,
-      "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier2_contrast-pairs/drill.json",
-      "contentId": "de:drill:case_endings_akkusativ_a1_tier2_contrast-pairs",
-      "revisionId": "53b79a3f56c5",
-      "domainKind": "context"
+      "id": "politeness_templates",
+      "kind": "drill_group",
+      "mechanic": "politeness_templates",
+      "title": "Politeness Templates",
+      "subtitle": "Practice formal politeness formulas (Könnten Sie..., Würden ",
+      "description": "Practice formal politeness formulas (Könnten Sie..., Würden Sie..., Ich hätte gern...)",
+      "estimatedDuration": "3–5 min",
+      "order": 4,
+      "tiers": [
+        {
+          "id": "politeness_templates_a1_t1",
+          "tier": 1,
+          "level": "A1",
+          "durationMinutes": 3,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a1_tier1_pattern-switch/drill.json"
+        },
+        {
+          "id": "politeness_templates_a1_t2",
+          "tier": 2,
+          "level": "A1",
+          "durationMinutes": 4,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a1_tier2_pattern-switch/drill.json"
+        },
+        {
+          "id": "politeness_templates_a1_t3",
+          "tier": 3,
+          "level": "A1",
+          "durationMinutes": 5,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a1_tier3_pattern-switch/drill.json"
+        },
+        {
+          "id": "politeness_templates_a2_t1",
+          "tier": 1,
+          "level": "A2",
+          "durationMinutes": 3,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a2_tier1_pattern-switch/drill.json"
+        },
+        {
+          "id": "politeness_templates_a2_t2",
+          "tier": 2,
+          "level": "A2",
+          "durationMinutes": 4,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a2_tier2_pattern-switch/drill.json"
+        },
+        {
+          "id": "politeness_templates_a2_t3",
+          "tier": 3,
+          "level": "A2",
+          "durationMinutes": 5,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a2_tier3_pattern-switch/drill.json"
+        }
+      ],
+      "description_i18n": {
+        "en": "Practice formal politeness formulas (Könnten Sie..., Würden Sie..., Ich hätte gern...)",
+        "de": "Übe formelle Höflichkeitsformeln (Könnten Sie..., Würden Sie..., Ich hätte gern...)"
+      }
     },
     {
-      "id": "case_endings_akkusativ_a1_tier2_pattern-switch",
-      "kind": "drill",
-      "title": "Case Endings: Akkusativ: A1 (Tier 2)",
-      "level": "A1",
-      "durationMinutes": 4,
-      "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier2_pattern-switch/drill.json",
-      "contentId": "de:drill:case_endings_akkusativ_a1_tier2_pattern-switch",
-      "revisionId": "8f273b015d37",
-      "domainKind": "context"
+      "id": "question_formation",
+      "kind": "drill_group",
+      "mechanic": "question_formation",
+      "title": "Question Formation",
+      "subtitle": "Practice question formation (Was, Wo, Wann, Wie + verb inver",
+      "description": "Practice question formation (Was, Wo, Wann, Wie + verb inversion)",
+      "estimatedDuration": "3–5 min",
+      "order": 5,
+      "tiers": [
+        {
+          "id": "question_formation_a1_t1",
+          "tier": 1,
+          "level": "A1",
+          "durationMinutes": 3,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/question_formation_a1_tier1_pattern-switch/drill.json"
+        },
+        {
+          "id": "question_formation_a1_t2",
+          "tier": 2,
+          "level": "A1",
+          "durationMinutes": 4,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/question_formation_a1_tier2_pattern-switch/drill.json"
+        },
+        {
+          "id": "question_formation_a1_t3",
+          "tier": 3,
+          "level": "A1",
+          "durationMinutes": 5,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/question_formation_a1_tier3_pattern-switch/drill.json"
+        },
+        {
+          "id": "question_formation_a2_t1",
+          "tier": 1,
+          "level": "A2",
+          "durationMinutes": 3,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/question_formation_a2_tier1_pattern-switch/drill.json"
+        },
+        {
+          "id": "question_formation_a2_t2",
+          "tier": 2,
+          "level": "A2",
+          "durationMinutes": 4,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/question_formation_a2_tier2_pattern-switch/drill.json"
+        },
+        {
+          "id": "question_formation_a2_t3",
+          "tier": 3,
+          "level": "A2",
+          "durationMinutes": 5,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/question_formation_a2_tier3_pattern-switch/drill.json"
+        }
+      ],
+      "description_i18n": {
+        "en": "Practice question formation (Was, Wo, Wann, Wie + verb inversion)",
+        "de": "Übe Fragebildung (Was, Wo, Wann, Wie + Verbumstellung)"
+      }
     },
     {
-      "id": "case_endings_akkusativ_a1_tier2_slot-substitution",
-      "kind": "drill",
-      "title": "Case Endings: Akkusativ: A1 (Tier 2)",
-      "level": "A1",
-      "durationMinutes": 4,
-      "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier2_slot-substitution/drill.json",
-      "contentId": "de:drill:case_endings_akkusativ_a1_tier2_slot-substitution",
-      "revisionId": "0f1c2c2ef255",
-      "domainKind": "context"
+      "id": "time_expressions_inversion",
+      "kind": "drill_group",
+      "mechanic": "time_expressions_inversion",
+      "title": "Time Expressions & Inversion",
+      "subtitle": "Practice verb inversion with time expressions (Heute gehe ic",
+      "description": "Practice verb inversion with time expressions (Heute gehe ich, Morgen komme ich)",
+      "estimatedDuration": "3–5 min",
+      "order": 6,
+      "tiers": [
+        {
+          "id": "time_expressions_inversion_a1_t1",
+          "tier": 1,
+          "level": "A1",
+          "durationMinutes": 3,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a1_tier1_pattern-switch/drill.json"
+        },
+        {
+          "id": "time_expressions_inversion_a1_t2",
+          "tier": 2,
+          "level": "A1",
+          "durationMinutes": 4,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a1_tier2_pattern-switch/drill.json"
+        },
+        {
+          "id": "time_expressions_inversion_a1_t3",
+          "tier": 3,
+          "level": "A1",
+          "durationMinutes": 5,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a1_tier3_pattern-switch/drill.json"
+        },
+        {
+          "id": "time_expressions_inversion_a2_t1",
+          "tier": 1,
+          "level": "A2",
+          "durationMinutes": 3,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a2_tier1_pattern-switch/drill.json"
+        },
+        {
+          "id": "time_expressions_inversion_a2_t2",
+          "tier": 2,
+          "level": "A2",
+          "durationMinutes": 4,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a2_tier2_pattern-switch/drill.json"
+        },
+        {
+          "id": "time_expressions_inversion_a2_t3",
+          "tier": 3,
+          "level": "A2",
+          "durationMinutes": 5,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a2_tier3_pattern-switch/drill.json"
+        }
+      ],
+      "description_i18n": {
+        "en": "Practice verb inversion with time expressions (Heute gehe ich, Morgen komme ich)",
+        "de": "Übe Verbumstellung mit Zeitausdrücken (Heute gehe ich, Morgen komme ich)"
+      }
     },
     {
-      "id": "case_endings_akkusativ_a1_tier3_contrast-pairs",
-      "kind": "drill",
-      "title": "Case Endings: Akkusativ: A1 (Tier 3)",
-      "level": "A1",
-      "durationMinutes": 5,
-      "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier3_contrast-pairs/drill.json",
-      "contentId": "de:drill:case_endings_akkusativ_a1_tier3_contrast-pairs",
-      "revisionId": "9bc35694b37b",
-      "domainKind": "context"
+      "id": "verb_present_tense",
+      "kind": "drill_group",
+      "mechanic": "verb_present_tense",
+      "title": "Verb Present Tense",
+      "subtitle": "Practice present tense verb endings (ich -e, du -st, er -t)",
+      "description": "Practice present tense verb endings (ich -e, du -st, er -t)",
+      "estimatedDuration": "3–5 min",
+      "order": 7,
+      "tiers": [
+        {
+          "id": "verb_present_tense_a1_t1",
+          "tier": 1,
+          "level": "A1",
+          "durationMinutes": 3,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a1_tier1_pattern-switch/drill.json"
+        },
+        {
+          "id": "verb_present_tense_a1_t2",
+          "tier": 2,
+          "level": "A1",
+          "durationMinutes": 4,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a1_tier2_pattern-switch/drill.json"
+        },
+        {
+          "id": "verb_present_tense_a1_t3",
+          "tier": 3,
+          "level": "A1",
+          "durationMinutes": 5,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a1_tier3_pattern-switch/drill.json"
+        },
+        {
+          "id": "verb_present_tense_a2_t1",
+          "tier": 1,
+          "level": "A2",
+          "durationMinutes": 3,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a2_tier1_pattern-switch/drill.json"
+        },
+        {
+          "id": "verb_present_tense_a2_t2",
+          "tier": 2,
+          "level": "A2",
+          "durationMinutes": 4,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a2_tier2_pattern-switch/drill.json"
+        },
+        {
+          "id": "verb_present_tense_a2_t3",
+          "tier": 3,
+          "level": "A2",
+          "durationMinutes": 5,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a2_tier3_pattern-switch/drill.json"
+        }
+      ],
+      "description_i18n": {
+        "en": "Practice present tense verb endings (ich -e, du -st, er -t)",
+        "de": "Übe Präsens-Verbendungen (ich -e, du -st, er -t)"
+      }
     },
     {
-      "id": "case_endings_akkusativ_a1_tier3_pattern-switch",
-      "kind": "drill",
-      "title": "Case Endings: Akkusativ: A1 (Tier 3)",
-      "level": "A1",
-      "durationMinutes": 5,
-      "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier3_pattern-switch/drill.json",
-      "contentId": "de:drill:case_endings_akkusativ_a1_tier3_pattern-switch",
-      "revisionId": "96f3a8d89807",
-      "domainKind": "context"
-    },
-    {
-      "id": "case_endings_akkusativ_a1_tier3_slot-substitution",
-      "kind": "drill",
-      "title": "Case Endings: Akkusativ: A1 (Tier 3)",
-      "level": "A1",
-      "durationMinutes": 5,
-      "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier3_slot-substitution/drill.json",
-      "contentId": "de:drill:case_endings_akkusativ_a1_tier3_slot-substitution",
-      "revisionId": "228cdd02ffaf",
-      "domainKind": "context"
-    },
-    {
-      "id": "modal_verbs_a1_tier1_contrast-pairs",
-      "kind": "drill",
-      "title": "Modal Verbs: A1 (Tier 1)",
-      "level": "A1",
-      "durationMinutes": 3,
-      "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier1_contrast-pairs/drill.json",
-      "contentId": "de:drill:modal_verbs_a1_tier1_contrast-pairs",
-      "revisionId": "03f093e850e8",
-      "domainKind": "context"
-    },
-    {
-      "id": "modal_verbs_a1_tier1_pattern-switch",
-      "kind": "drill",
-      "title": "Modal Verbs: A1 (Tier 1)",
-      "level": "A1",
-      "durationMinutes": 3,
-      "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier1_pattern-switch/drill.json",
-      "contentId": "de:drill:modal_verbs_a1_tier1_pattern-switch",
-      "revisionId": "9ec9e699032a",
-      "domainKind": "context"
-    },
-    {
-      "id": "modal_verbs_a1_tier1_slot-substitution",
-      "kind": "drill",
-      "title": "Modal Verbs: A1 (Tier 1)",
-      "level": "A1",
-      "durationMinutes": 3,
-      "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier1_slot-substitution/drill.json",
-      "contentId": "de:drill:modal_verbs_a1_tier1_slot-substitution",
-      "revisionId": "dc9f10dca541",
-      "domainKind": "context"
-    },
-    {
-      "id": "modal_verbs_a1_tier2_contrast-pairs",
-      "kind": "drill",
-      "title": "Modal Verbs: A1 (Tier 2)",
-      "level": "A1",
-      "durationMinutes": 4,
-      "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier2_contrast-pairs/drill.json",
-      "contentId": "de:drill:modal_verbs_a1_tier2_contrast-pairs",
-      "revisionId": "bb9d5171b801",
-      "domainKind": "context"
-    },
-    {
-      "id": "modal_verbs_a1_tier2_pattern-switch",
-      "kind": "drill",
-      "title": "Modal Verbs: A1 (Tier 2)",
-      "level": "A1",
-      "durationMinutes": 4,
-      "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier2_pattern-switch/drill.json",
-      "contentId": "de:drill:modal_verbs_a1_tier2_pattern-switch",
-      "revisionId": "c07c88a2269c",
-      "domainKind": "context"
-    },
-    {
-      "id": "modal_verbs_a1_tier2_slot-substitution",
-      "kind": "drill",
-      "title": "Modal Verbs: A1 (Tier 2)",
-      "level": "A1",
-      "durationMinutes": 4,
-      "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier2_slot-substitution/drill.json",
-      "contentId": "de:drill:modal_verbs_a1_tier2_slot-substitution",
-      "revisionId": "4dd5c1b69879",
-      "domainKind": "context"
-    },
-    {
-      "id": "modal_verbs_a1_tier3_contrast-pairs",
-      "kind": "drill",
-      "title": "Modal Verbs: A1 (Tier 3)",
-      "level": "A1",
-      "durationMinutes": 5,
-      "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier3_contrast-pairs/drill.json",
-      "contentId": "de:drill:modal_verbs_a1_tier3_contrast-pairs",
-      "revisionId": "aacd823f7d83",
-      "domainKind": "context"
-    },
-    {
-      "id": "modal_verbs_a1_tier3_pattern-switch",
-      "kind": "drill",
-      "title": "Modal Verbs: A1 (Tier 3)",
-      "level": "A1",
-      "durationMinutes": 5,
-      "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier3_pattern-switch/drill.json",
-      "contentId": "de:drill:modal_verbs_a1_tier3_pattern-switch",
-      "revisionId": "b5c83c02721a",
-      "domainKind": "context"
-    },
-    {
-      "id": "modal_verbs_a1_tier3_slot-substitution",
-      "kind": "drill",
-      "title": "Modal Verbs: A1 (Tier 3)",
-      "level": "A1",
-      "durationMinutes": 5,
-      "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier3_slot-substitution/drill.json",
-      "contentId": "de:drill:modal_verbs_a1_tier3_slot-substitution",
-      "revisionId": "b2ea869540f8",
-      "domainKind": "context"
-    },
-    {
-      "id": "negation_a1_tier1_error-trap",
-      "kind": "drill",
-      "title": "Negation: A1 (Tier 1)",
-      "level": "A1",
-      "durationMinutes": 3,
-      "entryUrl": "/v1/workspaces/de/drills/negation_a1_tier1_error-trap/drill.json",
-      "contentId": "de:drill:negation_a1_tier1_error-trap",
-      "revisionId": "c874dc36794b",
-      "domainKind": "context"
-    },
-    {
-      "id": "negation_a1_tier1_micro-transform",
-      "kind": "drill",
-      "title": "Negation: A1 (Tier 1)",
-      "level": "A1",
-      "durationMinutes": 3,
-      "entryUrl": "/v1/workspaces/de/drills/negation_a1_tier1_micro-transform/drill.json",
-      "contentId": "de:drill:negation_a1_tier1_micro-transform",
-      "revisionId": "7569902db2c7",
-      "domainKind": "context"
+      "id": "word_order_main_clause",
+      "kind": "drill_group",
+      "mechanic": "word_order_main_clause",
+      "title": "Word Order: Main Clause",
+      "subtitle": "Practice verb-second position in main clauses (verb in 2nd p",
+      "description": "Practice verb-second position in main clauses (verb in 2nd position)",
+      "estimatedDuration": "3–5 min",
+      "order": 8,
+      "tiers": [
+        {
+          "id": "word_order_main_clause_a1_t1",
+          "tier": 1,
+          "level": "A1",
+          "durationMinutes": 3,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a1_tier1_pattern-switch/drill.json"
+        },
+        {
+          "id": "word_order_main_clause_a1_t2",
+          "tier": 2,
+          "level": "A1",
+          "durationMinutes": 4,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a1_tier2_pattern-switch/drill.json"
+        },
+        {
+          "id": "word_order_main_clause_a1_t3",
+          "tier": 3,
+          "level": "A1",
+          "durationMinutes": 5,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a1_tier3_pattern-switch/drill.json"
+        },
+        {
+          "id": "word_order_main_clause_a2_t1",
+          "tier": 1,
+          "level": "A2",
+          "durationMinutes": 3,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a2_tier1_pattern-switch/drill.json"
+        },
+        {
+          "id": "word_order_main_clause_a2_t2",
+          "tier": 2,
+          "level": "A2",
+          "durationMinutes": 4,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a2_tier2_pattern-switch/drill.json"
+        },
+        {
+          "id": "word_order_main_clause_a2_t3",
+          "tier": 3,
+          "level": "A2",
+          "durationMinutes": 5,
+          "status": "available",
+          "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a2_tier3_pattern-switch/drill.json"
+        }
+      ],
+      "description_i18n": {
+        "en": "Practice verb-second position in main clauses (verb in 2nd position)",
+        "de": "Übe Verb-Zweit-Stellung in Hauptsätzen (Verb an 2. Position)"
+      }
     }
-  ],
-  "nextPage": "/v1/workspaces/de/drills/pages/2.json"
+  ]
 }

@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A2",
-  "title": "Negation: A2 (Tier 1)",
-  "shortTitle": "Negation A2",
+  "title": "Negation: A2 (Tier 1) - Trap",
+  "shortTitle": "Negation A2 Trap",
   "subtitle": "Tier 1 - error trap - Master negation placement (nicht, kein",
   "estimatedMinutes": 3,
   "mechanicId": "negation",
@@ -17,7 +17,9 @@
   "variationSlots": [
     "subject",
     "verb",
-    "object"
+    "object",
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -60,144 +62,182 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Ihr bit die Musik.",
+      "text": "Ich sehee leider dort Lust keine.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ihr bit die Musik.",
+      "natural_en": "Ich sehee leider dort Lust.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier",
+        "location"
       ],
       "slots": {
         "subject": [
-          "Ihr"
+          "Ich"
         ],
         "verb": [
-          "bit"
+          "sehee"
         ],
         "object": [
-          "die Musik"
+          "Lust"
+        ],
+        "modifier": [
+          "leider",
+          "keine"
+        ],
+        "location": [
+          "dort"
         ]
       },
       "audioUrl": "/v1/audio/negation_A2_tier1/prompt-001.mp3"
     },
     {
       "id": "prompt-002",
-      "text": "Sie trinket den Film.",
+      "text": "nicht esset leider die Zeitung.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie trinket den Film.",
+      "natural_en": "nicht esset leider die Zeitung.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
-          "Sie"
+          "nicht"
         ],
         "verb": [
-          "trinket"
+          "esset"
         ],
         "object": [
-          "den Film"
+          "die Zeitung"
+        ],
+        "modifier": [
+          "leider"
         ]
       },
       "audioUrl": "/v1/audio/negation_A2_tier1/prompt-002.mp3"
     },
     {
       "id": "prompt-003",
-      "text": "Wir mache die Musik.",
+      "text": "Ihr bin leider Geld.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir mache die Musik.",
+      "natural_en": "Ihr bin leider Geld.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
-          "Wir"
+          "Ihr"
         ],
         "verb": [
-          "mache"
+          "bin"
         ],
         "object": [
-          "die Musik"
+          "Geld"
+        ],
+        "modifier": [
+          "leider"
         ]
       },
       "audioUrl": "/v1/audio/negation_A2_tier1/prompt-003.mp3"
     },
     {
       "id": "prompt-004",
-      "text": "Er sehet die Musik.",
+      "text": "Du bist wirklich hier Lust keinen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er sehet die Musik.",
+      "natural_en": "Du bist wirklich hier Lust.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier",
+        "location"
       ],
       "slots": {
         "subject": [
-          "Er"
+          "Du"
         ],
         "verb": [
-          "sehet"
+          "bist"
         ],
         "object": [
-          "die Musik"
+          "Lust"
+        ],
+        "modifier": [
+          "wirklich",
+          "keinen"
+        ],
+        "location": [
+          "hier"
         ]
       },
       "audioUrl": "/v1/audio/negation_A2_tier1/prompt-004.mp3"
     },
     {
       "id": "prompt-005",
-      "text": "Er kommet die Zeitung.",
+      "text": "Er habet überhaupt das Buch.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er kommet die Zeitung.",
+      "natural_en": "Er habet überhaupt das Buch.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
           "Er"
         ],
         "verb": [
-          "kommet"
+          "habet"
         ],
         "object": [
-          "die Zeitung"
+          "das Buch"
+        ],
+        "modifier": [
+          "überhaupt"
         ]
       },
       "audioUrl": "/v1/audio/negation_A2_tier1/prompt-005.mp3"
     },
     {
       "id": "prompt-006",
-      "text": "Wir mache Kaffee.",
+      "text": "Wir komme leider im Büro Tee.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir mache Kaffee.",
+      "natural_en": "Wir komme leider im Büro Tee.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier",
+        "location"
       ],
       "slots": {
         "subject": [
           "Wir"
         ],
         "verb": [
-          "mache"
+          "komme"
         ],
         "object": [
-          "Kaffee"
+          "Tee"
+        ],
+        "modifier": [
+          "leider"
+        ],
+        "location": [
+          "im Büro"
         ]
       },
       "audioUrl": "/v1/audio/negation_A2_tier1/prompt-006.mp3"
@@ -218,17 +258,20 @@
     ],
     "coverage": {
       "verbs": [
-        "bit",
-        "trinket",
-        "mache",
-        "sehet",
-        "kommet"
+        "sehee",
+        "esset",
+        "bin",
+        "bist",
+        "habet",
+        "komme"
       ],
       "subjects": [
+        "Ich",
+        "nicht",
         "Ihr",
-        "Sie",
-        "Wir",
-        "Er"
+        "Du",
+        "Er",
+        "Wir"
       ],
       "patterns": [
         "nicht_placement",
@@ -241,10 +284,10 @@
     "estPromptCount": 6,
     "timeboxMinutes": 3,
     "qualitySignals": {
-      "tokenHitsCount": 1,
+      "tokenHitsCount": 6,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 5,
-      "uniqueSubjectCount": 4,
+      "uniqueVerbCount": 6,
+      "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -253,12 +296,21 @@
     "source": "template",
     "sourceRef": "mechanics/negation",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.642Z"
+    "generatedAt": "2026-01-03T09:52:17.357Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Negation: A2 (Tier 1) - Trap"
+  },
+  "shortTitle_i18n": {
+    "en": "Negation A2 Trap"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 1 - error trap - Master negation placement (nicht, kein"
+  },
   "contentId": "de:drill:negation_a2_tier1_error-trap",
-  "contentHash": "f38766664c209dc9e4adba99f33b431bc76c9ef0b8adf7a24e9a6fec5da73029",
-  "revisionId": "f38766664c20"
+  "contentHash": "45e599627595d00c6f82a1eba81d2a56fb11d8daea27fa0663d8ad488e354af1",
+  "revisionId": "45e599627595"
 }

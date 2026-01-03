@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A2",
-  "title": "Question Formation: A2 (Tier 1)",
-  "shortTitle": "Question Formation A2",
+  "title": "Question Formation: A2 (Tier 1) - Pattern",
+  "shortTitle": "Question Formatio A2 Pattern",
   "subtitle": "Tier 1 - pattern switch - Form questions using question word",
   "estimatedMinutes": 3,
   "mechanicId": "question_formation",
@@ -17,7 +17,9 @@
   "variationSlots": [
     "subject",
     "verb",
-    "object"
+    "object",
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -60,14 +62,42 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "sie kommt das.",
+      "text": "ihr habt den Schlüssel kommst.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "sie kommt das.",
+      "natural_en": "ihr habt den Schlüssel.",
       "slotsChanged": [
         "subject",
         "verb",
         "object"
+      ],
+      "slots": {
+        "subject": [
+          "ihr"
+        ],
+        "verb": [
+          "habt"
+        ],
+        "object": [
+          "den Schlüssel"
+        ],
+        "modifier": [
+          "kommst"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A2_tier1/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "sie kommt schnell einen hast.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "sie kommt schnell einen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
@@ -77,125 +107,131 @@
           "kommt"
         ],
         "object": [
-          "das"
-        ]
-      },
-      "audioUrl": "/v1/audio/question_formation_A2_tier1/prompt-001.mp3"
-    },
-    {
-      "id": "prompt-002",
-      "text": "sie geht das.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "sie geht das.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "sie"
+          "einen"
         ],
-        "verb": [
-          "geht"
-        ],
-        "object": [
-          "das"
+        "modifier": [
+          "schnell",
+          "hast"
         ]
       },
       "audioUrl": "/v1/audio/question_formation_A2_tier1/prompt-002.mp3"
     },
     {
       "id": "prompt-003",
-      "text": "sie seit die.",
+      "text": "jetzt seist du alleine einen machst.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "sie seit die.",
+      "natural_en": "jetzt seist du alleine einen.",
       "slotsChanged": [
         "time",
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
-          "sie"
+          "du"
         ],
         "verb": [
-          "seit"
+          "seist"
         ],
         "object": [
-          "die"
+          "einen"
+        ],
+        "modifier": [
+          "alleine",
+          "machst"
+        ],
+        "time": [
+          "jetzt"
         ]
       },
       "audioUrl": "/v1/audio/question_formation_A2_tier1/prompt-003.mp3"
     },
     {
       "id": "prompt-004",
-      "text": "Sie macht die.",
+      "text": "wer lernt wirklich das.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie macht die.",
+      "natural_en": "wer lernt wirklich das.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
-          "Sie"
+          "wer"
         ],
         "verb": [
-          "macht"
+          "lernt"
         ],
         "object": [
-          "die"
+          "das"
+        ],
+        "modifier": [
+          "wirklich"
         ]
       },
       "audioUrl": "/v1/audio/question_formation_A2_tier1/prompt-004.mp3"
     },
     {
       "id": "prompt-005",
-      "text": "er macht das.",
+      "text": "Sie geht gerne das Buch?",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "er macht das.",
+      "natural_en": "Sie geht gerne das Buch.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "er"
-        ],
-        "verb": [
-          "macht"
-        ],
-        "object": [
-          "das"
-        ]
-      },
-      "audioUrl": "/v1/audio/question_formation_A2_tier1/prompt-005.mp3"
-    },
-    {
-      "id": "prompt-006",
-      "text": "Sie arbeitt.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie arbeitt.",
-      "slotsChanged": [
-        "time",
-        "subject",
-        "verb"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
           "Sie"
         ],
         "verb": [
-          "arbeitt"
+          "geht"
+        ],
+        "object": [
+          "das Buch"
+        ],
+        "modifier": [
+          "gerne"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A2_tier1/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "später macht ihr den Schlüssel gehst.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später macht ihr den Schlüssel.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "ihr"
+        ],
+        "verb": [
+          "macht"
+        ],
+        "object": [
+          "den Schlüssel"
+        ],
+        "time": [
+          "später"
+        ],
+        "modifier": [
+          "gehst"
         ]
       },
       "audioUrl": "/v1/audio/question_formation_A2_tier1/prompt-006.mp3"
@@ -216,16 +252,19 @@
     ],
     "coverage": {
       "verbs": [
+        "habt",
         "kommt",
+        "seist",
+        "lernt",
         "geht",
-        "seit",
-        "macht",
-        "arbeitt"
+        "macht"
       ],
       "subjects": [
+        "ihr",
         "sie",
-        "Sie",
-        "er"
+        "du",
+        "wer",
+        "Sie"
       ],
       "patterns": [
         "question_word_order",
@@ -238,10 +277,10 @@
     "estPromptCount": 6,
     "timeboxMinutes": 3,
     "qualitySignals": {
-      "tokenHitsCount": 0,
+      "tokenHitsCount": 6,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 5,
-      "uniqueSubjectCount": 3,
+      "uniqueVerbCount": 6,
+      "uniqueSubjectCount": 5,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -250,12 +289,21 @@
     "source": "template",
     "sourceRef": "mechanics/question_formation",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.649Z"
+    "generatedAt": "2026-01-03T09:52:17.366Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Question Formation: A2 (Tier 1) - Pattern"
+  },
+  "shortTitle_i18n": {
+    "en": "Question Formatio A2 Pattern"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 1 - pattern switch - Form questions using question word"
+  },
   "contentId": "de:drill:question_formation_a2_tier1_pattern-switch",
-  "contentHash": "15de3b3c32879d07d32d758d63991ded73ab60faba98e75eed698b97a841a9b1",
-  "revisionId": "15de3b3c3287"
+  "contentHash": "aa19017fccb62f94b10eac2b3a13fb913dfe3ee115475ecaf9fc7402bffd776e",
+  "revisionId": "aa19017fccb6"
 }

@@ -6,9 +6,9 @@
   "workspace": "de",
   "language": "de",
   "level": "A2",
-  "title": "Politeness Templates: A2 (Tier 1)",
-  "shortTitle": "Politeness Templates A2",
-  "subtitle": "Tier 1 - fast recall",
+  "title": "Politeness Templates: A2 (Tier 1) - Recall",
+  "shortTitle": "Politeness Templat A2 Recall",
+  "subtitle": "Tier 1 - fast recall - Master formal politeness formulas (Kö",
   "estimatedMinutes": 3,
   "mechanicId": "politeness_templates",
   "mechanicLabel": "Politeness Templates",
@@ -18,7 +18,8 @@
     "subject",
     "verb",
     "object",
-    "modifier"
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -61,10 +62,10 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "undefined zeigen den.",
+      "text": "Könnten Sie den zeigen?",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "undefined zeigen den.",
+      "natural_en": "Könnten Sie den zeigen?",
       "slotsChanged": [
         "subject",
         "verb",
@@ -72,7 +73,7 @@
       ],
       "slots": {
         "subject": [
-          null
+          "Könnten Sie"
         ],
         "verb": [
           "zeigen"
@@ -85,78 +86,86 @@
     },
     {
       "id": "prompt-002",
-      "text": "undefined öffnen.",
+      "text": "Würden Sie mir bitte sagen?",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "undefined öffnen.",
+      "natural_en": "Würden Sie mir bitte sagen?",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
-          null
+          "Würden Sie"
         ],
         "verb": [
-          "öffnen"
+          "sagen"
+        ],
+        "object": [
+          "mir"
+        ],
+        "modifier": [
+          "bitte"
         ]
       },
       "audioUrl": "/v1/audio/politeness_templates_A2_tier1/prompt-002.mp3"
     },
     {
       "id": "prompt-003",
-      "text": "undefined machen eine.",
+      "text": "Dürfte ich uns kurz geben?",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "undefined machen eine.",
+      "natural_en": "Dürfte ich uns kurz geben?",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
-          null
+          "Dürfte ich"
         ],
         "verb": [
-          "machen"
+          "geben"
         ],
         "object": [
-          "eine"
+          "uns"
+        ],
+        "modifier": [
+          "kurz"
         ]
       },
       "audioUrl": "/v1/audio/politeness_templates_A2_tier1/prompt-003.mp3"
     },
     {
       "id": "prompt-004",
-      "text": "undefined öffnen eine.",
+      "text": "Ich hätte gern schließen?",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "undefined öffnen eine.",
+      "natural_en": "Ich hätte gern schließen?",
       "slotsChanged": [
         "subject",
-        "verb",
-        "object"
+        "verb"
       ],
       "slots": {
         "subject": [
-          null
+          "Ich hätte gern"
         ],
         "verb": [
-          "öffnen"
-        ],
-        "object": [
-          "eine"
+          "schließen"
         ]
       },
       "audioUrl": "/v1/audio/politeness_templates_A2_tier1/prompt-004.mp3"
     },
     {
       "id": "prompt-005",
-      "text": "undefined öffnen das.",
+      "text": "Ich möchte den bringen?",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "undefined öffnen das.",
+      "natural_en": "Ich möchte den bringen?",
       "slotsChanged": [
         "subject",
         "verb",
@@ -164,23 +173,23 @@
       ],
       "slots": {
         "subject": [
-          null
+          "Ich möchte"
         ],
         "verb": [
-          "öffnen"
+          "bringen"
         ],
         "object": [
-          "das"
+          "den"
         ]
       },
       "audioUrl": "/v1/audio/politeness_templates_A2_tier1/prompt-005.mp3"
     },
     {
       "id": "prompt-006",
-      "text": "undefined machen den.",
+      "text": "Können Sie den helfen?",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "undefined machen den.",
+      "natural_en": "Können Sie den helfen?",
       "slotsChanged": [
         "subject",
         "verb",
@@ -188,10 +197,10 @@
       ],
       "slots": {
         "subject": [
-          null
+          "Können Sie"
         ],
         "verb": [
-          "machen"
+          "helfen"
         ],
         "object": [
           "den"
@@ -216,11 +225,19 @@
     "coverage": {
       "verbs": [
         "zeigen",
-        "öffnen",
-        "machen"
+        "sagen",
+        "geben",
+        "schließen",
+        "bringen",
+        "helfen"
       ],
       "subjects": [
-        null
+        "Könnten Sie",
+        "Würden Sie",
+        "Dürfte ich",
+        "Ich hätte gern",
+        "Ich möchte",
+        "Können Sie"
       ],
       "patterns": [
         "polite_requests",
@@ -233,10 +250,10 @@
     "estPromptCount": 6,
     "timeboxMinutes": 3,
     "qualitySignals": {
-      "tokenHitsCount": 0,
+      "tokenHitsCount": 6,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 3,
-      "uniqueSubjectCount": 1,
+      "uniqueVerbCount": 6,
+      "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -245,12 +262,21 @@
     "source": "template",
     "sourceRef": "mechanics/politeness_templates",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:16:26.936Z"
+    "generatedAt": "2026-01-03T09:52:17.361Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Politeness Templates: A2 (Tier 1) - Recall"
+  },
+  "shortTitle_i18n": {
+    "en": "Politeness Templat A2 Recall"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 1 - fast recall - Master formal politeness formulas (Kö"
+  },
   "contentId": "de:drill:politeness_templates_a2_tier1_fast-recall",
-  "contentHash": "5b8cd467e7a927cf5a5ced8da8e6bcb2ecd2bf5f0896e161123591abf8e9a179",
-  "revisionId": "5b8cd467e7a9"
+  "contentHash": "e84ae9cf19af2766e348b9256d2c0c6517cf989577de28fcaeb49781072868b7",
+  "revisionId": "e84ae9cf19af"
 }

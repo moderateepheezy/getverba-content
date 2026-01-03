@@ -28,6 +28,15 @@ interface EntryDocument {
   title_i18n?: Record<string, string>;        // { "en": "...", "de": "...", ... }
   description_i18n?: Record<string, string>;  // { "en": "...", "de": "...", ... }
 }
+
+// Prompt objects within packs
+interface Prompt {
+  text: string;                      // Prompt text
+  gloss_en: string;                 // Natural English meaning (required)
+  
+  // NEW optional i18n field for meaning
+  gloss_en_i18n?: Record<string, string>;  // { "en": "...", "de": "...", ... }
+}
 ```
 
 ### Section Index Items
@@ -91,6 +100,7 @@ When any `*_i18n` field is present, it **MUST** include the `"en"` key:
 | `shortTitle_i18n` values | 28 chars | Same as `shortTitle` |
 | `description_i18n` values | 500 chars | Reasonable description limit |
 | `groupTitle_i18n` values | 60 chars | Same as `groupTitle` |
+| `gloss_en_i18n` values | 180 chars | Same as `gloss_en` |
 
 ### Value Format
 
@@ -195,6 +205,7 @@ Apply the same pattern for:
 - `description` / `description_i18n`
 - `groupTitle` / `groupTitle_i18n`
 - `subtitle` / `subtitle_i18n`
+- `gloss_en` / `gloss_en_i18n` (for prompt meaning)
 
 ### Grouping Algorithm (Proposed)
 

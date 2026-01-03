@@ -33,6 +33,9 @@
         "verb": [
           "spiele"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am practicing verb conjugation."
       }
     },
     {
@@ -53,6 +56,9 @@
         "verb": [
           "spielst"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am practicing verb conjugation."
       }
     },
     {
@@ -73,6 +79,9 @@
         "verb": [
           "spielt"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am practicing verb conjugation."
       }
     },
     {
@@ -93,6 +102,9 @@
         "verb": [
           "lernen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am practicing verb conjugation."
       }
     },
     {
@@ -113,6 +125,9 @@
         "verb": [
           "lernt"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am practicing verb conjugation."
       }
     },
     {
@@ -133,6 +148,9 @@
         "verb": [
           "arbeiten"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am practicing verb conjugation."
       }
     },
     {
@@ -153,6 +171,9 @@
         "verb": [
           "arbeite"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am practicing verb conjugation."
       }
     },
     {
@@ -173,6 +194,9 @@
         "verb": [
           "lernst"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am practicing verb conjugation."
       }
     }
   ],
@@ -269,7 +293,26 @@
     }
   },
   "title_i18n": {
-    "en": "Verb Endings: Present Tense (A1)"
+    "en": "Verb Endings: Present Tense (A1)",
+    "es": "Terminaciones verbales: Presente (A1)",
+    "fr": "Terminaisons des verbes : Temps présent (A1)",
+    "it": "Terminazioni dei verbi: Tempo presente (A1)",
+    "pt": "Terminações verbais: Tempo Presente (A1)",
+    "ru": "Окончания глаголов: Настоящее время (A1)",
+    "ja": "動詞の語尾現在形 (A1)",
+    "ko": "동사 어미: 현재 시제 (A1)",
+    "zh-CN": "动词词尾：现在时 (A1)",
+    "zh-TW": "动词词尾：现在时 (A1)",
+    "ar": "نهايات الأفعال: الفعل المضارع (A1)",
+    "tr": "Fiil Sonları: Şimdiki Zaman (A1)",
+    "pl": "Końcówki czasowników: Czas teraźniejszy (A1)",
+    "nl": "Werkwoordsuitgangen: Tegenwoordige tijd (A1)",
+    "sv": "Ändelser på verb: Presens (A1)",
+    "no": "Endelser på verb: Nåtid (A1)",
+    "da": "Endelser på udsagnsord: Nutid (A1)",
+    "fi": "Verbien päätteet: (A1)",
+    "el": "Καταλήξεις ρημάτων: (Α1)",
+    "cs": "Koncovky sloves: Přítomný čas (A1)"
   },
   "description_i18n": {
     "en": "Master the essential present tense verb conjugations for regular German verbs. Practice with common verbs like spielen, lernen, and arbeiten in rapid-fire speaking drills."

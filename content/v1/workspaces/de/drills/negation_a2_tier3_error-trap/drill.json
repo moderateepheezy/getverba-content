@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A2",
-  "title": "Negation: A2 (Tier 3)",
-  "shortTitle": "Negation A2",
+  "title": "Negation: A2 (Tier 3) - Trap",
+  "shortTitle": "Negation A2 Trap",
   "subtitle": "Tier 3 - error trap - Master negation placement (nicht, kein",
   "estimatedMinutes": 5,
   "mechanicId": "negation",
@@ -17,7 +17,9 @@
   "variationSlots": [
     "subject",
     "verb",
-    "object"
+    "object",
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -64,109 +66,47 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Sie kommet das Buch.",
+      "text": "jetzt gehe ich dort Tee.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie kommet das Buch.",
+      "natural_en": "jetzt gehe ich dort Tee.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          "Sie"
+          "Ich"
         ],
         "verb": [
-          "kommet"
+          "gehe"
         ],
         "object": [
-          "das Buch"
+          "Tee"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "dort"
         ]
       },
       "audioUrl": "/v1/audio/negation_A2_tier3/prompt-001.mp3"
     },
     {
       "id": "prompt-002",
-      "text": "Wir trinke die Zeitung.",
+      "text": "jetzt höret Sie hier Geld kein.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir trinke die Zeitung.",
+      "natural_en": "jetzt höret Sie hier Geld.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Wir"
-        ],
-        "verb": [
-          "trinke"
-        ],
-        "object": [
-          "die Zeitung"
-        ]
-      },
-      "audioUrl": "/v1/audio/negation_A2_tier3/prompt-002.mp3"
-    },
-    {
-      "id": "prompt-003",
-      "text": "Wir sehe die Musik.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir sehe die Musik.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Wir"
-        ],
-        "verb": [
-          "sehe"
-        ],
-        "object": [
-          "die Musik"
-        ]
-      },
-      "audioUrl": "/v1/audio/negation_A2_tier3/prompt-003.mp3"
-    },
-    {
-      "id": "prompt-004",
-      "text": "Ihr machet den Film.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ihr machet den Film.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Ihr"
-        ],
-        "verb": [
-          "machet"
-        ],
-        "object": [
-          "den Film"
-        ]
-      },
-      "audioUrl": "/v1/audio/negation_A2_tier3/prompt-004.mp3"
-    },
-    {
-      "id": "prompt-005",
-      "text": "Sie sehet die Musik.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie sehet die Musik.",
-      "slotsChanged": [
-        "subject",
-        "verb",
+        "time",
+        "location",
         "object"
       ],
       "slots": {
@@ -174,91 +114,222 @@
           "Sie"
         ],
         "verb": [
-          "sehet"
+          "höret"
+        ],
+        "object": [
+          "Geld"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "hier"
+        ],
+        "modifier": [
+          "kein"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A2_tier3/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "später habe ihr hier das Essen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später habe ihr hier das Essen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "habe"
+        ],
+        "object": [
+          "das Essen"
+        ],
+        "time": [
+          "später"
+        ],
+        "location": [
+          "hier"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A2_tier3/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "jetzt gehe du zu Hause.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jetzt gehe du zu Hause.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "gehe"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "zu Hause"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A2_tier3/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "morgen bin wir hier die Musik.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "morgen bin wir hier die Musik.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "bin"
         ],
         "object": [
           "die Musik"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "hier"
         ]
       },
       "audioUrl": "/v1/audio/negation_A2_tier3/prompt-005.mp3"
     },
     {
       "id": "prompt-006",
-      "text": "Er machet das Essen.",
+      "text": "jetzt habe er im Büro Zeit.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er machet das Essen.",
+      "natural_en": "jetzt habe er im Büro Zeit.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
           "Er"
         ],
         "verb": [
-          "machet"
+          "habe"
         ],
         "object": [
-          "das Essen"
+          "Zeit"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "im Büro"
         ]
       },
       "audioUrl": "/v1/audio/negation_A2_tier3/prompt-006.mp3"
     },
     {
       "id": "prompt-007",
-      "text": "Wir mache das Essen.",
+      "text": "morgen kommee ich hier Geld.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir mache das Essen.",
+      "natural_en": "morgen kommee ich hier Geld.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          "Wir"
+          "Ich"
         ],
         "verb": [
-          "mache"
+          "kommee"
         ],
         "object": [
-          "das Essen"
+          "Geld"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "hier"
         ]
       },
       "audioUrl": "/v1/audio/negation_A2_tier3/prompt-007.mp3"
     },
     {
       "id": "prompt-008",
-      "text": "Ihr trinket.",
+      "text": "jetzt gehet Sie im Büro das Buch.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ihr trinket.",
+      "natural_en": "jetzt gehet Sie im Büro das Buch.",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          "Ihr"
+          "Sie"
         ],
         "verb": [
-          "trinket"
+          "gehet"
+        ],
+        "object": [
+          "das Buch"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "im Büro"
         ]
       },
       "audioUrl": "/v1/audio/negation_A2_tier3/prompt-008.mp3"
     },
     {
       "id": "prompt-009",
-      "text": "Ihr machet das Essen.",
+      "text": "morgen habet ihr dort Lust.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ihr machet das Essen.",
+      "natural_en": "morgen habet ihr dort Lust.",
       "slotsChanged": [
         "subject",
         "verb",
+        "time",
+        "location",
         "object"
       ],
       "slots": {
@@ -266,34 +337,48 @@
           "Ihr"
         ],
         "verb": [
-          "machet"
+          "habet"
         ],
         "object": [
-          "das Essen"
+          "Lust"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "dort"
         ]
       },
       "audioUrl": "/v1/audio/negation_A2_tier3/prompt-009.mp3"
     },
     {
       "id": "prompt-010",
-      "text": "Wir sehe Kaffee.",
+      "text": "später trinkest du zu Hause Zeit.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir sehe Kaffee.",
+      "natural_en": "später trinkest du zu Hause Zeit.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          "Wir"
+          "Du"
         ],
         "verb": [
-          "sehe"
+          "trinkest"
         ],
         "object": [
-          "Kaffee"
+          "Zeit"
+        ],
+        "time": [
+          "später"
+        ],
+        "location": [
+          "zu Hause"
         ]
       },
       "audioUrl": "/v1/audio/negation_A2_tier3/prompt-010.mp3"
@@ -314,18 +399,21 @@
     ],
     "coverage": {
       "verbs": [
-        "kommet",
-        "trinke",
-        "sehe",
-        "machet",
-        "sehet",
-        "mache",
-        "trinket"
+        "gehe",
+        "höret",
+        "habe",
+        "bin",
+        "kommee",
+        "gehet",
+        "habet",
+        "trinkest"
       ],
       "subjects": [
+        "Ich",
         "Sie",
-        "Wir",
         "Ihr",
+        "Du",
+        "Wir",
         "Er"
       ],
       "patterns": [
@@ -339,10 +427,10 @@
     "estPromptCount": 10,
     "timeboxMinutes": 5,
     "qualitySignals": {
-      "tokenHitsCount": 1,
+      "tokenHitsCount": 9,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 7,
-      "uniqueSubjectCount": 4,
+      "uniqueVerbCount": 8,
+      "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -351,12 +439,21 @@
     "source": "template",
     "sourceRef": "mechanics/negation",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.643Z"
+    "generatedAt": "2026-01-03T09:52:17.358Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Negation: A2 (Tier 3) - Trap"
+  },
+  "shortTitle_i18n": {
+    "en": "Negation A2 Trap"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 3 - error trap - Master negation placement (nicht, kein"
+  },
   "contentId": "de:drill:negation_a2_tier3_error-trap",
-  "contentHash": "a578772bff2062136d323c387c5b02b405cf2aa994dd40c39c3adb6fb7f1de59",
-  "revisionId": "a578772bff20"
+  "contentHash": "020da748886118ace5c54e35d3e8f64b0d422331e331426fda54027fe7fc980f",
+  "revisionId": "020da7488861"
 }

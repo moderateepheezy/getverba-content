@@ -1,26 +1,96 @@
 {
   "mechanicId": "time_expressions_inversion",
   "mechanicLabel": "Time Expressions & Inversion",
-  "description": "Master verb inversion with time expressions (Heute gehe ich...)",
-  "supportedLevels": ["A1", "A2"],
-  "loopTypes": ["pattern_switch", "micro_transform", "error_trap"],
+  "description": "Practice verb inversion with time expressions (Heute gehe ich, Morgen komme ich)",
+  "description_i18n": {
+    "en": "Practice verb inversion with time expressions (Heute gehe ich, Morgen komme ich)",
+    "de": "Übe Verbumstellung mit Zeitausdrücken (Heute gehe ich, Morgen komme ich)"
+  },
+  "supportedLevels": [
+    "A1",
+    "A2"
+  ],
+  "loopTypes": [
+    "pattern_switch",
+    "micro_transform",
+    "error_trap"
+  ],
   "canonicalPatterns": [
     "time_verb_subject",
     "inversion_rule",
     "temporal_adverbs"
   ],
   "slotDictionaries": {
-    "time": ["heute", "morgen", "gestern", "jetzt", "später", "heute Abend", "morgen Vormittag", "am Montag", "um 9 Uhr"],
-    "subject": ["ich", "du", "er", "sie", "wir", "ihr"],
-    "verb": ["gehe", "komme", "mache", "sehe", "höre", "esse", "trinke", "lerne", "arbeite"],
-    "location": ["ins Büro", "nach Hause", "zur Arbeit", "zum Park", "in die Stadt", "ins Kino"]
+    "time": [
+      "heute",
+      "morgen",
+      "gestern",
+      "jetzt",
+      "später",
+      "heute Abend",
+      "morgen Vormittag",
+      "am Montag",
+      "um 9 Uhr"
+    ],
+    "subject": [
+      "ich",
+      "du",
+      "er",
+      "sie",
+      "wir",
+      "ihr",
+      "es",
+      "man"
+    ],
+    "verb": [
+      "gehen",
+      "kommen",
+      "machen",
+      "sehen",
+      "hören",
+      "essen",
+      "trinken",
+      "lernen",
+      "arbeiten"
+    ],
+    "location": [
+      "ins Büro",
+      "nach Hause",
+      "zur Arbeit",
+      "zum Park",
+      "in die Stadt",
+      "ins Kino",
+      "in den Urlaub"
+    ],
+    "object": [
+      "Sport",
+      "Pause",
+      "Musik",
+      "Essen",
+      "Hausaufgaben"
+    ],
+    "modifier": [
+      "gerne",
+      "schnell",
+      "vielleicht",
+      "leider",
+      "alleine",
+      "zusammen",
+      "wirklich"
+    ]
   },
   "trapPairs": [
     {
       "confusion": "word order with time expressions",
       "examples": [
-        { "correct": "Heute gehe ich", "incorrect": "Heute ich gehe" },
-        { "correct": "Morgen komme ich", "incorrect": "Morgen ich komme" }
+        {
+          "correct": "Heute gehe ich",
+          "incorrect": "Heute ich gehe"
+        },
+        {
+          "correct": "Morgen komme ich",
+          "incorrect": "Morgen ich komme"
+        }
       ]
     }
   ],
@@ -32,12 +102,12 @@
     "placeholder"
   ],
   "requiredTokens": [
-    "heute", "morgen", "gestern", "jetzt",
-    "gehe", "komme", "mache",
-    "ich", "du", "er"
+    "heute",
+    "morgen",
+    "gestern",
+    "jetzt"
   ],
   "minUniqueVerbs": 5,
   "minUniqueSubjects": 6,
   "minMultiSlotRate": 0.4
 }
-

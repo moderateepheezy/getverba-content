@@ -10,37 +10,37 @@
   "items": [
     {
       "kind": "pack",
-      "entryUrl": "/v1/workspaces/de/packs/anmeldung_basics/pack.json",
+      "entryUrl": "/v1/workspaces/de/packs/anmeldung_address_registration_a1/pack.json",
       "required": true
     },
     {
       "kind": "pack",
-      "entryUrl": "/v1/workspaces/de/packs/terminvereinbarung/pack.json",
+      "entryUrl": "/v1/workspaces/de/packs/passport_pickup_a1/pack.json",
       "required": true
     },
     {
       "kind": "pack",
-      "entryUrl": "/v1/workspaces/de/packs/aufenthaltstitel_basics/pack.json",
-      "required": true
-    },
-    {
-      "kind": "pack",
-      "entryUrl": "/v1/workspaces/de/packs/passport_documents/pack.json",
-      "required": true
-    },
-    {
-      "kind": "pack",
-      "entryUrl": "/v1/workspaces/de/packs/counter_qa_basics/pack.json",
+      "entryUrl": "/v1/workspaces/de/packs/health_insurance_basic_a1/pack.json",
       "required": true
     },
     {
       "kind": "drill",
-      "entryUrl": "/v1/workspaces/de/drills/formal_address_a1/drill.json",
+      "entryUrl": "/v1/workspaces/de/drills/verb_endings_a1/drill.json",
       "required": true
     },
     {
       "kind": "drill",
-      "entryUrl": "/v1/workspaces/de/drills/document_vocabulary_a1/drill.json",
+      "entryUrl": "/v1/workspaces/de/drills/dative_case_a1/drill.json",
+      "required": true
+    },
+    {
+      "kind": "drill",
+      "entryUrl": "/v1/workspaces/de/drills/accusative_articles_a1/drill.json",
+      "required": true
+    },
+    {
+      "kind": "drill",
+      "entryUrl": "/v1/workspaces/de/drills/separable_verbs_a1/drill.json",
       "required": true
     }
   ],

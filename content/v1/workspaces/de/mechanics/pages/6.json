@@ -1,228 +1,408 @@
 {
   "version": "v1",
   "kind": "drills",
-  "total": 149,
+  "total": 144,
   "pageSize": 20,
   "page": 6,
   "items": [
     {
-      "id": "negation_a2_tier3_error-trap",
-      "kind": "drill",
-      "title": "Negation: A2 (Tier 3)",
-      "level": "A2",
-      "durationMinutes": 5,
-      "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier3_error-trap/drill.json",
-      "contentId": "de:drill:negation_a2_tier3_error-trap",
-      "revisionId": "a578772bff20",
-      "domainKind": "context"
-    },
-    {
       "id": "negation_a2_tier3_micro-transform",
       "kind": "drill",
-      "title": "Negation: A2 (Tier 3)",
+      "title": "Negation: A2 (Tier 3) - Transform",
       "level": "A2",
       "durationMinutes": 5,
       "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier3_micro-transform/drill.json",
       "contentId": "de:drill:negation_a2_tier3_micro-transform",
-      "revisionId": "431dab561faf",
+      "revisionId": "860443aa0003",
+      "title_i18n": {
+        "en": "Negation: A2 (Tier 3) - Transform"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - micro transform - Master negation placement (nicht,"
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A2 Transform"
+      },
       "domainKind": "context"
     },
     {
-      "id": "negation_a2_tier3_pattern-switch",
+      "id": "negation_a2_tier3_error-trap",
       "kind": "drill",
-      "title": "Negation: A2 (Tier 3)",
+      "title": "Negation: A2 (Tier 3) - Trap",
       "level": "A2",
       "durationMinutes": 5,
-      "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier3_pattern-switch/drill.json",
-      "contentId": "de:drill:negation_a2_tier3_pattern-switch",
-      "revisionId": "208cc6ebcd89",
-      "domainKind": "context"
-    },
-    {
-      "id": "politeness_templates_a2_tier1_fast-recall",
-      "kind": "drill",
-      "title": "Politeness Templates: A2 (Tier 1)",
-      "level": "A2",
-      "durationMinutes": 3,
-      "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a2_tier1_fast-recall/drill.json",
-      "contentId": "de:drill:politeness_templates_a2_tier1_fast-recall",
-      "revisionId": "5b8cd467e7a9",
+      "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier3_error-trap/drill.json",
+      "contentId": "de:drill:negation_a2_tier3_error-trap",
+      "revisionId": "020da7488861",
+      "title_i18n": {
+        "en": "Negation: A2 (Tier 3) - Trap"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - error trap - Master negation placement (nicht, kein"
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A2 Trap"
+      },
       "domainKind": "context"
     },
     {
       "id": "politeness_templates_a2_tier1_pattern-switch",
       "kind": "drill",
-      "title": "Politeness Templates: A2 (Tier 1)",
+      "title": "Politeness Templates: A2 (Tier 1) - Pattern",
       "level": "A2",
       "durationMinutes": 3,
       "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a2_tier1_pattern-switch/drill.json",
       "contentId": "de:drill:politeness_templates_a2_tier1_pattern-switch",
-      "revisionId": "c47d887dc2bf",
+      "revisionId": "3879cd5e74b0",
+      "title_i18n": {
+        "en": "Politeness Templates: A2 (Tier 1) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - pattern switch - Master formal politeness formulas "
+      },
+      "shortTitle_i18n": {
+        "en": "Politeness Templa A2 Pattern"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "politeness_templates_a2_tier1_fast-recall",
+      "kind": "drill",
+      "title": "Politeness Templates: A2 (Tier 1) - Recall",
+      "level": "A2",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a2_tier1_fast-recall/drill.json",
+      "contentId": "de:drill:politeness_templates_a2_tier1_fast-recall",
+      "revisionId": "e84ae9cf19af",
+      "title_i18n": {
+        "en": "Politeness Templates: A2 (Tier 1) - Recall"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - fast recall - Master formal politeness formulas (Kö"
+      },
+      "shortTitle_i18n": {
+        "en": "Politeness Templat A2 Recall"
+      },
       "domainKind": "context"
     },
     {
       "id": "politeness_templates_a2_tier1_slot-substitution",
       "kind": "drill",
-      "title": "Politeness Templates: A2 (Tier 1)",
+      "title": "Politeness Templates: A2 (Tier 1) - Slot",
       "level": "A2",
       "durationMinutes": 3,
       "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a2_tier1_slot-substitution/drill.json",
       "contentId": "de:drill:politeness_templates_a2_tier1_slot-substitution",
-      "revisionId": "889c008eec9c",
-      "domainKind": "context"
-    },
-    {
-      "id": "politeness_templates_a2_tier2_fast-recall",
-      "kind": "drill",
-      "title": "Politeness Templates: A2 (Tier 2)",
-      "level": "A2",
-      "durationMinutes": 4,
-      "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a2_tier2_fast-recall/drill.json",
-      "contentId": "de:drill:politeness_templates_a2_tier2_fast-recall",
-      "revisionId": "3683576b4085",
+      "revisionId": "b3d916a88823",
+      "title_i18n": {
+        "en": "Politeness Templates: A2 (Tier 1) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - slot substitution - Master formal politeness formul"
+      },
+      "shortTitle_i18n": {
+        "en": "Politeness Templates A2 Slot"
+      },
       "domainKind": "context"
     },
     {
       "id": "politeness_templates_a2_tier2_pattern-switch",
       "kind": "drill",
-      "title": "Politeness Templates: A2 (Tier 2)",
+      "title": "Politeness Templates: A2 (Tier 2) - Pattern",
       "level": "A2",
       "durationMinutes": 4,
       "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a2_tier2_pattern-switch/drill.json",
       "contentId": "de:drill:politeness_templates_a2_tier2_pattern-switch",
-      "revisionId": "c7c78cfaa4f5",
+      "revisionId": "bb074946b1b0",
+      "title_i18n": {
+        "en": "Politeness Templates: A2 (Tier 2) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - pattern switch - Master formal politeness formulas "
+      },
+      "shortTitle_i18n": {
+        "en": "Politeness Templa A2 Pattern"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "politeness_templates_a2_tier2_fast-recall",
+      "kind": "drill",
+      "title": "Politeness Templates: A2 (Tier 2) - Recall",
+      "level": "A2",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a2_tier2_fast-recall/drill.json",
+      "contentId": "de:drill:politeness_templates_a2_tier2_fast-recall",
+      "revisionId": "c9eac2115d84",
+      "title_i18n": {
+        "en": "Politeness Templates: A2 (Tier 2) - Recall"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - fast recall - Master formal politeness formulas (Kö"
+      },
+      "shortTitle_i18n": {
+        "en": "Politeness Templat A2 Recall"
+      },
       "domainKind": "context"
     },
     {
       "id": "politeness_templates_a2_tier2_slot-substitution",
       "kind": "drill",
-      "title": "Politeness Templates: A2 (Tier 2)",
+      "title": "Politeness Templates: A2 (Tier 2) - Slot",
       "level": "A2",
       "durationMinutes": 4,
       "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a2_tier2_slot-substitution/drill.json",
       "contentId": "de:drill:politeness_templates_a2_tier2_slot-substitution",
-      "revisionId": "31cc30cc3ac5",
-      "domainKind": "context"
-    },
-    {
-      "id": "politeness_templates_a2_tier3_fast-recall",
-      "kind": "drill",
-      "title": "Politeness Templates: A2 (Tier 3)",
-      "level": "A2",
-      "durationMinutes": 5,
-      "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a2_tier3_fast-recall/drill.json",
-      "contentId": "de:drill:politeness_templates_a2_tier3_fast-recall",
-      "revisionId": "5a9e07615165",
+      "revisionId": "697dcc6e6890",
+      "title_i18n": {
+        "en": "Politeness Templates: A2 (Tier 2) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - slot substitution - Master formal politeness formul"
+      },
+      "shortTitle_i18n": {
+        "en": "Politeness Templates A2 Slot"
+      },
       "domainKind": "context"
     },
     {
       "id": "politeness_templates_a2_tier3_pattern-switch",
       "kind": "drill",
-      "title": "Politeness Templates: A2 (Tier 3)",
+      "title": "Politeness Templates: A2 (Tier 3) - Pattern",
       "level": "A2",
       "durationMinutes": 5,
       "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a2_tier3_pattern-switch/drill.json",
       "contentId": "de:drill:politeness_templates_a2_tier3_pattern-switch",
-      "revisionId": "4d41fc901b2a",
+      "revisionId": "d0d55d84f676",
+      "title_i18n": {
+        "en": "Politeness Templates: A2 (Tier 3) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - pattern switch - Master formal politeness formulas "
+      },
+      "shortTitle_i18n": {
+        "en": "Politeness Templa A2 Pattern"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "politeness_templates_a2_tier3_fast-recall",
+      "kind": "drill",
+      "title": "Politeness Templates: A2 (Tier 3) - Recall",
+      "level": "A2",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a2_tier3_fast-recall/drill.json",
+      "contentId": "de:drill:politeness_templates_a2_tier3_fast-recall",
+      "revisionId": "4d4302ddb19a",
+      "title_i18n": {
+        "en": "Politeness Templates: A2 (Tier 3) - Recall"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - fast recall - Master formal politeness formulas (Kö"
+      },
+      "shortTitle_i18n": {
+        "en": "Politeness Templat A2 Recall"
+      },
       "domainKind": "context"
     },
     {
       "id": "politeness_templates_a2_tier3_slot-substitution",
       "kind": "drill",
-      "title": "Politeness Templates: A2 (Tier 3)",
+      "title": "Politeness Templates: A2 (Tier 3) - Slot",
       "level": "A2",
       "durationMinutes": 5,
       "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a2_tier3_slot-substitution/drill.json",
       "contentId": "de:drill:politeness_templates_a2_tier3_slot-substitution",
-      "revisionId": "fcd1e172c4c7",
-      "domainKind": "context"
-    },
-    {
-      "id": "question_formation_a2_tier1_fast-recall",
-      "kind": "drill",
-      "title": "Question Formation: A2 (Tier 1)",
-      "level": "A2",
-      "durationMinutes": 3,
-      "entryUrl": "/v1/workspaces/de/drills/question_formation_a2_tier1_fast-recall/drill.json",
-      "contentId": "de:drill:question_formation_a2_tier1_fast-recall",
-      "revisionId": "e7ccc94990c0",
-      "domainKind": "context"
-    },
-    {
-      "id": "question_formation_a2_tier1_micro-transform",
-      "kind": "drill",
-      "title": "Question Formation: A2 (Tier 1)",
-      "level": "A2",
-      "durationMinutes": 3,
-      "entryUrl": "/v1/workspaces/de/drills/question_formation_a2_tier1_micro-transform/drill.json",
-      "contentId": "de:drill:question_formation_a2_tier1_micro-transform",
-      "revisionId": "64b4568de270",
+      "revisionId": "6d5e99b06fb5",
+      "title_i18n": {
+        "en": "Politeness Templates: A2 (Tier 3) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - slot substitution - Master formal politeness formul"
+      },
+      "shortTitle_i18n": {
+        "en": "Politeness Templates A2 Slot"
+      },
       "domainKind": "context"
     },
     {
       "id": "question_formation_a2_tier1_pattern-switch",
       "kind": "drill",
-      "title": "Question Formation: A2 (Tier 1)",
+      "title": "Question Formation: A2 (Tier 1) - Pattern",
       "level": "A2",
       "durationMinutes": 3,
       "entryUrl": "/v1/workspaces/de/drills/question_formation_a2_tier1_pattern-switch/drill.json",
       "contentId": "de:drill:question_formation_a2_tier1_pattern-switch",
-      "revisionId": "15de3b3c3287",
+      "revisionId": "aa19017fccb6",
+      "title_i18n": {
+        "en": "Question Formation: A2 (Tier 1) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - pattern switch - Form questions using question word"
+      },
+      "shortTitle_i18n": {
+        "en": "Question Formatio A2 Pattern"
+      },
       "domainKind": "context"
     },
     {
-      "id": "question_formation_a2_tier2_fast-recall",
+      "id": "question_formation_a2_tier1_fast-recall",
       "kind": "drill",
-      "title": "Question Formation: A2 (Tier 2)",
+      "title": "Question Formation: A2 (Tier 1) - Recall",
       "level": "A2",
-      "durationMinutes": 4,
-      "entryUrl": "/v1/workspaces/de/drills/question_formation_a2_tier2_fast-recall/drill.json",
-      "contentId": "de:drill:question_formation_a2_tier2_fast-recall",
-      "revisionId": "8e82153e8d19",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/question_formation_a2_tier1_fast-recall/drill.json",
+      "contentId": "de:drill:question_formation_a2_tier1_fast-recall",
+      "revisionId": "2732b8bade4e",
+      "title_i18n": {
+        "en": "Question Formation: A2 (Tier 1) - Recall"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - fast recall - Form questions using question words a"
+      },
+      "shortTitle_i18n": {
+        "en": "Question Formation A2 Recall"
+      },
       "domainKind": "context"
     },
     {
-      "id": "question_formation_a2_tier2_micro-transform",
+      "id": "question_formation_a2_tier1_micro-transform",
       "kind": "drill",
-      "title": "Question Formation: A2 (Tier 2)",
+      "title": "Question Formation: A2 (Tier 1) - Transform",
       "level": "A2",
-      "durationMinutes": 4,
-      "entryUrl": "/v1/workspaces/de/drills/question_formation_a2_tier2_micro-transform/drill.json",
-      "contentId": "de:drill:question_formation_a2_tier2_micro-transform",
-      "revisionId": "d5f547edce6d",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/question_formation_a2_tier1_micro-transform/drill.json",
+      "contentId": "de:drill:question_formation_a2_tier1_micro-transform",
+      "revisionId": "7b2a1f151e9d",
+      "title_i18n": {
+        "en": "Question Formation: A2 (Tier 1) - Transform"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - micro transform - Form questions using question wor"
+      },
+      "shortTitle_i18n": {
+        "en": "Question Format A2 Transform"
+      },
       "domainKind": "context"
     },
     {
       "id": "question_formation_a2_tier2_pattern-switch",
       "kind": "drill",
-      "title": "Question Formation: A2 (Tier 2)",
+      "title": "Question Formation: A2 (Tier 2) - Pattern",
       "level": "A2",
       "durationMinutes": 4,
       "entryUrl": "/v1/workspaces/de/drills/question_formation_a2_tier2_pattern-switch/drill.json",
       "contentId": "de:drill:question_formation_a2_tier2_pattern-switch",
-      "revisionId": "858d58b9d2d4",
+      "revisionId": "e4d13244f369",
+      "title_i18n": {
+        "en": "Question Formation: A2 (Tier 2) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - pattern switch - Form questions using question word"
+      },
+      "shortTitle_i18n": {
+        "en": "Question Formatio A2 Pattern"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "question_formation_a2_tier2_fast-recall",
+      "kind": "drill",
+      "title": "Question Formation: A2 (Tier 2) - Recall",
+      "level": "A2",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/question_formation_a2_tier2_fast-recall/drill.json",
+      "contentId": "de:drill:question_formation_a2_tier2_fast-recall",
+      "revisionId": "00e69e3e59bf",
+      "title_i18n": {
+        "en": "Question Formation: A2 (Tier 2) - Recall"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - fast recall - Form questions using question words a"
+      },
+      "shortTitle_i18n": {
+        "en": "Question Formation A2 Recall"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "question_formation_a2_tier2_micro-transform",
+      "kind": "drill",
+      "title": "Question Formation: A2 (Tier 2) - Transform",
+      "level": "A2",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/question_formation_a2_tier2_micro-transform/drill.json",
+      "contentId": "de:drill:question_formation_a2_tier2_micro-transform",
+      "revisionId": "448f8cfaa4b1",
+      "title_i18n": {
+        "en": "Question Formation: A2 (Tier 2) - Transform"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - micro transform - Form questions using question wor"
+      },
+      "shortTitle_i18n": {
+        "en": "Question Format A2 Transform"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "question_formation_a2_tier3_pattern-switch",
+      "kind": "drill",
+      "title": "Question Formation: A2 (Tier 3) - Pattern",
+      "level": "A2",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/question_formation_a2_tier3_pattern-switch/drill.json",
+      "contentId": "de:drill:question_formation_a2_tier3_pattern-switch",
+      "revisionId": "9182178a85fc",
+      "title_i18n": {
+        "en": "Question Formation: A2 (Tier 3) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - pattern switch - Form questions using question word"
+      },
+      "shortTitle_i18n": {
+        "en": "Question Formatio A2 Pattern"
+      },
       "domainKind": "context"
     },
     {
       "id": "question_formation_a2_tier3_fast-recall",
       "kind": "drill",
-      "title": "Question Formation: A2 (Tier 3)",
+      "title": "Question Formation: A2 (Tier 3) - Recall",
       "level": "A2",
       "durationMinutes": 5,
       "entryUrl": "/v1/workspaces/de/drills/question_formation_a2_tier3_fast-recall/drill.json",
       "contentId": "de:drill:question_formation_a2_tier3_fast-recall",
-      "revisionId": "11c7f912f1a3",
+      "revisionId": "a29655030071",
+      "title_i18n": {
+        "en": "Question Formation: A2 (Tier 3) - Recall"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - fast recall - Form questions using question words a"
+      },
+      "shortTitle_i18n": {
+        "en": "Question Formation A2 Recall"
+      },
       "domainKind": "context"
     },
     {
       "id": "question_formation_a2_tier3_micro-transform",
       "kind": "drill",
-      "title": "Question Formation: A2 (Tier 3)",
+      "title": "Question Formation: A2 (Tier 3) - Transform",
       "level": "A2",
       "durationMinutes": 5,
       "entryUrl": "/v1/workspaces/de/drills/question_formation_a2_tier3_micro-transform/drill.json",
       "contentId": "de:drill:question_formation_a2_tier3_micro-transform",
-      "revisionId": "2eaeeb6d929e",
+      "revisionId": "8929c3bdb73d",
+      "title_i18n": {
+        "en": "Question Formation: A2 (Tier 3) - Transform"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - micro transform - Form questions using question wor"
+      },
+      "shortTitle_i18n": {
+        "en": "Question Format A2 Transform"
+      },
       "domainKind": "context"
     }
   ],

@@ -1,26 +1,92 @@
 {
   "mechanicId": "politeness_templates",
   "mechanicLabel": "Politeness Templates",
-  "description": "Master formal politeness formulas (Könnten Sie..., Würden Sie..., Ich hätte gern...)",
-  "supportedLevels": ["A1", "A2", "B1"],
-  "loopTypes": ["slot_substitution", "fast_recall", "pattern_switch"],
+  "description": "Practice formal politeness formulas (Könnten Sie..., Würden Sie..., Ich hätte gern...)",
+  "description_i18n": {
+    "en": "Practice formal politeness formulas (Könnten Sie..., Würden Sie..., Ich hätte gern...)",
+    "de": "Übe formelle Höflichkeitsformeln (Könnten Sie..., Würden Sie..., Ich hätte gern...)"
+  },
+  "supportedLevels": [
+    "A1",
+    "A2",
+    "B1"
+  ],
+  "loopTypes": [
+    "slot_substitution",
+    "fast_recall",
+    "pattern_switch"
+  ],
   "canonicalPatterns": [
     "polite_requests",
     "conditional_politeness",
     "formal_greetings"
   ],
   "slotDictionaries": {
-    "politeStart": ["Könnten Sie", "Würden Sie", "Dürfte ich", "Ich hätte gern", "Ich möchte", "Können Sie"],
-    "verb": ["helfen", "geben", "sagen", "zeigen", "bringen", "machen", "öffnen", "schließen"],
-    "object": ["das", "den", "die", "einen", "eine", "mir", "uns"],
-    "modifier": ["bitte", "vielleicht", "gerne", "sofort", "später"]
+    "politeStart": [
+      "Könnten Sie",
+      "Würden Sie",
+      "Dürfte ich",
+      "Ich hätte gern",
+      "Ich möchte",
+      "Können Sie"
+    ],
+    "verb": [
+      "helfen",
+      "geben",
+      "sagen",
+      "zeigen",
+      "bringen",
+      "machen",
+      "öffnen",
+      "schließen"
+    ],
+    "object": [
+      "das",
+      "den",
+      "die",
+      "einen",
+      "eine",
+      "mir",
+      "uns",
+      "ihm",
+      "ihr"
+    ],
+    "modifier": [
+      "bitte",
+      "vielleicht",
+      "gerne",
+      "sofort",
+      "später",
+      "einfach",
+      "kurz"
+    ],
+    "time": [
+      "heute",
+      "morgen",
+      "jetzt",
+      "am Montag",
+      "nächste Woche"
+    ],
+    "location": [
+      "hier",
+      "da",
+      "zum Bahnhof",
+      "ins Hotel",
+      "in die Stadt"
+    ]
   },
   "trapPairs": [
     {
       "confusion": "formal vs informal politeness",
       "examples": [
-        { "correct": "Könnten Sie mir helfen?", "incorrect": "Kannst du mir helfen?" },
-        { "correct": "Ich hätte gern", "incorrect": "Ich will" }
+        {
+          "correct": "Könnten Sie mir helfen?",
+          "incorrect": "Kannst du mir helfen?"
+        },
+        {
+          "correct": "Ich hätte gern",
+          "incorrect": "Ich will"
+        }
       ]
     }
   ],
@@ -32,13 +98,17 @@
     "placeholder"
   ],
   "requiredTokens": [
-    "könnten", "würden", "dürfte",
-    "hätte", "möchte",
-    "sie", "mir", "uns",
+    "könnten",
+    "würden",
+    "dürfte",
+    "hätte",
+    "möchte",
+    "sie",
+    "mir",
+    "uns",
     "bitte"
   ],
   "minUniqueVerbs": 5,
   "minUniqueSubjects": 1,
   "minMultiSlotRate": 0.5
 }
-

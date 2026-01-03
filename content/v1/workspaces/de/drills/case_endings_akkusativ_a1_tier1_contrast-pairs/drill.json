@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A1",
-  "title": "Case Endings: Akkusativ: A1 (Tier 1)",
-  "shortTitle": "Case Endings: Akkusativ A1",
+  "title": "Case Endings: Akkusativ: A1 (Tier 1) - Pairs",
+  "shortTitle": "Case Endings: Akkus A1 Pairs",
   "subtitle": "Tier 1 - contrast pairs - Master accusative case endings (de",
   "estimatedMinutes": 3,
   "mechanicId": "case_endings_akkusativ",
@@ -17,7 +17,9 @@
   "variationSlots": [
     "subject",
     "verb",
-    "object"
+    "object",
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -60,106 +62,122 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Du essest das Brot.",
+      "text": "Du machest leider eine Tasse.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du essest das Brot.",
+      "natural_en": "Du machest leider eine Tasse.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
           "Du"
         ],
         "verb": [
-          "essest"
+          "machest"
         ],
         "object": [
-          "das Brot"
+          "eine Tasse"
+        ],
+        "modifier": [
+          "leider"
         ]
       },
       "audioUrl": "/v1/audio/case_endings_akkusativ_A1_tier1/prompt-001.mp3"
     },
     {
       "id": "prompt-002",
-      "text": "Wir trinke die Milch.",
+      "text": "Ich kaufee leider das Brot.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir trinke die Milch.",
+      "natural_en": "Ich kaufee leider das Brot.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Wir"
-        ],
-        "verb": [
-          "trinke"
-        ],
-        "object": [
-          "die Milch"
-        ]
-      },
-      "audioUrl": "/v1/audio/case_endings_akkusativ_A1_tier1/prompt-002.mp3"
-    },
-    {
-      "id": "prompt-003",
-      "text": "Ich sehee den Kaffee.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ich sehee den Kaffee.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
           "Ich"
         ],
         "verb": [
-          "sehee"
+          "kaufee"
         ],
         "object": [
-          "den Kaffee"
+          "das Brot"
+        ],
+        "modifier": [
+          "leider"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_A1_tier1/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "Er esset endlich die Zeitung.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er esset endlich die Zeitung.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "esset"
+        ],
+        "object": [
+          "die Zeitung"
+        ],
+        "modifier": [
+          "endlich"
         ]
       },
       "audioUrl": "/v1/audio/case_endings_akkusativ_A1_tier1/prompt-003.mp3"
     },
     {
       "id": "prompt-004",
-      "text": "Wir mache den Kaffee.",
+      "text": "Wir sehe endlich das Buch.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir mache den Kaffee.",
+      "natural_en": "Wir sehe endlich das Buch.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
           "Wir"
         ],
         "verb": [
-          "mache"
+          "sehe"
         ],
         "object": [
-          "den Kaffee"
+          "das Buch"
+        ],
+        "modifier": [
+          "endlich"
         ]
       },
       "audioUrl": "/v1/audio/case_endings_akkusativ_A1_tier1/prompt-004.mp3"
     },
     {
       "id": "prompt-005",
-      "text": "Du sehest einen Stuhl.",
+      "text": "Sie nehmet einen Stuhl.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du sehest einen Stuhl.",
+      "natural_en": "Sie nehmet einen Stuhl.",
       "slotsChanged": [
         "subject",
         "verb",
@@ -167,10 +185,10 @@
       ],
       "slots": {
         "subject": [
-          "Du"
+          "Sie"
         ],
         "verb": [
-          "sehest"
+          "nehmet"
         ],
         "object": [
           "einen Stuhl"
@@ -180,24 +198,28 @@
     },
     {
       "id": "prompt-006",
-      "text": "Wir lese das Buch.",
+      "text": "Du habest endlich das Buch.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir lese das Buch.",
+      "natural_en": "Du habest endlich das Buch.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
-          "Wir"
+          "Du"
         ],
         "verb": [
-          "lese"
+          "habest"
         ],
         "object": [
           "das Buch"
+        ],
+        "modifier": [
+          "endlich"
         ]
       },
       "audioUrl": "/v1/audio/case_endings_akkusativ_A1_tier1/prompt-006.mp3"
@@ -218,17 +240,19 @@
     ],
     "coverage": {
       "verbs": [
-        "essest",
-        "trinke",
-        "sehee",
-        "mache",
-        "sehest",
-        "lese"
+        "machest",
+        "kaufee",
+        "esset",
+        "sehe",
+        "nehmet",
+        "habest"
       ],
       "subjects": [
         "Du",
+        "Ich",
+        "Er",
         "Wir",
-        "Ich"
+        "Sie"
       ],
       "patterns": [
         "akkusativ_articles",
@@ -244,7 +268,7 @@
       "tokenHitsCount": 6,
       "multiSlotRate": 1,
       "uniqueVerbCount": 6,
-      "uniqueSubjectCount": 3,
+      "uniqueSubjectCount": 5,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -253,12 +277,23 @@
     "source": "template",
     "sourceRef": "mechanics/case_endings_akkusativ",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.632Z"
+    "generatedAt": "2026-01-03T09:52:17.338Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T10:00:00.000Z"
+  },
+  "title_i18n": {
+    "en": "Case Endings: Akkusativ: A1 (Tier 1) - Pairs"
+  },
+  "shortTitle_i18n": {
+    "en": "Case Endings: Akkus A1 Pairs"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 1 - contrast pairs - Master accusative case endings (de"
   },
   "contentId": "de:drill:case_endings_akkusativ_a1_tier1_contrast-pairs",
-  "contentHash": "8c366baebcec015674b002ac917c2a4cc5dc373fb3437abdb870bf7f55b0817a",
-  "revisionId": "8c366baebcec"
+  "contentHash": "88049d115ba3726b8cb710aacc065963af2f92d0deb3fea7469b1ba63958ab2b",
+  "revisionId": "88049d115ba3"
 }

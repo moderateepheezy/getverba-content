@@ -1,0 +1,664 @@
+{
+  "version": "v1",
+  "kind": "context",
+  "total": 20,
+  "pageSize": 12,
+  "page": 2,
+  "items": [
+    {
+      "id": "housing_pack_2_a2",
+      "kind": "pack",
+      "title": "Housing A2 — 2: Viewing Apartments",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_2_a2/pack.json",
+      "contentId": "de:pack:housing_pack_2_a2",
+      "revisionId": "4b1bfc3138d7",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A2 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Viewing Apartments",
+      "orderInTopic": 2,
+      "title_i18n": {
+        "en": "Housing A2 — 2: Viewing Apartments",
+        "es": "Viviendas A2 - 2: Apartamentos con vistas",
+        "fr": "Logement A2 - 2 : Appartements de visualisation",
+        "it": "Alloggi A2 - 2: Appartamenti da vedere",
+        "pt": "Habitação A2 - 2: Apartamentos de observação",
+        "ru": "Жилье A2 - 2: Квартиры для просмотра",
+        "ja": "住宅 A2 - 2：ビューイング・アパートメント",
+        "ko": "주택 A2 - 2: 아파트 보기",
+        "zh-CN": "住房 A2 - 2：观景公寓",
+        "zh-TW": "住房 A2 - 2：观景公寓",
+        "ar": "السكن A2 - 2: عرض الشقق السكنية A2 - 2: عرض الشقق",
+        "tr": "Konut A2 - 2: Daireleri Görüntüleme",
+        "pl": "Mieszkania A2 - 2: Apartamenty widokowe",
+        "nl": "Huisvesting A2 - 2: Bezichtigingsappartementen",
+        "sv": "Bostäder A2 - 2: Visningslägenheter",
+        "no": "Bolig A2 - 2: Visningsleiligheter",
+        "da": "Bolig A2 - 2: Udsigtslejligheder",
+        "fi": "Asuminen A2 - 2: Katseluasunnot",
+        "el": "Στέγαση A2 - 2: Προβολή διαμερισμάτων",
+        "cs": "Bydlení A2 - 2: Prohlídka apartmánů"
+      },
+      "domainKind": "context",
+      "groupId": "viewing-apartments",
+      "groupTitle": "Viewing Apartments",
+      "groupTitle_i18n": {
+        "en": "Viewing Apartments"
+      },
+      "isRecommended": true
+    },
+    {
+      "id": "housing_pack_3_a2",
+      "kind": "pack",
+      "title": "Housing A2 — 3: Rental Agreement",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_3_a2/pack.json",
+      "contentId": "de:pack:housing_pack_3_a2",
+      "revisionId": "50b7bb0268fb",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A2 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Rental Agreement",
+      "orderInTopic": 3,
+      "title_i18n": {
+        "en": "Housing A2 — 3: Rental Agreement",
+        "es": "Vivienda A2 - 3: Contrato de alquiler",
+        "fr": "Logement A2 - 3 : Contrat de location",
+        "it": "Alloggi A2 - 3: Contratto di locazione",
+        "pt": "Habitação A2 - 3: Contrato de arrendamento",
+        "ru": "Жилье A2 - 3: Договор аренды",
+        "ja": "住宅 A2 - 3: 賃貸契約",
+        "ko": "주택 A2 - 3: 임대 계약",
+        "zh-CN": "住房 A2 - 3：租房协议",
+        "zh-TW": "住房 A2 - 3：租房协议",
+        "ar": "السكن A2 - 3: عقد الإيجار",
+        "tr": "Konut A2 - 3: Kira Sözleşmesi",
+        "pl": "Mieszkanie A2 - 3: Umowa najmu",
+        "nl": "Huisvesting A2 - 3: Huurovereenkomst",
+        "sv": "Bostäder A2 - 3: Hyresavtal",
+        "no": "Bolig A2 - 3: Leieavtale",
+        "da": "Bolig A2 - 3: Lejeaftale",
+        "fi": "Asuminen A2 - 3: Vuokrasopimus",
+        "el": "Στέγαση A2 - 3: Συμφωνία ενοικίασης",
+        "cs": "Bydlení A2 - 3: Nájemní smlouva"
+      },
+      "domainKind": "context",
+      "groupId": "rental-agreements",
+      "groupTitle": "Rental Agreements",
+      "groupTitle_i18n": {
+        "en": "Rental Agreements"
+      }
+    },
+    {
+      "id": "housing_pack_4_a2",
+      "kind": "pack",
+      "title": "Housing A2 — 4: Searching for Housing",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_4_a2/pack.json",
+      "contentId": "de:pack:housing_pack_4_a2",
+      "revisionId": "45bc5570efd8",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A2 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Searching for Housing",
+      "orderInTopic": 4,
+      "title_i18n": {
+        "en": "Housing A2 — 4: Searching for Housing",
+        "es": "Vivienda A2 - 4: Búsqueda de vivienda",
+        "fr": "Logement A2 - 4 : Recherche de logement",
+        "it": "Alloggi A2 - 4: Ricerca di un alloggio",
+        "pt": "Alojamento A2 - 4: Procura de alojamento",
+        "ru": "Жилье A2 - 4: Поиск жилья",
+        "ja": "ハウジング A2 - 4: 住居探し",
+        "ko": "숙소 A2 - 4: 숙소 검색",
+        "zh-CN": "住房 A2 - 4：寻找住房",
+        "zh-TW": "住房 A2 - 4：寻找住房",
+        "ar": "الإسكان A2 - 4: البحث عن سكن - 4: البحث عن سكن",
+        "tr": "Konut A2 - 4: Konut Aramak",
+        "pl": "A2 - 4: Poszukiwanie mieszkania",
+        "nl": "A2 - 4: Huisvesting zoeken",
+        "sv": "Bostäder A2 - 4: Att söka bostad",
+        "no": "Bolig A2 - 4: Søke etter bolig",
+        "da": "Bolig A2 - 4: At søge bolig",
+        "fi": "Asuminen A2 - 4: Asunnon etsiminen",
+        "el": "Στέγαση A2 - 4: Αναζήτηση στέγασης",
+        "cs": "Bydlení A2 - 4: Hledání bydlení"
+      },
+      "domainKind": "context",
+      "groupId": "searching-listings",
+      "groupTitle": "Searching & Listings",
+      "groupTitle_i18n": {
+        "en": "Searching & Listings"
+      }
+    },
+    {
+      "id": "housing_pack_5_a2",
+      "kind": "pack",
+      "title": "Housing A2 — 5: Viewing Apartments",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_5_a2/pack.json",
+      "contentId": "de:pack:housing_pack_5_a2",
+      "revisionId": "62df97c9f444",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A2 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Viewing Apartments",
+      "orderInTopic": 5,
+      "title_i18n": {
+        "en": "Housing A2 — 5: Viewing Apartments",
+        "es": "Viviendas A2 - 5: Apartamentos con vistas",
+        "fr": "Logement A2 - 5 : Appartements de visualisation",
+        "it": "Alloggi A2 - 5: Appartamenti da vedere",
+        "pt": "Habitação A2 - 5: Apartamentos para visitas",
+        "ru": "Жилье A2 - 5: Квартиры для просмотра",
+        "ja": "住宅 A2 - 5：ビューイング・アパートメント",
+        "ko": "주택 A2 - 5: 아파트 보기",
+        "zh-CN": "住房 A2 - 5：观景公寓",
+        "zh-TW": "住房 A2 - 5：观景公寓",
+        "ar": "الإسكان A2 - 5: عرض الشقق السكنية A2 - 5: عرض الشقق",
+        "tr": "Konut A2 - 5: Daireleri Görüntüleme",
+        "pl": "Mieszkania A2 - 5: Apartamenty widokowe",
+        "nl": "Huisvesting A2 - 5: Bezichtigingsappartementen",
+        "sv": "Bostäder A2 - 5: Visningslägenheter",
+        "no": "Bolig A2 - 5: Visningsleiligheter",
+        "da": "Bolig A2 - 5: Udsigtslejligheder",
+        "fi": "Asuminen A2 - 5: Katseluasunnot",
+        "el": "Στέγαση A2 - 5: Προβολή διαμερισμάτων",
+        "cs": "Bydlení A2 - 5: Prohlídka apartmánů"
+      },
+      "domainKind": "context",
+      "groupId": "viewing-apartments",
+      "groupTitle": "Viewing Apartments",
+      "groupTitle_i18n": {
+        "en": "Viewing Apartments"
+      }
+    },
+    {
+      "id": "housing_pack_6_a2",
+      "kind": "pack",
+      "title": "Housing A2 — 6: Rental Agreement",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_6_a2/pack.json",
+      "contentId": "de:pack:housing_pack_6_a2",
+      "revisionId": "a69dc1b33e8d",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A2 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Rental Agreement",
+      "orderInTopic": 6,
+      "title_i18n": {
+        "en": "Housing A2 — 6: Rental Agreement",
+        "es": "Vivienda A2 - 6: Contrato de alquiler",
+        "fr": "Logement A2 - 6 : Contrat de location",
+        "it": "Alloggi A2 - 6: Contratto di locazione",
+        "pt": "Habitação A2 - 6: Contrato de arrendamento",
+        "ru": "Жилье A2 - 6: Договор аренды",
+        "ja": "住宅 A2 - 6: 賃貸契約",
+        "ko": "주택 A2 - 6: 임대 계약",
+        "zh-CN": "住房 A2 - 6：租赁协议",
+        "zh-TW": "住房 A2 - 6：租赁协议",
+        "ar": "السكن A2 - 6: اتفاقية الإيجار",
+        "tr": "Konut A2 - 6: Kira Sözleşmesi",
+        "pl": "Mieszkanie A2 - 6: Umowa najmu",
+        "nl": "Huisvesting A2 - 6: Huurovereenkomst",
+        "sv": "Bostäder A2 - 6: Hyresavtal",
+        "no": "Bolig A2 - 6: Leieavtale",
+        "da": "Bolig A2 - 6: Lejeaftale",
+        "fi": "Asuminen A2 - 6: Vuokrasopimus",
+        "el": "Στέγαση A2 - 6: Συμφωνία ενοικίασης",
+        "cs": "Bydlení A2 - 6: Nájemní smlouva"
+      },
+      "domainKind": "context",
+      "groupId": "rental-agreements",
+      "groupTitle": "Rental Agreements",
+      "groupTitle_i18n": {
+        "en": "Rental Agreements"
+      }
+    },
+    {
+      "id": "housing_pack_7_a2",
+      "kind": "pack",
+      "title": "Housing A2 — 7: Searching for Housing",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_7_a2/pack.json",
+      "contentId": "de:pack:housing_pack_7_a2",
+      "revisionId": "538f2c89a33b",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A2 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Searching for Housing",
+      "orderInTopic": 7,
+      "title_i18n": {
+        "en": "Housing A2 — 7: Searching for Housing",
+        "es": "Vivienda A2 - 7: Búsqueda de vivienda",
+        "fr": "Logement A2 - 7 : Recherche de logement",
+        "it": "Alloggi A2 - 7: Ricerca di un alloggio",
+        "pt": "Alojamento A2 - 7: Procura de alojamento",
+        "ru": "Жилье A2 - 7: Поиск жилья",
+        "ja": "住宅 A2 - 7: 住居探し",
+        "ko": "숙소 A2 - 7: 숙소 검색",
+        "zh-CN": "住房 A2 - 7：寻找住房",
+        "zh-TW": "住房 A2 - 7：寻找住房",
+        "ar": "الإسكان A2 - 7: البحث عن سكن - 7: البحث عن سكن",
+        "tr": "Konut A2 - 7: Konut Aramak",
+        "pl": "A2 - 7: Poszukiwanie mieszkania",
+        "nl": "A2 - 7: Huisvesting zoeken",
+        "sv": "Bostäder A2 - 7: Att söka bostad",
+        "no": "Bolig A2 - 7: Søke etter bolig",
+        "da": "Bolig A2 - 7: At søge bolig",
+        "fi": "Asuminen A2 - 7: Asunnon etsiminen",
+        "el": "Στέγαση A2 - 7: Αναζήτηση στέγασης",
+        "cs": "Bydlení A2 - 7: Hledání bydlení"
+      },
+      "domainKind": "context",
+      "groupId": "searching-listings",
+      "groupTitle": "Searching & Listings",
+      "groupTitle_i18n": {
+        "en": "Searching & Listings"
+      }
+    },
+    {
+      "id": "housing_pack_8_a2",
+      "kind": "pack",
+      "title": "Housing A2 — 8: Viewing Apartments",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_8_a2/pack.json",
+      "contentId": "de:pack:housing_pack_8_a2",
+      "revisionId": "eca4cf7e303b",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A2 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Viewing Apartments",
+      "orderInTopic": 8,
+      "title_i18n": {
+        "en": "Housing A2 — 8: Viewing Apartments",
+        "es": "Viviendas A2 - 8: Apartamentos con vistas",
+        "fr": "Logement A2 - 8 : Appartements de visualisation",
+        "it": "Alloggi A2 - 8: Appartamenti da vedere",
+        "pt": "Habitação A2 - 8: Apartamentos para observação",
+        "ru": "Жилье A2 - 8: Квартиры для просмотра",
+        "ja": "住宅 A2 - 8：ビューイング・アパートメント",
+        "ko": "주택 A2 - 8: 아파트 보기",
+        "zh-CN": "住房 A2 - 8：观景公寓",
+        "zh-TW": "住房 A2 - 8：观景公寓",
+        "ar": "الإسكان A2 - 8: عرض الشقق السكنية A2 - 8: عرض الشقق",
+        "tr": "Konut A2 - 8: Daireleri Görüntüleme",
+        "pl": "Mieszkania A2 - 8: Apartamenty widokowe",
+        "nl": "Huisvesting A2 - 8: Bezichtigingsappartementen",
+        "sv": "Bostäder A2 - 8: Lägenheter för visning",
+        "no": "Bolig A2 - 8: Visningsleiligheter",
+        "da": "Bolig A2 - 8: Udsigtslejligheder",
+        "fi": "Asuminen A2 - 8: Katseluasunnot",
+        "el": "Στέγαση A2 - 8: Προβολή διαμερισμάτων",
+        "cs": "Bydlení A2 - 8: Prohlídka apartmánů"
+      },
+      "domainKind": "context",
+      "groupId": "viewing-apartments",
+      "groupTitle": "Viewing Apartments",
+      "groupTitle_i18n": {
+        "en": "Viewing Apartments"
+      }
+    },
+    {
+      "id": "housing_pack_9_a2",
+      "kind": "pack",
+      "title": "Housing A2 — 9: Rental Agreement",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_9_a2/pack.json",
+      "contentId": "de:pack:housing_pack_9_a2",
+      "revisionId": "fabd5ecd04b5",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A2 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Rental Agreement",
+      "orderInTopic": 9,
+      "title_i18n": {
+        "en": "Housing A2 — 9: Rental Agreement",
+        "es": "Vivienda A2 - 9: Contrato de alquiler",
+        "fr": "Logement A2 - 9 : Contrat de location",
+        "it": "Alloggi A2 - 9: Contratto di locazione",
+        "pt": "Habitação A2 - 9: Contrato de arrendamento",
+        "ru": "Жилье A2 - 9: Договор аренды",
+        "ja": "住宅 A2 - 9: 賃貸契約",
+        "ko": "주택 A2 - 9: 임대 계약",
+        "zh-CN": "住房 A2 - 9：租赁协议",
+        "zh-TW": "住房 A2 - 9：租赁协议",
+        "ar": "السكن A2 - 9: اتفاقية الإيجار",
+        "tr": "Konut A2 - 9: Kira Sözleşmesi",
+        "pl": "Mieszkanie A2 - 9: Umowa najmu",
+        "nl": "Huisvesting A2 - 9: Huurovereenkomst",
+        "sv": "Bostäder A2 - 9: Hyresavtal",
+        "no": "Bolig A2 - 9: Leieavtale",
+        "da": "Bolig A2 - 9: Lejeaftale",
+        "fi": "Asuminen A2 - 9: Vuokrasopimus",
+        "el": "Στέγαση A2 - 9: Συμφωνία ενοικίασης",
+        "cs": "Bydlení A2 - 9: Nájemní smlouva"
+      },
+      "domainKind": "context",
+      "groupId": "rental-agreements",
+      "groupTitle": "Rental Agreements",
+      "groupTitle_i18n": {
+        "en": "Rental Agreements"
+      }
+    }
+  ],
+  "nextPage": null,
+  "scope": {
+    "scopeKind": "scenario",
+    "scopeId": "housing",
+    "scopeTitle": "Housing"
+  },
+  "recommended": {
+    "itemId": "housing_pack_2_a2",
+    "entryUrl": "/v1/workspaces/de/packs/housing_pack_2_a2/pack.json"
+  },
+  "groups": [
+    {
+      "id": "viewing-apartments",
+      "title": "Viewing Apartments",
+      "title_i18n": {
+        "en": "Viewing Apartments"
+      },
+      "kind": "context_group",
+      "itemIds": [
+        "housing_pack_2_a2",
+        "housing_pack_5_a2",
+        "housing_pack_8_a2"
+      ]
+    },
+    {
+      "id": "rental-agreements",
+      "title": "Rental Agreements",
+      "title_i18n": {
+        "en": "Rental Agreements"
+      },
+      "kind": "context_group",
+      "itemIds": [
+        "housing_pack_3_a2",
+        "housing_pack_6_a2",
+        "housing_pack_9_a2"
+      ]
+    }
+  ]
+}

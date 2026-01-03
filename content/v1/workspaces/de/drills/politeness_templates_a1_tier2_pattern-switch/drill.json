@@ -6,9 +6,9 @@
   "workspace": "de",
   "language": "de",
   "level": "A1",
-  "title": "Politeness Templates: A1 (Tier 2)",
-  "shortTitle": "Politeness Templates A1",
-  "subtitle": "Tier 2 - pattern switch",
+  "title": "Politeness Templates: A1 (Tier 2) - Pattern",
+  "shortTitle": "Politeness Templa A1 Pattern",
+  "subtitle": "Tier 2 - pattern switch - Master formal politeness formulas ",
   "estimatedMinutes": 4,
   "mechanicId": "politeness_templates",
   "mechanicLabel": "Politeness Templates",
@@ -18,7 +18,8 @@
     "subject",
     "verb",
     "object",
-    "modifier"
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -63,54 +64,62 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "undefined bringen.",
+      "text": "Könnten Sie morgen geben?",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "undefined bringen.",
+      "natural_en": "Könnten Sie morgen geben?",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "time"
       ],
       "slots": {
         "subject": [
-          null
+          "Könnten Sie"
         ],
         "verb": [
-          "bringen"
+          "geben"
+        ],
+        "time": [
+          "morgen"
         ]
       },
       "audioUrl": "/v1/audio/politeness_templates_A1_tier2/prompt-001.mp3"
     },
     {
       "id": "prompt-002",
-      "text": "undefined schließen einen.",
+      "text": "Würden Sie die nächste Woche sagen?",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "undefined schließen einen.",
+      "natural_en": "Würden Sie die nächste Woche sagen?",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time"
       ],
       "slots": {
         "subject": [
-          null
+          "Würden Sie"
         ],
         "verb": [
-          "schließen"
+          "sagen"
         ],
         "object": [
-          "einen"
+          "die"
+        ],
+        "time": [
+          "nächste Woche"
         ]
       },
       "audioUrl": "/v1/audio/politeness_templates_A1_tier2/prompt-002.mp3"
     },
     {
       "id": "prompt-003",
-      "text": "undefined sagen.",
+      "text": "Dürfte ich morgen zeigen?",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "undefined sagen.",
+      "natural_en": "Dürfte ich morgen zeigen?",
       "slotsChanged": [
         "time",
         "subject",
@@ -118,64 +127,75 @@
       ],
       "slots": {
         "subject": [
-          null
+          "Dürfte ich"
         ],
         "verb": [
-          "sagen"
+          "zeigen"
+        ],
+        "time": [
+          "morgen"
         ]
       },
       "audioUrl": "/v1/audio/politeness_templates_A1_tier2/prompt-003.mp3"
     },
     {
       "id": "prompt-004",
-      "text": "undefined helfen.",
+      "text": "Ich hätte gern heute machen?",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "undefined helfen.",
+      "natural_en": "Ich hätte gern heute machen?",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "time"
       ],
       "slots": {
         "subject": [
-          null
+          "Ich hätte gern"
         ],
         "verb": [
-          "helfen"
+          "machen"
+        ],
+        "time": [
+          "heute"
         ]
       },
       "audioUrl": "/v1/audio/politeness_templates_A1_tier2/prompt-004.mp3"
     },
     {
       "id": "prompt-005",
-      "text": "undefined schließen eine.",
+      "text": "Ich möchte einen heute bringen?",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "undefined schließen eine.",
+      "natural_en": "Ich möchte einen heute bringen?",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time"
       ],
       "slots": {
         "subject": [
-          null
+          "Ich möchte"
         ],
         "verb": [
-          "schließen"
+          "bringen"
         ],
         "object": [
-          "eine"
+          "einen"
+        ],
+        "time": [
+          "heute"
         ]
       },
       "audioUrl": "/v1/audio/politeness_templates_A1_tier2/prompt-005.mp3"
     },
     {
       "id": "prompt-006",
-      "text": "undefined schließen.",
+      "text": "Können Sie jetzt helfen?",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "undefined schließen.",
+      "natural_en": "Können Sie jetzt helfen?",
       "slotsChanged": [
         "time",
         "subject",
@@ -183,54 +203,65 @@
       ],
       "slots": {
         "subject": [
-          null
+          "Können Sie"
         ],
         "verb": [
-          "schließen"
+          "helfen"
+        ],
+        "time": [
+          "jetzt"
         ]
       },
       "audioUrl": "/v1/audio/politeness_templates_A1_tier2/prompt-006.mp3"
     },
     {
       "id": "prompt-007",
-      "text": "undefined geben.",
+      "text": "Könnten Sie heute schließen?",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "undefined geben.",
+      "natural_en": "Könnten Sie heute schließen?",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "time"
       ],
       "slots": {
         "subject": [
-          null
+          "Könnten Sie"
         ],
         "verb": [
-          "geben"
+          "schließen"
+        ],
+        "time": [
+          "heute"
         ]
       },
       "audioUrl": "/v1/audio/politeness_templates_A1_tier2/prompt-007.mp3"
     },
     {
       "id": "prompt-008",
-      "text": "undefined helfen die.",
+      "text": "Würden Sie einen heute öffnen?",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "undefined helfen die.",
+      "natural_en": "Würden Sie einen heute öffnen?",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time"
       ],
       "slots": {
         "subject": [
-          null
+          "Würden Sie"
         ],
         "verb": [
-          "helfen"
+          "öffnen"
         ],
         "object": [
-          "die"
+          "einen"
+        ],
+        "time": [
+          "heute"
         ]
       },
       "audioUrl": "/v1/audio/politeness_templates_A1_tier2/prompt-008.mp3"
@@ -251,14 +282,22 @@
     ],
     "coverage": {
       "verbs": [
-        "bringen",
-        "schließen",
+        "geben",
         "sagen",
+        "zeigen",
+        "machen",
+        "bringen",
         "helfen",
-        "geben"
+        "schließen",
+        "öffnen"
       ],
       "subjects": [
-        null
+        "Könnten Sie",
+        "Würden Sie",
+        "Dürfte ich",
+        "Ich hätte gern",
+        "Ich möchte",
+        "Können Sie"
       ],
       "patterns": [
         "polite_requests",
@@ -271,10 +310,10 @@
     "estPromptCount": 8,
     "timeboxMinutes": 4,
     "qualitySignals": {
-      "tokenHitsCount": 0,
+      "tokenHitsCount": 8,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 5,
-      "uniqueSubjectCount": 1,
+      "uniqueVerbCount": 8,
+      "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -283,12 +322,21 @@
     "source": "template",
     "sourceRef": "mechanics/politeness_templates",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:16:26.934Z"
+    "generatedAt": "2026-01-03T09:52:17.360Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Politeness Templates: A1 (Tier 2) - Pattern"
+  },
+  "shortTitle_i18n": {
+    "en": "Politeness Templa A1 Pattern"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 2 - pattern switch - Master formal politeness formulas "
+  },
   "contentId": "de:drill:politeness_templates_a1_tier2_pattern-switch",
-  "contentHash": "1b36c9ee47a8eece06af13510360ca512894b47b2471514fb4f0e52c0cf89d27",
-  "revisionId": "1b36c9ee47a8"
+  "contentHash": "bb2b24cdcee7b2c8e92c98ef60a86313dbda200cc4511b9089be8fc2d0937d67",
+  "revisionId": "bb2b24cdcee7"
 }

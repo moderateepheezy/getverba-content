@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A1",
-  "title": "Negation: A1 (Tier 1)",
-  "shortTitle": "Negation A1",
+  "title": "Negation: A1 (Tier 1) - Transform",
+  "shortTitle": "Negation A1 Transform",
   "subtitle": "Tier 1 - micro transform - Master negation placement (nicht,",
   "estimatedMinutes": 3,
   "mechanicId": "negation",
@@ -17,7 +17,9 @@
   "variationSlots": [
     "subject",
     "verb",
-    "object"
+    "object",
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -60,38 +62,16 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Sie kommet das Essen.",
+      "text": "Ich habee leider dort Lust.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie kommet das Essen.",
+      "natural_en": "Ich habee leider dort Lust.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Sie"
-        ],
-        "verb": [
-          "kommet"
-        ],
-        "object": [
-          "das Essen"
-        ]
-      },
-      "audioUrl": "/v1/audio/negation_A1_tier1/prompt-001.mp3"
-    },
-    {
-      "id": "prompt-002",
-      "text": "Ich habee Kaffee.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ich habee Kaffee.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
+        "object",
+        "modifier",
+        "location"
       ],
       "slots": {
         "subject": [
@@ -101,93 +81,28 @@
           "habee"
         ],
         "object": [
-          "Kaffee"
+          "Lust"
+        ],
+        "modifier": [
+          "leider"
+        ],
+        "location": [
+          "dort"
         ]
       },
-      "audioUrl": "/v1/audio/negation_A1_tier1/prompt-002.mp3"
+      "audioUrl": "/v1/audio/negation_A1_tier1/prompt-001.mp3"
     },
     {
-      "id": "prompt-003",
-      "text": "Er machet Tee.",
+      "id": "prompt-002",
+      "text": "Sie kommet überhaupt Geld.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er machet Tee.",
+      "natural_en": "Sie kommet überhaupt Geld.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Er"
-        ],
-        "verb": [
-          "machet"
-        ],
-        "object": [
-          "Tee"
-        ]
-      },
-      "audioUrl": "/v1/audio/negation_A1_tier1/prompt-003.mp3"
-    },
-    {
-      "id": "prompt-004",
-      "text": "Du habest Tee.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du habest Tee.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Du"
-        ],
-        "verb": [
-          "habest"
-        ],
-        "object": [
-          "Tee"
-        ]
-      },
-      "audioUrl": "/v1/audio/negation_A1_tier1/prompt-004.mp3"
-    },
-    {
-      "id": "prompt-005",
-      "text": "Ihr gehet Kaffee.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ihr gehet Kaffee.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Ihr"
-        ],
-        "verb": [
-          "gehet"
-        ],
-        "object": [
-          "Kaffee"
-        ]
-      },
-      "audioUrl": "/v1/audio/negation_A1_tier1/prompt-005.mp3"
-    },
-    {
-      "id": "prompt-006",
-      "text": "Sie kommet die Zeitung.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie kommet die Zeitung.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
@@ -197,7 +112,136 @@
           "kommet"
         ],
         "object": [
-          "die Zeitung"
+          "Geld"
+        ],
+        "modifier": [
+          "überhaupt"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier1/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "Ihr esset gar im Kino Lust keinem.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ihr esset gar im Kino Lust.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "esset"
+        ],
+        "object": [
+          "Lust"
+        ],
+        "modifier": [
+          "gar",
+          "keinem"
+        ],
+        "location": [
+          "im Kino"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier1/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Du komme leider in der Schule Lust.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du komme leider in der Schule Lust.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "komme"
+        ],
+        "object": [
+          "Lust"
+        ],
+        "modifier": [
+          "leider"
+        ],
+        "location": [
+          "in der Schule"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier1/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Wir gehe überhaupt die Musik.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Wir gehe überhaupt die Musik.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "gehe"
+        ],
+        "object": [
+          "die Musik"
+        ],
+        "modifier": [
+          "überhaupt"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier1/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Er sehet gar dort Kaffee keinem.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er sehet gar dort Kaffee.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "sehet"
+        ],
+        "object": [
+          "Kaffee"
+        ],
+        "modifier": [
+          "gar",
+          "keinem"
+        ],
+        "location": [
+          "dort"
         ]
       },
       "audioUrl": "/v1/audio/negation_A1_tier1/prompt-006.mp3"
@@ -218,18 +262,20 @@
     ],
     "coverage": {
       "verbs": [
-        "kommet",
         "habee",
-        "machet",
-        "habest",
-        "gehet"
+        "kommet",
+        "esset",
+        "komme",
+        "gehe",
+        "sehet"
       ],
       "subjects": [
-        "Sie",
         "Ich",
-        "Er",
+        "Sie",
+        "Ihr",
         "Du",
-        "Ihr"
+        "Wir",
+        "Er"
       ],
       "patterns": [
         "nicht_placement",
@@ -242,10 +288,10 @@
     "estPromptCount": 6,
     "timeboxMinutes": 3,
     "qualitySignals": {
-      "tokenHitsCount": 5,
+      "tokenHitsCount": 6,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 5,
-      "uniqueSubjectCount": 5,
+      "uniqueVerbCount": 6,
+      "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -254,12 +300,21 @@
     "source": "template",
     "sourceRef": "mechanics/negation",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.640Z"
+    "generatedAt": "2026-01-03T09:52:17.353Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Negation: A1 (Tier 1) - Transform"
+  },
+  "shortTitle_i18n": {
+    "en": "Negation A1 Transform"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 1 - micro transform - Master negation placement (nicht,"
+  },
   "contentId": "de:drill:negation_a1_tier1_micro-transform",
-  "contentHash": "7569902db2c7322f152dca8e28e56bd4f7879cb3c30baf1892b3120fd1c700db",
-  "revisionId": "7569902db2c7"
+  "contentHash": "e994d64850e08a275cc28469ac7aeb66a699c5810d281defe509e9caf3f7221f",
+  "revisionId": "e994d64850e0"
 }

@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A1",
-  "title": "Word Order: Main Clause: A1 (Tier 2)",
-  "shortTitle": "Word Order: Main Clause A1",
+  "title": "Word Order: Main Clause: A1 (Tier 2) - Slot",
+  "shortTitle": "Word Order: Main Cla A1 Slot",
   "subtitle": "Tier 2 - slot substitution - Master verb-second position in ",
   "estimatedMinutes": 4,
   "mechanicId": "word_order_main_clause",
@@ -18,6 +18,7 @@
     "subject",
     "verb",
     "object",
+    "modifier",
     "time"
   ],
   "sessionPlan": {
@@ -63,133 +64,42 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Du sehest die Musik.",
+      "text": "am Montag esset Sie die Zeitung.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du sehest die Musik.",
+      "natural_en": "am Montag esset Sie die Zeitung.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time"
       ],
       "slots": {
         "subject": [
-          "Du"
+          "Sie"
         ],
         "verb": [
-          "sehest"
+          "esset"
         ],
         "object": [
-          "die Musik"
+          "die Zeitung"
+        ],
+        "time": [
+          "am Montag"
         ]
       },
       "audioUrl": "/v1/audio/word_order_main_clause_A1_tier2/prompt-001.mp3"
     },
     {
       "id": "prompt-002",
-      "text": "Er kommet das Buch.",
+      "text": "Wir höre morgen Deutsch.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er kommet das Buch.",
+      "natural_en": "Wir höre morgen Deutsch.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Er"
-        ],
-        "verb": [
-          "kommet"
-        ],
-        "object": [
-          "das Buch"
-        ]
-      },
-      "audioUrl": "/v1/audio/word_order_main_clause_A1_tier2/prompt-002.mp3"
-    },
-    {
-      "id": "prompt-003",
-      "text": "Er höret das Essen.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er höret das Essen.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Er"
-        ],
-        "verb": [
-          "höret"
-        ],
-        "object": [
-          "das Essen"
-        ]
-      },
-      "audioUrl": "/v1/audio/word_order_main_clause_A1_tier2/prompt-003.mp3"
-    },
-    {
-      "id": "prompt-004",
-      "text": "Ihr kommet das Buch.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ihr kommet das Buch.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Ihr"
-        ],
-        "verb": [
-          "kommet"
-        ],
-        "object": [
-          "das Buch"
-        ]
-      },
-      "audioUrl": "/v1/audio/word_order_main_clause_A1_tier2/prompt-004.mp3"
-    },
-    {
-      "id": "prompt-005",
-      "text": "Du sehest die Zeitung.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du sehest die Zeitung.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Du"
-        ],
-        "verb": [
-          "sehest"
-        ],
-        "object": [
-          "die Zeitung"
-        ]
-      },
-      "audioUrl": "/v1/audio/word_order_main_clause_A1_tier2/prompt-005.mp3"
-    },
-    {
-      "id": "prompt-006",
-      "text": "Wir höre das Buch.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir höre das Buch.",
-      "slotsChanged": [
-        "subject",
-        "verb",
+        "time",
         "object"
       ],
       "slots": {
@@ -200,44 +110,108 @@
           "höre"
         ],
         "object": [
-          "das Buch"
+          "Deutsch"
+        ],
+        "time": [
+          "morgen"
         ]
       },
-      "audioUrl": "/v1/audio/word_order_main_clause_A1_tier2/prompt-006.mp3"
+      "audioUrl": "/v1/audio/word_order_main_clause_A1_tier2/prompt-002.mp3"
     },
     {
-      "id": "prompt-007",
-      "text": "Wir komme das Essen.",
+      "id": "prompt-003",
+      "text": "jetzt sehet er die Musik.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir komme das Essen.",
+      "natural_en": "jetzt sehet er die Musik.",
       "slotsChanged": [
         "subject",
         "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "sehet"
+        ],
+        "object": [
+          "die Musik"
+        ],
+        "time": [
+          "jetzt"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A1_tier2/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Du machest am Montag den Film.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du machest am Montag den Film.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
         "object"
       ],
       "slots": {
         "subject": [
-          "Wir"
+          "Du"
         ],
         "verb": [
-          "komme"
+          "machest"
         ],
         "object": [
-          "das Essen"
+          "den Film"
+        ],
+        "time": [
+          "am Montag"
         ]
       },
-      "audioUrl": "/v1/audio/word_order_main_clause_A1_tier2/prompt-007.mp3"
+      "audioUrl": "/v1/audio/word_order_main_clause_A1_tier2/prompt-004.mp3"
     },
     {
-      "id": "prompt-008",
-      "text": "Ihr esset die Musik.",
+      "id": "prompt-005",
+      "text": "später kommee ich die Zeitung.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ihr esset die Musik.",
+      "natural_en": "später kommee ich die Zeitung.",
       "slotsChanged": [
         "subject",
         "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "kommee"
+        ],
+        "object": [
+          "die Zeitung"
+        ],
+        "time": [
+          "später"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A1_tier2/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Ihr trinket morgen das Buch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ihr trinket morgen das Buch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
         "object"
       ],
       "slots": {
@@ -245,10 +219,69 @@
           "Ihr"
         ],
         "verb": [
-          "esset"
+          "trinket"
         ],
         "object": [
-          "die Musik"
+          "das Buch"
+        ],
+        "time": [
+          "morgen"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A1_tier2/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "Sie gehet am Montag das Buch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie gehet am Montag das Buch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "gehet"
+        ],
+        "object": [
+          "das Buch"
+        ],
+        "time": [
+          "am Montag"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A1_tier2/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "Wir esse morgen den Film.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Wir esse morgen den Film.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "esse"
+        ],
+        "object": [
+          "den Film"
+        ],
+        "time": [
+          "morgen"
         ]
       },
       "audioUrl": "/v1/audio/word_order_main_clause_A1_tier2/prompt-008.mp3"
@@ -269,18 +302,22 @@
     ],
     "coverage": {
       "verbs": [
-        "sehest",
-        "kommet",
-        "höret",
+        "esset",
         "höre",
-        "komme",
-        "esset"
+        "sehet",
+        "machest",
+        "kommee",
+        "trinket",
+        "gehet",
+        "esse"
       ],
       "subjects": [
-        "Du",
+        "Sie",
+        "Wir",
         "Er",
-        "Ihr",
-        "Wir"
+        "Du",
+        "Ich",
+        "Ihr"
       ],
       "patterns": [
         "verb_second_position",
@@ -293,10 +330,10 @@
     "estPromptCount": 8,
     "timeboxMinutes": 4,
     "qualitySignals": {
-      "tokenHitsCount": 6,
+      "tokenHitsCount": 8,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 6,
-      "uniqueSubjectCount": 4,
+      "uniqueVerbCount": 8,
+      "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -305,12 +342,21 @@
     "source": "template",
     "sourceRef": "mechanics/word_order_main_clause",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.656Z"
+    "generatedAt": "2026-01-03T09:52:17.374Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Word Order: Main Clause: A1 (Tier 2) - Slot"
+  },
+  "shortTitle_i18n": {
+    "en": "Word Order: Main Cla A1 Slot"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 2 - slot substitution - Master verb-second position in "
+  },
   "contentId": "de:drill:word_order_main_clause_a1_tier2_slot-substitution",
-  "contentHash": "72efbae8f3da1a51f72cebfdfda0787609c10b724be101652f77f7745f09d31e",
-  "revisionId": "72efbae8f3da"
+  "contentHash": "cb1a152f0f76ff12ea8c6248f90fcacfdc5980a801ae91eb4120c842115a694a",
+  "revisionId": "cb1a152f0f76"
 }

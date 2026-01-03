@@ -6,9 +6,9 @@
   "workspace": "de",
   "language": "de",
   "level": "A1",
-  "title": "Verb Present Tense: A1 (Tier 3)",
-  "shortTitle": "Verb Present Tense A1",
-  "subtitle": "Tier 3 - pattern switch - Master present tense verb conjugat",
+  "title": "Verb Present Tense: A1 (Tier 3) - Pattern",
+  "shortTitle": "Verb Present Tens A1 Pattern",
+  "subtitle": "Tier 3 - pattern switch - Practice present tense verb conjug",
   "estimatedMinutes": 5,
   "mechanicId": "verb_present_tense",
   "mechanicLabel": "Verb Present Tense",
@@ -18,7 +18,8 @@
     "subject",
     "verb",
     "object",
-    "modifier"
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -65,63 +66,220 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Es geht Kaffee.",
+      "text": "nie schreibt ihr im Supermarkt.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Es geht Kaffee.",
+      "natural_en": "nie schreibt ihr im Supermarkt.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          "Es"
+          "Ihr"
         ],
         "verb": [
-          "geht"
+          "schreibt"
         ],
-        "object": [
-          "Kaffee"
+        "time": [
+          "nie"
+        ],
+        "location": [
+          "im Supermarkt"
         ]
       },
       "audioUrl": "/v1/audio/verb_present_tense_A1_tier3/prompt-001.mp3"
     },
     {
       "id": "prompt-002",
-      "text": "Er spielt Haus.",
+      "text": "heute geht Sie in der Schule Musik.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er spielt Haus.",
+      "natural_en": "heute geht Sie in der Schule Musik.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          "Er"
+          "Sie"
         ],
         "verb": [
-          "spielt"
+          "geht"
         ],
         "object": [
-          "Haus"
+          "Musik"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "in der Schule"
         ]
       },
       "audioUrl": "/v1/audio/verb_present_tense_A1_tier3/prompt-002.mp3"
     },
     {
       "id": "prompt-003",
-      "text": "Sie macht Fußball.",
+      "text": "selten trinke ich im Restaurant.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie macht Fußball.",
+      "natural_en": "selten trinke ich im Restaurant.",
       "slotsChanged": [
         "time",
         "subject",
         "verb",
-        "object"
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "trinke"
+        ],
+        "time": [
+          "selten"
+        ],
+        "location": [
+          "im Restaurant"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier3/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "jetzt kommst du auf der Arbeit.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jetzt kommst du auf der Arbeit.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "kommst"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "auf der Arbeit"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier3/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "jeden Tag isst er im Büro eine Pizza.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jeden Tag isst er im Büro eine Pizza.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "isst"
+        ],
+        "object": [
+          "eine Pizza"
+        ],
+        "time": [
+          "jeden Tag"
+        ],
+        "location": [
+          "im Büro"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier3/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "am Morgen wohnen wir im Park.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Morgen wohnen wir im Park.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "wohnen"
+        ],
+        "time": [
+          "am Morgen"
+        ],
+        "location": [
+          "im Park"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier3/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "am Morgen seht ihr in Berlin.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Morgen seht ihr in Berlin.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "seht"
+        ],
+        "time": [
+          "am Morgen"
+        ],
+        "location": [
+          "in Berlin"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier3/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "am Morgen macht Sie zu Hause Fußball.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Morgen macht Sie zu Hause Fußball.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
@@ -132,93 +290,27 @@
         ],
         "object": [
           "Fußball"
+        ],
+        "time": [
+          "am Morgen"
+        ],
+        "location": [
+          "zu Hause"
         ]
       },
-      "audioUrl": "/v1/audio/verb_present_tense_A1_tier3/prompt-003.mp3"
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier3/prompt-008.mp3"
     },
     {
-      "id": "prompt-004",
-      "text": "Sie hört Essen.",
+      "id": "prompt-009",
+      "text": "heute spiele ich auf der Arbeit.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie hört Essen.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Sie"
-        ],
-        "verb": [
-          "hört"
-        ],
-        "object": [
-          "Essen"
-        ]
-      },
-      "audioUrl": "/v1/audio/verb_present_tense_A1_tier3/prompt-004.mp3"
-    },
-    {
-      "id": "prompt-005",
-      "text": "Sie arbeitt Musik.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie arbeitt Musik.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Sie"
-        ],
-        "verb": [
-          "arbeitt"
-        ],
-        "object": [
-          "Musik"
-        ]
-      },
-      "audioUrl": "/v1/audio/verb_present_tense_A1_tier3/prompt-005.mp3"
-    },
-    {
-      "id": "prompt-006",
-      "text": "Er macht Haus.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er macht Haus.",
+      "natural_en": "heute spiele ich auf der Arbeit.",
       "slotsChanged": [
         "time",
         "subject",
         "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Er"
-        ],
-        "verb": [
-          "macht"
-        ],
-        "object": [
-          "Haus"
-        ]
-      },
-      "audioUrl": "/v1/audio/verb_present_tense_A1_tier3/prompt-006.mp3"
-    },
-    {
-      "id": "prompt-007",
-      "text": "Ich spiele Essen.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ich spiele Essen.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
+        "location"
       ],
       "slots": {
         "subject": [
@@ -227,81 +319,39 @@
         "verb": [
           "spiele"
         ],
-        "object": [
-          "Essen"
-        ]
-      },
-      "audioUrl": "/v1/audio/verb_present_tense_A1_tier3/prompt-007.mp3"
-    },
-    {
-      "id": "prompt-008",
-      "text": "Er spielt Englisch.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er spielt Englisch.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Er"
+        "time": [
+          "heute"
         ],
-        "verb": [
-          "spielt"
-        ],
-        "object": [
-          "Englisch"
-        ]
-      },
-      "audioUrl": "/v1/audio/verb_present_tense_A1_tier3/prompt-008.mp3"
-    },
-    {
-      "id": "prompt-009",
-      "text": "Sie seht Gitarre.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie seht Gitarre.",
-      "slotsChanged": [
-        "time",
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Sie"
-        ],
-        "verb": [
-          "seht"
-        ],
-        "object": [
-          "Gitarre"
+        "location": [
+          "auf der Arbeit"
         ]
       },
       "audioUrl": "/v1/audio/verb_present_tense_A1_tier3/prompt-009.mp3"
     },
     {
       "id": "prompt-010",
-      "text": "Du trinkst Musik.",
+      "text": "selten liest du im Büro.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du trinkst Musik.",
+      "natural_en": "selten liest du im Büro.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
           "Du"
         ],
         "verb": [
-          "trinkst"
+          "liest"
         ],
-        "object": [
-          "Musik"
+        "time": [
+          "selten"
+        ],
+        "location": [
+          "im Büro"
         ]
       },
       "audioUrl": "/v1/audio/verb_present_tense_A1_tier3/prompt-010.mp3"
@@ -312,9 +362,7 @@
     "mechanicId": "verb_present_tense",
     "loopType": "pattern_switch",
     "targetStructures": [
-      "present_tense_conjugation",
-      "verb_second_position",
-      "subject_verb_agreement"
+      "present_tense"
     ],
     "variationSlots": [
       "subject",
@@ -322,26 +370,27 @@
     ],
     "coverage": {
       "verbs": [
+        "schreibt",
         "geht",
-        "spielt",
-        "macht",
-        "hört",
-        "arbeitt",
-        "spiele",
+        "trinke",
+        "kommst",
+        "isst",
+        "wohnen",
         "seht",
-        "trinkst"
+        "macht",
+        "spiele",
+        "liest"
       ],
       "subjects": [
-        "Es",
-        "Er",
+        "Ihr",
         "Sie",
         "Ich",
-        "Du"
+        "Du",
+        "Er",
+        "Wir"
       ],
       "patterns": [
-        "present_tense_conjugation",
-        "verb_second_position",
-        "subject_verb_agreement"
+        "present_tense"
       ]
     },
     "difficultyTier": 3,
@@ -349,10 +398,10 @@
     "estPromptCount": 10,
     "timeboxMinutes": 5,
     "qualitySignals": {
-      "tokenHitsCount": 10,
+      "tokenHitsCount": 9,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 8,
-      "uniqueSubjectCount": 5,
+      "uniqueVerbCount": 10,
+      "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -361,12 +410,21 @@
     "source": "template",
     "sourceRef": "mechanics/verb_present_tense",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.653Z"
+    "generatedAt": "2026-01-03T09:52:17.372Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Verb Present Tense: A1 (Tier 3) - Pattern"
+  },
+  "shortTitle_i18n": {
+    "en": "Verb Present Tens A1 Pattern"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 3 - pattern switch - Practice present tense verb conjug"
+  },
   "contentId": "de:drill:verb_present_tense_a1_tier3_pattern-switch",
-  "contentHash": "1951d2db96d18e5e3f4c2cd5b71b7d78400eb50eb1faeb90c446386831b09b63",
-  "revisionId": "1951d2db96d1"
+  "contentHash": "c76a5c30670116ad6b313168e5f692b3ce6a3b9dbde12c2b479c369e938840f1",
+  "revisionId": "c76a5c306701"
 }

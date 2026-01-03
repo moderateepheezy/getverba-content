@@ -25,7 +25,7 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Die Kollegin helft um 14:30 meeting",
+      "text": "Die Kollegin helft um 14:30 meeting morgen",
       "intent": "inform",
       "gloss_en": "The meeting starts at the scheduled time.",
       "natural_en": "The meeting is at the scheduled time.",
@@ -43,13 +43,17 @@
           "helft"
         ],
         "modifier": [
-          "um 14:30"
+          "um 14:30",
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "The meeting starts at the scheduled time."
       }
     },
     {
       "id": "prompt-002",
-      "text": "Wir kann um 9 Uhr arbeit",
+      "text": "Wir kann um 9 Uhr arbeit morgen",
       "intent": "request",
       "gloss_en": "I would like to request something.",
       "natural_en": "I'd like to request that.",
@@ -67,13 +71,17 @@
           "kann"
         ],
         "modifier": [
-          "um 9 Uhr"
+          "um 9 Uhr",
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something."
       }
     },
     {
       "id": "prompt-003",
-      "text": "Der Manager soll die Aufgabe am Montag",
+      "text": "Der Manager soll die Aufgabe am Montag morgen",
       "intent": "schedule",
       "gloss_en": "I need to schedule something.",
       "natural_en": "I need to schedule that.",
@@ -95,13 +103,17 @@
           "die Aufgabe"
         ],
         "modifier": [
-          "am Montag"
+          "am Montag",
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
       "id": "prompt-004",
-      "text": "Der Manager organisiert den Termin morgen",
+      "text": "Der Manager organisiert den Termin morgen morgen",
       "intent": "schedule",
       "gloss_en": "I need to schedule something.",
       "natural_en": "I need to schedule that.",
@@ -124,11 +136,14 @@
         "modifier": [
           "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
       "id": "prompt-005",
-      "text": "Sie kann die Aufgabe nächste Woche",
+      "text": "Sie kann die Aufgabe nächste Woche morgen",
       "intent": "request",
       "gloss_en": "I would like to request something.",
       "natural_en": "I'd like to request that.",
@@ -150,13 +165,17 @@
           "die Aufgabe"
         ],
         "modifier": [
-          "nächste Woche"
+          "nächste Woche",
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something."
       }
     },
     {
       "id": "prompt-006",
-      "text": "Die Kollegin kann das Projekt",
+      "text": "Die Kollegin kann das Projekt morgen",
       "intent": "request",
       "gloss_en": "I am working on the project.",
       "natural_en": "I'm working on that project.",
@@ -174,12 +193,18 @@
         ],
         "object": [
           "das Projekt"
+        ],
+        "modifier": [
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am working on the project."
       }
     },
     {
       "id": "prompt-007",
-      "text": "Der Manager helft die Aufgabe",
+      "text": "Der Manager helft die Aufgabe morgen",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -198,7 +223,13 @@
         ],
         "object": [
           "die Aufgabe"
+        ],
+        "modifier": [
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     }
   ],
@@ -276,7 +307,7 @@
     "multiSlotRate": 1,
     "scenarioTokenHitAvg": 1.4285714285714286,
     "scenarioTokenQualifiedRate": 0.42857142857142855,
-    "uniqueTokenRate": 0.6341463414634146,
+    "uniqueTokenRate": 0.5416666666666666,
     "bannedPhraseViolations": 0,
     "passesQualityGates": false,
     "focus": "modal_verbs",
@@ -320,15 +351,55 @@
     "generatedAt": "2026-01-01T02:22:00.360Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T08:26:06.990Z"
   },
   "contentId": "de:pack:work_pack_4_b1",
   "contentHash": "c2fdd051e5bc9db90c49c25720a08bbbb6afe103b2a42b779f251be4addbdbd3",
   "revisionId": "c2fdd051e5bc",
   "title_i18n": {
-    "en": "Work B1 — 4: Project Updates"
+    "en": "Work B1 — 4: Project Updates",
+    "es": "Trabajo B1 - 4: Actualización de proyectos",
+    "fr": "Travail B1 - 4 : Mise à jour des projets",
+    "it": "Lavoro B1 - 4: Aggiornamenti del progetto",
+    "pt": "Trabalho B1 - 4: Atualização dos projectos",
+    "ru": "Работа B1 - 4: Обновление проекта",
+    "ja": "作業B1 - 4: プロジェクトの最新情報",
+    "ko": "작업 B1 - 4: 프로젝트 업데이트",
+    "zh-CN": "工作 B1 - 4：项目更新",
+    "zh-TW": "工作 B1 - 4：项目更新",
+    "ar": "العمل ب1 - 4: تحديثات المشروع",
+    "tr": "Çalışma B1 - 4: Proje Güncellemeleri",
+    "pl": "Praca B1 - 4: Aktualizacje projektów",
+    "nl": "Werk B1 - 4: Projectupdates",
+    "sv": "Arbete B1 - 4: Projektuppdateringar",
+    "no": "Arbeid B1 - 4: Prosjektoppdateringer",
+    "da": "Arbejde B1 - 4: Projektopdateringer",
+    "fi": "Työ B1 - 4: Hankepäivitykset",
+    "el": "Εργασία B1 - 4: Ενημερώσεις έργων",
+    "cs": "Práce B1 - 4: Aktualizace projektu"
   },
   "description_i18n": {
-    "en": "Practice work scenarios at B1 level."
+    "en": "Practice work scenarios at B1 level.",
+    "es": "Practicar escenarios de trabajo a nivel B1.",
+    "fr": "Pratiquer des scénarios de travail au niveau B1.",
+    "it": "Esercitarsi in scenari di lavoro a livello B1.",
+    "pt": "Praticar cenários de trabalho ao nível B1.",
+    "ru": "Отработайте сценарии работы на уровне B1.",
+    "ja": "B1レベルの仕事のシナリオを練習する。",
+    "ko": "B1 수준의 업무 시나리오를 연습하세요.",
+    "zh-CN": "练习 B1 级的工作场景。",
+    "zh-TW": "练习 B1 级的工作场景。",
+    "ar": "تدرب على سيناريوهات العمل على مستوى B1.",
+    "tr": "B1 seviyesinde çalışma senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze pracy na poziomie B1.",
+    "nl": "Oefen werkscenario's op B1-niveau.",
+    "sv": "Öva på arbetsscenarier på B1-nivå.",
+    "no": "Øv deg på arbeidsscenarioer på B1-nivå.",
+    "da": "Øv dig i arbejdsscenarier på B1-niveau.",
+    "fi": "Harjoitellaan B1-tason työkuvioita.",
+    "el": "Πρακτική εξάσκηση σε σενάρια εργασίας σε επίπεδο Β1.",
+    "cs": "Procvičování pracovních scénářů na úrovni B1."
   }
 }

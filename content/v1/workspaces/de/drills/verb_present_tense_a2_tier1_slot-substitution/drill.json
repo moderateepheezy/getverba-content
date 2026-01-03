@@ -6,9 +6,9 @@
   "workspace": "de",
   "language": "de",
   "level": "A2",
-  "title": "Verb Present Tense: A2 (Tier 1)",
-  "shortTitle": "Verb Present Tense A2",
-  "subtitle": "Tier 1 - slot substitution - Master present tense verb conju",
+  "title": "Verb Present Tense: A2 (Tier 1) - Slot",
+  "shortTitle": "Verb Present Tense A2 Slot",
+  "subtitle": "Tier 1 - slot substitution - Practice present tense verb con",
   "estimatedMinutes": 3,
   "mechanicId": "verb_present_tense",
   "mechanicLabel": "Verb Present Tense",
@@ -18,7 +18,8 @@
     "subject",
     "verb",
     "object",
-    "modifier"
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -61,10 +62,10 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Ihr kommt Kaffee.",
+      "text": "Ich lerne heute viel Deutsch.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ihr kommt Kaffee.",
+      "natural_en": "Ich lerne heute viel Deutsch.",
       "slotsChanged": [
         "subject",
         "verb",
@@ -72,119 +73,48 @@
       ],
       "slots": {
         "subject": [
-          "Ihr"
+          "Ich"
         ],
         "verb": [
-          "kommt"
-        ],
-        "object": [
-          "Kaffee"
+          "lerne"
         ]
       },
       "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-001.mp3"
     },
     {
       "id": "prompt-002",
-      "text": "Wir essen Fußball.",
+      "text": "Du lernst vielleicht Tennis.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir essen Fußball.",
+      "natural_en": "Du lernst vielleicht Tennis.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
-          "Wir"
+          "Du"
         ],
         "verb": [
-          "essen"
+          "lernst"
         ],
         "object": [
-          "Fußball"
+          "Tennis"
+        ],
+        "modifier": [
+          "vielleicht"
         ]
       },
       "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-002.mp3"
     },
     {
       "id": "prompt-003",
-      "text": "Sie hört Englisch.",
+      "text": "Du siehst gerne Fussball im TV.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie hört Englisch.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Sie"
-        ],
-        "verb": [
-          "hört"
-        ],
-        "object": [
-          "Englisch"
-        ]
-      },
-      "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-003.mp3"
-    },
-    {
-      "id": "prompt-004",
-      "text": "Sie kommt Haus.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie kommt Haus.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Sie"
-        ],
-        "verb": [
-          "kommt"
-        ],
-        "object": [
-          "Haus"
-        ]
-      },
-      "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-004.mp3"
-    },
-    {
-      "id": "prompt-005",
-      "text": "Er seht Essen.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er seht Essen.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Er"
-        ],
-        "verb": [
-          "seht"
-        ],
-        "object": [
-          "Essen"
-        ]
-      },
-      "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-005.mp3"
-    },
-    {
-      "id": "prompt-006",
-      "text": "Du sehst Buch.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du sehst Buch.",
+      "natural_en": "Du siehst gerne Fussball im TV.",
       "slotsChanged": [
         "subject",
         "verb",
@@ -195,10 +125,85 @@
           "Du"
         ],
         "verb": [
-          "sehst"
+          "siehst"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Sie schreibt gerne Tennis.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie schreibt gerne Tennis.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "schreibt"
         ],
         "object": [
-          "Buch"
+          "Tennis"
+        ],
+        "modifier": [
+          "gerne"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Wir gehen sehr Wasser.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Wir gehen sehr Wasser.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "gehen"
+        ],
+        "object": [
+          "Wasser"
+        ],
+        "modifier": [
+          "sehr"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Er spielt oft am Abend Musik.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er spielt oft am Abend Musik.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "spielt"
         ]
       },
       "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-006.mp3"
@@ -209,9 +214,7 @@
     "mechanicId": "verb_present_tense",
     "loopType": "slot_substitution",
     "targetStructures": [
-      "present_tense_conjugation",
-      "verb_second_position",
-      "subject_verb_agreement"
+      "present_tense"
     ],
     "variationSlots": [
       "subject",
@@ -219,23 +222,22 @@
     ],
     "coverage": {
       "verbs": [
-        "kommt",
-        "essen",
-        "hört",
-        "seht",
-        "sehst"
+        "lerne",
+        "lernst",
+        "siehst",
+        "schreibt",
+        "gehen",
+        "spielt"
       ],
       "subjects": [
-        "Ihr",
-        "Wir",
+        "Ich",
+        "Du",
         "Sie",
-        "Er",
-        "Du"
+        "Wir",
+        "Er"
       ],
       "patterns": [
-        "present_tense_conjugation",
-        "verb_second_position",
-        "subject_verb_agreement"
+        "present_tense"
       ]
     },
     "difficultyTier": 1,
@@ -245,7 +247,7 @@
     "qualitySignals": {
       "tokenHitsCount": 6,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 5,
+      "uniqueVerbCount": 6,
       "uniqueSubjectCount": 5,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
@@ -255,12 +257,21 @@
     "source": "template",
     "sourceRef": "mechanics/verb_present_tense",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.654Z"
+    "generatedAt": "2026-01-03T09:52:17.372Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Verb Present Tense: A2 (Tier 1) - Slot"
+  },
+  "shortTitle_i18n": {
+    "en": "Verb Present Tense A2 Slot"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 1 - slot substitution - Practice present tense verb con"
+  },
   "contentId": "de:drill:verb_present_tense_a2_tier1_slot-substitution",
-  "contentHash": "19c0d8a218d25e46f81bb095c9c3da590a30557a5f3fb43273201368a4f0d300",
-  "revisionId": "19c0d8a218d2"
+  "contentHash": "d8ff23be8496d75b0a57c810b15c1ffa2c84904678a01cd98e240466d350cefa",
+  "revisionId": "d8ff23be8496"
 }

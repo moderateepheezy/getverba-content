@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A2",
-  "title": "Question Formation: A2 (Tier 3)",
-  "shortTitle": "Question Formation A2",
+  "title": "Question Formation: A2 (Tier 3) - Recall",
+  "shortTitle": "Question Formation A2 Recall",
   "subtitle": "Tier 3 - fast recall - Form questions using question words a",
   "estimatedMinutes": 5,
   "mechanicId": "question_formation",
@@ -17,7 +17,9 @@
   "variationSlots": [
     "subject",
     "verb",
-    "object"
+    "object",
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -64,178 +66,167 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "ihr arbeitt.",
+      "text": "jetzt wo du nach Hause.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "ihr arbeitt.",
-      "slotsChanged": [
-        "subject",
-        "verb"
-      ],
-      "slots": {
-        "subject": [
-          "ihr"
-        ],
-        "verb": [
-          "arbeitt"
-        ]
-      },
-      "audioUrl": "/v1/audio/question_formation_A2_tier3/prompt-001.mp3"
-    },
-    {
-      "id": "prompt-002",
-      "text": "er lernt einen.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "er lernt einen.",
+      "natural_en": "jetzt wo du nach Hause.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "er"
-        ],
-        "verb": [
-          "lernt"
-        ],
-        "object": [
-          "einen"
-        ]
-      },
-      "audioUrl": "/v1/audio/question_formation_A2_tier3/prompt-002.mp3"
-    },
-    {
-      "id": "prompt-003",
-      "text": "sie seit das.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "sie seit das.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "sie"
-        ],
-        "verb": [
-          "seit"
-        ],
-        "object": [
-          "das"
-        ]
-      },
-      "audioUrl": "/v1/audio/question_formation_A2_tier3/prompt-003.mp3"
-    },
-    {
-      "id": "prompt-004",
-      "text": "sie geht den.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "sie geht den.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "sie"
-        ],
-        "verb": [
-          "geht"
-        ],
-        "object": [
-          "den"
-        ]
-      },
-      "audioUrl": "/v1/audio/question_formation_A2_tier3/prompt-004.mp3"
-    },
-    {
-      "id": "prompt-005",
-      "text": "Sie seit den.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie seit den.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Sie"
-        ],
-        "verb": [
-          "seit"
-        ],
-        "object": [
-          "den"
-        ]
-      },
-      "audioUrl": "/v1/audio/question_formation_A2_tier3/prompt-005.mp3"
-    },
-    {
-      "id": "prompt-006",
-      "text": "du kommst die.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "du kommst die.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
           "du"
         ],
         "verb": [
-          "kommst"
+          "wo"
         ],
-        "object": [
-          "die"
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "nach Hause"
         ]
       },
-      "audioUrl": "/v1/audio/question_formation_A2_tier3/prompt-006.mp3"
+      "audioUrl": "/v1/audio/question_formation_A2_tier3/prompt-001.mp3"
     },
     {
-      "id": "prompt-007",
-      "text": "Sie seit das.",
+      "id": "prompt-002",
+      "text": "heute machst du zum Park.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie seit das.",
+      "natural_en": "heute machst du zum Park.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          "Sie"
+          "du"
+        ],
+        "verb": [
+          "machst"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "zum Park"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A2_tier3/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "später wo ihr zum Park den Schlüssel.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später wo ihr zum Park den Schlüssel.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "ihr"
+        ],
+        "verb": [
+          "wo"
+        ],
+        "object": [
+          "den Schlüssel"
+        ],
+        "time": [
+          "später"
+        ],
+        "location": [
+          "zum Park"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A2_tier3/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "heute seit ihr in die Stadt kommst.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute seit ihr in die Stadt.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "ihr"
         ],
         "verb": [
           "seit"
         ],
-        "object": [
-          "das"
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "in die Stadt"
+        ],
+        "modifier": [
+          "kommst"
         ]
       },
-      "audioUrl": "/v1/audio/question_formation_A2_tier3/prompt-007.mp3"
+      "audioUrl": "/v1/audio/question_formation_A2_tier3/prompt-004.mp3"
     },
     {
-      "id": "prompt-008",
-      "text": "er habt den.",
+      "id": "prompt-005",
+      "text": "morgen wohnt er im Supermarkt den Schlüssel.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "er habt den.",
+      "natural_en": "morgen wohnt er im Supermarkt den Schlüssel.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "er"
+        ],
+        "verb": [
+          "wohnt"
+        ],
+        "object": [
+          "den Schlüssel"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "im Supermarkt"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A2_tier3/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "am Wochenende habt er in Berlin einen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Wochenende habt er in Berlin einen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
@@ -245,55 +236,132 @@
           "habt"
         ],
         "object": [
-          "den"
+          "einen"
+        ],
+        "time": [
+          "am Wochenende"
+        ],
+        "location": [
+          "in Berlin"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A2_tier3/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "morgen kommt wer in Berlin.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "morgen kommt wer in Berlin.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "wer"
+        ],
+        "verb": [
+          "kommt"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "in Berlin"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A2_tier3/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "morgen arbeitet sie in die Stadt wie.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "morgen arbeitet sie in die Stadt.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "sie"
+        ],
+        "verb": [
+          "arbeitet"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "in die Stadt"
+        ],
+        "modifier": [
+          "wie"
         ]
       },
       "audioUrl": "/v1/audio/question_formation_A2_tier3/prompt-008.mp3"
     },
     {
       "id": "prompt-009",
-      "text": "du wohnst eine.",
+      "text": "jetzt lernt wer im Supermarkt.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "du wohnst eine.",
+      "natural_en": "jetzt lernt wer im Supermarkt.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          "du"
+          "wer"
         ],
         "verb": [
-          "wohnst"
+          "lernt"
         ],
-        "object": [
-          "eine"
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "im Supermarkt"
         ]
       },
       "audioUrl": "/v1/audio/question_formation_A2_tier3/prompt-009.mp3"
     },
     {
       "id": "prompt-010",
-      "text": "ihr wohnt das.",
+      "text": "später macht Sie im Supermarkt die.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "ihr wohnt das.",
+      "natural_en": "später macht Sie im Supermarkt die.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          "ihr"
+          "Sie"
         ],
         "verb": [
-          "wohnt"
+          "macht"
         ],
         "object": [
-          "das"
+          "die"
+        ],
+        "time": [
+          "später"
+        ],
+        "location": [
+          "im Supermarkt"
         ]
       },
       "audioUrl": "/v1/audio/question_formation_A2_tier3/prompt-010.mp3"
@@ -314,21 +382,23 @@
     ],
     "coverage": {
       "verbs": [
-        "arbeitt",
-        "lernt",
+        "wo",
+        "machst",
         "seit",
-        "geht",
-        "kommst",
+        "wohnt",
         "habt",
-        "wohnst",
-        "wohnt"
+        "kommt",
+        "arbeitet",
+        "lernt",
+        "macht"
       ],
       "subjects": [
+        "du",
         "ihr",
         "er",
+        "wer",
         "sie",
-        "Sie",
-        "du"
+        "Sie"
       ],
       "patterns": [
         "question_word_order",
@@ -341,10 +411,10 @@
     "estPromptCount": 10,
     "timeboxMinutes": 5,
     "qualitySignals": {
-      "tokenHitsCount": 3,
+      "tokenHitsCount": 9,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 8,
-      "uniqueSubjectCount": 5,
+      "uniqueVerbCount": 9,
+      "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -353,12 +423,21 @@
     "source": "template",
     "sourceRef": "mechanics/question_formation",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.650Z"
+    "generatedAt": "2026-01-03T09:52:17.367Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Question Formation: A2 (Tier 3) - Recall"
+  },
+  "shortTitle_i18n": {
+    "en": "Question Formation A2 Recall"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 3 - fast recall - Form questions using question words a"
+  },
   "contentId": "de:drill:question_formation_a2_tier3_fast-recall",
-  "contentHash": "11c7f912f1a3b89793bb7e86f18b7dfff54c53c7831f31dac9b0db97aff5a367",
-  "revisionId": "11c7f912f1a3"
+  "contentHash": "a29655030071ffb07eddc64ddd5f4aabbc7c0ba73ac20668636b32b6c2e78e8b",
+  "revisionId": "a29655030071"
 }

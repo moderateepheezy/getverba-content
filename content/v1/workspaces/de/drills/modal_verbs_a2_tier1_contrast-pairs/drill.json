@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A2",
-  "title": "Modal Verbs: A2 (Tier 1)",
-  "shortTitle": "Modal Verbs A2",
+  "title": "Modal Verbs: A2 (Tier 1) - Pairs",
+  "shortTitle": "Modal Verbs A2 Pairs",
   "subtitle": "Tier 1 - contrast pairs - Master modal verb patterns (können",
   "estimatedMinutes": 3,
   "mechanicId": "modal_verbs",
@@ -17,7 +17,9 @@
   "variationSlots": [
     "subject",
     "verb",
-    "object"
+    "object",
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -60,140 +62,190 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Du machst ins Kino.",
+      "text": "Ihr könnt vielleicht ins Kino machen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du machst ins Kino.",
+      "natural_en": "Ihr könnt vielleicht ins Kino machen.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
-          "Du"
+          "Ihr"
         ],
         "verb": [
-          "machst"
+          "könnt"
         ],
         "object": [
           "ins Kino"
+        ],
+        "modifier": [
+          "vielleicht"
+        ],
+        "infinitive": [
+          "machen"
         ]
       },
       "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-001.mp3"
     },
     {
       "id": "prompt-002",
-      "text": "Sie esst eine.",
+      "text": "Ich kann doch im Büro es essen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie esst eine.",
+      "natural_en": "Ich kann doch im Büro es essen.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier",
+        "location"
       ],
       "slots": {
         "subject": [
-          "Sie"
+          "Ich"
         ],
         "verb": [
-          "esst"
+          "kann"
         ],
         "object": [
-          "eine"
+          "es"
+        ],
+        "modifier": [
+          "doch"
+        ],
+        "location": [
+          "im Büro"
+        ],
+        "infinitive": [
+          "essen"
         ]
       },
       "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-002.mp3"
     },
     {
       "id": "prompt-003",
-      "text": "Ich komme das.",
+      "text": "Sie kann wirklich es lernen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ich komme das.",
+      "natural_en": "Sie kann wirklich es lernen.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Ich"
-        ],
-        "verb": [
-          "komme"
-        ],
-        "object": [
-          "das"
-        ]
-      },
-      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-003.mp3"
-    },
-    {
-      "id": "prompt-004",
-      "text": "Sie kommt eine.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie kommt eine.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
           "Sie"
         ],
         "verb": [
-          "kommt"
+          "kann"
         ],
         "object": [
-          "eine"
+          "es"
+        ],
+        "modifier": [
+          "wirklich"
+        ],
+        "infinitive": [
+          "lernen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Du willst einfach nach Hause kaufen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du willst einfach nach Hause kaufen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "willst"
+        ],
+        "object": [
+          "nach Hause"
+        ],
+        "modifier": [
+          "einfach"
+        ],
+        "infinitive": [
+          "kaufen"
         ]
       },
       "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-004.mp3"
     },
     {
       "id": "prompt-005",
-      "text": "Ich mache einen.",
+      "text": "Wir müssen gerne die arbeiten.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ich mache einen.",
+      "natural_en": "Wir müssen gerne die arbeiten.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Ich"
-        ],
-        "verb": [
-          "mache"
-        ],
-        "object": [
-          "einen"
-        ]
-      },
-      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-005.mp3"
-    },
-    {
-      "id": "prompt-006",
-      "text": "Wir trinken.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir trinken.",
-      "slotsChanged": [
-        "subject",
-        "verb"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
           "Wir"
         ],
         "verb": [
-          "trinken"
+          "müssen"
+        ],
+        "object": [
+          "die"
+        ],
+        "modifier": [
+          "gerne"
+        ],
+        "infinitive": [
+          "arbeiten"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Er will unbedingt den spielen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er will unbedingt den spielen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "will"
+        ],
+        "object": [
+          "den"
+        ],
+        "modifier": [
+          "unbedingt"
+        ],
+        "infinitive": [
+          "spielen"
         ]
       },
       "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-006.mp3"
@@ -214,18 +266,19 @@
     ],
     "coverage": {
       "verbs": [
-        "machst",
-        "esst",
-        "komme",
-        "kommt",
-        "mache",
-        "trinken"
+        "könnt",
+        "kann",
+        "willst",
+        "müssen",
+        "will"
       ],
       "subjects": [
-        "Du",
-        "Sie",
+        "Ihr",
         "Ich",
-        "Wir"
+        "Sie",
+        "Du",
+        "Wir",
+        "Er"
       ],
       "patterns": [
         "modal_verb_infinitive",
@@ -238,10 +291,10 @@
     "estPromptCount": 6,
     "timeboxMinutes": 3,
     "qualitySignals": {
-      "tokenHitsCount": 0,
+      "tokenHitsCount": 6,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 6,
-      "uniqueSubjectCount": 4,
+      "uniqueVerbCount": 5,
+      "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -250,12 +303,21 @@
     "source": "template",
     "sourceRef": "mechanics/modal_verbs",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.637Z"
+    "generatedAt": "2026-01-03T09:52:17.352Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Modal Verbs: A2 (Tier 1) - Pairs"
+  },
+  "shortTitle_i18n": {
+    "en": "Modal Verbs A2 Pairs"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 1 - contrast pairs - Master modal verb patterns (können"
+  },
   "contentId": "de:drill:modal_verbs_a2_tier1_contrast-pairs",
-  "contentHash": "a21354c4727712ec57952aecfddcf262777c3ea3f1fc6975db507d5c0f819ceb",
-  "revisionId": "a21354c47277"
+  "contentHash": "4f30747992f037331d05189e191d5a3ccfbbafcfa0e5848993dce4082cd4c073",
+  "revisionId": "4f30747992f0"
 }

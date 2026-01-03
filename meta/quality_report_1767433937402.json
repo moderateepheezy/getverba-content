@@ -1,0 +1,151 @@
+{
+  "totalGenerated": 0,
+  "totalRetries": 0,
+  "totalFallbacksUsed": 5,
+  "mechanicStats": {
+    "case_endings_akkusativ_tier1": {
+      "generated": 36,
+      "retries": 0,
+      "fallbacks": 0,
+      "avgLen": 26.666666666666668
+    },
+    "case_endings_akkusativ_tier2": {
+      "generated": 48,
+      "retries": 0,
+      "fallbacks": 0,
+      "avgLen": 29.875
+    },
+    "case_endings_akkusativ_tier3": {
+      "generated": 60,
+      "retries": 0,
+      "fallbacks": 0,
+      "avgLen": 37.1
+    },
+    "modal_verbs_tier1": {
+      "generated": 36,
+      "retries": 0,
+      "fallbacks": 0,
+      "avgLen": 32
+    },
+    "modal_verbs_tier2": {
+      "generated": 48,
+      "retries": 0,
+      "fallbacks": 0,
+      "avgLen": 34.75
+    },
+    "modal_verbs_tier3": {
+      "generated": 60,
+      "retries": 0,
+      "fallbacks": 0,
+      "avgLen": 33.2
+    },
+    "negation_tier1": {
+      "generated": 36,
+      "retries": 0,
+      "fallbacks": 0,
+      "avgLen": 27.333333333333332
+    },
+    "negation_tier2": {
+      "generated": 48,
+      "retries": 0,
+      "fallbacks": 0,
+      "avgLen": 26.75
+    },
+    "negation_tier3": {
+      "generated": 60,
+      "retries": 0,
+      "fallbacks": 0,
+      "avgLen": 29
+    },
+    "politeness_templates_tier1": {
+      "generated": 36,
+      "retries": 0,
+      "fallbacks": 0,
+      "avgLen": 25.333333333333332
+    },
+    "politeness_templates_tier2": {
+      "generated": 48,
+      "retries": 0,
+      "fallbacks": 0,
+      "avgLen": 29.625
+    },
+    "politeness_templates_tier3": {
+      "generated": 60,
+      "retries": 0,
+      "fallbacks": 0,
+      "avgLen": 39.5
+    },
+    "question_formation_tier1": {
+      "generated": 36,
+      "retries": 0,
+      "fallbacks": 0,
+      "avgLen": 26.333333333333332
+    },
+    "question_formation_tier2": {
+      "generated": 48,
+      "retries": 0,
+      "fallbacks": 0,
+      "avgLen": 26.375
+    },
+    "question_formation_tier3": {
+      "generated": 60,
+      "retries": 0,
+      "fallbacks": 0,
+      "avgLen": 32.6
+    },
+    "time_expressions_inversion_tier1": {
+      "generated": 36,
+      "retries": 0,
+      "fallbacks": 0,
+      "avgLen": 25.333333333333332
+    },
+    "time_expressions_inversion_tier2": {
+      "generated": 48,
+      "retries": 0,
+      "fallbacks": 0,
+      "avgLen": 25.625
+    },
+    "time_expressions_inversion_tier3": {
+      "generated": 60,
+      "retries": 0,
+      "fallbacks": 0,
+      "avgLen": 34
+    },
+    "verb_present_tense_tier1": {
+      "generated": 24,
+      "retries": 0,
+      "fallbacks": 3,
+      "avgLen": 27.5
+    },
+    "verb_present_tense_tier2": {
+      "generated": 32,
+      "retries": 0,
+      "fallbacks": 2,
+      "avgLen": 27.25
+    },
+    "verb_present_tense_tier3": {
+      "generated": 40,
+      "retries": 0,
+      "fallbacks": 0,
+      "avgLen": 33
+    },
+    "word_order_main_clause_tier1": {
+      "generated": 36,
+      "retries": 0,
+      "fallbacks": 0,
+      "avgLen": 27.666666666666668
+    },
+    "word_order_main_clause_tier2": {
+      "generated": 48,
+      "retries": 0,
+      "fallbacks": 0,
+      "avgLen": 27.625
+    },
+    "word_order_main_clause_tier3": {
+      "generated": 60,
+      "retries": 0,
+      "fallbacks": 0,
+      "avgLen": 36.1
+    }
+  }
+}

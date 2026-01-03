@@ -45,6 +45,9 @@
         "modifier": [
           "nächste Woche"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -69,6 +72,9 @@
         "modifier": [
           "am Montag"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
@@ -96,6 +102,9 @@
         "modifier": [
           "um 9 Uhr"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
@@ -123,6 +132,9 @@
         "modifier": [
           "am Montag"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something."
       }
     },
     {
@@ -149,6 +161,9 @@
         "modifier": [
           "nächste Woche"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something."
       }
     },
     {
@@ -172,6 +187,9 @@
         "object": [
           "die Besprechung"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -195,6 +213,9 @@
         "object": [
           "die Besprechung"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     }
   ],
@@ -316,15 +337,55 @@
     "generatedAt": "2026-01-01T02:21:47.868Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T08:26:06.992Z"
   },
   "contentId": "de:pack:work_pack_7_a2",
   "contentHash": "d25d5e653046c088e1a593ddafe4ce24718f3e48f0381844f91178fe708027c1",
   "revisionId": "d25d5e653046",
   "title_i18n": {
-    "en": "Work A2 — 7: Team Collaboration"
+    "en": "Work A2 — 7: Team Collaboration",
+    "es": "Trabajo A2 - 7: Colaboración en equipo",
+    "fr": "Travail A2 - 7 : Collaboration en équipe",
+    "it": "Lavoro A2 - 7: Collaborazione di gruppo",
+    "pt": "Trabalho A2 - 7: Colaboração em equipa",
+    "ru": "Работа A2 - 7: Сотрудничество в команде",
+    "ja": "ワークA2 - 7: チームコラボレーション",
+    "ko": "작업 A2 - 7: 팀 협업",
+    "zh-CN": "工作 A2 - 7：团队协作",
+    "zh-TW": "工作 A2 - 7：团队协作",
+    "ar": "العمل أ 2 - 7: التعاون الجماعي",
+    "tr": "Çalışma A2 - 7: Ekip İşbirliği",
+    "pl": "Praca A2 - 7: Współpraca zespołowa",
+    "nl": "Werk A2 - 7: Samenwerking in teams",
+    "sv": "Arbete A2 - 7: Samarbete i team",
+    "no": "Arbeid A2 - 7: Samarbeid i team",
+    "da": "Arbejde A2 - 7: Teamsamarbejde",
+    "fi": "Työ A2 - 7: Tiimityöskentely",
+    "el": "Εργασία A2 - 7: Ομαδική συνεργασία",
+    "cs": "Práce A2 - 7: Týmová spolupráce"
   },
   "description_i18n": {
-    "en": "Practice work scenarios at A2 level."
+    "en": "Practice work scenarios at A2 level.",
+    "es": "Practicar escenarios de trabajo a nivel A2.",
+    "fr": "Pratiquer des scénarios de travail au niveau A2.",
+    "it": "Esercitarsi in scenari di lavoro a livello A2.",
+    "pt": "Praticar cenários de trabalho ao nível A2.",
+    "ru": "Отработайте сценарии работы на уровне A2.",
+    "ja": "A2レベルの仕事のシナリオを練習する。",
+    "ko": "A2 수준의 업무 시나리오를 연습하세요.",
+    "zh-CN": "在 A2 级水平上练习工作场景。",
+    "zh-TW": "在 A2 级水平上练习工作场景。",
+    "ar": "ممارسة سيناريوهات العمل على المستوى A2.",
+    "tr": "A2 seviyesinde çalışma senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze pracy na poziomie A2.",
+    "nl": "Oefen werkscenario's op A2-niveau.",
+    "sv": "Öva på arbetsscenarier på A2-nivå.",
+    "no": "Øv deg på arbeidsscenarioer på A2-nivå.",
+    "da": "Øv dig i arbejdsscenarier på A2-niveau.",
+    "fi": "Harjoitellaan A2-tason työkuvioita.",
+    "el": "Πρακτική εξάσκηση σε σενάρια εργασίας σε επίπεδο Α2.",
+    "cs": "Procvičování pracovních scénářů na úrovni A2."
   }
 }

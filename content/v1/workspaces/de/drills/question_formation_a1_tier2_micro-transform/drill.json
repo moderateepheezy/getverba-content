@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A1",
-  "title": "Question Formation: A1 (Tier 2)",
-  "shortTitle": "Question Formation A1",
+  "title": "Question Formation: A1 (Tier 2) - Transform",
+  "shortTitle": "Question Format A1 Transform",
   "subtitle": "Tier 2 - micro transform - Form questions using question wor",
   "estimatedMinutes": 4,
   "mechanicId": "question_formation",
@@ -17,7 +17,9 @@
   "variationSlots": [
     "subject",
     "verb",
-    "object"
+    "object",
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -62,109 +64,45 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "sie habt einen.",
+      "text": "er arbeitet heute das warum.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "sie habt einen.",
+      "natural_en": "er arbeitet heute das.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "sie"
-        ],
-        "verb": [
-          "habt"
-        ],
-        "object": [
-          "einen"
-        ]
-      },
-      "audioUrl": "/v1/audio/question_formation_A1_tier2/prompt-001.mp3"
-    },
-    {
-      "id": "prompt-002",
-      "text": "du wohnst einen.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "du wohnst einen.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "du"
-        ],
-        "verb": [
-          "wohnst"
-        ],
-        "object": [
-          "einen"
-        ]
-      },
-      "audioUrl": "/v1/audio/question_formation_A1_tier2/prompt-002.mp3"
-    },
-    {
-      "id": "prompt-003",
-      "text": "sie lernt die.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "sie lernt die.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "sie"
-        ],
-        "verb": [
-          "lernt"
-        ],
-        "object": [
-          "die"
-        ]
-      },
-      "audioUrl": "/v1/audio/question_formation_A1_tier2/prompt-003.mp3"
-    },
-    {
-      "id": "prompt-004",
-      "text": "er habt einen.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "er habt einen.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
+        "object",
+        "time"
       ],
       "slots": {
         "subject": [
           "er"
         ],
         "verb": [
-          "habt"
+          "arbeitet"
         ],
         "object": [
-          "einen"
+          "das"
+        ],
+        "time": [
+          "heute"
+        ],
+        "modifier": [
+          "warum"
         ]
       },
-      "audioUrl": "/v1/audio/question_formation_A1_tier2/prompt-004.mp3"
+      "audioUrl": "/v1/audio/question_formation_A1_tier2/prompt-001.mp3"
     },
     {
-      "id": "prompt-005",
-      "text": "ihr geht die.",
+      "id": "prompt-002",
+      "text": "ihr geht später einen warum.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "ihr geht die.",
+      "natural_en": "ihr geht später einen.",
       "slotsChanged": [
         "subject",
         "verb",
+        "time",
         "object"
       ],
       "slots": {
@@ -175,79 +113,181 @@
           "geht"
         ],
         "object": [
-          "die"
+          "einen"
+        ],
+        "time": [
+          "später"
+        ],
+        "modifier": [
+          "warum"
         ]
       },
-      "audioUrl": "/v1/audio/question_formation_A1_tier2/prompt-005.mp3"
+      "audioUrl": "/v1/audio/question_formation_A1_tier2/prompt-002.mp3"
     },
     {
-      "id": "prompt-006",
-      "text": "er arbeitt die.",
+      "id": "prompt-003",
+      "text": "du kommst am Wochenende das.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "er arbeitt die.",
+      "natural_en": "du kommst am Wochenende das.",
       "slotsChanged": [
         "subject",
         "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "du"
+        ],
+        "verb": [
+          "kommst"
+        ],
+        "object": [
+          "das"
+        ],
+        "time": [
+          "am Wochenende"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A1_tier2/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "später wo Sie den.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später wo Sie den.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
         "object"
       ],
       "slots": {
         "subject": [
-          "er"
+          "Sie"
         ],
         "verb": [
-          "arbeitt"
+          "wo"
         ],
         "object": [
-          "die"
+          "den"
+        ],
+        "time": [
+          "später"
         ]
       },
-      "audioUrl": "/v1/audio/question_formation_A1_tier2/prompt-006.mp3"
+      "audioUrl": "/v1/audio/question_formation_A1_tier2/prompt-004.mp3"
     },
     {
-      "id": "prompt-007",
-      "text": "sie macht eine.",
+      "id": "prompt-005",
+      "text": "sie habt morgen das Buch bist.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "sie macht eine.",
+      "natural_en": "sie habt morgen das Buch.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time"
       ],
       "slots": {
         "subject": [
           "sie"
         ],
         "verb": [
-          "macht"
+          "habt"
         ],
         "object": [
-          "eine"
+          "das Buch"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "modifier": [
+          "bist"
         ]
       },
-      "audioUrl": "/v1/audio/question_formation_A1_tier2/prompt-007.mp3"
+      "audioUrl": "/v1/audio/question_formation_A1_tier2/prompt-005.mp3"
     },
     {
-      "id": "prompt-008",
-      "text": "ihr lernt das.",
+      "id": "prompt-006",
+      "text": "er wohnt am Wochenende.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "ihr lernt das.",
+      "natural_en": "er wohnt am Wochenende.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "er"
+        ],
+        "verb": [
+          "wohnt"
+        ],
+        "time": [
+          "am Wochenende"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A1_tier2/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "ihr seit jetzt schnell das machst.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "ihr seit jetzt schnell das.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "modifier"
       ],
       "slots": {
         "subject": [
           "ihr"
         ],
         "verb": [
-          "lernt"
+          "seit"
         ],
         "object": [
           "das"
+        ],
+        "modifier": [
+          "schnell",
+          "machst"
+        ],
+        "time": [
+          "jetzt"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A1_tier2/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "du lernst am Wochenende.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "du lernst am Wochenende.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "du"
+        ],
+        "verb": [
+          "lernst"
+        ],
+        "time": [
+          "am Wochenende"
         ]
       },
       "audioUrl": "/v1/audio/question_formation_A1_tier2/prompt-008.mp3"
@@ -268,18 +308,21 @@
     ],
     "coverage": {
       "verbs": [
-        "habt",
-        "wohnst",
-        "lernt",
+        "arbeitet",
         "geht",
-        "arbeitt",
-        "macht"
+        "kommst",
+        "wo",
+        "habt",
+        "wohnt",
+        "seit",
+        "lernst"
       ],
       "subjects": [
-        "sie",
-        "du",
         "er",
-        "ihr"
+        "ihr",
+        "du",
+        "Sie",
+        "sie"
       ],
       "patterns": [
         "question_word_order",
@@ -292,10 +335,10 @@
     "estPromptCount": 8,
     "timeboxMinutes": 4,
     "qualitySignals": {
-      "tokenHitsCount": 1,
+      "tokenHitsCount": 8,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 6,
-      "uniqueSubjectCount": 4,
+      "uniqueVerbCount": 8,
+      "uniqueSubjectCount": 5,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -304,12 +347,21 @@
     "source": "template",
     "sourceRef": "mechanics/question_formation",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.648Z"
+    "generatedAt": "2026-01-03T09:52:17.364Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Question Formation: A1 (Tier 2) - Transform"
+  },
+  "shortTitle_i18n": {
+    "en": "Question Format A1 Transform"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 2 - micro transform - Form questions using question wor"
+  },
   "contentId": "de:drill:question_formation_a1_tier2_micro-transform",
-  "contentHash": "a2fe21bfc7f92c119bcba6be85c16fc5bdb2a68e47763e636241e17fb5684d6a",
-  "revisionId": "a2fe21bfc7f9"
+  "contentHash": "4b200ffa85c53fd1f94f28c01b23c3cfdbeff179ff79e41e4e30b03afd78d072",
+  "revisionId": "4b200ffa85c5"
 }

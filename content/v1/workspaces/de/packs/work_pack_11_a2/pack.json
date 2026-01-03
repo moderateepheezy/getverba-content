@@ -45,6 +45,9 @@
         "modifier": [
           "am Dienstag"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am working on the project."
       }
     },
     {
@@ -68,6 +71,9 @@
         "modifier": [
           "um 9 Uhr"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am working on the project."
       }
     },
     {
@@ -95,6 +101,9 @@
         "modifier": [
           "nächste Woche"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am working on the project."
       }
     },
     {
@@ -123,6 +132,9 @@
         "modifier": [
           "um 9 Uhr"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
@@ -151,6 +163,9 @@
         "modifier": [
           "am Montag"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am working on the project."
       }
     },
     {
@@ -175,6 +190,9 @@
         "object": [
           "den Termin"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
@@ -198,6 +216,9 @@
         "object": [
           "die Deadline"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     }
   ],
@@ -319,15 +340,55 @@
     "generatedAt": "2026-01-01T02:21:50.510Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T08:26:06.988Z"
   },
   "contentId": "de:pack:work_pack_11_a2",
   "contentHash": "4f043d37997135da83063b4ea744f9d6b300b8765b280ce5f77520602a7f3328",
   "revisionId": "4f043d379971",
   "title_i18n": {
-    "en": "Work A2 — 11: Status Reports"
+    "en": "Work A2 — 11: Status Reports",
+    "es": "Trabajo A2 - 11: Informes de situación",
+    "fr": "Travail A2 - 11 : Rapports de situation",
+    "it": "Lavoro A2 - 11: Rapporti sullo stato di avanzamento",
+    "pt": "Trabalho A2 - 11: Relatórios de estado",
+    "ru": "Работа A2 - 11: Отчеты о состоянии дел",
+    "ja": "作業 A2 - 11: 状況報告",
+    "ko": "작업 A2 - 11: 상태 보고서",
+    "zh-CN": "工作 A2 - 11：状态报告",
+    "zh-TW": "工作 A2 - 11：状态报告",
+    "ar": "العمل أ 2 - 11: تقارير الحالة",
+    "tr": "Çalışma A2 - 11: Durum Raporları",
+    "pl": "Praca A2 - 11: Raporty o stanie",
+    "nl": "Werk A2 - 11: Statusrapporten",
+    "sv": "Arbete A2 - 11: Statusrapporter",
+    "no": "Arbeid A2 - 11: Statusrapporter",
+    "da": "Arbejde A2 - 11: Statusrapporter",
+    "fi": "Työ A2 - 11: Tilanneraportit",
+    "el": "Εργασία Α2 - 11: Εκθέσεις κατάστασης",
+    "cs": "Práce A2 - 11: Zprávy o stavu"
   },
   "description_i18n": {
-    "en": "Practice work scenarios at A2 level."
+    "en": "Practice work scenarios at A2 level.",
+    "es": "Practicar escenarios de trabajo a nivel A2.",
+    "fr": "Pratiquer des scénarios de travail au niveau A2.",
+    "it": "Esercitarsi in scenari di lavoro a livello A2.",
+    "pt": "Praticar cenários de trabalho ao nível A2.",
+    "ru": "Отработайте сценарии работы на уровне A2.",
+    "ja": "A2レベルの仕事のシナリオを練習する。",
+    "ko": "A2 수준의 업무 시나리오를 연습하세요.",
+    "zh-CN": "在 A2 级水平上练习工作场景。",
+    "zh-TW": "在 A2 级水平上练习工作场景。",
+    "ar": "ممارسة سيناريوهات العمل على المستوى A2.",
+    "tr": "A2 seviyesinde çalışma senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze pracy na poziomie A2.",
+    "nl": "Oefen werkscenario's op A2-niveau.",
+    "sv": "Öva på arbetsscenarier på A2-nivå.",
+    "no": "Øv deg på arbeidsscenarioer på A2-nivå.",
+    "da": "Øv dig i arbejdsscenarier på A2-niveau.",
+    "fi": "Harjoitellaan A2-tason työkuvioita.",
+    "el": "Πρακτική εξάσκηση σε σενάρια εργασίας σε επίπεδο Α2.",
+    "cs": "Procvičování pracovních scénářů na úrovni A2."
   }
 }

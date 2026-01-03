@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A1",
-  "title": "Modal Verbs: A1 (Tier 1)",
-  "shortTitle": "Modal Verbs A1",
+  "title": "Modal Verbs: A1 (Tier 1) - Slot",
+  "shortTitle": "Modal Verbs A1 Slot",
   "subtitle": "Tier 1 - slot substitution - Master modal verb patterns (kön",
   "estimatedMinutes": 3,
   "mechanicId": "modal_verbs",
@@ -17,7 +17,9 @@
   "variationSlots": [
     "subject",
     "verb",
-    "object"
+    "object",
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -60,10 +62,10 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Er esst das.",
+      "text": "Er will nach Hause trinken.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er esst das.",
+      "natural_en": "Er will nach Hause trinken.",
       "slotsChanged": [
         "subject",
         "verb",
@@ -74,130 +76,172 @@
           "Er"
         ],
         "verb": [
-          "esst"
+          "will"
         ],
         "object": [
-          "das"
+          "nach Hause"
+        ],
+        "infinitive": [
+          "trinken"
         ]
       },
       "audioUrl": "/v1/audio/modal_verbs_A1_tier1/prompt-001.mp3"
     },
     {
       "id": "prompt-002",
-      "text": "Du essst einen.",
+      "text": "Du musst vielleicht eine machen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du essst einen.",
+      "natural_en": "Du musst vielleicht eine machen.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
           "Du"
         ],
         "verb": [
-          "essst"
+          "musst"
         ],
         "object": [
-          "einen"
+          "eine"
+        ],
+        "modifier": [
+          "vielleicht"
+        ],
+        "infinitive": [
+          "machen"
         ]
       },
       "audioUrl": "/v1/audio/modal_verbs_A1_tier1/prompt-002.mp3"
     },
     {
       "id": "prompt-003",
-      "text": "Sie trinkt nach Hause.",
+      "text": "Sie kann leider das kommen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie trinkt nach Hause.",
+      "natural_en": "Sie kann leider das kommen.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
           "Sie"
         ],
         "verb": [
-          "trinkt"
+          "kann"
         ],
         "object": [
-          "nach Hause"
+          "das"
+        ],
+        "modifier": [
+          "leider"
+        ],
+        "infinitive": [
+          "kommen"
         ]
       },
       "audioUrl": "/v1/audio/modal_verbs_A1_tier1/prompt-003.mp3"
     },
     {
       "id": "prompt-004",
-      "text": "Wir gehen nach Hause.",
+      "text": "Ich will einfach zu Hause es essen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir gehen nach Hause.",
+      "natural_en": "Ich will einfach zu Hause es essen.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier",
+        "location"
       ],
       "slots": {
         "subject": [
-          "Wir"
+          "Ich"
         ],
         "verb": [
-          "gehen"
+          "will"
         ],
         "object": [
-          "nach Hause"
+          "es"
+        ],
+        "modifier": [
+          "einfach"
+        ],
+        "location": [
+          "zu Hause"
+        ],
+        "infinitive": [
+          "essen"
         ]
       },
       "audioUrl": "/v1/audio/modal_verbs_A1_tier1/prompt-004.mp3"
     },
     {
       "id": "prompt-005",
-      "text": "Er seht nach Hause.",
+      "text": "Wir wollen einfach Deutsch spielen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er seht nach Hause.",
+      "natural_en": "Wir wollen einfach Deutsch spielen.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
-          "Er"
+          "Wir"
         ],
         "verb": [
-          "seht"
+          "wollen"
         ],
         "object": [
-          "nach Hause"
+          "Deutsch"
+        ],
+        "modifier": [
+          "einfach"
+        ],
+        "infinitive": [
+          "spielen"
         ]
       },
       "audioUrl": "/v1/audio/modal_verbs_A1_tier1/prompt-005.mp3"
     },
     {
       "id": "prompt-006",
-      "text": "Sie kauft die.",
+      "text": "Ihr könnt doch Deutsch gehen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie kauft die.",
+      "natural_en": "Ihr könnt doch Deutsch gehen.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
-          "Sie"
+          "Ihr"
         ],
         "verb": [
-          "kauft"
+          "könnt"
         ],
         "object": [
-          "die"
+          "Deutsch"
+        ],
+        "modifier": [
+          "doch"
+        ],
+        "infinitive": [
+          "gehen"
         ]
       },
       "audioUrl": "/v1/audio/modal_verbs_A1_tier1/prompt-006.mp3"
@@ -218,18 +262,19 @@
     ],
     "coverage": {
       "verbs": [
-        "esst",
-        "essst",
-        "trinkt",
-        "gehen",
-        "seht",
-        "kauft"
+        "will",
+        "musst",
+        "kann",
+        "wollen",
+        "könnt"
       ],
       "subjects": [
         "Er",
         "Du",
         "Sie",
-        "Wir"
+        "Ich",
+        "Wir",
+        "Ihr"
       ],
       "patterns": [
         "modal_verb_infinitive",
@@ -242,10 +287,10 @@
     "estPromptCount": 6,
     "timeboxMinutes": 3,
     "qualitySignals": {
-      "tokenHitsCount": 0,
+      "tokenHitsCount": 6,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 6,
-      "uniqueSubjectCount": 4,
+      "uniqueVerbCount": 5,
+      "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -254,12 +299,23 @@
     "source": "template",
     "sourceRef": "mechanics/modal_verbs",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.635Z"
+    "generatedAt": "2026-01-03T09:52:17.348Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T10:00:00.000Z"
+  },
+  "title_i18n": {
+    "en": "Modal Verbs: A1 (Tier 1) - Slot"
+  },
+  "shortTitle_i18n": {
+    "en": "Modal Verbs A1 Slot"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 1 - slot substitution - Master modal verb patterns (kön"
   },
   "contentId": "de:drill:modal_verbs_a1_tier1_slot-substitution",
-  "contentHash": "dc9f10dca541e9ece2911efce2046279e34199a0417909ef3519e03f48392393",
-  "revisionId": "dc9f10dca541"
+  "contentHash": "92262addbffe6a5d027bb42a923e6945dc577badeba008b5fe9cbf7ff3f6b95b",
+  "revisionId": "92262addbffe"
 }

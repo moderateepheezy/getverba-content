@@ -4,16 +4,18 @@
   "description": "GetVerba content pipeline - versioned JSON content for the GetVerba platform",
   "type": "module",
   "scripts": {
-    "content:validate": "tsx scripts/validate-content.ts && tsx scripts/content-quality-report.ts && tsx scripts/content-expansion-report.ts",
+    "content:validate": "tsx scripts/validate-content.ts && tsx scripts/content-expansion-report.ts",
+    "content:validate-with-quality": "tsx scripts/validate-content.ts && tsx scripts/content-quality-report.ts && tsx scripts/content-expansion-report.ts",
     "content:quality": "tsx scripts/quality-report.ts --fail-on-red",
     "content:quality-report": "tsx scripts/content-quality-report.ts",
     "content:coherence": "tsx scripts/content-quality/coherence-report.ts",
-    "content:dedupe": "tsx scripts/content-quality/dedupe.ts",
     "content:dedupe": "tsx scripts/dedupe-content.ts",
+    "content:fix-duplicates": "tsx scripts/fix-duplicate-prompts.ts",
     "content:report": "tsx scripts/review-report.ts",
     "content:review": "tsx scripts/review-content.ts",
     "content:verify": "node scripts/verify-content.mjs",
     "content:generate-indexes": "tsx scripts/generate-indexes.ts",
+    "content:recompute-analytics": "tsx scripts/recompute-pack-analytics.ts",
     "content:generate-featured": "tsx scripts/generate-featured.ts",
     "content:generate-catalog-rollups": "tsx scripts/generate-catalog-rollups.ts",
     "content:generate-exports": "tsx scripts/generate-exports.ts",
@@ -29,6 +31,7 @@
     "content:package-curriculum-zip": "tsx scripts/package-curriculum-zip.ts",
     "content:telemetry-ready": "tsx scripts/telemetry-readiness-report.ts",
     "content:publish": "./scripts/publish-content.sh",
+    "content:promote": "tsx scripts/promote-staging-ts.ts",
     "content:load-env": "source scripts/load-env.sh",
     "content:ingest-niche": "tsx scripts/ingest-niche.ts",
     "content:pdf-to-packs": "tsx scripts/pdf-to-packs.ts",
@@ -57,7 +60,7 @@
     "test:review-tools": "tsx scripts/review-tools.test.ts",
     "test:sprint-runner": "tsx scripts/sprint-runner.test.ts",
     "test:profile-loader": "tsx scripts/pdf-ingestion/profileLoader.test.ts",
-    "test:coherence-report": "tsx scripts/content-quality/coherence-report.test.ts",
+    "test:coherence-report": "tsx scripts/catalog-coherence-report.test.ts",
     "test:pdf-batch-profile": "tsx scripts/pdf-ingestion/pdf-to-packs-batch-profile.test.ts",
     "test:token-mining": "tsx scripts/pdf-ingestion/tokenMining.test.ts",
     "test:token-mining-comprehensive": "tsx scripts/pdf-ingestion/tokenMining-comprehensive.test.ts",
@@ -68,11 +71,9 @@
     "test:run-profile-batch": "tsx scripts/pdf-ingestion/runProfileBatch.test.ts",
     "test:pdf-profiles-e2e": "tsx scripts/pdf-ingestion/pdf-profiles-e2e.test.ts",
     "test:pdf-profiles-full": "npm run test:pdf-profiles-cache && npm run test:run-profile-batch && npm run test:pdf-profiles-e2e",
-    "test:token-mining": "tsx scripts/pdf-ingestion/tokenMining.test.ts",
     "test:token-mining-e2e": "tsx scripts/pdf-ingestion/tokenMining-e2e.test.ts",
     "test:apply-patch": "tsx scripts/apply-token-patch.test.ts",
     "test:token-mining-full": "npm run test:token-mining && npm run test:token-mining-e2e && npm run test:apply-patch",
-    "test:coherence-report": "tsx scripts/catalog-coherence-report.test.ts",
     "test:coherence-report-e2e": "tsx scripts/catalog-coherence-report-e2e.test.ts",
     "test:coherence-report-full": "npm run test:coherence-report && npm run test:coherence-report-e2e",
     "test:profiles-coherence": "npm run test:profile-loader && npm run test:coherence-report && npm run test:pdf-batch-profile",
@@ -93,7 +94,17 @@
     "test:all": "npm test && npm run test:review && npm run test:curriculum-export && npm run test:curriculum-validate && npm run test:e2e && npm run test:ingest && npm run test:ingest-e2e && npm run test:telemetry-readiness && npm run test:analytics && npm run test:batch && npm run test:batch-e2e && npm run test:expansion-sprint && npm run test:expansion-sprint-full && npm run test:track-full && npm run test:featured-full && npm run test:i18n",
     "backfill:i18n": "tsx scripts/backfill-title-i18n.ts",
     "seed:doctor-grouping": "tsx scripts/seed-doctor-grouping.ts",
-    "seed:all-grouping": "tsx scripts/seed-all-grouping.ts"
+    "seed:all-grouping": "tsx scripts/seed-all-grouping.ts",
+    "translate:phase1": "tsx scripts/translate-batch.ts --phase=phase1",
+    "translate:phase2": "tsx scripts/translate-batch.ts --phase=phase2",
+    "translate:phase3": "tsx scripts/translate-batch.ts --phase=phase3",
+    "translate:phase4": "tsx scripts/translate-batch.ts --phase=phase4",
+    "translate:phase5": "tsx scripts/translate-batch.ts --phase=phase5",
+    "translate:phase6": "tsx scripts/translate-batch.ts --phase=phase6",
+    "translate:phase7": "tsx scripts/translate-batch.ts --phase=phase7",
+    "translate:phase8": "tsx scripts/translate-batch.ts --phase=phase8",
+    "translate:find-generic": "tsx scripts/find-generic-gloss-en.ts",
+    "translate:validate": "tsx scripts/validate-translations.ts"
   },
   "keywords": [
     "getverba",
@@ -107,5 +118,8 @@
     "pdf-parse": "^1.1.1",
     "tsx": "^4.7.0",
     "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "deepl-node": "^1.24.0"
   }
 }

@@ -1,0 +1,1715 @@
+{
+  "timestamp": "2026-01-03T13:47:57.633Z",
+  "totalPacks": 92,
+  "packs": [
+    {
+      "packId": "anmeldung_address_registration_a1",
+      "scenario": "government_office",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 85.71428571428571,
+      "averageScenarioTokenDensity": 0.8571428571428571,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "doctor_pack_1_a1",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 85.71428571428571,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "doctor_pack_1_a2",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 85.71428571428571,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "doctor_pack_2_a1",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0.14285714285714285,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "doctor_pack_2_a2",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0.14285714285714285,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "doctor_pack_3_a1",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "doctor_pack_3_a2",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "doctor_pack_4_a1",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0.14285714285714285,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "doctor_pack_4_a2",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0.14285714285714285,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "doctor_pack_5_a1",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 85.71428571428571,
+      "averageScenarioTokenDensity": 0.14285714285714285,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "doctor_pack_5_a2",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 85.71428571428571,
+      "averageScenarioTokenDensity": 0.14285714285714285,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "doctor_pack_6_a1",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0.14285714285714285,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "doctor_pack_6_a2",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0.14285714285714285,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "doctor_pack_7_a1",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0.2857142857142857,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "doctor_pack_7_a2",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0.2857142857142857,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "doctor_pack_8_a1",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "doctor_pack_8_a2",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "friends_cafe_meetup_a1",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "promptCount": 12,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time",
+        "location",
+        "polarity"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "friends_movies_series_a1",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "promptCount": 12,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time",
+        "location",
+        "polarity"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "friends_opinions_recommendations_a2",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "promptCount": 12,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time",
+        "location",
+        "polarity"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "friends_plans_weekend_a1",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "promptCount": 12,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time",
+        "location",
+        "polarity"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "friends_reschedule_and_decline_a2",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "promptCount": 12,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time",
+        "location",
+        "polarity"
+      ],
+      "percentMultiSlotVariation": 91.66666666666666,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "friends_small_talk_pack_10_a1",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "promptCount": 12,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time",
+        "location",
+        "polarity"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "friends_small_talk_pack_1_a1",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "promptCount": 12,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time",
+        "location",
+        "polarity"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "friends_small_talk_pack_1_a2",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "promptCount": 12,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time",
+        "location",
+        "polarity"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "friends_small_talk_pack_2_a1",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "promptCount": 12,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time",
+        "location",
+        "polarity"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "friends_small_talk_pack_2_a2",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "promptCount": 12,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time",
+        "location",
+        "polarity"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "friends_small_talk_pack_3_a1",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "promptCount": 12,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time",
+        "location",
+        "polarity"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "friends_small_talk_pack_3_a2",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "promptCount": 12,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time",
+        "location",
+        "polarity"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "friends_small_talk_pack_4_a1",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "promptCount": 12,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time",
+        "location",
+        "polarity"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "friends_small_talk_pack_4_a2",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "promptCount": 12,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time",
+        "location",
+        "polarity"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "friends_small_talk_pack_5_a1",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "promptCount": 12,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time",
+        "location",
+        "polarity"
+      ],
+      "percentMultiSlotVariation": 91.66666666666666,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "friends_small_talk_pack_5_a2",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "promptCount": 12,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time",
+        "location",
+        "polarity"
+      ],
+      "percentMultiSlotVariation": 91.66666666666666,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "friends_small_talk_pack_6_a1",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "promptCount": 12,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time",
+        "location",
+        "polarity"
+      ],
+      "percentMultiSlotVariation": 91.66666666666666,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "friends_small_talk_pack_6_a2",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "promptCount": 12,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time",
+        "location",
+        "polarity"
+      ],
+      "percentMultiSlotVariation": 91.66666666666666,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "friends_small_talk_pack_7_a1",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "promptCount": 12,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time",
+        "location",
+        "polarity"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "friends_small_talk_pack_7_a2",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "promptCount": 12,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time",
+        "location",
+        "polarity"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "friends_small_talk_pack_8_a1",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "promptCount": 12,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time",
+        "location",
+        "polarity"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "friends_small_talk_pack_8_a2",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "promptCount": 12,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time",
+        "location",
+        "polarity"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "friends_small_talk_pack_9_a1",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "promptCount": 12,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time",
+        "location",
+        "polarity"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "friends_suggestions_activity_a2",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "promptCount": 12,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time",
+        "location",
+        "polarity"
+      ],
+      "percentMultiSlotVariation": 91.66666666666666,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "health_insurance_basic_a1",
+      "scenario": "government_office",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 1,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "housing_pack_10_a1",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "housing_pack_10_a2",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "housing_pack_1_a1",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "housing_pack_1_a2",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "housing_pack_2_a1",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "housing_pack_2_a2",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "housing_pack_3_a1",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "housing_pack_3_a2",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "housing_pack_4_a1",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "housing_pack_4_a2",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "housing_pack_5_a1",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "housing_pack_5_a2",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "housing_pack_6_a1",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "housing_pack_6_a2",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "housing_pack_7_a1",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "housing_pack_7_a2",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "housing_pack_8_a1",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "housing_pack_8_a2",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "housing_pack_9_a1",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "housing_pack_9_a2",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "immigration_office_questions_a2",
+      "scenario": "government_office",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 1.2857142857142858,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "jobcenter_basic_a2",
+      "scenario": "government_office",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 1.4285714285714286,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "passport_pickup_a1",
+      "scenario": "government_office",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 85.71428571428571,
+      "averageScenarioTokenDensity": 1,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "residence_permit_appointment_a2",
+      "scenario": "government_office",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0.8571428571428571,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "work_pack_10_a2",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 1,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "work_pack_11_a2",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 1.1428571428571428,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "work_pack_12_a2",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 1,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "work_pack_1_a2",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 1.2857142857142858,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "work_pack_1_b1",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 1.2857142857142858,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "work_pack_2_a2",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 85.71428571428571,
+      "averageScenarioTokenDensity": 1,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "work_pack_2_b1",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 85.71428571428571,
+      "averageScenarioTokenDensity": 1,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "work_pack_3_a2",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 1.1428571428571428,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "work_pack_3_b1",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 1.1428571428571428,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "work_pack_4_a2",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 1.4285714285714286,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "work_pack_4_b1",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 1.4285714285714286,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "work_pack_5_a2",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 1.4285714285714286,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "work_pack_5_b1",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 1.4285714285714286,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "work_pack_6_a2",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 85.71428571428571,
+      "averageScenarioTokenDensity": 1.1428571428571428,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "work_pack_6_b1",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 85.71428571428571,
+      "averageScenarioTokenDensity": 1.1428571428571428,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "work_pack_7_a2",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 1.1428571428571428,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "work_pack_7_b1",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 1.1428571428571428,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "work_pack_8_a2",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 1.2857142857142858,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "work_pack_8_b1",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 1.2857142857142858,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "work_pack_9_a2",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 1.1428571428571428,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "work_sample_1_a1",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 1.1428571428571428,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "work_sample_2_a1",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 85.71428571428571,
+      "averageScenarioTokenDensity": 1,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "work_sample_3_a2",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "promptCount": 7,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "time"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 1.1428571428571428,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "welcome_english",
+      "scenario": "intro_lesson",
+      "register": "neutral",
+      "primaryStructure": "basic_phrases",
+      "promptCount": 2,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "percentMultiSlotVariation": 100,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "test-pack-complete-valid",
+      "scenario": "work",
+      "register": "neutral",
+      "primaryStructure": "verb_position",
+      "promptCount": 2,
+      "variationSlots": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "percentMultiSlotVariation": 0,
+      "averageScenarioTokenDensity": 1,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    },
+    {
+      "packId": "test-pack-valid-version",
+      "scenario": "work",
+      "register": "neutral",
+      "primaryStructure": "verb_position",
+      "promptCount": 0,
+      "variationSlots": [
+        "subject",
+        "verb"
+      ],
+      "percentMultiSlotVariation": 0,
+      "averageScenarioTokenDensity": 0,
+      "bannedPhraseHits": 0,
+      "duplicateSentenceCount": 0
+    }
+  ],
+  "summary": {
+    "totalBannedPhraseHits": 0,
+    "packsWithBannedPhrases": 0,
+    "packsBelowMultiSlotThreshold": 2,
+    "packsWithDuplicates": 0,
+    "averageMultiSlotPercentage": 95.57453416149066,
+    "averageScenarioTokenDensity": 0.3959627329192546
+  },
+  "failures": [],
+  "warnings": [],
+  "passed": true
+}

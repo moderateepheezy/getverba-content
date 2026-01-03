@@ -1,0 +1,959 @@
+
+> getverba-content@1.0.0 content:validate
+> tsx scripts/validate-content.ts && tsx scripts/content-quality-report.ts && tsx scripts/content-expansion-report.ts
+
+Validating content structure...
+
+⚠️  Item 0 pack entry prompt 1 text may not contain a verb-like token: "Sie möchte die Behandlung morgen um 18:00..."
+⚠️  Item 0 pack entry prompt 2 text may not contain a verb-like token: "Der Arzt fühlt die Untersuchung..."
+⚠️  Item 0 pack entry prompt 3 text may not contain a verb-like token: "Der Arzt braucht die Untersuchung..."
+⚠️  Item 0 pack entry prompt 4 text may not contain a verb-like token: "Ich brauche die Untersuchung..."
+⚠️  Item 0 pack entry prompt 5 text may not contain a verb-like token: "Ich vereinbare die Diagnose..."
+⚠️  Item 0 pack entry prompt 6 text may not contain a verb-like token: "Der Arzt braucht einen Termin..."
+⚠️  Item 0 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 1 pack entry prompt 0 text may not contain a verb-like token: "Die Ärztin möchte die Medikamente am Montag..."
+⚠️  Item 1 pack entry prompt 3 text may not contain a verb-like token: "Ich vereinbare die Symptome..."
+⚠️  Item 1 pack entry prompt 4 text may not contain a verb-like token: "Die Ärztin braucht die Diagnose..."
+⚠️  Item 1 pack entry prompt 5 text may not contain a verb-like token: "Der Arzt fühlt einen Termin..."
+⚠️  Item 1 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 2 pack entry prompt 1 text may not contain a verb-like token: "Sie vereinbaren die Untersuchung um 10 Uhr..."
+⚠️  Item 2 pack entry prompt 2 text may not contain a verb-like token: "Der Arzt nehmt die Medikamente..."
+⚠️  Item 2 pack entry prompt 4 text may not contain a verb-like token: "Sie fühlen die Medikamente..."
+⚠️  Item 2 pack entry prompt 5 text may not contain a verb-like token: "Die Ärztin möchte die Diagnose..."
+⚠️  Item 2 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 3 pack entry prompt 0 text may not contain a verb-like token: "Sie möchte die Medikamente um 10 Uhr..."
+⚠️  Item 3 pack entry prompt 1 text may not contain a verb-like token: "Ich nehme einen Termin nächste Woche um 18:00..."
+⚠️  Item 3 pack entry prompt 6 text may not contain a verb-like token: "Sie vereinbaren die Untersuchung..."
+⚠️  Item 3 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 4 pack entry prompt 1 text may not contain a verb-like token: "Ich nehme die Diagnose am Montag..."
+⚠️  Item 4 pack entry prompt 2 text may not contain a verb-like token: "Sie brauchen die Diagnose..."
+⚠️  Item 4 pack entry prompt 4 text may not contain a verb-like token: "Der Arzt möchte die Symptome..."
+⚠️  Item 4 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 5 pack entry prompt 2 text may not contain a verb-like token: "Sie brauchen die Symptome..."
+⚠️  Item 5 pack entry prompt 5 text may not contain a verb-like token: "Der Arzt vereinbart die Medikamente..."
+⚠️  Item 5 pack entry prompt 6 text may not contain a verb-like token: "Sie fühlen die Medikamente..."
+⚠️  Item 5 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 6 pack entry prompt 0 text may not contain a verb-like token: "Ich habe die Symptome morgen um 9:00..."
+⚠️  Item 6 pack entry prompt 1 text may not contain a verb-like token: "Die Ärztin vereinbart die Untersuchung um 15:00..."
+⚠️  Item 6 pack entry prompt 4 text may not contain a verb-like token: "Ich möchte die Medikamente..."
+⚠️  Item 6 pack entry prompt 5 text may not contain a verb-like token: "Die Ärztin möchte die Symptome..."
+⚠️  Item 6 pack entry prompt 6 text may not contain a verb-like token: "Ich fühle die Medikamente..."
+⚠️  Item 6 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 7 pack entry prompt 1 text may not contain a verb-like token: "Die Ärztin vereinbart die Diagnose um 15:00..."
+⚠️  Item 7 pack entry prompt 3 text may not contain a verb-like token: "Ich nehme die Medikamente..."
+⚠️  Item 7 pack entry prompt 4 text may not contain a verb-like token: "Ich fühle die Diagnose..."
+⚠️  Item 7 pack entry prompt 5 text may not contain a verb-like token: "Ich brauche einen Termin..."
+⚠️  Item 7 pack entry prompt 6 text may not contain a verb-like token: "Die Ärztin vereinbart die Diagnose..."
+⚠️  Item 7 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 8 pack entry prompt 1 text may not contain a verb-like token: "Sie möchte die Behandlung morgen um 18:00..."
+⚠️  Item 8 pack entry prompt 2 text may not contain a verb-like token: "Der Arzt fühlt die Untersuchung..."
+⚠️  Item 8 pack entry prompt 3 text may not contain a verb-like token: "Der Arzt braucht die Untersuchung..."
+⚠️  Item 8 pack entry prompt 4 text may not contain a verb-like token: "Ich brauche die Untersuchung..."
+⚠️  Item 8 pack entry prompt 5 text may not contain a verb-like token: "Ich vereinbare die Diagnose..."
+⚠️  Item 8 pack entry prompt 6 text may not contain a verb-like token: "Der Arzt braucht einen Termin..."
+⚠️  Item 9 pack entry prompt 0 text may not contain a verb-like token: "Die Ärztin möchte die Medikamente am Montag..."
+⚠️  Item 9 pack entry prompt 3 text may not contain a verb-like token: "Ich vereinbare die Symptome..."
+⚠️  Item 9 pack entry prompt 4 text may not contain a verb-like token: "Die Ärztin braucht die Diagnose..."
+⚠️  Item 9 pack entry prompt 5 text may not contain a verb-like token: "Der Arzt fühlt einen Termin..."
+⚠️  Item 10 pack entry prompt 1 text may not contain a verb-like token: "Sie vereinbaren die Untersuchung um 10 Uhr..."
+⚠️  Item 10 pack entry prompt 2 text may not contain a verb-like token: "Der Arzt nehmt die Medikamente..."
+⚠️  Item 10 pack entry prompt 4 text may not contain a verb-like token: "Sie fühlen die Medikamente..."
+⚠️  Item 10 pack entry prompt 5 text may not contain a verb-like token: "Die Ärztin möchte die Diagnose..."
+⚠️  Item 11 pack entry prompt 0 text may not contain a verb-like token: "Sie möchte die Medikamente um 10 Uhr..."
+⚠️  Item 11 pack entry prompt 1 text may not contain a verb-like token: "Ich nehme einen Termin nächste Woche um 18:00..."
+⚠️  Item 11 pack entry prompt 6 text may not contain a verb-like token: "Sie vereinbaren die Untersuchung..."
+   📄 /v1/workspaces/de/context/doctor/index.json: 2 pages, 16 items
+⚠️  Item 0 pack entry prompt 0 text may not contain a verb-like token: "Wir möchte einen Spaziergang später..."
+⚠️  Item 0 pack entry prompt 3 text may not contain a verb-like token: "Ich schauen ins Café abends später..."
+⚠️  Item 0 pack entry prompt 5 text may not contain a verb-like token: "Wir schauen eine Serie..."
+⚠️  Item 0 pack entry prompt 6 text may not contain a verb-like token: "Hast du hätte einen Spaziergang..."
+⚠️  Item 0 pack entry prompt 7 text may not contain a verb-like token: "Du kannst zum Park..."
+⚠️  Item 0 pack entry prompt 8 text may not contain a verb-like token: "Du essen zum Restaurant..."
+⚠️  Item 0 pack entry prompt 9 text may not contain a verb-like token: "Wir hätte einen Spaziergang am Samstag..."
+⚠️  Item 0 pack entry prompt 10 text may not contain a verb-like token: "Du treffen einen Film um 19 Uhr..."
+⚠️  Item 0 pack entry prompt 11 text may not contain a verb-like token: "Wir möchte Zeit abends..."
+⚠️  Item 0 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 1 pack entry prompt 0 text may not contain a verb-like token: "Hast du hast zum Park am Sonntag..."
+⚠️  Item 1 pack entry prompt 2 text may not contain a verb-like token: "Wir trinken einen Spaziergang abends..."
+⚠️  Item 1 pack entry prompt 4 text may not contain a verb-like token: "Wir möchtesten zum Restaurant..."
+⚠️  Item 1 pack entry prompt 8 text may not contain a verb-like token: "Hast du möchte einen Film..."
+⚠️  Item 1 pack entry prompt 9 text may not contain a verb-like token: "Du treffen einen Spaziergang um 20:30..."
+⚠️  Item 1 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 2 pack entry prompt 0 text may not contain a verb-like token: "Hast du essen eine Serie am Samstag..."
+⚠️  Item 2 pack entry prompt 2 text may not contain a verb-like token: "Ich trinken Pizza morgen..."
+⚠️  Item 2 pack entry prompt 4 text may not contain a verb-like token: "Du schauen Pizza..."
+⚠️  Item 2 pack entry prompt 6 text may not contain a verb-like token: "Hast du hätte ins Café idee..."
+⚠️  Item 2 pack entry prompt 7 text may not contain a verb-like token: "Wir hätte Lust..."
+⚠️  Item 2 pack entry prompt 8 text may not contain a verb-like token: "Hast du hast Zeit..."
+⚠️  Item 2 pack entry prompt 9 text may not contain a verb-like token: "Du kannst Zeit morgen..."
+⚠️  Item 2 pack entry prompt 10 text may not contain a verb-like token: "Lass uns hätte einen Spaziergang um 19 Uhr..."
+⚠️  Item 2 pack entry prompt 11 text may not contain a verb-like token: "Lass uns kannst einen Spaziergang am Sonntag..."
+⚠️  Item 2 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 3 pack entry prompt 2 text may not contain a verb-like token: "Lass uns möchtest ein Konzert morgen..."
+⚠️  Item 3 pack entry prompt 3 text may not contain a verb-like token: "Wir schauen ins Training morgen..."
+⚠️  Item 3 pack entry prompt 5 text may not contain a verb-like token: "Ich essen Zeit..."
+⚠️  Item 3 pack entry prompt 6 text may not contain a verb-like token: "Ich kannst Lust..."
+⚠️  Item 3 pack entry prompt 9 text may not contain a verb-like token: "Wir hasten zum Park heute..."
+⚠️  Item 3 pack entry prompt 10 text may not contain a verb-like token: "Ich trinken ein Konzert heute..."
+⚠️  Item 3 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 4 pack entry prompt 0 text may not contain a verb-like token: "Lass uns hast einen Spaziergang heute..."
+⚠️  Item 4 pack entry prompt 1 text may not contain a verb-like token: "Lass uns hätte zum Park morgen..."
+⚠️  Item 4 pack entry prompt 2 text may not contain a verb-like token: "Du möchte eine Idee heute..."
+⚠️  Item 4 pack entry prompt 3 text may not contain a verb-like token: "Lass uns hätte ein Konzert am Samstag..."
+⚠️  Item 4 pack entry prompt 4 text may not contain a verb-like token: "Du treffen ins Kino..."
+⚠️  Item 4 pack entry prompt 5 text may not contain a verb-like token: "Lass uns hätte in die Bar..."
+⚠️  Item 4 pack entry prompt 6 text may not contain a verb-like token: "Hast du hast in die Bar..."
+⚠️  Item 4 pack entry prompt 7 text may not contain a verb-like token: "Du trinken ein Konzert..."
+⚠️  Item 4 pack entry prompt 8 text may not contain a verb-like token: "Wir treffen einen Plan..."
+⚠️  Item 4 pack entry prompt 9 text may not contain a verb-like token: "Wir treffen Lust heute..."
+⚠️  Item 4 pack entry prompt 10 text may not contain a verb-like token: "Wir schauen zum Gym um 20:30..."
+⚠️  Item 4 pack entry prompt 11 text may not contain a verb-like token: "Lass uns möchte ins Training heute..."
+⚠️  Item 4 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 5 pack entry prompt 1 text may not contain a verb-like token: "Du hätte Zeit am Sonntag..."
+⚠️  Item 5 pack entry prompt 2 text may not contain a verb-like token: "Hast du treffen ein Konzert später..."
+⚠️  Item 5 pack entry prompt 3 text may not contain a verb-like token: "Lass uns essen zum Park um 20:30..."
+⚠️  Item 5 pack entry prompt 4 text may not contain a verb-like token: "Wir hätte einen Film..."
+⚠️  Item 5 pack entry prompt 7 text may not contain a verb-like token: "Lass uns hätte ins Café mitkommen..."
+⚠️  Item 5 pack entry prompt 8 text may not contain a verb-like token: "Ich hätte ins Training..."
+⚠️  Item 5 pack entry prompt 9 text may not contain a verb-like token: "Lass uns möchtest ein Konzert später..."
+⚠️  Item 5 pack entry prompt 10 text may not contain a verb-like token: "Du möchte Zeit um 19 Uhr..."
+⚠️  Item 5 pack entry prompt 11 text may not contain a verb-like token: "Du möchte einen Plan am Sonntag..."
+⚠️  Item 5 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 6 pack entry prompt 1 text may not contain a verb-like token: "Ich möchte einen Film abends..."
+⚠️  Item 6 pack entry prompt 3 text may not contain a verb-like token: "Hast du hast einen Spaziergang am Wochenende..."
+⚠️  Item 6 pack entry prompt 5 text may not contain a verb-like token: "Lass uns willst Lust..."
+⚠️  Item 6 pack entry prompt 6 text may not contain a verb-like token: "Lass uns willst ins Kino..."
+⚠️  Item 6 pack entry prompt 7 text may not contain a verb-like token: "Ich hätte Kaffee..."
+⚠️  Item 6 pack entry prompt 8 text may not contain a verb-like token: "Du möchtest in die Bar..."
+⚠️  Item 6 pack entry prompt 10 text may not contain a verb-like token: "Wir willsten in die Bar um 20:30..."
+⚠️  Item 6 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 7 pack entry prompt 0 text may not contain a verb-like token: "Hast du hast eine Serie morgen..."
+⚠️  Item 7 pack entry prompt 1 text may not contain a verb-like token: "Hast du möchtest Lust am Sonntag..."
+⚠️  Item 7 pack entry prompt 3 text may not contain a verb-like token: "Ich hast einen Spaziergang am Samstag..."
+⚠️  Item 7 pack entry prompt 4 text may not contain a verb-like token: "Hast du hätte zum Restaurant..."
+⚠️  Item 7 pack entry prompt 5 text may not contain a verb-like token: "Du trinken Kaffee..."
+⚠️  Item 7 pack entry prompt 6 text may not contain a verb-like token: "Du trinken in die Bar..."
+⚠️  Item 7 pack entry prompt 9 text may not contain a verb-like token: "Hast du willst ins Kino morgen..."
+⚠️  Item 7 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 8 pack entry prompt 0 text may not contain a verb-like token: "Ich hast Kaffee um 20:30..."
+⚠️  Item 8 pack entry prompt 2 text may not contain a verb-like token: "Hast du treffen ins Kino morgen..."
+⚠️  Item 8 pack entry prompt 3 text may not contain a verb-like token: "Lass uns hätte eine Idee später..."
+⚠️  Item 8 pack entry prompt 4 text may not contain a verb-like token: "Du möchte ins Café kaffee..."
+⚠️  Item 8 pack entry prompt 5 text may not contain a verb-like token: "Du essen eine Idee..."
+⚠️  Item 8 pack entry prompt 6 text may not contain a verb-like token: "Ich kannst ins Kino..."
+⚠️  Item 8 pack entry prompt 9 text may not contain a verb-like token: "Lass uns trinken zum Gym am Sonntag..."
+⚠️  Item 8 pack entry prompt 10 text may not contain a verb-like token: "Lass uns hast einen Plan später..."
+⚠️  Item 8 pack entry prompt 11 text may not contain a verb-like token: "Wir hasten Zeit um 20:30..."
+⚠️  Item 8 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 9 pack entry prompt 1 text may not contain a verb-like token: "Wir schauen ins Kino abends..."
+⚠️  Item 9 pack entry prompt 2 text may not contain a verb-like token: "Ich hätte Zeit um 19 Uhr..."
+⚠️  Item 9 pack entry prompt 3 text may not contain a verb-like token: "Du kannst Kaffee um 20:30..."
+⚠️  Item 9 pack entry prompt 4 text may not contain a verb-like token: "Ich möchtest Lust..."
+⚠️  Item 9 pack entry prompt 6 text may not contain a verb-like token: "Lass uns hast einen Spaziergang..."
+⚠️  Item 9 pack entry prompt 7 text may not contain a verb-like token: "Wir hätte ins Café cafe..."
+⚠️  Item 9 pack entry prompt 8 text may not contain a verb-like token: "Ich schauen ins Café gym..."
+⚠️  Item 9 pack entry prompt 11 text may not contain a verb-like token: "Du trinken ins Training später..."
+⚠️  Item 9 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 10 pack entry prompt 0 text may not contain a verb-like token: "Du schauen einen Plan am Samstag..."
+⚠️  Item 10 pack entry prompt 1 text may not contain a verb-like token: "Lass uns treffen ins Kino am Sonntag..."
+⚠️  Item 10 pack entry prompt 3 text may not contain a verb-like token: "Du trinken ins Kino um 20:30..."
+⚠️  Item 10 pack entry prompt 7 text may not contain a verb-like token: "Wir hasten in die Bar..."
+⚠️  Item 10 pack entry prompt 8 text may not contain a verb-like token: "Du hätte zum Park..."
+⚠️  Item 10 pack entry prompt 9 text may not contain a verb-like token: "Ich schauen eine Serie morgen..."
+⚠️  Item 10 pack entry prompt 10 text may not contain a verb-like token: "Ich hätte ins Café plan um 19 Uhr..."
+⚠️  Item 10 pack entry prompt 11 text may not contain a verb-like token: "Hast du trinken ins Training morgen..."
+⚠️  Item 10 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 11 pack entry prompt 0 text may not contain a verb-like token: "Wir willsten Pizza am Sonntag..."
+⚠️  Item 11 pack entry prompt 1 text may not contain a verb-like token: "Hast du schauen einen Spaziergang am Sonntag..."
+⚠️  Item 11 pack entry prompt 3 text may not contain a verb-like token: "Ich trinken Kaffee morgen..."
+⚠️  Item 11 pack entry prompt 4 text may not contain a verb-like token: "Wir kannsten ins Café plan..."
+⚠️  Item 11 pack entry prompt 7 text may not contain a verb-like token: "Lass uns essen Pizza..."
+⚠️  Item 11 pack entry prompt 8 text may not contain a verb-like token: "Ich trinken eine Serie..."
+⚠️  Item 11 pack entry prompt 9 text may not contain a verb-like token: "Du essen einen Spaziergang um 19 Uhr..."
+⚠️  Item 11 pack entry prompt 10 text may not contain a verb-like token: "Wir hasten zum Park heute..."
+   📄 /v1/workspaces/de/context/friends_small_talk/index.json: 2 pages, 24 items
+⚠️  Item 0 pack entry prompt 0 text may not contain a verb-like token: "Die Sachbearbeiterin möchte die Bescheinigung heut..."
+⚠️  Item 0 pack entry prompt 1 text may not contain a verb-like token: "Wir benötigen die Bescheinigung nächste Woche um 9..."
+⚠️  Item 0 pack entry prompt 2 text may not contain a verb-like token: "Der Beamte zeigt die Anmeldung..."
+⚠️  Item 0 pack entry prompt 3 text may not contain a verb-like token: "Der Beamte braucht die Anmeldung..."
+⚠️  Item 0 pack entry prompt 4 text may not contain a verb-like token: "Sie brauchen die Anmeldung..."
+⚠️  Item 0 pack entry prompt 5 text may not contain a verb-like token: "Ich habe den Ausweis dringend..."
+⚠️  Item 0 pack entry prompt 6 text may not contain a verb-like token: "Ich möchte die Anmeldung sofort..."
+⚠️  Item 0 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 1 pack entry prompt 0 text may not contain a verb-like token: "Die Sachbearbeiterin holt das Formular am Dienstag..."
+⚠️  Item 1 pack entry prompt 2 text may not contain a verb-like token: "Wir benötigen den Ausweis..."
+⚠️  Item 1 pack entry prompt 3 text may not contain a verb-like token: "Die Sachbearbeiterin vereinbart einen Termin..."
+⚠️  Item 1 pack entry prompt 5 text may not contain a verb-like token: "Sie holen die Unterlagen dringend..."
+⚠️  Item 1 pack entry prompt 6 text may not contain a verb-like token: "Ich hole das Formular dringend..."
+⚠️  Item 1 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 2 pack entry prompt 0 text may not contain a verb-like token: "Die Sachbearbeiterin möchte die Anmeldung um 9 Uhr..."
+⚠️  Item 2 pack entry prompt 3 text may not contain a verb-like token: "Ich hole die Anmeldung..."
+⚠️  Item 2 pack entry prompt 4 text may not contain a verb-like token: "Die Sachbearbeiterin bringt den Pass..."
+⚠️  Item 2 pack entry prompt 5 text may not contain a verb-like token: "Die Sachbearbeiterin benötigt die Unterlagen sofor..."
+⚠️  Item 2 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 3 pack entry prompt 2 text may not contain a verb-like token: "Die Sachbearbeiterin vereinbart den Ausweis..."
+⚠️  Item 3 pack entry prompt 3 text may not contain a verb-like token: "Sie holen die Aufenthaltserlaubnis..."
+⚠️  Item 3 pack entry prompt 4 text may not contain a verb-like token: "Der Beamte holt die Anmeldung..."
+⚠️  Item 3 pack entry prompt 5 text may not contain a verb-like token: "Der Beamte holt die Aufenthaltserlaubnis morgen..."
+⚠️  Item 3 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 4 pack entry prompt 0 text may not contain a verb-like token: "Der Beamte möchte die Unterlagen um 14:30..."
+⚠️  Item 4 pack entry prompt 1 text may not contain a verb-like token: "Der Beamte möchte einen Termin heute um 18:30..."
+⚠️  Item 4 pack entry prompt 2 text may not contain a verb-like token: "Wir benötigen die Aufenthaltserlaubnis..."
+⚠️  Item 4 pack entry prompt 3 text may not contain a verb-like token: "Sie möchte einen Termin..."
+⚠️  Item 4 pack entry prompt 4 text may not contain a verb-like token: "Der Beamte holt die Unterlagen..."
+⚠️  Item 4 pack entry prompt 6 text may not contain a verb-like token: "Wir benötigen die Aufenthaltserlaubnis morgen..."
+⚠️  Item 4 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 5 pack entry prompt 1 text may not contain a verb-like token: "Wir vereinbaren die Anmeldung am Montag..."
+⚠️  Item 5 pack entry prompt 2 text may not contain a verb-like token: "Die Sachbearbeiterin braucht den Ausweis..."
+⚠️  Item 5 pack entry prompt 4 text may not contain a verb-like token: "Der Beamte braucht die Unterlagen..."
+⚠️  Item 5 pack entry prompt 5 text may not contain a verb-like token: "Sie zeigen einen Termin morgen..."
+⚠️  Item 5 pack entry prompt 6 text may not contain a verb-like token: "Ich brauche das Formular bitte..."
+⚠️  Item 5 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 0 pack entry prompt 0 text may not contain a verb-like token: "Die Vermieterin sucht die Kaution um 14:30..."
+⚠️  Item 0 pack entry prompt 1 text may not contain a verb-like token: "Sie zeigen das Zimmer um 9:00..."
+⚠️  Item 0 pack entry prompt 3 text may not contain a verb-like token: "Der Vermieter wohnt eine Wohnung günstig..."
+⚠️  Item 0 pack entry prompt 4 text may not contain a verb-like token: "Wir finden die Miete gerne..."
+⚠️  Item 0 pack entry prompt 5 text may not contain a verb-like token: "Wir möchte das Zimmer..."
+⚠️  Item 0 pack entry prompt 6 text may not contain a verb-like token: "Ich suche die Miete..."
+⚠️  Item 1 pack entry prompt 0 text may not contain a verb-like token: "Der Vermieter zeigt den Mietvertrag um 9:00..."
+⚠️  Item 1 pack entry prompt 1 text may not contain a verb-like token: "Sie wohnen die Miete um 14:30..."
+⚠️  Item 1 pack entry prompt 2 text may not contain a verb-like token: "Wir suchen eine Wohnung ruhig..."
+⚠️  Item 1 pack entry prompt 3 text may not contain a verb-like token: "Sie finden die Miete bitte..."
+⚠️  Item 1 pack entry prompt 4 text may not contain a verb-like token: "Der Vermieter zeigt das Zimmer ruhig..."
+⚠️  Item 1 pack entry prompt 5 text may not contain a verb-like token: "Sie finden die Miete..."
+⚠️  Item 1 pack entry prompt 6 text may not contain a verb-like token: "Die Vermieterin braucht die Miete..."
+⚠️  Item 2 pack entry prompt 0 text may not contain a verb-like token: "Die Vermieterin mietet das Zimmer um 9:30..."
+⚠️  Item 2 pack entry prompt 1 text may not contain a verb-like token: "Der Vermieter zeigt die Kaution um 14:30..."
+⚠️  Item 2 pack entry prompt 2 text may not contain a verb-like token: "Der Vermieter mietet den Mietvertrag gerne..."
+⚠️  Item 2 pack entry prompt 3 text may not contain a verb-like token: "Die Vermieterin findt die Miete ruhig..."
+⚠️  Item 2 pack entry prompt 4 text may not contain a verb-like token: "Der Vermieter findt den Mietvertrag bitte..."
+⚠️  Item 2 pack entry prompt 5 text may not contain a verb-like token: "Sie suchen die Adresse..."
+⚠️  Item 2 pack entry prompt 6 text may not contain a verb-like token: "Ich finde das Zimmer..."
+⚠️  Item 3 pack entry prompt 0 text may not contain a verb-like token: "Die Vermieterin sucht die Miete um 18:00..."
+⚠️  Item 3 pack entry prompt 1 text may not contain a verb-like token: "Ich möchte die Miete um 18:30..."
+⚠️  Item 3 pack entry prompt 2 text may not contain a verb-like token: "Der Vermieter findt das Zimmer günstig..."
+⚠️  Item 3 pack entry prompt 3 text may not contain a verb-like token: "Ich suche den Mietvertrag günstig..."
+⚠️  Item 3 pack entry prompt 4 text may not contain a verb-like token: "Die Vermieterin zeigt das Zimmer zentral..."
+⚠️  Item 3 pack entry prompt 6 text may not contain a verb-like token: "Sie brauchen eine Wohnung..."
+⚠️  Item 4 pack entry prompt 0 text may not contain a verb-like token: "Sie mieten das Zimmer um 9:30..."
+⚠️  Item 4 pack entry prompt 1 text may not contain a verb-like token: "Ich finde die Kaution um 14:00..."
+⚠️  Item 4 pack entry prompt 2 text may not contain a verb-like token: "Ich zeige die Kaution zentral..."
+⚠️  Item 4 pack entry prompt 3 text may not contain a verb-like token: "Die Vermieterin mietet den Mietvertrag ruhig..."
+⚠️  Item 4 pack entry prompt 5 text may not contain a verb-like token: "Die Vermieterin zeigt die Adresse..."
+⚠️  Item 4 pack entry prompt 6 text may not contain a verb-like token: "Der Vermieter mietet den Mietvertrag..."
+⚠️  Item 5 pack entry prompt 0 text may not contain a verb-like token: "Die Vermieterin möchte das Zimmer um 9:00..."
+⚠️  Item 5 pack entry prompt 1 text may not contain a verb-like token: "Die Vermieterin sucht die Kaution um 14:30..."
+⚠️  Item 5 pack entry prompt 2 text may not contain a verb-like token: "Die Vermieterin wohnt die Adresse bitte..."
+⚠️  Item 5 pack entry prompt 4 text may not contain a verb-like token: "Der Vermieter mietet die Adresse bitte..."
+⚠️  Item 5 pack entry prompt 6 text may not contain a verb-like token: "Ich möchte das Zimmer..."
+⚠️  Item 6 pack entry prompt 0 text may not contain a verb-like token: "Der Vermieter sucht die Kaution um 18:30..."
+⚠️  Item 6 pack entry prompt 1 text may not contain a verb-like token: "Wir brauchen eine Wohnung um 18:30..."
+⚠️  Item 6 pack entry prompt 2 text may not contain a verb-like token: "Ich zeige die Adresse bitte..."
+⚠️  Item 6 pack entry prompt 3 text may not contain a verb-like token: "Sie wohnen eine Wohnung gerne..."
+⚠️  Item 6 pack entry prompt 4 text may not contain a verb-like token: "Der Vermieter möchte die Kaution günstig..."
+⚠️  Item 6 pack entry prompt 5 text may not contain a verb-like token: "Der Vermieter findt die Adresse..."
+⚠️  Item 6 pack entry prompt 6 text may not contain a verb-like token: "Sie mieten die Adresse..."
+⚠️  Item 7 pack entry prompt 0 text may not contain a verb-like token: "Ich suche die Adresse um 9:00..."
+⚠️  Item 7 pack entry prompt 1 text may not contain a verb-like token: "Die Vermieterin braucht die Miete um 14:30..."
+⚠️  Item 7 pack entry prompt 2 text may not contain a verb-like token: "Der Vermieter findt die Kaution zentral..."
+⚠️  Item 7 pack entry prompt 3 text may not contain a verb-like token: "Wir finden den Mietvertrag günstig..."
+⚠️  Item 7 pack entry prompt 4 text may not contain a verb-like token: "Ich miete das Zimmer günstig..."
+⚠️  Item 7 pack entry prompt 5 text may not contain a verb-like token: "Wir zeigen das Zimmer..."
+⚠️  Item 7 pack entry prompt 6 text may not contain a verb-like token: "Sie finden eine Wohnung..."
+⚠️  Item 8 pack entry prompt 1 text may not contain a verb-like token: "Die Vermieterin braucht die Miete um 14:30..."
+⚠️  Item 8 pack entry prompt 2 text may not contain a verb-like token: "Sie finden die Kaution gerne..."
+⚠️  Item 8 pack entry prompt 3 text may not contain a verb-like token: "Der Vermieter sucht die Kaution bitte..."
+⚠️  Item 8 pack entry prompt 4 text may not contain a verb-like token: "Ich zeige den Mietvertrag gerne..."
+⚠️  Item 8 pack entry prompt 5 text may not contain a verb-like token: "Ich suche die Kaution..."
+⚠️  Item 8 pack entry prompt 6 text may not contain a verb-like token: "Der Vermieter möchte den Mietvertrag..."
+⚠️  Item 9 pack entry prompt 0 text may not contain a verb-like token: "Ich möchte eine Wohnung um 18:00..."
+⚠️  Item 9 pack entry prompt 2 text may not contain a verb-like token: "Wir zeigen eine Wohnung zentral..."
+⚠️  Item 9 pack entry prompt 3 text may not contain a verb-like token: "Die Vermieterin braucht das Zimmer ruhig..."
+⚠️  Item 9 pack entry prompt 5 text may not contain a verb-like token: "Der Vermieter zeigt die Adresse..."
+⚠️  Item 9 pack entry prompt 6 text may not contain a verb-like token: "Der Vermieter möchte das Zimmer..."
+⚠️  Item 10 pack entry prompt 0 text may not contain a verb-like token: "Die Vermieterin sucht die Kaution um 14:30..."
+⚠️  Item 10 pack entry prompt 1 text may not contain a verb-like token: "Sie zeigen das Zimmer um 9:00..."
+⚠️  Item 10 pack entry prompt 3 text may not contain a verb-like token: "Der Vermieter wohnt eine Wohnung günstig..."
+⚠️  Item 10 pack entry prompt 4 text may not contain a verb-like token: "Wir finden die Miete gerne..."
+⚠️  Item 10 pack entry prompt 5 text may not contain a verb-like token: "Wir möchte das Zimmer..."
+⚠️  Item 10 pack entry prompt 6 text may not contain a verb-like token: "Ich suche die Miete..."
+⚠️  Item 11 pack entry prompt 0 text may not contain a verb-like token: "Der Vermieter zeigt den Mietvertrag um 9:00..."
+⚠️  Item 11 pack entry prompt 1 text may not contain a verb-like token: "Sie wohnen die Miete um 14:30..."
+⚠️  Item 11 pack entry prompt 2 text may not contain a verb-like token: "Wir suchen eine Wohnung ruhig..."
+⚠️  Item 11 pack entry prompt 3 text may not contain a verb-like token: "Sie finden die Miete bitte..."
+⚠️  Item 11 pack entry prompt 4 text may not contain a verb-like token: "Der Vermieter zeigt das Zimmer ruhig..."
+⚠️  Item 11 pack entry prompt 5 text may not contain a verb-like token: "Sie finden die Miete..."
+⚠️  Item 11 pack entry prompt 6 text may not contain a verb-like token: "Die Vermieterin braucht die Miete..."
+   📄 /v1/workspaces/de/context/housing/index.json: 2 pages, 20 items
+⚠️  Item 0 pack entry prompt 0 text may not contain a verb-like token: "Wir möchte einen Spaziergang später..."
+⚠️  Item 0 pack entry prompt 3 text may not contain a verb-like token: "Ich schauen ins Café abends später..."
+⚠️  Item 0 pack entry prompt 5 text may not contain a verb-like token: "Wir schauen eine Serie..."
+⚠️  Item 0 pack entry prompt 6 text may not contain a verb-like token: "Hast du hätte einen Spaziergang..."
+⚠️  Item 0 pack entry prompt 7 text may not contain a verb-like token: "Du kannst zum Park..."
+⚠️  Item 0 pack entry prompt 8 text may not contain a verb-like token: "Du essen zum Restaurant..."
+⚠️  Item 0 pack entry prompt 9 text may not contain a verb-like token: "Wir hätte einen Spaziergang am Samstag..."
+⚠️  Item 0 pack entry prompt 10 text may not contain a verb-like token: "Du treffen einen Film um 19 Uhr..."
+⚠️  Item 0 pack entry prompt 11 text may not contain a verb-like token: "Wir möchte Zeit abends..."
+⚠️  Item 0 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 1 pack entry prompt 1 text may not contain a verb-like token: "Sie möchte die Behandlung morgen um 18:00..."
+⚠️  Item 1 pack entry prompt 2 text may not contain a verb-like token: "Der Arzt fühlt die Untersuchung..."
+⚠️  Item 1 pack entry prompt 3 text may not contain a verb-like token: "Der Arzt braucht die Untersuchung..."
+⚠️  Item 1 pack entry prompt 4 text may not contain a verb-like token: "Ich brauche die Untersuchung..."
+⚠️  Item 1 pack entry prompt 5 text may not contain a verb-like token: "Ich vereinbare die Diagnose..."
+⚠️  Item 1 pack entry prompt 6 text may not contain a verb-like token: "Der Arzt braucht einen Termin..."
+⚠️  Item 1 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 2 pack entry prompt 0 text may not contain a verb-like token: "Die Ärztin möchte die Medikamente am Montag..."
+⚠️  Item 2 pack entry prompt 3 text may not contain a verb-like token: "Ich vereinbare die Symptome..."
+⚠️  Item 2 pack entry prompt 4 text may not contain a verb-like token: "Die Ärztin braucht die Diagnose..."
+⚠️  Item 2 pack entry prompt 5 text may not contain a verb-like token: "Der Arzt fühlt einen Termin..."
+⚠️  Item 2 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 3 pack entry prompt 1 text may not contain a verb-like token: "Sie vereinbaren die Untersuchung um 10 Uhr..."
+⚠️  Item 3 pack entry prompt 2 text may not contain a verb-like token: "Der Arzt nehmt die Medikamente..."
+⚠️  Item 3 pack entry prompt 4 text may not contain a verb-like token: "Sie fühlen die Medikamente..."
+⚠️  Item 3 pack entry prompt 5 text may not contain a verb-like token: "Die Ärztin möchte die Diagnose..."
+⚠️  Item 3 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 4 pack entry prompt 0 text may not contain a verb-like token: "Sie möchte die Medikamente um 10 Uhr..."
+⚠️  Item 4 pack entry prompt 1 text may not contain a verb-like token: "Ich nehme einen Termin nächste Woche um 18:00..."
+⚠️  Item 4 pack entry prompt 6 text may not contain a verb-like token: "Sie vereinbaren die Untersuchung..."
+⚠️  Item 4 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 5 pack entry prompt 1 text may not contain a verb-like token: "Ich nehme die Diagnose am Montag..."
+⚠️  Item 5 pack entry prompt 2 text may not contain a verb-like token: "Sie brauchen die Diagnose..."
+⚠️  Item 5 pack entry prompt 4 text may not contain a verb-like token: "Der Arzt möchte die Symptome..."
+⚠️  Item 5 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 6 pack entry prompt 2 text may not contain a verb-like token: "Sie brauchen die Symptome..."
+⚠️  Item 6 pack entry prompt 5 text may not contain a verb-like token: "Der Arzt vereinbart die Medikamente..."
+⚠️  Item 6 pack entry prompt 6 text may not contain a verb-like token: "Sie fühlen die Medikamente..."
+⚠️  Item 6 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 7 pack entry prompt 0 text may not contain a verb-like token: "Ich habe die Symptome morgen um 9:00..."
+⚠️  Item 7 pack entry prompt 1 text may not contain a verb-like token: "Die Ärztin vereinbart die Untersuchung um 15:00..."
+⚠️  Item 7 pack entry prompt 4 text may not contain a verb-like token: "Ich möchte die Medikamente..."
+⚠️  Item 7 pack entry prompt 5 text may not contain a verb-like token: "Die Ärztin möchte die Symptome..."
+⚠️  Item 7 pack entry prompt 6 text may not contain a verb-like token: "Ich fühle die Medikamente..."
+⚠️  Item 7 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 8 pack entry prompt 1 text may not contain a verb-like token: "Die Ärztin vereinbart die Diagnose um 15:00..."
+⚠️  Item 8 pack entry prompt 3 text may not contain a verb-like token: "Ich nehme die Medikamente..."
+⚠️  Item 8 pack entry prompt 4 text may not contain a verb-like token: "Ich fühle die Diagnose..."
+⚠️  Item 8 pack entry prompt 5 text may not contain a verb-like token: "Ich brauche einen Termin..."
+⚠️  Item 8 pack entry prompt 6 text may not contain a verb-like token: "Die Ärztin vereinbart die Diagnose..."
+⚠️  Item 8 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 9 pack entry prompt 0 text may not contain a verb-like token: "Hast du hast zum Park am Sonntag..."
+⚠️  Item 9 pack entry prompt 2 text may not contain a verb-like token: "Wir trinken einen Spaziergang abends..."
+⚠️  Item 9 pack entry prompt 4 text may not contain a verb-like token: "Wir möchtesten zum Restaurant..."
+⚠️  Item 9 pack entry prompt 8 text may not contain a verb-like token: "Hast du möchte einen Film..."
+⚠️  Item 9 pack entry prompt 9 text may not contain a verb-like token: "Du treffen einen Spaziergang um 20:30..."
+⚠️  Item 9 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 10 pack entry prompt 0 text may not contain a verb-like token: "Hast du essen eine Serie am Samstag..."
+⚠️  Item 10 pack entry prompt 2 text may not contain a verb-like token: "Ich trinken Pizza morgen..."
+⚠️  Item 10 pack entry prompt 4 text may not contain a verb-like token: "Du schauen Pizza..."
+⚠️  Item 10 pack entry prompt 6 text may not contain a verb-like token: "Hast du hätte ins Café idee..."
+⚠️  Item 10 pack entry prompt 7 text may not contain a verb-like token: "Wir hätte Lust..."
+⚠️  Item 10 pack entry prompt 8 text may not contain a verb-like token: "Hast du hast Zeit..."
+⚠️  Item 10 pack entry prompt 9 text may not contain a verb-like token: "Du kannst Zeit morgen..."
+⚠️  Item 10 pack entry prompt 10 text may not contain a verb-like token: "Lass uns hätte einen Spaziergang um 19 Uhr..."
+⚠️  Item 10 pack entry prompt 11 text may not contain a verb-like token: "Lass uns kannst einen Spaziergang am Sonntag..."
+⚠️  Item 10 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 11 pack entry prompt 2 text may not contain a verb-like token: "Lass uns möchtest ein Konzert morgen..."
+⚠️  Item 11 pack entry prompt 3 text may not contain a verb-like token: "Wir schauen ins Training morgen..."
+⚠️  Item 11 pack entry prompt 5 text may not contain a verb-like token: "Ich essen Zeit..."
+⚠️  Item 11 pack entry prompt 6 text may not contain a verb-like token: "Ich kannst Lust..."
+⚠️  Item 11 pack entry prompt 9 text may not contain a verb-like token: "Wir hasten zum Park heute..."
+⚠️  Item 11 pack entry prompt 10 text may not contain a verb-like token: "Ich trinken ein Konzert heute..."
+⚠️  Item 11 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 12 pack entry prompt 0 text may not contain a verb-like token: "Lass uns hast einen Spaziergang heute..."
+⚠️  Item 12 pack entry prompt 1 text may not contain a verb-like token: "Lass uns hätte zum Park morgen..."
+⚠️  Item 12 pack entry prompt 2 text may not contain a verb-like token: "Du möchte eine Idee heute..."
+⚠️  Item 12 pack entry prompt 3 text may not contain a verb-like token: "Lass uns hätte ein Konzert am Samstag..."
+⚠️  Item 12 pack entry prompt 4 text may not contain a verb-like token: "Du treffen ins Kino..."
+⚠️  Item 12 pack entry prompt 5 text may not contain a verb-like token: "Lass uns hätte in die Bar..."
+⚠️  Item 12 pack entry prompt 6 text may not contain a verb-like token: "Hast du hast in die Bar..."
+⚠️  Item 12 pack entry prompt 7 text may not contain a verb-like token: "Du trinken ein Konzert..."
+⚠️  Item 12 pack entry prompt 8 text may not contain a verb-like token: "Wir treffen einen Plan..."
+⚠️  Item 12 pack entry prompt 9 text may not contain a verb-like token: "Wir treffen Lust heute..."
+⚠️  Item 12 pack entry prompt 10 text may not contain a verb-like token: "Wir schauen zum Gym um 20:30..."
+⚠️  Item 12 pack entry prompt 11 text may not contain a verb-like token: "Lass uns möchte ins Training heute..."
+⚠️  Item 12 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 13 pack entry prompt 1 text may not contain a verb-like token: "Du hätte Zeit am Sonntag..."
+⚠️  Item 13 pack entry prompt 2 text may not contain a verb-like token: "Hast du treffen ein Konzert später..."
+⚠️  Item 13 pack entry prompt 3 text may not contain a verb-like token: "Lass uns essen zum Park um 20:30..."
+⚠️  Item 13 pack entry prompt 4 text may not contain a verb-like token: "Wir hätte einen Film..."
+⚠️  Item 13 pack entry prompt 7 text may not contain a verb-like token: "Lass uns hätte ins Café mitkommen..."
+⚠️  Item 13 pack entry prompt 8 text may not contain a verb-like token: "Ich hätte ins Training..."
+⚠️  Item 13 pack entry prompt 9 text may not contain a verb-like token: "Lass uns möchtest ein Konzert später..."
+⚠️  Item 13 pack entry prompt 10 text may not contain a verb-like token: "Du möchte Zeit um 19 Uhr..."
+⚠️  Item 13 pack entry prompt 11 text may not contain a verb-like token: "Du möchte einen Plan am Sonntag..."
+⚠️  Item 13 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 14 pack entry prompt 1 text may not contain a verb-like token: "Ich möchte einen Film abends..."
+⚠️  Item 14 pack entry prompt 3 text may not contain a verb-like token: "Hast du hast einen Spaziergang am Wochenende..."
+⚠️  Item 14 pack entry prompt 5 text may not contain a verb-like token: "Lass uns willst Lust..."
+⚠️  Item 14 pack entry prompt 6 text may not contain a verb-like token: "Lass uns willst ins Kino..."
+⚠️  Item 14 pack entry prompt 7 text may not contain a verb-like token: "Ich hätte Kaffee..."
+⚠️  Item 14 pack entry prompt 8 text may not contain a verb-like token: "Du möchtest in die Bar..."
+⚠️  Item 14 pack entry prompt 10 text may not contain a verb-like token: "Wir willsten in die Bar um 20:30..."
+⚠️  Item 14 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 15 pack entry prompt 0 text may not contain a verb-like token: "Hast du hast eine Serie morgen..."
+⚠️  Item 15 pack entry prompt 1 text may not contain a verb-like token: "Hast du möchtest Lust am Sonntag..."
+⚠️  Item 15 pack entry prompt 3 text may not contain a verb-like token: "Ich hast einen Spaziergang am Samstag..."
+⚠️  Item 15 pack entry prompt 4 text may not contain a verb-like token: "Hast du hätte zum Restaurant..."
+⚠️  Item 15 pack entry prompt 5 text may not contain a verb-like token: "Du trinken Kaffee..."
+⚠️  Item 15 pack entry prompt 6 text may not contain a verb-like token: "Du trinken in die Bar..."
+⚠️  Item 15 pack entry prompt 9 text may not contain a verb-like token: "Hast du willst ins Kino morgen..."
+⚠️  Item 15 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 16 pack entry prompt 0 text may not contain a verb-like token: "Ich hast Kaffee um 20:30..."
+⚠️  Item 16 pack entry prompt 2 text may not contain a verb-like token: "Hast du treffen ins Kino morgen..."
+⚠️  Item 16 pack entry prompt 3 text may not contain a verb-like token: "Lass uns hätte eine Idee später..."
+⚠️  Item 16 pack entry prompt 4 text may not contain a verb-like token: "Du möchte ins Café kaffee..."
+⚠️  Item 16 pack entry prompt 5 text may not contain a verb-like token: "Du essen eine Idee..."
+⚠️  Item 16 pack entry prompt 6 text may not contain a verb-like token: "Ich kannst ins Kino..."
+⚠️  Item 16 pack entry prompt 9 text may not contain a verb-like token: "Lass uns trinken zum Gym am Sonntag..."
+⚠️  Item 16 pack entry prompt 10 text may not contain a verb-like token: "Lass uns hast einen Plan später..."
+⚠️  Item 16 pack entry prompt 11 text may not contain a verb-like token: "Wir hasten Zeit um 20:30..."
+⚠️  Item 16 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 17 pack entry prompt 1 text may not contain a verb-like token: "Wir schauen ins Kino abends..."
+⚠️  Item 17 pack entry prompt 2 text may not contain a verb-like token: "Ich hätte Zeit um 19 Uhr..."
+⚠️  Item 17 pack entry prompt 3 text may not contain a verb-like token: "Du kannst Kaffee um 20:30..."
+⚠️  Item 17 pack entry prompt 4 text may not contain a verb-like token: "Ich möchtest Lust..."
+⚠️  Item 17 pack entry prompt 6 text may not contain a verb-like token: "Lass uns hast einen Spaziergang..."
+⚠️  Item 17 pack entry prompt 7 text may not contain a verb-like token: "Wir hätte ins Café cafe..."
+⚠️  Item 17 pack entry prompt 8 text may not contain a verb-like token: "Ich schauen ins Café gym..."
+⚠️  Item 17 pack entry prompt 11 text may not contain a verb-like token: "Du trinken ins Training später..."
+⚠️  Item 17 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 18 pack entry prompt 0 text may not contain a verb-like token: "Du schauen einen Plan am Samstag..."
+⚠️  Item 18 pack entry prompt 1 text may not contain a verb-like token: "Lass uns treffen ins Kino am Sonntag..."
+⚠️  Item 18 pack entry prompt 3 text may not contain a verb-like token: "Du trinken ins Kino um 20:30..."
+⚠️  Item 18 pack entry prompt 7 text may not contain a verb-like token: "Wir hasten in die Bar..."
+⚠️  Item 18 pack entry prompt 8 text may not contain a verb-like token: "Du hätte zum Park..."
+⚠️  Item 18 pack entry prompt 9 text may not contain a verb-like token: "Ich schauen eine Serie morgen..."
+⚠️  Item 18 pack entry prompt 10 text may not contain a verb-like token: "Ich hätte ins Café plan um 19 Uhr..."
+⚠️  Item 18 pack entry prompt 11 text may not contain a verb-like token: "Hast du trinken ins Training morgen..."
+⚠️  Item 18 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+⚠️  Item 19 pack entry prompt 0 text may not contain a verb-like token: "Die Sachbearbeiterin möchte die Bescheinigung heut..."
+⚠️  Item 19 pack entry prompt 1 text may not contain a verb-like token: "Wir benötigen die Bescheinigung nächste Woche um 9..."
+⚠️  Item 19 pack entry prompt 2 text may not contain a verb-like token: "Der Beamte zeigt die Anmeldung..."
+⚠️  Item 19 pack entry prompt 3 text may not contain a verb-like token: "Der Beamte braucht die Anmeldung..."
+⚠️  Item 19 pack entry prompt 4 text may not contain a verb-like token: "Sie brauchen die Anmeldung..."
+⚠️  Item 19 pack entry prompt 5 text may not contain a verb-like token: "Ich habe den Ausweis dringend..."
+⚠️  Item 19 pack entry prompt 6 text may not contain a verb-like token: "Ich möchte die Anmeldung sofort..."
+⚠️  Item 19 pack entry has passesQualityGates: false but is approved. Consider reviewing quality gate failures.
+   📄 /v1/workspaces/de/context/index.json: 5 pages, 89 items
+⚠️  Item 0 pack entry prompt 0 text may not contain a verb-like token: "Sie helfe um 9 Uhr manager..."
+⚠️  Item 0 pack entry prompt 1 text may not contain a verb-like token: "Der Manager plant am Dienstag..."
+⚠️  Item 1 pack entry prompt 2 text may not contain a verb-like token: "Die Kollegin beginnt die Aufgabe am Montag..."
+⚠️  Item 1 pack entry prompt 3 text may not contain a verb-like token: "Ich organisiere die Besprechung am Montag..."
+⚠️  Item 1 pack entry prompt 4 text may not contain a verb-like token: "Wir beginnen das Projekt um 9 Uhr..."
+⚠️  Item 1 pack entry prompt 5 text may not contain a verb-like token: "Wir organisieren die Aufgabe..."
+⚠️  Item 2 pack entry prompt 0 text may not contain a verb-like token: "Der Manager beginnt am Dienstag..."
+⚠️  Item 2 pack entry prompt 1 text may not contain a verb-like token: "Die Kollegin plant um 14:30 aufgabe..."
+⚠️  Item 2 pack entry prompt 2 text may not contain a verb-like token: "Der Manager besprecht die Deadline am Montag..."
+⚠️  Item 2 pack entry prompt 3 text may not contain a verb-like token: "Sie vereinbaren das Projekt um 14:30..."
+⚠️  Item 2 pack entry prompt 5 text may not contain a verb-like token: "Der Manager helft die Besprechung..."
+⚠️  Item 2 pack entry prompt 6 text may not contain a verb-like token: "Ich bespreche den Termin..."
+⚠️  Item 3 pack entry prompt 0 text may not contain a verb-like token: "Sie planen morgen büro..."
+⚠️  Item 3 pack entry prompt 2 text may not contain a verb-like token: "Ich plane die Deadline um 9 Uhr..."
+⚠️  Item 3 pack entry prompt 3 text may not contain a verb-like token: "Wir besprechen das Projekt nächste Woche..."
+⚠️  Item 3 pack entry prompt 4 text may not contain a verb-like token: "Wir organisieren die Deadline um 9 Uhr..."
+⚠️  Item 3 pack entry prompt 6 text may not contain a verb-like token: "Sie helfen das Projekt..."
+⚠️  Item 4 pack entry prompt 4 text may not contain a verb-like token: "Ich helfe das Projekt am Montag..."
+⚠️  Item 4 pack entry prompt 5 text may not contain a verb-like token: "Sie vereinbaren den Termin..."
+⚠️  Item 4 pack entry prompt 6 text may not contain a verb-like token: "Sie besprechen die Deadline..."
+⚠️  Item 5 pack entry prompt 0 text may not contain a verb-like token: "Wir beginnen am Dienstag arbeit..."
+⚠️  Item 5 pack entry prompt 1 text may not contain a verb-like token: "Ich beginne morgen aufgabe..."
+⚠️  Item 5 pack entry prompt 4 text may not contain a verb-like token: "Sie organisieren die Deadline um 14:30..."
+⚠️  Item 5 pack entry prompt 5 text may not contain a verb-like token: "Wir planen das Projekt..."
+⚠️  Item 5 pack entry prompt 6 text may not contain a verb-like token: "Sie helfen das Meeting..."
+⚠️  Item 6 pack entry prompt 0 text may not contain a verb-like token: "Der Manager helft um 14:30..."
+⚠️  Item 6 pack entry prompt 1 text may not contain a verb-like token: "Sie organisieren am Dienstag kollege..."
+⚠️  Item 6 pack entry prompt 2 text may not contain a verb-like token: "Wir organisieren das Meeting morgen..."
+⚠️  Item 6 pack entry prompt 3 text may not contain a verb-like token: "Wir besprechen die Deadline am Dienstag..."
+⚠️  Item 6 pack entry prompt 5 text may not contain a verb-like token: "Ich plane das Meeting..."
+⚠️  Item 6 pack entry prompt 6 text may not contain a verb-like token: "Ich vereinbare das Meeting..."
+⚠️  Item 7 pack entry prompt 0 text may not contain a verb-like token: "Der Manager beginnt am Montag..."
+⚠️  Item 7 pack entry prompt 2 text may not contain a verb-like token: "Ich helfe den Termin um 14:30..."
+⚠️  Item 7 pack entry prompt 4 text may not contain a verb-like token: "Die Kollegin helft die Aufgabe um 14:30..."
+⚠️  Item 7 pack entry prompt 6 text may not contain a verb-like token: "Sie beginnen die Deadline..."
+⚠️  Item 8 pack entry prompt 0 text may not contain a verb-like token: "Die Kollegin helft um 14:30 meeting..."
+⚠️  Item 8 pack entry prompt 3 text may not contain a verb-like token: "Der Manager organisiert den Termin morgen..."
+⚠️  Item 8 pack entry prompt 6 text may not contain a verb-like token: "Der Manager helft die Aufgabe..."
+⚠️  Item 9 pack entry prompt 1 text may not contain a verb-like token: "Der Manager beginnt am Dienstag..."
+⚠️  Item 9 pack entry prompt 4 text may not contain a verb-like token: "Sie helfen die Deadline um 14:30..."
+⚠️  Item 9 pack entry prompt 6 text may not contain a verb-like token: "Ich organisiere die Besprechung..."
+⚠️  Item 10 pack entry prompt 0 text may not contain a verb-like token: "Sie beginnen am Dienstag termin..."
+⚠️  Item 10 pack entry prompt 1 text may not contain a verb-like token: "Sie beginnen um 9 Uhr arbeit..."
+⚠️  Item 10 pack entry prompt 2 text may not contain a verb-like token: "Die Kollegin vereinbart die Deadline am Montag..."
+⚠️  Item 10 pack entry prompt 3 text may not contain a verb-like token: "Ich beginne das Projekt morgen..."
+⚠️  Item 10 pack entry prompt 5 text may not contain a verb-like token: "Die Kollegin plant die Besprechung..."
+⚠️  Item 10 pack entry prompt 6 text may not contain a verb-like token: "Die Kollegin organisiert die Deadline..."
+⚠️  Item 11 pack entry prompt 0 text may not contain a verb-like token: "Ich beginne nächste Woche aufgabe..."
+⚠️  Item 11 pack entry prompt 1 text may not contain a verb-like token: "Sie besprechen am Montag termin..."
+⚠️  Item 11 pack entry prompt 5 text may not contain a verb-like token: "Wir organisieren die Besprechung..."
+⚠️  Item 11 pack entry prompt 6 text may not contain a verb-like token: "Ich vereinbare die Besprechung..."
+   📄 /v1/workspaces/de/context/work/index.json: 2 pages, 23 items
+   📄 /v1/workspaces/de/drills/index.json: 8 pages, 149 items
+❌ Validation errors:
+
+   content/meta/manifest.json: manifest.json not found in content/meta/
+   content/v1/workspaces/de/context/doctor/index.json: Item 0 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/doctor/index.json: Item 1 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/doctor/index.json: Item 2 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/doctor/index.json: Item 3 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/doctor/index.json: Item 4 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/doctor/index.json: Item 5 pack entry Quality Gate violation: insufficient subject variation (found 1 distinct subject(s), required: 2)
+   content/v1/workspaces/de/context/doctor/index.json: Item 5 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/doctor/index.json: Item 6 pack entry Quality Gate violation: insufficient subject variation (found 1 distinct subject(s), required: 2)
+   content/v1/workspaces/de/context/doctor/index.json: Item 6 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/doctor/index.json: Item 7 pack entry Quality Gate violation: insufficient subject variation (found 1 distinct subject(s), required: 2)
+   content/v1/workspaces/de/context/doctor/index.json: Item 7 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/doctor/index.json: Item 8 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/doctor/index.json: Item 8 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/doctor/index.json: Item 9 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/doctor/index.json: Item 9 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/doctor/index.json: Item 10 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/doctor/index.json: Item 10 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/doctor/index.json: Item 11 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/doctor/index.json: Item 11 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/friends_small_talk/index.json: Item 0 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/friends_small_talk/index.json: Item 1 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/friends_small_talk/index.json: Item 2 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/friends_small_talk/index.json: Item 3 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/friends_small_talk/index.json: Item 4 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/friends_small_talk/index.json: Item 5 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/friends_small_talk/index.json: Item 6 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/friends_small_talk/index.json: Item 7 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/friends_small_talk/index.json: Item 8 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/friends_small_talk/index.json: Item 9 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/friends_small_talk/index.json: Item 10 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/friends_small_talk/index.json: Item 11 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/friends_small_talk/index.json: Item 11 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/government_office/index.json: Item 0 pack entry prompt 2 natural_en should differ from gloss_en (natural_en should be a native English paraphrase, not identical to gloss_en)
+   content/v1/workspaces/de/context/government_office/index.json: Item 0 pack entry prompt 3 natural_en should differ from gloss_en (natural_en should be a native English paraphrase, not identical to gloss_en)
+   content/v1/workspaces/de/context/government_office/index.json: Item 0 pack entry prompt 4 natural_en should differ from gloss_en (natural_en should be a native English paraphrase, not identical to gloss_en)
+   content/v1/workspaces/de/context/government_office/index.json: Item 0 pack entry prompt 6 natural_en should differ from gloss_en (natural_en should be a native English paraphrase, not identical to gloss_en)
+   content/v1/workspaces/de/context/government_office/index.json: Item 0 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/government_office/index.json: Item 1 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/government_office/index.json: Item 2 pack entry prompt 0 natural_en should differ from gloss_en (natural_en should be a native English paraphrase, not identical to gloss_en)
+   content/v1/workspaces/de/context/government_office/index.json: Item 2 pack entry prompt 1 natural_en should differ from gloss_en (natural_en should be a native English paraphrase, not identical to gloss_en)
+   content/v1/workspaces/de/context/government_office/index.json: Item 2 pack entry prompt 3 natural_en should differ from gloss_en (natural_en should be a native English paraphrase, not identical to gloss_en)
+   content/v1/workspaces/de/context/government_office/index.json: Item 2 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/government_office/index.json: Item 3 pack entry prompt 4 natural_en should differ from gloss_en (natural_en should be a native English paraphrase, not identical to gloss_en)
+   content/v1/workspaces/de/context/government_office/index.json: Item 3 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/government_office/index.json: Item 4 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/government_office/index.json: Item 5 pack entry prompt 1 natural_en should differ from gloss_en (natural_en should be a native English paraphrase, not identical to gloss_en)
+   content/v1/workspaces/de/context/government_office/index.json: Item 5 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/housing/index.json: Item 0 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/housing/index.json: Item 0 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/housing/index.json: Item 1 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/housing/index.json: Item 1 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/housing/index.json: Item 2 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/housing/index.json: Item 2 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/housing/index.json: Item 3 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/housing/index.json: Item 3 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/housing/index.json: Item 4 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/housing/index.json: Item 4 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/housing/index.json: Item 5 pack entry Quality Gate violation: insufficient subject variation (found 1 distinct subject(s), required: 2)
+   content/v1/workspaces/de/context/housing/index.json: Item 5 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/housing/index.json: Item 5 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/housing/index.json: Item 6 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/housing/index.json: Item 6 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/housing/index.json: Item 7 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/housing/index.json: Item 7 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/housing/index.json: Item 8 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/housing/index.json: Item 8 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/housing/index.json: Item 9 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/housing/index.json: Item 9 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/housing/index.json: Item 10 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/housing/index.json: Item 10 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/housing/index.json: Item 11 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/housing/index.json: Item 11 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/index.json: Item 0 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/index.json: Item 1 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/index.json: Item 2 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/index.json: Item 3 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/index.json: Item 4 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/index.json: Item 5 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/index.json: Item 6 pack entry Quality Gate violation: insufficient subject variation (found 1 distinct subject(s), required: 2)
+   content/v1/workspaces/de/context/index.json: Item 6 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/index.json: Item 7 pack entry Quality Gate violation: insufficient subject variation (found 1 distinct subject(s), required: 2)
+   content/v1/workspaces/de/context/index.json: Item 7 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/index.json: Item 8 pack entry Quality Gate violation: insufficient subject variation (found 1 distinct subject(s), required: 2)
+   content/v1/workspaces/de/context/index.json: Item 8 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/index.json: Item 9 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/index.json: Item 10 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/index.json: Item 11 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/index.json: Item 12 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/index.json: Item 13 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/index.json: Item 14 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/index.json: Item 15 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/index.json: Item 16 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/index.json: Item 17 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/index.json: Item 18 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/index.json: Item 19 pack entry prompt 2 natural_en should differ from gloss_en (natural_en should be a native English paraphrase, not identical to gloss_en)
+   content/v1/workspaces/de/context/index.json: Item 19 pack entry prompt 3 natural_en should differ from gloss_en (natural_en should be a native English paraphrase, not identical to gloss_en)
+   content/v1/workspaces/de/context/index.json: Item 19 pack entry prompt 4 natural_en should differ from gloss_en (natural_en should be a native English paraphrase, not identical to gloss_en)
+   content/v1/workspaces/de/context/index.json: Item 19 pack entry prompt 6 natural_en should differ from gloss_en (natural_en should be a native English paraphrase, not identical to gloss_en)
+   content/v1/workspaces/de/context/index.json: Item 19 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/work/index.json: Item 0 pack entry prompt 0 slots["subject"][0] value "Ich" is not a substring of prompt text "Sie helfe um 9 Uhr manager"
+   content/v1/workspaces/de/context/work/index.json: Item 0 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/work/index.json: Item 0 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/work/index.json: Item 1 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/work/index.json: Item 1 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/work/index.json: Item 2 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/work/index.json: Item 2 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/work/index.json: Item 3 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/work/index.json: Item 3 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/work/index.json: Item 4 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/work/index.json: Item 4 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/work/index.json: Item 5 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/work/index.json: Item 5 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/work/index.json: Item 6 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/work/index.json: Item 6 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/work/index.json: Item 7 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/work/index.json: Item 7 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/work/index.json: Item 8 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/work/index.json: Item 8 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/work/index.json: Item 9 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/work/index.json: Item 9 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/work/index.json: Item 10 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/work/index.json: Item 10 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/context/work/index.json: Item 11 pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)
+   content/v1/workspaces/de/context/work/index.json: Item 11 entry document validation failed: prompts is not defined
+   content/v1/workspaces/de/drills/index.json: Item 18 drill entry prompt 5 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/drills/index.json: Item 19 drill entry prompt 5 text is too short (9 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/index.json: Missing or invalid field: pageSize (must be number)
+   content/v1/workspaces/de/mechanics/index.json: Missing or invalid field: page (must be number)
+   content/v1/workspaces/de/mechanics/index.json: Missing or invalid field: items (must be an array)
+   content/v1/workspaces/de/mechanics/negation/index.json: Item 0 drill entry prompt 5 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/negation/index.json: Item 1 drill entry prompt 5 text is too short (9 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/negation/index.json: Item 2 drill entry prompt 5 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/negation/index.json: Item 4 drill entry prompt 5 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/negation/index.json: Item 5 drill entry prompt 6 text is too short (8 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/negation/index.json: Item 7 drill entry prompt 5 text is too short (9 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/negation/index.json: Item 7 drill entry prompt 7 text is too short (9 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/negation/index.json: Item 8 drill entry prompt 5 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/negation/index.json: Item 12 drill entry prompt 5 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/negation/index.json: Item 13 drill entry prompt 5 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/negation/index.json: Item 13 drill entry prompt 7 text is too short (9 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/negation/index.json: Item 14 drill entry prompt 5 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/negation/index.json: Item 16 drill entry prompt 5 text is too short (9 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/negation/index.json: Item 16 drill entry prompt 7 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/negation/index.json: Item 17 drill entry prompt 5 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/negation/index.json: Item 17 drill entry prompt 6 text is too short (8 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/negation/index.json: Item 17 drill entry prompt 8 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/question_formation/index.json: Item 1 drill entry prompt 1 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/question_formation/index.json: Item 3 drill entry prompt 1 text is too short (9 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/question_formation/index.json: Item 4 drill entry prompt 1 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/question_formation/index.json: Item 6 drill entry prompt 1 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/question_formation/index.json: Item 7 drill entry prompt 1 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/question_formation/index.json: Item 9 drill entry prompt 1 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/question_formation/index.json: Item 10 drill entry prompt 1 text is too short (9 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/question_formation/index.json: Item 13 drill entry prompt 1 text is too short (9 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 0 drill entry prompt 1 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 0 drill entry prompt 2 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 0 drill entry prompt 3 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 0 drill entry prompt 4 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 0 drill entry prompt 5 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 1 drill entry prompt 0 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 1 drill entry prompt 1 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 1 drill entry prompt 2 text is too short (9 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 1 drill entry prompt 4 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 1 drill entry prompt 5 text is too short (9 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 2 drill entry prompt 1 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 2 drill entry prompt 4 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 3 drill entry prompt 0 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 3 drill entry prompt 1 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 3 drill entry prompt 2 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 3 drill entry prompt 4 text is too short (9 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 3 drill entry prompt 5 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 3 drill entry prompt 7 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 4 drill entry prompt 0 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 4 drill entry prompt 1 text is too short (9 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 4 drill entry prompt 2 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 4 drill entry prompt 4 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 4 drill entry prompt 5 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 4 drill entry prompt 6 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 4 drill entry prompt 7 text is too short (9 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 5 drill entry prompt 3 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 5 drill entry prompt 4 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 5 drill entry prompt 5 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 5 drill entry prompt 6 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 5 drill entry prompt 7 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 6 drill entry prompt 2 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 6 drill entry prompt 4 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 6 drill entry prompt 5 text is too short (9 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 6 drill entry prompt 6 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 6 drill entry prompt 7 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 6 drill entry prompt 8 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 6 drill entry prompt 9 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 7 drill entry prompt 0 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 7 drill entry prompt 1 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 7 drill entry prompt 2 text is too short (9 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 7 drill entry prompt 3 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 7 drill entry prompt 4 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 7 drill entry prompt 5 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 7 drill entry prompt 6 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 7 drill entry prompt 7 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 7 drill entry prompt 8 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 7 drill entry prompt 9 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 8 drill entry prompt 0 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 8 drill entry prompt 4 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 8 drill entry prompt 6 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 8 drill entry prompt 9 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 9 drill entry prompt 0 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 9 drill entry prompt 1 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 9 drill entry prompt 2 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 9 drill entry prompt 3 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 9 drill entry prompt 4 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 9 drill entry prompt 5 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 10 drill entry prompt 0 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 10 drill entry prompt 1 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 10 drill entry prompt 2 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 10 drill entry prompt 4 text is too short (9 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 10 drill entry prompt 5 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 11 drill entry prompt 0 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 11 drill entry prompt 1 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 12 drill entry prompt 0 text is too short (9 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 12 drill entry prompt 2 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 12 drill entry prompt 4 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 12 drill entry prompt 5 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 12 drill entry prompt 6 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 13 drill entry prompt 2 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 13 drill entry prompt 3 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 13 drill entry prompt 4 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 13 drill entry prompt 5 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 13 drill entry prompt 6 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 14 drill entry prompt 3 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 14 drill entry prompt 4 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 14 drill entry prompt 6 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 14 drill entry prompt 7 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 15 drill entry prompt 0 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 15 drill entry prompt 3 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 15 drill entry prompt 4 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 15 drill entry prompt 5 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 15 drill entry prompt 6 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 15 drill entry prompt 7 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 15 drill entry prompt 8 text is too short (9 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 15 drill entry prompt 9 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 16 drill entry prompt 0 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 16 drill entry prompt 3 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 16 drill entry prompt 4 text is too short (9 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 16 drill entry prompt 5 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 16 drill entry prompt 6 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 16 drill entry prompt 7 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 16 drill entry prompt 8 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 16 drill entry prompt 9 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 17 drill entry prompt 0 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 17 drill entry prompt 1 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 17 drill entry prompt 3 text is too short (9 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 17 drill entry prompt 4 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 17 drill entry prompt 6 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/time_expressions_inversion/index.json: Item 17 drill entry prompt 9 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 0 i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 0 i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 0 i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 0: shortTitle_i18n[ar] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 0: shortTitle_i18n[pl] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 0: shortTitle_i18n[nl] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 0 entry document i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 0 entry document i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 0 entry document i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 1 i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 1 i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 1 i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 1: shortTitle_i18n[ar] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 1: shortTitle_i18n[pl] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 1: shortTitle_i18n[nl] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 1 entry document i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 1 entry document i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 1 entry document i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 2 i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 2 i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 2 i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 2: shortTitle_i18n[ar] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 2: shortTitle_i18n[pl] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 2: shortTitle_i18n[nl] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 2 entry document i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 2 entry document i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 2 entry document i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 3 i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 3 i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 3 i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 3: shortTitle_i18n[ar] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 3: shortTitle_i18n[pl] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 3: shortTitle_i18n[nl] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 3 entry document i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 3 entry document i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 3 entry document i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 4 i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 4 i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 4 i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 4: shortTitle_i18n[ar] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 4: shortTitle_i18n[pl] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 4: shortTitle_i18n[nl] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 4 entry document i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 4 entry document i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 4 entry document i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 5 i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 5 i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 5 i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 5: shortTitle_i18n[ar] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 5: shortTitle_i18n[pl] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 5: shortTitle_i18n[nl] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 5 entry document i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 5 entry document i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 5 entry document i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 6 i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 6 i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 6 i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 6: shortTitle_i18n[ar] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 6: shortTitle_i18n[pl] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 6: shortTitle_i18n[nl] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 6 entry document i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 6 entry document i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 6 entry document i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 7 i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 7 i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 7 i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 7: shortTitle_i18n[ar] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 7: shortTitle_i18n[pl] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 7: shortTitle_i18n[nl] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 7 entry document i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 7 entry document i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 7 entry document i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 8 i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 8 i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 8 i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 8: shortTitle_i18n[ar] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 8: shortTitle_i18n[pl] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 8: shortTitle_i18n[nl] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 8 entry document i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 8 entry document i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 8 entry document i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 9 i18n validation: shortTitle_i18n["ru"] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 9 i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 9 i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 9 i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 9: shortTitle_i18n[ru] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 9: shortTitle_i18n[ar] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 9: shortTitle_i18n[pl] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 9: shortTitle_i18n[nl] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 9 entry document i18n validation: shortTitle_i18n["ru"] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 9 entry document i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 9 entry document i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 9 entry document i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 10 i18n validation: shortTitle_i18n["ru"] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 10 i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 10 i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 10 i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 10: shortTitle_i18n[ru] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 10: shortTitle_i18n[ar] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 10: shortTitle_i18n[pl] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 10: shortTitle_i18n[nl] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 10 entry document i18n validation: shortTitle_i18n["ru"] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 10 entry document i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 10 entry document i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 10 entry document i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 11 i18n validation: shortTitle_i18n["ru"] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 11 i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 11 i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 11 i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 11: shortTitle_i18n[ru] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 11: shortTitle_i18n[ar] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 11: shortTitle_i18n[pl] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 11: shortTitle_i18n[nl] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 11 entry document i18n validation: shortTitle_i18n["ru"] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 11 entry document i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 11 entry document i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 11 entry document i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 12 i18n validation: shortTitle_i18n["ru"] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 12 i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 12 i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 12 i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 12: shortTitle_i18n[ru] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 12: shortTitle_i18n[ar] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 12: shortTitle_i18n[pl] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 12: shortTitle_i18n[nl] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 12 entry document i18n validation: shortTitle_i18n["ru"] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 12 entry document i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 12 entry document i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 12 entry document i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 13 i18n validation: shortTitle_i18n["ru"] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 13 i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 13 i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 13 i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 13: shortTitle_i18n[ru] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 13: shortTitle_i18n[ar] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 13: shortTitle_i18n[pl] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 13: shortTitle_i18n[nl] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 13 entry document i18n validation: shortTitle_i18n["ru"] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 13 entry document i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 13 entry document i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 13 entry document i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 14 i18n validation: shortTitle_i18n["ru"] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 14 i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 14 i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 14 i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 14: shortTitle_i18n[ru] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 14: shortTitle_i18n[ar] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 14: shortTitle_i18n[pl] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 14: shortTitle_i18n[nl] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 14 entry document i18n validation: shortTitle_i18n["ru"] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 14 entry document i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 14 entry document i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 14 entry document i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 15 i18n validation: shortTitle_i18n["ru"] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 15 i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 15 i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 15 i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 15: shortTitle_i18n[ru] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 15: shortTitle_i18n[ar] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 15: shortTitle_i18n[pl] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 15: shortTitle_i18n[nl] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 15 entry document i18n validation: shortTitle_i18n["ru"] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 15 entry document i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 15 entry document i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 15 entry document i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 16 i18n validation: shortTitle_i18n["ru"] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 16 i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 16 i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 16 i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 16: shortTitle_i18n[ru] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 16: shortTitle_i18n[ar] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 16: shortTitle_i18n[pl] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 16: shortTitle_i18n[nl] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 16 entry document i18n validation: shortTitle_i18n["ru"] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 16 entry document i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 16 entry document i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 16 entry document i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 17 i18n validation: shortTitle_i18n["ru"] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 17 i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 17 i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 17 i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 17: shortTitle_i18n[ru] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 17: shortTitle_i18n[ar] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 17: shortTitle_i18n[pl] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 17: shortTitle_i18n[nl] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 17 entry document i18n validation: shortTitle_i18n["ru"] exceeds max length (29 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 17 entry document i18n validation: shortTitle_i18n["ar"] exceeds max length (30 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 17 entry document i18n validation: shortTitle_i18n["pl"] exceeds max length (35 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: Item 17 entry document i18n validation: shortTitle_i18n["nl"] exceeds max length (31 > 28)
+   content/v1/workspaces/de/mechanics/verb_present_tense/index.json: QUALITY GATE FAILED: Duplicate titles detected in /Users/simpumind/Desktop/Projects/getverba-content/content/v1/workspaces/de/mechanics/verb_present_tense/index.json
+- "Verb Present Tense: A1 (Tier 1)" used by: verb_present_tense_a1_tier1_contrast-pairs, verb_present_tense_a1_tier1_pattern-switch, verb_present_tense_a1_tier1_slot-substitution
+- "Verb Present Tense: A1 (Tier 2)" used by: verb_present_tense_a1_tier2_contrast-pairs, verb_present_tense_a1_tier2_pattern-switch, verb_present_tense_a1_tier2_slot-substitution
+- "Verb Present Tense: A1 (Tier 3)" used by: verb_present_tense_a1_tier3_contrast-pairs, verb_present_tense_a1_tier3_pattern-switch, verb_present_tense_a1_tier3_slot-substitution
+- "Verb Present Tense: A2 (Tier 1)" used by: verb_present_tense_a2_tier1_contrast-pairs, verb_present_tense_a2_tier1_pattern-switch, verb_present_tense_a2_tier1_slot-substitution
+- "Verb Present Tense: A2 (Tier 2)" used by: verb_present_tense_a2_tier2_contrast-pairs, verb_present_tense_a2_tier2_pattern-switch, verb_present_tense_a2_tier2_slot-substitution
+- "Verb Present Tense: A2 (Tier 3)" used by: verb_present_tense_a2_tier3_contrast-pairs, verb_present_tense_a2_tier3_pattern-switch, verb_present_tense_a2_tier3_slot-substitution
+   content/v1/workspaces/de/mechanics/word_order_main_clause/index.json: Item 1 drill entry prompt 5 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/word_order_main_clause/index.json: Item 3 drill entry prompt 5 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/word_order_main_clause/index.json: Item 5 drill entry prompt 5 text is too short (11 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/word_order_main_clause/index.json: Item 6 drill entry prompt 5 text is too short (10 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/word_order_main_clause/index.json: Item 13 drill entry prompt 3 text is too short (9 chars). Min is 12 chars.
+   content/v1/workspaces/de/mechanics/word_order_main_clause/index.json: Item 14 drill entry prompt 3 text is too short (9 chars). Min is 12 chars.
+   content/v1/workspaces/de/tracks/index.json: Item 0 track entry items[0] entryUrl does not exist: /v1/workspaces/de/packs/anmeldung_basics/pack.json
+   content/v1/workspaces/de/tracks/index.json: Item 1 track entry items[1] entryUrl does not exist: /v1/workspaces/de/packs/terminvereinbarung/pack.json
+   content/v1/workspaces/de/tracks/index.json: Item 2 track entry items[2] entryUrl does not exist: /v1/workspaces/de/packs/aufenthaltstitel_basics/pack.json
+   content/v1/workspaces/de/tracks/index.json: Item 3 track entry items[3] entryUrl does not exist: /v1/workspaces/de/packs/passport_documents/pack.json
+   content/v1/workspaces/de/tracks/index.json: Item 4 track entry items[4] entryUrl does not exist: /v1/workspaces/de/packs/counter_qa_basics/pack.json
+   content/v1/workspaces/de/tracks/index.json: Item 5 track entry items[5] entryUrl does not exist: /v1/workspaces/de/drills/formal_address_a1/drill.json
+   content/v1/workspaces/de/tracks/index.json: Item 6 track entry items[6] entryUrl does not exist: /v1/workspaces/de/drills/document_vocabulary_a1/drill.json
+   content/v1/workspaces/test-ws/catalog.json: Workspace "test-ws" missing catalog.json
+
+❌ Validation failed with 459 error(s)

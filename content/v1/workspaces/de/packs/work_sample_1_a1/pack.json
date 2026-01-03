@@ -27,8 +27,11 @@
       "id": "prompt-001",
       "text": "Sie helfe um 9 Uhr manager",
       "intent": "schedule",
-      "gloss_en": "I need to schedule something.",
-      "natural_en": "I need to schedule that.",
+      "gloss_en": "I help at 9 o'clock.",
+      "gloss_en_i18n": {
+        "en": "I help at 9 o'clock."
+      },
+      "natural_en": "I'll help at 9 o'clock.",
       "audioUrl": "/v1/audio/work_sample_1_a1/prompt-001.mp3",
       "slotsChanged": [
         "subject",
@@ -37,7 +40,7 @@
       ],
       "slots": {
         "subject": [
-          "Ich"
+          "Sie"
         ],
         "verb": [
           "helfe"
@@ -51,8 +54,11 @@
       "id": "prompt-002",
       "text": "Der Manager plant am Dienstag",
       "intent": "schedule",
-      "gloss_en": "I need to schedule something.",
-      "natural_en": "I need to schedule that.",
+      "gloss_en": "The manager is planning for Tuesday.",
+      "gloss_en_i18n": {
+        "en": "The manager is planning for Tuesday."
+      },
+      "natural_en": "The manager plans on Tuesday.",
       "audioUrl": "/v1/audio/work_sample_1_a1/prompt-002.mp3",
       "slotsChanged": [
         "subject",
@@ -75,8 +81,11 @@
       "id": "prompt-003",
       "text": "Die Kollegin soll das Projekt um 9 Uhr",
       "intent": "schedule",
-      "gloss_en": "I am working on the project.",
-      "natural_en": "I'm working on that project.",
+      "gloss_en": "The colleague should work on the project at 9 o'clock.",
+      "gloss_en_i18n": {
+        "en": "The colleague should work on the project at 9 o'clock."
+      },
+      "natural_en": "The colleague should handle the project at 9.",
       "audioUrl": "/v1/audio/work_sample_1_a1/prompt-003.mp3",
       "slotsChanged": [
         "subject",
@@ -103,8 +112,11 @@
       "id": "prompt-004",
       "text": "Ich muss den Termin nächste Woche",
       "intent": "schedule",
-      "gloss_en": "I need to schedule something.",
-      "natural_en": "I need to schedule that.",
+      "gloss_en": "I must schedule the appointment next week.",
+      "gloss_en_i18n": {
+        "en": "I must schedule the appointment next week."
+      },
+      "natural_en": "I need to schedule the appointment for next week.",
       "audioUrl": "/v1/audio/work_sample_1_a1/prompt-004.mp3",
       "slotsChanged": [
         "subject",
@@ -131,8 +143,11 @@
       "id": "prompt-005",
       "text": "Der Manager muss das Projekt morgen",
       "intent": "inform",
-      "gloss_en": "I am working on the project.",
-      "natural_en": "I'm working on that project.",
+      "gloss_en": "The manager must work on the project tomorrow.",
+      "gloss_en_i18n": {
+        "en": "The manager must work on the project tomorrow."
+      },
+      "natural_en": "The manager needs to handle the project tomorrow.",
       "audioUrl": "/v1/audio/work_sample_1_a1/prompt-005.mp3",
       "slotsChanged": [
         "subject",
@@ -158,8 +173,11 @@
       "id": "prompt-006",
       "text": "Die Kollegin kann den Termin",
       "intent": "request",
-      "gloss_en": "I would like to request something.",
-      "natural_en": "I'd like to request that.",
+      "gloss_en": "The colleague can schedule the appointment.",
+      "gloss_en_i18n": {
+        "en": "The colleague can schedule the appointment."
+      },
+      "natural_en": "The colleague is available for the appointment.",
       "audioUrl": "/v1/audio/work_sample_1_a1/prompt-006.mp3",
       "slotsChanged": [
         "subject",
@@ -180,10 +198,13 @@
     },
     {
       "id": "prompt-007",
-      "text": "Wir soll den Termin",
+      "text": "Wir soll den Termin morgen",
       "intent": "schedule",
-      "gloss_en": "I need to schedule something.",
-      "natural_en": "I need to schedule that.",
+      "gloss_en": "We should schedule the appointment.",
+      "gloss_en_i18n": {
+        "en": "We should schedule the appointment."
+      },
+      "natural_en": "We need to set up the appointment.",
       "audioUrl": "/v1/audio/work_sample_1_a1/prompt-007.mp3",
       "slotsChanged": [
         "subject",
@@ -198,6 +219,9 @@
         ],
         "object": [
           "den Termin"
+        ],
+        "modifier": [
+          "morgen"
         ]
       }
     }
@@ -276,7 +300,7 @@
     "multiSlotRate": 1,
     "scenarioTokenHitAvg": 1.1428571428571428,
     "scenarioTokenQualifiedRate": 0.14285714285714285,
-    "uniqueTokenRate": 0.6,
+    "uniqueTokenRate": 0.5853658536585366,
     "bannedPhraseViolations": 0,
     "passesQualityGates": false,
     "focus": "modal_verbs",
@@ -320,15 +344,55 @@
     "generatedAt": "2025-12-31T07:59:40.827Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T08:26:06.993Z"
   },
   "contentId": "de:pack:work_sample_1_a1",
   "contentHash": "ef4cd17ff59113804094ad9285dd6f5958103a971ad24f7fc666190d469d7fc7",
   "revisionId": "ef4cd17ff591",
   "title_i18n": {
-    "en": "Work A1 — Sample 1"
+    "en": "Work A1 — Sample 1",
+    "es": "Trabajo A1 - Muestra 1",
+    "fr": "Travail A1 - Échantillon 1",
+    "it": "Lavoro A1 - Campione 1",
+    "pt": "Trabalho A1 - Amostra 1",
+    "ru": "Работа A1 - Образец 1",
+    "ja": "ワークA1 - サンプル1",
+    "ko": "작품 A1 - 샘플 1",
+    "zh-CN": "作品 A1 - 样本 1",
+    "zh-TW": "作品 A1 - 样本 1",
+    "ar": "العمل أ 1 - العينة 1",
+    "tr": "Çalışma A1 - Örnek 1",
+    "pl": "Praca A1 - Próbka 1",
+    "nl": "Werk A1 - Voorbeeld 1",
+    "sv": "Arbete A1 - Prov 1",
+    "no": "Arbeid A1 - Eksempel 1",
+    "da": "Arbejde A1 - Prøve 1",
+    "fi": "Työ A1 - Näyte 1",
+    "el": "Εργασία Α1 - Δείγμα 1",
+    "cs": "Práce A1 - Vzorek 1"
   },
   "description_i18n": {
-    "en": "Practice work scenarios at A1 level."
+    "en": "Practice work scenarios at A1 level.",
+    "es": "Practicar escenarios de trabajo a nivel A1.",
+    "fr": "Pratiquer des scénarios de travail au niveau A1.",
+    "it": "Esercitarsi in scenari di lavoro a livello A1.",
+    "pt": "Praticar cenários de trabalho ao nível A1.",
+    "ru": "Отработайте сценарии работы на уровне A1.",
+    "ja": "A1レベルの仕事のシナリオを練習する。",
+    "ko": "A1 수준의 업무 시나리오를 연습하세요.",
+    "zh-CN": "练习 A1 级的工作场景。",
+    "zh-TW": "练习 A1 级的工作场景。",
+    "ar": "ممارسة سيناريوهات العمل على المستوى A1.",
+    "tr": "A1 seviyesinde çalışma senaryoları uygulayın.",
+    "pl": "Przećwicz scenariusze pracy na poziomie A1.",
+    "nl": "Oefen werkscenario's op A1-niveau.",
+    "sv": "Öva på arbetsscenarier på A1-nivå.",
+    "no": "Øv på arbeidsscenarioer på A1-nivå.",
+    "da": "Øv dig i arbejdsscenarier på A1-niveau.",
+    "fi": "Harjoitellaan A1-tason työkuvioita.",
+    "el": "Εξάσκηση σε σενάρια εργασίας σε επίπεδο Α1.",
+    "cs": "Procvičování pracovních scénářů na úrovni A1."
   }
 }

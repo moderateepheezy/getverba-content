@@ -50,6 +50,28 @@
         "modifier": [
           "um 20:30"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     },
     {
@@ -79,6 +101,28 @@
         "modifier": [
           "abends"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     },
     {
@@ -108,6 +152,28 @@
         "modifier": [
           "um 19 Uhr"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something.",
+        "es": "Me gustaría solicitar algo.",
+        "fr": "Je voudrais demander quelque chose.",
+        "it": "Vorrei chiedere una cosa.",
+        "pt": "Gostaria de fazer um pedido.",
+        "ru": "Я хотел бы попросить кое-что.",
+        "ja": "お願いしたいことがある。",
+        "ko": "요청하고 싶은 것이 있습니다.",
+        "zh-CN": "我有个请求。",
+        "zh-TW": "我有个请求。",
+        "ar": "أود أن أطلب شيئاً.",
+        "tr": "Bir şey rica etmek istiyorum.",
+        "pl": "Chciałbym o coś poprosić.",
+        "nl": "Ik wil graag iets aanvragen.",
+        "sv": "Jag skulle vilja be om en sak.",
+        "no": "Jeg vil gjerne be om noe.",
+        "da": "Jeg vil gerne bede om noget.",
+        "fi": "Haluaisin pyytää jotakin.",
+        "el": "Θα ήθελα να ζητήσω κάτι.",
+        "cs": "Chtěl bych o něco požádat."
       }
     },
     {
@@ -136,6 +202,28 @@
         "modifier": [
           "um 20:30"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     },
     {
@@ -160,6 +248,28 @@
         "object": [
           "Lust"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     },
     {
@@ -184,6 +294,28 @@
         "object": [
           "einen Film"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     },
     {
@@ -208,6 +340,28 @@
         "object": [
           "einen Spaziergang"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     },
     {
@@ -232,6 +386,28 @@
         "object": [
           "ins Café cafe"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something.",
+        "es": "Me gustaría solicitar algo.",
+        "fr": "Je voudrais demander quelque chose.",
+        "it": "Vorrei chiedere una cosa.",
+        "pt": "Gostaria de fazer um pedido.",
+        "ru": "Я хотел бы попросить кое-что.",
+        "ja": "お願いしたいことがある。",
+        "ko": "요청하고 싶은 것이 있습니다.",
+        "zh-CN": "我有个请求。",
+        "zh-TW": "我有个请求。",
+        "ar": "أود أن أطلب شيئاً.",
+        "tr": "Bir şey rica etmek istiyorum.",
+        "pl": "Chciałbym o coś poprosić.",
+        "nl": "Ik wil graag iets aanvragen.",
+        "sv": "Jag skulle vilja be om en sak.",
+        "no": "Jeg vil gjerne be om noe.",
+        "da": "Jeg vil gerne bede om noget.",
+        "fi": "Haluaisin pyytää jotakin.",
+        "el": "Θα ήθελα να ζητήσω κάτι.",
+        "cs": "Chtěl bych o něco požádat."
       }
     },
     {
@@ -256,6 +432,28 @@
         "object": [
           "ins Café gym"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     },
     {
@@ -284,6 +482,28 @@
         "modifier": [
           "um 20:30"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something.",
+        "es": "Me gustaría solicitar algo.",
+        "fr": "Je voudrais demander quelque chose.",
+        "it": "Vorrei chiedere una cosa.",
+        "pt": "Gostaria de fazer um pedido.",
+        "ru": "Я хотел бы попросить кое-что.",
+        "ja": "お願いしたいことがある。",
+        "ko": "요청하고 싶은 것이 있습니다.",
+        "zh-CN": "我有个请求。",
+        "zh-TW": "我有个请求。",
+        "ar": "أود أن أطلب شيئاً.",
+        "tr": "Bir şey rica etmek istiyorum.",
+        "pl": "Chciałbym o coś poprosić.",
+        "nl": "Ik wil graag iets aanvragen.",
+        "sv": "Jag skulle vilja be om en sak.",
+        "no": "Jeg vil gjerne be om noe.",
+        "da": "Jeg vil gerne bede om noget.",
+        "fi": "Haluaisin pyytää jotakin.",
+        "el": "Θα ήθελα να ζητήσω κάτι.",
+        "cs": "Chtěl bych o něco požádat."
       }
     },
     {
@@ -312,6 +532,28 @@
         "modifier": [
           "heute"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     },
     {
@@ -340,6 +582,28 @@
         "modifier": [
           "später"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     }
   ],
@@ -473,15 +737,55 @@
     "generatedAt": "2026-01-01T00:56:10.963Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T07:30:00.000Z"
   },
   "contentId": "de:pack:friends_small_talk_pack_8_a1",
   "contentHash": "1bf881a609c5a10511957cec95696a95c2ca2c9fb09a958882033bac9a159eaa",
   "revisionId": "1bf881a609c5",
   "title_i18n": {
-    "en": "Friends Small Talk A1 — 8: Responding"
+    "en": "Friends Small Talk A1 — 8: Responding",
+    "es": "Charla de amigos A1 - 8: Responder",
+    "fr": "Friends Small Talk A1 - 8 : Répondre",
+    "it": "Piccole chiacchiere tra amici A1 - 8: Rispondere",
+    "pt": "Conversa de amigos A1 - 8: Responder",
+    "ru": "Светская беседа с друзьями A1 - 8: ответная реакция",
+    "ja": "友達の世間話 A1 - 8: 応答する",
+    "ko": "친구 스몰토크 A1 - 8: 응답하기",
+    "zh-CN": "朋友之间的小交谈 A1 - 8：回应",
+    "zh-TW": "朋友之间的小交谈 A1 - 8：回应",
+    "ar": "حديث الأصدقاء الصغار أ1 - 8: الاستجابة",
+    "tr": "Arkadaşlar Küçük Konuşma A1 - 8: Yanıt Verme",
+    "pl": "Przyjaciele Small Talk A1 - 8: Odpowiadanie",
+    "nl": "Vrienden Small Talk A1 - 8: Reageren",
+    "sv": "Friends Small Talk A1 - 8: Att svara",
+    "no": "Venners småprat A1 - 8: Å svare",
+    "da": "Venner Small Talk A1 - 8: Svar på spørgsmål",
+    "fi": "Ystävät Small Talk A1 - 8: Vastaaminen",
+    "el": "Φίλοι Small Talk A1 - 8: Ανταπόκριση",
+    "cs": "Přátelé Small Talk A1 - 8: Reakce"
   },
   "description_i18n": {
-    "en": "Practice friends_small_talk scenarios at A1 level."
+    "en": "Practice friends_small_talk scenarios at A1 level.",
+    "es": "Practicar escenarios de friends_small_talk en el nivel A1.",
+    "fr": "Pratiquez les scénarios friends_small_talk au niveau A1.",
+    "it": "Esercitatevi con gli scenari di friends_small_talk a livello A1.",
+    "pt": "Praticar cenários friends_small_talk ao nível A1.",
+    "ru": "Отработайте сценарии friends_small_talk на уровне A1.",
+    "ja": "friends_small_talkのシナリオをA1レベルで練習する。",
+    "ko": "A1 레벨의 친구_small_talk 시나리오를 연습하세요.",
+    "zh-CN": "以 A1 水平练习朋友之间的小对话。",
+    "zh-TW": "以 A1 水平练习朋友之间的小对话。",
+    "ar": "تدرّب على سيناريوهات_حديث_الأصدقاء_الصغير_والحديث على المستوى A1.",
+    "tr": "A1 seviyesinde friends_small_talk senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze friends_small_talk na poziomie A1.",
+    "nl": "Oefen friends_small_talk scenario's op A1-niveau.",
+    "sv": "Öva på friends_small_talk-scenarier på A1-nivå.",
+    "no": "Øv på friends_small_talk-scenarioer på A1-nivå.",
+    "da": "Øv dig på friends_small_talk-scenarier på A1-niveau.",
+    "fi": "Harjoittele friends_small_talk-skenaarioita A1-tasolla.",
+    "el": "Εξάσκηση σε σενάρια friends_small_talk σε επίπεδο Α1.",
+    "cs": "Procvičování scénářů friends_small_talk na úrovni A1."
   }
 }

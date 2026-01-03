@@ -1,228 +1,399 @@
 {
   "version": "v1",
   "kind": "drills",
-  "total": 149,
+  "total": 144,
   "pageSize": 20,
   "page": 1,
   "items": [
     {
+      "id": "accusative_articles_a1",
+      "kind": "drill",
+      "title": "Accusative Articles",
+      "level": "A1",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/accusative_articles_a1/drill.json",
+      "contentId": "de:drill:accusative_articles_a1",
+      "revisionId": "000000000000",
+      "tags": [
+        "grammar",
+        "articles",
+        "accusative"
+      ],
+      "domainKind": "context"
+    },
+    {
       "id": "case_endings_akkusativ_a1_tier1_contrast-pairs",
       "kind": "drill",
-      "title": "Case Endings: Akkusativ: A1 (Tier 1)",
+      "title": "Case Endings: Akkusativ: A1 (Tier 1) - Pairs",
       "level": "A1",
       "durationMinutes": 3,
       "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier1_contrast-pairs/drill.json",
       "contentId": "de:drill:case_endings_akkusativ_a1_tier1_contrast-pairs",
-      "revisionId": "8c366baebcec",
+      "revisionId": "88049d115ba3",
+      "title_i18n": {
+        "en": "Case Endings: Akkusativ: A1 (Tier 1) - Pairs"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - contrast pairs - Master accusative case endings (de"
+      },
+      "shortTitle_i18n": {
+        "en": "Case Endings: Akkus A1 Pairs"
+      },
       "domainKind": "context"
     },
     {
       "id": "case_endings_akkusativ_a1_tier1_pattern-switch",
       "kind": "drill",
-      "title": "Case Endings: Akkusativ: A1 (Tier 1)",
+      "title": "Case Endings: Akkusativ: A1 (Tier 1) - Pattern",
       "level": "A1",
       "durationMinutes": 3,
       "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier1_pattern-switch/drill.json",
       "contentId": "de:drill:case_endings_akkusativ_a1_tier1_pattern-switch",
-      "revisionId": "8d64e7ec49f1",
+      "revisionId": "4846c18e9a7b",
+      "title_i18n": {
+        "en": "Case Endings: Akkusativ: A1 (Tier 1) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - pattern switch - Master accusative case endings (de"
+      },
+      "shortTitle_i18n": {
+        "en": "Case Endings: Akk A1 Pattern"
+      },
       "domainKind": "context"
     },
     {
       "id": "case_endings_akkusativ_a1_tier1_slot-substitution",
       "kind": "drill",
-      "title": "Case Endings: Akkusativ: A1 (Tier 1)",
+      "title": "Case Endings: Akkusativ: A1 (Tier 1) - Slot",
       "level": "A1",
       "durationMinutes": 3,
       "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier1_slot-substitution/drill.json",
       "contentId": "de:drill:case_endings_akkusativ_a1_tier1_slot-substitution",
-      "revisionId": "6352ab71dabc",
+      "revisionId": "f43caa75b347",
+      "title_i18n": {
+        "en": "Case Endings: Akkusativ: A1 (Tier 1) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - slot substitution - Master accusative case endings "
+      },
+      "shortTitle_i18n": {
+        "en": "Case Endings: Akkusa A1 Slot"
+      },
       "domainKind": "context"
     },
     {
       "id": "case_endings_akkusativ_a1_tier2_contrast-pairs",
       "kind": "drill",
-      "title": "Case Endings: Akkusativ: A1 (Tier 2)",
+      "title": "Case Endings: Akkusativ: A1 (Tier 2) - Pairs",
       "level": "A1",
       "durationMinutes": 4,
       "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier2_contrast-pairs/drill.json",
       "contentId": "de:drill:case_endings_akkusativ_a1_tier2_contrast-pairs",
-      "revisionId": "53b79a3f56c5",
+      "revisionId": "4518319f1243",
+      "title_i18n": {
+        "en": "Case Endings: Akkusativ: A1 (Tier 2) - Pairs"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - contrast pairs - Master accusative case endings (de"
+      },
+      "shortTitle_i18n": {
+        "en": "Case Endings: Akkus A1 Pairs"
+      },
       "domainKind": "context"
     },
     {
       "id": "case_endings_akkusativ_a1_tier2_pattern-switch",
       "kind": "drill",
-      "title": "Case Endings: Akkusativ: A1 (Tier 2)",
+      "title": "Case Endings: Akkusativ: A1 (Tier 2) - Pattern",
       "level": "A1",
       "durationMinutes": 4,
       "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier2_pattern-switch/drill.json",
       "contentId": "de:drill:case_endings_akkusativ_a1_tier2_pattern-switch",
-      "revisionId": "8f273b015d37",
+      "revisionId": "8a6dd0d7484c",
+      "title_i18n": {
+        "en": "Case Endings: Akkusativ: A1 (Tier 2) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - pattern switch - Master accusative case endings (de"
+      },
+      "shortTitle_i18n": {
+        "en": "Case Endings: Akk A1 Pattern"
+      },
       "domainKind": "context"
     },
     {
       "id": "case_endings_akkusativ_a1_tier2_slot-substitution",
       "kind": "drill",
-      "title": "Case Endings: Akkusativ: A1 (Tier 2)",
+      "title": "Case Endings: Akkusativ: A1 (Tier 2) - Slot",
       "level": "A1",
       "durationMinutes": 4,
       "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier2_slot-substitution/drill.json",
       "contentId": "de:drill:case_endings_akkusativ_a1_tier2_slot-substitution",
-      "revisionId": "0f1c2c2ef255",
+      "revisionId": "4144ab230779",
+      "title_i18n": {
+        "en": "Case Endings: Akkusativ: A1 (Tier 2) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - slot substitution - Master accusative case endings "
+      },
+      "shortTitle_i18n": {
+        "en": "Case Endings: Akkusa A1 Slot"
+      },
       "domainKind": "context"
     },
     {
       "id": "case_endings_akkusativ_a1_tier3_contrast-pairs",
       "kind": "drill",
-      "title": "Case Endings: Akkusativ: A1 (Tier 3)",
+      "title": "Case Endings: Akkusativ: A1 (Tier 3) - Pairs",
       "level": "A1",
       "durationMinutes": 5,
       "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier3_contrast-pairs/drill.json",
       "contentId": "de:drill:case_endings_akkusativ_a1_tier3_contrast-pairs",
-      "revisionId": "9bc35694b37b",
+      "revisionId": "9fa9bf60f611",
+      "title_i18n": {
+        "en": "Case Endings: Akkusativ: A1 (Tier 3) - Pairs"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - contrast pairs - Master accusative case endings (de"
+      },
+      "shortTitle_i18n": {
+        "en": "Case Endings: Akkus A1 Pairs"
+      },
       "domainKind": "context"
     },
     {
       "id": "case_endings_akkusativ_a1_tier3_pattern-switch",
       "kind": "drill",
-      "title": "Case Endings: Akkusativ: A1 (Tier 3)",
+      "title": "Case Endings: Akkusativ: A1 (Tier 3) - Pattern",
       "level": "A1",
       "durationMinutes": 5,
       "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier3_pattern-switch/drill.json",
       "contentId": "de:drill:case_endings_akkusativ_a1_tier3_pattern-switch",
-      "revisionId": "96f3a8d89807",
+      "revisionId": "cbf6007fd7dc",
+      "title_i18n": {
+        "en": "Case Endings: Akkusativ: A1 (Tier 3) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - pattern switch - Master accusative case endings (de"
+      },
+      "shortTitle_i18n": {
+        "en": "Case Endings: Akk A1 Pattern"
+      },
       "domainKind": "context"
     },
     {
       "id": "case_endings_akkusativ_a1_tier3_slot-substitution",
       "kind": "drill",
-      "title": "Case Endings: Akkusativ: A1 (Tier 3)",
+      "title": "Case Endings: Akkusativ: A1 (Tier 3) - Slot",
       "level": "A1",
       "durationMinutes": 5,
       "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier3_slot-substitution/drill.json",
       "contentId": "de:drill:case_endings_akkusativ_a1_tier3_slot-substitution",
-      "revisionId": "228cdd02ffaf",
+      "revisionId": "12ceb2292c68",
+      "title_i18n": {
+        "en": "Case Endings: Akkusativ: A1 (Tier 3) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - slot substitution - Master accusative case endings "
+      },
+      "shortTitle_i18n": {
+        "en": "Case Endings: Akkusa A1 Slot"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "dative_case_a1",
+      "kind": "drill",
+      "title": "Dative Case A1",
+      "level": "A1",
+      "durationMinutes": 10,
+      "entryUrl": "/v1/workspaces/de/drills/dative_case_a1/drill.json",
+      "contentId": "de:drill:dative_case_a1",
+      "revisionId": "000000000000",
+      "tags": [
+        "grammar",
+        "dative"
+      ],
       "domainKind": "context"
     },
     {
       "id": "modal_verbs_a1_tier1_contrast-pairs",
       "kind": "drill",
-      "title": "Modal Verbs: A1 (Tier 1)",
+      "title": "Modal Verbs: A1 (Tier 1) - Pairs",
       "level": "A1",
       "durationMinutes": 3,
       "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier1_contrast-pairs/drill.json",
       "contentId": "de:drill:modal_verbs_a1_tier1_contrast-pairs",
-      "revisionId": "03f093e850e8",
+      "revisionId": "5b059417601f",
+      "title_i18n": {
+        "en": "Modal Verbs: A1 (Tier 1) - Pairs"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - contrast pairs - Master modal verb patterns (können"
+      },
+      "shortTitle_i18n": {
+        "en": "Modal Verbs A1 Pairs"
+      },
       "domainKind": "context"
     },
     {
       "id": "modal_verbs_a1_tier1_pattern-switch",
       "kind": "drill",
-      "title": "Modal Verbs: A1 (Tier 1)",
+      "title": "Modal Verbs: A1 (Tier 1) - Pattern",
       "level": "A1",
       "durationMinutes": 3,
       "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier1_pattern-switch/drill.json",
       "contentId": "de:drill:modal_verbs_a1_tier1_pattern-switch",
-      "revisionId": "9ec9e699032a",
+      "revisionId": "2b9973623931",
+      "title_i18n": {
+        "en": "Modal Verbs: A1 (Tier 1) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - pattern switch - Master modal verb patterns (können"
+      },
+      "shortTitle_i18n": {
+        "en": "Modal Verbs A1 Pattern"
+      },
       "domainKind": "context"
     },
     {
       "id": "modal_verbs_a1_tier1_slot-substitution",
       "kind": "drill",
-      "title": "Modal Verbs: A1 (Tier 1)",
+      "title": "Modal Verbs: A1 (Tier 1) - Slot",
       "level": "A1",
       "durationMinutes": 3,
       "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier1_slot-substitution/drill.json",
       "contentId": "de:drill:modal_verbs_a1_tier1_slot-substitution",
-      "revisionId": "dc9f10dca541",
+      "revisionId": "92262addbffe",
+      "title_i18n": {
+        "en": "Modal Verbs: A1 (Tier 1) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - slot substitution - Master modal verb patterns (kön"
+      },
+      "shortTitle_i18n": {
+        "en": "Modal Verbs A1 Slot"
+      },
       "domainKind": "context"
     },
     {
       "id": "modal_verbs_a1_tier2_contrast-pairs",
       "kind": "drill",
-      "title": "Modal Verbs: A1 (Tier 2)",
+      "title": "Modal Verbs: A1 (Tier 2) - Pairs",
       "level": "A1",
       "durationMinutes": 4,
       "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier2_contrast-pairs/drill.json",
       "contentId": "de:drill:modal_verbs_a1_tier2_contrast-pairs",
-      "revisionId": "bb9d5171b801",
+      "revisionId": "cf97893e0742",
+      "title_i18n": {
+        "en": "Modal Verbs: A1 (Tier 2) - Pairs"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - contrast pairs - Master modal verb patterns (können"
+      },
+      "shortTitle_i18n": {
+        "en": "Modal Verbs A1 Pairs"
+      },
       "domainKind": "context"
     },
     {
       "id": "modal_verbs_a1_tier2_pattern-switch",
       "kind": "drill",
-      "title": "Modal Verbs: A1 (Tier 2)",
+      "title": "Modal Verbs: A1 (Tier 2) - Pattern",
       "level": "A1",
       "durationMinutes": 4,
       "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier2_pattern-switch/drill.json",
       "contentId": "de:drill:modal_verbs_a1_tier2_pattern-switch",
-      "revisionId": "c07c88a2269c",
+      "revisionId": "e3af65efbd40",
+      "title_i18n": {
+        "en": "Modal Verbs: A1 (Tier 2) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - pattern switch - Master modal verb patterns (können"
+      },
+      "shortTitle_i18n": {
+        "en": "Modal Verbs A1 Pattern"
+      },
       "domainKind": "context"
     },
     {
       "id": "modal_verbs_a1_tier2_slot-substitution",
       "kind": "drill",
-      "title": "Modal Verbs: A1 (Tier 2)",
+      "title": "Modal Verbs: A1 (Tier 2) - Slot",
       "level": "A1",
       "durationMinutes": 4,
       "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier2_slot-substitution/drill.json",
       "contentId": "de:drill:modal_verbs_a1_tier2_slot-substitution",
-      "revisionId": "4dd5c1b69879",
+      "revisionId": "0e91bb1565a2",
+      "title_i18n": {
+        "en": "Modal Verbs: A1 (Tier 2) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - slot substitution - Master modal verb patterns (kön"
+      },
+      "shortTitle_i18n": {
+        "en": "Modal Verbs A1 Slot"
+      },
       "domainKind": "context"
     },
     {
       "id": "modal_verbs_a1_tier3_contrast-pairs",
       "kind": "drill",
-      "title": "Modal Verbs: A1 (Tier 3)",
+      "title": "Modal Verbs: A1 (Tier 3) - Pairs",
       "level": "A1",
       "durationMinutes": 5,
       "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier3_contrast-pairs/drill.json",
       "contentId": "de:drill:modal_verbs_a1_tier3_contrast-pairs",
-      "revisionId": "aacd823f7d83",
+      "revisionId": "f9731934d6db",
+      "title_i18n": {
+        "en": "Modal Verbs: A1 (Tier 3) - Pairs"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - contrast pairs - Master modal verb patterns (können"
+      },
+      "shortTitle_i18n": {
+        "en": "Modal Verbs A1 Pairs"
+      },
       "domainKind": "context"
     },
     {
       "id": "modal_verbs_a1_tier3_pattern-switch",
       "kind": "drill",
-      "title": "Modal Verbs: A1 (Tier 3)",
+      "title": "Modal Verbs: A1 (Tier 3) - Pattern",
       "level": "A1",
       "durationMinutes": 5,
       "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier3_pattern-switch/drill.json",
       "contentId": "de:drill:modal_verbs_a1_tier3_pattern-switch",
-      "revisionId": "b5c83c02721a",
+      "revisionId": "be398bb1a0e8",
+      "title_i18n": {
+        "en": "Modal Verbs: A1 (Tier 3) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - pattern switch - Master modal verb patterns (können"
+      },
+      "shortTitle_i18n": {
+        "en": "Modal Verbs A1 Pattern"
+      },
       "domainKind": "context"
     },
     {
       "id": "modal_verbs_a1_tier3_slot-substitution",
       "kind": "drill",
-      "title": "Modal Verbs: A1 (Tier 3)",
+      "title": "Modal Verbs: A1 (Tier 3) - Slot",
       "level": "A1",
       "durationMinutes": 5,
       "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier3_slot-substitution/drill.json",
       "contentId": "de:drill:modal_verbs_a1_tier3_slot-substitution",
-      "revisionId": "b2ea869540f8",
-      "domainKind": "context"
-    },
-    {
-      "id": "negation_a1_tier1_error-trap",
-      "kind": "drill",
-      "title": "Negation: A1 (Tier 1)",
-      "level": "A1",
-      "durationMinutes": 3,
-      "entryUrl": "/v1/workspaces/de/drills/negation_a1_tier1_error-trap/drill.json",
-      "contentId": "de:drill:negation_a1_tier1_error-trap",
-      "revisionId": "c874dc36794b",
-      "domainKind": "context"
-    },
-    {
-      "id": "negation_a1_tier1_micro-transform",
-      "kind": "drill",
-      "title": "Negation: A1 (Tier 1)",
-      "level": "A1",
-      "durationMinutes": 3,
-      "entryUrl": "/v1/workspaces/de/drills/negation_a1_tier1_micro-transform/drill.json",
-      "contentId": "de:drill:negation_a1_tier1_micro-transform",
-      "revisionId": "7569902db2c7",
+      "revisionId": "f06bb77aba5b",
+      "title_i18n": {
+        "en": "Modal Verbs: A1 (Tier 3) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - slot substitution - Master modal verb patterns (kön"
+      },
+      "shortTitle_i18n": {
+        "en": "Modal Verbs A1 Slot"
+      },
       "domainKind": "context"
     }
   ],

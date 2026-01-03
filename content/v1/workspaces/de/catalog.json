@@ -11,9 +11,23 @@
       "title": "Context Library",
       "itemsUrl": "/v1/workspaces/de/context/index.json",
       "analyticsRollup": {
-        "scenarios": {},
-        "levels": {},
-        "primaryStructures": {}
+        "scenarios": {
+          "friends_small_talk": 24,
+          "doctor": 16,
+          "government_office": 6,
+          "housing": 20,
+          "work": 23
+        },
+        "levels": {
+          "A1": 36,
+          "A2": 45,
+          "B1": 8
+        },
+        "primaryStructures": {
+          "modal_verbs_suggestions": 24,
+          "modal_verbs_requests": 45,
+          "dative_case": 20
+        }
       },
       "title_i18n": {
         "en": "Context Library"
@@ -25,9 +39,18 @@
       "title": "Speaking Drills",
       "itemsUrl": "/v1/workspaces/de/drills/index.json",
       "analyticsRollup": {
-        "scenarios": {},
-        "levels": {},
-        "primaryStructures": {}
+        "scenarios": {
+          "work": 1,
+          "mechanics": 1
+        },
+        "levels": {
+          "A1": 76,
+          "A2": 70
+        },
+        "primaryStructures": {
+          "greeting_formulas": 1,
+          "present_tense_conjugation": 1
+        }
       },
       "title_i18n": {
         "en": "Speaking Drills"
@@ -39,9 +62,18 @@
       "title": "Mechanics Drills",
       "itemsUrl": "/v1/workspaces/de/mechanics/index.json",
       "analyticsRollup": {
-        "scenarios": {},
-        "levels": {},
-        "primaryStructures": {}
+        "scenarios": {
+          "work": 1,
+          "mechanics": 1
+        },
+        "levels": {
+          "A1": 76,
+          "A2": 70
+        },
+        "primaryStructures": {
+          "greeting_formulas": 1,
+          "present_tense_conjugation": 1
+        }
       },
       "title_i18n": {
         "en": "Mechanics Drills"
@@ -54,7 +86,13 @@
       "itemsUrl": "/v1/workspaces/de/exams/index.json",
       "analyticsRollup": {
         "scenarios": {},
-        "levels": {},
+        "levels": {
+          "A1": 2,
+          "A2": 2,
+          "B1": 3,
+          "B2": 2,
+          "C1": 2
+        },
         "primaryStructures": {}
       },
       "title_i18n": {
@@ -67,8 +105,12 @@
       "title": "Guided Tracks",
       "itemsUrl": "/v1/workspaces/de/tracks/index.json",
       "analyticsRollup": {
-        "scenarios": {},
-        "levels": {},
+        "scenarios": {
+          "government_office": 1
+        },
+        "levels": {
+          "A1": 1
+        },
         "primaryStructures": {}
       },
       "title_i18n": {

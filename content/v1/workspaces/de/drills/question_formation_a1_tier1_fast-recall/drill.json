@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A1",
-  "title": "Question Formation: A1 (Tier 1)",
-  "shortTitle": "Question Formation A1",
+  "title": "Question Formation: A1 (Tier 1) - Recall",
+  "shortTitle": "Question Formation A1 Recall",
   "subtitle": "Tier 1 - fast recall - Form questions using question words a",
   "estimatedMinutes": 3,
   "mechanicId": "question_formation",
@@ -17,7 +17,9 @@
   "variationSlots": [
     "subject",
     "verb",
-    "object"
+    "object",
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -60,14 +62,74 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "er macht eine.",
+      "text": "Sie habt alleine das Buch hast.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "er macht eine.",
+      "natural_en": "Sie habt alleine das Buch.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "habt"
+        ],
+        "object": [
+          "das Buch"
+        ],
+        "modifier": [
+          "alleine",
+          "hast"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A1_tier1/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "sie seit wirklich das Buch wie.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "sie seit wirklich das Buch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "sie"
+        ],
+        "verb": [
+          "seit"
+        ],
+        "object": [
+          "das Buch"
+        ],
+        "modifier": [
+          "wirklich",
+          "wie"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A1_tier1/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "er macht oft in die Stadt eine gehst.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "er macht oft in die Stadt eine.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "location"
       ],
       "slots": {
         "subject": [
@@ -78,64 +140,79 @@
         ],
         "object": [
           "eine"
-        ]
-      },
-      "audioUrl": "/v1/audio/question_formation_A1_tier1/prompt-001.mp3"
-    },
-    {
-      "id": "prompt-002",
-      "text": "du seist das.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "du seist das.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "du"
         ],
-        "verb": [
-          "seist"
+        "modifier": [
+          "oft",
+          "gehst"
         ],
-        "object": [
-          "das"
-        ]
-      },
-      "audioUrl": "/v1/audio/question_formation_A1_tier1/prompt-002.mp3"
-    },
-    {
-      "id": "prompt-003",
-      "text": "du kommst das.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "du kommst das.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "du"
-        ],
-        "verb": [
-          "kommst"
-        ],
-        "object": [
-          "das"
+        "location": [
+          "in die Stadt"
         ]
       },
       "audioUrl": "/v1/audio/question_formation_A1_tier1/prompt-003.mp3"
     },
     {
       "id": "prompt-004",
-      "text": "Sie arbeitt einen.",
+      "text": "ihr kommt wirklich den warum.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie arbeitt einen.",
+      "natural_en": "ihr kommt wirklich den.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "ihr"
+        ],
+        "verb": [
+          "kommt"
+        ],
+        "object": [
+          "den"
+        ],
+        "modifier": [
+          "wirklich",
+          "warum"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A1_tier1/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "du lernst den Schlüssel gehst.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "du lernst den Schlüssel.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "du"
+        ],
+        "verb": [
+          "lernst"
+        ],
+        "object": [
+          "den Schlüssel"
+        ],
+        "modifier": [
+          "gehst"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A1_tier1/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Sie wo den Schlüssel.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie wo den Schlüssel.",
       "slotsChanged": [
         "subject",
         "verb",
@@ -146,58 +223,10 @@
           "Sie"
         ],
         "verb": [
-          "arbeitt"
+          "wo"
         ],
         "object": [
-          "einen"
-        ]
-      },
-      "audioUrl": "/v1/audio/question_formation_A1_tier1/prompt-004.mp3"
-    },
-    {
-      "id": "prompt-005",
-      "text": "ihr habt das.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "ihr habt das.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "ihr"
-        ],
-        "verb": [
-          "habt"
-        ],
-        "object": [
-          "das"
-        ]
-      },
-      "audioUrl": "/v1/audio/question_formation_A1_tier1/prompt-005.mp3"
-    },
-    {
-      "id": "prompt-006",
-      "text": "du wohnst die.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "du wohnst die.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "du"
-        ],
-        "verb": [
-          "wohnst"
-        ],
-        "object": [
-          "die"
+          "den Schlüssel"
         ]
       },
       "audioUrl": "/v1/audio/question_formation_A1_tier1/prompt-006.mp3"
@@ -218,18 +247,19 @@
     ],
     "coverage": {
       "verbs": [
-        "macht",
-        "seist",
-        "kommst",
-        "arbeitt",
         "habt",
-        "wohnst"
+        "seit",
+        "macht",
+        "kommt",
+        "lernst",
+        "wo"
       ],
       "subjects": [
-        "er",
-        "du",
         "Sie",
-        "ihr"
+        "sie",
+        "er",
+        "ihr",
+        "du"
       ],
       "patterns": [
         "question_word_order",
@@ -242,10 +272,10 @@
     "estPromptCount": 6,
     "timeboxMinutes": 3,
     "qualitySignals": {
-      "tokenHitsCount": 2,
+      "tokenHitsCount": 6,
       "multiSlotRate": 1,
       "uniqueVerbCount": 6,
-      "uniqueSubjectCount": 4,
+      "uniqueSubjectCount": 5,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -254,12 +284,21 @@
     "source": "template",
     "sourceRef": "mechanics/question_formation",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.648Z"
+    "generatedAt": "2026-01-03T09:52:17.363Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Question Formation: A1 (Tier 1) - Recall"
+  },
+  "shortTitle_i18n": {
+    "en": "Question Formation A1 Recall"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 1 - fast recall - Form questions using question words a"
+  },
   "contentId": "de:drill:question_formation_a1_tier1_fast-recall",
-  "contentHash": "224bdc685dd6177bfcf36989474f01ee6404171863b6e0f3d2b9885c9e2c3cc0",
-  "revisionId": "224bdc685dd6"
+  "contentHash": "4101321b4c046be3a80c913104c150f2eaf25767c9ee4e1b6adfc234c995b803",
+  "revisionId": "4101321b4c04"
 }

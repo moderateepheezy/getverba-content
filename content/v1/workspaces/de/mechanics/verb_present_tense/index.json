@@ -3,225 +3,273 @@
   "kind": "mechanic_drills",
   "mechanicId": "verb_present_tense",
   "title": "Verb Present Tense",
-  "total": 18,
+  "total": 12,
   "pageSize": 20,
   "page": 1,
   "items": [
     {
-      "id": "verb_present_tense_a1_tier1_contrast-pairs",
-      "kind": "drill",
-      "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a1_tier1_contrast-pairs/drill.json",
-      "shortTitle": "Verb Present Tense A1",
-      "subtitle": "Tier 1 - contrast pairs - Master present tense verb conjugat",
-      "level": "A1",
-      "estimatedMinutes": 3,
-      "loopType": "contrast_pairs",
-      "difficultyTier": 1,
-      "orderInGroup": 1
-    },
-    {
       "id": "verb_present_tense_a1_tier1_pattern-switch",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a1_tier1_pattern-switch/drill.json",
-      "shortTitle": "Verb Present Tense A1",
-      "subtitle": "Tier 1 - pattern switch - Master present tense verb conjugat",
+      "title": "Verb Present Tense: A1 (Tier 1) - Pattern",
+      "shortTitle": "Verb Present Tens A1 Pattern",
+      "subtitle": "Tier 1 - pattern switch - Practice present tense verb conjug",
       "level": "A1",
       "estimatedMinutes": 3,
       "loopType": "pattern_switch",
       "difficultyTier": 1,
-      "orderInGroup": 2
+      "orderInGroup": 1,
+      "title_i18n": {
+        "en": "Verb Present Tense: A1 (Tier 1) - Pattern"
+      },
+      "shortTitle_i18n": {
+        "en": "Verb Present Tens A1 Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - pattern switch - Practice present tense verb conjug"
+      }
     },
     {
       "id": "verb_present_tense_a1_tier1_slot-substitution",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a1_tier1_slot-substitution/drill.json",
-      "shortTitle": "Verb Present Tense A1",
-      "subtitle": "Tier 1 - slot substitution - Master present tense verb conju",
+      "title": "Verb Present Tense: A1 (Tier 1) - Slot",
+      "shortTitle": "Verb Present Tense A1 Slot",
+      "subtitle": "Tier 1 - slot substitution - Practice present tense verb con",
       "level": "A1",
       "estimatedMinutes": 3,
       "loopType": "slot_substitution",
       "difficultyTier": 1,
-      "orderInGroup": 3
-    },
-    {
-      "id": "verb_present_tense_a1_tier2_contrast-pairs",
-      "kind": "drill",
-      "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a1_tier2_contrast-pairs/drill.json",
-      "shortTitle": "Verb Present Tense A1",
-      "subtitle": "Tier 2 - contrast pairs - Master present tense verb conjugat",
-      "level": "A1",
-      "estimatedMinutes": 4,
-      "loopType": "contrast_pairs",
-      "difficultyTier": 2,
-      "orderInGroup": 4
+      "orderInGroup": 2,
+      "title_i18n": {
+        "en": "Verb Present Tense: A1 (Tier 1) - Slot"
+      },
+      "shortTitle_i18n": {
+        "en": "Verb Present Tense A1 Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - slot substitution - Practice present tense verb con"
+      }
     },
     {
       "id": "verb_present_tense_a1_tier2_pattern-switch",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a1_tier2_pattern-switch/drill.json",
-      "shortTitle": "Verb Present Tense A1",
-      "subtitle": "Tier 2 - pattern switch - Master present tense verb conjugat",
+      "title": "Verb Present Tense: A1 (Tier 2) - Pattern",
+      "shortTitle": "Verb Present Tens A1 Pattern",
+      "subtitle": "Tier 2 - pattern switch - Practice present tense verb conjug",
       "level": "A1",
       "estimatedMinutes": 4,
       "loopType": "pattern_switch",
       "difficultyTier": 2,
-      "orderInGroup": 5
+      "orderInGroup": 3,
+      "title_i18n": {
+        "en": "Verb Present Tense: A1 (Tier 2) - Pattern"
+      },
+      "shortTitle_i18n": {
+        "en": "Verb Present Tens A1 Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - pattern switch - Practice present tense verb conjug"
+      }
     },
     {
       "id": "verb_present_tense_a1_tier2_slot-substitution",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a1_tier2_slot-substitution/drill.json",
-      "shortTitle": "Verb Present Tense A1",
-      "subtitle": "Tier 2 - slot substitution - Master present tense verb conju",
+      "title": "Verb Present Tense: A1 (Tier 2) - Slot",
+      "shortTitle": "Verb Present Tense A1 Slot",
+      "subtitle": "Tier 2 - slot substitution - Practice present tense verb con",
       "level": "A1",
       "estimatedMinutes": 4,
       "loopType": "slot_substitution",
       "difficultyTier": 2,
-      "orderInGroup": 6
-    },
-    {
-      "id": "verb_present_tense_a1_tier3_contrast-pairs",
-      "kind": "drill",
-      "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a1_tier3_contrast-pairs/drill.json",
-      "shortTitle": "Verb Present Tense A1",
-      "subtitle": "Tier 3 - contrast pairs - Master present tense verb conjugat",
-      "level": "A1",
-      "estimatedMinutes": 5,
-      "loopType": "contrast_pairs",
-      "difficultyTier": 3,
-      "orderInGroup": 7
+      "orderInGroup": 4,
+      "title_i18n": {
+        "en": "Verb Present Tense: A1 (Tier 2) - Slot"
+      },
+      "shortTitle_i18n": {
+        "en": "Verb Present Tense A1 Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - slot substitution - Practice present tense verb con"
+      }
     },
     {
       "id": "verb_present_tense_a1_tier3_pattern-switch",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a1_tier3_pattern-switch/drill.json",
-      "shortTitle": "Verb Present Tense A1",
-      "subtitle": "Tier 3 - pattern switch - Master present tense verb conjugat",
+      "title": "Verb Present Tense: A1 (Tier 3) - Pattern",
+      "shortTitle": "Verb Present Tens A1 Pattern",
+      "subtitle": "Tier 3 - pattern switch - Practice present tense verb conjug",
       "level": "A1",
       "estimatedMinutes": 5,
       "loopType": "pattern_switch",
       "difficultyTier": 3,
-      "orderInGroup": 8
+      "orderInGroup": 5,
+      "title_i18n": {
+        "en": "Verb Present Tense: A1 (Tier 3) - Pattern"
+      },
+      "shortTitle_i18n": {
+        "en": "Verb Present Tens A1 Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - pattern switch - Practice present tense verb conjug"
+      }
     },
     {
       "id": "verb_present_tense_a1_tier3_slot-substitution",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a1_tier3_slot-substitution/drill.json",
-      "shortTitle": "Verb Present Tense A1",
-      "subtitle": "Tier 3 - slot substitution - Master present tense verb conju",
+      "title": "Verb Present Tense: A1 (Tier 3) - Slot",
+      "shortTitle": "Verb Present Tense A1 Slot",
+      "subtitle": "Tier 3 - slot substitution - Practice present tense verb con",
       "level": "A1",
       "estimatedMinutes": 5,
       "loopType": "slot_substitution",
       "difficultyTier": 3,
-      "orderInGroup": 9
-    },
-    {
-      "id": "verb_present_tense_a2_tier1_contrast-pairs",
-      "kind": "drill",
-      "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a2_tier1_contrast-pairs/drill.json",
-      "shortTitle": "Verb Present Tense A2",
-      "subtitle": "Tier 1 - contrast pairs - Master present tense verb conjugat",
-      "level": "A2",
-      "estimatedMinutes": 3,
-      "loopType": "contrast_pairs",
-      "difficultyTier": 1,
-      "orderInGroup": 10
+      "orderInGroup": 6,
+      "title_i18n": {
+        "en": "Verb Present Tense: A1 (Tier 3) - Slot"
+      },
+      "shortTitle_i18n": {
+        "en": "Verb Present Tense A1 Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - slot substitution - Practice present tense verb con"
+      }
     },
     {
       "id": "verb_present_tense_a2_tier1_pattern-switch",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a2_tier1_pattern-switch/drill.json",
-      "shortTitle": "Verb Present Tense A2",
-      "subtitle": "Tier 1 - pattern switch - Master present tense verb conjugat",
+      "title": "Verb Present Tense: A2 (Tier 1) - Pattern",
+      "shortTitle": "Verb Present Tens A2 Pattern",
+      "subtitle": "Tier 1 - pattern switch - Practice present tense verb conjug",
       "level": "A2",
       "estimatedMinutes": 3,
       "loopType": "pattern_switch",
       "difficultyTier": 1,
-      "orderInGroup": 11
+      "orderInGroup": 7,
+      "title_i18n": {
+        "en": "Verb Present Tense: A2 (Tier 1) - Pattern"
+      },
+      "shortTitle_i18n": {
+        "en": "Verb Present Tens A2 Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - pattern switch - Practice present tense verb conjug"
+      }
     },
     {
       "id": "verb_present_tense_a2_tier1_slot-substitution",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a2_tier1_slot-substitution/drill.json",
-      "shortTitle": "Verb Present Tense A2",
-      "subtitle": "Tier 1 - slot substitution - Master present tense verb conju",
+      "title": "Verb Present Tense: A2 (Tier 1) - Slot",
+      "shortTitle": "Verb Present Tense A2 Slot",
+      "subtitle": "Tier 1 - slot substitution - Practice present tense verb con",
       "level": "A2",
       "estimatedMinutes": 3,
       "loopType": "slot_substitution",
       "difficultyTier": 1,
-      "orderInGroup": 12
-    },
-    {
-      "id": "verb_present_tense_a2_tier2_contrast-pairs",
-      "kind": "drill",
-      "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a2_tier2_contrast-pairs/drill.json",
-      "shortTitle": "Verb Present Tense A2",
-      "subtitle": "Tier 2 - contrast pairs - Master present tense verb conjugat",
-      "level": "A2",
-      "estimatedMinutes": 4,
-      "loopType": "contrast_pairs",
-      "difficultyTier": 2,
-      "orderInGroup": 13
+      "orderInGroup": 8,
+      "title_i18n": {
+        "en": "Verb Present Tense: A2 (Tier 1) - Slot"
+      },
+      "shortTitle_i18n": {
+        "en": "Verb Present Tense A2 Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - slot substitution - Practice present tense verb con"
+      }
     },
     {
       "id": "verb_present_tense_a2_tier2_pattern-switch",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a2_tier2_pattern-switch/drill.json",
-      "shortTitle": "Verb Present Tense A2",
-      "subtitle": "Tier 2 - pattern switch - Master present tense verb conjugat",
+      "title": "Verb Present Tense: A2 (Tier 2) - Pattern",
+      "shortTitle": "Verb Present Tens A2 Pattern",
+      "subtitle": "Tier 2 - pattern switch - Practice present tense verb conjug",
       "level": "A2",
       "estimatedMinutes": 4,
       "loopType": "pattern_switch",
       "difficultyTier": 2,
-      "orderInGroup": 14
+      "orderInGroup": 9,
+      "title_i18n": {
+        "en": "Verb Present Tense: A2 (Tier 2) - Pattern"
+      },
+      "shortTitle_i18n": {
+        "en": "Verb Present Tens A2 Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - pattern switch - Practice present tense verb conjug"
+      }
     },
     {
       "id": "verb_present_tense_a2_tier2_slot-substitution",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a2_tier2_slot-substitution/drill.json",
-      "shortTitle": "Verb Present Tense A2",
-      "subtitle": "Tier 2 - slot substitution - Master present tense verb conju",
+      "title": "Verb Present Tense: A2 (Tier 2) - Slot",
+      "shortTitle": "Verb Present Tense A2 Slot",
+      "subtitle": "Tier 2 - slot substitution - Practice present tense verb con",
       "level": "A2",
       "estimatedMinutes": 4,
       "loopType": "slot_substitution",
       "difficultyTier": 2,
-      "orderInGroup": 15
-    },
-    {
-      "id": "verb_present_tense_a2_tier3_contrast-pairs",
-      "kind": "drill",
-      "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a2_tier3_contrast-pairs/drill.json",
-      "shortTitle": "Verb Present Tense A2",
-      "subtitle": "Tier 3 - contrast pairs - Master present tense verb conjugat",
-      "level": "A2",
-      "estimatedMinutes": 5,
-      "loopType": "contrast_pairs",
-      "difficultyTier": 3,
-      "orderInGroup": 16
+      "orderInGroup": 10,
+      "title_i18n": {
+        "en": "Verb Present Tense: A2 (Tier 2) - Slot"
+      },
+      "shortTitle_i18n": {
+        "en": "Verb Present Tense A2 Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - slot substitution - Practice present tense verb con"
+      }
     },
     {
       "id": "verb_present_tense_a2_tier3_pattern-switch",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a2_tier3_pattern-switch/drill.json",
-      "shortTitle": "Verb Present Tense A2",
-      "subtitle": "Tier 3 - pattern switch - Master present tense verb conjugat",
+      "title": "Verb Present Tense: A2 (Tier 3) - Pattern",
+      "shortTitle": "Verb Present Tens A2 Pattern",
+      "subtitle": "Tier 3 - pattern switch - Practice present tense verb conjug",
       "level": "A2",
       "estimatedMinutes": 5,
       "loopType": "pattern_switch",
       "difficultyTier": 3,
-      "orderInGroup": 17
+      "orderInGroup": 11,
+      "title_i18n": {
+        "en": "Verb Present Tense: A2 (Tier 3) - Pattern"
+      },
+      "shortTitle_i18n": {
+        "en": "Verb Present Tens A2 Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - pattern switch - Practice present tense verb conjug"
+      }
     },
     {
       "id": "verb_present_tense_a2_tier3_slot-substitution",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a2_tier3_slot-substitution/drill.json",
-      "shortTitle": "Verb Present Tense A2",
-      "subtitle": "Tier 3 - slot substitution - Master present tense verb conju",
+      "title": "Verb Present Tense: A2 (Tier 3) - Slot",
+      "shortTitle": "Verb Present Tense A2 Slot",
+      "subtitle": "Tier 3 - slot substitution - Practice present tense verb con",
       "level": "A2",
       "estimatedMinutes": 5,
       "loopType": "slot_substitution",
       "difficultyTier": 3,
-      "orderInGroup": 18
+      "orderInGroup": 12,
+      "title_i18n": {
+        "en": "Verb Present Tense: A2 (Tier 3) - Slot"
+      },
+      "shortTitle_i18n": {
+        "en": "Verb Present Tense A2 Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - slot substitution - Practice present tense verb con"
+      }
     }
   ],
   "nextPage": null

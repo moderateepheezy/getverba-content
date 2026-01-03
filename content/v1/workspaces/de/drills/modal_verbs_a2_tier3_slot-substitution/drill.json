@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A2",
-  "title": "Modal Verbs: A2 (Tier 3)",
-  "shortTitle": "Modal Verbs A2",
+  "title": "Modal Verbs: A2 (Tier 3) - Slot",
+  "shortTitle": "Modal Verbs A2 Slot",
   "subtitle": "Tier 3 - slot substitution - Master modal verb patterns (kön",
   "estimatedMinutes": 5,
   "mechanicId": "modal_verbs",
@@ -17,7 +17,9 @@
   "variationSlots": [
     "subject",
     "verb",
-    "object"
+    "object",
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -64,240 +66,330 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Sie geht zur Arbeit.",
+      "text": "bald soll ich im Büro einen hören.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie geht zur Arbeit.",
+      "natural_en": "bald soll ich im Büro einen hören.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          "Sie"
+          "Ich"
         ],
         "verb": [
-          "geht"
+          "soll"
         ],
         "object": [
-          "zur Arbeit"
+          "einen"
+        ],
+        "time": [
+          "bald"
+        ],
+        "location": [
+          "im Büro"
+        ],
+        "infinitive": [
+          "hören"
         ]
       },
       "audioUrl": "/v1/audio/modal_verbs_A2_tier3/prompt-001.mp3"
     },
     {
       "id": "prompt-002",
-      "text": "Wir kaufen das.",
+      "text": "nächste Woche könnt ihr bei Freunden essen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir kaufen das.",
+      "natural_en": "nächste Woche könnt ihr bei Freunden essen.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          "Wir"
+          "Ihr"
         ],
         "verb": [
-          "kaufen"
+          "könnt"
         ],
-        "object": [
-          "das"
+        "time": [
+          "nächste Woche"
+        ],
+        "location": [
+          "bei Freunden"
+        ],
+        "infinitive": [
+          "essen"
         ]
       },
       "audioUrl": "/v1/audio/modal_verbs_A2_tier3/prompt-002.mp3"
     },
     {
       "id": "prompt-003",
-      "text": "Sie seht das.",
+      "text": "bald sollst du im Büro Deutsch sehen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie seht das.",
+      "natural_en": "bald sollst du im Büro Deutsch sehen.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          "Sie"
+          "Du"
         ],
         "verb": [
-          "seht"
+          "sollst"
         ],
         "object": [
-          "das"
+          "Deutsch"
+        ],
+        "time": [
+          "bald"
+        ],
+        "location": [
+          "im Büro"
+        ],
+        "infinitive": [
+          "sehen"
         ]
       },
       "audioUrl": "/v1/audio/modal_verbs_A2_tier3/prompt-003.mp3"
     },
     {
       "id": "prompt-004",
-      "text": "Wir sehen den.",
+      "text": "heute können wir hier machen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir sehen den.",
+      "natural_en": "heute können wir hier machen.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
           "Wir"
         ],
         "verb": [
-          "sehen"
+          "können"
         ],
-        "object": [
-          "den"
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "hier"
+        ],
+        "infinitive": [
+          "machen"
         ]
       },
       "audioUrl": "/v1/audio/modal_verbs_A2_tier3/prompt-004.mp3"
     },
     {
       "id": "prompt-005",
-      "text": "Er kommt nach Hause.",
+      "text": "morgen kann er dort zur Arbeit kommen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er kommt nach Hause.",
+      "natural_en": "morgen kann er dort zur Arbeit kommen.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
           "Er"
         ],
         "verb": [
-          "kommt"
+          "kann"
         ],
         "object": [
-          "nach Hause"
+          "zur Arbeit"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "dort"
+        ],
+        "infinitive": [
+          "kommen"
         ]
       },
       "audioUrl": "/v1/audio/modal_verbs_A2_tier3/prompt-005.mp3"
     },
     {
       "id": "prompt-006",
-      "text": "Du kommst eine.",
+      "text": "später möchte Sie hier lernen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du kommst eine.",
+      "natural_en": "später möchte Sie hier lernen.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Du"
-        ],
-        "verb": [
-          "kommst"
-        ],
-        "object": [
-          "eine"
-        ]
-      },
-      "audioUrl": "/v1/audio/modal_verbs_A2_tier3/prompt-006.mp3"
-    },
-    {
-      "id": "prompt-007",
-      "text": "Sie trinkt ins Kino.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie trinkt ins Kino.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
           "Sie"
         ],
         "verb": [
-          "trinkt"
+          "möchte"
+        ],
+        "time": [
+          "später"
+        ],
+        "location": [
+          "hier"
+        ],
+        "infinitive": [
+          "lernen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier3/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "jetzt will ich dort den schlafen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jetzt will ich dort den schlafen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "will"
         ],
         "object": [
-          "ins Kino"
+          "den"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "dort"
+        ],
+        "infinitive": [
+          "schlafen"
         ]
       },
       "audioUrl": "/v1/audio/modal_verbs_A2_tier3/prompt-007.mp3"
     },
     {
       "id": "prompt-008",
-      "text": "Wir machen ins Kino.",
+      "text": "heute sollt ihr bei Freunden spielen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir machen ins Kino.",
+      "natural_en": "heute sollt ihr bei Freunden spielen.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          "Wir"
+          "Ihr"
         ],
         "verb": [
-          "machen"
+          "sollt"
         ],
-        "object": [
-          "ins Kino"
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "bei Freunden"
+        ],
+        "infinitive": [
+          "spielen"
         ]
       },
       "audioUrl": "/v1/audio/modal_verbs_A2_tier3/prompt-008.mp3"
     },
     {
       "id": "prompt-009",
-      "text": "Du machst zur Arbeit.",
+      "text": "heute musst du bei Freunden das gehen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du machst zur Arbeit.",
+      "natural_en": "heute musst du bei Freunden das gehen.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
           "Du"
         ],
         "verb": [
-          "machst"
+          "musst"
         ],
         "object": [
-          "zur Arbeit"
+          "das"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "bei Freunden"
+        ],
+        "infinitive": [
+          "gehen"
         ]
       },
       "audioUrl": "/v1/audio/modal_verbs_A2_tier3/prompt-009.mp3"
     },
     {
       "id": "prompt-010",
-      "text": "Er macht ins Kino.",
+      "text": "morgen wollen wir zu Hause arbeiten.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er macht ins Kino.",
+      "natural_en": "morgen wollen wir zu Hause arbeiten.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          "Er"
+          "Wir"
         ],
         "verb": [
-          "macht"
+          "wollen"
         ],
-        "object": [
-          "ins Kino"
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "zu Hause"
+        ],
+        "infinitive": [
+          "arbeiten"
         ]
       },
       "audioUrl": "/v1/audio/modal_verbs_A2_tier3/prompt-010.mp3"
@@ -318,22 +410,24 @@
     ],
     "coverage": {
       "verbs": [
-        "geht",
-        "kaufen",
-        "seht",
-        "sehen",
-        "kommt",
-        "kommst",
-        "trinkt",
-        "machen",
-        "machst",
-        "macht"
+        "soll",
+        "könnt",
+        "sollst",
+        "können",
+        "kann",
+        "möchte",
+        "will",
+        "sollt",
+        "musst",
+        "wollen"
       ],
       "subjects": [
-        "Sie",
+        "Ich",
+        "Ihr",
+        "Du",
         "Wir",
         "Er",
-        "Du"
+        "Sie"
       ],
       "patterns": [
         "modal_verb_infinitive",
@@ -346,10 +440,10 @@
     "estPromptCount": 10,
     "timeboxMinutes": 5,
     "qualitySignals": {
-      "tokenHitsCount": 0,
+      "tokenHitsCount": 10,
       "multiSlotRate": 1,
       "uniqueVerbCount": 10,
-      "uniqueSubjectCount": 4,
+      "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -358,12 +452,21 @@
     "source": "template",
     "sourceRef": "mechanics/modal_verbs",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.639Z"
+    "generatedAt": "2026-01-03T09:52:17.353Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Modal Verbs: A2 (Tier 3) - Slot"
+  },
+  "shortTitle_i18n": {
+    "en": "Modal Verbs A2 Slot"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 3 - slot substitution - Master modal verb patterns (kön"
+  },
   "contentId": "de:drill:modal_verbs_a2_tier3_slot-substitution",
-  "contentHash": "39679a830121a90654028618c1f9406fb143585946c9fea9afee94924c6552f7",
-  "revisionId": "39679a830121"
+  "contentHash": "c281e3bb2221b9dbd93b2c4c64afd165b89af78df271a21b83c43c448d161f5d",
+  "revisionId": "c281e3bb2221"
 }

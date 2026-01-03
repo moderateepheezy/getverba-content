@@ -1,0 +1,25 @@
+{
+  "totalGenerated": 0,
+  "totalRetries": 0,
+  "totalFallbacksUsed": 0,
+  "mechanicStats": {
+    "negation_tier1": {
+      "generated": 36,
+      "retries": 0,
+      "fallbacks": 0,
+      "avgLen": 27.333333333333332
+    },
+    "negation_tier2": {
+      "generated": 48,
+      "retries": 0,
+      "fallbacks": 0,
+      "avgLen": 26.75
+    },
+    "negation_tier3": {
+      "generated": 60,
+      "retries": 0,
+      "fallbacks": 0,
+      "avgLen": 29
+    }
+  }
+}

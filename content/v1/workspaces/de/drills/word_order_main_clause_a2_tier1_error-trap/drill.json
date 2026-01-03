@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A2",
-  "title": "Word Order: Main Clause: A2 (Tier 1)",
-  "shortTitle": "Word Order: Main Clause A2",
+  "title": "Word Order: Main Clause: A2 (Tier 1) - Trap",
+  "shortTitle": "Word Order: Main Cla A2 Trap",
   "subtitle": "Tier 1 - error trap - Master verb-second position in main cl",
   "estimatedMinutes": 3,
   "mechanicId": "word_order_main_clause",
@@ -18,6 +18,7 @@
     "subject",
     "verb",
     "object",
+    "modifier",
     "time"
   ],
   "sessionPlan": {
@@ -61,130 +62,94 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Er höret den Film.",
+      "text": "Ihr esset immer die Zeitung.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er höret den Film.",
+      "natural_en": "Ihr esset immer die Zeitung.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
-          "Er"
+          "Ihr"
         ],
         "verb": [
-          "höret"
+          "esset"
         ],
         "object": [
-          "den Film"
+          "die Zeitung"
+        ],
+        "modifier": [
+          "immer"
         ]
       },
       "audioUrl": "/v1/audio/word_order_main_clause_A2_tier1/prompt-001.mp3"
     },
     {
       "id": "prompt-002",
-      "text": "Er gehet den Film.",
+      "text": "Sie höret schnell die Musik.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er gehet den Film.",
+      "natural_en": "Sie höret schnell die Musik.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Er"
-        ],
-        "verb": [
-          "gehet"
-        ],
-        "object": [
-          "den Film"
-        ]
-      },
-      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier1/prompt-002.mp3"
-    },
-    {
-      "id": "prompt-003",
-      "text": "Er sehet das Buch.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er sehet das Buch.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Er"
-        ],
-        "verb": [
-          "sehet"
-        ],
-        "object": [
-          "das Buch"
-        ]
-      },
-      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier1/prompt-003.mp3"
-    },
-    {
-      "id": "prompt-004",
-      "text": "Du gehest den Film.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du gehest den Film.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Du"
-        ],
-        "verb": [
-          "gehest"
-        ],
-        "object": [
-          "den Film"
-        ]
-      },
-      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier1/prompt-004.mp3"
-    },
-    {
-      "id": "prompt-005",
-      "text": "Sie gehet die Musik.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie gehet die Musik.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
           "Sie"
         ],
         "verb": [
-          "gehet"
+          "höret"
         ],
         "object": [
           "die Musik"
+        ],
+        "modifier": [
+          "schnell"
         ]
       },
-      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier1/prompt-005.mp3"
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier1/prompt-002.mp3"
     },
     {
-      "id": "prompt-006",
-      "text": "Ich sehee die Zeitung.",
+      "id": "prompt-003",
+      "text": "Du sehest oft einen Kaffee.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ich sehee die Zeitung.",
+      "natural_en": "Du sehest oft einen Kaffee.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "sehest"
+        ],
+        "object": [
+          "einen Kaffee"
+        ],
+        "modifier": [
+          "oft"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier1/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Wir mache einen Kaffee.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Wir mache einen Kaffee.",
       "slotsChanged": [
         "subject",
         "verb",
@@ -192,13 +157,73 @@
       ],
       "slots": {
         "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "mache"
+        ],
+        "object": [
+          "einen Kaffee"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier1/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Er kommet nie ins Büro Deutsch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er kommet nie ins Büro Deutsch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "kommet"
+        ],
+        "object": [
+          "Deutsch"
+        ],
+        "modifier": [
+          "nie"
+        ],
+        "location": [
+          "ins Büro"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier1/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Ich gehee manchmal die Musik.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich gehee manchmal die Musik.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
           "Ich"
         ],
         "verb": [
-          "sehee"
+          "gehee"
         ],
         "object": [
-          "die Zeitung"
+          "die Musik"
+        ],
+        "modifier": [
+          "manchmal"
         ]
       },
       "audioUrl": "/v1/audio/word_order_main_clause_A2_tier1/prompt-006.mp3"
@@ -219,16 +244,19 @@
     ],
     "coverage": {
       "verbs": [
+        "esset",
         "höret",
-        "gehet",
-        "sehet",
-        "gehest",
-        "sehee"
+        "sehest",
+        "mache",
+        "kommet",
+        "gehee"
       ],
       "subjects": [
-        "Er",
-        "Du",
+        "Ihr",
         "Sie",
+        "Du",
+        "Wir",
+        "Er",
         "Ich"
       ],
       "patterns": [
@@ -244,8 +272,8 @@
     "qualitySignals": {
       "tokenHitsCount": 6,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 5,
-      "uniqueSubjectCount": 4,
+      "uniqueVerbCount": 6,
+      "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -254,12 +282,21 @@
     "source": "template",
     "sourceRef": "mechanics/word_order_main_clause",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.657Z"
+    "generatedAt": "2026-01-03T09:52:17.375Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Word Order: Main Clause: A2 (Tier 1) - Trap"
+  },
+  "shortTitle_i18n": {
+    "en": "Word Order: Main Cla A2 Trap"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 1 - error trap - Master verb-second position in main cl"
+  },
   "contentId": "de:drill:word_order_main_clause_a2_tier1_error-trap",
-  "contentHash": "24456e93dfd09160bad91f49c09f514ac0d3e921f19bd3f5f3d52891e9eca191",
-  "revisionId": "24456e93dfd0"
+  "contentHash": "b5821262b86ab0064fabd557f098480e39cf182b03fca240fb13751b0e3947f0",
+  "revisionId": "b5821262b86a"
 }

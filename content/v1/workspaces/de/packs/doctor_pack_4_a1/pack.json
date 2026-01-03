@@ -48,6 +48,28 @@
         "modifier": [
           "um 10 Uhr"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something.",
+        "es": "Me gustaría solicitar algo.",
+        "fr": "Je voudrais demander quelque chose.",
+        "it": "Vorrei chiedere una cosa.",
+        "pt": "Gostaria de fazer um pedido.",
+        "ru": "Я хотел бы попросить кое-что.",
+        "ja": "お願いしたいことがある。",
+        "ko": "요청하고 싶은 것이 있습니다.",
+        "zh-CN": "我有个请求。",
+        "zh-TW": "我有个请求。",
+        "ar": "أود أن أطلب شيئاً.",
+        "tr": "Bir şey rica etmek istiyorum.",
+        "pl": "Chciałbym o coś poprosić.",
+        "nl": "Ik wil graag iets aanvragen.",
+        "sv": "Jag skulle vilja be om en sak.",
+        "no": "Jeg vil gjerne be om noe.",
+        "da": "Jeg vil gerne bede om noget.",
+        "fi": "Haluaisin pyytää jotakin.",
+        "el": "Θα ήθελα να ζητήσω κάτι.",
+        "cs": "Chtěl bych o něco požádat."
       }
     },
     {
@@ -76,6 +98,28 @@
         "modifier": [
           "nächste Woche"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something.",
+        "es": "Necesito programar algo.",
+        "fr": "Je dois programmer quelque chose.",
+        "it": "Devo programmare qualcosa.",
+        "pt": "Preciso de marcar uma coisa.",
+        "ru": "Мне нужно кое-что запланировать.",
+        "ja": "何か予定を入れないと。",
+        "ko": "일정을 잡아야 합니다.",
+        "zh-CN": "我需要安排一些事情。",
+        "zh-TW": "我需要安排一些事情。",
+        "ar": "أحتاج إلى جدولة شيء ما.",
+        "tr": "Bir şeyler ayarlamam lazım.",
+        "pl": "Muszę coś zaplanować.",
+        "nl": "Ik moet iets plannen.",
+        "sv": "Jag måste planera in något.",
+        "no": "Jeg må planlegge noe.",
+        "da": "Jeg er nødt til at planlægge noget.",
+        "fi": "Minun on varattava aikaa.",
+        "el": "Πρέπει να προγραμματίσω κάτι.",
+        "cs": "Musím si něco naplánovat."
       }
     },
     {
@@ -100,6 +144,28 @@
         "object": [
           "die Diagnose"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something.",
+        "es": "Me gustaría solicitar algo.",
+        "fr": "Je voudrais demander quelque chose.",
+        "it": "Vorrei chiedere una cosa.",
+        "pt": "Gostaria de fazer um pedido.",
+        "ru": "Я хотел бы попросить кое-что.",
+        "ja": "お願いしたいことがある。",
+        "ko": "요청하고 싶은 것이 있습니다.",
+        "zh-CN": "我有个请求。",
+        "zh-TW": "我有个请求。",
+        "ar": "أود أن أطلب شيئاً.",
+        "tr": "Bir şey rica etmek istiyorum.",
+        "pl": "Chciałbym o coś poprosić.",
+        "nl": "Ik wil graag iets aanvragen.",
+        "sv": "Jag skulle vilja be om en sak.",
+        "no": "Jeg vil gjerne be om noe.",
+        "da": "Jeg vil gerne bede om noget.",
+        "fi": "Haluaisin pyytää jotakin.",
+        "el": "Θα ήθελα να ζητήσω κάτι.",
+        "cs": "Chtěl bych o něco požádat."
       }
     },
     {
@@ -123,6 +189,28 @@
         "object": [
           "die Symptome"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something.",
+        "es": "Me gustaría solicitar algo.",
+        "fr": "Je voudrais demander quelque chose.",
+        "it": "Vorrei chiedere una cosa.",
+        "pt": "Gostaria de fazer um pedido.",
+        "ru": "Я хотел бы попросить кое-что.",
+        "ja": "お願いしたいことがある。",
+        "ko": "요청하고 싶은 것이 있습니다.",
+        "zh-CN": "我有个请求。",
+        "zh-TW": "我有个请求。",
+        "ar": "أود أن أطلب شيئاً.",
+        "tr": "Bir şey rica etmek istiyorum.",
+        "pl": "Chciałbym o coś poprosić.",
+        "nl": "Ik wil graag iets aanvragen.",
+        "sv": "Jag skulle vilja be om en sak.",
+        "no": "Jeg vil gjerne be om noe.",
+        "da": "Jeg vil gerne bede om noget.",
+        "fi": "Haluaisin pyytää jotakin.",
+        "el": "Θα ήθελα να ζητήσω κάτι.",
+        "cs": "Chtěl bych o něco požádat."
       }
     },
     {
@@ -146,11 +234,33 @@
         "object": [
           "die Untersuchung"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something.",
+        "es": "Me gustaría solicitar algo.",
+        "fr": "Je voudrais demander quelque chose.",
+        "it": "Vorrei chiedere una cosa.",
+        "pt": "Gostaria de fazer um pedido.",
+        "ru": "Я хотел бы попросить кое-что.",
+        "ja": "お願いしたいことがある。",
+        "ko": "요청하고 싶은 것이 있습니다.",
+        "zh-CN": "我有个请求。",
+        "zh-TW": "我有个请求。",
+        "ar": "أود أن أطلب شيئاً.",
+        "tr": "Bir şey rica etmek istiyorum.",
+        "pl": "Chciałbym o coś poprosić.",
+        "nl": "Ik wil graag iets aanvragen.",
+        "sv": "Jag skulle vilja be om en sak.",
+        "no": "Jeg vil gjerne be om noe.",
+        "da": "Jeg vil gerne bede om noget.",
+        "fi": "Haluaisin pyytää jotakin.",
+        "el": "Θα ήθελα να ζητήσω κάτι.",
+        "cs": "Chtěl bych o něco požádat."
       }
     },
     {
       "id": "prompt-006",
-      "text": "Der Arzt kann die Symptome",
+      "text": "Der Arzt kann die Behandlung",
       "intent": "request",
       "gloss_en": "I would like to request something.",
       "natural_en": "I'd like to request that.",
@@ -167,8 +277,30 @@
           "kann"
         ],
         "object": [
-          "die Symptome"
+          "die Behandlung"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something.",
+        "es": "Me gustaría solicitar algo.",
+        "fr": "Je voudrais demander quelque chose.",
+        "it": "Vorrei chiedere una cosa.",
+        "pt": "Gostaria de fazer um pedido.",
+        "ru": "Я хотел бы попросить кое-что.",
+        "ja": "お願いしたいことがある。",
+        "ko": "요청하고 싶은 것이 있습니다.",
+        "zh-CN": "我有个请求。",
+        "zh-TW": "我有个请求。",
+        "ar": "أود أن أطلب شيئاً.",
+        "tr": "Bir şey rica etmek istiyorum.",
+        "pl": "Chciałbym o coś poprosić.",
+        "nl": "Ik wil graag iets aanvragen.",
+        "sv": "Jag skulle vilja be om en sak.",
+        "no": "Jeg vil gjerne be om noe.",
+        "da": "Jeg vil gerne bede om noget.",
+        "fi": "Haluaisin pyytää jotakin.",
+        "el": "Θα ήθελα να ζητήσω κάτι.",
+        "cs": "Chtěl bych o něco požádat."
       }
     },
     {
@@ -193,6 +325,28 @@
         "object": [
           "die Untersuchung"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     }
   ],
@@ -268,9 +422,9 @@
     "qualityGateVersion": "qg-2025-01-01",
     "promptCount": 7,
     "multiSlotRate": 1,
-    "scenarioTokenHitAvg": 0.2857142857142857,
+    "scenarioTokenHitAvg": 0.14285714285714285,
     "scenarioTokenQualifiedRate": 0,
-    "uniqueTokenRate": 0.5641025641025641,
+    "uniqueTokenRate": 0.5897435897435898,
     "bannedPhraseViolations": 0,
     "passesQualityGates": false,
     "focus": "modal_verbs",
@@ -314,15 +468,55 @@
     "generatedAt": "2026-01-01T00:56:02.543Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T07:30:00.000Z"
   },
   "contentId": "de:pack:doctor_pack_4_a1",
   "contentHash": "737220a2c43c1e7124c9f55865909c223d4b431660fe2a1eaefb9cf121a1f52c",
   "revisionId": "737220a2c43c",
   "title_i18n": {
-    "en": "Doctor A1 — 4: Making an Appointment"
+    "en": "Doctor A1 — 4: Making an Appointment",
+    "es": "Doctor A1 - 4: Concertar una cita",
+    "fr": "Docteur A1 - 4 : Prendre rendez-vous",
+    "it": "Medico A1 - 4: fissare un appuntamento",
+    "pt": "Doctor A1 - 4: Marcar uma consulta",
+    "ru": "Доктор A1 - 4: Запись на прием",
+    "ja": "ドクターA1 - 4: 予約を取る",
+    "ko": "닥터 A1 - 4: 예약하기",
+    "zh-CN": "医生 A1 - 4：预约",
+    "zh-TW": "医生 A1 - 4：预约",
+    "ar": "الطبيب A1 - 4: تحديد موعد مع الطبيب A1 - 4: تحديد موعد",
+    "tr": "Doktor A1 - 4: Randevu Alma",
+    "pl": "Lekarz A1 - 4: Umawianie się na wizytę",
+    "nl": "Dokter A1 - 4: Een afspraak maken",
+    "sv": "Doktor A1 - 4: Att boka tid",
+    "no": "Lege A1 - 4: Bestilling av time",
+    "da": "Læge A1 - 4: At lave en aftale",
+    "fi": "Lääkäri A1 - 4: Ajanvarauksen tekeminen",
+    "el": "Γιατρός A1 - 4: Κλείνοντας ένα ραντεβού",
+    "cs": "Lékař A1 - 4: Objednání na schůzku"
   },
   "description_i18n": {
-    "en": "Practice doctor scenarios at A1 level."
+    "en": "Practice doctor scenarios at A1 level.",
+    "es": "Practicar escenarios de médicos a nivel A1.",
+    "fr": "Pratiquer des scénarios de médecins au niveau A1.",
+    "it": "Esercitarsi in scenari medici di livello A1.",
+    "pt": "Praticar cenários médicos ao nível A1.",
+    "ru": "Практикуйте сценарии для врачей на уровне A1.",
+    "ja": "A1レベルの医師シナリオを練習する。",
+    "ko": "A1 수준의 의사 시나리오를 연습하세요.",
+    "zh-CN": "以 A1 水平练习医生情景。",
+    "zh-TW": "以 A1 水平练习医生情景。",
+    "ar": "تدرب على سيناريوهات الطبيب في المستوى A1.",
+    "tr": "A1 seviyesinde doktor senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze dla lekarzy na poziomie A1.",
+    "nl": "Oefen doktersscenario's op A1-niveau.",
+    "sv": "Öva på läkarscenarier på A1-nivå.",
+    "no": "Øv deg på legescenarioer på A1-nivå.",
+    "da": "Øv dig på lægescenarier på A1-niveau.",
+    "fi": "Harjoittele lääkärin skenaarioita A1-tasolla.",
+    "el": "Πρακτική εξάσκηση σε σενάρια γιατρών σε επίπεδο Α1.",
+    "cs": "Procvičování scénářů pro lékaře na úrovni A1."
   }
 }

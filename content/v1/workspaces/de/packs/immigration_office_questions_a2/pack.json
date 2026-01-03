@@ -47,6 +47,9 @@
         "modifier": [
           "um 9 Uhr"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need the form."
       }
     },
     {
@@ -75,6 +78,9 @@
         "modifier": [
           "heute"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to make an appointment."
       }
     },
     {
@@ -99,6 +105,9 @@
         "object": [
           "den Ausweis"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -123,6 +132,9 @@
         "object": [
           "die Aufenthaltserlaubnis"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -130,7 +142,7 @@
       "text": "Der Beamte holt die Anmeldung",
       "intent": "inform",
       "gloss_en": "I need to register my address.",
-      "natural_en": "I need to register my address.",
+      "natural_en": "I'm here to report my change of address.",
       "audioUrl": "/v1/audio/immigration_office_questions_a2/prompt-005.mp3",
       "slotsChanged": [
         "subject",
@@ -147,6 +159,9 @@
         "object": [
           "die Anmeldung"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to register my address."
       }
     },
     {
@@ -173,6 +188,9 @@
         "modifier": [
           "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -200,6 +218,9 @@
         "modifier": [
           "dringend"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     }
   ],
@@ -329,9 +350,47 @@
   "contentHash": "d33a028980da803a35c9738c209b6b83fd3f49816c0f2f6db48fb2bc9b68077c",
   "revisionId": "d33a028980da",
   "title_i18n": {
-    "en": "Government Office A2 — Immigration Office Questions"
+    "en": "Government Office A2 — Immigration Office Questions",
+    "es": "Oficina del Gobierno A2 - Preguntas de la Oficina de Inmigración",
+    "fr": "Government Office A2 - Questions de l'Office de l'immigration",
+    "it": "Ufficio governativo A2 - Domande dell'Ufficio Immigrazione",
+    "pt": "Government Office A2 - Perguntas sobre o Gabinete de Imigração",
+    "ru": "Правительственный офис A2 - Вопросы иммиграционной службы",
+    "ja": "官庁A2 - 入国管理局に関する質問",
+    "ko": "정부청사 A2 - 출입국관리소 질문",
+    "zh-CN": "政府办公室 A2 - 移民办公室问题",
+    "zh-TW": "政府办公室 A2 - 移民办公室问题",
+    "ar": "المكتب الحكومي A2 - أسئلة المكتب الحكومي A2 - أسئلة مكتب الهجرة",
+    "tr": "Devlet Dairesi A2 - Göçmenlik Bürosu Soruları",
+    "pl": "Biuro rządowe A2 - Pytania do biura imigracyjnego",
+    "nl": "Overheidsdienst A2 - Immigratiedienst Vragen",
+    "sv": "Regeringskansliet A2 - Frågor från Migrationsverket",
+    "no": "Government Office A2 - Innvandringskontoret Spørsmål",
+    "da": "Regeringskontor A2 - Spørgsmål til immigrationskontoret",
+    "fi": "Valtioneuvoston kanslia A2 - Maahanmuuttoviraston kysymykset",
+    "el": "Κυβερνητικό Γραφείο A2 - Ερωτήσεις Γραφείου Μετανάστευσης",
+    "cs": "Úřad vlády A2 - Otázky imigračního úřadu"
   },
   "description_i18n": {
-    "en": "Practice government_office scenarios at A2 level."
+    "en": "Practice government_office scenarios at A2 level.",
+    "es": "Practicar escenarios de government_office en el nivel A2.",
+    "fr": "Pratiquer les scénarios government_office au niveau A2.",
+    "it": "Esercitatevi con gli scenari government_office a livello A2.",
+    "pt": "Praticar cenários de government_office ao nível A2.",
+    "ru": "Отработайте сценарии government_office на уровне A2.",
+    "ja": "A2レベルの政府機関のシナリオを練習する。",
+    "ko": "A2 레벨의 정부_오피스 시나리오를 연습하세요.",
+    "zh-CN": "在 A2 级水平上练习政府办公情景。",
+    "zh-TW": "在 A2 级水平上练习政府办公情景。",
+    "ar": "تدرب على سيناريوهات_المكاتب_الحكومية على مستوى A2.",
+    "tr": "A2 seviyesinde government_office senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze government_office na poziomie A2.",
+    "nl": "Oefen overheid_kantoor scenario's op A2 niveau.",
+    "sv": "Öva på scenarier för government_office på A2-nivå.",
+    "no": "Øv på scenarier for offentlige kontorer på A2-nivå.",
+    "da": "Øv dig på government_office-scenarier på A2-niveau.",
+    "fi": "Harjoittele government_office-skenaarioita A2-tasolla.",
+    "el": "Εξάσκηση σε σενάρια government_office σε επίπεδο A2.",
+    "cs": "Procvičte si scénáře government_office na úrovni A2."
   }
 }

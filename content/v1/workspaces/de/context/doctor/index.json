@@ -54,9 +54,33 @@
       "shortTitle": "Phone booking",
       "orderInTopic": 1,
       "title_i18n": {
-        "en": "Doctor A1 — 1: Making an Appointment"
+        "en": "Doctor A1 — 1: Making an Appointment",
+        "es": "Doctor A1 - 1: Concertar una cita",
+        "fr": "Docteur A1 - 1 : Prendre rendez-vous",
+        "it": "Medico A1 - 1: fissare un appuntamento",
+        "pt": "Doctor A1 - 1: Marcar uma consulta",
+        "ru": "Доктор A1 - 1: Запись на прием",
+        "ja": "ドクターA1 - 1: 予約を取る",
+        "ko": "닥터 A1 - 1: 예약하기",
+        "zh-CN": "医生 A1 - 1：预约",
+        "zh-TW": "医生 A1 - 1：预约",
+        "ar": "الطبيب أ 1 - 1: تحديد موعد طبي",
+        "tr": "Doktor A1 - 1: Randevu Alma",
+        "pl": "Lekarz A1 - 1: Umawianie się na wizytę",
+        "nl": "Dokter A1 - 1: Een afspraak maken",
+        "sv": "Doktor A1 - 1: Boka tid för ett besök",
+        "no": "Lege A1 - 1: Bestilling av time",
+        "da": "Læge A1 - 1: At lave en aftale",
+        "fi": "Lääkäri A1 - 1: Ajanvarauksen tekeminen",
+        "el": "Γιατρός A1 - 1: Κλείνοντας ένα ραντεβού",
+        "cs": "Lékař A1 - 1: Objednání na schůzku"
       },
       "domainKind": "context",
+      "groupId": "booking-appointments",
+      "groupTitle": "Booking Appointments",
+      "groupTitle_i18n": {
+        "en": "Booking Appointments"
+      },
       "isRecommended": true
     },
     {
@@ -108,9 +132,33 @@
       "shortTitle": "Symptom description",
       "orderInTopic": 2,
       "title_i18n": {
-        "en": "Doctor A1 — 2: Describing Symptoms"
+        "en": "Doctor A1 — 2: Describing Symptoms",
+        "es": "Doctor A1 - 2: Descripción de los síntomas",
+        "fr": "Docteur A1 - 2 : Description des symptômes",
+        "it": "Medico A1 - 2: descrizione dei sintomi",
+        "pt": "Doctor A1 - 2: Descrever os sintomas",
+        "ru": "Доктор A1 - 2: Описание симптомов",
+        "ja": "医師A1 - 2: 症状の説明",
+        "ko": "닥터 A1 - 2: 증상 설명하기",
+        "zh-CN": "医生 A1 - 2：描述症状",
+        "zh-TW": "医生 A1 - 2：描述症状",
+        "ar": "الطبيب أ 1 - 2: وصف الأعراض",
+        "tr": "Doktor A1 - 2: Belirtileri Tanımlama",
+        "pl": "Lekarz A1 - 2: Opisywanie objawów",
+        "nl": "Dokter A1 - 2: Symptomen beschrijven",
+        "sv": "Läkare A1 - 2: Beskriva symtom",
+        "no": "Lege A1 - 2: Beskrive symptomer",
+        "da": "Læge A1 - 2: Beskrivelse af symptomer",
+        "fi": "Lääkäri A1 - 2: Oireiden kuvaaminen",
+        "el": "Γιατρός A1 - 2: Περιγράφοντας τα συμπτώματα",
+        "cs": "Lékař A1 - 2: Popis příznaků"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "describing-symptoms",
+      "groupTitle": "Describing Symptoms",
+      "groupTitle_i18n": {
+        "en": "Describing Symptoms"
+      }
     },
     {
       "id": "doctor_pack_3_a1",
@@ -161,9 +209,33 @@
       "shortTitle": "Prescription pickup",
       "orderInTopic": 3,
       "title_i18n": {
-        "en": "Doctor A1 — 3: Getting Prescription"
+        "en": "Doctor A1 — 3: Getting Prescription",
+        "es": "Doctor A1 - 3: Obtención de la receta",
+        "fr": "Docteur A1 - 3 : Obtenir une ordonnance",
+        "it": "Medico A1 - 3: ottenere la prescrizione",
+        "pt": "Doctor A1 - 3: Obter uma receita",
+        "ru": "Доктор A1 - 3: Получение рецепта",
+        "ja": "ドクターA1 - 3: 処方箋をもらう",
+        "ko": "닥터 A1 - 3: 처방전 받기",
+        "zh-CN": "医生 A1 - 3：获取处方",
+        "zh-TW": "医生 A1 - 3：获取处方",
+        "ar": "الطبيب أ 1 - 3: الحصول على وصفة طبية",
+        "tr": "Doktor A1 - 3: Reçete Alma",
+        "pl": "Lekarz A1 - 3: Uzyskanie recepty",
+        "nl": "Dokter A1 - 3: Een recept krijgen",
+        "sv": "Doktor A1 - 3: Att få recept",
+        "no": "Lege A1 - 3: Få resept",
+        "da": "Læge A1 - 3: At få recept",
+        "fi": "Lääkäri A1 - 3: Reseptin saaminen",
+        "el": "Γιατρός A1 - 3: Συνταγογράφηση",
+        "cs": "Lékař A1 - 3: Získání předpisu"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "getting-prescriptions",
+      "groupTitle": "Getting Prescriptions",
+      "groupTitle_i18n": {
+        "en": "Getting Prescriptions"
+      }
     },
     {
       "id": "doctor_pack_4_a1",
@@ -214,9 +286,33 @@
       "shortTitle": "Making an Appointment",
       "orderInTopic": 4,
       "title_i18n": {
-        "en": "Doctor A1 — 4: Making an Appointment"
+        "en": "Doctor A1 — 4: Making an Appointment",
+        "es": "Doctor A1 - 4: Concertar una cita",
+        "fr": "Docteur A1 - 4 : Prendre rendez-vous",
+        "it": "Medico A1 - 4: fissare un appuntamento",
+        "pt": "Doctor A1 - 4: Marcar uma consulta",
+        "ru": "Доктор A1 - 4: Запись на прием",
+        "ja": "ドクターA1 - 4: 予約を取る",
+        "ko": "닥터 A1 - 4: 예약하기",
+        "zh-CN": "医生 A1 - 4：预约",
+        "zh-TW": "医生 A1 - 4：预约",
+        "ar": "الطبيب A1 - 4: تحديد موعد مع الطبيب A1 - 4: تحديد موعد",
+        "tr": "Doktor A1 - 4: Randevu Alma",
+        "pl": "Lekarz A1 - 4: Umawianie się na wizytę",
+        "nl": "Dokter A1 - 4: Een afspraak maken",
+        "sv": "Doktor A1 - 4: Att boka tid",
+        "no": "Lege A1 - 4: Bestilling av time",
+        "da": "Læge A1 - 4: At lave en aftale",
+        "fi": "Lääkäri A1 - 4: Ajanvarauksen tekeminen",
+        "el": "Γιατρός A1 - 4: Κλείνοντας ένα ραντεβού",
+        "cs": "Lékař A1 - 4: Objednání na schůzku"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "booking-appointments",
+      "groupTitle": "Booking Appointments",
+      "groupTitle_i18n": {
+        "en": "Booking Appointments"
+      }
     },
     {
       "id": "doctor_pack_5_a1",
@@ -267,9 +363,33 @@
       "shortTitle": "Describing Symptoms",
       "orderInTopic": 5,
       "title_i18n": {
-        "en": "Doctor A1 — 5: Describing Symptoms"
+        "en": "Doctor A1 — 5: Describing Symptoms",
+        "es": "Doctor A1 - 5: Descripción de los síntomas",
+        "fr": "Docteur A1 - 5 : Décrire les symptômes",
+        "it": "Medico A1 - 5: Descrizione dei sintomi",
+        "pt": "Doctor A1 - 5: Descrever os sintomas",
+        "ru": "Доктор A1 - 5: Описание симптомов",
+        "ja": "医師A1 - 5: 症状の説明",
+        "ko": "닥터 A1 - 5: 증상 설명하기",
+        "zh-CN": "医生 A1 - 5：描述症状",
+        "zh-TW": "医生 A1 - 5：描述症状",
+        "ar": "الطبيب أ 1 - 5: وصف الأعراض",
+        "tr": "Doktor A1 - 5: Belirtileri Tanımlama",
+        "pl": "Lekarz A1 - 5: Opisywanie objawów",
+        "nl": "Dokter A1 - 5: Symptomen beschrijven",
+        "sv": "Läkare A1 - 5: Beskrivning av symtom",
+        "no": "Lege A1 - 5: Beskrive symptomer",
+        "da": "Læge A1 - 5: Beskrivelse af symptomer",
+        "fi": "Lääkäri A1 - 5: Oireiden kuvaaminen",
+        "el": "Γιατρός A1 - 5: Περιγράφοντας τα συμπτώματα",
+        "cs": "Lékař A1 - 5: Popis příznaků"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "describing-symptoms",
+      "groupTitle": "Describing Symptoms",
+      "groupTitle_i18n": {
+        "en": "Describing Symptoms"
+      }
     },
     {
       "id": "doctor_pack_6_a1",
@@ -320,9 +440,33 @@
       "shortTitle": "Getting Prescription",
       "orderInTopic": 6,
       "title_i18n": {
-        "en": "Doctor A1 — 6: Getting Prescription"
+        "en": "Doctor A1 — 6: Getting Prescription",
+        "es": "Doctor A1 - 6: Conseguir la receta",
+        "fr": "Docteur A1 - 6 : Obtenir une ordonnance",
+        "it": "Medico A1 - 6: Ottenere la prescrizione",
+        "pt": "Doctor A1 - 6: Receber uma receita",
+        "ru": "Доктор A1 - 6: Получение рецепта",
+        "ja": "ドクターA1 - 6: 処方箋をもらう",
+        "ko": "닥터 A1 - 6: 처방전 받기",
+        "zh-CN": "医生 A1 - 6：获取处方",
+        "zh-TW": "医生 A1 - 6：获取处方",
+        "ar": "الطبيب أ 1 - 6: الحصول على وصفة طبية",
+        "tr": "Doktor A1 - 6: Reçete Alma",
+        "pl": "Doctor A1 - 6: Otrzymanie recepty",
+        "nl": "Dokter A1 - 6: een recept krijgen",
+        "sv": "Doktor A1 - 6: Att få recept",
+        "no": "Lege A1 - 6: Få resept",
+        "da": "Læge A1 - 6: At få recept",
+        "fi": "Lääkäri A1 - 6: Reseptin saaminen",
+        "el": "Γιατρός A1 - 6: Συνταγογράφηση",
+        "cs": "Lékař A1 - 6: Získání lékařského předpisu"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "getting-prescriptions",
+      "groupTitle": "Getting Prescriptions",
+      "groupTitle_i18n": {
+        "en": "Getting Prescriptions"
+      }
     },
     {
       "id": "doctor_pack_7_a1",
@@ -373,9 +517,33 @@
       "shortTitle": "Making an Appointment",
       "orderInTopic": 7,
       "title_i18n": {
-        "en": "Doctor A1 — 7: Making an Appointment"
+        "en": "Doctor A1 — 7: Making an Appointment",
+        "es": "Doctor A1 - 7: Concertar una cita",
+        "fr": "Docteur A1 - 7 : Prendre rendez-vous",
+        "it": "Medico A1 - 7: fissare un appuntamento",
+        "pt": "Doctor A1 - 7: Marcar uma consulta",
+        "ru": "Доктор A1 - 7: Запись на прием",
+        "ja": "ドクターA1 - 7: 予約を取る",
+        "ko": "닥터 A1 - 7: 예약하기",
+        "zh-CN": "医生 A1 - 7：预约",
+        "zh-TW": "医生 A1 - 7：预约",
+        "ar": "الطبيب أ1 - 7: تحديد موعد مع الطبيب A1 - 7: تحديد موعد",
+        "tr": "Doktor A1 - 7: Randevu Alma",
+        "pl": "Lekarz A1 - 7: Umawianie się na wizytę",
+        "nl": "Dokter A1 - 7: Een afspraak maken",
+        "sv": "Doktor A1 - 7: Att boka tid",
+        "no": "Lege A1 - 7: Bestilling av time",
+        "da": "Læge A1 - 7: At lave en aftale",
+        "fi": "Lääkäri A1 - 7: Ajanvarauksen tekeminen",
+        "el": "Γιατρός A1 - 7: Κλείνοντας ένα ραντεβού",
+        "cs": "Lékař A1 - 7: Objednání na schůzku"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "booking-appointments",
+      "groupTitle": "Booking Appointments",
+      "groupTitle_i18n": {
+        "en": "Booking Appointments"
+      }
     },
     {
       "id": "doctor_pack_8_a1",
@@ -426,9 +594,33 @@
       "shortTitle": "Describing Symptoms",
       "orderInTopic": 8,
       "title_i18n": {
-        "en": "Doctor A1 — 8: Describing Symptoms"
+        "en": "Doctor A1 — 8: Describing Symptoms",
+        "es": "Doctor A1 - 8: Descripción de los síntomas",
+        "fr": "Docteur A1 - 8 : Décrire les symptômes",
+        "it": "Medico A1 - 8: Descrizione dei sintomi",
+        "pt": "Doctor A1 - 8: Descrever os sintomas",
+        "ru": "Доктор A1 - 8: Описание симптомов",
+        "ja": "医師A1 - 8: 症状の説明",
+        "ko": "닥터 A1 - 8: 증상 설명하기",
+        "zh-CN": "医生 A1 - 8：描述症状",
+        "zh-TW": "医生 A1 - 8：描述症状",
+        "ar": "الطبيب أ 1 - 8: وصف الأعراض",
+        "tr": "Doktor A1 - 8: Belirtileri Tanımlama",
+        "pl": "Lekarz A1 - 8: Opisywanie objawów",
+        "nl": "Dokter A1 - 8: Symptomen beschrijven",
+        "sv": "Läkare A1 - 8: Beskrivning av symtom",
+        "no": "Lege A1 - 8: Beskrive symptomer",
+        "da": "Læge A1 - 8: Beskrivelse af symptomer",
+        "fi": "Lääkäri A1 - 8: Oireiden kuvaaminen",
+        "el": "Γιατρός A1 - 8: Περιγράφοντας τα συμπτώματα",
+        "cs": "Lékař A1 - 8: Popis příznaků"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "describing-symptoms",
+      "groupTitle": "Describing Symptoms",
+      "groupTitle_i18n": {
+        "en": "Describing Symptoms"
+      }
     },
     {
       "id": "doctor_pack_1_a2",
@@ -479,9 +671,33 @@
       "shortTitle": "Appointment scheduling",
       "orderInTopic": 1,
       "title_i18n": {
-        "en": "Doctor A2 — 1: Making an Appointment"
+        "en": "Doctor A2 — 1: Making an Appointment",
+        "es": "Doctor A2 - 1: Concertar una cita",
+        "fr": "Docteur A2 - 1 : Prendre rendez-vous",
+        "it": "Medico A2 - 1: fissare un appuntamento",
+        "pt": "Doutor A2 - 1: Marcação de uma consulta",
+        "ru": "Доктор A2 - 1: запись на прием",
+        "ja": "ドクターA2 - 1: 予約を取る",
+        "ko": "닥터 A2 - 1: 예약하기",
+        "zh-CN": "医生 A2 - 1：预约",
+        "zh-TW": "医生 A2 - 1：预约",
+        "ar": "الطبيب أ 2 - 1: تحديد موعد طبي",
+        "tr": "Doktor A2 - 1: Randevu Alma",
+        "pl": "Lekarz A2 - 1: Umawianie się na wizytę",
+        "nl": "Dokter A2 - 1: Een afspraak maken",
+        "sv": "Doktor A2 - 1: Att boka tid",
+        "no": "Lege A2 - 1: Bestilling av time",
+        "da": "Læge A2 - 1: At lave en aftale",
+        "fi": "Lääkäri A2 - 1: Ajanvarauksen tekeminen",
+        "el": "Γιατρός A2 - 1: Κλείνοντας ένα ραντεβού",
+        "cs": "Lékař A2 - 1: Objednání na schůzku"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "booking-appointments",
+      "groupTitle": "Booking Appointments",
+      "groupTitle_i18n": {
+        "en": "Booking Appointments"
+      }
     },
     {
       "id": "doctor_pack_2_a2",
@@ -532,9 +748,33 @@
       "shortTitle": "Symptom communication",
       "orderInTopic": 2,
       "title_i18n": {
-        "en": "Doctor A2 — 2: Describing Symptoms"
+        "en": "Doctor A2 — 2: Describing Symptoms",
+        "es": "Doctor A2 - 2: Descripción de los síntomas",
+        "fr": "Docteur A2 - 2 : Description des symptômes",
+        "it": "Medico A2 - 2: descrizione dei sintomi",
+        "pt": "Doctor A2 - 2: Descrever os sintomas",
+        "ru": "Доктор A2 - 2: Описание симптомов",
+        "ja": "医師A2 - 2: 症状の説明",
+        "ko": "닥터 A2 - 2: 증상 설명하기",
+        "zh-CN": "医生 A2 - 2：描述症状",
+        "zh-TW": "医生 A2 - 2：描述症状",
+        "ar": "الطبيب أ2 - 2 - 2: وصف الأعراض",
+        "tr": "Doktor A2 - 2: Belirtileri Tanımlama",
+        "pl": "Lekarz A2 - 2: Opisywanie objawów",
+        "nl": "Dokter A2 - 2: Symptomen beschrijven",
+        "sv": "Läkare A2 - 2: Beskriva symtom",
+        "no": "Lege A2 - 2: Beskrive symptomer",
+        "da": "Læge A2 - 2: Beskrivelse af symptomer",
+        "fi": "Lääkäri A2 - 2: Oireiden kuvaaminen",
+        "el": "Γιατρός A2 - 2: Περιγράφοντας τα συμπτώματα",
+        "cs": "Lékař A2 - 2: Popis příznaků"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "describing-symptoms",
+      "groupTitle": "Describing Symptoms",
+      "groupTitle_i18n": {
+        "en": "Describing Symptoms"
+      }
     },
     {
       "id": "doctor_pack_3_a2",
@@ -585,9 +825,33 @@
       "shortTitle": "Prescription process",
       "orderInTopic": 3,
       "title_i18n": {
-        "en": "Doctor A2 — 3: Getting Prescription"
+        "en": "Doctor A2 — 3: Getting Prescription",
+        "es": "Doctor A2 - 3: Obtención de la receta",
+        "fr": "Docteur A2 - 3 : Obtenir une ordonnance",
+        "it": "Medico A2 - 3: ottenere la prescrizione",
+        "pt": "Doutor A2 - 3: Receber a receita",
+        "ru": "Доктор A2 - 3: Получение рецепта",
+        "ja": "ドクターA2 - 3: 処方箋をもらう",
+        "ko": "닥터 A2 - 3: 처방전 받기",
+        "zh-CN": "医生 A2 - 3：获取处方",
+        "zh-TW": "医生 A2 - 3：获取处方",
+        "ar": "الطبيب أ2 - 3: الحصول على وصفة طبية",
+        "tr": "Doktor A2 - 3: Reçete Alma",
+        "pl": "Lekarz A2 - 3: Uzyskanie recepty",
+        "nl": "Dokter A2 - 3: Een recept krijgen",
+        "sv": "Doctor A2 - 3: Att få recept",
+        "no": "Lege A2 - 3: Få resept",
+        "da": "Læge A2 - 3: At få recept",
+        "fi": "Lääkäri A2 - 3: Reseptin saaminen",
+        "el": "Γιατρός A2 - 3: Συνταγογράφηση",
+        "cs": "Lékař A2 - 3: Získání lékařského předpisu"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "getting-prescriptions",
+      "groupTitle": "Getting Prescriptions",
+      "groupTitle_i18n": {
+        "en": "Getting Prescriptions"
+      }
     },
     {
       "id": "doctor_pack_4_a2",
@@ -638,12 +902,36 @@
       "shortTitle": "Making an Appointment",
       "orderInTopic": 4,
       "title_i18n": {
-        "en": "Doctor A2 — 4: Making an Appointment"
+        "en": "Doctor A2 — 4: Making an Appointment",
+        "es": "Doctor A2 - 4: Concertar una cita",
+        "fr": "Docteur A2 - 4 : Prendre rendez-vous",
+        "it": "Medico A2 - 4: fissare un appuntamento",
+        "pt": "Doutor A2 - 4: Marcação de uma consulta",
+        "ru": "Доктор A2 - 4: Запись на прием",
+        "ja": "ドクターA2 - 4: 予約を取る",
+        "ko": "닥터 A2 - 4: 예약하기",
+        "zh-CN": "医生 A2 - 4：预约",
+        "zh-TW": "医生 A2 - 4：预约",
+        "ar": "الطبيب أ2 - 4: تحديد موعد طبي A2 - 4: تحديد موعد طبي",
+        "tr": "Doktor A2 - 4: Randevu Alma",
+        "pl": "Lekarz A2 - 4: Umawianie się na wizytę",
+        "nl": "Dokter A2 - 4: Een afspraak maken",
+        "sv": "Doktor A2 - 4: Att boka tid",
+        "no": "Lege A2 - 4: Bestilling av time",
+        "da": "Læge A2 - 4: At lave en aftale",
+        "fi": "Lääkäri A2 - 4: Ajanvarauksen tekeminen",
+        "el": "Γιατρός A2 - 4: Κλείνοντας ένα ραντεβού",
+        "cs": "Lékař A2 - 4: Objednání na schůzku"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "booking-appointments",
+      "groupTitle": "Booking Appointments",
+      "groupTitle_i18n": {
+        "en": "Booking Appointments"
+      }
     }
   ],
-  "nextPage": "/v1/workspaces/de/context/doctor/index.page2.json",
+  "nextPage": "/v1/workspaces/de/context/doctor/pages/2.json",
   "scope": {
     "scopeKind": "scenario",
     "scopeId": "doctor",
@@ -652,5 +940,49 @@
   "recommended": {
     "itemId": "doctor_pack_1_a1",
     "entryUrl": "/v1/workspaces/de/packs/doctor_pack_1_a1/pack.json"
-  }
+  },
+  "groups": [
+    {
+      "id": "booking-appointments",
+      "title": "Booking Appointments",
+      "title_i18n": {
+        "en": "Booking Appointments"
+      },
+      "kind": "context_group",
+      "itemIds": [
+        "doctor_pack_1_a1",
+        "doctor_pack_4_a1",
+        "doctor_pack_7_a1",
+        "doctor_pack_1_a2",
+        "doctor_pack_4_a2"
+      ]
+    },
+    {
+      "id": "describing-symptoms",
+      "title": "Describing Symptoms",
+      "title_i18n": {
+        "en": "Describing Symptoms"
+      },
+      "kind": "context_group",
+      "itemIds": [
+        "doctor_pack_2_a1",
+        "doctor_pack_5_a1",
+        "doctor_pack_8_a1",
+        "doctor_pack_2_a2"
+      ]
+    },
+    {
+      "id": "getting-prescriptions",
+      "title": "Getting Prescriptions",
+      "title_i18n": {
+        "en": "Getting Prescriptions"
+      },
+      "kind": "context_group",
+      "itemIds": [
+        "doctor_pack_3_a1",
+        "doctor_pack_6_a1",
+        "doctor_pack_3_a2"
+      ]
+    }
+  ]
 }

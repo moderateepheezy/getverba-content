@@ -1,228 +1,408 @@
 {
   "version": "v1",
   "kind": "drills",
-  "total": 149,
+  "total": 144,
   "pageSize": 20,
   "page": 5,
   "items": [
     {
-      "id": "case_endings_akkusativ_a2_tier2_pattern-switch",
-      "kind": "drill",
-      "title": "Case Endings: Akkusativ: A2 (Tier 2)",
-      "level": "A2",
-      "durationMinutes": 4,
-      "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a2_tier2_pattern-switch/drill.json",
-      "contentId": "de:drill:case_endings_akkusativ_a2_tier2_pattern-switch",
-      "revisionId": "438d010bab33",
-      "domainKind": "context"
-    },
-    {
       "id": "case_endings_akkusativ_a2_tier2_slot-substitution",
       "kind": "drill",
-      "title": "Case Endings: Akkusativ: A2 (Tier 2)",
+      "title": "Case Endings: Akkusativ: A2 (Tier 2) - Slot",
       "level": "A2",
       "durationMinutes": 4,
       "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a2_tier2_slot-substitution/drill.json",
       "contentId": "de:drill:case_endings_akkusativ_a2_tier2_slot-substitution",
-      "revisionId": "760ce20c2344",
+      "revisionId": "68087ea18214",
+      "title_i18n": {
+        "en": "Case Endings: Akkusativ: A2 (Tier 2) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - slot substitution - Master accusative case endings "
+      },
+      "shortTitle_i18n": {
+        "en": "Case Endings: Akkusa A2 Slot"
+      },
       "domainKind": "context"
     },
     {
       "id": "case_endings_akkusativ_a2_tier3_contrast-pairs",
       "kind": "drill",
-      "title": "Case Endings: Akkusativ: A2 (Tier 3)",
+      "title": "Case Endings: Akkusativ: A2 (Tier 3) - Pairs",
       "level": "A2",
       "durationMinutes": 5,
       "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a2_tier3_contrast-pairs/drill.json",
       "contentId": "de:drill:case_endings_akkusativ_a2_tier3_contrast-pairs",
-      "revisionId": "f4f9614d189d",
+      "revisionId": "225e36fe3763",
+      "title_i18n": {
+        "en": "Case Endings: Akkusativ: A2 (Tier 3) - Pairs"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - contrast pairs - Master accusative case endings (de"
+      },
+      "shortTitle_i18n": {
+        "en": "Case Endings: Akkus A2 Pairs"
+      },
       "domainKind": "context"
     },
     {
       "id": "case_endings_akkusativ_a2_tier3_pattern-switch",
       "kind": "drill",
-      "title": "Case Endings: Akkusativ: A2 (Tier 3)",
+      "title": "Case Endings: Akkusativ: A2 (Tier 3) - Pattern",
       "level": "A2",
       "durationMinutes": 5,
       "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a2_tier3_pattern-switch/drill.json",
       "contentId": "de:drill:case_endings_akkusativ_a2_tier3_pattern-switch",
-      "revisionId": "948f1ab003a0",
+      "revisionId": "3dded2e9eddf",
+      "title_i18n": {
+        "en": "Case Endings: Akkusativ: A2 (Tier 3) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - pattern switch - Master accusative case endings (de"
+      },
+      "shortTitle_i18n": {
+        "en": "Case Endings: Akk A2 Pattern"
+      },
       "domainKind": "context"
     },
     {
       "id": "case_endings_akkusativ_a2_tier3_slot-substitution",
       "kind": "drill",
-      "title": "Case Endings: Akkusativ: A2 (Tier 3)",
+      "title": "Case Endings: Akkusativ: A2 (Tier 3) - Slot",
       "level": "A2",
       "durationMinutes": 5,
       "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a2_tier3_slot-substitution/drill.json",
       "contentId": "de:drill:case_endings_akkusativ_a2_tier3_slot-substitution",
-      "revisionId": "57300ce363ff",
+      "revisionId": "26f6db4444da",
+      "title_i18n": {
+        "en": "Case Endings: Akkusativ: A2 (Tier 3) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - slot substitution - Master accusative case endings "
+      },
+      "shortTitle_i18n": {
+        "en": "Case Endings: Akkusa A2 Slot"
+      },
       "domainKind": "context"
     },
     {
       "id": "modal_verbs_a2_tier1_contrast-pairs",
       "kind": "drill",
-      "title": "Modal Verbs: A2 (Tier 1)",
+      "title": "Modal Verbs: A2 (Tier 1) - Pairs",
       "level": "A2",
       "durationMinutes": 3,
       "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a2_tier1_contrast-pairs/drill.json",
       "contentId": "de:drill:modal_verbs_a2_tier1_contrast-pairs",
-      "revisionId": "a21354c47277",
+      "revisionId": "4f30747992f0",
+      "title_i18n": {
+        "en": "Modal Verbs: A2 (Tier 1) - Pairs"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - contrast pairs - Master modal verb patterns (können"
+      },
+      "shortTitle_i18n": {
+        "en": "Modal Verbs A2 Pairs"
+      },
       "domainKind": "context"
     },
     {
       "id": "modal_verbs_a2_tier1_pattern-switch",
       "kind": "drill",
-      "title": "Modal Verbs: A2 (Tier 1)",
+      "title": "Modal Verbs: A2 (Tier 1) - Pattern",
       "level": "A2",
       "durationMinutes": 3,
       "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a2_tier1_pattern-switch/drill.json",
       "contentId": "de:drill:modal_verbs_a2_tier1_pattern-switch",
-      "revisionId": "05c0ba0eccf5",
+      "revisionId": "c5603a7397fa",
+      "title_i18n": {
+        "en": "Modal Verbs: A2 (Tier 1) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - pattern switch - Master modal verb patterns (können"
+      },
+      "shortTitle_i18n": {
+        "en": "Modal Verbs A2 Pattern"
+      },
       "domainKind": "context"
     },
     {
       "id": "modal_verbs_a2_tier1_slot-substitution",
       "kind": "drill",
-      "title": "Modal Verbs: A2 (Tier 1)",
+      "title": "Modal Verbs: A2 (Tier 1) - Slot",
       "level": "A2",
       "durationMinutes": 3,
       "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a2_tier1_slot-substitution/drill.json",
       "contentId": "de:drill:modal_verbs_a2_tier1_slot-substitution",
-      "revisionId": "8c15ecc0c32b",
+      "revisionId": "1186a792a001",
+      "title_i18n": {
+        "en": "Modal Verbs: A2 (Tier 1) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - slot substitution - Master modal verb patterns (kön"
+      },
+      "shortTitle_i18n": {
+        "en": "Modal Verbs A2 Slot"
+      },
       "domainKind": "context"
     },
     {
       "id": "modal_verbs_a2_tier2_contrast-pairs",
       "kind": "drill",
-      "title": "Modal Verbs: A2 (Tier 2)",
+      "title": "Modal Verbs: A2 (Tier 2) - Pairs",
       "level": "A2",
       "durationMinutes": 4,
       "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a2_tier2_contrast-pairs/drill.json",
       "contentId": "de:drill:modal_verbs_a2_tier2_contrast-pairs",
-      "revisionId": "818337d20e3b",
+      "revisionId": "6aae92e31e3c",
+      "title_i18n": {
+        "en": "Modal Verbs: A2 (Tier 2) - Pairs"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - contrast pairs - Master modal verb patterns (können"
+      },
+      "shortTitle_i18n": {
+        "en": "Modal Verbs A2 Pairs"
+      },
       "domainKind": "context"
     },
     {
       "id": "modal_verbs_a2_tier2_pattern-switch",
       "kind": "drill",
-      "title": "Modal Verbs: A2 (Tier 2)",
+      "title": "Modal Verbs: A2 (Tier 2) - Pattern",
       "level": "A2",
       "durationMinutes": 4,
       "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a2_tier2_pattern-switch/drill.json",
       "contentId": "de:drill:modal_verbs_a2_tier2_pattern-switch",
-      "revisionId": "bc41cf95c6bc",
+      "revisionId": "5589caddd135",
+      "title_i18n": {
+        "en": "Modal Verbs: A2 (Tier 2) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - pattern switch - Master modal verb patterns (können"
+      },
+      "shortTitle_i18n": {
+        "en": "Modal Verbs A2 Pattern"
+      },
       "domainKind": "context"
     },
     {
       "id": "modal_verbs_a2_tier2_slot-substitution",
       "kind": "drill",
-      "title": "Modal Verbs: A2 (Tier 2)",
+      "title": "Modal Verbs: A2 (Tier 2) - Slot",
       "level": "A2",
       "durationMinutes": 4,
       "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a2_tier2_slot-substitution/drill.json",
       "contentId": "de:drill:modal_verbs_a2_tier2_slot-substitution",
-      "revisionId": "35052a936334",
+      "revisionId": "50fe979abe68",
+      "title_i18n": {
+        "en": "Modal Verbs: A2 (Tier 2) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - slot substitution - Master modal verb patterns (kön"
+      },
+      "shortTitle_i18n": {
+        "en": "Modal Verbs A2 Slot"
+      },
       "domainKind": "context"
     },
     {
       "id": "modal_verbs_a2_tier3_contrast-pairs",
       "kind": "drill",
-      "title": "Modal Verbs: A2 (Tier 3)",
+      "title": "Modal Verbs: A2 (Tier 3) - Pairs",
       "level": "A2",
       "durationMinutes": 5,
       "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a2_tier3_contrast-pairs/drill.json",
       "contentId": "de:drill:modal_verbs_a2_tier3_contrast-pairs",
-      "revisionId": "f6d359be7280",
+      "revisionId": "233565c6877d",
+      "title_i18n": {
+        "en": "Modal Verbs: A2 (Tier 3) - Pairs"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - contrast pairs - Master modal verb patterns (können"
+      },
+      "shortTitle_i18n": {
+        "en": "Modal Verbs A2 Pairs"
+      },
       "domainKind": "context"
     },
     {
       "id": "modal_verbs_a2_tier3_pattern-switch",
       "kind": "drill",
-      "title": "Modal Verbs: A2 (Tier 3)",
+      "title": "Modal Verbs: A2 (Tier 3) - Pattern",
       "level": "A2",
       "durationMinutes": 5,
       "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a2_tier3_pattern-switch/drill.json",
       "contentId": "de:drill:modal_verbs_a2_tier3_pattern-switch",
-      "revisionId": "22e1a02d260d",
+      "revisionId": "47c48a593995",
+      "title_i18n": {
+        "en": "Modal Verbs: A2 (Tier 3) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - pattern switch - Master modal verb patterns (können"
+      },
+      "shortTitle_i18n": {
+        "en": "Modal Verbs A2 Pattern"
+      },
       "domainKind": "context"
     },
     {
       "id": "modal_verbs_a2_tier3_slot-substitution",
       "kind": "drill",
-      "title": "Modal Verbs: A2 (Tier 3)",
+      "title": "Modal Verbs: A2 (Tier 3) - Slot",
       "level": "A2",
       "durationMinutes": 5,
       "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a2_tier3_slot-substitution/drill.json",
       "contentId": "de:drill:modal_verbs_a2_tier3_slot-substitution",
-      "revisionId": "39679a830121",
-      "domainKind": "context"
-    },
-    {
-      "id": "negation_a2_tier1_error-trap",
-      "kind": "drill",
-      "title": "Negation: A2 (Tier 1)",
-      "level": "A2",
-      "durationMinutes": 3,
-      "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier1_error-trap/drill.json",
-      "contentId": "de:drill:negation_a2_tier1_error-trap",
-      "revisionId": "f38766664c20",
-      "domainKind": "context"
-    },
-    {
-      "id": "negation_a2_tier1_micro-transform",
-      "kind": "drill",
-      "title": "Negation: A2 (Tier 1)",
-      "level": "A2",
-      "durationMinutes": 3,
-      "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier1_micro-transform/drill.json",
-      "contentId": "de:drill:negation_a2_tier1_micro-transform",
-      "revisionId": "d31130dc6546",
+      "revisionId": "c281e3bb2221",
+      "title_i18n": {
+        "en": "Modal Verbs: A2 (Tier 3) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - slot substitution - Master modal verb patterns (kön"
+      },
+      "shortTitle_i18n": {
+        "en": "Modal Verbs A2 Slot"
+      },
       "domainKind": "context"
     },
     {
       "id": "negation_a2_tier1_pattern-switch",
       "kind": "drill",
-      "title": "Negation: A2 (Tier 1)",
+      "title": "Negation: A2 (Tier 1) - Pattern",
       "level": "A2",
       "durationMinutes": 3,
       "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier1_pattern-switch/drill.json",
       "contentId": "de:drill:negation_a2_tier1_pattern-switch",
-      "revisionId": "4315a74c529a",
+      "revisionId": "568c48e3a987",
+      "title_i18n": {
+        "en": "Negation: A2 (Tier 1) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - pattern switch - Master negation placement (nicht, "
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A2 Pattern"
+      },
       "domainKind": "context"
     },
     {
-      "id": "negation_a2_tier2_error-trap",
+      "id": "negation_a2_tier1_micro-transform",
       "kind": "drill",
-      "title": "Negation: A2 (Tier 2)",
+      "title": "Negation: A2 (Tier 1) - Transform",
       "level": "A2",
-      "durationMinutes": 4,
-      "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier2_error-trap/drill.json",
-      "contentId": "de:drill:negation_a2_tier2_error-trap",
-      "revisionId": "89dbb617e7aa",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier1_micro-transform/drill.json",
+      "contentId": "de:drill:negation_a2_tier1_micro-transform",
+      "revisionId": "65243d0da0c8",
+      "title_i18n": {
+        "en": "Negation: A2 (Tier 1) - Transform"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - micro transform - Master negation placement (nicht,"
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A2 Transform"
+      },
       "domainKind": "context"
     },
     {
-      "id": "negation_a2_tier2_micro-transform",
+      "id": "negation_a2_tier1_error-trap",
       "kind": "drill",
-      "title": "Negation: A2 (Tier 2)",
+      "title": "Negation: A2 (Tier 1) - Trap",
       "level": "A2",
-      "durationMinutes": 4,
-      "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier2_micro-transform/drill.json",
-      "contentId": "de:drill:negation_a2_tier2_micro-transform",
-      "revisionId": "05409670c693",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier1_error-trap/drill.json",
+      "contentId": "de:drill:negation_a2_tier1_error-trap",
+      "revisionId": "45e599627595",
+      "title_i18n": {
+        "en": "Negation: A2 (Tier 1) - Trap"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - error trap - Master negation placement (nicht, kein"
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A2 Trap"
+      },
       "domainKind": "context"
     },
     {
       "id": "negation_a2_tier2_pattern-switch",
       "kind": "drill",
-      "title": "Negation: A2 (Tier 2)",
+      "title": "Negation: A2 (Tier 2) - Pattern",
       "level": "A2",
       "durationMinutes": 4,
       "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier2_pattern-switch/drill.json",
       "contentId": "de:drill:negation_a2_tier2_pattern-switch",
-      "revisionId": "eed5b0331377",
+      "revisionId": "5c1b769edc2d",
+      "title_i18n": {
+        "en": "Negation: A2 (Tier 2) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - pattern switch - Master negation placement (nicht, "
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A2 Pattern"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "negation_a2_tier2_micro-transform",
+      "kind": "drill",
+      "title": "Negation: A2 (Tier 2) - Transform",
+      "level": "A2",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier2_micro-transform/drill.json",
+      "contentId": "de:drill:negation_a2_tier2_micro-transform",
+      "revisionId": "246ec78e36d2",
+      "title_i18n": {
+        "en": "Negation: A2 (Tier 2) - Transform"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - micro transform - Master negation placement (nicht,"
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A2 Transform"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "negation_a2_tier2_error-trap",
+      "kind": "drill",
+      "title": "Negation: A2 (Tier 2) - Trap",
+      "level": "A2",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier2_error-trap/drill.json",
+      "contentId": "de:drill:negation_a2_tier2_error-trap",
+      "revisionId": "edb8fab2df63",
+      "title_i18n": {
+        "en": "Negation: A2 (Tier 2) - Trap"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - error trap - Master negation placement (nicht, kein"
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A2 Trap"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "negation_a2_tier3_pattern-switch",
+      "kind": "drill",
+      "title": "Negation: A2 (Tier 3) - Pattern",
+      "level": "A2",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier3_pattern-switch/drill.json",
+      "contentId": "de:drill:negation_a2_tier3_pattern-switch",
+      "revisionId": "db73e7a60cae",
+      "title_i18n": {
+        "en": "Negation: A2 (Tier 3) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - pattern switch - Master negation placement (nicht, "
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A2 Pattern"
+      },
       "domainKind": "context"
     }
   ],

@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A2",
-  "title": "Word Order: Main Clause: A2 (Tier 2)",
-  "shortTitle": "Word Order: Main Clause A2",
+  "title": "Word Order: Main Clause: A2 (Tier 2) - Trap",
+  "shortTitle": "Word Order: Main Cla A2 Trap",
   "subtitle": "Tier 2 - error trap - Master verb-second position in main cl",
   "estimatedMinutes": 4,
   "mechanicId": "word_order_main_clause",
@@ -18,6 +18,7 @@
     "subject",
     "verb",
     "object",
+    "modifier",
     "time"
   ],
   "sessionPlan": {
@@ -63,133 +64,70 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Er höret das Buch.",
+      "text": "gestern trinke wir den Film.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er höret das Buch.",
+      "natural_en": "gestern trinke wir den Film.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time"
       ],
       "slots": {
         "subject": [
-          "Er"
+          "Wir"
         ],
         "verb": [
-          "höret"
+          "trinke"
         ],
         "object": [
-          "das Buch"
+          "den Film"
+        ],
+        "time": [
+          "gestern"
         ]
       },
       "audioUrl": "/v1/audio/word_order_main_clause_A2_tier2/prompt-001.mp3"
     },
     {
       "id": "prompt-002",
-      "text": "Ich sehee den Film.",
+      "text": "jetzt höret Sie die Musik.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ich sehee den Film.",
+      "natural_en": "jetzt höret Sie die Musik.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time"
       ],
       "slots": {
         "subject": [
-          "Ich"
+          "Sie"
         ],
         "verb": [
-          "sehee"
+          "höret"
         ],
         "object": [
-          "den Film"
+          "die Musik"
+        ],
+        "time": [
+          "jetzt"
         ]
       },
       "audioUrl": "/v1/audio/word_order_main_clause_A2_tier2/prompt-002.mp3"
     },
     {
       "id": "prompt-003",
-      "text": "Er höret den Film.",
+      "text": "Ihr komme am Montag das Essen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er höret den Film.",
+      "natural_en": "Ihr komme am Montag das Essen.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Er"
-        ],
-        "verb": [
-          "höret"
-        ],
-        "object": [
-          "den Film"
-        ]
-      },
-      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier2/prompt-003.mp3"
-    },
-    {
-      "id": "prompt-004",
-      "text": "Er kommet die Musik.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er kommet die Musik.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Er"
-        ],
-        "verb": [
-          "kommet"
-        ],
-        "object": [
-          "die Musik"
-        ]
-      },
-      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier2/prompt-004.mp3"
-    },
-    {
-      "id": "prompt-005",
-      "text": "Er trinket die Zeitung.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er trinket die Zeitung.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Er"
-        ],
-        "verb": [
-          "trinket"
-        ],
-        "object": [
-          "die Zeitung"
-        ]
-      },
-      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier2/prompt-005.mp3"
-    },
-    {
-      "id": "prompt-006",
-      "text": "Ihr trinket den Film.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ihr trinket den Film.",
-      "slotsChanged": [
-        "subject",
-        "verb",
+        "time",
         "object"
       ],
       "slots": {
@@ -197,47 +135,139 @@
           "Ihr"
         ],
         "verb": [
-          "trinket"
+          "komme"
         ],
         "object": [
-          "den Film"
+          "das Essen"
+        ],
+        "time": [
+          "am Montag"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier2/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Du machest morgen das Essen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du machest morgen das Essen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "machest"
+        ],
+        "object": [
+          "das Essen"
+        ],
+        "time": [
+          "morgen"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier2/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Ich kommee heute Deutsch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich kommee heute Deutsch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "kommee"
+        ],
+        "object": [
+          "Deutsch"
+        ],
+        "time": [
+          "heute"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier2/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Er esset um 9 Uhr die Musik.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er esset um 9 Uhr die Musik.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "esset"
+        ],
+        "object": [
+          "die Musik"
+        ],
+        "time": [
+          "um 9 Uhr"
         ]
       },
       "audioUrl": "/v1/audio/word_order_main_clause_A2_tier2/prompt-006.mp3"
     },
     {
       "id": "prompt-007",
-      "text": "Sie gehet die Musik.",
+      "text": "am Montag gehe wir das Essen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie gehet die Musik.",
+      "natural_en": "am Montag gehe wir das Essen.",
       "slotsChanged": [
         "subject",
         "verb",
+        "time",
         "object"
       ],
       "slots": {
         "subject": [
-          "Sie"
+          "Wir"
         ],
         "verb": [
-          "gehet"
+          "gehe"
         ],
         "object": [
-          "die Musik"
+          "das Essen"
+        ],
+        "time": [
+          "am Montag"
         ]
       },
       "audioUrl": "/v1/audio/word_order_main_clause_A2_tier2/prompt-007.mp3"
     },
     {
       "id": "prompt-008",
-      "text": "Sie trinket die Zeitung.",
+      "text": "heute trinket Sie das Buch.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie trinket die Zeitung.",
+      "natural_en": "heute trinket Sie das Buch.",
       "slotsChanged": [
         "subject",
         "verb",
+        "time",
         "object"
       ],
       "slots": {
@@ -248,7 +278,10 @@
           "trinket"
         ],
         "object": [
-          "die Zeitung"
+          "das Buch"
+        ],
+        "time": [
+          "heute"
         ]
       },
       "audioUrl": "/v1/audio/word_order_main_clause_A2_tier2/prompt-008.mp3"
@@ -269,17 +302,22 @@
     ],
     "coverage": {
       "verbs": [
+        "trinke",
         "höret",
-        "sehee",
-        "kommet",
-        "trinket",
-        "gehet"
+        "komme",
+        "machest",
+        "kommee",
+        "esset",
+        "gehe",
+        "trinket"
       ],
       "subjects": [
-        "Er",
-        "Ich",
+        "Wir",
+        "Sie",
         "Ihr",
-        "Sie"
+        "Du",
+        "Ich",
+        "Er"
       ],
       "patterns": [
         "verb_second_position",
@@ -292,10 +330,10 @@
     "estPromptCount": 8,
     "timeboxMinutes": 4,
     "qualitySignals": {
-      "tokenHitsCount": 7,
+      "tokenHitsCount": 8,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 5,
-      "uniqueSubjectCount": 4,
+      "uniqueVerbCount": 8,
+      "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -304,12 +342,21 @@
     "source": "template",
     "sourceRef": "mechanics/word_order_main_clause",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.657Z"
+    "generatedAt": "2026-01-03T09:52:17.376Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Word Order: Main Clause: A2 (Tier 2) - Trap"
+  },
+  "shortTitle_i18n": {
+    "en": "Word Order: Main Cla A2 Trap"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 2 - error trap - Master verb-second position in main cl"
+  },
   "contentId": "de:drill:word_order_main_clause_a2_tier2_error-trap",
-  "contentHash": "344481e1a03e95ae97115cf93359ce677dce116e05fcb6b54a63dc2428fc2f20",
-  "revisionId": "344481e1a03e"
+  "contentHash": "92f3461c8c07d63fd8653fc91b9a7e9200334985948d3883d14959f16a04efae",
+  "revisionId": "92f3461c8c07"
 }

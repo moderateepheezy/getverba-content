@@ -304,6 +304,11 @@ function loadAllPacks(workspaceId: string): string[] {
   for (const entry of entries) {
     if (!entry.isDirectory()) continue;
     
+    // Skip test packs
+    if (entry.name.startsWith('test-')) {
+      continue;
+    }
+    
     const packPath = join(packsDir, entry.name, 'pack.json');
     if (existsSync(packPath)) {
       packPaths.push(packPath);
@@ -354,7 +359,7 @@ function main() {
   const workspaces = targetWorkspace 
     ? [targetWorkspace]
     : readdirSync(workspacesDir, { withFileTypes: true })
-        .filter(d => d.isDirectory())
+        .filter(d => d.isDirectory() && d.name !== 'test-ws') // Exclude test-ws workspace
         .map(d => d.name);
   
   if (workspaces.length === 0) {

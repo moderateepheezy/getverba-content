@@ -45,6 +45,9 @@
         "modifier": [
           "um 14:30"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -69,6 +72,9 @@
         "modifier": [
           "am Dienstag"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
@@ -96,6 +102,9 @@
         "modifier": [
           "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "The meeting starts at the scheduled time."
       }
     },
     {
@@ -123,6 +132,9 @@
         "modifier": [
           "am Dienstag"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
@@ -151,6 +163,9 @@
         "modifier": [
           "nächste Woche"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am working on the project."
       }
     },
     {
@@ -174,6 +189,9 @@
         "object": [
           "das Meeting"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "The meeting starts at the scheduled time."
       }
     },
     {
@@ -196,6 +214,9 @@
         "object": [
           "das Meeting"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "The meeting starts at the scheduled time."
       }
     }
   ],
@@ -317,15 +338,55 @@
     "generatedAt": "2026-01-01T02:21:45.963Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T08:26:06.989Z"
   },
   "contentId": "de:pack:work_pack_2_a2",
   "contentHash": "cfab978a677a0975ba67e7b7d6ccc6c0eab7648b5232b7b4371f887fdea42751",
   "revisionId": "cfab978a677a",
   "title_i18n": {
-    "en": "Work A2 — 2: Meeting Phrases"
+    "en": "Work A2 — 2: Meeting Phrases",
+    "es": "Trabajo A2 - 2: Frases de reunión",
+    "fr": "Travail A2 - 2 : Phrases de réunion",
+    "it": "Lavoro A2 - 2: Frasi di riunione",
+    "pt": "Trabalho A2 - 2: Frases de reunião",
+    "ru": "Работа A2 - 2: Фразы для встречи",
+    "ja": "ワーク A2 - 2: ミーティング・フレーズ",
+    "ko": "작업 A2 - 2: 회의 문구",
+    "zh-CN": "工作 A2 - 2：会议用语",
+    "zh-TW": "工作 A2 - 2：会议用语",
+    "ar": "العمل أ 2 - 2: عبارات الاجتماع",
+    "tr": "Çalışma A2 - 2: Toplantı İfadeleri",
+    "pl": "Praca A2 - 2: Zwroty dotyczące spotkań",
+    "nl": "Werk A2 - 2: Vergaderzinnen",
+    "sv": "Arbete A2 - 2: Mötesfraser",
+    "no": "Arbeid A2 - 2: Møtefraser",
+    "da": "Arbejde A2 - 2: Mødesætninger",
+    "fi": "Työ A2 - 2: Kokousfraasit",
+    "el": "Εργασία A2 - 2: Φράσεις συνάντησης",
+    "cs": "Práce A2 - 2: Fráze pro setkání"
   },
   "description_i18n": {
-    "en": "Practice work scenarios at A2 level."
+    "en": "Practice work scenarios at A2 level.",
+    "es": "Practicar escenarios de trabajo a nivel A2.",
+    "fr": "Pratiquer des scénarios de travail au niveau A2.",
+    "it": "Esercitarsi in scenari di lavoro a livello A2.",
+    "pt": "Praticar cenários de trabalho ao nível A2.",
+    "ru": "Отработайте сценарии работы на уровне A2.",
+    "ja": "A2レベルの仕事のシナリオを練習する。",
+    "zh-CN": "在 A2 级水平上练习工作场景。",
+    "zh-TW": "在 A2 级水平上练习工作场景。",
+    "ar": "ممارسة سيناريوهات العمل على المستوى A2.",
+    "tr": "A2 seviyesinde çalışma senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze pracy na poziomie A2.",
+    "nl": "Oefen werkscenario's op A2-niveau.",
+    "sv": "Öva på arbetsscenarier på A2-nivå.",
+    "no": "Øv deg på arbeidsscenarioer på A2-nivå.",
+    "da": "Øv dig i arbejdsscenarier på A2-niveau.",
+    "fi": "Harjoitellaan A2-tason työkuvioita.",
+    "el": "Πρακτική εξάσκηση σε σενάρια εργασίας σε επίπεδο Α2.",
+    "cs": "Procvičování pracovních scénářů na úrovni A2.",
+    "ko": "A2 수준의 업무 시나리오를 연습하세요."
   }
 }

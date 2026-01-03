@@ -45,11 +45,14 @@
         "object": [
           "das Zimmer"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something."
       }
     },
     {
       "id": "prompt-002",
-      "text": "Die Vermieterin sucht die Kaution um 14:30",
+      "text": "Die Vermieterin sucht die Kaution um 15:00 morgen",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -67,12 +70,19 @@
         ],
         "object": [
           "die Kaution"
+        ],
+        "modifier": [
+          "um 15:00",
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
       "id": "prompt-003",
-      "text": "Die Vermieterin wohnt die Adresse bitte",
+      "text": "Die Vermieterin wohnt die Adresse bitte morgen",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -93,13 +103,17 @@
           "die Adresse"
         ],
         "modifier": [
-          "bitte"
+          "bitte",
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
       "id": "prompt-004",
-      "text": "Die Vermieterin kann die Kaution gerne",
+      "text": "Die Vermieterin kann die Kaution gerne morgen",
       "intent": "request",
       "gloss_en": "I would like to request something.",
       "natural_en": "I'd like to request that.",
@@ -120,13 +134,17 @@
           "die Kaution"
         ],
         "modifier": [
-          "gerne"
+          "gerne",
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something."
       }
     },
     {
       "id": "prompt-005",
-      "text": "Der Vermieter mietet die Adresse bitte",
+      "text": "Der Vermieter mietet die Adresse bitte morgen",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -148,13 +166,17 @@
           "die Adresse"
         ],
         "modifier": [
-          "bitte"
+          "bitte",
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
       "id": "prompt-006",
-      "text": "Die Vermieterin kann das Zimmer",
+      "text": "Die Vermieterin kann das Zimmer morgen",
       "intent": "request",
       "gloss_en": "I would like to request something.",
       "natural_en": "I'd like to request that.",
@@ -173,12 +195,18 @@
         ],
         "object": [
           "das Zimmer"
+        ],
+        "modifier": [
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something."
       }
     },
     {
       "id": "prompt-007",
-      "text": "Ich möchte das Zimmer",
+      "text": "Ich möchte das Zimmer morgen",
       "intent": "request",
       "gloss_en": "I would like to request something.",
       "natural_en": "I'd like to request that.",
@@ -196,7 +224,13 @@
         ],
         "object": [
           "das Zimmer"
+        ],
+        "modifier": [
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something."
       }
     }
   ],
@@ -274,7 +308,7 @@
     "multiSlotRate": 1,
     "scenarioTokenHitAvg": 0,
     "scenarioTokenQualifiedRate": 0,
-    "uniqueTokenRate": 0.4634146341463415,
+    "uniqueTokenRate": 0.425531914893617,
     "bannedPhraseViolations": 0,
     "passesQualityGates": false,
     "focus": "case_system",
@@ -318,15 +352,55 @@
     "generatedAt": "2026-01-01T00:56:15.671Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T08:26:06.985Z"
   },
   "contentId": "de:pack:housing_pack_5_a2",
   "contentHash": "62df97c9f444da5072572a2acd6402ac347dc21f7f51f1f6e397f0b282c3a1c0",
   "revisionId": "62df97c9f444",
   "title_i18n": {
-    "en": "Housing A2 — 5: Viewing Apartments"
+    "en": "Housing A2 — 5: Viewing Apartments",
+    "es": "Viviendas A2 - 5: Apartamentos con vistas",
+    "fr": "Logement A2 - 5 : Appartements de visualisation",
+    "it": "Alloggi A2 - 5: Appartamenti da vedere",
+    "pt": "Habitação A2 - 5: Apartamentos para visitas",
+    "ru": "Жилье A2 - 5: Квартиры для просмотра",
+    "ja": "住宅 A2 - 5：ビューイング・アパートメント",
+    "ko": "주택 A2 - 5: 아파트 보기",
+    "zh-CN": "住房 A2 - 5：观景公寓",
+    "zh-TW": "住房 A2 - 5：观景公寓",
+    "ar": "الإسكان A2 - 5: عرض الشقق السكنية A2 - 5: عرض الشقق",
+    "tr": "Konut A2 - 5: Daireleri Görüntüleme",
+    "pl": "Mieszkania A2 - 5: Apartamenty widokowe",
+    "nl": "Huisvesting A2 - 5: Bezichtigingsappartementen",
+    "sv": "Bostäder A2 - 5: Visningslägenheter",
+    "no": "Bolig A2 - 5: Visningsleiligheter",
+    "da": "Bolig A2 - 5: Udsigtslejligheder",
+    "fi": "Asuminen A2 - 5: Katseluasunnot",
+    "el": "Στέγαση A2 - 5: Προβολή διαμερισμάτων",
+    "cs": "Bydlení A2 - 5: Prohlídka apartmánů"
   },
   "description_i18n": {
-    "en": "Practice housing scenarios at A2 level."
+    "en": "Practice housing scenarios at A2 level.",
+    "es": "Practicar escenarios de vivienda en el nivel A2.",
+    "fr": "Pratiquer des scénarios de logement au niveau A2.",
+    "it": "Esercitarsi in scenari abitativi di livello A2.",
+    "pt": "Praticar cenários de habitação ao nível A2.",
+    "ru": "Отработка сценариев строительства жилья на уровне A2.",
+    "ja": "A2レベルの住宅シナリオを練習する。",
+    "ko": "A2 수준의 주택 시나리오를 연습하세요.",
+    "zh-CN": "在 A2 级水平上练习住房方案。",
+    "zh-TW": "在 A2 级水平上练习住房方案。",
+    "ar": "ممارسة سيناريوهات الإسكان على المستوى A2.",
+    "tr": "A2 seviyesinde konut senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze mieszkaniowe na poziomie A2.",
+    "nl": "Oefen huisvestingsscenario's op A2-niveau.",
+    "sv": "Öva på bostadsscenarier på A2-nivå.",
+    "no": "Øv deg på boligscenarioer på A2-nivå.",
+    "da": "Øv dig i boligscenarier på A2-niveau.",
+    "fi": "Harjoitellaan asumisen skenaarioita A2-tasolla.",
+    "el": "Πρακτική εξάσκηση σε σενάρια στέγασης σε επίπεδο Α2.",
+    "cs": "Procvičování scénářů bydlení na úrovni A2."
   }
 }

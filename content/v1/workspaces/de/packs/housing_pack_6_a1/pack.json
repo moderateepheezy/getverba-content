@@ -45,6 +45,9 @@
         "object": [
           "die Kaution"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -69,6 +72,9 @@
         "object": [
           "eine Wohnung"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -97,6 +103,9 @@
         "modifier": [
           "bitte"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -125,6 +134,9 @@
         "modifier": [
           "gerne"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -153,6 +165,9 @@
         "modifier": [
           "günstig"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something."
       }
     },
     {
@@ -176,6 +191,9 @@
         "object": [
           "die Adresse"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -199,6 +217,9 @@
         "object": [
           "die Adresse"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     }
   ],
@@ -320,15 +341,55 @@
     "generatedAt": "2026-01-01T00:56:16.004Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T08:26:06.986Z"
   },
   "contentId": "de:pack:housing_pack_6_a1",
   "contentHash": "3898ff439c1dee412cfb2af150719180a9b54d2dd43ae73520b8f74a7d1b81f0",
   "revisionId": "3898ff439c1d",
   "title_i18n": {
-    "en": "Housing A1 — 6: Rental Agreement"
+    "en": "Housing A1 — 6: Rental Agreement",
+    "es": "Vivienda A1 - 6: Contrato de alquiler",
+    "fr": "Logement A1 - 6 : Contrat de location",
+    "it": "Alloggi A1 - 6: Contratto di locazione",
+    "pt": "Habitação A1 - 6: Contrato de arrendamento",
+    "ru": "Жилье A1 - 6: Договор аренды",
+    "ja": "住宅 A1 - 6: 賃貸契約",
+    "ko": "주택 A1 - 6: 임대 계약",
+    "zh-CN": "住房 A1 - 6：租赁协议",
+    "zh-TW": "住房 A1 - 6：租赁协议",
+    "ar": "السكن A1 - 6: اتفاقية الإيجار",
+    "tr": "Konut A1 - 6: Kira Sözleşmesi",
+    "pl": "Mieszkanie A1 - 6: Umowa najmu",
+    "nl": "Huisvesting A1 - 6: Huurovereenkomst",
+    "sv": "Bostäder A1 - 6: Hyresavtal",
+    "no": "Bolig A1 - 6: Leieavtale",
+    "da": "Bolig A1 - 6: Lejeaftale",
+    "fi": "Asuminen A1 - 6: Vuokrasopimus",
+    "el": "Στέγαση A1 - 6: Συμφωνία ενοικίασης",
+    "cs": "Bydlení A1 - 6: Nájemní smlouva"
   },
   "description_i18n": {
-    "en": "Practice housing scenarios at A1 level."
+    "en": "Practice housing scenarios at A1 level.",
+    "es": "Practicar escenarios de vivienda en el nivel A1.",
+    "fr": "Pratiquer des scénarios de logement au niveau A1.",
+    "it": "Esercitazione di scenari abitativi a livello A1.",
+    "pt": "Praticar cenários de habitação ao nível A1.",
+    "ru": "Отработка сценариев строительства жилья на уровне А1.",
+    "ja": "A1レベルの住宅シナリオを練習する。",
+    "ko": "A1 수준의 주택 시나리오를 연습하세요.",
+    "zh-CN": "在 A1 级水平上练习住房方案。",
+    "zh-TW": "在 A1 级水平上练习住房方案。",
+    "ar": "ممارسة سيناريوهات الإسكان على المستوى A1.",
+    "tr": "A1 seviyesinde konut senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze mieszkaniowe na poziomie A1.",
+    "nl": "Oefen huisvestingsscenario's op A1-niveau.",
+    "sv": "Öva på bostadsscenarier på A1-nivå.",
+    "no": "Øv på boligscenarioer på A1-nivå.",
+    "da": "Øv dig på boligscenarier på A1-niveau.",
+    "fi": "Harjoitellaan asumisen skenaarioita A1-tasolla.",
+    "el": "Πρακτική εξάσκηση σε σενάρια στέγασης σε επίπεδο Α1.",
+    "cs": "Procvičování scénářů bydlení na úrovni A1."
   }
 }

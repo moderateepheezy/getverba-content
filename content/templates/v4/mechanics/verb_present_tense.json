@@ -1,12 +1,16 @@
 {
   "mechanicId": "verb_present_tense",
   "mechanicLabel": "Verb Present Tense",
-  "description": "Practice present tense verb conjugations",
+  "description": "Practice present tense verb endings (ich -e, du -st, er -t)",
+  "description_i18n": {
+    "en": "Practice present tense verb endings (ich -e, du -st, er -t)",
+    "de": "Übe Präsens-Verbendungen (ich -e, du -st, er -t)"
+  },
   "supportedLevels": [
     "A1",
     "A2"
   ],
-  "loopTypesAllowed": [
+  "loopTypes": [
     "pattern_switch",
     "slot_substitution"
   ],
@@ -14,18 +18,124 @@
     "present_tense"
   ],
   "slotDictionaries": {
-    "subjects": [
+    "subject": [
       "Ich",
       "Du",
       "Er",
-      "Sie"
+      "Sie",
+      "Wir",
+      "Ihr"
     ],
-    "verbs": [
+    "verb": [
       "gehen",
       "kommen",
-      "sehen"
+      "sehen",
+      "lernen",
+      "arbeiten",
+      "spielen",
+      "wohnen",
+      "essen",
+      "trinken",
+      "machen",
+      "lesen",
+      "schreiben"
+    ],
+    "object": [
+      "Deutsch",
+      "ein Buch",
+      "Fußball",
+      "Klavier",
+      "eine Pizza",
+      "Wasser",
+      "Kaffee",
+      "die Hausaufgaben",
+      "Tennis",
+      "Musik"
+    ],
+    "time": [
+      "heute",
+      "morgen",
+      "jetzt",
+      "am Morgen",
+      "am Abend",
+      "später",
+      "oft",
+      "nie",
+      "manchmal",
+      "jeden Tag",
+      "immer",
+      "selten"
+    ],
+    "location": [
+      "zu Hause",
+      "im Büro",
+      "in der Schule",
+      "im Park",
+      "im Supermarkt",
+      "auf der Arbeit",
+      "in Berlin",
+      "im Garten",
+      "im Restaurant",
+      "in der Stadt"
+    ],
+    "modifier": [
+      "schnell",
+      "gerne",
+      "zusammen",
+      "alleine",
+      "vielleicht",
+      "wirklich",
+      "leider",
+      "gut",
+      "viel",
+      "sehr"
     ]
   },
   "trapPairs": [],
-  "bannedPhrases": []
+  "bannedPhrases": [],
+  "requiredTokens": [
+    "gehe",
+    "gehst",
+    "geht",
+    "gehen",
+    "komme",
+    "kommst",
+    "kommt",
+    "kommen",
+    "lerne",
+    "lernst",
+    "lernt",
+    "lernen",
+    "arbeite",
+    "arbeitest",
+    "arbeitet",
+    "arbeiten",
+    "spiele",
+    "spielst",
+    "spielt",
+    "spielen",
+    "esse",
+    "isst",
+    "trinke",
+    "trinkst",
+    "trinkt",
+    "mache",
+    "machst",
+    "macht",
+    "machen",
+    "lese",
+    "liest",
+    "schreibe",
+    "schreibst",
+    "schreibt",
+    "wohne",
+    "wohnst",
+    "wohnt",
+    "wohnen",
+    "sehe",
+    "siehst",
+    "sieht"
+  ],
+  "minUniqueVerbs": 5,
+  "minUniqueSubjects": 4
 }

@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A2",
-  "title": "Time Expressions & Inversion: A2 (Tier 3)",
-  "shortTitle": "Time Expressions & Invers...",
+  "title": "Time Expressions & Inversion: A2 (Tier 3) - Trap",
+  "shortTitle": "Time Expressions & I A2 Trap",
   "subtitle": "Tier 3 - error trap - Master verb inversion with time expres",
   "estimatedMinutes": 5,
   "mechanicId": "time_expressions_inversion",
@@ -17,6 +17,8 @@
   "variationSlots": [
     "subject",
     "verb",
+    "object",
+    "modifier",
     "time"
   ],
   "sessionPlan": {
@@ -64,200 +66,308 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "wir lerne.",
+      "text": "heute esse ich zum Park.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "wir lerne.",
+      "natural_en": "heute esse ich zum Park.",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          "wir"
+          "ich"
         ],
         "verb": [
-          "lerne"
+          "esse"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "zum Park"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier3/prompt-001.mp3"
     },
     {
       "id": "prompt-002",
-      "text": "ihr gehet.",
+      "text": "gestern siehst du ins Büro Sport.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "ihr gehet.",
+      "natural_en": "gestern siehst du ins Büro Sport.",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          "ihr"
+          "du"
         ],
         "verb": [
-          "gehet"
+          "siehst"
+        ],
+        "object": [
+          "Sport"
+        ],
+        "time": [
+          "gestern"
+        ],
+        "location": [
+          "ins Büro"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier3/prompt-002.mp3"
     },
     {
       "id": "prompt-003",
-      "text": "sie arbeitet.",
+      "text": "gestern arbeitet er in den Urlaub Pause.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "sie arbeitet.",
+      "natural_en": "gestern arbeitet er in den Urlaub Pause.",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          "sie"
+          "er"
         ],
         "verb": [
           "arbeitet"
+        ],
+        "object": [
+          "Pause"
+        ],
+        "time": [
+          "gestern"
+        ],
+        "location": [
+          "in den Urlaub"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier3/prompt-003.mp3"
     },
     {
       "id": "prompt-004",
-      "text": "sie gehet.",
+      "text": "jetzt lernt sie zum Park Musik.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "sie gehet.",
+      "natural_en": "jetzt lernt sie zum Park Musik.",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
           "sie"
         ],
         "verb": [
-          "gehet"
+          "lernt"
+        ],
+        "object": [
+          "Musik"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "zum Park"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier3/prompt-004.mp3"
     },
     {
       "id": "prompt-005",
-      "text": "wir esse.",
+      "text": "gestern macht ihr in die Stadt.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "wir esse.",
+      "natural_en": "gestern macht ihr in die Stadt.",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          "wir"
+          "ihr"
         ],
         "verb": [
-          "esse"
+          "macht"
+        ],
+        "time": [
+          "gestern"
+        ],
+        "location": [
+          "in die Stadt"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier3/prompt-005.mp3"
     },
     {
       "id": "prompt-006",
-      "text": "sie trinket.",
+      "text": "heute Abend hören wir ins Büro Hausaufgaben.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "sie trinket.",
+      "natural_en": "heute Abend hören wir ins Büro Hausaufgaben.",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          "sie"
+          "wir"
         ],
         "verb": [
-          "trinket"
+          "hören"
+        ],
+        "object": [
+          "Hausaufgaben"
+        ],
+        "time": [
+          "heute Abend"
+        ],
+        "location": [
+          "ins Büro"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier3/prompt-006.mp3"
     },
     {
       "id": "prompt-007",
-      "text": "sie esset.",
+      "text": "morgen trinkt es ins Kino Hausaufgaben.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "sie esset.",
+      "natural_en": "morgen trinkt es ins Kino Hausaufgaben.",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          "sie"
+          "es"
         ],
         "verb": [
-          "esset"
+          "trinkt"
+        ],
+        "object": [
+          "Hausaufgaben"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "ins Kino"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier3/prompt-007.mp3"
     },
     {
       "id": "prompt-008",
-      "text": "er kommet.",
+      "text": "jetzt kommt man ins Büro Essen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "er kommet.",
+      "natural_en": "jetzt kommt man ins Büro Essen.",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          "er"
+          "man"
         ],
         "verb": [
-          "kommet"
+          "kommt"
+        ],
+        "object": [
+          "Essen"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "ins Büro"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier3/prompt-008.mp3"
     },
     {
       "id": "prompt-009",
-      "text": "er arbeitet.",
+      "text": "heute gehe ich zur Arbeit Pause.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "er arbeitet.",
+      "natural_en": "heute gehe ich zur Arbeit Pause.",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          "er"
+          "ich"
         ],
         "verb": [
-          "arbeitet"
+          "gehe"
+        ],
+        "object": [
+          "Pause"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "zur Arbeit"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier3/prompt-009.mp3"
     },
     {
       "id": "prompt-010",
-      "text": "er esset.",
+      "text": "später isst du nach Hause.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "er esset.",
+      "natural_en": "später isst du nach Hause.",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          "er"
+          "du"
         ],
         "verb": [
-          "esset"
+          "isst"
+        ],
+        "time": [
+          "später"
+        ],
+        "location": [
+          "nach Hause"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier3/prompt-010.mp3"
@@ -278,19 +388,26 @@
     ],
     "coverage": {
       "verbs": [
-        "lerne",
-        "gehet",
-        "arbeitet",
         "esse",
-        "trinket",
-        "esset",
-        "kommet"
+        "siehst",
+        "arbeitet",
+        "lernt",
+        "macht",
+        "hören",
+        "trinkt",
+        "kommt",
+        "gehe",
+        "isst"
       ],
       "subjects": [
-        "wir",
-        "ihr",
+        "ich",
+        "du",
+        "er",
         "sie",
-        "er"
+        "ihr",
+        "wir",
+        "es",
+        "man"
       ],
       "patterns": [
         "time_verb_subject",
@@ -303,10 +420,10 @@
     "estPromptCount": 10,
     "timeboxMinutes": 5,
     "qualitySignals": {
-      "tokenHitsCount": 6,
+      "tokenHitsCount": 9,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 7,
-      "uniqueSubjectCount": 4,
+      "uniqueVerbCount": 10,
+      "uniqueSubjectCount": 8,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -315,12 +432,21 @@
     "source": "template",
     "sourceRef": "mechanics/time_expressions_inversion",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.652Z"
+    "generatedAt": "2026-01-03T09:52:17.370Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Time Expressions & Inversion: A2 (Tier 3) - Trap"
+  },
+  "shortTitle_i18n": {
+    "en": "Time Expressions & I A2 Trap"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 3 - error trap - Master verb inversion with time expres"
+  },
   "contentId": "de:drill:time_expressions_inversion_a2_tier3_error-trap",
-  "contentHash": "ea056d9fc6828e3b9a9b5349d4cf027170cf1bb0c4b73b72bdfb944491d63352",
-  "revisionId": "ea056d9fc682"
+  "contentHash": "b777322c4f7a7e1dd5ca9e5e76cfaed90ef9c9e1a2eefa11ef4c98dfe91a0feb",
+  "revisionId": "b777322c4f7a"
 }

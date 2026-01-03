@@ -89,8 +89,9 @@ const SCENARIO_TOKEN_DICTS: Record<string, string[]> = {
   work: ['meeting', 'shift', 'manager', 'schedule', 'invoice', 'deadline', 'office', 'colleague', 'project', 'task', 'besprechung', 'termin', 'büro', 'kollege', 'projekt', 'aufgabe', 'arbeit'],
   restaurant: ['menu', 'order', 'bill', 'reservation', 'waiter', 'table', 'food', 'drink', 'kitchen', 'service', 'speisekarte', 'bestellen', 'kellner', 'tisch', 'essen', 'trinken'],
   shopping: ['price', 'buy', 'cost', 'store', 'cashier', 'payment', 'discount', 'receipt', 'cart', 'checkout', 'kaufen', 'laden', 'kasse', 'zahlung', 'rabatt', 'quittung', 'warenkorb', 'preis'],
-  doctor: ['appointment', 'symptom', 'prescription', 'medicine', 'treatment', 'diagnosis', 'health', 'patient', 'clinic', 'examination'],
-  housing: ['apartment', 'rent', 'lease', 'landlord', 'tenant', 'deposit', 'utilities', 'furniture', 'neighborhood', 'address'],
+  doctor: ['appointment', 'symptom', 'prescription', 'medicine', 'treatment', 'diagnosis', 'health', 'patient', 'clinic', 'examination', 'termin', 'arzt', 'ärztin', 'medikament', 'behandlung', 'untersuchung', 'rezept', 'diagnose'],
+  housing: ['apartment', 'rent', 'lease', 'landlord', 'tenant', 'deposit', 'utilities', 'furniture', 'neighborhood', 'address', 'wohnung', 'miete', 'kaution', 'vermietung', 'mieter', 'vermieter', 'vermieterin', 'adresse', 'zimmer'],
+  government_office: ['appointment', 'form', 'document', 'passport', 'registration', 'office', 'official', 'termin', 'formular', 'pass', 'anmeldung', 'unterlagen', 'amt', 'behörde', 'büro', 'bescheinigung', 'sachbearbeiterin'],
   casual_greeting: ['greeting', 'hello', 'goodbye', 'morning', 'evening', 'day', 'see', 'meet', 'friend', 'time', 'grüßen', 'hallo', 'auf wiedersehen', 'morgen', 'abend', 'tag', 'sehen', 'treffen', 'freund', 'zeit', 'tschüss'],
   intro_lesson: ['welcome', 'course', 'lesson', 'learn', 'language', 'english', 'start', 'begin', 'offer', 'introduction', 'willkommen', 'kurs', 'lernen', 'sprache', 'englisch', 'beginnen', 'anbieten', 'einführung'],
   friends_small_talk: ['wochenende', 'heute', 'morgen', 'spaeter', 'abends', 'zeit', 'lust', 'plan', 'idee', 'treffen', 'mitkommen', 'kino', 'cafe', 'restaurant', 'spaziergang', 'park', 'training', 'gym', 'serie', 'film', 'konzert', 'bar', 'pizza', 'kaffee', 'hast du lust', 'lass uns', 'wie waere es', 'hast du zeit', 'wollen wir', 'ich haette lust', 'kommst du mit', 'ich kann heute nicht']
@@ -389,6 +390,11 @@ function findAllPacks(): PackEntry[] {
     });
     
     for (const packDir of packDirs) {
+      // Skip test packs
+      if (packDir.startsWith('test-')) {
+        continue;
+      }
+      
       const packPath = join(packsDir, packDir, 'pack.json');
       if (existsSync(packPath)) {
         try {

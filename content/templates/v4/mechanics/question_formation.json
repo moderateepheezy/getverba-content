@@ -1,27 +1,98 @@
 {
   "mechanicId": "question_formation",
   "mechanicLabel": "Question Formation",
-  "description": "Form questions using question words and verb inversion",
-  "supportedLevels": ["A1", "A2"],
-  "loopTypes": ["micro_transform", "pattern_switch", "fast_recall"],
+  "description": "Practice question formation (Was, Wo, Wann, Wie + verb inversion)",
+  "description_i18n": {
+    "en": "Practice question formation (Was, Wo, Wann, Wie + verb inversion)",
+    "de": "Übe Fragebildung (Was, Wo, Wann, Wie + Verbumstellung)"
+  },
+  "supportedLevels": [
+    "A1",
+    "A2"
+  ],
+  "loopTypes": [
+    "micro_transform",
+    "pattern_switch",
+    "fast_recall"
+  ],
   "canonicalPatterns": [
     "question_word_order",
     "verb_inversion",
     "yes_no_questions"
   ],
   "slotDictionaries": {
-    "questionWord": ["Was", "Wo", "Wann", "Wer", "Wie", "Warum", "Wohin", "Woher"],
-    "verb": ["gehen", "kommen", "machen", "sein", "haben", "wohnen", "arbeiten", "lernen"],
-    "subject": ["du", "er", "sie", "ihr", "Sie"],
-    "object": ["das", "den", "die", "einen", "eine"],
-    "location": ["in die Stadt", "nach Hause", "zur Arbeit", "ins Büro", "zum Park"]
+    "questionWord": [
+      "Was",
+      "Wo",
+      "Wann",
+      "Wer",
+      "Wie",
+      "Warum",
+      "Wohin",
+      "Woher"
+    ],
+    "verb": [
+      "gehen",
+      "kommen",
+      "machen",
+      "sein",
+      "haben",
+      "wohnen",
+      "arbeiten",
+      "lernen"
+    ],
+    "subject": [
+      "du",
+      "er",
+      "sie",
+      "ihr",
+      "Sie"
+    ],
+    "object": [
+      "das",
+      "den",
+      "die",
+      "einen",
+      "eine",
+      "das Buch",
+      "den Schlüssel"
+    ],
+    "location": [
+      "in die Stadt",
+      "nach Hause",
+      "zur Arbeit",
+      "ins Büro",
+      "zum Park",
+      "in Berlin",
+      "im Supermarkt"
+    ],
+    "time": [
+      "heute",
+      "morgen",
+      "jetzt",
+      "später",
+      "am Wochenende"
+    ],
+    "modifier": [
+      "wirklich",
+      "gerne",
+      "oft",
+      "schnell",
+      "alleine"
+    ]
   },
   "trapPairs": [
     {
       "confusion": "statement vs question word order",
       "examples": [
-        { "correct": "Wo gehst du?", "incorrect": "Du gehst wo?" },
-        { "correct": "Was machst du?", "incorrect": "Du machst was?" }
+        {
+          "correct": "Wo gehst du?",
+          "incorrect": "Du gehst wo?"
+        },
+        {
+          "correct": "Was machst du?",
+          "incorrect": "Du machst was?"
+        }
       ]
     }
   ],
@@ -33,12 +104,20 @@
     "placeholder"
   ],
   "requiredTokens": [
-    "was", "wo", "wann", "wer", "wie", "warum",
-    "gehst", "kommst", "machst", "bist", "hast",
+    "was",
+    "wo",
+    "wann",
+    "wer",
+    "wie",
+    "warum",
+    "gehst",
+    "kommst",
+    "machst",
+    "bist",
+    "hast",
     "?"
   ],
   "minUniqueVerbs": 4,
   "minUniqueSubjects": 4,
   "minMultiSlotRate": 0.4
 }
-

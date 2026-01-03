@@ -47,6 +47,9 @@
         "modifier": [
           "am Dienstag"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to pick up my passport."
       }
     },
     {
@@ -54,7 +57,7 @@
       "text": "Wir vereinbaren die Anmeldung am Montag",
       "intent": "schedule",
       "gloss_en": "I need to register my address.",
-      "natural_en": "I need to register my address.",
+      "natural_en": "I'd like to complete my address registration.",
       "audioUrl": "/v1/audio/residence_permit_appointment_a2/prompt-002.mp3",
       "slotsChanged": [
         "subject",
@@ -75,6 +78,9 @@
         "modifier": [
           "am Montag"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to register my address."
       }
     },
     {
@@ -99,6 +105,9 @@
         "object": [
           "den Ausweis"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -122,6 +131,9 @@
         "object": [
           "den Ausweis"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something."
       }
     },
     {
@@ -146,6 +158,9 @@
         "object": [
           "die Unterlagen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need the documents."
       }
     },
     {
@@ -174,6 +189,9 @@
         "modifier": [
           "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to make an appointment."
       }
     },
     {
@@ -202,6 +220,9 @@
         "modifier": [
           "bitte"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need the form."
       }
     }
   ],
@@ -331,9 +352,47 @@
   "contentHash": "ff43cce07d05b5033d9a16b4b6f7ad7b7dc8c5188e85da7ec489f9321c8bd408",
   "revisionId": "ff43cce07d05",
   "title_i18n": {
-    "en": "Government Office A2 — Residence Permit Appointment"
+    "en": "Government Office A2 — Residence Permit Appointment",
+    "es": "Oficina del Gobierno A2 - Cita previa para el permiso de residencia",
+    "fr": "Government Office A2 - Rendez-vous pour le permis de séjour",
+    "it": "Ufficio governativo A2 - Appuntamento per il permesso di soggiorno",
+    "pt": "Gabinete do Governo A2 - Marcação da autorização de residência",
+    "ru": "Государственный офис A2 - Назначение вида на жительство",
+    "ja": "官庁A2 - 滞在許可証の予約",
+    "ko": "관공서 A2 - 거주 허가 예약",
+    "zh-CN": "政府办公室 A2 - 预约居留许可",
+    "zh-TW": "政府办公室 A2 - 预约居留许可",
+    "ar": "المكتب الحكومي A2 - موعد تصريح الإقامة A2 - تعيين تصريح الإقامة",
+    "tr": "Devlet Dairesi A2 - Oturma İzni Randevusu",
+    "pl": "Biuro rządowe A2 - Spotkanie w sprawie zezwolenia na pobyt",
+    "nl": "Overheidsbureau A2 - Afspraak verblijfsvergunning",
+    "sv": "Regeringskansli A2 - Utnämning till uppehållstillstånd",
+    "no": "Regjeringskansli A2 - Utnevnelse av oppholdstillatelse",
+    "da": "Regeringskontor A2 - Udnævnelse af opholdstilladelse",
+    "fi": "Valtioneuvoston kanslia A2 - Oleskelulupaa koskeva tapaaminen",
+    "el": "Κυβερνητικό Γραφείο A2 - Διορισμός άδειας διαμονής",
+    "cs": "Úřad vlády A2 - Jmenování k vydání povolení k pobytu"
   },
   "description_i18n": {
-    "en": "Practice government_office scenarios at A2 level."
+    "en": "Practice government_office scenarios at A2 level.",
+    "es": "Practicar escenarios de government_office en el nivel A2.",
+    "fr": "Pratiquer les scénarios government_office au niveau A2.",
+    "it": "Esercitatevi con gli scenari government_office a livello A2.",
+    "pt": "Praticar cenários de government_office ao nível A2.",
+    "ru": "Отработайте сценарии government_office на уровне A2.",
+    "ja": "A2レベルの政府機関のシナリオを練習する。",
+    "ko": "A2 레벨의 정부_오피스 시나리오를 연습하세요.",
+    "zh-CN": "在 A2 级水平上练习政府办公情景。",
+    "zh-TW": "在 A2 级水平上练习政府办公情景。",
+    "ar": "تدرب على سيناريوهات_المكاتب_الحكومية على مستوى A2.",
+    "tr": "A2 seviyesinde government_office senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze government_office na poziomie A2.",
+    "nl": "Oefen overheid_kantoor scenario's op A2 niveau.",
+    "sv": "Öva på scenarier för government_office på A2-nivå.",
+    "no": "Øv på scenarier for offentlige kontorer på A2-nivå.",
+    "da": "Øv dig på government_office-scenarier på A2-niveau.",
+    "fi": "Harjoittele government_office-skenaarioita A2-tasolla.",
+    "el": "Εξάσκηση σε σενάρια government_office σε επίπεδο A2.",
+    "cs": "Procvičte si scénáře government_office na úrovni A2."
   }
 }

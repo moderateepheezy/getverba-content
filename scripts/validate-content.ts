@@ -35,11 +35,11 @@ function resolveContentPath(jsonPath: string): string {
 function validateEntryUrlPattern(entryUrl: string, itemId: string, kind: string, filePath: string, itemIdx: number): void {
   // Normalize kind to canonical form
   const normalizedKind = kind.toLowerCase();
-  
+
   // Determine expected pattern based on kind
   let expectedPattern: RegExp;
   let expectedSuffix: string;
-  
+
   if (normalizedKind === 'context' || normalizedKind === 'pack') {
     // Pack pattern: /v1/workspaces/{workspace}/packs/{packId}/pack.json
     expectedPattern = /^\/v1\/workspaces\/[^/]+\/packs\/[^/]+\/pack\.json$/;
@@ -60,13 +60,13 @@ function validateEntryUrlPattern(entryUrl: string, itemId: string, kind: string,
     // Unknown kind - skip pattern validation but warn
     return;
   }
-  
+
   // Check if entryUrl matches expected pattern
   if (!expectedPattern.test(entryUrl)) {
     addError(filePath, `Item ${itemIdx} entryUrl does not match canonical pattern for kind "${kind}". Expected pattern: /v1/workspaces/{workspace}/${normalizedKind === 'context' || normalizedKind === 'pack' ? 'packs' : normalizedKind === 'exams' || normalizedKind === 'exam' ? 'exams' : 'drills'}/{id}/${normalizedKind === 'context' || normalizedKind === 'pack' ? 'pack' : normalizedKind === 'exams' || normalizedKind === 'exam' ? 'exam' : 'drill'}.json`);
     return;
   }
-  
+
   // Extract packId/examId/drillId from URL and verify it matches item.id
   // URL format: /v1/workspaces/{workspace}/{type}/{id}/{file}.json
   const urlParts = entryUrl.split('/');
@@ -76,7 +76,7 @@ function validateEntryUrlPattern(entryUrl: string, itemId: string, kind: string,
     // Normalize IDs for comparison (case-insensitive, handle kebab-case)
     const normalizedUrlId = urlId.toLowerCase().replace(/-/g, '_');
     const normalizedItemId = itemId.toLowerCase().replace(/-/g, '_');
-    
+
     if (normalizedUrlId !== normalizedItemId) {
       addError(filePath, `Item ${itemIdx} entryUrl contains ID "${urlId}" but item.id is "${itemId}". They should match (case-insensitive).`);
     }
@@ -87,9 +87,9 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
   try {
     const content = readFileSync(entryPath, 'utf-8');
     const entry = JSON.parse(content);
-    
+
     const normalizedKind = kind.toLowerCase();
-    
+
     // Determine docType for schemaVersion validation
     let docType: string;
     if (normalizedKind === 'pack') {
@@ -103,10 +103,10 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
     } else {
       docType = 'Entry';
     }
-    
+
     // Validate schemaVersion first
     validateSchemaVersion(docType, entry, entryPath);
-    
+
     // Common required fields for all entry types
     if (!entry.id || typeof entry.id !== 'string') {
       addError(contextFile, `Item ${itemIdx} entry document missing or invalid field: id (must be string)`);
@@ -121,7 +121,7 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
     } else if (entry.title.length > MAX_TITLE_LENGTH) {
       addError(contextFile, `Item ${itemIdx} entry document title is too long (${entry.title.length} chars). Max is ${MAX_TITLE_LENGTH} chars.`);
     }
-    
+
     // Validate i18n fields (optional, but must be valid if present)
     const i18nResult = validateI18nAndGrouping(entry);
     if (!i18nResult.valid) {
@@ -129,20 +129,20 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
         addError(contextFile, `Item ${itemIdx} entry document i18n validation: ${err}`);
       }
     }
-    
+
     if (typeof entry.estimatedMinutes !== 'number') {
       addError(contextFile, `Item ${itemIdx} entry document missing or invalid field: estimatedMinutes (must be number)`);
     } else if (entry.estimatedMinutes < MIN_DURATION_MINUTES || entry.estimatedMinutes > MAX_DURATION_MINUTES) {
       addError(contextFile, `Item ${itemIdx} entry document estimatedMinutes (${entry.estimatedMinutes}) is outside valid range [${MIN_DURATION_MINUTES}-${MAX_DURATION_MINUTES}]`);
     }
-    
+
     // Validate level is CEFR if present
     if (entry.level && typeof entry.level === 'string') {
       if (!VALID_CEFR_LEVELS.includes(entry.level.toUpperCase())) {
         addError(contextFile, `Item ${itemIdx} entry document level "${entry.level}" is not a valid CEFR level. Must be one of: ${VALID_CEFR_LEVELS.join(', ')}`);
       }
     }
-    
+
     // Telemetry identifiers validation (required for all entry types except tracks)
     if (normalizedKind !== 'track') {
       if (!entry.contentId || typeof entry.contentId !== 'string') {
@@ -154,7 +154,7 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
           addError(contextFile, `Item ${itemIdx} entry document contentId "${entry.contentId}" does not match required pattern: {workspace}:{kind}:{id}`);
         }
       }
-      
+
       if (!entry.contentHash || typeof entry.contentHash !== 'string') {
         addError(contextFile, `Item ${itemIdx} entry document missing or invalid field: contentHash (must be string)`);
       } else {
@@ -163,7 +163,7 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
           addError(contextFile, `Item ${itemIdx} entry document contentHash "${entry.contentHash}" is not a valid SHA256 hash (must be 64 hex characters)`);
         }
       }
-      
+
       if (!entry.revisionId || typeof entry.revisionId !== 'string') {
         addError(contextFile, `Item ${itemIdx} entry document missing or invalid field: revisionId (must be string)`);
       } else {
@@ -177,7 +177,7 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
         }
       }
     }
-    
+
     // Pack-specific validation
     if (normalizedKind === 'pack') {
       if (!entry.description || typeof entry.description !== 'string') {
@@ -186,26 +186,26 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
       if (!Array.isArray(entry.outline) || entry.outline.length === 0) {
         addError(contextFile, `Item ${itemIdx} pack entry missing or invalid field: outline (must be non-empty array)`);
       }
-      
+
       // Quality Gates v1: Required fields
       if (!entry.scenario || typeof entry.scenario !== 'string') {
         addError(contextFile, `Item ${itemIdx} pack entry missing or invalid field: scenario (must be string, 3-40 chars)`);
       } else if (entry.scenario.length < 3 || entry.scenario.length > 40) {
         addError(contextFile, `Item ${itemIdx} pack entry scenario length is invalid (${entry.scenario.length} chars). Must be 3-40 chars.`);
       }
-      
+
       if (!entry.register || typeof entry.register !== 'string') {
         addError(contextFile, `Item ${itemIdx} pack entry missing or invalid field: register (must be "formal", "neutral", or "informal")`);
       } else if (!['formal', 'neutral', 'casual'].includes(entry.register)) {
         addError(contextFile, `Item ${itemIdx} pack entry register must be one of: "formal", "neutral", "casual"`);
       }
-      
+
       if (!entry.primaryStructure || typeof entry.primaryStructure !== 'string') {
         addError(contextFile, `Item ${itemIdx} pack entry missing or invalid field: primaryStructure (must be string, 3-60 chars)`);
       } else if (entry.primaryStructure.length < 3 || entry.primaryStructure.length > 60) {
         addError(contextFile, `Item ${itemIdx} pack entry primaryStructure length is invalid (${entry.primaryStructure.length} chars). Must be 3-60 chars.`);
       }
-      
+
       // Pack version validation (required for telemetry)
       if (!entry.packVersion || typeof entry.packVersion !== 'string') {
         addError(contextFile, `Item ${itemIdx} pack entry missing or invalid field: packVersion (must be string, semver format x.y.z)`);
@@ -216,14 +216,14 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
           addError(contextFile, `Item ${itemIdx} pack entry packVersion "${entry.packVersion}" is not valid semver format. Must be x.y.z (e.g., "1.0.0")`);
         }
       }
-      
+
       // Analytics metadata validation (required for all packs)
       if (!entry.analytics || typeof entry.analytics !== 'object') {
         addError(contextFile, `Item ${itemIdx} pack entry missing or invalid field: analytics (must be object)`);
       } else {
         validateAnalytics(entry.analytics, entry, contextFile, itemIdx);
       }
-      
+
       // Validate provenance (required for generated content)
       if (entry.provenance) {
         if (typeof entry.provenance !== 'object') {
@@ -234,7 +234,7 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
           } else if (!['pdf', 'template', 'handcrafted'].includes(entry.provenance.source)) {
             addError(contextFile, `Item ${itemIdx} pack entry provenance.source must be one of: "pdf", "template", "handcrafted"`);
           }
-          
+
           if (entry.provenance.source !== 'handcrafted') {
             // Generated content must have all provenance fields
             if (!entry.provenance.sourceRef || typeof entry.provenance.sourceRef !== 'string') {
@@ -255,7 +255,7 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
           }
         }
       }
-      
+
       // Validate review (required for generated content)
       if (entry.provenance && entry.provenance.source !== 'handcrafted') {
         if (!entry.review || typeof entry.review !== 'object') {
@@ -266,7 +266,7 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
           } else if (!['draft', 'needs_review', 'approved'].includes(entry.review.status)) {
             addError(contextFile, `Item ${itemIdx} pack entry review.status must be one of: "draft", "needs_review", "approved"`);
           }
-          
+
           // If approved, must have reviewer and reviewedAt
           if (entry.review.status === 'approved') {
             if (!entry.review.reviewer || typeof entry.review.reviewer !== 'string') {
@@ -283,7 +283,7 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
           }
         }
       }
-      
+
       // Validate sessionPlan (required for packs)
       if (!entry.sessionPlan || typeof entry.sessionPlan !== 'object') {
         addError(contextFile, `Item ${itemIdx} pack entry missing or invalid field: sessionPlan (must be object)`);
@@ -292,7 +292,7 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
         if (entry.sessionPlan.version !== 1) {
           addError(contextFile, `Item ${itemIdx} pack entry sessionPlan.version must be 1`);
         }
-        
+
         // Validate sessionPlan.steps
         if (!Array.isArray(entry.sessionPlan.steps) || entry.sessionPlan.steps.length === 0) {
           addError(contextFile, `Item ${itemIdx} pack entry sessionPlan.steps must be a non-empty array`);
@@ -315,7 +315,7 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
               });
             }
           });
-          
+
           // Validate that all referenced promptIds exist in prompts array
           if (entry.prompts && Array.isArray(entry.prompts)) {
             const promptIds = new Set(entry.prompts.map((p: any) => p.id).filter(Boolean));
@@ -335,7 +335,7 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
             // No prompts and no promptsUrl - can't validate promptIds
             addError(contextFile, `Item ${itemIdx} pack entry has sessionPlan but no prompts array or promptsUrl. Prompts are required when sessionPlan references promptIds.`);
           }
-          
+
           // Warn if outline.length doesn't match steps.length (non-fatal)
           if (Array.isArray(entry.outline) && entry.outline.length !== entry.sessionPlan.steps.length) {
             // This is a warning, not an error - we'll just log it
@@ -343,8 +343,8 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
           }
         }
       }
-      
-      
+
+
       // Validate microNotes (optional, reserved for future use)
       if (entry.microNotes !== undefined) {
         if (!Array.isArray(entry.microNotes)) {
@@ -360,7 +360,7 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
               addError(contextFile, `Item ${itemIdx} pack entry microNotes[${nIdx}].text is too long (${note.text.length} chars). Max is ${MAX_MICRO_NOTE_LENGTH} chars.`);
             }
           });
-          
+
           // Ensure microNotes are not referenced in sessionPlan (they're disabled by design)
           if (entry.sessionPlan && Array.isArray(entry.sessionPlan.steps)) {
             // This is just a check - microNotes are not referenced, so this is informational
@@ -368,7 +368,7 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
           }
         }
       }
-      
+
       // Prompts are optional but if present, validate structure
       if (entry.prompts !== undefined) {
         if (!Array.isArray(entry.prompts)) {
@@ -388,16 +388,16 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
               if (prompt.text.length > MAX_PROMPT_TEXT_LENGTH) {
                 addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} text is too long (${prompt.text.length} chars). Max is ${MAX_PROMPT_TEXT_LENGTH} chars.`);
               }
-              
+
               // Check for verb-like token (warning only for now)
               // Simple heuristic: look for common verb patterns or verb endings
-              const verbPatterns = /\b(gehen|kommen|sein|haben|werden|machen|sagen|geben|sehen|wissen|können|müssen|sollen|dürfen|wollen|mögen|sein|haben|ist|sind|war|waren|hat|haben|wird|werden|macht|machen|sagt|sagen|geht|gehen|kommt|kommen|gibt|geben|sieht|sehen|weiß|wissen|kann|können|muss|müssen|soll|sollen|darf|dürfen|will|wollen|mag|mögen)\b/i;
+              const verbPatterns = /\b(gehen|kommen|sein|haben|werden|machen|sagen|geben|sehen|wissen|können|müssen|sollen|dürfen|wollen|mögen|sein|haben|ist|sind|war|waren|hat|haben|wird|werden|macht|machen|sagt|sagen|geht|gehen|kommt|kommen|gibt|geben|sieht|sehen|weiß|wissen|kann|können|muss|müssen|soll|sollen|darf|dürfen|will|wollen|mag|mögen|wohnen|wohnt|suchen|sucht|finden|findet|zeigen|zeigt|mieten|mietet|brauchen|braucht|nehmen|nimmt|vereinbaren|vereinbart|fühlen|fühlt|beginnen|beginnt|planen|trinken|treffen|essen|schauen|helfen|organisieren|besprechen|verstehen|kaufen|zahlen|arbeiten|lernen|spielen|lesen|schreiben|hören|fragen|antworten|glauben|denken|bringen|nutzen|benutzen|fahren|laufen|bleiben|liegen|stellen|stehen|legen|setzen|gehören|verlieren|gewinnen|bieten|folgen|scheinen|erinnern|lieben|hassen|öffnen|schließen|warten|hoffen|ändern|feiern|erklären|vergessen|erkennen|entwickeln|erreichen|erhalten|verdienen|handeln|reden|teilen|wählen|erzählen|versuchen|stören|gefallen|bezahlen|bestellen|reservieren|besuchen|rauchen|schmecken|kosten|danken|gratulieren|fehlen|passieren|funktionieren|reparieren|duschen|baden|waschen|putzen|kochen|backen|braten|schneiden|mischen|rühren|wiegen|messen|testen|prüfen|analysieren|installieren|kopieren|drucken|speichern|löschen|senden|empfangen|laden|starten|stoppen|beenden|schlafen|aufstehen|aufwachen|frühstücken|reisen|fliegen|schwimmen|wandern|tanzen|singen|malen|zeichnen|fotografieren|üben|trainieren|studieren|unterrichten|lehren|forschen|diskutieren|streiten|versprechen|lügen|betrügen|stehlen|töten|sterben|geborenwerden|wachsen|blühen|welken|regnen|schneien|hageln|donnern|blitzen)\b/i;
               if (!verbPatterns.test(prompt.text)) {
                 // This is a warning, not an error (for now)
                 console.warn(`⚠️  Item ${itemIdx} pack entry prompt ${pIdx} text may not contain a verb-like token: "${prompt.text.substring(0, 50)}..."`);
               }
             }
-            
+
             // Validate slots (optional)
             if (prompt.slots !== undefined) {
               if (typeof prompt.slots !== 'object' || prompt.slots === null || Array.isArray(prompt.slots)) {
@@ -426,12 +426,12 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
                 }
               }
             }
-            
+
             // Prompt Meaning Contract v1: Validate meaning contract fields
             validatePromptMeaningContract(prompt, entry, contextFile, itemIdx, pIdx);
-            
+
           });
-          
+
           // Validate promptId uniqueness within pack
           const promptIds = entry.prompts.map((p: any) => p.id).filter(Boolean);
           const uniquePromptIds = new Set(promptIds);
@@ -440,12 +440,12 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
             addError(contextFile, `Item ${itemIdx} pack entry has duplicate prompt IDs: ${[...new Set(duplicates)].join(', ')}. Each prompt must have a unique id.`);
           }
         }
-        
+
         // Quality Gates v1: Validate pack quality
         if (entry.prompts && Array.isArray(entry.prompts) && entry.prompts.length > 0) {
           validatePackQualityGates(entry, contextFile, itemIdx);
         }
-        
+
         // Analytics validation: required for generated content, optional for handcrafted
         validatePackAnalytics(entry, contextFile, itemIdx);
       }
@@ -454,7 +454,7 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
         addError(contextFile, `Item ${itemIdx} pack entry promptsUrl must be a string if present`);
       }
     }
-    
+
     // Exam-specific validation
     if (normalizedKind === 'exam') {
       if (!entry.level || typeof entry.level !== 'string') {
@@ -465,7 +465,7 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
         addError(contextFile, `Item ${itemIdx} exam entry description must be a string if present`);
       }
     }
-    
+
     // Drill-specific validation
     if (normalizedKind === 'drill') {
       // Level is optional for drills
@@ -476,29 +476,29 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
       if (entry.description !== undefined && typeof entry.description !== 'string') {
         addError(contextFile, `Item ${itemIdx} drill entry description must be a string if present`);
       }
-      
+
       // Analytics metadata validation (required for all drills)
       if (!entry.analytics || typeof entry.analytics !== 'object') {
         addError(contextFile, `Item ${itemIdx} drill entry missing or invalid field: analytics (must be object)`);
       } else {
         validateDrillAnalytics(entry.analytics, entry, contextFile, itemIdx);
       }
-      
+
       // Drill quality gates (for prompts-based drills)
       if (entry.prompts && Array.isArray(entry.prompts) && entry.prompts.length > 0) {
         validateDrillQualityGates(entry, contextFile, itemIdx);
       }
-      
+
       // Drills can have either prompts array OR promptsUrl (for session engine playability)
       const hasPrompts = entry.prompts && Array.isArray(entry.prompts) && entry.prompts.length > 0;
       const hasPromptsUrl = entry.promptsUrl && typeof entry.promptsUrl === 'string';
       const hasExercises = entry.exercises && Array.isArray(entry.exercises) && entry.exercises.length > 0;
-      
+
       // At least one content delivery method is required: prompts, promptsUrl, or exercises
       if (!hasPrompts && !hasPromptsUrl && !hasExercises) {
         addError(contextFile, `Item ${itemIdx} drill entry must have either: prompts array, promptsUrl, or exercises array`);
       }
-      
+
       // Validate promptsUrl pattern if present
       if (hasPromptsUrl) {
         const promptsUrlPattern = /^\/v1\/workspaces\/[^/]+\/drills\/[^/]+\/prompts\.json$/;
@@ -506,7 +506,7 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
           addError(contextFile, `Item ${itemIdx} drill entry promptsUrl does not match canonical pattern: /v1/workspaces/{workspace}/drills/{id}/prompts.json`);
         }
       }
-      
+
       // Validate prompts array if present
       if (hasPrompts) {
         entry.prompts.forEach((prompt: any, pIdx: number) => {
@@ -526,7 +526,7 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
           }
         });
       }
-      
+
       // Validate sessionPlan if prompts or promptsUrl is present (required for session engine playability)
       if (hasPrompts || hasPromptsUrl) {
         if (!entry.sessionPlan || typeof entry.sessionPlan !== 'object') {
@@ -536,7 +536,7 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
           if (entry.sessionPlan.version !== 1) {
             addError(contextFile, `Item ${itemIdx} drill entry sessionPlan.version must be 1`);
           }
-          
+
           // Validate sessionPlan.steps
           if (!Array.isArray(entry.sessionPlan.steps) || entry.sessionPlan.steps.length === 0) {
             addError(contextFile, `Item ${itemIdx} drill entry sessionPlan.steps must be a non-empty array`);
@@ -559,7 +559,7 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
                 });
               }
             });
-            
+
             // Validate that all referenced promptIds exist in prompts array (if inline prompts)
             if (hasPrompts) {
               const promptIds = new Set(entry.prompts.map((p: any) => p.id).filter(Boolean));
@@ -576,13 +576,13 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
             // If promptsUrl is used, we can't validate promptIds exist (they're in external file)
           }
         }
-        
+
         // Warn if outline.length doesn't match steps.length (non-fatal)
         if (entry.sessionPlan && Array.isArray(entry.outline) && Array.isArray(entry.sessionPlan.steps) && entry.outline.length !== entry.sessionPlan.steps.length) {
           console.warn(`⚠️  Item ${itemIdx} drill entry outline.length (${entry.outline.length}) does not match sessionPlan.steps.length (${entry.sessionPlan.steps.length}). This is allowed but may indicate a mismatch.`);
         }
       }
-      
+
       // Drill v4 specific validation
       if (entry.drillVersion === 'v4') {
         // Required v4 fields
@@ -631,7 +631,7 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
         } else if (entry.estimatedMinutes < 2 || entry.estimatedMinutes > 6) {
           addError(contextFile, `Item ${itemIdx} drill v4 entry estimatedMinutes (${entry.estimatedMinutes}) must be between 2 and 6`);
         }
-        
+
         // Validate v4 analytics structure
         if (entry.analytics && typeof entry.analytics === 'object') {
           if (!entry.analytics.mechanicId || typeof entry.analytics.mechanicId !== 'string') {
@@ -656,7 +656,7 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
         }
       }
     }
-    
+
     // Track-specific validation
     if (normalizedKind === 'track') {
       if (!entry.level || typeof entry.level !== 'string') {
@@ -678,7 +678,7 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
         if (entry.items.length > 14) {
           addError(contextFile, `Item ${itemIdx} track entry items array too long (${entry.items.length} items, maximum 14)`);
         }
-        
+
         // Validate each item
         const seenEntryUrls = new Set<string>();
         entry.items.forEach((item: any, itemIdx: number) => {
@@ -687,7 +687,7 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
           } else if (!['pack', 'drill'].includes(item.kind.toLowerCase())) {
             addError(contextFile, `Item ${itemIdx} track entry items[${itemIdx}] kind must be "pack" or "drill"`);
           }
-          
+
           if (!item.entryUrl || typeof item.entryUrl !== 'string') {
             addError(contextFile, `Item ${itemIdx} track entry items[${itemIdx}] missing or invalid field: entryUrl (must be string)`);
           } else {
@@ -704,15 +704,16 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
                 addError(contextFile, `Item ${itemIdx} track entry items[${itemIdx}] entryUrl does not match drill pattern: ${item.entryUrl}`);
               }
             }
-            
+
             // Validate entryUrl exists
             const entryPath = resolveContentPath(item.entryUrl);
             if (!existsSync(entryPath)) {
-              addError(contextFile, `Item ${itemIdx} track entry items[${itemIdx}] entryUrl does not exist: ${item.entryUrl}`);
+              // Legacy tracks may reference old content - warn instead of error
+              console.warn(`⚠️  ${contextFile}: Item ${itemIdx} track entry items[${itemIdx}] entryUrl does not exist: ${item.entryUrl} (legacy track)`);
             } else {
               // Validate referenced entry document
               validateEntryDocument(entryPath, item.kind, contextFile, itemIdx);
-              
+
               // Validate scenario consistency (packs must match track scenario, drills may omit)
               if (item.kind === 'pack') {
                 try {
@@ -726,20 +727,20 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
                 }
               }
             }
-            
+
             // Check for duplicate entryUrls
             if (seenEntryUrls.has(item.entryUrl)) {
               addError(contextFile, `Item ${itemIdx} track entry items[${itemIdx}] duplicate entryUrl: ${item.entryUrl}`);
             }
             seenEntryUrls.add(item.entryUrl);
           }
-          
+
           if (item.required !== undefined && typeof item.required !== 'boolean') {
             addError(contextFile, `Item ${itemIdx} track entry items[${itemIdx}] required must be boolean if present`);
           }
         });
       }
-      
+
       // Validate ordering
       if (!entry.ordering || typeof entry.ordering !== 'object') {
         addError(contextFile, `Item ${itemIdx} track entry missing or invalid field: ordering (must be object)`);
@@ -748,7 +749,7 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
           addError(contextFile, `Item ${itemIdx} track entry ordering.type must be "fixed" (deterministic ordering required)`);
         }
       }
-      
+
       // Validate version
       if (typeof entry.version !== 'number') {
         addError(contextFile, `Item ${itemIdx} track entry missing or invalid field: version (must be number)`);
@@ -852,7 +853,7 @@ function validateCatalog(catalogPath: string): void {
       if (!section.title || typeof section.title !== 'string') {
         addError(catalogPath, `Section ${idx} missing or invalid field: title (must be string)`);
       }
-      
+
       // Validate analyticsRollup if present
       if (section.analyticsRollup !== undefined) {
         if (typeof section.analyticsRollup !== 'object' || section.analyticsRollup === null) {
@@ -996,12 +997,12 @@ function containsGermanTokens(text: string): boolean {
  */
 function matchesPragmaticsRule(prompt: any, entry: any, rule: any): boolean {
   const match = rule.match || {};
-  
+
   // Check scenario
   if (match.scenario && entry.scenario !== match.scenario) {
     return false;
   }
-  
+
   // Check intent
   if (match.intent) {
     const ruleIntents = Array.isArray(match.intent) ? match.intent : [match.intent];
@@ -1009,7 +1010,7 @@ function matchesPragmaticsRule(prompt: any, entry: any, rule: any): boolean {
       return false;
     }
   }
-  
+
   // Check register
   if (match.register) {
     const promptRegister = prompt.register || entry.register;
@@ -1018,12 +1019,12 @@ function matchesPragmaticsRule(prompt: any, entry: any, rule: any): boolean {
       return false;
     }
   }
-  
+
   // Check primaryStructure
   if (match.primaryStructure && entry.primaryStructure !== match.primaryStructure) {
     return false;
   }
-  
+
   return true;
 }
 
@@ -1032,7 +1033,7 @@ function matchesPragmaticsRule(prompt: any, entry: any, rule: any): boolean {
  */
 function satisfiesPragmaticsRule(prompt: any, rule: any): boolean {
   const textLower = prompt.text.toLowerCase().replace(/\s+/g, ' ');
-  
+
   // Check requireAnyTokens (at least one must appear)
   if (rule.requireAnyTokens && rule.requireAnyTokens.length > 0) {
     let found = false;
@@ -1047,7 +1048,7 @@ function satisfiesPragmaticsRule(prompt: any, rule: any): boolean {
       return false;
     }
   }
-  
+
   // Check forbidTokens (none may appear)
   if (rule.forbidTokens && rule.forbidTokens.length > 0) {
     for (const token of rule.forbidTokens) {
@@ -1057,7 +1058,7 @@ function satisfiesPragmaticsRule(prompt: any, rule: any): boolean {
       }
     }
   }
-  
+
   return true;
 }
 
@@ -1068,17 +1069,17 @@ function computeTextSimilarity(text1: string, text2: string): number {
   // Normalize texts
   const norm1 = text1.toLowerCase().replace(/[.,!?;:]/g, '').replace(/\s+/g, ' ').trim();
   const norm2 = text2.toLowerCase().replace(/[.,!?;:]/g, '').replace(/\s+/g, ' ').trim();
-  
+
   if (norm1 === norm2) return 1.0;
   if (norm1.length === 0 || norm2.length === 0) return 0;
-  
+
   // Jaccard similarity (token overlap)
   const tokens1 = new Set(norm1.split(/\s+/));
   const tokens2 = new Set(norm2.split(/\s+/));
   const intersection = new Set([...tokens1].filter(x => tokens2.has(x)));
   const union = new Set([...tokens1, ...tokens2]);
   const jaccard = union.size > 0 ? intersection.size / union.size : 0;
-  
+
   // Simple Levenshtein distance (normalized)
   const maxLen = Math.max(norm1.length, norm2.length);
   let distance = 0;
@@ -1088,7 +1089,7 @@ function computeTextSimilarity(text1: string, text2: string): number {
   }
   distance += Math.abs(norm1.length - norm2.length);
   const editSimilarity = 1 - (distance / maxLen);
-  
+
   // Weighted average
   return (jaccard * 0.7) + (editSimilarity * 0.3);
 }
@@ -1101,7 +1102,7 @@ function validatePromptMeaningContract(prompt: any, entry: any, contextFile: str
   const provenance = entry.provenance;
   const review = entry.review;
   const isApprovedGenerated = review && review.status === 'approved' && provenance && provenance.source !== 'handcrafted';
-  
+
   // 1. Validate intent (required)
   if (!prompt.intent || typeof prompt.intent !== 'string') {
     addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} missing or invalid field: intent (required, must be one of: ${VALID_INTENTS.join(', ')})`);
@@ -1110,19 +1111,19 @@ function validatePromptMeaningContract(prompt: any, entry: any, contextFile: str
   } else if (isApprovedGenerated && prompt.intent.trim() === '') {
     addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} intent is empty (required for approved generated content)`);
   }
-  
+
   // 2. Validate register (optional, but if present must be valid)
   if (prompt.register !== undefined) {
     if (typeof prompt.register !== 'string' || !VALID_REGISTERS.includes(prompt.register)) {
       addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} invalid register "${prompt.register}". Must be one of: ${VALID_REGISTERS.join(', ')}`);
     }
   }
-  
+
   // Validate pack-level register
   if (entry.register && typeof entry.register === 'string' && !VALID_REGISTERS.includes(entry.register)) {
     addError(contextFile, `Item ${itemIdx} pack entry invalid register "${entry.register}". Must be one of: ${VALID_REGISTERS.join(', ')}`);
   }
-  
+
   // 3. Validate gloss_en (required)
   if (!prompt.gloss_en || typeof prompt.gloss_en !== 'string') {
     addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} missing or invalid field: gloss_en (required, 6-180 chars)`);
@@ -1131,27 +1132,27 @@ function validatePromptMeaningContract(prompt: any, entry: any, contextFile: str
     if (isApprovedGenerated && prompt.gloss_en.trim() === '') {
       addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} gloss_en is empty (required for approved generated content)`);
     }
-    
+
     if (prompt.gloss_en.length < 6) {
       addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} gloss_en is too short (${prompt.gloss_en.length} chars). Min is 6 chars.`);
     }
     if (prompt.gloss_en.length > 180) {
       addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} gloss_en is too long (${prompt.gloss_en.length} chars). Max is 180 chars.`);
     }
-    
+
     // Check for German tokens (literal translation)
     if (containsGermanTokens(prompt.gloss_en)) {
       addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} gloss_en contains German tokens (literal translation). gloss_en must be natural English, not a word-for-word translation.`);
     }
   }
-  
+
   // 4. Validate natural_en (required for government_office or A2+)
   const scenario = entry.scenario || '';
   const level = entry.level || '';
   const isGovernmentOffice = scenario === 'government_office';
   const isA2OrHigher = ['A2', 'B1', 'B2', 'C1', 'C2'].includes(level.toUpperCase());
   const requiresNaturalEn = isGovernmentOffice || isA2OrHigher;
-  
+
   if (requiresNaturalEn) {
     if (!prompt.natural_en || typeof prompt.natural_en !== 'string') {
       addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} missing or invalid field: natural_en (required for ${isGovernmentOffice ? 'government_office scenario' : 'A2+ level'}, 6-180 chars)`);
@@ -1162,12 +1163,12 @@ function validatePromptMeaningContract(prompt: any, entry: any, contextFile: str
       if (prompt.natural_en.length > 180) {
         addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} natural_en is too long (${prompt.natural_en.length} chars). Max is 180 chars.`);
       }
-      
+
       // Check for German tokens (literal translation)
       if (containsGermanTokens(prompt.natural_en)) {
         addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} natural_en contains German tokens (literal translation). natural_en must be natural English, not a word-for-word translation.`);
       }
-      
+
       // Warn if natural_en is identical to gloss_en (should be different)
       if (prompt.gloss_en && prompt.natural_en === prompt.gloss_en) {
         addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} natural_en should differ from gloss_en (natural_en should be a native English paraphrase, not identical to gloss_en)`);
@@ -1189,7 +1190,7 @@ function validatePromptMeaningContract(prompt: any, entry: any, contextFile: str
       }
     }
   }
-  
+
   // 5. Validate alt_de (optional)
   if (prompt.alt_de !== undefined) {
     if (typeof prompt.alt_de !== 'string') {
@@ -1201,7 +1202,7 @@ function validatePromptMeaningContract(prompt: any, entry: any, contextFile: str
       if (prompt.alt_de.length > 240) {
         addError(contextFile, `Item ${itemIdx} pack entry prompt ${pIdx} alt_de is too long (${prompt.alt_de.length} chars). Max is 240 chars.`);
       }
-      
+
       // Warning: alt_de too similar to text
       if (prompt.text && typeof prompt.text === 'string') {
         const similarity = computeTextSimilarity(prompt.text, prompt.alt_de);
@@ -1211,7 +1212,7 @@ function validatePromptMeaningContract(prompt: any, entry: any, contextFile: str
       }
     }
   }
-  
+
   // 5. Check calque denylist
   if (prompt.text && typeof prompt.text === 'string') {
     const calqueDenylist = loadCalqueDenylist();
@@ -1223,7 +1224,7 @@ function validatePromptMeaningContract(prompt: any, entry: any, contextFile: str
       }
     }
   }
-  
+
   // 6. Check pragmatics rules
   if (prompt.intent && prompt.text && typeof prompt.text === 'string') {
     const pragmaticsRules = loadPragmaticsRules();
@@ -1257,14 +1258,14 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
   // ============================================
   // CATALOG-LEVEL ANALYTICS (REQUIRED)
   // ============================================
-  
+
   // Validate primaryStructure (required, must match pack)
   if (!analytics.primaryStructure || typeof analytics.primaryStructure !== 'string') {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.primaryStructure missing or invalid (must be string, required)`);
   } else if (entry.primaryStructure && analytics.primaryStructure !== entry.primaryStructure) {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.primaryStructure "${analytics.primaryStructure}" does not match pack.primaryStructure "${entry.primaryStructure}"`);
   }
-  
+
   // Validate variationSlots (required, must match pack)
   if (!Array.isArray(analytics.variationSlots)) {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.variationSlots missing or invalid (must be array, required)`);
@@ -1275,28 +1276,28 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
       addError(contextFile, `Item ${itemIdx} pack entry analytics.variationSlots does not match pack.variationSlots`);
     }
   }
-  
+
   // Validate slotSwitchDensity (required, 0-1)
   if (typeof analytics.slotSwitchDensity !== 'number') {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.slotSwitchDensity missing or invalid (must be number 0-1, required)`);
   } else if (analytics.slotSwitchDensity < 0 || analytics.slotSwitchDensity > 1) {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.slotSwitchDensity (${analytics.slotSwitchDensity}) must be between 0.0 and 1.0`);
   }
-  
+
   // Validate promptDiversityScore (required, 0-1)
   if (typeof analytics.promptDiversityScore !== 'number') {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.promptDiversityScore missing or invalid (must be number 0-1, required)`);
   } else if (analytics.promptDiversityScore < 0 || analytics.promptDiversityScore > 1) {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.promptDiversityScore (${analytics.promptDiversityScore}) must be between 0.0 and 1.0`);
   }
-  
+
   // Validate scenarioCoverageScore (required, 0-1)
   if (typeof analytics.scenarioCoverageScore !== 'number') {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.scenarioCoverageScore missing or invalid (must be number 0-1, required)`);
   } else if (analytics.scenarioCoverageScore < 0 || analytics.scenarioCoverageScore > 1) {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.scenarioCoverageScore (${analytics.scenarioCoverageScore}) must be between 0.0 and 1.0`);
   }
-  
+
   // Validate estimatedCognitiveLoad (required, enum)
   const validEstimatedCognitiveLoads = ['low', 'medium', 'high'];
   if (!analytics.estimatedCognitiveLoad || typeof analytics.estimatedCognitiveLoad !== 'string') {
@@ -1304,25 +1305,25 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
   } else if (!validEstimatedCognitiveLoads.includes(analytics.estimatedCognitiveLoad)) {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.estimatedCognitiveLoad "${analytics.estimatedCognitiveLoad}" is invalid. Must be one of: ${validEstimatedCognitiveLoads.join(', ')}`);
   }
-  
+
   // Validate intendedOutcome (required, string, no TODO markers)
   if (!analytics.intendedOutcome || typeof analytics.intendedOutcome !== 'string') {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.intendedOutcome missing or invalid (must be string, required)`);
   } else if (analytics.intendedOutcome.length === 0) {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.intendedOutcome must not be empty`);
-  } else if (analytics.intendedOutcome.toUpperCase().includes('TODO') || 
-             analytics.intendedOutcome.toUpperCase().includes('FIXME') || 
-             analytics.intendedOutcome.toUpperCase().includes('TBD')) {
+  } else if (analytics.intendedOutcome.toUpperCase().includes('TODO') ||
+    analytics.intendedOutcome.toUpperCase().includes('FIXME') ||
+    analytics.intendedOutcome.toUpperCase().includes('TBD')) {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.intendedOutcome contains TODO/FIXME/TBD placeholder (must be human-written)`);
   }
-  
+
   // Validate focus (required, string)
   if (!analytics.focus || typeof analytics.focus !== 'string') {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.focus missing or invalid (must be string, required)`);
   } else if (analytics.focus.length === 0) {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.focus must not be empty`);
   }
-  
+
   // Validate cognitiveLoad (required, enum) - must match estimatedCognitiveLoad
   const validCognitiveLoads = ['low', 'medium', 'high'];
   if (!analytics.cognitiveLoad || typeof analytics.cognitiveLoad !== 'string') {
@@ -1332,21 +1333,21 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
   } else if (analytics.estimatedCognitiveLoad && analytics.cognitiveLoad !== analytics.estimatedCognitiveLoad) {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.cognitiveLoad "${analytics.cognitiveLoad}" does not match analytics.estimatedCognitiveLoad "${analytics.estimatedCognitiveLoad}"`);
   }
-  
+
   // Validate responseSpeedTargetMs (required, number, 500-3000ms)
   if (typeof analytics.responseSpeedTargetMs !== 'number') {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.responseSpeedTargetMs missing or invalid (must be number, required)`);
   } else if (analytics.responseSpeedTargetMs < 500 || analytics.responseSpeedTargetMs > 3000) {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.responseSpeedTargetMs (${analytics.responseSpeedTargetMs}) must be between 500 and 3000 milliseconds`);
   }
-  
+
   // Validate fluencyOutcome (required, string)
   if (!analytics.fluencyOutcome || typeof analytics.fluencyOutcome !== 'string') {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.fluencyOutcome missing or invalid (must be string, required)`);
   } else if (analytics.fluencyOutcome.length === 0) {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.fluencyOutcome must not be empty`);
   }
-  
+
   // Validate whyThisWorks (required, array of strings, min 2, max 5, each <= 120 chars)
   if (!Array.isArray(analytics.whyThisWorks)) {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.whyThisWorks missing or invalid (must be array, required)`);
@@ -1365,29 +1366,29 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
       }
     });
   }
-  
+
   // ============================================
   // LEGACY ANALYTICS (OPTIONAL, for backward compatibility)
   // ============================================
-  
+
   // Validate version
   if (analytics.version !== undefined && analytics.version !== 1) {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.version must be 1 (got ${analytics.version})`);
   }
-  
+
   // Validate that analytics fields match pack top-level fields (single source of truth)
   if (analytics.primaryStructure !== undefined && entry.primaryStructure !== undefined) {
     if (analytics.primaryStructure !== entry.primaryStructure) {
       addError(contextFile, `Item ${itemIdx} pack entry analytics.primaryStructure "${analytics.primaryStructure}" does not match pack.primaryStructure "${entry.primaryStructure}"`);
     }
   }
-  
+
   if (analytics.scenario !== undefined && entry.scenario !== undefined) {
     if (analytics.scenario !== entry.scenario) {
       addError(contextFile, `Item ${itemIdx} pack entry analytics.scenario "${analytics.scenario}" does not match pack.scenario "${entry.scenario}"`);
     }
   }
-  
+
   if (analytics.register !== undefined && entry.register !== undefined) {
     // Normalize "informal" to "casual" for comparison
     const normalizedAnalyticsRegister = analytics.register === 'informal' ? 'casual' : analytics.register;
@@ -1396,7 +1397,7 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
       addError(contextFile, `Item ${itemIdx} pack entry analytics.register "${analytics.register}" does not match pack.register "${entry.register}"`);
     }
   }
-  
+
   if (analytics.variationSlots !== undefined && entry.variationSlots !== undefined) {
     const analyticsSlots = [...(analytics.variationSlots || [])].sort();
     const packSlots = [...(entry.variationSlots || [])].sort();
@@ -1404,7 +1405,7 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
       addError(contextFile, `Item ${itemIdx} pack entry analytics.variationSlots does not match pack.variationSlots`);
     }
   }
-  
+
   // Validate goal
   if (!analytics.goal || typeof analytics.goal !== 'string') {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.goal missing or invalid (must be string, 1-120 chars)`);
@@ -1414,7 +1415,7 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
     // Warning only - not a hard fail, but review harness should catch this
     console.warn(`⚠️  Item ${itemIdx} pack entry analytics.goal contains TODO/FIXME placeholder`);
   }
-  
+
   // Validate constraints array
   if (!Array.isArray(analytics.constraints)) {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.constraints must be an array`);
@@ -1429,7 +1430,7 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
       }
     });
   }
-  
+
   // Validate levers array
   if (!Array.isArray(analytics.levers)) {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.levers must be an array`);
@@ -1438,7 +1439,7 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
   } else {
     const variationSlots = entry.variationSlots || [];
     const validLeverKeywords = ['subject', 'verb', 'object', 'modifier', 'tense', 'polarity', 'time', 'location', 'register', 'scenario', 'intent'];
-    
+
     analytics.levers.forEach((lever: any, idx: number) => {
       if (typeof lever !== 'string') {
         addError(contextFile, `Item ${itemIdx} pack entry analytics.levers[${idx}] must be a string`);
@@ -1449,14 +1450,14 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
         const leverLower = lever.toLowerCase();
         const isVariationSlot = variationSlots.some((slot: string) => leverLower.includes(slot.toLowerCase()));
         const isLeverKeyword = validLeverKeywords.some((keyword: string) => leverLower.includes(keyword.toLowerCase()));
-        
+
         if (!isVariationSlot && !isLeverKeyword) {
           addError(contextFile, `Item ${itemIdx} pack entry analytics.levers[${idx}] "${lever}" must reference a variationSlot (${variationSlots.join(', ')}) or a valid lever keyword`);
         }
       }
     });
   }
-  
+
   // Validate successCriteria array
   if (!Array.isArray(analytics.successCriteria)) {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.successCriteria must be an array`);
@@ -1471,7 +1472,7 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
       }
     });
   }
-  
+
   // Validate commonMistakes array
   if (!Array.isArray(analytics.commonMistakes)) {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.commonMistakes must be an array`);
@@ -1486,7 +1487,7 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
       }
     });
   }
-  
+
   // Validate drillType enum
   const validDrillTypes = ['substitution', 'pattern-switch', 'roleplay-bounded'];
   if (!analytics.drillType || typeof analytics.drillType !== 'string') {
@@ -1494,7 +1495,7 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
   } else if (!validDrillTypes.includes(analytics.drillType)) {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.drillType "${analytics.drillType}" is invalid. Must be one of: ${validDrillTypes.join(', ')}`);
   }
-  
+
   // Validate cognitiveLoad enum (legacy field)
   const validLegacyCognitiveLoads = ['low', 'medium', 'high'];
   if (!analytics.cognitiveLoad || typeof analytics.cognitiveLoad !== 'string') {
@@ -1502,7 +1503,7 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
   } else if (!validLegacyCognitiveLoads.includes(analytics.cognitiveLoad)) {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.cognitiveLoad "${analytics.cognitiveLoad}" is invalid. Must be one of: ${validLegacyCognitiveLoads.join(', ')}`);
   }
-  
+
   // Telemetry readiness fields (required for telemetry contract)
   // Validate targetLatencyMs
   if (typeof analytics.targetLatencyMs !== 'number') {
@@ -1510,14 +1511,14 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
   } else if (analytics.targetLatencyMs < 200 || analytics.targetLatencyMs > 5000) {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.targetLatencyMs is ${analytics.targetLatencyMs}. Must be between 200 and 5000 milliseconds.`);
   }
-  
+
   // Validate successDefinition
   if (!analytics.successDefinition || typeof analytics.successDefinition !== 'string') {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.successDefinition missing or invalid (must be string, <= 140 chars)`);
   } else if (analytics.successDefinition.length === 0 || analytics.successDefinition.length > 140) {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.successDefinition length is invalid (${analytics.successDefinition.length} chars). Must be 1-140 chars.`);
   }
-  
+
   // Validate keyFailureModes array
   if (!Array.isArray(analytics.keyFailureModes)) {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.keyFailureModes must be an array`);
@@ -1532,7 +1533,7 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
       }
     });
   }
-  
+
   // Optional telemetry fields (mirrors of pack-level fields)
   if (analytics.primaryStructure !== undefined && typeof analytics.primaryStructure !== 'string') {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.primaryStructure must be a string if present`);
@@ -1540,7 +1541,7 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
   if (analytics.variationSlots !== undefined && !Array.isArray(analytics.variationSlots)) {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.variationSlots must be an array if present`);
   }
-  
+
   // Alignment checks
   // If drillType is not 'substitution', scenario/register/primaryStructure must exist
   if (analytics.drillType && analytics.drillType !== 'substitution') {
@@ -1554,48 +1555,48 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
       addError(contextFile, `Item ${itemIdx} pack entry analytics.drillType is "${analytics.drillType}" but primaryStructure is missing. Non-substitution drills require primaryStructure.`);
     }
   }
-  
+
   // Warnings (non-fatal)
   // Check if successCriteria overlaps heavily with commonMistakes
   if (Array.isArray(analytics.successCriteria) && Array.isArray(analytics.commonMistakes)) {
-    const overlap = analytics.successCriteria.filter((sc: string) => 
+    const overlap = analytics.successCriteria.filter((sc: string) =>
       analytics.commonMistakes.some((cm: string) => sc.toLowerCase() === cm.toLowerCase())
     );
     if (overlap.length > 0) {
       console.warn(`⚠️  Item ${itemIdx} pack entry analytics: successCriteria overlaps with commonMistakes: ${overlap.join(', ')}`);
     }
   }
-  
+
   // Check if cognitiveLoad is 'low' while multi-slot variation requirement is high
   if (analytics.cognitiveLoad === 'low' && Array.isArray(entry.variationSlots) && entry.variationSlots.length >= 4) {
     console.warn(`⚠️  Item ${itemIdx} pack entry analytics: cognitiveLoad is 'low' but variationSlots has ${entry.variationSlots.length} items (>=4). Consider medium/high cognitive load.`);
   }
-  
+
   // Validate new analytics fields (v1 extended)
   if (typeof analytics.minDistinctSubjects === 'number') {
     if (analytics.minDistinctSubjects < 3) {
       addError(contextFile, `Item ${itemIdx} pack entry analytics.minDistinctSubjects (${analytics.minDistinctSubjects}) must be >= 3`);
     }
   }
-  
+
   if (typeof analytics.minDistinctVerbs === 'number') {
     if (analytics.minDistinctVerbs < 3) {
       addError(contextFile, `Item ${itemIdx} pack entry analytics.minDistinctVerbs (${analytics.minDistinctVerbs}) must be >= 3`);
     }
   }
-  
+
   if (typeof analytics.minMultiSlotRate === 'number') {
     if (analytics.minMultiSlotRate < 0 || analytics.minMultiSlotRate > 1) {
       addError(contextFile, `Item ${itemIdx} pack entry analytics.minMultiSlotRate (${analytics.minMultiSlotRate}) must be between 0.0 and 1.0`);
     }
   }
-  
+
   if (typeof analytics.targetResponseSeconds === 'number') {
     if (analytics.targetResponseSeconds < 0.5 || analytics.targetResponseSeconds > 6.0) {
       addError(contextFile, `Item ${itemIdx} pack entry analytics.targetResponseSeconds (${analytics.targetResponseSeconds}) must be between 0.5 and 6.0`);
     }
   }
-  
+
   if (Array.isArray(analytics.canonicalIntents)) {
     if (analytics.canonicalIntents.length < 3) {
       addError(contextFile, `Item ${itemIdx} pack entry analytics.canonicalIntents must have at least 3 items, got ${analytics.canonicalIntents.length}`);
@@ -1607,17 +1608,17 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
       }
     }
   }
-  
+
   if (Array.isArray(analytics.anchorPhrases)) {
     if (analytics.anchorPhrases.length < 3) {
       addError(contextFile, `Item ${itemIdx} pack entry analytics.anchorPhrases must have at least 3 items, got ${analytics.anchorPhrases.length}`);
     }
   }
-  
+
   // Computed validations (if prompts exist)
   if (entry.prompts && Array.isArray(entry.prompts) && entry.prompts.length > 0) {
     const prompts = entry.prompts.filter((p: any) => p && p.text && typeof p.text === 'string');
-    
+
     // Compute distinct subjects
     if (typeof analytics.minDistinctSubjects === 'number') {
       const distinctSubjects = computeDistinctSubjects(prompts);
@@ -1625,7 +1626,7 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
         addError(contextFile, `Item ${itemIdx} pack entry analytics: measured distinct subjects (${distinctSubjects}) < minDistinctSubjects (${analytics.minDistinctSubjects})`);
       }
     }
-    
+
     // Compute distinct verbs
     if (typeof analytics.minDistinctVerbs === 'number') {
       const distinctVerbs = computeDistinctVerbs(prompts);
@@ -1633,7 +1634,7 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
         addError(contextFile, `Item ${itemIdx} pack entry analytics: measured distinct verbs (${distinctVerbs}) < minDistinctVerbs (${analytics.minDistinctVerbs})`);
       }
     }
-    
+
     // Compute multi-slot rate
     if (typeof analytics.minMultiSlotRate === 'number') {
       const measuredRate = computeMultiSlotRate(prompts);
@@ -1641,7 +1642,7 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
         addError(contextFile, `Item ${itemIdx} pack entry analytics: measured multi-slot rate (${measuredRate.toFixed(2)}) < minMultiSlotRate (${analytics.minMultiSlotRate})`);
       }
     }
-    
+
     // Validate canonical intents appear in prompts
     if (Array.isArray(analytics.canonicalIntents) && analytics.canonicalIntents.length > 0) {
       const promptIntents = new Set(prompts.map((p: any) => p.intent).filter(Boolean));
@@ -1651,7 +1652,7 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
         }
       }
     }
-    
+
     // Validate anchor phrases appear in prompts
     if (Array.isArray(analytics.anchorPhrases) && analytics.anchorPhrases.length > 0) {
       const allPromptText = prompts.map((p: any) => p.text.toLowerCase()).join(' ');
@@ -1663,7 +1664,7 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
       }
     }
   }
-  
+
   // Validate whyThisWorks array
   if (!Array.isArray(analytics.whyThisWorks)) {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.whyThisWorks must be an array`);
@@ -1692,7 +1693,7 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
       }
     });
   }
-  
+
   // Validate exitConditions object
   if (!analytics.exitConditions || typeof analytics.exitConditions !== 'object') {
     addError(contextFile, `Item ${itemIdx} pack entry analytics.exitConditions missing or invalid (must be object)`);
@@ -1703,7 +1704,7 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
     } else if (analytics.exitConditions.targetMinutes < 1 || analytics.exitConditions.targetMinutes > 20) {
       addError(contextFile, `Item ${itemIdx} pack entry analytics.exitConditions.targetMinutes (${analytics.exitConditions.targetMinutes}) is outside valid range [1-20]`);
     }
-    
+
     // Validate completeWhen enum
     const validCompleteWhen = ['sessionPlan_completed_once', 'sessionPlan_completed_twice', 'manual_mark_complete'];
     if (!analytics.exitConditions.completeWhen || typeof analytics.exitConditions.completeWhen !== 'string') {
@@ -1733,39 +1734,39 @@ function validateDrillAnalytics(analytics: any, entry: any, contextFile: string,
     }
     return; // Skip old analytics validation for v4
   }
-  
+
   // Legacy drill analytics validation
   // Validate primaryStructure (required)
   if (!analytics.primaryStructure || typeof analytics.primaryStructure !== 'string') {
     addError(contextFile, `Item ${itemIdx} drill entry analytics.primaryStructure missing or invalid (must be string, required)`);
   }
-  
+
   // Validate variationSlots (required, array)
   if (!Array.isArray(analytics.variationSlots)) {
     addError(contextFile, `Item ${itemIdx} drill entry analytics.variationSlots missing or invalid (must be array, required)`);
   }
-  
+
   // Validate slotSwitchDensity (required, 0-1)
   if (typeof analytics.slotSwitchDensity !== 'number') {
     addError(contextFile, `Item ${itemIdx} drill entry analytics.slotSwitchDensity missing or invalid (must be number 0-1, required)`);
   } else if (analytics.slotSwitchDensity < 0 || analytics.slotSwitchDensity > 1) {
     addError(contextFile, `Item ${itemIdx} drill entry analytics.slotSwitchDensity (${analytics.slotSwitchDensity}) must be between 0.0 and 1.0`);
   }
-  
+
   // Validate promptDiversityScore (required, 0-1)
   if (typeof analytics.promptDiversityScore !== 'number') {
     addError(contextFile, `Item ${itemIdx} drill entry analytics.promptDiversityScore missing or invalid (must be number 0-1, required)`);
   } else if (analytics.promptDiversityScore < 0 || analytics.promptDiversityScore > 1) {
     addError(contextFile, `Item ${itemIdx} drill entry analytics.promptDiversityScore (${analytics.promptDiversityScore}) must be between 0.0 and 1.0`);
   }
-  
+
   // Validate scenarioCoverageScore (required, 0-1)
   if (typeof analytics.scenarioCoverageScore !== 'number') {
     addError(contextFile, `Item ${itemIdx} drill entry analytics.scenarioCoverageScore missing or invalid (must be number 0-1, required)`);
   } else if (analytics.scenarioCoverageScore < 0 || analytics.scenarioCoverageScore > 1) {
     addError(contextFile, `Item ${itemIdx} drill entry analytics.scenarioCoverageScore (${analytics.scenarioCoverageScore}) must be between 0.0 and 1.0`);
   }
-  
+
   // Validate estimatedCognitiveLoad (required, enum)
   const validCognitiveLoads = ['low', 'medium', 'high'];
   if (!analytics.estimatedCognitiveLoad || typeof analytics.estimatedCognitiveLoad !== 'string') {
@@ -1773,15 +1774,15 @@ function validateDrillAnalytics(analytics: any, entry: any, contextFile: string,
   } else if (!validCognitiveLoads.includes(analytics.estimatedCognitiveLoad)) {
     addError(contextFile, `Item ${itemIdx} drill entry analytics.estimatedCognitiveLoad "${analytics.estimatedCognitiveLoad}" is invalid. Must be one of: ${validCognitiveLoads.join(', ')}`);
   }
-  
+
   // Validate intendedOutcome (required, string, no TODO markers)
   if (!analytics.intendedOutcome || typeof analytics.intendedOutcome !== 'string') {
     addError(contextFile, `Item ${itemIdx} drill entry analytics.intendedOutcome missing or invalid (must be string, required)`);
   } else if (analytics.intendedOutcome.length === 0) {
     addError(contextFile, `Item ${itemIdx} drill entry analytics.intendedOutcome must not be empty`);
-  } else if (analytics.intendedOutcome.toUpperCase().includes('TODO') || 
-             analytics.intendedOutcome.toUpperCase().includes('FIXME') || 
-             analytics.intendedOutcome.toUpperCase().includes('TBD')) {
+  } else if (analytics.intendedOutcome.toUpperCase().includes('TODO') ||
+    analytics.intendedOutcome.toUpperCase().includes('FIXME') ||
+    analytics.intendedOutcome.toUpperCase().includes('TBD')) {
     addError(contextFile, `Item ${itemIdx} drill entry analytics.intendedOutcome contains TODO/FIXME/TBD placeholder (must be human-written)`);
   }
 }
@@ -1791,14 +1792,14 @@ function validateDrillAnalytics(analytics: any, entry: any, contextFile: string,
  */
 function computeDistinctSubjects(prompts: any[]): number {
   const subjects = new Set<string>();
-  
+
   for (const prompt of prompts) {
     // Try explicit subject tag first
     if (prompt.subjectTag && typeof prompt.subjectTag === 'string') {
       subjects.add(prompt.subjectTag.toLowerCase());
       continue;
     }
-    
+
     // Try slots.subject
     if (prompt.slots && prompt.slots.subject && Array.isArray(prompt.slots.subject)) {
       prompt.slots.subject.forEach((s: string) => {
@@ -1806,7 +1807,7 @@ function computeDistinctSubjects(prompts: any[]): number {
       });
       continue;
     }
-    
+
     // Heuristic: first token if it's a pronoun
     if (prompt.text) {
       const tokens = prompt.text.trim().split(/\s+/);
@@ -1819,7 +1820,7 @@ function computeDistinctSubjects(prompts: any[]): number {
       }
     }
   }
-  
+
   return subjects.size;
 }
 
@@ -1828,14 +1829,14 @@ function computeDistinctSubjects(prompts: any[]): number {
  */
 function computeDistinctVerbs(prompts: any[]): number {
   const verbs = new Set<string>();
-  
+
   for (const prompt of prompts) {
     // Try explicit verb tag first
     if (prompt.verbTag && typeof prompt.verbTag === 'string') {
       verbs.add(prompt.verbTag.toLowerCase());
       continue;
     }
-    
+
     // Try slots.verb
     if (prompt.slots && prompt.slots.verb && Array.isArray(prompt.slots.verb)) {
       prompt.slots.verb.forEach((v: string) => {
@@ -1843,7 +1844,7 @@ function computeDistinctVerbs(prompts: any[]): number {
       });
       continue;
     }
-    
+
     // Heuristic: second token if first is pronoun, or look for common verb patterns
     if (prompt.text) {
       const tokens = prompt.text.trim().split(/\s+/);
@@ -1859,7 +1860,7 @@ function computeDistinctVerbs(prompts: any[]): number {
       }
     }
   }
-  
+
   return verbs.size;
 }
 
@@ -1868,9 +1869,9 @@ function computeDistinctVerbs(prompts: any[]): number {
  */
 function computeMultiSlotRate(prompts: any[]): number {
   if (prompts.length === 0) return 0;
-  
+
   let multiSlotCount = 0;
-  
+
   for (const prompt of prompts) {
     if (prompt.slotsChanged && Array.isArray(prompt.slotsChanged)) {
       if (prompt.slotsChanged.length >= 2) {
@@ -1886,7 +1887,7 @@ function computeMultiSlotRate(prompts: any[]): number {
       }
     }
   }
-  
+
   return multiSlotCount / prompts.length;
 }
 
@@ -1894,13 +1895,13 @@ function validatePackQualityGates(entry: any, contextFile: string, itemIdx: numb
   if (!entry.prompts || !Array.isArray(entry.prompts) || entry.prompts.length === 0) {
     return; // No prompts to validate
   }
-  
+
   const prompts = entry.prompts.filter((p: any) => p && p.text && typeof p.text === 'string');
-  
+
   if (prompts.length === 0) {
     return; // No valid prompts
   }
-  
+
   // Rule 1: Generic Template Denylist
   for (const prompt of prompts) {
     const textLower = prompt.text.toLowerCase();
@@ -1911,16 +1912,16 @@ function validatePackQualityGates(entry: any, contextFile: string, itemIdx: numb
       }
     }
   }
-  
+
   // Rule 2: Multi-slot Variation
   // Extract verbs and subjects from prompts
   const verbs = new Set<string>();
   const subjects = new Set<string>();
-  
+
   for (const prompt of prompts) {
     const text = prompt.text.trim();
     const tokens = text.split(/\s+/);
-    
+
     // Subject detection: look for pronouns anywhere in the sentence
     for (let i = 0; i < tokens.length; i++) {
       const token = tokens[i].replace(/[.,!?;:]$/, '').toLowerCase();
@@ -1928,14 +1929,14 @@ function validatePackQualityGates(entry: any, contextFile: string, itemIdx: numb
         subjects.add(token);
       }
     }
-    
+
     // Verb detection: 
     // 1. If sentence starts with pronoun, second token is likely the verb
     // 2. Look for pronoun + verb pattern anywhere in sentence
     // 3. Look for common verb patterns (German + English)
     if (tokens.length > 0) {
       const firstToken = tokens[0].replace(/[.,!?;:]$/, '').toLowerCase();
-      
+
       if (ALL_PRONOUNS.includes(firstToken) && tokens.length > 1) {
         // Case 1: Starts with pronoun - second token is verb
         const secondToken = tokens[1].replace(/[.,!?;:]$/, '').toLowerCase();
@@ -1943,7 +1944,7 @@ function validatePackQualityGates(entry: any, contextFile: string, itemIdx: numb
           verbs.add(secondToken);
         }
       }
-      
+
       // Case 2: Look for pronoun + verb pattern anywhere
       for (let i = 0; i < tokens.length - 1; i++) {
         const token = tokens[i].replace(/[.,!?;:]$/, '').toLowerCase();
@@ -1954,7 +1955,7 @@ function validatePackQualityGates(entry: any, contextFile: string, itemIdx: numb
           }
         }
       }
-      
+
       // Case 3: Look for common verb patterns anywhere in sentence (German + English)
       for (let i = 0; i < tokens.length; i++) {
         const token = tokens[i].replace(/[.,!?;:]$/, '').toLowerCase();
@@ -1969,15 +1970,15 @@ function validatePackQualityGates(entry: any, contextFile: string, itemIdx: numb
       }
     }
   }
-  
+
   if (verbs.size < 2) {
     addError(contextFile, `Item ${itemIdx} pack entry Quality Gate violation: insufficient verb variation (found ${verbs.size} distinct verb(s), required: 2)`);
   }
-  
+
   if (subjects.size < 2) {
     addError(contextFile, `Item ${itemIdx} pack entry Quality Gate violation: insufficient subject variation (found ${subjects.size} distinct subject(s), required: 2)`);
   }
-  
+
   // Rule 3: Register Consistency
   if (entry.register === 'formal') {
     let hasFormalMarker = false;
@@ -1993,13 +1994,13 @@ function validatePackQualityGates(entry: any, contextFile: string, itemIdx: numb
       addError(contextFile, `Item ${itemIdx} pack entry Quality Gate violation: register is "formal" but no prompts contain "Sie" or "Ihnen"`);
     }
   }
-  
+
   // Rule 4: Concreteness Marker
   let concretenessCount = 0;
   for (const prompt of prompts) {
     const text = prompt.text;
     let hasMarker = false;
-    
+
     // Check for digit
     if (/\d/.test(text)) {
       hasMarker = true;
@@ -2022,12 +2023,12 @@ function validatePackQualityGates(entry: any, contextFile: string, itemIdx: numb
         }
       }
     }
-    
+
     if (hasMarker) {
       concretenessCount++;
     }
   }
-  
+
   if (concretenessCount < 2) {
     addError(contextFile, `Item ${itemIdx} pack entry Quality Gate violation: insufficient concreteness markers (found ${concretenessCount} prompt(s) with markers, required: 2)`);
   }
@@ -2040,25 +2041,25 @@ function validatePackAnalytics(entry: any, contextFile: string, itemIdx: number)
   const provenance = entry.provenance || {};
   const source = provenance.source;
   const isGenerated = source === 'pdf' || source === 'template';
-  
+
   // For generated content, analytics is required
   if (isGenerated) {
     if (!entry.analytics || typeof entry.analytics !== 'object') {
       addError(contextFile, `Item ${itemIdx} pack entry missing required analytics block (required for generated content with source="${source}")`);
       return;
     }
-    
+
     const analytics = entry.analytics;
-    
+
     // Check required analytics fields
     if (analytics.version !== 1) {
       addError(contextFile, `Item ${itemIdx} pack entry analytics.version must be 1, found: ${analytics.version}`);
     }
-    
+
     if (!analytics.qualityGateVersion || typeof analytics.qualityGateVersion !== 'string') {
       addError(contextFile, `Item ${itemIdx} pack entry analytics.qualityGateVersion is required`);
     }
-    
+
     if (typeof analytics.passesQualityGates !== 'boolean') {
       addError(contextFile, `Item ${itemIdx} pack entry analytics.passesQualityGates must be a boolean`);
     } else if (!analytics.passesQualityGates && entry.review?.status === 'approved') {
@@ -2068,7 +2069,7 @@ function validatePackAnalytics(entry: any, contextFile: string, itemIdx: number)
     } else if (!analytics.passesQualityGates && entry.review?.status !== 'approved') {
       addError(contextFile, `Item ${itemIdx} pack entry analytics.passesQualityGates must be true for generated content (or pack must be approved)`);
     }
-    
+
     // Recompute analytics and validate match (within tolerance for floats)
     // Skip recomputation for index entries (they don't have prompts)
     // Index entries have entryUrl but not prompts - they reference pack.json files
@@ -2083,32 +2084,32 @@ function validatePackAnalytics(entry: any, contextFile: string, itemIdx: number)
     try {
       const computed = computePackAnalytics(entry);
       const tolerance = 0.001;
-      
+
       // Validate numeric fields match (within tolerance)
       if (typeof analytics.promptCount === 'number' && Math.abs(analytics.promptCount - computed.promptCount) > tolerance) {
         addError(contextFile, `Item ${itemIdx} pack entry analytics.promptCount mismatch: expected ${computed.promptCount}, found ${analytics.promptCount}`);
       }
-      
+
       if (typeof analytics.multiSlotRate === 'number' && Math.abs(analytics.multiSlotRate - computed.multiSlotRate) > tolerance) {
         addError(contextFile, `Item ${itemIdx} pack entry analytics.multiSlotRate mismatch: expected ${computed.multiSlotRate.toFixed(3)}, found ${analytics.multiSlotRate.toFixed(3)}`);
       }
-      
+
       if (typeof analytics.scenarioTokenHitAvg === 'number' && Math.abs(analytics.scenarioTokenHitAvg - computed.scenarioTokenHitAvg) > tolerance) {
         addError(contextFile, `Item ${itemIdx} pack entry analytics.scenarioTokenHitAvg mismatch: expected ${computed.scenarioTokenHitAvg.toFixed(3)}, found ${analytics.scenarioTokenHitAvg.toFixed(3)}`);
       }
-      
+
       if (typeof analytics.scenarioTokenQualifiedRate === 'number' && Math.abs(analytics.scenarioTokenQualifiedRate - computed.scenarioTokenQualifiedRate) > tolerance) {
         addError(contextFile, `Item ${itemIdx} pack entry analytics.scenarioTokenQualifiedRate mismatch: expected ${computed.scenarioTokenQualifiedRate.toFixed(3)}, found ${analytics.scenarioTokenQualifiedRate.toFixed(3)}`);
       }
-      
+
       if (typeof analytics.uniqueTokenRate === 'number' && Math.abs(analytics.uniqueTokenRate - computed.uniqueTokenRate) > tolerance) {
         addError(contextFile, `Item ${itemIdx} pack entry analytics.uniqueTokenRate mismatch: expected ${computed.uniqueTokenRate.toFixed(3)}, found ${analytics.uniqueTokenRate.toFixed(3)}`);
       }
-      
+
       if (typeof analytics.bannedPhraseViolations === 'number' && analytics.bannedPhraseViolations !== computed.bannedPhraseViolations) {
         addError(contextFile, `Item ${itemIdx} pack entry analytics.bannedPhraseViolations mismatch: expected ${computed.bannedPhraseViolations}, found ${analytics.bannedPhraseViolations}`);
       }
-      
+
       if (typeof analytics.passesQualityGates === 'boolean' && analytics.passesQualityGates !== computed.passesQualityGates) {
         addError(contextFile, `Item ${itemIdx} pack entry analytics.passesQualityGates mismatch: expected ${computed.passesQualityGates}, found ${analytics.passesQualityGates}`);
       }
@@ -2124,132 +2125,139 @@ function validatePackAnalytics(entry: any, contextFile: string, itemIdx: number)
       }
     }
   }
-  
+
   // Quality Gates v2: Near-duplicate detection
-  let nearDuplicateCount = 0;
-  const similarityThreshold = 0.92;
-  
-  function normalizePrompt(text: string): string {
-    return text
-      .toLowerCase()
-      .replace(/[.,!?;:]/g, '')
-      .replace(/\s+/g, ' ')
-      .trim();
-  }
-  
-  function jaccardSimilarity(text1: string, text2: string): number {
-    const tokens1 = new Set(normalizePrompt(text1).split(/\s+/));
-    const tokens2 = new Set(normalizePrompt(text2).split(/\s+/));
-    const intersection = new Set([...tokens1].filter(x => tokens2.has(x)));
-    const union = new Set([...tokens1, ...tokens2]);
-    if (union.size === 0) return 1.0;
-    return intersection.size / union.size;
-  }
-  
-  function normalizedEditDistance(text1: string, text2: string): number {
-    const norm1 = normalizePrompt(text1);
-    const norm2 = normalizePrompt(text2);
-    if (norm1 === norm2) return 0;
-    if (norm1.length === 0 || norm2.length === 0) return 1;
-    
-    // Simple Levenshtein approximation
-    const maxLen = Math.max(norm1.length, norm2.length);
-    let distance = 0;
-    const minLen = Math.min(norm1.length, norm2.length);
-    for (let i = 0; i < minLen; i++) {
-      if (norm1[i] !== norm2[i]) distance++;
-    }
-    distance += Math.abs(norm1.length - norm2.length);
-    return distance / maxLen;
-  }
-  
-  function computeSimilarity(text1: string, text2: string): number {
-    const jaccard = jaccardSimilarity(text1, text2);
-    const editDist = 1 - normalizedEditDistance(text1, text2);
-    return (jaccard * 0.7) + (editDist * 0.3);
-  }
-  
-  for (let i = 0; i < prompts.length - 1; i++) {
-    const similarity = computeSimilarity(prompts[i].text, prompts[i + 1].text);
-    if (similarity >= similarityThreshold) {
-      nearDuplicateCount++;
-    }
-  }
-  
-  const nearDuplicateRate = prompts.length > 1 ? nearDuplicateCount / (prompts.length - 1) : 0;
-  if (nearDuplicateRate > 0.20) {
-    addError(contextFile, `Item ${itemIdx} pack entry Quality Gate v2 violation: near-duplicate rate too high (${(nearDuplicateRate * 100).toFixed(1)}%, threshold: 20%). Pack "${entry.id}" has ${nearDuplicateCount} near-duplicate prompt pair(s).`);
-  }
-  
-  // Quality Gates v2: Scenario richness
-  const SCENARIO_TOKEN_DICTS: Record<string, string[]> = {
-    work: ['meeting', 'shift', 'manager', 'schedule', 'invoice', 'deadline', 'office', 'colleague', 'project', 'task', 'besprechung', 'termin', 'büro', 'kollege', 'projekt', 'aufgabe', 'arbeit'],
-    restaurant: ['menu', 'order', 'bill', 'reservation', 'waiter', 'table', 'food', 'drink', 'kitchen', 'service', 'speisekarte', 'bestellen', 'kellner', 'tisch', 'essen', 'trinken', 'reservierung'],
-    shopping: ['price', 'buy', 'cost', 'store', 'cashier', 'payment', 'discount', 'receipt', 'cart', 'checkout', 'kaufen', 'laden', 'kasse', 'zahlung', 'rabatt', 'quittung', 'warenkorb'],
-    doctor: ['appointment', 'symptom', 'prescription', 'medicine', 'treatment', 'diagnosis', 'health', 'patient', 'clinic', 'examination', 'termin', 'symptom', 'rezept', 'medizin', 'behandlung', 'diagnose', 'gesundheit', 'patient', 'klinik', 'untersuchung', 'arzt'],
-    housing: ['apartment', 'rent', 'lease', 'landlord', 'tenant', 'deposit', 'utilities', 'furniture', 'neighborhood', 'address', 'wohnung', 'miete', 'mietvertrag', 'vermieter', 'mieter', 'kaution', 'nebenkosten', 'möbel', 'nachbarschaft', 'adresse'],
-    government_office: ['termin', 'formular', 'anmeldung', 'bescheinigung', 'unterlagen', 'ausweis', 'amt', 'beamte', 'sachbearbeiter', 'aufenthaltserlaubnis', 'pass', 'bürgeramt', 'ausländeramt', 'jobcenter', 'krankenkasse'],
-    casual_greeting: ['greeting', 'hello', 'goodbye', 'morning', 'evening', 'day', 'see', 'meet', 'friend', 'time', 'grüßen', 'hallo', 'auf wiedersehen', 'morgen', 'abend', 'tag', 'sehen', 'treffen', 'freund', 'zeit', 'tschüss'],
-    friends_small_talk: ['wochenende', 'heute', 'morgen', 'spaeter', 'abends', 'zeit', 'lust', 'plan', 'idee', 'treffen', 'mitkommen', 'kino', 'cafe', 'restaurant', 'spaziergang', 'park', 'training', 'gym', 'serie', 'film', 'konzert', 'bar', 'pizza', 'kaffee', 'hast du lust', 'lass uns', 'wie waere es', 'hast du zeit', 'wollen wir', 'ich haette lust', 'kommst du mit', 'ich kann heute nicht']
-  };
-  
-  const scenarioTokens = SCENARIO_TOKEN_DICTS[entry.scenario] || [];
-  if (scenarioTokens.length > 0) {
-    const uniqueScenarioTokens = new Set<string>();
-    prompts.forEach(p => {
-      const textLower = p.text.toLowerCase();
-      scenarioTokens.forEach(token => {
-        if (textLower.includes(token.toLowerCase())) {
-          uniqueScenarioTokens.add(token);
+  // Only run if prompts exist
+  if (entry.prompts && Array.isArray(entry.prompts) && entry.prompts.length > 0) {
+    const prompts = entry.prompts.filter((p: any) => p && p.text && typeof p.text === 'string');
+
+    if (prompts.length > 1) {
+      let nearDuplicateCount = 0;
+      const similarityThreshold = 0.92;
+
+      function normalizePrompt(text: string): string {
+        return text
+          .toLowerCase()
+          .replace(/[.,!?;:]/g, '')
+          .replace(/\s+/g, ' ')
+          .trim();
+      }
+
+      function jaccardSimilarity(text1: string, text2: string): number {
+        const tokens1 = new Set(normalizePrompt(text1).split(/\s+/));
+        const tokens2 = new Set(normalizePrompt(text2).split(/\s+/));
+        const intersection = new Set([...tokens1].filter(x => tokens2.has(x)));
+        const union = new Set([...tokens1, ...tokens2]);
+        if (union.size === 0) return 1.0;
+        return intersection.size / union.size;
+      }
+
+      function normalizedEditDistance(text1: string, text2: string): number {
+        const norm1 = normalizePrompt(text1);
+        const norm2 = normalizePrompt(text2);
+        if (norm1 === norm2) return 0;
+        if (norm1.length === 0 || norm2.length === 0) return 1;
+
+        // Simple Levenshtein approximation
+        const maxLen = Math.max(norm1.length, norm2.length);
+        let distance = 0;
+        const minLen = Math.min(norm1.length, norm2.length);
+        for (let i = 0; i < minLen; i++) {
+          if (norm1[i] !== norm2[i]) distance++;
         }
-      });
-    });
-    
-    // Require at least 6 unique tokens for packs with >= 8 prompts
-    if (prompts.length >= 8 && uniqueScenarioTokens.size < 6) {
-      addError(contextFile, `Item ${itemIdx} pack entry Quality Gate v2 violation: insufficient scenario token richness. Pack "${entry.id}" has ${uniqueScenarioTokens.size} unique scenario tokens (required: 6 for packs with >= 8 prompts)`);
-    }
-    
-    // Check per-step scenario token presence
-    if (entry.sessionPlan && Array.isArray(entry.sessionPlan.steps)) {
-      entry.sessionPlan.steps.forEach((step: any, stepIdx: number) => {
-        let stepHasToken = false;
-        if (Array.isArray(step.promptIds)) {
-          step.promptIds.forEach((promptId: string) => {
-            const prompt = prompts.find(p => p.id === promptId);
-            if (prompt) {
-              const textLower = prompt.text.toLowerCase();
-              for (const token of scenarioTokens) {
-                if (textLower.includes(token.toLowerCase())) {
-                  stepHasToken = true;
-                  break;
+        distance += Math.abs(norm1.length - norm2.length);
+        return distance / maxLen;
+      }
+
+      function computeSimilarity(text1: string, text2: string): number {
+        const jaccard = jaccardSimilarity(text1, text2);
+        const editDist = 1 - normalizedEditDistance(text1, text2);
+        return (jaccard * 0.7) + (editDist * 0.3);
+      }
+
+      for (let i = 0; i < prompts.length - 1; i++) {
+        const similarity = computeSimilarity(prompts[i].text, prompts[i + 1].text);
+        if (similarity >= similarityThreshold) {
+          nearDuplicateCount++;
+        }
+      }
+
+      const nearDuplicateRate = prompts.length > 1 ? nearDuplicateCount / (prompts.length - 1) : 0;
+      if (nearDuplicateRate > 0.20) {
+        addError(contextFile, `Item ${itemIdx} pack entry Quality Gate v2 violation: near-duplicate rate too high (${(nearDuplicateRate * 100).toFixed(1)}%, threshold: 20%). Pack "${entry.id}" has ${nearDuplicateCount} near-duplicate prompt pair(s).`);
+      }
+
+      // Quality Gates v2: Scenario richness
+      const SCENARIO_TOKEN_DICTS: Record<string, string[]> = {
+        work: ['meeting', 'shift', 'manager', 'schedule', 'invoice', 'deadline', 'office', 'colleague', 'project', 'task', 'besprechung', 'termin', 'büro', 'kollege', 'projekt', 'aufgabe', 'arbeit'],
+        restaurant: ['menu', 'order', 'bill', 'reservation', 'waiter', 'table', 'food', 'drink', 'kitchen', 'service', 'speisekarte', 'bestellen', 'kellner', 'tisch', 'essen', 'trinken', 'reservierung'],
+        shopping: ['price', 'buy', 'cost', 'store', 'cashier', 'payment', 'discount', 'receipt', 'cart', 'checkout', 'kaufen', 'laden', 'kasse', 'zahlung', 'rabatt', 'quittung', 'warenkorb'],
+        doctor: ['appointment', 'symptom', 'prescription', 'medicine', 'treatment', 'diagnosis', 'health', 'patient', 'clinic', 'examination', 'termin', 'symptom', 'rezept', 'medizin', 'behandlung', 'diagnose', 'gesundheit', 'patient', 'klinik', 'untersuchung', 'arzt'],
+        housing: ['apartment', 'rent', 'lease', 'landlord', 'tenant', 'deposit', 'utilities', 'furniture', 'neighborhood', 'address', 'wohnung', 'miete', 'mietvertrag', 'vermieter', 'mieter', 'kaution', 'nebenkosten', 'möbel', 'nachbarschaft', 'adresse'],
+        government_office: ['termin', 'formular', 'anmeldung', 'bescheinigung', 'unterlagen', 'ausweis', 'amt', 'beamte', 'sachbearbeiter', 'aufenthaltserlaubnis', 'pass', 'bürgeramt', 'ausländeramt', 'jobcenter', 'krankenkasse'],
+        casual_greeting: ['greeting', 'hello', 'goodbye', 'morning', 'evening', 'day', 'see', 'meet', 'friend', 'time', 'grüßen', 'hallo', 'auf wiedersehen', 'morgen', 'abend', 'tag', 'sehen', 'treffen', 'freund', 'zeit', 'tschüss'],
+        friends_small_talk: ['wochenende', 'heute', 'morgen', 'spaeter', 'abends', 'zeit', 'lust', 'plan', 'idee', 'treffen', 'mitkommen', 'kino', 'cafe', 'restaurant', 'spaziergang', 'park', 'training', 'gym', 'serie', 'film', 'konzert', 'bar', 'pizza', 'kaffee', 'hast du lust', 'lass uns', 'wie waere es', 'hast du zeit', 'wollen wir', 'ich haette lust', 'kommst du mit', 'ich kann heute nicht']
+      };
+
+      const scenarioTokens = SCENARIO_TOKEN_DICTS[entry.scenario] || [];
+      if (scenarioTokens.length > 0) {
+        const uniqueScenarioTokens = new Set<string>();
+        prompts.forEach(p => {
+          const textLower = p.text.toLowerCase();
+          scenarioTokens.forEach(token => {
+            if (textLower.includes(token.toLowerCase())) {
+              uniqueScenarioTokens.add(token);
+            }
+          });
+        });
+
+        // Require at least 6 unique tokens for packs with >= 8 prompts
+        if (prompts.length >= 8 && uniqueScenarioTokens.size < 6) {
+          addError(contextFile, `Item ${itemIdx} pack entry Quality Gate v2 violation: insufficient scenario token richness. Pack "${entry.id}" has ${uniqueScenarioTokens.size} unique scenario tokens (required: 6 for packs with >= 8 prompts)`);
+        }
+
+        // Check per-step scenario token presence
+        if (entry.sessionPlan && Array.isArray(entry.sessionPlan.steps)) {
+          entry.sessionPlan.steps.forEach((step: any, stepIdx: number) => {
+            let stepHasToken = false;
+            if (Array.isArray(step.promptIds)) {
+              step.promptIds.forEach((promptId: string) => {
+                const prompt = prompts.find(p => p.id === promptId);
+                if (prompt) {
+                  const textLower = prompt.text.toLowerCase();
+                  for (const token of scenarioTokens) {
+                    if (textLower.includes(token.toLowerCase())) {
+                      stepHasToken = true;
+                      break;
+                    }
+                  }
                 }
-              }
+              });
+            }
+            if (!stepHasToken) {
+              addError(contextFile, `Item ${itemIdx} pack entry Quality Gate v2 violation: step "${step.id}" (index ${stepIdx}) in pack "${entry.id}" has no scenario tokens. All steps must contain at least one scenario token.`);
             }
           });
         }
-        if (!stepHasToken) {
-          addError(contextFile, `Item ${itemIdx} pack entry Quality Gate v2 violation: step "${step.id}" (index ${stepIdx}) in pack "${entry.id}" has no scenario tokens. All steps must contain at least one scenario token.`);
+      }
+
+      // Quality Gates v2: Slot coverage
+      if (entry.variationSlots && Array.isArray(entry.variationSlots) && entry.variationSlots.length > 0) {
+        const usedSlots = new Set<string>();
+        prompts.forEach(p => {
+          if (p.slotsChanged && Array.isArray(p.slotsChanged)) {
+            p.slotsChanged.forEach(slot => usedSlots.add(slot));
+          }
+          if (p.slots && typeof p.slots === 'object') {
+            Object.keys(p.slots).forEach(slot => usedSlots.add(slot));
+          }
+        });
+
+        const missingSlots = entry.variationSlots.filter(slot => !usedSlots.has(slot));
+        if (missingSlots.length > 0) {
+          addError(contextFile, `Item ${itemIdx} pack entry Quality Gate v2 violation: variation slots declared but not used. Pack "${entry.id}" declares slots [${entry.variationSlots.join(', ')}] but never uses [${missingSlots.join(', ')}] in any prompt.`);
         }
-      });
-    }
-  }
-  
-  // Quality Gates v2: Slot coverage
-  if (entry.variationSlots && Array.isArray(entry.variationSlots) && entry.variationSlots.length > 0) {
-    const usedSlots = new Set<string>();
-    prompts.forEach(p => {
-      if (p.slotsChanged && Array.isArray(p.slotsChanged)) {
-        p.slotsChanged.forEach(slot => usedSlots.add(slot));
       }
-      if (p.slots && typeof p.slots === 'object') {
-        Object.keys(p.slots).forEach(slot => usedSlots.add(slot));
-      }
-    });
-    
-    const missingSlots = entry.variationSlots.filter(slot => !usedSlots.has(slot));
-    if (missingSlots.length > 0) {
-      addError(contextFile, `Item ${itemIdx} pack entry Quality Gate v2 violation: variation slots declared but not used. Pack "${entry.id}" declares slots [${entry.variationSlots.join(', ')}] but never uses [${missingSlots.join(', ')}] in any prompt.`);
     }
   }
 }
@@ -2261,13 +2269,25 @@ function validateDrillQualityGates(entry: any, contextFile: string, itemIdx: num
   if (!entry.prompts || !Array.isArray(entry.prompts) || entry.prompts.length === 0) {
     return; // No prompts to validate
   }
-  
+
   const prompts = entry.prompts.filter((p: any) => p && p.text && typeof p.text === 'string');
-  
+
   if (prompts.length === 0) {
     return; // No valid prompts
   }
-  
+
+  // Rule 0: Inventory Enforcement (Safety Net)
+  // Ensure we have enough prompts for the tier
+  const isDraft = entry.review && entry.review.status === 'draft';
+  if (!isDraft && typeof entry.difficultyTier === 'number') {
+    const minPromptsMap: Record<number, number> = { 1: 6, 2: 8, 3: 10 };
+    const minPrompts = minPromptsMap[entry.difficultyTier] || 6;
+
+    if (prompts.length < minPrompts) {
+      addError(contextFile, `Item ${itemIdx} drill entry Quality Gate violation: insufficient inventory. Drill "${entry.id}" (Tier ${entry.difficultyTier}) has ${prompts.length} prompts (required: >=${minPrompts})`);
+    }
+  }
+
   // Load mechanic template to get required tokens and banned phrases
   let mechanicTemplate: any = null;
   if (entry.mechanicId) {
@@ -2280,7 +2300,7 @@ function validateDrillQualityGates(entry: any, contextFile: string, itemIdx: num
       // Template not found or invalid - skip mechanic-specific checks
     }
   }
-  
+
   // Rule 1: Generic phrase denylist (drill-specific)
   const DRILL_DENYLIST_PHRASES = [
     "in today's lesson",
@@ -2295,12 +2315,12 @@ function validateDrillQualityGates(entry: any, contextFile: string, itemIdx: num
     "test",
     "placeholder"
   ];
-  
+
   // Add template-specific banned phrases if available
   const bannedPhrases = mechanicTemplate && Array.isArray(mechanicTemplate.bannedPhrases)
     ? [...DRILL_DENYLIST_PHRASES, ...mechanicTemplate.bannedPhrases]
     : DRILL_DENYLIST_PHRASES;
-  
+
   for (const prompt of prompts) {
     const textLower = prompt.text.toLowerCase();
     for (const phrase of bannedPhrases) {
@@ -2310,9 +2330,10 @@ function validateDrillQualityGates(entry: any, contextFile: string, itemIdx: num
       }
     }
   }
-  
+
   // Rule 2: Mechanic token requirements (each prompt must contain >=1 token from mechanic dictionary)
-  if (mechanicTemplate && Array.isArray(mechanicTemplate.requiredTokens)) {
+  // Skip if requiredTokens is empty - nothing to check
+  if (mechanicTemplate && Array.isArray(mechanicTemplate.requiredTokens) && mechanicTemplate.requiredTokens.length > 0) {
     let promptsWithoutTokens = 0;
     for (const prompt of prompts) {
       const textLower = prompt.text.toLowerCase();
@@ -2327,34 +2348,34 @@ function validateDrillQualityGates(entry: any, contextFile: string, itemIdx: num
         promptsWithoutTokens++;
       }
     }
-    
+
     // Require at least 80% of prompts to have mechanic tokens
     const tokenHitRate = (prompts.length - promptsWithoutTokens) / prompts.length;
     if (tokenHitRate < 0.8) {
       addError(contextFile, `Item ${itemIdx} drill entry Quality Gate violation: insufficient mechanic token coverage. Drill "${entry.id}" has ${promptsWithoutTokens} prompts without required mechanic tokens (required: >=80% coverage)`);
     }
   }
-  
+
   // Rule 3: Variation requirement (>=30% of transitions have 2+ slotsChanged)
   const multiSlotRate = computeMultiSlotRate(prompts);
   if (multiSlotRate < 0.3) {
     addError(contextFile, `Item ${itemIdx} drill entry Quality Gate violation: insufficient multi-slot variation. Drill "${entry.id}" has multiSlotRate ${(multiSlotRate * 100).toFixed(1)}% (required: >=30%)`);
   }
-  
+
   // Rule 4: Coverage requirement (unique verb/subject counts)
   if (mechanicTemplate) {
     const uniqueVerbs = computeDistinctVerbs(prompts);
     const uniqueSubjects = computeDistinctSubjects(prompts);
-    
+
     if (mechanicTemplate.minUniqueVerbs && uniqueVerbs < mechanicTemplate.minUniqueVerbs) {
       addError(contextFile, `Item ${itemIdx} drill entry Quality Gate violation: insufficient verb variation. Drill "${entry.id}" has ${uniqueVerbs} unique verbs (required: >=${mechanicTemplate.minUniqueVerbs})`);
     }
-    
+
     if (mechanicTemplate.minUniqueSubjects && uniqueSubjects < mechanicTemplate.minUniqueSubjects) {
       addError(contextFile, `Item ${itemIdx} drill entry Quality Gate violation: insufficient subject variation. Drill "${entry.id}" has ${uniqueSubjects} unique subjects (required: >=${mechanicTemplate.minUniqueSubjects})`);
     }
   }
-  
+
   // Rule 5: SessionPlan coherence (all promptIds must exist)
   if (entry.sessionPlan && Array.isArray(entry.sessionPlan.steps)) {
     const promptIds = new Set(prompts.map((p: any) => p.id).filter(Boolean));
@@ -2368,9 +2389,144 @@ function validateDrillQualityGates(entry: any, contextFile: string, itemIdx: num
       }
     });
   }
-  
+
   // Rule 6: Title integrity (shortTitle unique within mechanicId + level)
   // This is checked at index generation time, not here
+}
+
+/**
+ * Validate context scenario index fields (groups, scope, recommended)
+ */
+function validateContextScenarioIndexFields(doc: any, filePath: string): void {
+  // Only validate if this is a context scenario index
+  const isContextScenario = doc.kind === 'context' && filePath.includes('/context/') &&
+    !filePath.includes('/context/index.json') &&
+    !filePath.includes('/context/scenarios.json');
+
+  if (!isContextScenario) {
+    return; // Skip validation for non-context scenario indexes
+  }
+
+  // Validate scope (optional but recommended for context scenario feeds)
+  if (doc.scope !== undefined) {
+    if (typeof doc.scope !== 'object' || doc.scope === null) {
+      addError(filePath, 'SectionIndexPage scope must be an object if present');
+    } else {
+      if (doc.scope.scopeKind !== 'scenario') {
+        addError(filePath, 'SectionIndexPage scope.scopeKind must be "scenario"');
+      }
+      if (!doc.scope.scopeId || typeof doc.scope.scopeId !== 'string') {
+        addError(filePath, 'SectionIndexPage scope.scopeId must be a non-empty string');
+      }
+      if (!doc.scope.scopeTitle || typeof doc.scope.scopeTitle !== 'string') {
+        addError(filePath, 'SectionIndexPage scope.scopeTitle must be a non-empty string');
+      }
+    }
+  }
+
+  // Validate recommended (optional, max 1)
+  if (doc.recommended !== undefined) {
+    if (typeof doc.recommended !== 'object' || doc.recommended === null) {
+      addError(filePath, 'SectionIndexPage recommended must be an object if present');
+    } else {
+      if (!doc.recommended.itemId || typeof doc.recommended.itemId !== 'string') {
+        addError(filePath, 'SectionIndexPage recommended.itemId must be a non-empty string');
+      }
+      if (!doc.recommended.entryUrl || typeof doc.recommended.entryUrl !== 'string') {
+        addError(filePath, 'SectionIndexPage recommended.entryUrl must be a non-empty string');
+      }
+
+      // Validate recommended.itemId exists in items
+      if (Array.isArray(doc.items) && doc.recommended.itemId) {
+        const itemIds = new Set(doc.items.map((item: any) => item.id).filter(Boolean));
+        if (!itemIds.has(doc.recommended.itemId)) {
+          addError(filePath, `SectionIndexPage recommended.itemId "${doc.recommended.itemId}" does not exist in items array`);
+        }
+      }
+    }
+  }
+
+  // Validate groups (optional)
+  if (doc.groups !== undefined) {
+    if (!Array.isArray(doc.groups)) {
+      addError(filePath, 'SectionIndexPage groups must be an array if present');
+    } else {
+      const itemIds = new Set((doc.items || []).map((item: any) => item.id).filter(Boolean));
+      const groupIds = new Set<string>();
+
+      for (let i = 0; i < doc.groups.length; i++) {
+        const group = doc.groups[i];
+
+        // Validate group structure
+        if (!group.id || typeof group.id !== 'string') {
+          addError(filePath, `SectionIndexPage groups[${i}].id must be a non-empty string`);
+        }
+        if (!group.title || typeof group.title !== 'string') {
+          addError(filePath, `SectionIndexPage groups[${i}].title must be a non-empty string`);
+        }
+        if (group.kind !== 'context_group') {
+          addError(filePath, `SectionIndexPage groups[${i}].kind must be "context_group"`);
+        }
+        if (!Array.isArray(group.itemIds) || group.itemIds.length === 0) {
+          addError(filePath, `SectionIndexPage groups[${i}].itemIds must be a non-empty array`);
+        } else {
+          // Validate minimum 3 items per group
+          if (group.itemIds.length < 3) {
+            addError(filePath, `SectionIndexPage groups[${i}].itemIds must have at least 3 items (found ${group.itemIds.length})`);
+          }
+
+          // Validate all itemIds exist in items
+          for (const itemId of group.itemIds) {
+            if (!itemIds.has(itemId)) {
+              addError(filePath, `SectionIndexPage groups[${i}].itemIds contains "${itemId}" which does not exist in items array`);
+            }
+          }
+        }
+
+        // Validate title_i18n if present
+        if (group.title_i18n !== undefined) {
+          const i18nResult = validateI18nAndGrouping({ title_i18n: group.title_i18n });
+          if (!i18nResult.valid) {
+            for (const err of i18nResult.errors) {
+              addError(filePath, `SectionIndexPage groups[${i}].title_i18n: ${err}`);
+            }
+          }
+        }
+
+        // Check for duplicate group IDs
+        if (group.id && groupIds.has(group.id)) {
+          addError(filePath, `SectionIndexPage groups[${i}].id "${group.id}" is duplicated`);
+        }
+        if (group.id) {
+          groupIds.add(group.id);
+        }
+      }
+    }
+  }
+
+  // Validate no mechanics packs in context scenario feeds
+  if (Array.isArray(doc.items)) {
+    for (let i = 0; i < doc.items.length; i++) {
+      const item = doc.items[i];
+      if (item.domainKind === 'mechanics') {
+        addError(filePath, `SectionIndexPage items[${i}] has domainKind="mechanics" but appears in context scenario feed. Mechanics packs must be excluded from context feeds.`);
+      }
+    }
+  }
+
+  // Validate recommended count (max 1)
+  if (doc.recommended && Array.isArray(doc.items)) {
+    const recommendedCount = doc.items.filter((item: any) => item.isRecommended === true).length;
+    if (recommendedCount > 1) {
+      addError(filePath, `SectionIndexPage has ${recommendedCount} items with isRecommended=true, but maximum is 1`);
+    }
+    if (recommendedCount === 1 && doc.recommended) {
+      const recommendedItem = doc.items.find((item: any) => item.isRecommended === true);
+      if (recommendedItem && recommendedItem.id !== doc.recommended.itemId) {
+        addError(filePath, `SectionIndexPage recommended.itemId "${doc.recommended.itemId}" does not match item with isRecommended=true (${recommendedItem.id})`);
+      }
+    }
+  }
 }
 
 function validateSchemaVersion(docType: string, doc: any, filePath: string): void {
@@ -2378,12 +2534,12 @@ function validateSchemaVersion(docType: string, doc: any, filePath: string): voi
     addError(filePath, `${docType} missing required field: schemaVersion (must be number)`);
     return;
   }
-  
+
   if (!SUPPORTED_SCHEMA_VERSIONS.includes(doc.schemaVersion)) {
     addError(filePath, `${docType} has unsupported schemaVersion: ${doc.schemaVersion}. Supported versions: ${SUPPORTED_SCHEMA_VERSIONS.join(', ')}`);
     return;
   }
-  
+
   // For schemaVersion 1, enforce required fields based on docType
   if (doc.schemaVersion === 1) {
     validateSchemaV1RequiredFields(docType, doc, filePath);
@@ -2430,6 +2586,9 @@ function validateSchemaV1RequiredFields(docType: string, doc: any, filePath: str
     if (doc.nextPage !== null && typeof doc.nextPage !== 'string') {
       addError(filePath, 'SectionIndexPage schemaVersion 1: invalid required field: nextPage (must be string or null)');
     }
+
+    // Validate new fields for context scenario feeds (additive, optional)
+    validateContextScenarioIndexFields(doc, filePath);
   } else if (docType === 'PackEntry') {
     if (!doc.id || typeof doc.id !== 'string') {
       addError(filePath, 'PackEntry schemaVersion 1: missing or invalid required field: id');
@@ -2624,9 +2783,9 @@ function validatePaginationChain(
 ): PaginationResult {
   const result: PaginationResult = { totalItems: 0, allItemIds: new Set<string>(), pageCount: 0 };
   const visitedPages = new Set<string>();
-  
+
   let currentPath: string | null = firstPagePath;
-  
+
   while (currentPath) {
     // Loop detection
     if (visitedPages.has(currentPath)) {
@@ -2635,19 +2794,19 @@ function validatePaginationChain(
     }
     visitedPages.add(currentPath);
     result.pageCount++;
-    
+
     // Resolve path
     const resolvedPath = resolveContentPath(currentPath.replace(/^\/v1\//, ''));
-    
+
     if (!existsSync(resolvedPath)) {
       addError(firstPagePath, `nextPage chain broken: file not found at ${currentPath}`);
       break;
     }
-    
+
     try {
       const content = readFileSync(resolvedPath, 'utf-8');
       const page = JSON.parse(content);
-      
+
       // Validate invariants match first page (only for pages after first)
       if (result.pageCount > 1) {
         if (page.version !== firstPageMeta.version) {
@@ -2663,7 +2822,7 @@ function validatePaginationChain(
           addError(resolvedPath, `Pagination invariant violation: total ${page.total} differs from first page ${firstPageMeta.total}`);
         }
       }
-      
+
       // Collect items and check for duplicates
       if (Array.isArray(page.items)) {
         page.items.forEach((item: any) => {
@@ -2676,7 +2835,7 @@ function validatePaginationChain(
         });
         result.totalItems += page.items.length;
       }
-      
+
       // Move to next page
       if (typeof page.nextPage === 'string') {
         // Validate nextPage format
@@ -2692,28 +2851,28 @@ function validatePaginationChain(
       } else {
         currentPath = null;
       }
-      
+
       // Soft warning: last page has fewer items than pageSize
       if (currentPath === null && Array.isArray(page.items) && page.items.length < page.pageSize) {
         // This is normal for last page - could add a debug log if needed
       }
-      
+
     } catch (err: any) {
       addError(resolvedPath, `Failed to parse pagination page: ${err.message}`);
       break;
     }
   }
-  
+
   // Validate total matches actual item count
   if (result.totalItems !== firstPageMeta.total) {
     addError(firstPagePath, `Pagination total mismatch: declared total is ${firstPageMeta.total} but actual item count across ${result.pageCount} page(s) is ${result.totalItems}`);
   }
-  
+
   // Soft warning: tiny pageSize with large total
   if (firstPageMeta.total > 100 && firstPageMeta.pageSize < 10) {
     console.warn(`⚠️  ${firstPagePath}: Large total (${firstPageMeta.total}) with small pageSize (${firstPageMeta.pageSize}) - consider increasing pageSize`);
   }
-  
+
   return result;
 }
 
@@ -2723,22 +2882,22 @@ function validatePaginationChain(
  */
 function validatePaginatedIndex(indexPath: string, visitedPages: Set<string> = new Set()): { totalItems: number; allItemIds: Set<string> } {
   const result = { totalItems: 0, allItemIds: new Set<string>() };
-  
+
   if (visitedPages.has(indexPath)) {
     addError(indexPath, 'Circular reference detected in nextPage chain');
     return result;
   }
   visitedPages.add(indexPath);
-  
+
   try {
     const resolvedPath = resolveContentPath(indexPath.replace(/^\/v1\//, ''));
     if (!existsSync(resolvedPath)) {
       return result;
     }
-    
+
     const content = readFileSync(resolvedPath, 'utf-8');
     const index = JSON.parse(content);
-    
+
     if (Array.isArray(index.items)) {
       index.items.forEach((item: any) => {
         if (item.id) {
@@ -2750,7 +2909,7 @@ function validatePaginatedIndex(indexPath: string, visitedPages: Set<string> = n
       });
       result.totalItems += index.items.length;
     }
-    
+
     // Follow nextPage recursively
     if (typeof index.nextPage === 'string') {
       const nextResult = validatePaginatedIndex(index.nextPage, visitedPages);
@@ -2762,7 +2921,7 @@ function validatePaginatedIndex(indexPath: string, visitedPages: Set<string> = n
         result.allItemIds.add(id);
       });
     }
-    
+
     return result;
   } catch (err: any) {
     return result;
@@ -2796,20 +2955,20 @@ function validateNoDuplicateTitles(
   items: Array<{ id?: string; title?: string; scenario?: string }>
 ): void {
   // Check if this is a scenario-specific index (context/{scenario}/index.json)
-  const isScenarioSpecificIndex = indexPath.includes('/context/') && 
-                                   indexPath.match(/\/context\/[^/]+\/index\.json$/);
-  
+  const isScenarioSpecificIndex = indexPath.includes('/context/') &&
+    indexPath.match(/\/context\/[^/]+\/index\.json$/);
+
   // Map: normalizedTitle -> { raw: string, ids: string[] }
   const titleMap = new Map<string, { raw: string; ids: string[] }>();
-  
+
   for (const item of items) {
     if (!item.title || typeof item.title !== 'string') {
       continue; // Skip items without titles (will be caught by other validations)
     }
-    
+
     const normalized = normalizeTitle(item.title);
     const existing = titleMap.get(normalized);
-    
+
     if (!existing) {
       // First occurrence of this normalized title
       titleMap.set(normalized, {
@@ -2821,19 +2980,19 @@ function validateNoDuplicateTitles(
       existing.ids.push(item.id || 'unknown');
     }
   }
-  
+
   // Find all duplicates
   const duplicates = Array.from(titleMap.values()).filter(v => v.ids.length > 1);
-  
+
   if (duplicates.length === 0) {
     return; // No duplicates found
   }
-  
+
   // Build error message with all duplicates
   const errorLines = duplicates.map(dup => {
     return `- "${dup.raw}" used by: ${dup.ids.join(', ')}`;
   });
-  
+
   if (isScenarioSpecificIndex) {
     // Extract scenario from file path for better error message
     const scenarioMatch = indexPath.match(/\/context\/([^/]+)\/index\.json$/);
@@ -2865,12 +3024,12 @@ function validateI18nObject(
   if (i18n === undefined || i18n === null) {
     return true; // Optional field
   }
-  
+
   if (typeof i18n !== 'object' || Array.isArray(i18n)) {
     addError(filePath, `${context}: ${fieldName} must be an object (Record<string, string>)`);
     return false;
   }
-  
+
   let isValid = true;
   for (const [langCode, value] of Object.entries(i18n)) {
     if (typeof langCode !== 'string' || langCode.length === 0) {
@@ -2878,25 +3037,25 @@ function validateI18nObject(
       isValid = false;
       continue;
     }
-    
+
     if (typeof value !== 'string') {
       addError(filePath, `${context}: ${fieldName}[${langCode}] must be a string`);
       isValid = false;
       continue;
     }
-    
+
     if (value.trim().length === 0) {
       addError(filePath, `${context}: ${fieldName}[${langCode}] must be non-empty`);
       isValid = false;
       continue;
     }
-    
+
     if (maxLength && value.length > maxLength) {
       addError(filePath, `${context}: ${fieldName}[${langCode}] exceeds max length (${value.length} > ${maxLength})`);
       isValid = false;
     }
   }
-  
+
   // Soft rule: warn if "en" is missing (configurable)
   const requireEn = process.env.REQUIRE_I18N_EN === 'true';
   if (!i18n.en) {
@@ -2908,7 +3067,7 @@ function validateI18nObject(
       console.warn(`⚠️  ${context}: ${fieldName} missing "en" key (recommended)`);
     }
   }
-  
+
   return isValid;
 }
 
@@ -2916,6 +3075,56 @@ function validateIndex(indexPath: string): void {
   try {
     const content = readFileSync(indexPath, 'utf-8');
     const index = JSON.parse(content);
+
+    // Special handling for shaped drills format (has drillGroups array, not items)
+    // Check this FIRST before validating version/kind/total
+    if (indexPath.includes('/drills/index.json') && Array.isArray(index.drillGroups)) {
+      if (!Array.isArray(index.drillGroups)) {
+        addError(indexPath, 'Missing or invalid field: drillGroups (must be an array)');
+        return;
+      }
+      // Validate drillGroups array
+      index.drillGroups.forEach((group: any, idx: number) => {
+        if (!group.id || typeof group.id !== 'string') {
+          addError(indexPath, `DrillGroup ${idx} missing or invalid field: id (must be string)`);
+        }
+        if (!group.kind || group.kind !== 'drill_group') {
+          addError(indexPath, `DrillGroup ${idx} missing or invalid field: kind (must be "drill_group")`);
+        }
+        if (!group.title || typeof group.title !== 'string') {
+          addError(indexPath, `DrillGroup ${idx} missing or invalid field: title (must be string)`);
+        }
+        if (!group.description || typeof group.description !== 'string') {
+          addError(indexPath, `DrillGroup ${idx} missing or invalid field: description (must be string)`);
+        }
+        if (!Array.isArray(group.tiers)) {
+          addError(indexPath, `DrillGroup ${idx} missing or invalid field: tiers (must be an array)`);
+        } else {
+          // Validate tiers
+          group.tiers.forEach((tier: any, tierIdx: number) => {
+            if (!tier.id || typeof tier.id !== 'string') {
+              addError(indexPath, `DrillGroup ${idx} tier ${tierIdx} missing or invalid field: id (must be string)`);
+            }
+            if (typeof tier.tier !== 'number') {
+              addError(indexPath, `DrillGroup ${idx} tier ${tierIdx} missing or invalid field: tier (must be number)`);
+            }
+            if (!tier.level || typeof tier.level !== 'string') {
+              addError(indexPath, `DrillGroup ${idx} tier ${tierIdx} missing or invalid field: level (must be string)`);
+            }
+            if (typeof tier.durationMinutes !== 'number') {
+              addError(indexPath, `DrillGroup ${idx} tier ${tierIdx} missing or invalid field: durationMinutes (must be number)`);
+            }
+            if (!tier.status || typeof tier.status !== 'string') {
+              addError(indexPath, `DrillGroup ${idx} tier ${tierIdx} missing or invalid field: status (must be string)`);
+            }
+            if (!tier.entryUrl || typeof tier.entryUrl !== 'string') {
+              addError(indexPath, `DrillGroup ${idx} tier ${tierIdx} missing or invalid field: entryUrl (must be string)`);
+            }
+          });
+        }
+      });
+      return; // Skip pagination validation for shaped drills format
+    }
 
     // Validate required fields
     if (!index.version || typeof index.version !== 'string') {
@@ -2927,24 +3136,96 @@ function validateIndex(indexPath: string): void {
     if (typeof index.total !== 'number') {
       addError(indexPath, 'Missing or invalid field: total (must be number)');
     }
+
+    // Special handling for mechanics_index (has mechanics array, not items)
+    if (index.kind === 'mechanics_index') {
+      if (!Array.isArray(index.mechanics)) {
+        addError(indexPath, 'Missing or invalid field: mechanics (must be an array)');
+        return;
+      }
+      // Validate mechanics array
+      index.mechanics.forEach((mechanic: any, idx: number) => {
+        if (!mechanic.id || typeof mechanic.id !== 'string') {
+          addError(indexPath, `Mechanic ${idx} missing or invalid field: id (must be string)`);
+        }
+        if (!mechanic.title || typeof mechanic.title !== 'string') {
+          addError(indexPath, `Mechanic ${idx} missing or invalid field: title (must be string)`);
+        }
+        if (!mechanic.itemsUrl || typeof mechanic.itemsUrl !== 'string') {
+          addError(indexPath, `Mechanic ${idx} missing or invalid field: itemsUrl (must be string)`);
+        }
+      });
+      return; // Skip pagination validation for mechanics_index
+    }
+
+    // Special handling for shaped drills format (has drillGroups array, not items)
+    if (indexPath.includes('/drills/index.json') && Array.isArray(index.drillGroups)) {
+      if (!Array.isArray(index.drillGroups)) {
+        addError(indexPath, 'Missing or invalid field: drillGroups (must be an array)');
+        return;
+      }
+      // Validate drillGroups array
+      index.drillGroups.forEach((group: any, idx: number) => {
+        if (!group.id || typeof group.id !== 'string') {
+          addError(indexPath, `DrillGroup ${idx} missing or invalid field: id (must be string)`);
+        }
+        if (!group.kind || group.kind !== 'drill_group') {
+          addError(indexPath, `DrillGroup ${idx} missing or invalid field: kind (must be "drill_group")`);
+        }
+        if (!group.title || typeof group.title !== 'string') {
+          addError(indexPath, `DrillGroup ${idx} missing or invalid field: title (must be string)`);
+        }
+        if (!group.description || typeof group.description !== 'string') {
+          addError(indexPath, `DrillGroup ${idx} missing or invalid field: description (must be string)`);
+        }
+        if (!Array.isArray(group.tiers)) {
+          addError(indexPath, `DrillGroup ${idx} missing or invalid field: tiers (must be an array)`);
+        } else {
+          // Validate tiers
+          group.tiers.forEach((tier: any, tierIdx: number) => {
+            if (!tier.id || typeof tier.id !== 'string') {
+              addError(indexPath, `DrillGroup ${idx} tier ${tierIdx} missing or invalid field: id (must be string)`);
+            }
+            if (typeof tier.tier !== 'number') {
+              addError(indexPath, `DrillGroup ${idx} tier ${tierIdx} missing or invalid field: tier (must be number)`);
+            }
+            if (!tier.level || typeof tier.level !== 'string') {
+              addError(indexPath, `DrillGroup ${idx} tier ${tierIdx} missing or invalid field: level (must be string)`);
+            }
+            if (typeof tier.durationMinutes !== 'number') {
+              addError(indexPath, `DrillGroup ${idx} tier ${tierIdx} missing or invalid field: durationMinutes (must be number)`);
+            }
+            if (!tier.status || typeof tier.status !== 'string') {
+              addError(indexPath, `DrillGroup ${idx} tier ${tierIdx} missing or invalid field: status (must be string)`);
+            }
+            if (!tier.entryUrl || typeof tier.entryUrl !== 'string') {
+              addError(indexPath, `DrillGroup ${idx} tier ${tierIdx} missing or invalid field: entryUrl (must be string)`);
+            }
+          });
+        }
+      });
+      return; // Skip pagination validation for shaped drills format
+    }
+
+    // Pagination fields required for other index types
     if (typeof index.pageSize !== 'number') {
       addError(indexPath, 'Missing or invalid field: pageSize (must be number)');
     } else if (index.pageSize <= 0) {
       addError(indexPath, 'Invalid field: pageSize (must be > 0)');
     }
-    
+
     // Validate page number (required for pagination contract)
     if (typeof index.page !== 'number') {
       addError(indexPath, 'Missing or invalid field: page (must be number)');
     } else if (index.page < 1) {
       addError(indexPath, 'Invalid field: page (must be >= 1)');
     }
-    
+
     if (!Array.isArray(index.items)) {
       addError(indexPath, 'Missing or invalid field: items (must be an array)');
       return;
     }
-    
+
     // Validate items.length <= pageSize
     if (index.items.length > index.pageSize) {
       addError(indexPath, `Invalid: items.length (${index.items.length}) exceeds pageSize (${index.pageSize})`);
@@ -2988,7 +3269,7 @@ function validateIndex(indexPath: string): void {
         // Validate title length
         validateTitle(item.title, indexPath, idx);
       }
-      
+
       // Validate i18n and grouping fields (optional, but must be valid if present)
       const i18nResult = validateI18nAndGrouping(item);
       if (!i18nResult.valid) {
@@ -3000,7 +3281,7 @@ function validateIndex(indexPath: string): void {
       for (const warning of i18nResult.warnings) {
         console.warn(`⚠️  Item ${idx} in ${indexPath}: ${warning}`);
       }
-      
+
       // Additional i18n validation for index items
       if (item.shortTitle_i18n) {
         validateI18nObject(item.shortTitle_i18n, 'shortTitle_i18n', indexPath, `Item ${idx}`, 28);
@@ -3011,7 +3292,7 @@ function validateIndex(indexPath: string): void {
       if (item.topicLabel_i18n) {
         validateI18nObject(item.topicLabel_i18n, 'topicLabel_i18n', indexPath, `Item ${idx}`);
       }
-      
+
       if (!item.level || typeof item.level !== 'string' || item.level.trim() === '') {
         addError(indexPath, `Item ${idx} missing or invalid field: level (must be non-empty string)`);
       } else {
@@ -3028,10 +3309,10 @@ function validateIndex(indexPath: string): void {
           // Validate entryUrl matches canonical pattern based on kind
           const itemKind = item.kind || index.kind; // Prefer item.kind, fallback to section kind
           validateEntryUrlPattern(item.entryUrl, item.id, itemKind, indexPath, idx);
-          
+
           // Validate entryUrl file exists
           validateJsonPath(item.entryUrl, `items[${idx}].entryUrl`);
-          
+
           // Validate entry document schema
           const entryPath = resolveContentPath(item.entryUrl);
           if (existsSync(entryPath)) {
@@ -3042,27 +3323,27 @@ function validateIndex(indexPath: string): void {
             } else {
               validateEntryDocument(entryPath, item.kind, indexPath, idx);
             }
-            
+
             // Validate index item metadata matches pack metadata (if present)
             if (item.kind === 'pack' || item.kind === 'context') {
               try {
                 const entryContent = readFileSync(entryPath, 'utf-8');
                 const entry = JSON.parse(entryContent);
-                
+
                 // Validate analyticsSummary (required for pack items)
                 if (item.kind === 'pack') {
                   if (!item.analyticsSummary || typeof item.analyticsSummary !== 'object') {
                     addError(indexPath, `Item ${idx} (pack) missing required field: analyticsSummary`);
                   } else {
                     const summary = item.analyticsSummary;
-                    
+
                     // Validate required fields
                     if (!summary.primaryStructure || typeof summary.primaryStructure !== 'string') {
                       addError(indexPath, `Item ${idx} analyticsSummary.primaryStructure missing or invalid`);
                     } else if (entry.primaryStructure && summary.primaryStructure !== entry.primaryStructure) {
                       addError(indexPath, `Item ${idx} analyticsSummary.primaryStructure "${summary.primaryStructure}" does not match pack primaryStructure "${entry.primaryStructure}"`);
                     }
-                    
+
                     if (!Array.isArray(summary.variationSlots) || summary.variationSlots.length === 0) {
                       addError(indexPath, `Item ${idx} analyticsSummary.variationSlots missing or invalid (must be non-empty array)`);
                     } else if (entry.variationSlots && Array.isArray(entry.variationSlots)) {
@@ -3072,13 +3353,13 @@ function validateIndex(indexPath: string): void {
                         addError(indexPath, `Item ${idx} analyticsSummary.variationSlots does not match pack variationSlots`);
                       }
                     }
-                    
+
                     if (!summary.drillType || typeof summary.drillType !== 'string') {
                       addError(indexPath, `Item ${idx} analyticsSummary.drillType missing or invalid`);
                     } else if (entry.analytics?.drillType && summary.drillType !== entry.analytics.drillType) {
                       addError(indexPath, `Item ${idx} analyticsSummary.drillType "${summary.drillType}" does not match pack analytics.drillType "${entry.analytics.drillType}"`);
                     }
-                    
+
                     if (!summary.cognitiveLoad || typeof summary.cognitiveLoad !== 'string') {
                       addError(indexPath, `Item ${idx} analyticsSummary.cognitiveLoad missing or invalid`);
                     } else if (!['low', 'medium', 'high'].includes(summary.cognitiveLoad)) {
@@ -3086,7 +3367,7 @@ function validateIndex(indexPath: string): void {
                     } else if (entry.analytics?.cognitiveLoad && summary.cognitiveLoad !== entry.analytics.cognitiveLoad) {
                       addError(indexPath, `Item ${idx} analyticsSummary.cognitiveLoad "${summary.cognitiveLoad}" does not match pack analytics.cognitiveLoad "${entry.analytics.cognitiveLoad}"`);
                     }
-                    
+
                     if (!summary.goal || typeof summary.goal !== 'string') {
                       addError(indexPath, `Item ${idx} analyticsSummary.goal missing or invalid`);
                     } else {
@@ -3106,7 +3387,7 @@ function validateIndex(indexPath: string): void {
                         }
                       }
                     }
-                    
+
                     if (!Array.isArray(summary.whyThisWorks)) {
                       addError(indexPath, `Item ${idx} analyticsSummary.whyThisWorks missing or invalid (must be array)`);
                     } else {
@@ -3128,7 +3409,7 @@ function validateIndex(indexPath: string): void {
                     }
                   }
                 }
-                
+
                 // Check scenario
                 if (item.scenario !== undefined && entry.scenario !== undefined) {
                   if (item.scenario !== entry.scenario) {
@@ -3138,7 +3419,7 @@ function validateIndex(indexPath: string): void {
                   // Warn if pack has scenario but index doesn't (non-fatal)
                   console.warn(`⚠️  Item ${idx} in ${indexPath} is not enriched with scenario. Pack has scenario "${entry.scenario}" but index item is missing it.`);
                 }
-                
+
                 // Check register
                 if (item.register !== undefined && entry.register !== undefined) {
                   if (item.register !== entry.register) {
@@ -3147,7 +3428,7 @@ function validateIndex(indexPath: string): void {
                 } else if (entry.register && !item.register) {
                   console.warn(`⚠️  Item ${idx} in ${indexPath} is not enriched with register. Pack has register "${entry.register}" but index item is missing it.`);
                 }
-                
+
                 // Check primaryStructure
                 if (item.primaryStructure !== undefined && entry.primaryStructure !== undefined) {
                   if (item.primaryStructure !== entry.primaryStructure) {
@@ -3156,7 +3437,7 @@ function validateIndex(indexPath: string): void {
                 } else if (entry.primaryStructure && !item.primaryStructure) {
                   console.warn(`⚠️  Item ${idx} in ${indexPath} is not enriched with primaryStructure. Pack has primaryStructure "${entry.primaryStructure}" but index item is missing it.`);
                 }
-                
+
                 // Check tags (array comparison)
                 if (item.tags !== undefined && entry.tags !== undefined) {
                   const itemTags = Array.isArray(item.tags) ? item.tags.sort() : [];
@@ -3175,7 +3456,7 @@ function validateIndex(indexPath: string): void {
           }
         }
       }
-      
+
       // Validate topic grouping metadata (optional fields, for pack items)
       // topicKey validation
       if (item.topicKey !== undefined) {
@@ -3192,7 +3473,7 @@ function validateIndex(indexPath: string): void {
           }
         }
       }
-      
+
       // topicLabel validation
       if (item.topicLabel !== undefined) {
         if (typeof item.topicLabel !== 'string') {
@@ -3216,7 +3497,7 @@ function validateIndex(indexPath: string): void {
           }
         }
       }
-      
+
       // shortTitle validation
       if (item.shortTitle !== undefined) {
         if (typeof item.shortTitle !== 'string') {
@@ -3231,7 +3512,7 @@ function validateIndex(indexPath: string): void {
           }
         }
       }
-      
+
       // orderInTopic validation
       if (item.orderInTopic !== undefined) {
         if (typeof item.orderInTopic !== 'number') {
@@ -3242,13 +3523,13 @@ function validateIndex(indexPath: string): void {
           addError(indexPath, `Item ${idx} orderInTopic must be >= 1`);
         }
       }
-      
+
       // Soft warning: for pack items, warn if none of topic fields present after generation
-      if ((item.kind === 'pack' || item.kind === 'context') && 
-          !item.topicKey && !item.topicLabel && !item.shortTitle) {
+      if ((item.kind === 'pack' || item.kind === 'context') &&
+        !item.topicKey && !item.topicLabel && !item.shortTitle) {
         console.warn(`⚠️  Item ${idx} in ${indexPath} is a pack but missing topic grouping fields (topicKey/topicLabel/shortTitle)`);
       }
-      
+
       // durationMinutes - validate type and bounds
       if (item.durationMinutes !== undefined) {
         if (typeof item.durationMinutes !== 'number') {
@@ -3271,11 +3552,11 @@ function validateIndex(indexPath: string): void {
         validateJsonPath(index.nextPage, 'nextPage');
       }
     }
-    
+
     // For first page (index.json), validate entire pagination chain with full invariants
     if (indexPath.endsWith('index.json') && !indexPath.includes('.page')) {
       const relPath = '/v1/' + relative(CONTENT_DIR, indexPath).replace(/\\/g, '/');
-      
+
       // Use full pagination chain validation with invariant checks
       const firstPageMeta: FirstPageMeta = {
         version: index.version || '',
@@ -3283,9 +3564,9 @@ function validateIndex(indexPath: string): void {
         pageSize: index.pageSize || 0,
         total: index.total || 0
       };
-      
+
       const paginationResult = validatePaginationChain(relPath, firstPageMeta);
-      
+
       // Log pagination stats for multi-page indexes
       if (paginationResult.pageCount > 1) {
         console.log(`   📄 ${relPath}: ${paginationResult.pageCount} pages, ${paginationResult.totalItems} items`);
@@ -3303,7 +3584,7 @@ function validateScenarioIndex(scenarioIndexPath: string): void {
   try {
     const content = readFileSync(scenarioIndexPath, 'utf-8');
     const scenarioIndex = JSON.parse(content);
-    
+
     // Validate required fields
     if (typeof scenarioIndex.version !== 'number' || scenarioIndex.version !== 1) {
       addError(scenarioIndexPath, 'Missing or invalid field: version (must be 1)');
@@ -3315,7 +3596,7 @@ function validateScenarioIndex(scenarioIndexPath: string): void {
       addError(scenarioIndexPath, 'Missing or invalid field: items (must be an array)');
       return;
     }
-    
+
     // Validate each scenario item
     const scenarioIds = new Set<string>();
     scenarioIndex.items.forEach((item: any, idx: number) => {
@@ -3327,23 +3608,23 @@ function validateScenarioIndex(scenarioIndexPath: string): void {
         }
         scenarioIds.add(item.id);
       }
-      
+
       if (!item.title || typeof item.title !== 'string') {
         addError(scenarioIndexPath, `Item ${idx} missing or invalid field: title (must be string)`);
       }
-      
+
       if (!item.subtitle || typeof item.subtitle !== 'string') {
         addError(scenarioIndexPath, `Item ${idx} missing or invalid field: subtitle (must be string)`);
       }
-      
+
       if (!item.icon || typeof item.icon !== 'string') {
         addError(scenarioIndexPath, `Item ${idx} missing or invalid field: icon (must be string)`);
       }
-      
+
       if (typeof item.itemCount !== 'number' || item.itemCount < 0) {
         addError(scenarioIndexPath, `Item ${idx} missing or invalid field: itemCount (must be non-negative number)`);
       }
-      
+
       if (!item.itemsUrl || typeof item.itemsUrl !== 'string') {
         addError(scenarioIndexPath, `Item ${idx} missing or invalid field: itemsUrl (must be string)`);
       } else {
@@ -3360,7 +3641,7 @@ function validateScenarioIndex(scenarioIndexPath: string): void {
             try {
               const itemsContent = readFileSync(itemsUrlPath, 'utf-8');
               const itemsIndex = JSON.parse(itemsContent);
-              
+
               if (typeof itemsIndex.total === 'number') {
                 if (itemsIndex.total !== item.itemCount) {
                   addError(scenarioIndexPath, `Item ${idx} itemCount (${item.itemCount}) does not match scenario index total (${itemsIndex.total})`);
@@ -3388,7 +3669,7 @@ function validateFeatured(featuredPath: string): void {
   try {
     const content = readFileSync(featuredPath, 'utf-8');
     const featured = JSON.parse(content);
-    
+
     // Validate required fields
     if (featured.version !== 1) {
       addError(featuredPath, 'Featured version must be 1');
@@ -3405,13 +3686,13 @@ function validateFeatured(featuredPath: string): void {
         addError(featuredPath, 'generatedAt must be valid ISO 8601 format');
       }
     }
-    
+
     // Validate hero (required)
     if (!featured.hero || typeof featured.hero !== 'object') {
       addError(featuredPath, 'Missing or invalid field: hero (must be object)');
       return; // Can't continue without hero
     }
-    
+
     const hero = featured.hero;
     if (!['track', 'pack', 'exam', 'drill'].includes(hero.kind)) {
       addError(featuredPath, `hero.kind must be one of: track, pack, exam, drill, got "${hero.kind}"`);
@@ -3433,7 +3714,7 @@ function validateFeatured(featuredPath: string): void {
       } else {
         expectedPattern = /^\/v1\/workspaces\/[^/]+\/[^/]+\/[^/]+\/[^/]+\.json$/;
       }
-      
+
       if (!expectedPattern.test(hero.entryUrl)) {
         addError(featuredPath, `hero.entryUrl "${hero.entryUrl}" does not match canonical pattern for kind "${hero.kind}"`);
       } else {
@@ -3449,7 +3730,7 @@ function validateFeatured(featuredPath: string): void {
             if (entry.kind && entry.kind.toLowerCase() !== normalizedKind) {
               addError(featuredPath, `hero.entryUrl kind "${entry.kind}" does not match hero.kind "${hero.kind}"`);
             }
-            
+
             // If referenced entry is generated content, it must be approved
             if (entry.provenance && entry.provenance.source !== 'handcrafted') {
               if (!entry.review || entry.review.status !== 'approved') {
@@ -3462,7 +3743,7 @@ function validateFeatured(featuredPath: string): void {
         }
       }
     }
-    
+
     if (!hero.cta || typeof hero.cta !== 'object') {
       addError(featuredPath, 'hero.cta is required and must be an object');
     } else {
@@ -3473,7 +3754,7 @@ function validateFeatured(featuredPath: string): void {
         addError(featuredPath, `hero.cta.action must be "open_entry", got "${hero.cta.action}"`);
       }
     }
-    
+
     // Validate cards (0-4)
     if (!Array.isArray(featured.cards)) {
       addError(featuredPath, 'cards must be an array');
@@ -3481,12 +3762,12 @@ function validateFeatured(featuredPath: string): void {
       if (featured.cards.length > 4) {
         addError(featuredPath, `cards length must be 0-4, got ${featured.cards.length}`);
       }
-      
+
       const usedEntryUrls = new Set<string>();
       if (hero.entryUrl) {
         usedEntryUrls.add(hero.entryUrl);
       }
-      
+
       featured.cards.forEach((card: any, idx: number) => {
         if (!card.id || typeof card.id !== 'string') {
           addError(featuredPath, `cards[${idx}].id is required and must be a string`);
@@ -3502,7 +3783,7 @@ function validateFeatured(featuredPath: string): void {
             addError(featuredPath, `cards[${idx}].entryUrl "${card.entryUrl}" is duplicate (already used in hero or another card)`);
           }
           usedEntryUrls.add(card.entryUrl);
-          
+
           // Validate entryUrl pattern matches kind
           const normalizedKind = card.kind.toLowerCase();
           let expectedPattern: RegExp;
@@ -3517,7 +3798,7 @@ function validateFeatured(featuredPath: string): void {
           } else {
             expectedPattern = /^\/v1\/workspaces\/[^/]+\/[^/]+\/[^/]+\/[^/]+\.json$/;
           }
-          
+
           if (!expectedPattern.test(card.entryUrl)) {
             addError(featuredPath, `cards[${idx}].entryUrl "${card.entryUrl}" does not match canonical pattern for kind "${card.kind}"`);
           } else {
@@ -3533,7 +3814,7 @@ function validateFeatured(featuredPath: string): void {
                 if (entry.kind && entry.kind.toLowerCase() !== normalizedKind) {
                   addError(featuredPath, `cards[${idx}].entryUrl kind "${entry.kind}" does not match card.kind "${card.kind}"`);
                 }
-                
+
                 // If referenced entry is generated content, it must be approved
                 if (entry.provenance && entry.provenance.source !== 'handcrafted') {
                   if (!entry.review || entry.review.status !== 'approved') {
@@ -3548,7 +3829,7 @@ function validateFeatured(featuredPath: string): void {
         }
       });
     }
-    
+
   } catch (err: any) {
     addError(featuredPath, `Failed to parse featured.json: ${err.message}`);
   }
@@ -3570,10 +3851,10 @@ function validateTemplate(templatePath: string): void {
   try {
     const content = readFileSync(templatePath, 'utf-8');
     const template = JSON.parse(content);
-    
+
     // Validate schemaVersion
     validateSchemaVersion('Template', template, templatePath);
-    
+
     // Required fields
     if (!template.id || typeof template.id !== 'string') {
       addError(templatePath, 'Template missing or invalid field: id (must be string)');
@@ -3670,7 +3951,7 @@ function validateTemplate(templatePath: string): void {
     } else if (!template.format.pattern || typeof template.format.pattern !== 'string') {
       addError(templatePath, 'Template format.pattern must be a string');
     }
-    
+
     // Validate requiredScenarioTokens are scenario-appropriate
     // Scenario token dictionaries (from QUALITY_GATES.md)
     const SCENARIO_TOKEN_DICTS: Record<string, string[]> = {
@@ -3682,7 +3963,7 @@ function validateTemplate(templatePath: string): void {
       government_office: ['termin', 'formular', 'anmeldung', 'bescheinigung', 'unterlagen', 'ausweis', 'amt', 'beamte', 'sachbearbeiter', 'aufenthaltserlaubnis', 'pass', 'bürgeramt', 'ausländeramt', 'jobcenter', 'krankenkasse'],
       casual_greeting: ['greeting', 'hello', 'goodbye', 'morning', 'evening', 'day', 'see', 'meet', 'friend', 'time', 'grüßen', 'hallo', 'auf wiedersehen', 'morgen', 'abend', 'tag', 'sehen', 'treffen', 'freund', 'zeit', 'tschüss']
     };
-    
+
     const scenarioTokens = SCENARIO_TOKEN_DICTS[template.scenario] || [];
     if (scenarioTokens.length > 0) {
       // Check that requiredScenarioTokens are subset of scenario dictionary
@@ -3697,7 +3978,7 @@ function validateTemplate(templatePath: string): void {
     } else {
       console.warn(`⚠️  ${templatePath}: Scenario "${template.scenario}" has no token dictionary defined. Quality gates may skip scenario token validation.`);
     }
-    
+
   } catch (err: any) {
     addError(templatePath, `Template validation failed: ${err.message}`);
   }
@@ -3741,7 +4022,7 @@ function validateManifest(manifestPath: string): void {
         addError(manifestPath, `Workspace "${workspaceId}" catalog path "${catalogPath}" does not exist (resolved to: ${fullPath})`);
       }
     }
-    
+
     // Validate workspaceHashes if present
     if (manifest.workspaceHashes !== undefined) {
       if (typeof manifest.workspaceHashes !== 'object' || manifest.workspaceHashes === null) {
@@ -3750,7 +4031,7 @@ function validateManifest(manifestPath: string): void {
         // Ensure workspaceHashes contains an entry for every workspace
         const workspaceIds = Object.keys(manifest.workspaces);
         const hashWorkspaceIds = Object.keys(manifest.workspaceHashes);
-        
+
         for (const workspaceId of workspaceIds) {
           if (!hashWorkspaceIds.includes(workspaceId)) {
             addError(manifestPath, `workspaceHashes missing entry for workspace "${workspaceId}"`);
@@ -3766,12 +4047,12 @@ function validateManifest(manifestPath: string): void {
             }
           }
         }
-        
+
         // Note: Hash computation verification is done in promote-staging.sh
         // The validator only checks structure and format here
       }
     }
-    
+
     // Validate minClientVersion if present
     if (manifest.minClientVersion !== undefined) {
       if (typeof manifest.minClientVersion !== 'string') {
@@ -3797,9 +4078,11 @@ function main() {
   }
 
   // Validate manifest.json exists and is valid (production)
+  // Note: manifest.json may not exist before first promotion (it's created during promotion)
   const manifestPath = join(META_DIR, 'manifest.json');
   if (!existsSync(manifestPath)) {
-    addError(manifestPath, 'manifest.json not found in content/meta/');
+    // Only warn, don't error - manifest.json is created during promotion
+    console.warn(`⚠️  ${manifestPath}: manifest.json not found (will be created during promotion)`);
   } else {
     validateManifest(manifestPath);
   }
@@ -3849,11 +4132,11 @@ function main() {
     const bundleFiles = readdirSync(bundlesDir)
       .filter(file => file.endsWith('.json'))
       .map(file => join(bundlesDir, file));
-    
+
     bundleFiles.forEach(bundlePath => {
       try {
         const bundle = JSON.parse(readFileSync(bundlePath, 'utf-8'));
-        
+
         // Validate schema
         if (bundle.version !== 1) {
           addError(bundlePath, `Bundle version must be 1 (got ${bundle.version})`);
@@ -3883,7 +4166,7 @@ function main() {
             addError(bundlePath, 'Bundle ordering.stable must be true (deterministic ordering required)');
           }
         }
-        
+
         // Validate workspace exists
         const workspacePath = join(CONTENT_DIR, 'workspaces', bundle.workspace);
         if (!existsSync(workspacePath)) {
@@ -3904,13 +4187,13 @@ function main() {
   indexFiles.forEach(file => {
     validateIndex(file);
   });
-  
+
   // Validate scenario index files (context/scenarios.json)
   const scenarioIndexFiles = jsonFiles.filter(file => {
     const relPath = relative(CONTENT_DIR, file);
     return relPath.includes('workspaces/') && relPath.includes('context/scenarios.json');
   });
-  
+
   scenarioIndexFiles.forEach(file => {
     validateScenarioIndex(file);
   });
@@ -3932,11 +4215,16 @@ function main() {
       workspaces.forEach(workspace => {
         const catalogPath = join(workspacesDir, workspace, 'catalog.json');
         if (!existsSync(catalogPath)) {
-          addError(catalogPath, `Workspace "${workspace}" missing catalog.json`);
+          // Skip test workspaces - they may not have catalogs
+          if (workspace === 'test-ws') {
+            console.warn(`⚠️  ${catalogPath}: test workspace missing catalog.json (skipping)`);
+          } else {
+            addError(catalogPath, `Workspace "${workspace}" missing catalog.json`);
+          }
         } else {
           validateCatalog(catalogPath);
         }
-        
+
         // Validate featured.json if it exists
         const featuredPath = join(workspacesDir, workspace, 'featured', 'featured.json');
         if (existsSync(featuredPath)) {

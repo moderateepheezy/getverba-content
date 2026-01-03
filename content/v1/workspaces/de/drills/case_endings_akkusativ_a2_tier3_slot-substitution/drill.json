@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A2",
-  "title": "Case Endings: Akkusativ: A2 (Tier 3)",
-  "shortTitle": "Case Endings: Akkusativ A2",
+  "title": "Case Endings: Akkusativ: A2 (Tier 3) - Slot",
+  "shortTitle": "Case Endings: Akkusa A2 Slot",
   "subtitle": "Tier 3 - slot substitution - Master accusative case endings ",
   "estimatedMinutes": 5,
   "mechanicId": "case_endings_akkusativ",
@@ -17,7 +17,9 @@
   "variationSlots": [
     "subject",
     "verb",
-    "object"
+    "object",
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -64,86 +66,256 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Wir lese das Brot.",
+      "text": "am Abend trinkee ich zu Hause einen Apfel.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir lese das Brot.",
+      "natural_en": "am Abend trinkee ich zu Hause einen Apfel.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          "Wir"
+          "Ich"
         ],
         "verb": [
-          "lese"
+          "trinkee"
         ],
         "object": [
-          "das Brot"
+          "einen Apfel"
+        ],
+        "time": [
+          "am Abend"
+        ],
+        "location": [
+          "zu Hause"
         ]
       },
       "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier3/prompt-001.mp3"
     },
     {
       "id": "prompt-002",
-      "text": "Wir mache das Buch.",
+      "text": "am Morgen sehee ich in der Küche.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir mache das Buch.",
+      "natural_en": "am Morgen sehee ich in der Küche.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          "Wir"
+          "Ich"
         ],
         "verb": [
-          "mache"
+          "sehee"
         ],
-        "object": [
-          "das Buch"
+        "time": [
+          "am Morgen"
+        ],
+        "location": [
+          "in der Küche"
         ]
       },
       "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier3/prompt-002.mp3"
     },
     {
       "id": "prompt-003",
-      "text": "Sie habet den Kaffee.",
+      "text": "jeden Tag habest du in der Schule den Kaffee.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie habet den Kaffee.",
+      "natural_en": "jeden Tag habest du in der Schule den Kaffee.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          "Sie"
+          "Du"
         ],
         "verb": [
-          "habet"
+          "habest"
         ],
         "object": [
           "den Kaffee"
+        ],
+        "time": [
+          "jeden Tag"
+        ],
+        "location": [
+          "in der Schule"
         ]
       },
       "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier3/prompt-003.mp3"
     },
     {
       "id": "prompt-004",
-      "text": "Wir trinke einen Stuhl.",
+      "text": "später habe du in der Schule.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir trinke einen Stuhl.",
+      "natural_en": "später habe du in der Schule.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "habe"
+        ],
+        "time": [
+          "später"
+        ],
+        "location": [
+          "in der Schule"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier3/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "am Morgen leset er im Büro den Bus.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Morgen leset er im Büro den Bus.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "leset"
+        ],
+        "object": [
+          "den Bus"
+        ],
+        "time": [
+          "am Morgen"
+        ],
+        "location": [
+          "im Büro"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier3/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "am Morgen kaufet er in der Küche.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Morgen kaufet er in der Küche.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "kaufet"
+        ],
+        "time": [
+          "am Morgen"
+        ],
+        "location": [
+          "in der Küche"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier3/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "später nehmet Sie im Büro den Bus.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später nehmet Sie im Büro den Bus.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "nehmet"
+        ],
+        "object": [
+          "den Bus"
+        ],
+        "time": [
+          "später"
+        ],
+        "location": [
+          "im Büro"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier3/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "später machet Sie im Büro.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später machet Sie im Büro.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "machet"
+        ],
+        "time": [
+          "später"
+        ],
+        "location": [
+          "im Büro"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier3/prompt-008.mp3"
+    },
+    {
+      "id": "prompt-009",
+      "text": "am Morgen trinke wir im Büro das Buch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Morgen trinke wir im Büro das Buch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
@@ -153,151 +325,41 @@
           "trinke"
         ],
         "object": [
-          "einen Stuhl"
-        ]
-      },
-      "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier3/prompt-004.mp3"
-    },
-    {
-      "id": "prompt-005",
-      "text": "Wir habe die Milch.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir habe die Milch.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Wir"
+          "das Buch"
         ],
-        "verb": [
-          "habe"
+        "time": [
+          "am Morgen"
         ],
-        "object": [
-          "die Milch"
-        ]
-      },
-      "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier3/prompt-005.mp3"
-    },
-    {
-      "id": "prompt-006",
-      "text": "Du kaufest einen Stuhl.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du kaufest einen Stuhl.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Du"
-        ],
-        "verb": [
-          "kaufest"
-        ],
-        "object": [
-          "einen Stuhl"
-        ]
-      },
-      "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier3/prompt-006.mp3"
-    },
-    {
-      "id": "prompt-007",
-      "text": "Ich essee den Kaffee.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ich essee den Kaffee.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Ich"
-        ],
-        "verb": [
-          "essee"
-        ],
-        "object": [
-          "den Kaffee"
-        ]
-      },
-      "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier3/prompt-007.mp3"
-    },
-    {
-      "id": "prompt-008",
-      "text": "Ich machee die Milch.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ich machee die Milch.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Ich"
-        ],
-        "verb": [
-          "machee"
-        ],
-        "object": [
-          "die Milch"
-        ]
-      },
-      "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier3/prompt-008.mp3"
-    },
-    {
-      "id": "prompt-009",
-      "text": "Er trinket einen Stuhl.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er trinket einen Stuhl.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Er"
-        ],
-        "verb": [
-          "trinket"
-        ],
-        "object": [
-          "einen Stuhl"
+        "location": [
+          "im Büro"
         ]
       },
       "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier3/prompt-009.mp3"
     },
     {
       "id": "prompt-010",
-      "text": "Wir nehme die Milch.",
+      "text": "morgen sehe wir im Büro.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir nehme die Milch.",
+      "natural_en": "morgen sehe wir im Büro.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
           "Wir"
         ],
         "verb": [
-          "nehme"
+          "sehe"
         ],
-        "object": [
-          "die Milch"
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "im Büro"
         ]
       },
       "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier3/prompt-010.mp3"
@@ -318,23 +380,23 @@
     ],
     "coverage": {
       "verbs": [
-        "lese",
-        "mache",
-        "habet",
-        "trinke",
+        "trinkee",
+        "sehee",
+        "habest",
         "habe",
-        "kaufest",
-        "essee",
-        "machee",
-        "trinket",
-        "nehme"
+        "leset",
+        "kaufet",
+        "nehmet",
+        "machet",
+        "trinke",
+        "sehe"
       ],
       "subjects": [
-        "Wir",
-        "Sie",
-        "Du",
         "Ich",
-        "Er"
+        "Du",
+        "Er",
+        "Sie",
+        "Wir"
       ],
       "patterns": [
         "akkusativ_articles",
@@ -347,7 +409,7 @@
     "estPromptCount": 10,
     "timeboxMinutes": 5,
     "qualitySignals": {
-      "tokenHitsCount": 10,
+      "tokenHitsCount": 9,
       "multiSlotRate": 1,
       "uniqueVerbCount": 10,
       "uniqueSubjectCount": 5,
@@ -359,12 +421,21 @@
     "source": "template",
     "sourceRef": "mechanics/case_endings_akkusativ",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.634Z"
+    "generatedAt": "2026-01-03T09:52:17.346Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Case Endings: Akkusativ: A2 (Tier 3) - Slot"
+  },
+  "shortTitle_i18n": {
+    "en": "Case Endings: Akkusa A2 Slot"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 3 - slot substitution - Master accusative case endings "
+  },
   "contentId": "de:drill:case_endings_akkusativ_a2_tier3_slot-substitution",
-  "contentHash": "57300ce363ff8f0ff16a8a7213ad6acc51b3585cb7835f17d502977230c247c2",
-  "revisionId": "57300ce363ff"
+  "contentHash": "26f6db4444daf2978fe3ae49236d9cc071694e4ca01f153e3a246a6bf3fb560a",
+  "revisionId": "26f6db4444da"
 }

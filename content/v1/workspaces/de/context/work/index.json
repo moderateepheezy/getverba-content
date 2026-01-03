@@ -53,9 +53,33 @@
       "topicLabel": "Modal Verbs Requests",
       "shortTitle": "Work — Sample 1",
       "title_i18n": {
-        "en": "Work A1 — Sample 1"
+        "en": "Work A1 — Sample 1",
+        "es": "Trabajo A1 - Muestra 1",
+        "fr": "Travail A1 - Échantillon 1",
+        "it": "Lavoro A1 - Campione 1",
+        "pt": "Trabalho A1 - Amostra 1",
+        "ru": "Работа A1 - Образец 1",
+        "ja": "ワークA1 - サンプル1",
+        "ko": "작품 A1 - 샘플 1",
+        "zh-CN": "作品 A1 - 样本 1",
+        "zh-TW": "作品 A1 - 样本 1",
+        "ar": "العمل أ 1 - العينة 1",
+        "tr": "Çalışma A1 - Örnek 1",
+        "pl": "Praca A1 - Próbka 1",
+        "nl": "Werk A1 - Voorbeeld 1",
+        "sv": "Arbete A1 - Prov 1",
+        "no": "Arbeid A1 - Eksempel 1",
+        "da": "Arbejde A1 - Prøve 1",
+        "fi": "Työ A1 - Näyte 1",
+        "el": "Εργασία Α1 - Δείγμα 1",
+        "cs": "Práce A1 - Vzorek 1"
       },
       "domainKind": "context",
+      "groupId": "office-greetings",
+      "groupTitle": "Office Greetings",
+      "groupTitle_i18n": {
+        "en": "Office Greetings"
+      },
       "isRecommended": true
     },
     {
@@ -106,9 +130,33 @@
       "topicLabel": "Modal Verbs Requests",
       "shortTitle": "Work — Sample 2",
       "title_i18n": {
-        "en": "Work A1 — Sample 2"
+        "en": "Work A1 — Sample 2",
+        "es": "Trabajo A1 - Muestra 2",
+        "fr": "Travail A1 - Échantillon 2",
+        "it": "Lavoro A1 - Campione 2",
+        "pt": "Trabalho A1 - Amostra 2",
+        "ru": "Работа A1 - Образец 2",
+        "ja": "ワークA1 - サンプル2",
+        "ko": "작업 A1 - 샘플 2",
+        "zh-CN": "作品 A1 - 样本 2",
+        "zh-TW": "作品 A1 - 样本 2",
+        "ar": "العمل A1 - العينة 2",
+        "tr": "Çalışma A1 - Örnek 2",
+        "pl": "Praca A1 - Próbka 2",
+        "nl": "Werk A1 - Voorbeeld 2",
+        "sv": "Arbete A1 - Prov 2",
+        "no": "Arbeid A1 - Eksempel 2",
+        "da": "Arbejde A1 - Prøve 2",
+        "fi": "Työ A1 - Näyte 2",
+        "el": "Εργασία Α1 - Δείγμα 2",
+        "cs": "Práce A1 - Ukázka 2"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "office-greetings",
+      "groupTitle": "Office Greetings",
+      "groupTitle_i18n": {
+        "en": "Office Greetings"
+      }
     },
     {
       "id": "work_pack_1_a2",
@@ -159,9 +207,33 @@
       "shortTitle": "Office Greetings",
       "orderInTopic": 1,
       "title_i18n": {
-        "en": "Work A2 — 1: Office Greetings"
+        "en": "Work A2 — 1: Office Greetings",
+        "es": "Trabajo A2 - 1: Saludos en la oficina",
+        "fr": "Travail A2 - 1 : Salutations de bureau",
+        "it": "Lavoro A2 - 1: saluti in ufficio",
+        "pt": "Trabalho A2 - 1: Saudações do escritório",
+        "ru": "Работа A2 - 1: Офисные приветствия",
+        "ja": "作品A2 - 1: オフィスでの挨拶",
+        "ko": "업무 A2 - 1: 사무실 인사말",
+        "zh-CN": "工作 A2 - 1：办公室问候语",
+        "zh-TW": "工作 A2 - 1：办公室问候语",
+        "ar": "العمل أ 2 - 1: تحيات المكتب",
+        "tr": "Çalışma A2 - 1: Ofis Selamlaşması",
+        "pl": "Praca A2 - 1: Pozdrowienia z biura",
+        "nl": "Werk A2 - 1: Kantoor Groeten",
+        "sv": "Arbete A2 - 1: Hälsningar från kontoret",
+        "no": "Arbeid A2 - 1: Hilsener fra kontoret",
+        "da": "Arbejde A2 - 1: Hilsen på kontoret",
+        "fi": "Työ A2 - 1: Toimiston tervehdykset",
+        "el": "Εργασία A2 - 1: Χαιρετισμοί γραφείου",
+        "cs": "Práce A2 - 1: Kancelářské pozdravy"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "office-greetings",
+      "groupTitle": "Office Greetings",
+      "groupTitle_i18n": {
+        "en": "Office Greetings"
+      }
     },
     {
       "id": "work_pack_10_a2",
@@ -212,9 +284,33 @@
       "shortTitle": "Problem Solving",
       "orderInTopic": 10,
       "title_i18n": {
-        "en": "Work A2 — 10: Problem Solving"
+        "en": "Work A2 — 10: Problem Solving",
+        "es": "Trabajo A2 - 10: Resolución de problemas",
+        "fr": "Travail A2 - 10 : Résolution de problèmes",
+        "it": "Lavoro A2 - 10: Risoluzione dei problemi",
+        "pt": "Trabalho A2 - 10: Resolução de problemas",
+        "ru": "Работа A2 - 10: Решение проблем",
+        "ja": "ワークA2 - 10: 問題解決",
+        "ko": "작업 A2 - 10: 문제 해결",
+        "zh-CN": "作业 A2 - 10：解决问题",
+        "zh-TW": "作业 A2 - 10：解决问题",
+        "ar": "العمل أ2 - 10: حل المشكلات",
+        "tr": "Çalışma A2 - 10: Problem Çözme",
+        "pl": "Praca A2 - 10: Rozwiązywanie problemów",
+        "nl": "Werk A2 - 10: Problemen oplossen",
+        "sv": "Arbete A2 - 10: Problemlösning",
+        "no": "Arbeid A2 - 10: Problemløsning",
+        "da": "Arbejde A2 - 10: Problemløsning",
+        "fi": "Työ A2 - 10: Ongelmanratkaisu",
+        "el": "Εργασία A2 - 10: Επίλυση προβλημάτων",
+        "cs": "Práce A2 - 10: Řešení problémů"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "tasks-requests",
+      "groupTitle": "Tasks & Requests",
+      "groupTitle_i18n": {
+        "en": "Tasks & Requests"
+      }
     },
     {
       "id": "work_pack_11_a2",
@@ -265,9 +361,33 @@
       "shortTitle": "Status Reports",
       "orderInTopic": 11,
       "title_i18n": {
-        "en": "Work A2 — 11: Status Reports"
+        "en": "Work A2 — 11: Status Reports",
+        "es": "Trabajo A2 - 11: Informes de situación",
+        "fr": "Travail A2 - 11 : Rapports de situation",
+        "it": "Lavoro A2 - 11: Rapporti sullo stato di avanzamento",
+        "pt": "Trabalho A2 - 11: Relatórios de estado",
+        "ru": "Работа A2 - 11: Отчеты о состоянии дел",
+        "ja": "作業 A2 - 11: 状況報告",
+        "ko": "작업 A2 - 11: 상태 보고서",
+        "zh-CN": "工作 A2 - 11：状态报告",
+        "zh-TW": "工作 A2 - 11：状态报告",
+        "ar": "العمل أ 2 - 11: تقارير الحالة",
+        "tr": "Çalışma A2 - 11: Durum Raporları",
+        "pl": "Praca A2 - 11: Raporty o stanie",
+        "nl": "Werk A2 - 11: Statusrapporten",
+        "sv": "Arbete A2 - 11: Statusrapporter",
+        "no": "Arbeid A2 - 11: Statusrapporter",
+        "da": "Arbejde A2 - 11: Statusrapporter",
+        "fi": "Työ A2 - 11: Tilanneraportit",
+        "el": "Εργασία Α2 - 11: Εκθέσεις κατάστασης",
+        "cs": "Práce A2 - 11: Zprávy o stavu"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "tasks-requests",
+      "groupTitle": "Tasks & Requests",
+      "groupTitle_i18n": {
+        "en": "Tasks & Requests"
+      }
     },
     {
       "id": "work_pack_12_a2",
@@ -318,9 +438,33 @@
       "shortTitle": "Professional Feedback",
       "orderInTopic": 12,
       "title_i18n": {
-        "en": "Work A2 — 12: Professional Feedback"
+        "en": "Work A2 — 12: Professional Feedback",
+        "es": "Trabajo A2 - 12: Feedback profesional",
+        "fr": "Travail A2 - 12 : Feedback professionnel",
+        "it": "Lavoro A2 - 12: Feedback professionale",
+        "pt": "Trabalho A2 - 12: Feedback profissional",
+        "ru": "Работа A2 - 12: Обратная связь с профессионалами",
+        "ja": "ワークA2 - 12: プロフェッショナル・フィードバック",
+        "ko": "작업 A2 - 12: 전문가 피드백",
+        "zh-CN": "工作 A2 - 12：专业反馈",
+        "zh-TW": "工作 A2 - 12：专业反馈",
+        "ar": "العمل أ 2 - 12: الملاحظات المهنية",
+        "tr": "Çalışma A2 - 12: Profesyonel Geri Bildirim",
+        "pl": "Praca A2 - 12: Profesjonalna informacja zwrotna",
+        "nl": "Werk A2 - 12: Professionele feedback",
+        "sv": "Arbete A2 - 12: Professionell feedback",
+        "no": "Arbeid A2 - 12: Profesjonell tilbakemelding",
+        "da": "Arbejde A2 - 12: Professionel feedback",
+        "fi": "Työ A2 - 12: Ammatillinen palaute",
+        "el": "Εργασία A2 - 12: Επαγγελματική ανατροφοδότηση",
+        "cs": "Práce A2 - 12: Odborná zpětná vazba"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "tasks-requests",
+      "groupTitle": "Tasks & Requests",
+      "groupTitle_i18n": {
+        "en": "Tasks & Requests"
+      }
     },
     {
       "id": "work_pack_2_a2",
@@ -371,9 +515,33 @@
       "shortTitle": "Meeting Phrases",
       "orderInTopic": 2,
       "title_i18n": {
-        "en": "Work A2 — 2: Meeting Phrases"
+        "en": "Work A2 — 2: Meeting Phrases",
+        "es": "Trabajo A2 - 2: Frases de reunión",
+        "fr": "Travail A2 - 2 : Phrases de réunion",
+        "it": "Lavoro A2 - 2: Frasi di riunione",
+        "pt": "Trabalho A2 - 2: Frases de reunião",
+        "ru": "Работа A2 - 2: Фразы для встречи",
+        "ja": "ワーク A2 - 2: ミーティング・フレーズ",
+        "ko": "작업 A2 - 2: 회의 문구",
+        "zh-CN": "工作 A2 - 2：会议用语",
+        "zh-TW": "工作 A2 - 2：会议用语",
+        "ar": "العمل أ 2 - 2: عبارات الاجتماع",
+        "tr": "Çalışma A2 - 2: Toplantı İfadeleri",
+        "pl": "Praca A2 - 2: Zwroty dotyczące spotkań",
+        "nl": "Werk A2 - 2: Vergaderzinnen",
+        "sv": "Arbete A2 - 2: Mötesfraser",
+        "no": "Arbeid A2 - 2: Møtefraser",
+        "da": "Arbejde A2 - 2: Mødesætninger",
+        "fi": "Työ A2 - 2: Kokousfraasit",
+        "el": "Εργασία A2 - 2: Φράσεις συνάντησης",
+        "cs": "Práce A2 - 2: Fráze pro setkání"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "meetings-scheduling",
+      "groupTitle": "Meetings & Scheduling",
+      "groupTitle_i18n": {
+        "en": "Meetings & Scheduling"
+      }
     },
     {
       "id": "work_pack_3_a2",
@@ -424,9 +592,33 @@
       "shortTitle": "Work Requests",
       "orderInTopic": 3,
       "title_i18n": {
-        "en": "Work A2 — 3: Work Requests"
+        "en": "Work A2 — 3: Work Requests",
+        "es": "Trabajo A2 - 3: Solicitudes de trabajo",
+        "fr": "Travail A2 - 3 : Demandes de travail",
+        "it": "Lavoro A2 - 3: Richieste di lavoro",
+        "pt": "Trabalho A2 - 3: Pedidos de trabalho",
+        "ru": "Работа A2 - 3: Запросы на работу",
+        "ja": "作業 A2 - 3: 作業依頼",
+        "ko": "작업 A2 - 3: 작업 요청",
+        "zh-CN": "工作 A2 - 3：工作申请",
+        "zh-TW": "工作 A2 - 3：工作申请",
+        "ar": "العمل أ 2 - 3: طلبات العمل",
+        "tr": "Çalışma A2 - 3: İş Talepleri",
+        "pl": "Praca A2 - 3: Zlecenia pracy",
+        "nl": "Werk A2 - 3: Werkaanvragen",
+        "sv": "Arbete A2 - 3: Arbetsförfrågningar",
+        "no": "Arbeid A2 - 3: Arbeidsforespørsler",
+        "da": "Arbejde A2 - 3: Arbejdsanmodninger",
+        "fi": "Työ A2 - 3: Työpyynnöt",
+        "el": "Εργασία A2 - 3: Αιτήματα εργασίας",
+        "cs": "Práce A2 - 3: Požadavky na práci"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "tasks-requests",
+      "groupTitle": "Tasks & Requests",
+      "groupTitle_i18n": {
+        "en": "Tasks & Requests"
+      }
     },
     {
       "id": "work_pack_4_a2",
@@ -477,9 +669,33 @@
       "shortTitle": "Project Updates",
       "orderInTopic": 4,
       "title_i18n": {
-        "en": "Work A2 — 4: Project Updates"
+        "en": "Work A2 — 4: Project Updates",
+        "es": "Trabajo A2 - 4: Actualización de proyectos",
+        "fr": "Travail A2 - 4 : Mises à jour des projets",
+        "it": "Lavoro A2 - 4: Aggiornamenti del progetto",
+        "pt": "Trabalho A2 - 4: Actualizações de projectos",
+        "ru": "Работа A2 - 4: Обновление проекта",
+        "ja": "作業A2 - 4: プロジェクトの最新情報",
+        "ko": "작업 A2 - 4: 프로젝트 업데이트",
+        "zh-CN": "工作 A2 - 4：项目更新",
+        "zh-TW": "工作 A2 - 4：项目更新",
+        "ar": "العمل أ 2 - 4: تحديثات المشروع",
+        "tr": "Çalışma A2 - 4: Proje Güncellemeleri",
+        "pl": "Praca A2 - 4: Aktualizacje projektów",
+        "nl": "Werk A2 - 4: Projectupdates",
+        "sv": "Arbete A2 - 4: Projektuppdateringar",
+        "no": "Arbeid A2 - 4: Prosjektoppdateringer",
+        "da": "Arbejde A2 - 4: Projektopdateringer",
+        "fi": "Työ A2 - 4: Hankepäivitykset",
+        "el": "Εργασία Α2 - 4: Ενημέρωση έργου",
+        "cs": "Práce A2 - 4: Aktualizace projektu"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "tasks-requests",
+      "groupTitle": "Tasks & Requests",
+      "groupTitle_i18n": {
+        "en": "Tasks & Requests"
+      }
     },
     {
       "id": "work_pack_5_a2",
@@ -530,9 +746,33 @@
       "shortTitle": "Scheduling",
       "orderInTopic": 5,
       "title_i18n": {
-        "en": "Work A2 — 5: Scheduling"
+        "en": "Work A2 — 5: Scheduling",
+        "es": "Trabajo A2 - 5: Programación",
+        "fr": "Travail A2 - 5 : Programmation",
+        "it": "Lavoro A2 - 5: Programmazione",
+        "pt": "Trabalho A2 - 5: Programação",
+        "ru": "Работа A2 - 5: Планирование",
+        "ja": "作業 A2 - 5: スケジューリング",
+        "ko": "작업 A2 - 5: 스케줄링",
+        "zh-CN": "工作 A2 - 5：日程安排",
+        "zh-TW": "工作 A2 - 5：日程安排",
+        "ar": "العمل أ 2 - 5: الجدولة",
+        "tr": "Çalışma A2 - 5: Çizelgeleme",
+        "pl": "Praca A2 - 5: Planowanie",
+        "nl": "Werk A2 - 5: Planning",
+        "sv": "Arbete A2 - 5: Schemaläggning",
+        "no": "Arbeid A2 - 5: Planlegging",
+        "da": "Arbejde A2 - 5: Planlægning",
+        "fi": "Työ A2 - 5: Aikataulutus",
+        "el": "Εργασία Α2 - 5: Προγραμματισμός",
+        "cs": "Práce A2 - 5: Plánování"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "tasks-requests",
+      "groupTitle": "Tasks & Requests",
+      "groupTitle_i18n": {
+        "en": "Tasks & Requests"
+      }
     },
     {
       "id": "work_pack_6_a2",
@@ -583,9 +823,33 @@
       "shortTitle": "Email Communication",
       "orderInTopic": 6,
       "title_i18n": {
-        "en": "Work A2 — 6: Email Communication"
+        "en": "Work A2 — 6: Email Communication",
+        "es": "Trabajo A2 - 6: Comunicación por correo electrónico",
+        "fr": "Travail A2 - 6 : Communication par courrier électronique",
+        "it": "Lavoro A2 - 6: Comunicazione via e-mail",
+        "pt": "Trabalho A2 - 6: Comunicação por correio eletrónico",
+        "ru": "Работа A2 - 6: Общение по электронной почте",
+        "ja": "作業A2 - 6: 電子メールによるコミュニケーション",
+        "ko": "작업 A2 - 6: 이메일 커뮤니케이션",
+        "zh-CN": "工作 A2 - 6：电子邮件交流",
+        "zh-TW": "工作 A2 - 6：电子邮件交流",
+        "ar": "العمل أ 2 - 6: التواصل عبر البريد الإلكتروني",
+        "tr": "Çalışma A2 - 6: E-posta İletişimi",
+        "pl": "Praca A2 - 6: Komunikacja e-mail",
+        "nl": "Werk A2 - 6: Communicatie per e-mail",
+        "sv": "Arbete A2 - 6: E-postkommunikation",
+        "no": "Arbeid A2 - 6: E-postkommunikasjon",
+        "da": "Arbejde A2 - 6: E-mail-kommunikation",
+        "fi": "Työ A2 - 6: Sähköpostiviestintä",
+        "el": "Εργασία A2 - 6: Επικοινωνία μέσω ηλεκτρονικού ταχυδρομείου",
+        "cs": "Práce A2 - 6: E-mailová komunikace"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "tasks-requests",
+      "groupTitle": "Tasks & Requests",
+      "groupTitle_i18n": {
+        "en": "Tasks & Requests"
+      }
     },
     {
       "id": "work_pack_7_a2",
@@ -636,12 +900,36 @@
       "shortTitle": "Team Collaboration",
       "orderInTopic": 7,
       "title_i18n": {
-        "en": "Work A2 — 7: Team Collaboration"
+        "en": "Work A2 — 7: Team Collaboration",
+        "es": "Trabajo A2 - 7: Colaboración en equipo",
+        "fr": "Travail A2 - 7 : Collaboration en équipe",
+        "it": "Lavoro A2 - 7: Collaborazione di gruppo",
+        "pt": "Trabalho A2 - 7: Colaboração em equipa",
+        "ru": "Работа A2 - 7: Сотрудничество в команде",
+        "ja": "ワークA2 - 7: チームコラボレーション",
+        "ko": "작업 A2 - 7: 팀 협업",
+        "zh-CN": "工作 A2 - 7：团队协作",
+        "zh-TW": "工作 A2 - 7：团队协作",
+        "ar": "العمل أ 2 - 7: التعاون الجماعي",
+        "tr": "Çalışma A2 - 7: Ekip İşbirliği",
+        "pl": "Praca A2 - 7: Współpraca zespołowa",
+        "nl": "Werk A2 - 7: Samenwerking in teams",
+        "sv": "Arbete A2 - 7: Samarbete i team",
+        "no": "Arbeid A2 - 7: Samarbeid i team",
+        "da": "Arbejde A2 - 7: Teamsamarbejde",
+        "fi": "Työ A2 - 7: Tiimityöskentely",
+        "el": "Εργασία A2 - 7: Ομαδική συνεργασία",
+        "cs": "Práce A2 - 7: Týmová spolupráce"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "tasks-requests",
+      "groupTitle": "Tasks & Requests",
+      "groupTitle_i18n": {
+        "en": "Tasks & Requests"
+      }
     }
   ],
-  "nextPage": "/v1/workspaces/de/context/work/index.page2.json",
+  "nextPage": "/v1/workspaces/de/context/work/pages/2.json",
   "scope": {
     "scopeKind": "scenario",
     "scopeId": "work",
@@ -650,5 +938,38 @@
   "recommended": {
     "itemId": "work_sample_1_a1",
     "entryUrl": "/v1/workspaces/de/packs/work_sample_1_a1/pack.json"
-  }
+  },
+  "groups": [
+    {
+      "id": "office-greetings",
+      "title": "Office Greetings",
+      "title_i18n": {
+        "en": "Office Greetings"
+      },
+      "kind": "context_group",
+      "itemIds": [
+        "work_sample_1_a1",
+        "work_sample_2_a1",
+        "work_pack_1_a2"
+      ]
+    },
+    {
+      "id": "tasks-requests",
+      "title": "Tasks & Requests",
+      "title_i18n": {
+        "en": "Tasks & Requests"
+      },
+      "kind": "context_group",
+      "itemIds": [
+        "work_pack_10_a2",
+        "work_pack_11_a2",
+        "work_pack_12_a2",
+        "work_pack_3_a2",
+        "work_pack_4_a2",
+        "work_pack_5_a2",
+        "work_pack_6_a2",
+        "work_pack_7_a2"
+      ]
+    }
+  ]
 }

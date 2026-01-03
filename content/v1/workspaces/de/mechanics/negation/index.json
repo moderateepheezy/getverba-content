@@ -11,217 +11,397 @@
       "id": "negation_a1_tier1_error-trap",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/negation_a1_tier1_error-trap/drill.json",
-      "shortTitle": "Negation A1",
+      "title": "Negation: A1 (Tier 1) - Trap",
+      "shortTitle": "Negation A1 Trap",
       "subtitle": "Tier 1 - error trap - Master negation placement (nicht, kein",
       "level": "A1",
       "estimatedMinutes": 3,
       "loopType": "error_trap",
       "difficultyTier": 1,
-      "orderInGroup": 1
+      "orderInGroup": 1,
+      "title_i18n": {
+        "en": "Negation: A1 (Tier 1) - Trap"
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A1 Trap"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - error trap - Master negation placement (nicht, kein"
+      }
     },
     {
       "id": "negation_a1_tier1_micro-transform",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/negation_a1_tier1_micro-transform/drill.json",
-      "shortTitle": "Negation A1",
+      "title": "Negation: A1 (Tier 1) - Transform",
+      "shortTitle": "Negation A1 Transform",
       "subtitle": "Tier 1 - micro transform - Master negation placement (nicht,",
       "level": "A1",
       "estimatedMinutes": 3,
       "loopType": "micro_transform",
       "difficultyTier": 1,
-      "orderInGroup": 2
+      "orderInGroup": 2,
+      "title_i18n": {
+        "en": "Negation: A1 (Tier 1) - Transform"
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A1 Transform"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - micro transform - Master negation placement (nicht,"
+      }
     },
     {
       "id": "negation_a1_tier1_pattern-switch",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/negation_a1_tier1_pattern-switch/drill.json",
-      "shortTitle": "Negation A1",
+      "title": "Negation: A1 (Tier 1) - Pattern",
+      "shortTitle": "Negation A1 Pattern",
       "subtitle": "Tier 1 - pattern switch - Master negation placement (nicht, ",
       "level": "A1",
       "estimatedMinutes": 3,
       "loopType": "pattern_switch",
       "difficultyTier": 1,
-      "orderInGroup": 3
+      "orderInGroup": 3,
+      "title_i18n": {
+        "en": "Negation: A1 (Tier 1) - Pattern"
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A1 Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - pattern switch - Master negation placement (nicht, "
+      }
     },
     {
       "id": "negation_a1_tier2_error-trap",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/negation_a1_tier2_error-trap/drill.json",
-      "shortTitle": "Negation A1",
+      "title": "Negation: A1 (Tier 2) - Trap",
+      "shortTitle": "Negation A1 Trap",
       "subtitle": "Tier 2 - error trap - Master negation placement (nicht, kein",
       "level": "A1",
       "estimatedMinutes": 4,
       "loopType": "error_trap",
       "difficultyTier": 2,
-      "orderInGroup": 4
+      "orderInGroup": 4,
+      "title_i18n": {
+        "en": "Negation: A1 (Tier 2) - Trap"
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A1 Trap"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - error trap - Master negation placement (nicht, kein"
+      }
     },
     {
       "id": "negation_a1_tier2_micro-transform",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/negation_a1_tier2_micro-transform/drill.json",
-      "shortTitle": "Negation A1",
+      "title": "Negation: A1 (Tier 2) - Transform",
+      "shortTitle": "Negation A1 Transform",
       "subtitle": "Tier 2 - micro transform - Master negation placement (nicht,",
       "level": "A1",
       "estimatedMinutes": 4,
       "loopType": "micro_transform",
       "difficultyTier": 2,
-      "orderInGroup": 5
+      "orderInGroup": 5,
+      "title_i18n": {
+        "en": "Negation: A1 (Tier 2) - Transform"
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A1 Transform"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - micro transform - Master negation placement (nicht,"
+      }
     },
     {
       "id": "negation_a1_tier2_pattern-switch",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/negation_a1_tier2_pattern-switch/drill.json",
-      "shortTitle": "Negation A1",
+      "title": "Negation: A1 (Tier 2) - Pattern",
+      "shortTitle": "Negation A1 Pattern",
       "subtitle": "Tier 2 - pattern switch - Master negation placement (nicht, ",
       "level": "A1",
       "estimatedMinutes": 4,
       "loopType": "pattern_switch",
       "difficultyTier": 2,
-      "orderInGroup": 6
+      "orderInGroup": 6,
+      "title_i18n": {
+        "en": "Negation: A1 (Tier 2) - Pattern"
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A1 Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - pattern switch - Master negation placement (nicht, "
+      }
     },
     {
       "id": "negation_a1_tier3_error-trap",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/negation_a1_tier3_error-trap/drill.json",
-      "shortTitle": "Negation A1",
+      "title": "Negation: A1 (Tier 3) - Trap",
+      "shortTitle": "Negation A1 Trap",
       "subtitle": "Tier 3 - error trap - Master negation placement (nicht, kein",
       "level": "A1",
       "estimatedMinutes": 5,
       "loopType": "error_trap",
       "difficultyTier": 3,
-      "orderInGroup": 7
+      "orderInGroup": 7,
+      "title_i18n": {
+        "en": "Negation: A1 (Tier 3) - Trap"
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A1 Trap"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - error trap - Master negation placement (nicht, kein"
+      }
     },
     {
       "id": "negation_a1_tier3_micro-transform",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/negation_a1_tier3_micro-transform/drill.json",
-      "shortTitle": "Negation A1",
+      "title": "Negation: A1 (Tier 3) - Transform",
+      "shortTitle": "Negation A1 Transform",
       "subtitle": "Tier 3 - micro transform - Master negation placement (nicht,",
       "level": "A1",
       "estimatedMinutes": 5,
       "loopType": "micro_transform",
       "difficultyTier": 3,
-      "orderInGroup": 8
+      "orderInGroup": 8,
+      "title_i18n": {
+        "en": "Negation: A1 (Tier 3) - Transform"
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A1 Transform"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - micro transform - Master negation placement (nicht,"
+      }
     },
     {
       "id": "negation_a1_tier3_pattern-switch",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/negation_a1_tier3_pattern-switch/drill.json",
-      "shortTitle": "Negation A1",
+      "title": "Negation: A1 (Tier 3) - Pattern",
+      "shortTitle": "Negation A1 Pattern",
       "subtitle": "Tier 3 - pattern switch - Master negation placement (nicht, ",
       "level": "A1",
       "estimatedMinutes": 5,
       "loopType": "pattern_switch",
       "difficultyTier": 3,
-      "orderInGroup": 9
+      "orderInGroup": 9,
+      "title_i18n": {
+        "en": "Negation: A1 (Tier 3) - Pattern"
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A1 Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - pattern switch - Master negation placement (nicht, "
+      }
     },
     {
       "id": "negation_a2_tier1_error-trap",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier1_error-trap/drill.json",
-      "shortTitle": "Negation A2",
+      "title": "Negation: A2 (Tier 1) - Trap",
+      "shortTitle": "Negation A2 Trap",
       "subtitle": "Tier 1 - error trap - Master negation placement (nicht, kein",
       "level": "A2",
       "estimatedMinutes": 3,
       "loopType": "error_trap",
       "difficultyTier": 1,
-      "orderInGroup": 10
+      "orderInGroup": 10,
+      "title_i18n": {
+        "en": "Negation: A2 (Tier 1) - Trap"
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A2 Trap"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - error trap - Master negation placement (nicht, kein"
+      }
     },
     {
       "id": "negation_a2_tier1_micro-transform",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier1_micro-transform/drill.json",
-      "shortTitle": "Negation A2",
+      "title": "Negation: A2 (Tier 1) - Transform",
+      "shortTitle": "Negation A2 Transform",
       "subtitle": "Tier 1 - micro transform - Master negation placement (nicht,",
       "level": "A2",
       "estimatedMinutes": 3,
       "loopType": "micro_transform",
       "difficultyTier": 1,
-      "orderInGroup": 11
+      "orderInGroup": 11,
+      "title_i18n": {
+        "en": "Negation: A2 (Tier 1) - Transform"
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A2 Transform"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - micro transform - Master negation placement (nicht,"
+      }
     },
     {
       "id": "negation_a2_tier1_pattern-switch",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier1_pattern-switch/drill.json",
-      "shortTitle": "Negation A2",
+      "title": "Negation: A2 (Tier 1) - Pattern",
+      "shortTitle": "Negation A2 Pattern",
       "subtitle": "Tier 1 - pattern switch - Master negation placement (nicht, ",
       "level": "A2",
       "estimatedMinutes": 3,
       "loopType": "pattern_switch",
       "difficultyTier": 1,
-      "orderInGroup": 12
+      "orderInGroup": 12,
+      "title_i18n": {
+        "en": "Negation: A2 (Tier 1) - Pattern"
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A2 Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - pattern switch - Master negation placement (nicht, "
+      }
     },
     {
       "id": "negation_a2_tier2_error-trap",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier2_error-trap/drill.json",
-      "shortTitle": "Negation A2",
+      "title": "Negation: A2 (Tier 2) - Trap",
+      "shortTitle": "Negation A2 Trap",
       "subtitle": "Tier 2 - error trap - Master negation placement (nicht, kein",
       "level": "A2",
       "estimatedMinutes": 4,
       "loopType": "error_trap",
       "difficultyTier": 2,
-      "orderInGroup": 13
+      "orderInGroup": 13,
+      "title_i18n": {
+        "en": "Negation: A2 (Tier 2) - Trap"
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A2 Trap"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - error trap - Master negation placement (nicht, kein"
+      }
     },
     {
       "id": "negation_a2_tier2_micro-transform",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier2_micro-transform/drill.json",
-      "shortTitle": "Negation A2",
+      "title": "Negation: A2 (Tier 2) - Transform",
+      "shortTitle": "Negation A2 Transform",
       "subtitle": "Tier 2 - micro transform - Master negation placement (nicht,",
       "level": "A2",
       "estimatedMinutes": 4,
       "loopType": "micro_transform",
       "difficultyTier": 2,
-      "orderInGroup": 14
+      "orderInGroup": 14,
+      "title_i18n": {
+        "en": "Negation: A2 (Tier 2) - Transform"
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A2 Transform"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - micro transform - Master negation placement (nicht,"
+      }
     },
     {
       "id": "negation_a2_tier2_pattern-switch",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier2_pattern-switch/drill.json",
-      "shortTitle": "Negation A2",
+      "title": "Negation: A2 (Tier 2) - Pattern",
+      "shortTitle": "Negation A2 Pattern",
       "subtitle": "Tier 2 - pattern switch - Master negation placement (nicht, ",
       "level": "A2",
       "estimatedMinutes": 4,
       "loopType": "pattern_switch",
       "difficultyTier": 2,
-      "orderInGroup": 15
+      "orderInGroup": 15,
+      "title_i18n": {
+        "en": "Negation: A2 (Tier 2) - Pattern"
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A2 Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - pattern switch - Master negation placement (nicht, "
+      }
     },
     {
       "id": "negation_a2_tier3_error-trap",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier3_error-trap/drill.json",
-      "shortTitle": "Negation A2",
+      "title": "Negation: A2 (Tier 3) - Trap",
+      "shortTitle": "Negation A2 Trap",
       "subtitle": "Tier 3 - error trap - Master negation placement (nicht, kein",
       "level": "A2",
       "estimatedMinutes": 5,
       "loopType": "error_trap",
       "difficultyTier": 3,
-      "orderInGroup": 16
+      "orderInGroup": 16,
+      "title_i18n": {
+        "en": "Negation: A2 (Tier 3) - Trap"
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A2 Trap"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - error trap - Master negation placement (nicht, kein"
+      }
     },
     {
       "id": "negation_a2_tier3_micro-transform",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier3_micro-transform/drill.json",
-      "shortTitle": "Negation A2",
+      "title": "Negation: A2 (Tier 3) - Transform",
+      "shortTitle": "Negation A2 Transform",
       "subtitle": "Tier 3 - micro transform - Master negation placement (nicht,",
       "level": "A2",
       "estimatedMinutes": 5,
       "loopType": "micro_transform",
       "difficultyTier": 3,
-      "orderInGroup": 17
+      "orderInGroup": 17,
+      "title_i18n": {
+        "en": "Negation: A2 (Tier 3) - Transform"
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A2 Transform"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - micro transform - Master negation placement (nicht,"
+      }
     },
     {
       "id": "negation_a2_tier3_pattern-switch",
       "kind": "drill",
       "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier3_pattern-switch/drill.json",
-      "shortTitle": "Negation A2",
+      "title": "Negation: A2 (Tier 3) - Pattern",
+      "shortTitle": "Negation A2 Pattern",
       "subtitle": "Tier 3 - pattern switch - Master negation placement (nicht, ",
       "level": "A2",
       "estimatedMinutes": 5,
       "loopType": "pattern_switch",
       "difficultyTier": 3,
-      "orderInGroup": 18
+      "orderInGroup": 18,
+      "title_i18n": {
+        "en": "Negation: A2 (Tier 3) - Pattern"
+      },
+      "shortTitle_i18n": {
+        "en": "Negation A2 Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - pattern switch - Master negation placement (nicht, "
+      }
     }
   ],
   "nextPage": null

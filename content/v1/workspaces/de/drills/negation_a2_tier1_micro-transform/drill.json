@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A2",
-  "title": "Negation: A2 (Tier 1)",
-  "shortTitle": "Negation A2",
+  "title": "Negation: A2 (Tier 1) - Transform",
+  "shortTitle": "Negation A2 Transform",
   "subtitle": "Tier 1 - micro transform - Master negation placement (nicht,",
   "estimatedMinutes": 3,
   "mechanicId": "negation",
@@ -17,7 +17,9 @@
   "variationSlots": [
     "subject",
     "verb",
-    "object"
+    "object",
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -60,144 +62,177 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Er kommet das Essen.",
+      "text": "Sie bin gar in der Schule Lust.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er kommet das Essen.",
+      "natural_en": "Sie bin gar in der Schule Lust.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier",
+        "location"
       ],
       "slots": {
         "subject": [
-          "Er"
+          "Sie"
         ],
         "verb": [
-          "kommet"
+          "bin"
         ],
         "object": [
-          "das Essen"
+          "Lust"
+        ],
+        "modifier": [
+          "gar"
+        ],
+        "location": [
+          "in der Schule"
         ]
       },
       "audioUrl": "/v1/audio/negation_A2_tier1/prompt-001.mp3"
     },
     {
       "id": "prompt-002",
-      "text": "Du machest die Zeitung.",
+      "text": "Wir komme mehr dort Geld.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du machest die Zeitung.",
+      "natural_en": "Wir komme mehr dort Geld.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier",
+        "location"
       ],
       "slots": {
         "subject": [
-          "Du"
+          "Wir"
         ],
         "verb": [
-          "machest"
+          "komme"
         ],
         "object": [
-          "die Zeitung"
+          "Geld"
+        ],
+        "modifier": [
+          "mehr"
+        ],
+        "location": [
+          "dort"
         ]
       },
       "audioUrl": "/v1/audio/negation_A2_tier1/prompt-002.mp3"
     },
     {
       "id": "prompt-003",
-      "text": "Er esset das Essen.",
+      "text": "Er gehe gar die Musik.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er esset das Essen.",
+      "natural_en": "Er gehe gar die Musik.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
           "Er"
         ],
         "verb": [
-          "esset"
+          "gehe"
         ],
         "object": [
-          "das Essen"
+          "die Musik"
+        ],
+        "modifier": [
+          "gar"
         ]
       },
       "audioUrl": "/v1/audio/negation_A2_tier1/prompt-003.mp3"
     },
     {
       "id": "prompt-004",
-      "text": "Er trinket das Buch.",
+      "text": "Du sehest mehr das Essen keinem.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er trinket das Buch.",
+      "natural_en": "Du sehest mehr das Essen.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
-          "Er"
+          "Du"
         ],
         "verb": [
-          "trinket"
+          "sehest"
         ],
         "object": [
-          "das Buch"
+          "das Essen"
+        ],
+        "modifier": [
+          "mehr",
+          "keinem"
         ]
       },
       "audioUrl": "/v1/audio/negation_A2_tier1/prompt-004.mp3"
     },
     {
       "id": "prompt-005",
-      "text": "Wir habe das Buch.",
+      "text": "Ihr gehet wirklich die Zeitung.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir habe das Buch.",
+      "natural_en": "Ihr gehet wirklich die Zeitung.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
-          "Wir"
+          "Ihr"
         ],
         "verb": [
-          "habe"
+          "gehet"
         ],
         "object": [
-          "das Buch"
+          "die Zeitung"
+        ],
+        "modifier": [
+          "wirklich"
         ]
       },
       "audioUrl": "/v1/audio/negation_A2_tier1/prompt-005.mp3"
     },
     {
       "id": "prompt-006",
-      "text": "Wir sehe das Buch.",
+      "text": "Ich habee wirklich Lust.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir sehe das Buch.",
+      "natural_en": "Ich habee wirklich Lust.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
-          "Wir"
+          "Ich"
         ],
         "verb": [
-          "sehe"
+          "habee"
         ],
         "object": [
-          "das Buch"
+          "Lust"
+        ],
+        "modifier": [
+          "wirklich"
         ]
       },
       "audioUrl": "/v1/audio/negation_A2_tier1/prompt-006.mp3"
@@ -218,17 +253,20 @@
     ],
     "coverage": {
       "verbs": [
-        "kommet",
-        "machest",
-        "esset",
-        "trinket",
-        "habe",
-        "sehe"
+        "bin",
+        "komme",
+        "gehe",
+        "sehest",
+        "gehet",
+        "habee"
       ],
       "subjects": [
+        "Sie",
+        "Wir",
         "Er",
         "Du",
-        "Wir"
+        "Ihr",
+        "Ich"
       ],
       "patterns": [
         "nicht_placement",
@@ -241,10 +279,10 @@
     "estPromptCount": 6,
     "timeboxMinutes": 3,
     "qualitySignals": {
-      "tokenHitsCount": 2,
+      "tokenHitsCount": 6,
       "multiSlotRate": 1,
       "uniqueVerbCount": 6,
-      "uniqueSubjectCount": 3,
+      "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -253,12 +291,21 @@
     "source": "template",
     "sourceRef": "mechanics/negation",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.642Z"
+    "generatedAt": "2026-01-03T09:52:17.356Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Negation: A2 (Tier 1) - Transform"
+  },
+  "shortTitle_i18n": {
+    "en": "Negation A2 Transform"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 1 - micro transform - Master negation placement (nicht,"
+  },
   "contentId": "de:drill:negation_a2_tier1_micro-transform",
-  "contentHash": "d31130dc65463ff4e9e29e126bba41f313498da094035d16c2ee2b54e623873e",
-  "revisionId": "d31130dc6546"
+  "contentHash": "65243d0da0c8ed1b876dceb4cf4f216c788c2aedc7c57d48fbe038aaba576492",
+  "revisionId": "65243d0da0c8"
 }

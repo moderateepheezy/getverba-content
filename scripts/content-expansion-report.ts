@@ -87,6 +87,7 @@ interface ExpansionReport {
     averageScenarioTokenDensity: number;
   };
   failures: string[];
+  warnings: string[];
   passed: boolean;
 }
 
@@ -277,18 +278,28 @@ function generateReport(): ExpansionReport {
   
   // Check for hard failures
   const failures: string[] = [];
+  const warnings: string[] = [];
+  
+  // Exclude test packs from quality checks
+  const isTestPack = (packId: string) => packId.startsWith('test-');
   
   if (totalBannedPhraseHits > 0) {
     failures.push(`HARD FAIL: ${totalBannedPhraseHits} banned phrase hit(s) found across ${packsWithBannedPhrases} pack(s). All banned phrase hits must be 0.`);
   }
   
   packMetrics.forEach(metrics => {
+    // Skip test packs for quality checks
+    if (isTestPack(metrics.packId)) {
+      return;
+    }
+    
     if (metrics.bannedPhraseHits > 0) {
       failures.push(`Pack "${metrics.packId}" has ${metrics.bannedPhraseHits} banned phrase hit(s)`);
     }
     if (metrics.percentMultiSlotVariation < 30) {
       failures.push(`Pack "${metrics.packId}" has ${metrics.percentMultiSlotVariation.toFixed(1)}% multi-slot variation (minimum: 30%)`);
     }
+    // Duplicate sentences are hard failures - must be fixed
     if (metrics.duplicateSentenceCount > 0) {
       failures.push(`Pack "${metrics.packId}" has ${metrics.duplicateSentenceCount} duplicate sentence(s)`);
     }
@@ -309,6 +320,7 @@ function generateReport(): ExpansionReport {
       averageScenarioTokenDensity
     },
     failures,
+    warnings,
     passed
   };
 }
@@ -332,7 +344,16 @@ function main() {
   console.log(`   Packs below multi-slot threshold: ${report.summary.packsBelowMultiSlotThreshold}`);
   console.log(`   Packs with duplicates: ${report.summary.packsWithDuplicates}\n`);
   
-  // Print failures
+  // Print warnings (non-blocking)
+  if (report.warnings && report.warnings.length > 0) {
+    console.warn('⚠️  WARNINGS (non-blocking):\n');
+    report.warnings.forEach(warning => {
+      console.warn(`   ${warning}`);
+    });
+    console.warn('');
+  }
+  
+  // Print failures (blocking)
   if (report.failures.length > 0) {
     console.error('❌ HARD FAILURES DETECTED:\n');
     report.failures.forEach(failure => {

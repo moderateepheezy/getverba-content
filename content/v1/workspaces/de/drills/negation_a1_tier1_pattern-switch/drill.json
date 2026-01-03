@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A1",
-  "title": "Negation: A1 (Tier 1)",
-  "shortTitle": "Negation A1",
+  "title": "Negation: A1 (Tier 1) - Pattern",
+  "shortTitle": "Negation A1 Pattern",
   "subtitle": "Tier 1 - pattern switch - Master negation placement (nicht, ",
   "estimatedMinutes": 3,
   "mechanicId": "negation",
@@ -17,7 +17,9 @@
   "variationSlots": [
     "subject",
     "verb",
-    "object"
+    "object",
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -60,14 +62,47 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Ihr gehet die Zeitung.",
+      "text": "Ich kommee gar hier Tee.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ihr gehet die Zeitung.",
+      "natural_en": "Ich kommee gar hier Tee.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "kommee"
+        ],
+        "object": [
+          "Tee"
+        ],
+        "modifier": [
+          "gar"
+        ],
+        "location": [
+          "hier"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier1/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Ihr gehet wirklich Geld.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ihr gehet wirklich Geld.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
@@ -77,41 +112,108 @@
           "gehet"
         ],
         "object": [
-          "die Zeitung"
-        ]
-      },
-      "audioUrl": "/v1/audio/negation_A1_tier1/prompt-001.mp3"
-    },
-    {
-      "id": "prompt-002",
-      "text": "Sie kommet das Essen.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie kommet das Essen.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Sie"
+          "Geld"
         ],
-        "verb": [
-          "kommet"
-        ],
-        "object": [
-          "das Essen"
+        "modifier": [
+          "wirklich"
         ]
       },
       "audioUrl": "/v1/audio/negation_A1_tier1/prompt-002.mp3"
     },
     {
       "id": "prompt-003",
-      "text": "Du kommest die Musik.",
+      "text": "morgen esset nicht überhaupt Tee.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du kommest die Musik.",
+      "natural_en": "morgen esset nicht überhaupt Tee.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "nicht"
+        ],
+        "verb": [
+          "esset"
+        ],
+        "object": [
+          "Tee"
+        ],
+        "modifier": [
+          "überhaupt"
+        ],
+        "time": [
+          "morgen"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier1/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "nicht höret gar das Essen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "nicht höret gar das Essen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "nicht"
+        ],
+        "verb": [
+          "höret"
+        ],
+        "object": [
+          "das Essen"
+        ],
+        "modifier": [
+          "gar"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier1/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Wir komme gar den Film.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Wir komme gar den Film.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "komme"
+        ],
+        "object": [
+          "den Film"
+        ],
+        "modifier": [
+          "gar"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier1/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "am Abend bist du Kaffee keinen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Abend bist du Kaffee.",
       "slotsChanged": [
         "time",
         "subject",
@@ -123,83 +225,16 @@
           "Du"
         ],
         "verb": [
-          "kommest"
-        ],
-        "object": [
-          "die Musik"
-        ]
-      },
-      "audioUrl": "/v1/audio/negation_A1_tier1/prompt-003.mp3"
-    },
-    {
-      "id": "prompt-004",
-      "text": "Wir gehe das Essen.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir gehe das Essen.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Wir"
-        ],
-        "verb": [
-          "gehe"
-        ],
-        "object": [
-          "das Essen"
-        ]
-      },
-      "audioUrl": "/v1/audio/negation_A1_tier1/prompt-004.mp3"
-    },
-    {
-      "id": "prompt-005",
-      "text": "Wir bin den Film.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir bin den Film.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Wir"
-        ],
-        "verb": [
-          "bin"
-        ],
-        "object": [
-          "den Film"
-        ]
-      },
-      "audioUrl": "/v1/audio/negation_A1_tier1/prompt-005.mp3"
-    },
-    {
-      "id": "prompt-006",
-      "text": "Ihr machet Kaffee.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ihr machet Kaffee.",
-      "slotsChanged": [
-        "time",
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Ihr"
-        ],
-        "verb": [
-          "machet"
+          "bist"
         ],
         "object": [
           "Kaffee"
+        ],
+        "time": [
+          "am Abend"
+        ],
+        "modifier": [
+          "keinen"
         ]
       },
       "audioUrl": "/v1/audio/negation_A1_tier1/prompt-006.mp3"
@@ -220,18 +255,19 @@
     ],
     "coverage": {
       "verbs": [
+        "kommee",
         "gehet",
-        "kommet",
-        "kommest",
-        "gehe",
-        "bin",
-        "machet"
+        "esset",
+        "höret",
+        "komme",
+        "bist"
       ],
       "subjects": [
+        "Ich",
         "Ihr",
-        "Sie",
-        "Du",
-        "Wir"
+        "nicht",
+        "Wir",
+        "Du"
       ],
       "patterns": [
         "nicht_placement",
@@ -244,10 +280,10 @@
     "estPromptCount": 6,
     "timeboxMinutes": 3,
     "qualitySignals": {
-      "tokenHitsCount": 5,
+      "tokenHitsCount": 6,
       "multiSlotRate": 1,
       "uniqueVerbCount": 6,
-      "uniqueSubjectCount": 4,
+      "uniqueSubjectCount": 5,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -256,12 +292,21 @@
     "source": "template",
     "sourceRef": "mechanics/negation",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.640Z"
+    "generatedAt": "2026-01-03T09:52:17.354Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Negation: A1 (Tier 1) - Pattern"
+  },
+  "shortTitle_i18n": {
+    "en": "Negation A1 Pattern"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 1 - pattern switch - Master negation placement (nicht, "
+  },
   "contentId": "de:drill:negation_a1_tier1_pattern-switch",
-  "contentHash": "44e06df4994c2a13fedf14664c278263ac38954c4eaaf6a7dec121d6590b4452",
-  "revisionId": "44e06df4994c"
+  "contentHash": "c78bf5e816489bd862c170862fc94d2dbbc4e1694d825141a54c611b4b585412",
+  "revisionId": "c78bf5e81648"
 }

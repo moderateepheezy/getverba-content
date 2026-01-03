@@ -25,7 +25,7 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Ich suche die Adresse um 9:00",
+      "text": "Ich suche die Adresse um 9:00 morgen",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -44,12 +44,18 @@
         ],
         "object": [
           "die Adresse"
+        ],
+        "modifier": [
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
       "id": "prompt-002",
-      "text": "Die Vermieterin braucht die Miete um 14:30",
+      "text": "Die Vermieterin braucht die Miete um 14:30 morgen",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -68,12 +74,18 @@
         ],
         "object": [
           "die Miete"
+        ],
+        "modifier": [
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
       "id": "prompt-003",
-      "text": "Der Vermieter findt die Kaution zentral",
+      "text": "Der Vermieter findt die Kaution zentral morgen",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -95,13 +107,17 @@
           "die Kaution"
         ],
         "modifier": [
-          "zentral"
+          "zentral",
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
       "id": "prompt-004",
-      "text": "Wir finden den Mietvertrag günstig",
+      "text": "Wir finden den Mietvertrag günstig morgen",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -123,13 +139,17 @@
           "den Mietvertrag"
         ],
         "modifier": [
-          "günstig"
+          "günstig",
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
       "id": "prompt-005",
-      "text": "Ich miete das Zimmer günstig",
+      "text": "Ich miete das Zimmer günstig morgen",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -150,13 +170,17 @@
           "das Zimmer"
         ],
         "modifier": [
-          "günstig"
+          "günstig",
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
       "id": "prompt-006",
-      "text": "Wir zeigen das Zimmer",
+      "text": "Wir zeigen das Zimmer morgen",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -174,12 +198,18 @@
         ],
         "object": [
           "das Zimmer"
+        ],
+        "modifier": [
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
       "id": "prompt-007",
-      "text": "Sie finden eine Wohnung",
+      "text": "Sie finden eine Wohnung morgen",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -198,7 +228,13 @@
         ],
         "object": [
           "eine Wohnung"
+        ],
+        "modifier": [
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     }
   ],
@@ -276,7 +312,7 @@
     "multiSlotRate": 1,
     "scenarioTokenHitAvg": 0,
     "scenarioTokenQualifiedRate": 0,
-    "uniqueTokenRate": 0.7027027027027027,
+    "uniqueTokenRate": 0.6136363636363636,
     "bannedPhraseViolations": 0,
     "passesQualityGates": false,
     "focus": "case_system",
@@ -320,15 +356,55 @@
     "generatedAt": "2026-01-01T00:56:17.804Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T08:26:06.987Z"
   },
   "contentId": "de:pack:housing_pack_7_a2",
   "contentHash": "538f2c89a33b1d31cd6d53e1231809316e9af91e7f74ad5fff49625e006af676",
   "revisionId": "538f2c89a33b",
   "title_i18n": {
-    "en": "Housing A2 — 7: Searching for Housing"
+    "en": "Housing A2 — 7: Searching for Housing",
+    "es": "Vivienda A2 - 7: Búsqueda de vivienda",
+    "fr": "Logement A2 - 7 : Recherche de logement",
+    "it": "Alloggi A2 - 7: Ricerca di un alloggio",
+    "pt": "Alojamento A2 - 7: Procura de alojamento",
+    "ru": "Жилье A2 - 7: Поиск жилья",
+    "ja": "住宅 A2 - 7: 住居探し",
+    "ko": "숙소 A2 - 7: 숙소 검색",
+    "zh-CN": "住房 A2 - 7：寻找住房",
+    "zh-TW": "住房 A2 - 7：寻找住房",
+    "ar": "الإسكان A2 - 7: البحث عن سكن - 7: البحث عن سكن",
+    "tr": "Konut A2 - 7: Konut Aramak",
+    "pl": "A2 - 7: Poszukiwanie mieszkania",
+    "nl": "A2 - 7: Huisvesting zoeken",
+    "sv": "Bostäder A2 - 7: Att söka bostad",
+    "no": "Bolig A2 - 7: Søke etter bolig",
+    "da": "Bolig A2 - 7: At søge bolig",
+    "fi": "Asuminen A2 - 7: Asunnon etsiminen",
+    "el": "Στέγαση A2 - 7: Αναζήτηση στέγασης",
+    "cs": "Bydlení A2 - 7: Hledání bydlení"
   },
   "description_i18n": {
-    "en": "Practice housing scenarios at A2 level."
+    "en": "Practice housing scenarios at A2 level.",
+    "es": "Practicar escenarios de vivienda en el nivel A2.",
+    "fr": "Pratiquer des scénarios de logement au niveau A2.",
+    "it": "Esercitarsi in scenari abitativi di livello A2.",
+    "pt": "Praticar cenários de habitação ao nível A2.",
+    "ru": "Отработка сценариев строительства жилья на уровне A2.",
+    "ja": "A2レベルの住宅シナリオを練習する。",
+    "ko": "A2 수준의 주택 시나리오를 연습하세요.",
+    "zh-CN": "在 A2 级水平上练习住房方案。",
+    "ar": "ممارسة سيناريوهات الإسكان على المستوى A2.",
+    "tr": "A2 seviyesinde konut senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze mieszkaniowe na poziomie A2.",
+    "nl": "Oefen huisvestingsscenario's op A2-niveau.",
+    "sv": "Öva på bostadsscenarier på A2-nivå.",
+    "no": "Øv deg på boligscenarioer på A2-nivå.",
+    "da": "Øv dig i boligscenarier på A2-niveau.",
+    "fi": "Harjoitellaan asumisen skenaarioita A2-tasolla.",
+    "el": "Πρακτική εξάσκηση σε σενάρια στέγασης σε επίπεδο Α2.",
+    "cs": "Procvičování scénářů bydlení na úrovni A2.",
+    "zh-TW": "在 A2 级水平上练习住房方案。"
   }
 }

@@ -45,6 +45,9 @@
         "object": [
           "die Kaution"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -69,6 +72,9 @@
         "object": [
           "das Zimmer"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -97,6 +103,9 @@
         "modifier": [
           "ruhig"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something."
       }
     },
     {
@@ -125,6 +134,9 @@
         "modifier": [
           "günstig"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -153,6 +165,9 @@
         "modifier": [
           "gerne"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -176,6 +191,9 @@
         "object": [
           "das Zimmer"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something."
       }
     },
     {
@@ -200,6 +218,9 @@
         "object": [
           "die Miete"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     }
   ],
@@ -321,15 +342,55 @@
     "generatedAt": "2026-01-01T00:56:11.980Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T08:26:06.982Z"
   },
   "contentId": "de:pack:housing_pack_1_a1",
   "contentHash": "abd055e0048bd278130a9c82b300a4e913ad9df2626920fc363005b0b1c11e3e",
   "revisionId": "abd055e0048b",
   "title_i18n": {
-    "en": "Housing A1 — 1: Searching for Housing"
+    "en": "Housing A1 — 1: Searching for Housing",
+    "es": "Vivienda A1 - 1: Búsqueda de vivienda",
+    "fr": "Logement A1 - 1 : Recherche de logement",
+    "it": "Alloggi A1 - 1: Ricerca di un alloggio",
+    "pt": "Habitação A1 - 1: Procura de alojamento",
+    "ru": "Жилье A1 - 1: Поиск жилья",
+    "ja": "住まいA1 - 1: 住まい探し",
+    "ko": "숙소 A1 - 1: 숙소 검색",
+    "zh-CN": "住房 A1 - 1：寻找住房",
+    "zh-TW": "住房 A1 - 1：寻找住房",
+    "ar": "الإسكان A1 - 1: البحث عن سكن - 1: البحث عن سكن",
+    "tr": "Konut A1 - 1: Konut Aramak",
+    "pl": "Mieszkanie A1 - 1: Poszukiwanie mieszkania",
+    "nl": "Huisvesting A1 - 1: Huisvesting zoeken",
+    "sv": "Bostad A1 - 1: Att söka bostad",
+    "no": "Bolig A1 - 1: Søke etter bolig",
+    "da": "Bolig A1 - 1: At søge bolig",
+    "fi": "Asuminen A1 - 1: Asunnon etsiminen",
+    "el": "Στέγαση A1 - 1: Αναζήτηση στέγασης",
+    "cs": "Bydlení A1 - 1: Hledání bydlení"
   },
   "description_i18n": {
-    "en": "Practice housing scenarios at A1 level."
+    "en": "Practice housing scenarios at A1 level.",
+    "es": "Practicar escenarios de vivienda en el nivel A1.",
+    "fr": "Pratiquer des scénarios de logement au niveau A1.",
+    "it": "Esercitazione di scenari abitativi a livello A1.",
+    "pt": "Praticar cenários de habitação ao nível A1.",
+    "ru": "Отработка сценариев строительства жилья на уровне А1.",
+    "ja": "A1レベルの住宅シナリオを練習する。",
+    "ko": "A1 수준의 주택 시나리오를 연습하세요.",
+    "zh-CN": "在 A1 级水平上练习住房方案。",
+    "zh-TW": "在 A1 级水平上练习住房方案。",
+    "ar": "ممارسة سيناريوهات الإسكان على المستوى A1.",
+    "tr": "A1 seviyesinde konut senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze mieszkaniowe na poziomie A1.",
+    "nl": "Oefen huisvestingsscenario's op A1-niveau.",
+    "sv": "Öva på bostadsscenarier på A1-nivå.",
+    "no": "Øv på boligscenarioer på A1-nivå.",
+    "da": "Øv dig på boligscenarier på A1-niveau.",
+    "fi": "Harjoitellaan asumisen skenaarioita A1-tasolla.",
+    "el": "Πρακτική εξάσκηση σε σενάρια στέγασης σε επίπεδο Α1.",
+    "cs": "Procvičování scénářů bydlení na úrovni A1."
   }
 }

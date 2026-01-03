@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A2",
-  "title": "Time Expressions & Inversion: A2 (Tier 2)",
-  "shortTitle": "Time Expressions & Invers...",
+  "title": "Time Expressions & Inversion: A2 (Tier 2) - Transform",
+  "shortTitle": "Time Expression A2 Transform",
   "subtitle": "Tier 2 - micro transform - Master verb inversion with time e",
   "estimatedMinutes": 4,
   "mechanicId": "time_expressions_inversion",
@@ -17,6 +17,8 @@
   "variationSlots": [
     "subject",
     "verb",
+    "object",
+    "modifier",
     "time"
   ],
   "sessionPlan": {
@@ -62,54 +64,42 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "sie gehet.",
+      "text": "man lernt heute Abend Essen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "sie gehet.",
+      "natural_en": "man lernt heute Abend Essen.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time"
       ],
       "slots": {
         "subject": [
-          "sie"
+          "man"
         ],
         "verb": [
-          "gehet"
+          "lernt"
+        ],
+        "object": [
+          "Essen"
+        ],
+        "time": [
+          "heute Abend"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier2/prompt-001.mp3"
     },
     {
       "id": "prompt-002",
-      "text": "ihr höret.",
+      "text": "wir kommen jetzt Hausaufgaben.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "ihr höret.",
-      "slotsChanged": [
-        "subject",
-        "verb"
-      ],
-      "slots": {
-        "subject": [
-          "ihr"
-        ],
-        "verb": [
-          "höret"
-        ]
-      },
-      "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier2/prompt-002.mp3"
-    },
-    {
-      "id": "prompt-003",
-      "text": "wir sehe.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "wir sehe.",
+      "natural_en": "wir kommen jetzt Hausaufgaben.",
       "slotsChanged": [
         "subject",
         "verb",
+        "time",
         "object"
       ],
       "slots": {
@@ -117,40 +107,111 @@
           "wir"
         ],
         "verb": [
-          "sehe"
+          "kommen"
+        ],
+        "object": [
+          "Hausaufgaben"
+        ],
+        "time": [
+          "jetzt"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier2/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "ihr seht gestern Hausaufgaben.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "ihr seht gestern Hausaufgaben.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "ihr"
+        ],
+        "verb": [
+          "seht"
+        ],
+        "object": [
+          "Hausaufgaben"
+        ],
+        "time": [
+          "gestern"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier2/prompt-003.mp3"
     },
     {
       "id": "prompt-004",
-      "text": "ich sehee.",
+      "text": "ich esse heute Pause.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "ich sehee.",
+      "natural_en": "ich esse heute Pause.",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "time",
+        "object"
       ],
       "slots": {
         "subject": [
           "ich"
         ],
         "verb": [
-          "sehee"
+          "esse"
+        ],
+        "object": [
+          "Pause"
+        ],
+        "time": [
+          "heute"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier2/prompt-004.mp3"
     },
     {
       "id": "prompt-005",
-      "text": "er arbeitet.",
+      "text": "es trinkt jetzt Sport.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "er arbeitet.",
+      "natural_en": "es trinkt jetzt Sport.",
       "slotsChanged": [
         "subject",
         "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "es"
+        ],
+        "verb": [
+          "trinkt"
+        ],
+        "object": [
+          "Sport"
+        ],
+        "time": [
+          "jetzt"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier2/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "gestern arbeitet er Hausaufgaben.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "gestern arbeitet er Hausaufgaben.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
         "object"
       ],
       "slots": {
@@ -159,67 +220,68 @@
         ],
         "verb": [
           "arbeitet"
-        ]
-      },
-      "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier2/prompt-005.mp3"
-    },
-    {
-      "id": "prompt-006",
-      "text": "sie höret.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "sie höret.",
-      "slotsChanged": [
-        "subject",
-        "verb"
-      ],
-      "slots": {
-        "subject": [
-          "sie"
         ],
-        "verb": [
-          "höret"
+        "object": [
+          "Hausaufgaben"
+        ],
+        "time": [
+          "gestern"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier2/prompt-006.mp3"
     },
     {
       "id": "prompt-007",
-      "text": "du machest.",
+      "text": "gestern gehst du Pause.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "du machest.",
+      "natural_en": "gestern gehst du Pause.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time"
       ],
       "slots": {
         "subject": [
           "du"
         ],
         "verb": [
-          "machest"
+          "gehst"
+        ],
+        "object": [
+          "Pause"
+        ],
+        "time": [
+          "gestern"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier2/prompt-007.mp3"
     },
     {
       "id": "prompt-008",
-      "text": "du lernest.",
+      "text": "jetzt macht sie Hausaufgaben.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "du lernest.",
+      "natural_en": "jetzt macht sie Hausaufgaben.",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "time",
+        "object"
       ],
       "slots": {
         "subject": [
-          "du"
+          "sie"
         ],
         "verb": [
-          "lernest"
+          "macht"
+        ],
+        "object": [
+          "Hausaufgaben"
+        ],
+        "time": [
+          "jetzt"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier2/prompt-008.mp3"
@@ -240,21 +302,24 @@
     ],
     "coverage": {
       "verbs": [
-        "gehet",
-        "höret",
-        "sehe",
-        "sehee",
+        "lernt",
+        "kommen",
+        "seht",
+        "esse",
+        "trinkt",
         "arbeitet",
-        "machest",
-        "lernest"
+        "gehst",
+        "macht"
       ],
       "subjects": [
-        "sie",
-        "ihr",
+        "man",
         "wir",
+        "ihr",
         "ich",
+        "es",
         "er",
-        "du"
+        "du",
+        "sie"
       ],
       "patterns": [
         "time_verb_subject",
@@ -267,10 +332,10 @@
     "estPromptCount": 8,
     "timeboxMinutes": 4,
     "qualitySignals": {
-      "tokenHitsCount": 5,
+      "tokenHitsCount": 8,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 7,
-      "uniqueSubjectCount": 6,
+      "uniqueVerbCount": 8,
+      "uniqueSubjectCount": 8,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -279,12 +344,21 @@
     "source": "template",
     "sourceRef": "mechanics/time_expressions_inversion",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.651Z"
+    "generatedAt": "2026-01-03T09:52:17.370Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Time Expressions & Inversion: A2 (Tier 2) - Transform"
+  },
+  "shortTitle_i18n": {
+    "en": "Time Expression A2 Transform"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 2 - micro transform - Master verb inversion with time e"
+  },
   "contentId": "de:drill:time_expressions_inversion_a2_tier2_micro-transform",
-  "contentHash": "73b1d3587fff2fe62e4975460b9fa37044d1ac4b410cf72e16192a31f25d9484",
-  "revisionId": "73b1d3587fff"
+  "contentHash": "191fa569eba72406fcc192aa661e0756e12fcefad3fa7b9ef1bb1d1cd4a80eeb",
+  "revisionId": "191fa569eba7"
 }

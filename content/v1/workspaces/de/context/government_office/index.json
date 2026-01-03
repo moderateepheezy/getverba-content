@@ -53,9 +53,33 @@
       "topicLabel": "Modal Verbs Requests",
       "shortTitle": "Government Office — Anmel...",
       "title_i18n": {
-        "en": "Government Office A1 — Anmeldung Address Registration"
+        "en": "Government Office A1 — Anmeldung Address Registration",
+        "es": "Government Office A1 - Anmeldung Registro de direcciones",
+        "fr": "Government Office A1 - Anmeldung Enregistrement d'adresse",
+        "it": "Ufficio governativo A1 - Registrazione indirizzo Anmeldung",
+        "pt": "Government Office A1 - Registo de endereços Anmeldung",
+        "ru": "Правительственный офис A1 - Регистрация адреса Anmeldung",
+        "ja": "官庁A1 - 住所登録",
+        "ko": "관공서 A1 - 주소 등록",
+        "zh-CN": "政府办公室 A1 - 地址登记",
+        "zh-TW": "政府办公室 A1 - 地址登记",
+        "ar": "المكتب الحكومي A1 - تسجيل عنوان المكتب الحكومي A1 - تسجيل عنوان أنملدونغ",
+        "tr": "Devlet Dairesi A1 - Anmeldung Adres Kaydı",
+        "pl": "Biuro rządowe A1 - Rejestracja adresu Anmeldung",
+        "nl": "Overheidsinstelling A1 - Adresregistratie Anmeldung",
+        "sv": "Regeringskansliet A1 - Anmälan Adressregistrering",
+        "no": "Government Office A1 - Anmeldung Adresseregistrering",
+        "da": "Government Office A1 - Anmeldung Adresseregistrering",
+        "fi": "Valtioneuvoston kanslia A1 - Ilmoittautuminen Osoitteen rekisteröinti",
+        "el": "Κυβερνητικό Γραφείο A1 - Εγγραφή διεύθυνσης εγγραφής",
+        "cs": "Úřad vlády A1 - Registrace adresy Anmeldung"
       },
       "domainKind": "context",
+      "groupId": "registration-documents",
+      "groupTitle": "Registration & Documents",
+      "groupTitle_i18n": {
+        "en": "Registration & Documents"
+      },
       "isRecommended": true
     },
     {
@@ -106,9 +130,33 @@
       "topicLabel": "Modal Verbs Requests",
       "shortTitle": "Government Office — Healt...",
       "title_i18n": {
-        "en": "Government Office A1 — Health Insurance Basic"
+        "en": "Government Office A1 — Health Insurance Basic",
+        "es": "Oficina gubernamental A1 - Seguro de enfermedad básico",
+        "fr": "Government Office A1 - Assurance maladie de base",
+        "it": "Ufficio governativo A1 - Assicurazione sanitaria di base",
+        "pt": "Government Office A1 - Seguro de saúde básico",
+        "ru": "Правительственный офис A1 - Базовая медицинская страховка",
+        "ja": "官庁A1 - 健康保険ベーシック",
+        "ko": "정부청사 A1 - 건강 보험 기본",
+        "zh-CN": "政府办公室 A1 - 基本医疗保险",
+        "zh-TW": "政府办公室 A1 - 基本医疗保险",
+        "ar": "المكتب الحكومي A1 - التأمين الصحي الأساسي",
+        "tr": "Devlet Dairesi A1 - Temel Sağlık Sigortası",
+        "pl": "Biuro rządowe A1 - Podstawowe ubezpieczenie zdrowotne",
+        "nl": "Overheidsinstelling A1 - Basisverzekering",
+        "sv": "Regeringskansliet A1 - Sjukförsäkring Bas",
+        "no": "Government Office A1 - Helseforsikring Basic",
+        "da": "Regeringskontor A1 - Sundhedsforsikring Basic",
+        "fi": "Valtioneuvoston kanslia A1 - Sairausvakuutus Basic",
+        "el": "Κυβερνητικό Γραφείο A1 - Βασική ασφάλιση υγείας",
+        "cs": "Úřad vlády A1 - Základní zdravotní pojištění"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "public-services",
+      "groupTitle": "Public Services",
+      "groupTitle_i18n": {
+        "en": "Public Services"
+      }
     },
     {
       "id": "passport_pickup_a1",
@@ -158,9 +206,33 @@
       "topicLabel": "Modal Verbs Requests",
       "shortTitle": "Government Office — Passp...",
       "title_i18n": {
-        "en": "Government Office A1 — Passport Pickup"
+        "en": "Government Office A1 — Passport Pickup",
+        "es": "Oficina del Gobierno A1 - Recogida de pasaportes",
+        "fr": "Bureau gouvernemental A1 - Retrait des passeports",
+        "it": "Ufficio governativo A1 - Ritiro passaporti",
+        "pt": "Gabinete do Governo A1 - Levantamento de passaportes",
+        "ru": "Правительственный офис A1 - Получение паспорта",
+        "ja": "A1 - パスポート受け取り",
+        "ko": "정부청사 A1 - 여권 픽업",
+        "zh-CN": "A1 号政府办公室 - 护照领取",
+        "zh-TW": "A1 号政府办公室 - 护照领取",
+        "ar": "المكتب الحكومي A1 - استلام الجوازات",
+        "tr": "Devlet Dairesi A1 - Pasaport Teslim Alma",
+        "pl": "Biuro rządowe A1 - odbiór paszportów",
+        "nl": "Overheidsdienst A1 - Afhalen paspoort",
+        "sv": "Regeringskansliet A1 - Passhämtning",
+        "no": "Regjeringskontor A1 - Henting av pass",
+        "da": "Regeringskontor A1 - Afhentning af pas",
+        "fi": "Valtioneuvoston kanslia A1 - Passin nouto",
+        "el": "Κυβερνητικό γραφείο A1 - Παραλαβή διαβατηρίου",
+        "cs": "Úřad vlády A1 - Vyzvednutí pasu"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "registration-documents",
+      "groupTitle": "Registration & Documents",
+      "groupTitle_i18n": {
+        "en": "Registration & Documents"
+      }
     },
     {
       "id": "immigration_office_questions_a2",
@@ -210,9 +282,33 @@
       "topicLabel": "Modal Verbs Requests",
       "shortTitle": "Government Office — Immig...",
       "title_i18n": {
-        "en": "Government Office A2 — Immigration Office Questions"
+        "en": "Government Office A2 — Immigration Office Questions",
+        "es": "Oficina del Gobierno A2 - Preguntas de la Oficina de Inmigración",
+        "fr": "Government Office A2 - Questions de l'Office de l'immigration",
+        "it": "Ufficio governativo A2 - Domande dell'Ufficio Immigrazione",
+        "pt": "Government Office A2 - Perguntas sobre o Gabinete de Imigração",
+        "ru": "Правительственный офис A2 - Вопросы иммиграционной службы",
+        "ja": "官庁A2 - 入国管理局に関する質問",
+        "ko": "정부청사 A2 - 출입국관리소 질문",
+        "zh-CN": "政府办公室 A2 - 移民办公室问题",
+        "zh-TW": "政府办公室 A2 - 移民办公室问题",
+        "ar": "المكتب الحكومي A2 - أسئلة المكتب الحكومي A2 - أسئلة مكتب الهجرة",
+        "tr": "Devlet Dairesi A2 - Göçmenlik Bürosu Soruları",
+        "pl": "Biuro rządowe A2 - Pytania do biura imigracyjnego",
+        "nl": "Overheidsdienst A2 - Immigratiedienst Vragen",
+        "sv": "Regeringskansliet A2 - Frågor från Migrationsverket",
+        "no": "Government Office A2 - Innvandringskontoret Spørsmål",
+        "da": "Regeringskontor A2 - Spørgsmål til immigrationskontoret",
+        "fi": "Valtioneuvoston kanslia A2 - Maahanmuuttoviraston kysymykset",
+        "el": "Κυβερνητικό Γραφείο A2 - Ερωτήσεις Γραφείου Μετανάστευσης",
+        "cs": "Úřad vlády A2 - Otázky imigračního úřadu"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "permits-visas",
+      "groupTitle": "Permits & Visas",
+      "groupTitle_i18n": {
+        "en": "Permits & Visas"
+      }
     },
     {
       "id": "jobcenter_basic_a2",
@@ -262,9 +358,33 @@
       "topicLabel": "Modal Verbs Requests",
       "shortTitle": "Government Office — Jobce...",
       "title_i18n": {
-        "en": "Government Office A2 — Jobcenter Basic"
+        "en": "Government Office A2 — Jobcenter Basic",
+        "es": "Oficina Gubernamental A2 - Jobcenter Basic",
+        "fr": "Government Office A2 - Jobcenter Basic",
+        "it": "Ufficio governativo A2 - Jobcenter Basic",
+        "pt": "Gabinete do Governo A2 - Jobcenter Basic",
+        "ru": "Государственный офис A2 - Центр занятости населения Базовый",
+        "ja": "官庁A2 - ジョブセンター・ベーシック",
+        "ko": "정부청사 A2 - 잡센터 기본",
+        "zh-CN": "政府办公室 A2 - 基本工作中心",
+        "zh-TW": "政府办公室 A2 - 基本工作中心",
+        "ar": "المكتب الحكومي A2 - مركز الوظائف الأساسية",
+        "tr": "Devlet Ofisi A2 - Jobcenter Basic",
+        "pl": "Biuro rządowe A2 - Jobcenter Basic",
+        "nl": "Overheidsbureau A2 - Jobcenter Basis",
+        "sv": "Regeringskansliet A2 - Jobcenter Basic",
+        "no": "Government Office A2 - Jobcenter Basic",
+        "da": "Regeringskontor A2 - Jobcenter Basic",
+        "fi": "Valtion virasto A2 - Jobcenter Basic",
+        "el": "Κυβερνητικό γραφείο A2 - Jobcenter Basic",
+        "cs": "Úřad vlády A2 - Jobcenter Basic"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "public-services",
+      "groupTitle": "Public Services",
+      "groupTitle_i18n": {
+        "en": "Public Services"
+      }
     },
     {
       "id": "residence_permit_appointment_a2",
@@ -314,9 +434,33 @@
       "topicLabel": "Modal Verbs Requests",
       "shortTitle": "Government Office — Resid...",
       "title_i18n": {
-        "en": "Government Office A2 — Residence Permit Appointment"
+        "en": "Government Office A2 — Residence Permit Appointment",
+        "es": "Oficina del Gobierno A2 - Cita previa para el permiso de residencia",
+        "fr": "Government Office A2 - Rendez-vous pour le permis de séjour",
+        "it": "Ufficio governativo A2 - Appuntamento per il permesso di soggiorno",
+        "pt": "Gabinete do Governo A2 - Marcação da autorização de residência",
+        "ru": "Государственный офис A2 - Назначение вида на жительство",
+        "ja": "官庁A2 - 滞在許可証の予約",
+        "ko": "관공서 A2 - 거주 허가 예약",
+        "zh-CN": "政府办公室 A2 - 预约居留许可",
+        "zh-TW": "政府办公室 A2 - 预约居留许可",
+        "ar": "المكتب الحكومي A2 - موعد تصريح الإقامة A2 - تعيين تصريح الإقامة",
+        "tr": "Devlet Dairesi A2 - Oturma İzni Randevusu",
+        "pl": "Biuro rządowe A2 - Spotkanie w sprawie zezwolenia na pobyt",
+        "nl": "Overheidsbureau A2 - Afspraak verblijfsvergunning",
+        "sv": "Regeringskansli A2 - Utnämning till uppehållstillstånd",
+        "no": "Regjeringskansli A2 - Utnevnelse av oppholdstillatelse",
+        "da": "Regeringskontor A2 - Udnævnelse af opholdstilladelse",
+        "fi": "Valtioneuvoston kanslia A2 - Oleskelulupaa koskeva tapaaminen",
+        "el": "Κυβερνητικό Γραφείο A2 - Διορισμός άδειας διαμονής",
+        "cs": "Úřad vlády A2 - Jmenování k vydání povolení k pobytu"
       },
-      "domainKind": "context"
+      "domainKind": "context",
+      "groupId": "permits-visas",
+      "groupTitle": "Permits & Visas",
+      "groupTitle_i18n": {
+        "en": "Permits & Visas"
+      }
     }
   ],
   "nextPage": null,

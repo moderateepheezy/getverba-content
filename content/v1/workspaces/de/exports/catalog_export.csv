@@ -1,0 +1,390 @@
+workspace,sectionId,packId,scenario,register,primaryStructure,level,estimatedMinutes,variationSlots,drillType,cognitiveLoad,goal,whyThisWorks,page,position
+de,context,friends_cafe_meetup_a1,friends_small_talk,casual,modal_verbs_suggestions,A1,15,subject; verb; object; modifier; time; location; polarity,substitution,high,"Practice casual friends conversations: making plans, suggestions, and small talk at A1 level","Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",1,1
+de,context,doctor_pack_1_a1,doctor,neutral,modal_verbs_requests,A1,15,subject; verb; object; modifier; time,substitution,high,Practice doctor appointments and health conversations at A1 level,Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases,1,2
+de,context,doctor_pack_2_a1,doctor,neutral,modal_verbs_requests,A1,15,subject; verb; object; modifier; time,substitution,high,Practice doctor appointments and health conversations at A1 level,Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases,1,3
+de,context,doctor_pack_3_a1,doctor,neutral,modal_verbs_requests,A1,15,subject; verb; object; modifier; time,substitution,high,Practice doctor appointments and health conversations at A1 level,Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases,1,4
+de,context,doctor_pack_4_a1,doctor,neutral,modal_verbs_requests,A1,15,subject; verb; object; modifier; time,substitution,high,Practice doctor appointments and health conversations at A1 level,Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases,1,5
+de,context,doctor_pack_5_a1,doctor,neutral,modal_verbs_requests,A1,15,subject; verb; object; modifier; time,substitution,high,Practice doctor appointments and health conversations at A1 level,Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases,1,6
+de,context,doctor_pack_6_a1,doctor,neutral,modal_verbs_requests,A1,15,subject; verb; object; modifier; time,substitution,high,Practice doctor appointments and health conversations at A1 level,Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases,1,7
+de,context,doctor_pack_7_a1,doctor,neutral,modal_verbs_requests,A1,15,subject; verb; object; modifier; time,substitution,high,Practice doctor appointments and health conversations at A1 level,Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases,1,8
+de,context,doctor_pack_8_a1,doctor,neutral,modal_verbs_requests,A1,15,subject; verb; object; modifier; time,substitution,high,Practice doctor appointments and health conversations at A1 level,Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases,1,9
+de,context,friends_small_talk_pack_1_a1,friends_small_talk,casual,modal_verbs_suggestions,A1,15,subject; verb; object; modifier; time; location; polarity,substitution,high,"Practice casual friends conversations: making plans, suggestions, and small talk at A1 level","Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",1,10
+de,context,friends_small_talk_pack_10_a1,friends_small_talk,casual,modal_verbs_suggestions,A1,15,subject; verb; object; modifier; time; location; polarity,substitution,high,"Practice casual friends conversations: making plans, suggestions, and small talk at A1 level","Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",1,11
+de,context,friends_small_talk_pack_2_a1,friends_small_talk,casual,modal_verbs_suggestions,A1,15,subject; verb; object; modifier; time; location; polarity,substitution,high,"Practice casual friends conversations: making plans, suggestions, and small talk at A1 level","Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",1,12
+de,context,friends_small_talk_pack_3_a1,friends_small_talk,casual,modal_verbs_suggestions,A1,15,subject; verb; object; modifier; time; location; polarity,substitution,high,"Practice casual friends conversations: making plans, suggestions, and small talk at A1 level","Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",1,13
+de,context,friends_small_talk_pack_4_a1,friends_small_talk,casual,modal_verbs_suggestions,A1,15,subject; verb; object; modifier; time; location; polarity,substitution,high,"Practice casual friends conversations: making plans, suggestions, and small talk at A1 level","Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",1,14
+de,context,friends_small_talk_pack_5_a1,friends_small_talk,casual,modal_verbs_suggestions,A1,15,subject; verb; object; modifier; time; location; polarity,substitution,high,"Practice casual friends conversations: making plans, suggestions, and small talk at A1 level","Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",1,15
+de,context,friends_small_talk_pack_6_a1,friends_small_talk,casual,modal_verbs_suggestions,A1,15,subject; verb; object; modifier; time; location; polarity,substitution,high,"Practice casual friends conversations: making plans, suggestions, and small talk at A1 level","Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",1,16
+de,context,friends_small_talk_pack_7_a1,friends_small_talk,casual,modal_verbs_suggestions,A1,15,subject; verb; object; modifier; time; location; polarity,substitution,high,"Practice casual friends conversations: making plans, suggestions, and small talk at A1 level","Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",1,17
+de,context,friends_small_talk_pack_8_a1,friends_small_talk,casual,modal_verbs_suggestions,A1,15,subject; verb; object; modifier; time; location; polarity,substitution,high,"Practice casual friends conversations: making plans, suggestions, and small talk at A1 level","Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",1,18
+de,context,friends_small_talk_pack_9_a1,friends_small_talk,casual,modal_verbs_suggestions,A1,15,subject; verb; object; modifier; time; location; polarity,substitution,high,"Practice casual friends conversations: making plans, suggestions, and small talk at A1 level","Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",1,19
+de,context,anmeldung_address_registration_a1,government_office,formal,modal_verbs_requests,A1,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice formal government_office interactions at A1 level,Practice formal government_office interactions at A1 level Uses formal address (Sie/Ihnen) correctly,1,20
+de,context,health_insurance_basic_a1,government_office,formal,modal_verbs_requests,A1,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice formal government_office interactions at A1 level,Practice formal government_office interactions at A1 level Uses formal address (Sie/Ihnen) correctly,2,1
+de,context,passport_pickup_a1,government_office,formal,modal_verbs_requests,A1,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice formal government_office interactions at A1 level,Practice formal government_office interactions at A1 level Uses formal address (Sie/Ihnen) correctly,2,2
+de,context,housing_pack_1_a1,housing,neutral,dative_case,A1,15,subject; verb; object; modifier; time,substitution,high,Practice housing rental and maintenance conversations at A1 level,Practice housing rental and maintenance conversations at A1 level Uses rental/maintenance vocabulary,2,3
+de,context,housing_pack_10_a1,housing,neutral,dative_case,A1,15,subject; verb; object; modifier; time,substitution,high,Practice housing rental and maintenance conversations at A1 level,Practice housing rental and maintenance conversations at A1 level Uses rental/maintenance vocabulary,2,4
+de,context,housing_pack_2_a1,housing,neutral,dative_case,A1,15,subject; verb; object; modifier; time,substitution,high,Practice housing rental and maintenance conversations at A1 level,Practice housing rental and maintenance conversations at A1 level Uses rental/maintenance vocabulary,2,5
+de,context,housing_pack_3_a1,housing,neutral,dative_case,A1,15,subject; verb; object; modifier; time,substitution,high,Practice housing rental and maintenance conversations at A1 level,Practice housing rental and maintenance conversations at A1 level Uses rental/maintenance vocabulary,2,6
+de,context,housing_pack_4_a1,housing,neutral,dative_case,A1,15,subject; verb; object; modifier; time,substitution,high,Practice housing rental and maintenance conversations at A1 level,Practice housing rental and maintenance conversations at A1 level Uses rental/maintenance vocabulary,2,7
+de,context,housing_pack_5_a1,housing,neutral,dative_case,A1,15,subject; verb; object; modifier; time,substitution,high,Practice housing rental and maintenance conversations at A1 level,Practice housing rental and maintenance conversations at A1 level Uses rental/maintenance vocabulary,2,8
+de,context,housing_pack_6_a1,housing,neutral,dative_case,A1,15,subject; verb; object; modifier; time,substitution,high,Practice housing rental and maintenance conversations at A1 level,Practice housing rental and maintenance conversations at A1 level Uses rental/maintenance vocabulary,2,9
+de,context,housing_pack_7_a1,housing,neutral,dative_case,A1,15,subject; verb; object; modifier; time,substitution,high,Practice housing rental and maintenance conversations at A1 level,Practice housing rental and maintenance conversations at A1 level Uses rental/maintenance vocabulary,2,10
+de,context,housing_pack_8_a1,housing,neutral,dative_case,A1,15,subject; verb; object; modifier; time,substitution,high,Practice housing rental and maintenance conversations at A1 level,Practice housing rental and maintenance conversations at A1 level Uses rental/maintenance vocabulary,2,11
+de,context,housing_pack_9_a1,housing,neutral,dative_case,A1,15,subject; verb; object; modifier; time,substitution,high,Practice housing rental and maintenance conversations at A1 level,Practice housing rental and maintenance conversations at A1 level Uses rental/maintenance vocabulary,2,12
+de,context,friends_movies_series_a1,friends_small_talk,casual,modal_verbs_suggestions,A1,15,subject; verb; object; modifier; time; location; polarity,substitution,high,"Practice casual friends conversations: making plans, suggestions, and small talk at A1 level","Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",2,13
+de,context,friends_plans_weekend_a1,friends_small_talk,casual,modal_verbs_suggestions,A1,15,subject; verb; object; modifier; time; location; polarity,substitution,high,"Practice casual friends conversations: making plans, suggestions, and small talk at A1 level","Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",2,14
+de,context,work_sample_1_a1,work,formal,modal_verbs_requests,A1,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice professional work communication at A1 level,Practice professional work communication at A1 level Uses professional vocabulary appropriately,2,15
+de,context,work_sample_2_a1,work,formal,modal_verbs_requests,A1,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice professional work communication at A1 level,Practice professional work communication at A1 level Uses professional vocabulary appropriately,2,16
+de,context,friends_suggestions_activity_a2,friends_small_talk,casual,modal_verbs_suggestions,A2,15,subject; verb; object; modifier; time; location; polarity,substitution,high,"Practice casual friends conversations: making plans, suggestions, and small talk at A2 level","Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",2,17
+de,context,doctor_pack_1_a2,doctor,neutral,modal_verbs_requests,A2,15,subject; verb; object; modifier; time,substitution,high,Practice doctor appointments and health conversations at A2 level,Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases,2,18
+de,context,doctor_pack_2_a2,doctor,neutral,modal_verbs_requests,A2,15,subject; verb; object; modifier; time,substitution,high,Practice doctor appointments and health conversations at A2 level,Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases,2,19
+de,context,doctor_pack_3_a2,doctor,neutral,modal_verbs_requests,A2,15,subject; verb; object; modifier; time,substitution,high,Practice doctor appointments and health conversations at A2 level,Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases,2,20
+de,context,doctor_pack_4_a2,doctor,neutral,modal_verbs_requests,A2,15,subject; verb; object; modifier; time,substitution,high,Practice doctor appointments and health conversations at A2 level,Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases,3,1
+de,context,doctor_pack_5_a2,doctor,neutral,modal_verbs_requests,A2,15,subject; verb; object; modifier; time,substitution,high,Practice doctor appointments and health conversations at A2 level,Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases,3,2
+de,context,doctor_pack_6_a2,doctor,neutral,modal_verbs_requests,A2,15,subject; verb; object; modifier; time,substitution,high,Practice doctor appointments and health conversations at A2 level,Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases,3,3
+de,context,doctor_pack_7_a2,doctor,neutral,modal_verbs_requests,A2,15,subject; verb; object; modifier; time,substitution,high,Practice doctor appointments and health conversations at A2 level,Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases,3,4
+de,context,doctor_pack_8_a2,doctor,neutral,modal_verbs_requests,A2,15,subject; verb; object; modifier; time,substitution,high,Practice doctor appointments and health conversations at A2 level,Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases,3,5
+de,context,friends_small_talk_pack_1_a2,friends_small_talk,casual,modal_verbs_suggestions,A2,15,subject; verb; object; modifier; time; location; polarity,substitution,high,"Practice casual friends conversations: making plans, suggestions, and small talk at A2 level","Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",3,6
+de,context,friends_small_talk_pack_2_a2,friends_small_talk,casual,modal_verbs_suggestions,A2,15,subject; verb; object; modifier; time; location; polarity,substitution,high,"Practice casual friends conversations: making plans, suggestions, and small talk at A2 level","Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",3,7
+de,context,friends_small_talk_pack_3_a2,friends_small_talk,casual,modal_verbs_suggestions,A2,15,subject; verb; object; modifier; time; location; polarity,substitution,high,"Practice casual friends conversations: making plans, suggestions, and small talk at A2 level","Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",3,8
+de,context,friends_small_talk_pack_4_a2,friends_small_talk,casual,modal_verbs_suggestions,A2,15,subject; verb; object; modifier; time; location; polarity,substitution,high,"Practice casual friends conversations: making plans, suggestions, and small talk at A2 level","Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",3,9
+de,context,friends_small_talk_pack_5_a2,friends_small_talk,casual,modal_verbs_suggestions,A2,15,subject; verb; object; modifier; time; location; polarity,substitution,high,"Practice casual friends conversations: making plans, suggestions, and small talk at A2 level","Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",3,10
+de,context,friends_small_talk_pack_6_a2,friends_small_talk,casual,modal_verbs_suggestions,A2,15,subject; verb; object; modifier; time; location; polarity,substitution,high,"Practice casual friends conversations: making plans, suggestions, and small talk at A2 level","Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",3,11
+de,context,friends_small_talk_pack_7_a2,friends_small_talk,casual,modal_verbs_suggestions,A2,15,subject; verb; object; modifier; time; location; polarity,substitution,high,"Practice casual friends conversations: making plans, suggestions, and small talk at A2 level","Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",3,12
+de,context,friends_small_talk_pack_8_a2,friends_small_talk,casual,modal_verbs_suggestions,A2,15,subject; verb; object; modifier; time; location; polarity,substitution,high,"Practice casual friends conversations: making plans, suggestions, and small talk at A2 level","Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",3,13
+de,context,immigration_office_questions_a2,government_office,formal,modal_verbs_requests,A2,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice formal government_office interactions at A2 level,Practice formal government_office interactions at A2 level Uses formal address (Sie/Ihnen) correctly,3,14
+de,context,jobcenter_basic_a2,government_office,formal,modal_verbs_requests,A2,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice formal government_office interactions at A2 level,Practice formal government_office interactions at A2 level Uses formal address (Sie/Ihnen) correctly,3,15
+de,context,residence_permit_appointment_a2,government_office,formal,modal_verbs_requests,A2,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice formal government_office interactions at A2 level,Practice formal government_office interactions at A2 level Uses formal address (Sie/Ihnen) correctly,3,16
+de,context,housing_pack_1_a2,housing,neutral,dative_case,A2,15,subject; verb; object; modifier; time,substitution,high,Practice housing rental and maintenance conversations at A2 level,Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary,3,17
+de,context,housing_pack_10_a2,housing,neutral,dative_case,A2,15,subject; verb; object; modifier; time,substitution,high,Practice housing rental and maintenance conversations at A2 level,Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary,3,18
+de,context,housing_pack_2_a2,housing,neutral,dative_case,A2,15,subject; verb; object; modifier; time,substitution,high,Practice housing rental and maintenance conversations at A2 level,Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary,3,19
+de,context,housing_pack_3_a2,housing,neutral,dative_case,A2,15,subject; verb; object; modifier; time,substitution,high,Practice housing rental and maintenance conversations at A2 level,Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary,3,20
+de,context,housing_pack_4_a2,housing,neutral,dative_case,A2,15,subject; verb; object; modifier; time,substitution,high,Practice housing rental and maintenance conversations at A2 level,Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary,4,1
+de,context,housing_pack_5_a2,housing,neutral,dative_case,A2,15,subject; verb; object; modifier; time,substitution,high,Practice housing rental and maintenance conversations at A2 level,Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary,4,2
+de,context,housing_pack_6_a2,housing,neutral,dative_case,A2,15,subject; verb; object; modifier; time,substitution,high,Practice housing rental and maintenance conversations at A2 level,Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary,4,3
+de,context,housing_pack_7_a2,housing,neutral,dative_case,A2,15,subject; verb; object; modifier; time,substitution,high,Practice housing rental and maintenance conversations at A2 level,Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary,4,4
+de,context,housing_pack_8_a2,housing,neutral,dative_case,A2,15,subject; verb; object; modifier; time,substitution,high,Practice housing rental and maintenance conversations at A2 level,Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary,4,5
+de,context,housing_pack_9_a2,housing,neutral,dative_case,A2,15,subject; verb; object; modifier; time,substitution,high,Practice housing rental and maintenance conversations at A2 level,Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary,4,6
+de,context,friends_opinions_recommendations_a2,friends_small_talk,casual,modal_verbs_suggestions,A2,15,subject; verb; object; modifier; time; location; polarity,substitution,high,"Practice casual friends conversations: making plans, suggestions, and small talk at A2 level","Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",4,7
+de,context,friends_reschedule_and_decline_a2,friends_small_talk,casual,modal_verbs_suggestions,A2,15,subject; verb; object; modifier; time; location; polarity,substitution,high,"Practice casual friends conversations: making plans, suggestions, and small talk at A2 level","Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",4,8
+de,context,work_pack_1_a2,work,formal,modal_verbs_requests,A2,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice professional work communication at A2 level,Practice professional work communication at A2 level Uses professional vocabulary appropriately,4,9
+de,context,work_pack_10_a2,work,formal,modal_verbs_requests,A2,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice professional work communication at A2 level,Practice professional work communication at A2 level Uses professional vocabulary appropriately,4,10
+de,context,work_pack_11_a2,work,formal,modal_verbs_requests,A2,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice professional work communication at A2 level,Practice professional work communication at A2 level Uses professional vocabulary appropriately,4,11
+de,context,work_pack_12_a2,work,formal,modal_verbs_requests,A2,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice professional work communication at A2 level,Practice professional work communication at A2 level Uses professional vocabulary appropriately,4,12
+de,context,work_pack_2_a2,work,formal,modal_verbs_requests,A2,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice professional work communication at A2 level,Practice professional work communication at A2 level Uses professional vocabulary appropriately,4,13
+de,context,work_pack_3_a2,work,formal,modal_verbs_requests,A2,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice professional work communication at A2 level,Practice professional work communication at A2 level Uses professional vocabulary appropriately,4,14
+de,context,work_pack_4_a2,work,formal,modal_verbs_requests,A2,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice professional work communication at A2 level,Practice professional work communication at A2 level Uses professional vocabulary appropriately,4,15
+de,context,work_pack_5_a2,work,formal,modal_verbs_requests,A2,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice professional work communication at A2 level,Practice professional work communication at A2 level Uses professional vocabulary appropriately,4,16
+de,context,work_pack_6_a2,work,formal,modal_verbs_requests,A2,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice professional work communication at A2 level,Practice professional work communication at A2 level Uses professional vocabulary appropriately,4,17
+de,context,work_pack_7_a2,work,formal,modal_verbs_requests,A2,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice professional work communication at A2 level,Practice professional work communication at A2 level Uses professional vocabulary appropriately,4,18
+de,context,work_pack_8_a2,work,formal,modal_verbs_requests,A2,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice professional work communication at A2 level,Practice professional work communication at A2 level Uses professional vocabulary appropriately,4,19
+de,context,work_pack_9_a2,work,formal,modal_verbs_requests,A2,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice professional work communication at A2 level,Practice professional work communication at A2 level Uses professional vocabulary appropriately,4,20
+de,context,work_sample_3_a2,work,formal,modal_verbs_requests,A2,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice professional work communication at A2 level,Practice professional work communication at A2 level Uses professional vocabulary appropriately,5,1
+de,context,work_pack_1_b1,work,formal,modal_verbs_requests,B1,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice professional work communication at B1 level,Practice professional work communication at B1 level Uses professional vocabulary appropriately,5,2
+de,context,work_pack_2_b1,work,formal,modal_verbs_requests,B1,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice professional work communication at B1 level,Practice professional work communication at B1 level Uses professional vocabulary appropriately,5,3
+de,context,work_pack_3_b1,work,formal,modal_verbs_requests,B1,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice professional work communication at B1 level,Practice professional work communication at B1 level Uses professional vocabulary appropriately,5,4
+de,context,work_pack_4_b1,work,formal,modal_verbs_requests,B1,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice professional work communication at B1 level,Practice professional work communication at B1 level Uses professional vocabulary appropriately,5,5
+de,context,work_pack_5_b1,work,formal,modal_verbs_requests,B1,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice professional work communication at B1 level,Practice professional work communication at B1 level Uses professional vocabulary appropriately,5,6
+de,context,work_pack_6_b1,work,formal,modal_verbs_requests,B1,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice professional work communication at B1 level,Practice professional work communication at B1 level Uses professional vocabulary appropriately,5,7
+de,context,work_pack_7_b1,work,formal,modal_verbs_requests,B1,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice professional work communication at B1 level,Practice professional work communication at B1 level Uses professional vocabulary appropriately,5,8
+de,context,work_pack_8_b1,work,formal,modal_verbs_requests,B1,15,subject; verb; object; modifier; time,roleplay-bounded,high,Practice professional work communication at B1 level,Practice professional work communication at B1 level Uses professional vocabulary appropriately,5,9
+de,drills,accusative_articles_a1,,,,A1,5,,,,,,1,1
+de,drills,case_endings_akkusativ_a1_tier1_contrast-pairs,,,,A1,3,subject; verb; object; modifier; time,,,,,1,2
+de,drills,case_endings_akkusativ_a1_tier1_pattern-switch,,,,A1,3,subject; verb; object; modifier; time,,,,,1,3
+de,drills,case_endings_akkusativ_a1_tier1_slot-substitution,,,,A1,3,subject; verb; object; modifier; time,,,,,1,4
+de,drills,case_endings_akkusativ_a1_tier2_contrast-pairs,,,,A1,4,subject; verb; object; modifier; time,,,,,1,5
+de,drills,case_endings_akkusativ_a1_tier2_pattern-switch,,,,A1,4,subject; verb; object; modifier; time,,,,,1,6
+de,drills,case_endings_akkusativ_a1_tier2_slot-substitution,,,,A1,4,subject; verb; object; modifier; time,,,,,1,7
+de,drills,case_endings_akkusativ_a1_tier3_contrast-pairs,,,,A1,5,subject; verb; object; modifier; time,,,,,1,8
+de,drills,case_endings_akkusativ_a1_tier3_pattern-switch,,,,A1,5,subject; verb; object; modifier; time,,,,,1,9
+de,drills,case_endings_akkusativ_a1_tier3_slot-substitution,,,,A1,5,subject; verb; object; modifier; time,,,,,1,10
+de,drills,dative_case_a1,,,,A1,10,,,,,,1,11
+de,drills,modal_verbs_a1_tier1_contrast-pairs,,,,A1,3,subject; verb; object; modifier; time,,,,,1,12
+de,drills,modal_verbs_a1_tier1_pattern-switch,,,,A1,3,subject; verb; object; modifier; time,,,,,1,13
+de,drills,modal_verbs_a1_tier1_slot-substitution,,,,A1,3,subject; verb; object; modifier; time,,,,,1,14
+de,drills,modal_verbs_a1_tier2_contrast-pairs,,,,A1,4,subject; verb; object; modifier; time,,,,,1,15
+de,drills,modal_verbs_a1_tier2_pattern-switch,,,,A1,4,subject; verb; object; modifier; time,,,,,1,16
+de,drills,modal_verbs_a1_tier2_slot-substitution,,,,A1,4,subject; verb; object; modifier; time,,,,,1,17
+de,drills,modal_verbs_a1_tier3_contrast-pairs,,,,A1,5,subject; verb; object; modifier; time,,,,,1,18
+de,drills,modal_verbs_a1_tier3_pattern-switch,,,,A1,5,subject; verb; object; modifier; time,,,,,1,19
+de,drills,modal_verbs_a1_tier3_slot-substitution,,,,A1,5,subject; verb; object; modifier; time,,,,,1,20
+de,drills,negation_a1_tier1_pattern-switch,,,,A1,3,subject; verb; object; modifier; time,,,,,2,1
+de,drills,negation_a1_tier1_micro-transform,,,,A1,3,subject; verb; object; modifier; time,,,,,2,2
+de,drills,negation_a1_tier1_error-trap,,,,A1,3,subject; verb; object; modifier; time,,,,,2,3
+de,drills,negation_a1_tier2_pattern-switch,,,,A1,4,subject; verb; object; modifier; time,,,,,2,4
+de,drills,negation_a1_tier2_micro-transform,,,,A1,4,subject; verb; object; modifier; time,,,,,2,5
+de,drills,negation_a1_tier2_error-trap,,,,A1,4,subject; verb; object; modifier; time,,,,,2,6
+de,drills,negation_a1_tier3_pattern-switch,,,,A1,5,subject; verb; object; modifier; time,,,,,2,7
+de,drills,negation_a1_tier3_micro-transform,,,,A1,5,subject; verb; object; modifier; time,,,,,2,8
+de,drills,negation_a1_tier3_error-trap,,,,A1,5,subject; verb; object; modifier; time,,,,,2,9
+de,drills,office_greetings_quickfire_a1,work,formal,greeting_formulas,A1,6,subject; modifier; time,formulaic,low,Master essential office greetings for A1 German learners entering the workforce,Master essential office greetings for A1 German learners entering the workforce Greet colleagues appropriately in formal German,2,10
+de,drills,politeness_templates_a1_tier1_pattern-switch,,,,A1,3,subject; verb; object; modifier; time,,,,,2,11
+de,drills,politeness_templates_a1_tier1_fast-recall,,,,A1,3,subject; verb; object; modifier; time,,,,,2,12
+de,drills,politeness_templates_a1_tier1_slot-substitution,,,,A1,3,subject; verb; object; modifier; time,,,,,2,13
+de,drills,politeness_templates_a1_tier2_pattern-switch,,,,A1,4,subject; verb; object; modifier; time,,,,,2,14
+de,drills,politeness_templates_a1_tier2_fast-recall,,,,A1,4,subject; verb; object; modifier; time,,,,,2,15
+de,drills,politeness_templates_a1_tier2_slot-substitution,,,,A1,4,subject; verb; object; modifier; time,,,,,2,16
+de,drills,politeness_templates_a1_tier3_pattern-switch,,,,A1,5,subject; verb; object; modifier; time,,,,,2,17
+de,drills,politeness_templates_a1_tier3_fast-recall,,,,A1,5,subject; verb; object; modifier; time,,,,,2,18
+de,drills,politeness_templates_a1_tier3_slot-substitution,,,,A1,5,subject; verb; object; modifier; time,,,,,2,19
+de,drills,question_formation_a1_tier1_pattern-switch,,,,A1,3,subject; verb; object; modifier; time,,,,,2,20
+de,drills,question_formation_a1_tier1_fast-recall,,,,A1,3,subject; verb; object; modifier; time,,,,,3,1
+de,drills,question_formation_a1_tier1_micro-transform,,,,A1,3,subject; verb; object; modifier; time,,,,,3,2
+de,drills,question_formation_a1_tier2_pattern-switch,,,,A1,4,subject; verb; object; modifier; time,,,,,3,3
+de,drills,question_formation_a1_tier2_fast-recall,,,,A1,4,subject; verb; object; modifier; time,,,,,3,4
+de,drills,question_formation_a1_tier2_micro-transform,,,,A1,4,subject; verb; object; modifier; time,,,,,3,5
+de,drills,question_formation_a1_tier3_pattern-switch,,,,A1,5,subject; verb; object; modifier; time,,,,,3,6
+de,drills,question_formation_a1_tier3_fast-recall,,,,A1,5,subject; verb; object; modifier; time,,,,,3,7
+de,drills,question_formation_a1_tier3_micro-transform,,,,A1,5,subject; verb; object; modifier; time,,,,,3,8
+de,drills,separable_verbs_a1,,,,A1,5,,,,,,3,9
+de,drills,time_expressions_inversion_a1_tier1_pattern-switch,,,,A1,3,subject; verb; object; modifier; time,,,,,3,10
+de,drills,time_expressions_inversion_a1_tier1_micro-transform,,,,A1,3,subject; verb; object; modifier; time,,,,,3,11
+de,drills,time_expressions_inversion_a1_tier1_error-trap,,,,A1,3,subject; verb; object; modifier; time,,,,,3,12
+de,drills,time_expressions_inversion_a1_tier2_pattern-switch,,,,A1,4,subject; verb; object; modifier; time,,,,,3,13
+de,drills,time_expressions_inversion_a1_tier2_micro-transform,,,,A1,4,subject; verb; object; modifier; time,,,,,3,14
+de,drills,time_expressions_inversion_a1_tier2_error-trap,,,,A1,4,subject; verb; object; modifier; time,,,,,3,15
+de,drills,time_expressions_inversion_a1_tier3_pattern-switch,,,,A1,5,subject; verb; object; modifier; time,,,,,3,16
+de,drills,time_expressions_inversion_a1_tier3_micro-transform,,,,A1,5,subject; verb; object; modifier; time,,,,,3,17
+de,drills,time_expressions_inversion_a1_tier3_error-trap,,,,A1,5,subject; verb; object; modifier; time,,,,,3,18
+de,drills,verb_endings_a1,,,,A1,10,,,,,,3,19
+de,drills,verb_present_tense_a1,mechanics,neutral,present_tense_conjugation,A1,8,subject; verb,conjugation,low,Master present tense verb conjugation patterns for A1 German learners,Master present tense verb conjugation patterns for A1 German learners Correctly conjugate regular verbs in present tense,3,20
+de,drills,verb_present_tense_a1_tier1_pattern-switch,,,,A1,3,subject; verb; object; modifier; time,,,,,4,1
+de,drills,verb_present_tense_a1_tier1_slot-substitution,,,,A1,3,subject; verb; object; modifier; time,,,,,4,2
+de,drills,verb_present_tense_a1_tier2_pattern-switch,,,,A1,4,subject; verb; object; modifier; time,,,,,4,3
+de,drills,verb_present_tense_a1_tier2_slot-substitution,,,,A1,4,subject; verb; object; modifier; time,,,,,4,4
+de,drills,verb_present_tense_a1_tier3_pattern-switch,,,,A1,5,subject; verb; object; modifier; time,,,,,4,5
+de,drills,verb_present_tense_a1_tier3_slot-substitution,,,,A1,5,subject; verb; object; modifier; time,,,,,4,6
+de,drills,word_order_main_clause_a1_tier1_pattern-switch,,,,A1,3,subject; verb; object; modifier; time,,,,,4,7
+de,drills,word_order_main_clause_a1_tier1_slot-substitution,,,,A1,3,subject; verb; object; modifier; time,,,,,4,8
+de,drills,word_order_main_clause_a1_tier1_error-trap,,,,A1,3,subject; verb; object; modifier; time,,,,,4,9
+de,drills,word_order_main_clause_a1_tier2_pattern-switch,,,,A1,4,subject; verb; object; modifier; time,,,,,4,10
+de,drills,word_order_main_clause_a1_tier2_slot-substitution,,,,A1,4,subject; verb; object; modifier; time,,,,,4,11
+de,drills,word_order_main_clause_a1_tier2_error-trap,,,,A1,4,subject; verb; object; modifier; time,,,,,4,12
+de,drills,word_order_main_clause_a1_tier3_pattern-switch,,,,A1,5,subject; verb; object; modifier; time,,,,,4,13
+de,drills,word_order_main_clause_a1_tier3_slot-substitution,,,,A1,5,subject; verb; object; modifier; time,,,,,4,14
+de,drills,word_order_main_clause_a1_tier3_error-trap,,,,A1,5,subject; verb; object; modifier; time,,,,,4,15
+de,drills,case_endings_akkusativ_a2_tier1_contrast-pairs,,,,A2,3,subject; verb; object; modifier; time,,,,,4,16
+de,drills,case_endings_akkusativ_a2_tier1_pattern-switch,,,,A2,3,subject; verb; object; modifier; time,,,,,4,17
+de,drills,case_endings_akkusativ_a2_tier1_slot-substitution,,,,A2,3,subject; verb; object; modifier; time,,,,,4,18
+de,drills,case_endings_akkusativ_a2_tier2_contrast-pairs,,,,A2,4,subject; verb; object; modifier; time,,,,,4,19
+de,drills,case_endings_akkusativ_a2_tier2_pattern-switch,,,,A2,4,subject; verb; object; modifier; time,,,,,4,20
+de,drills,case_endings_akkusativ_a2_tier2_slot-substitution,,,,A2,4,subject; verb; object; modifier; time,,,,,5,1
+de,drills,case_endings_akkusativ_a2_tier3_contrast-pairs,,,,A2,5,subject; verb; object; modifier; time,,,,,5,2
+de,drills,case_endings_akkusativ_a2_tier3_pattern-switch,,,,A2,5,subject; verb; object; modifier; time,,,,,5,3
+de,drills,case_endings_akkusativ_a2_tier3_slot-substitution,,,,A2,5,subject; verb; object; modifier; time,,,,,5,4
+de,drills,modal_verbs_a2_tier1_contrast-pairs,,,,A2,3,subject; verb; object; modifier; time,,,,,5,5
+de,drills,modal_verbs_a2_tier1_pattern-switch,,,,A2,3,subject; verb; object; modifier; time,,,,,5,6
+de,drills,modal_verbs_a2_tier1_slot-substitution,,,,A2,3,subject; verb; object; modifier; time,,,,,5,7
+de,drills,modal_verbs_a2_tier2_contrast-pairs,,,,A2,4,subject; verb; object; modifier; time,,,,,5,8
+de,drills,modal_verbs_a2_tier2_pattern-switch,,,,A2,4,subject; verb; object; modifier; time,,,,,5,9
+de,drills,modal_verbs_a2_tier2_slot-substitution,,,,A2,4,subject; verb; object; modifier; time,,,,,5,10
+de,drills,modal_verbs_a2_tier3_contrast-pairs,,,,A2,5,subject; verb; object; modifier; time,,,,,5,11
+de,drills,modal_verbs_a2_tier3_pattern-switch,,,,A2,5,subject; verb; object; modifier; time,,,,,5,12
+de,drills,modal_verbs_a2_tier3_slot-substitution,,,,A2,5,subject; verb; object; modifier; time,,,,,5,13
+de,drills,negation_a2_tier1_pattern-switch,,,,A2,3,subject; verb; object; modifier; time,,,,,5,14
+de,drills,negation_a2_tier1_micro-transform,,,,A2,3,subject; verb; object; modifier; time,,,,,5,15
+de,drills,negation_a2_tier1_error-trap,,,,A2,3,subject; verb; object; modifier; time,,,,,5,16
+de,drills,negation_a2_tier2_pattern-switch,,,,A2,4,subject; verb; object; modifier; time,,,,,5,17
+de,drills,negation_a2_tier2_micro-transform,,,,A2,4,subject; verb; object; modifier; time,,,,,5,18
+de,drills,negation_a2_tier2_error-trap,,,,A2,4,subject; verb; object; modifier; time,,,,,5,19
+de,drills,negation_a2_tier3_pattern-switch,,,,A2,5,subject; verb; object; modifier; time,,,,,5,20
+de,drills,negation_a2_tier3_micro-transform,,,,A2,5,subject; verb; object; modifier; time,,,,,6,1
+de,drills,negation_a2_tier3_error-trap,,,,A2,5,subject; verb; object; modifier; time,,,,,6,2
+de,drills,politeness_templates_a2_tier1_pattern-switch,,,,A2,3,subject; verb; object; modifier; time,,,,,6,3
+de,drills,politeness_templates_a2_tier1_fast-recall,,,,A2,3,subject; verb; object; modifier; time,,,,,6,4
+de,drills,politeness_templates_a2_tier1_slot-substitution,,,,A2,3,subject; verb; object; modifier; time,,,,,6,5
+de,drills,politeness_templates_a2_tier2_pattern-switch,,,,A2,4,subject; verb; object; modifier; time,,,,,6,6
+de,drills,politeness_templates_a2_tier2_fast-recall,,,,A2,4,subject; verb; object; modifier; time,,,,,6,7
+de,drills,politeness_templates_a2_tier2_slot-substitution,,,,A2,4,subject; verb; object; modifier; time,,,,,6,8
+de,drills,politeness_templates_a2_tier3_pattern-switch,,,,A2,5,subject; verb; object; modifier; time,,,,,6,9
+de,drills,politeness_templates_a2_tier3_fast-recall,,,,A2,5,subject; verb; object; modifier; time,,,,,6,10
+de,drills,politeness_templates_a2_tier3_slot-substitution,,,,A2,5,subject; verb; object; modifier; time,,,,,6,11
+de,drills,question_formation_a2_tier1_pattern-switch,,,,A2,3,subject; verb; object; modifier; time,,,,,6,12
+de,drills,question_formation_a2_tier1_fast-recall,,,,A2,3,subject; verb; object; modifier; time,,,,,6,13
+de,drills,question_formation_a2_tier1_micro-transform,,,,A2,3,subject; verb; object; modifier; time,,,,,6,14
+de,drills,question_formation_a2_tier2_pattern-switch,,,,A2,4,subject; verb; object; modifier; time,,,,,6,15
+de,drills,question_formation_a2_tier2_fast-recall,,,,A2,4,subject; verb; object; modifier; time,,,,,6,16
+de,drills,question_formation_a2_tier2_micro-transform,,,,A2,4,subject; verb; object; modifier; time,,,,,6,17
+de,drills,question_formation_a2_tier3_pattern-switch,,,,A2,5,subject; verb; object; modifier; time,,,,,6,18
+de,drills,question_formation_a2_tier3_fast-recall,,,,A2,5,subject; verb; object; modifier; time,,,,,6,19
+de,drills,question_formation_a2_tier3_micro-transform,,,,A2,5,subject; verb; object; modifier; time,,,,,6,20
+de,drills,time_expressions_inversion_a2_tier1_pattern-switch,,,,A2,3,subject; verb; object; modifier; time,,,,,7,1
+de,drills,time_expressions_inversion_a2_tier1_micro-transform,,,,A2,3,subject; verb; object; modifier; time,,,,,7,2
+de,drills,time_expressions_inversion_a2_tier1_error-trap,,,,A2,3,subject; verb; object; modifier; time,,,,,7,3
+de,drills,time_expressions_inversion_a2_tier2_pattern-switch,,,,A2,4,subject; verb; object; modifier; time,,,,,7,4
+de,drills,time_expressions_inversion_a2_tier2_micro-transform,,,,A2,4,subject; verb; object; modifier; time,,,,,7,5
+de,drills,time_expressions_inversion_a2_tier2_error-trap,,,,A2,4,subject; verb; object; modifier; time,,,,,7,6
+de,drills,time_expressions_inversion_a2_tier3_pattern-switch,,,,A2,5,subject; verb; object; modifier; time,,,,,7,7
+de,drills,time_expressions_inversion_a2_tier3_micro-transform,,,,A2,5,subject; verb; object; modifier; time,,,,,7,8
+de,drills,time_expressions_inversion_a2_tier3_error-trap,,,,A2,5,subject; verb; object; modifier; time,,,,,7,9
+de,drills,verb_present_tense_a2_tier1_pattern-switch,,,,A2,3,subject; verb; object; modifier; time,,,,,7,10
+de,drills,verb_present_tense_a2_tier1_slot-substitution,,,,A2,3,subject; verb; object; modifier; time,,,,,7,11
+de,drills,verb_present_tense_a2_tier2_pattern-switch,,,,A2,4,subject; verb; object; modifier; time,,,,,7,12
+de,drills,verb_present_tense_a2_tier2_slot-substitution,,,,A2,4,subject; verb; object; modifier; time,,,,,7,13
+de,drills,verb_present_tense_a2_tier3_pattern-switch,,,,A2,5,subject; verb; object; modifier; time,,,,,7,14
+de,drills,verb_present_tense_a2_tier3_slot-substitution,,,,A2,5,subject; verb; object; modifier; time,,,,,7,15
+de,drills,word_order_main_clause_a2_tier1_pattern-switch,,,,A2,3,subject; verb; object; modifier; time,,,,,7,16
+de,drills,word_order_main_clause_a2_tier1_slot-substitution,,,,A2,3,subject; verb; object; modifier; time,,,,,7,17
+de,drills,word_order_main_clause_a2_tier1_error-trap,,,,A2,3,subject; verb; object; modifier; time,,,,,7,18
+de,drills,word_order_main_clause_a2_tier2_pattern-switch,,,,A2,4,subject; verb; object; modifier; time,,,,,7,19
+de,drills,word_order_main_clause_a2_tier2_slot-substitution,,,,A2,4,subject; verb; object; modifier; time,,,,,7,20
+de,drills,word_order_main_clause_a2_tier2_error-trap,,,,A2,4,subject; verb; object; modifier; time,,,,,8,1
+de,drills,word_order_main_clause_a2_tier3_pattern-switch,,,,A2,5,subject; verb; object; modifier; time,,,,,8,2
+de,drills,word_order_main_clause_a2_tier3_slot-substitution,,,,A2,5,subject; verb; object; modifier; time,,,,,8,3
+de,drills,word_order_main_clause_a2_tier3_error-trap,,,,A2,5,subject; verb; object; modifier; time,,,,,8,4
+de,exams,goethe_a1,,,,A1,65,,,,,,1,1
+de,exams,telc_a1,,,,A1,75,,,,,,1,2
+de,exams,goethe_a2,,,,A2,70,,,,,,1,3
+de,exams,telc_a2,,,,A2,70,,,,,,1,4
+de,exams,dtz_integration,,,,B1,100,,,,,,1,5
+de,exams,goethe_b1,,,,B1,120,,,,,,1,6
+de,exams,telc_b1,,,,B1,120,,,,,,1,7
+de,exams,goethe_b2,,,,B2,120,,,,,,1,8
+de,exams,telc_b2,,,,B2,120,,,,,,1,9
+de,exams,goethe_c1,,,,C1,120,,,,,,1,10
+de,exams,telc_c1,,,,C1,120,,,,,,1,11
+de,mechanics,accusative_articles_a1,,,,A1,5,,,,,,1,1
+de,mechanics,case_endings_akkusativ_a1_tier1_contrast-pairs,,,,A1,3,subject; verb; object; modifier; time,,,,,1,2
+de,mechanics,case_endings_akkusativ_a1_tier1_pattern-switch,,,,A1,3,subject; verb; object; modifier; time,,,,,1,3
+de,mechanics,case_endings_akkusativ_a1_tier1_slot-substitution,,,,A1,3,subject; verb; object; modifier; time,,,,,1,4
+de,mechanics,case_endings_akkusativ_a1_tier2_contrast-pairs,,,,A1,4,subject; verb; object; modifier; time,,,,,1,5
+de,mechanics,case_endings_akkusativ_a1_tier2_pattern-switch,,,,A1,4,subject; verb; object; modifier; time,,,,,1,6
+de,mechanics,case_endings_akkusativ_a1_tier2_slot-substitution,,,,A1,4,subject; verb; object; modifier; time,,,,,1,7
+de,mechanics,case_endings_akkusativ_a1_tier3_contrast-pairs,,,,A1,5,subject; verb; object; modifier; time,,,,,1,8
+de,mechanics,case_endings_akkusativ_a1_tier3_pattern-switch,,,,A1,5,subject; verb; object; modifier; time,,,,,1,9
+de,mechanics,case_endings_akkusativ_a1_tier3_slot-substitution,,,,A1,5,subject; verb; object; modifier; time,,,,,1,10
+de,mechanics,dative_case_a1,,,,A1,10,,,,,,1,11
+de,mechanics,modal_verbs_a1_tier1_contrast-pairs,,,,A1,3,subject; verb; object; modifier; time,,,,,1,12
+de,mechanics,modal_verbs_a1_tier1_pattern-switch,,,,A1,3,subject; verb; object; modifier; time,,,,,1,13
+de,mechanics,modal_verbs_a1_tier1_slot-substitution,,,,A1,3,subject; verb; object; modifier; time,,,,,1,14
+de,mechanics,modal_verbs_a1_tier2_contrast-pairs,,,,A1,4,subject; verb; object; modifier; time,,,,,1,15
+de,mechanics,modal_verbs_a1_tier2_pattern-switch,,,,A1,4,subject; verb; object; modifier; time,,,,,1,16
+de,mechanics,modal_verbs_a1_tier2_slot-substitution,,,,A1,4,subject; verb; object; modifier; time,,,,,1,17
+de,mechanics,modal_verbs_a1_tier3_contrast-pairs,,,,A1,5,subject; verb; object; modifier; time,,,,,1,18
+de,mechanics,modal_verbs_a1_tier3_pattern-switch,,,,A1,5,subject; verb; object; modifier; time,,,,,1,19
+de,mechanics,modal_verbs_a1_tier3_slot-substitution,,,,A1,5,subject; verb; object; modifier; time,,,,,1,20
+de,mechanics,negation_a1_tier1_pattern-switch,,,,A1,3,subject; verb; object; modifier; time,,,,,2,1
+de,mechanics,negation_a1_tier1_micro-transform,,,,A1,3,subject; verb; object; modifier; time,,,,,2,2
+de,mechanics,negation_a1_tier1_error-trap,,,,A1,3,subject; verb; object; modifier; time,,,,,2,3
+de,mechanics,negation_a1_tier2_pattern-switch,,,,A1,4,subject; verb; object; modifier; time,,,,,2,4
+de,mechanics,negation_a1_tier2_micro-transform,,,,A1,4,subject; verb; object; modifier; time,,,,,2,5
+de,mechanics,negation_a1_tier2_error-trap,,,,A1,4,subject; verb; object; modifier; time,,,,,2,6
+de,mechanics,negation_a1_tier3_pattern-switch,,,,A1,5,subject; verb; object; modifier; time,,,,,2,7
+de,mechanics,negation_a1_tier3_micro-transform,,,,A1,5,subject; verb; object; modifier; time,,,,,2,8
+de,mechanics,negation_a1_tier3_error-trap,,,,A1,5,subject; verb; object; modifier; time,,,,,2,9
+de,mechanics,office_greetings_quickfire_a1,work,formal,greeting_formulas,A1,6,subject; modifier; time,formulaic,low,Master essential office greetings for A1 German learners entering the workforce,Master essential office greetings for A1 German learners entering the workforce Greet colleagues appropriately in formal German,2,10
+de,mechanics,politeness_templates_a1_tier1_pattern-switch,,,,A1,3,subject; verb; object; modifier; time,,,,,2,11
+de,mechanics,politeness_templates_a1_tier1_fast-recall,,,,A1,3,subject; verb; object; modifier; time,,,,,2,12
+de,mechanics,politeness_templates_a1_tier1_slot-substitution,,,,A1,3,subject; verb; object; modifier; time,,,,,2,13
+de,mechanics,politeness_templates_a1_tier2_pattern-switch,,,,A1,4,subject; verb; object; modifier; time,,,,,2,14
+de,mechanics,politeness_templates_a1_tier2_fast-recall,,,,A1,4,subject; verb; object; modifier; time,,,,,2,15
+de,mechanics,politeness_templates_a1_tier2_slot-substitution,,,,A1,4,subject; verb; object; modifier; time,,,,,2,16
+de,mechanics,politeness_templates_a1_tier3_pattern-switch,,,,A1,5,subject; verb; object; modifier; time,,,,,2,17
+de,mechanics,politeness_templates_a1_tier3_fast-recall,,,,A1,5,subject; verb; object; modifier; time,,,,,2,18
+de,mechanics,politeness_templates_a1_tier3_slot-substitution,,,,A1,5,subject; verb; object; modifier; time,,,,,2,19
+de,mechanics,question_formation_a1_tier1_pattern-switch,,,,A1,3,subject; verb; object; modifier; time,,,,,2,20
+de,mechanics,question_formation_a1_tier1_fast-recall,,,,A1,3,subject; verb; object; modifier; time,,,,,3,1
+de,mechanics,question_formation_a1_tier1_micro-transform,,,,A1,3,subject; verb; object; modifier; time,,,,,3,2
+de,mechanics,question_formation_a1_tier2_pattern-switch,,,,A1,4,subject; verb; object; modifier; time,,,,,3,3
+de,mechanics,question_formation_a1_tier2_fast-recall,,,,A1,4,subject; verb; object; modifier; time,,,,,3,4
+de,mechanics,question_formation_a1_tier2_micro-transform,,,,A1,4,subject; verb; object; modifier; time,,,,,3,5
+de,mechanics,question_formation_a1_tier3_pattern-switch,,,,A1,5,subject; verb; object; modifier; time,,,,,3,6
+de,mechanics,question_formation_a1_tier3_fast-recall,,,,A1,5,subject; verb; object; modifier; time,,,,,3,7
+de,mechanics,question_formation_a1_tier3_micro-transform,,,,A1,5,subject; verb; object; modifier; time,,,,,3,8
+de,mechanics,separable_verbs_a1,,,,A1,5,,,,,,3,9
+de,mechanics,time_expressions_inversion_a1_tier1_pattern-switch,,,,A1,3,subject; verb; object; modifier; time,,,,,3,10
+de,mechanics,time_expressions_inversion_a1_tier1_micro-transform,,,,A1,3,subject; verb; object; modifier; time,,,,,3,11
+de,mechanics,time_expressions_inversion_a1_tier1_error-trap,,,,A1,3,subject; verb; object; modifier; time,,,,,3,12
+de,mechanics,time_expressions_inversion_a1_tier2_pattern-switch,,,,A1,4,subject; verb; object; modifier; time,,,,,3,13
+de,mechanics,time_expressions_inversion_a1_tier2_micro-transform,,,,A1,4,subject; verb; object; modifier; time,,,,,3,14
+de,mechanics,time_expressions_inversion_a1_tier2_error-trap,,,,A1,4,subject; verb; object; modifier; time,,,,,3,15
+de,mechanics,time_expressions_inversion_a1_tier3_pattern-switch,,,,A1,5,subject; verb; object; modifier; time,,,,,3,16
+de,mechanics,time_expressions_inversion_a1_tier3_micro-transform,,,,A1,5,subject; verb; object; modifier; time,,,,,3,17
+de,mechanics,time_expressions_inversion_a1_tier3_error-trap,,,,A1,5,subject; verb; object; modifier; time,,,,,3,18
+de,mechanics,verb_endings_a1,,,,A1,10,,,,,,3,19
+de,mechanics,verb_present_tense_a1,mechanics,neutral,present_tense_conjugation,A1,8,subject; verb,conjugation,low,Master present tense verb conjugation patterns for A1 German learners,Master present tense verb conjugation patterns for A1 German learners Correctly conjugate regular verbs in present tense,3,20
+de,mechanics,verb_present_tense_a1_tier1_pattern-switch,,,,A1,3,subject; verb; object; modifier; time,,,,,4,1
+de,mechanics,verb_present_tense_a1_tier1_slot-substitution,,,,A1,3,subject; verb; object; modifier; time,,,,,4,2
+de,mechanics,verb_present_tense_a1_tier2_pattern-switch,,,,A1,4,subject; verb; object; modifier; time,,,,,4,3
+de,mechanics,verb_present_tense_a1_tier2_slot-substitution,,,,A1,4,subject; verb; object; modifier; time,,,,,4,4
+de,mechanics,verb_present_tense_a1_tier3_pattern-switch,,,,A1,5,subject; verb; object; modifier; time,,,,,4,5
+de,mechanics,verb_present_tense_a1_tier3_slot-substitution,,,,A1,5,subject; verb; object; modifier; time,,,,,4,6
+de,mechanics,word_order_main_clause_a1_tier1_pattern-switch,,,,A1,3,subject; verb; object; modifier; time,,,,,4,7
+de,mechanics,word_order_main_clause_a1_tier1_slot-substitution,,,,A1,3,subject; verb; object; modifier; time,,,,,4,8
+de,mechanics,word_order_main_clause_a1_tier1_error-trap,,,,A1,3,subject; verb; object; modifier; time,,,,,4,9
+de,mechanics,word_order_main_clause_a1_tier2_pattern-switch,,,,A1,4,subject; verb; object; modifier; time,,,,,4,10
+de,mechanics,word_order_main_clause_a1_tier2_slot-substitution,,,,A1,4,subject; verb; object; modifier; time,,,,,4,11
+de,mechanics,word_order_main_clause_a1_tier2_error-trap,,,,A1,4,subject; verb; object; modifier; time,,,,,4,12
+de,mechanics,word_order_main_clause_a1_tier3_pattern-switch,,,,A1,5,subject; verb; object; modifier; time,,,,,4,13
+de,mechanics,word_order_main_clause_a1_tier3_slot-substitution,,,,A1,5,subject; verb; object; modifier; time,,,,,4,14
+de,mechanics,word_order_main_clause_a1_tier3_error-trap,,,,A1,5,subject; verb; object; modifier; time,,,,,4,15
+de,mechanics,case_endings_akkusativ_a2_tier1_contrast-pairs,,,,A2,3,subject; verb; object; modifier; time,,,,,4,16
+de,mechanics,case_endings_akkusativ_a2_tier1_pattern-switch,,,,A2,3,subject; verb; object; modifier; time,,,,,4,17
+de,mechanics,case_endings_akkusativ_a2_tier1_slot-substitution,,,,A2,3,subject; verb; object; modifier; time,,,,,4,18
+de,mechanics,case_endings_akkusativ_a2_tier2_contrast-pairs,,,,A2,4,subject; verb; object; modifier; time,,,,,4,19
+de,mechanics,case_endings_akkusativ_a2_tier2_pattern-switch,,,,A2,4,subject; verb; object; modifier; time,,,,,4,20
+de,mechanics,case_endings_akkusativ_a2_tier2_slot-substitution,,,,A2,4,subject; verb; object; modifier; time,,,,,5,1
+de,mechanics,case_endings_akkusativ_a2_tier3_contrast-pairs,,,,A2,5,subject; verb; object; modifier; time,,,,,5,2
+de,mechanics,case_endings_akkusativ_a2_tier3_pattern-switch,,,,A2,5,subject; verb; object; modifier; time,,,,,5,3
+de,mechanics,case_endings_akkusativ_a2_tier3_slot-substitution,,,,A2,5,subject; verb; object; modifier; time,,,,,5,4
+de,mechanics,modal_verbs_a2_tier1_contrast-pairs,,,,A2,3,subject; verb; object; modifier; time,,,,,5,5
+de,mechanics,modal_verbs_a2_tier1_pattern-switch,,,,A2,3,subject; verb; object; modifier; time,,,,,5,6
+de,mechanics,modal_verbs_a2_tier1_slot-substitution,,,,A2,3,subject; verb; object; modifier; time,,,,,5,7
+de,mechanics,modal_verbs_a2_tier2_contrast-pairs,,,,A2,4,subject; verb; object; modifier; time,,,,,5,8
+de,mechanics,modal_verbs_a2_tier2_pattern-switch,,,,A2,4,subject; verb; object; modifier; time,,,,,5,9
+de,mechanics,modal_verbs_a2_tier2_slot-substitution,,,,A2,4,subject; verb; object; modifier; time,,,,,5,10
+de,mechanics,modal_verbs_a2_tier3_contrast-pairs,,,,A2,5,subject; verb; object; modifier; time,,,,,5,11
+de,mechanics,modal_verbs_a2_tier3_pattern-switch,,,,A2,5,subject; verb; object; modifier; time,,,,,5,12
+de,mechanics,modal_verbs_a2_tier3_slot-substitution,,,,A2,5,subject; verb; object; modifier; time,,,,,5,13
+de,mechanics,negation_a2_tier1_pattern-switch,,,,A2,3,subject; verb; object; modifier; time,,,,,5,14
+de,mechanics,negation_a2_tier1_micro-transform,,,,A2,3,subject; verb; object; modifier; time,,,,,5,15
+de,mechanics,negation_a2_tier1_error-trap,,,,A2,3,subject; verb; object; modifier; time,,,,,5,16
+de,mechanics,negation_a2_tier2_pattern-switch,,,,A2,4,subject; verb; object; modifier; time,,,,,5,17
+de,mechanics,negation_a2_tier2_micro-transform,,,,A2,4,subject; verb; object; modifier; time,,,,,5,18
+de,mechanics,negation_a2_tier2_error-trap,,,,A2,4,subject; verb; object; modifier; time,,,,,5,19
+de,mechanics,negation_a2_tier3_pattern-switch,,,,A2,5,subject; verb; object; modifier; time,,,,,5,20
+de,mechanics,negation_a2_tier3_micro-transform,,,,A2,5,subject; verb; object; modifier; time,,,,,6,1
+de,mechanics,negation_a2_tier3_error-trap,,,,A2,5,subject; verb; object; modifier; time,,,,,6,2
+de,mechanics,politeness_templates_a2_tier1_pattern-switch,,,,A2,3,subject; verb; object; modifier; time,,,,,6,3
+de,mechanics,politeness_templates_a2_tier1_fast-recall,,,,A2,3,subject; verb; object; modifier; time,,,,,6,4
+de,mechanics,politeness_templates_a2_tier1_slot-substitution,,,,A2,3,subject; verb; object; modifier; time,,,,,6,5
+de,mechanics,politeness_templates_a2_tier2_pattern-switch,,,,A2,4,subject; verb; object; modifier; time,,,,,6,6
+de,mechanics,politeness_templates_a2_tier2_fast-recall,,,,A2,4,subject; verb; object; modifier; time,,,,,6,7
+de,mechanics,politeness_templates_a2_tier2_slot-substitution,,,,A2,4,subject; verb; object; modifier; time,,,,,6,8
+de,mechanics,politeness_templates_a2_tier3_pattern-switch,,,,A2,5,subject; verb; object; modifier; time,,,,,6,9
+de,mechanics,politeness_templates_a2_tier3_fast-recall,,,,A2,5,subject; verb; object; modifier; time,,,,,6,10
+de,mechanics,politeness_templates_a2_tier3_slot-substitution,,,,A2,5,subject; verb; object; modifier; time,,,,,6,11
+de,mechanics,question_formation_a2_tier1_pattern-switch,,,,A2,3,subject; verb; object; modifier; time,,,,,6,12
+de,mechanics,question_formation_a2_tier1_fast-recall,,,,A2,3,subject; verb; object; modifier; time,,,,,6,13
+de,mechanics,question_formation_a2_tier1_micro-transform,,,,A2,3,subject; verb; object; modifier; time,,,,,6,14
+de,mechanics,question_formation_a2_tier2_pattern-switch,,,,A2,4,subject; verb; object; modifier; time,,,,,6,15
+de,mechanics,question_formation_a2_tier2_fast-recall,,,,A2,4,subject; verb; object; modifier; time,,,,,6,16
+de,mechanics,question_formation_a2_tier2_micro-transform,,,,A2,4,subject; verb; object; modifier; time,,,,,6,17
+de,mechanics,question_formation_a2_tier3_pattern-switch,,,,A2,5,subject; verb; object; modifier; time,,,,,6,18
+de,mechanics,question_formation_a2_tier3_fast-recall,,,,A2,5,subject; verb; object; modifier; time,,,,,6,19
+de,mechanics,question_formation_a2_tier3_micro-transform,,,,A2,5,subject; verb; object; modifier; time,,,,,6,20
+de,mechanics,time_expressions_inversion_a2_tier1_pattern-switch,,,,A2,3,subject; verb; object; modifier; time,,,,,7,1
+de,mechanics,time_expressions_inversion_a2_tier1_micro-transform,,,,A2,3,subject; verb; object; modifier; time,,,,,7,2
+de,mechanics,time_expressions_inversion_a2_tier1_error-trap,,,,A2,3,subject; verb; object; modifier; time,,,,,7,3
+de,mechanics,time_expressions_inversion_a2_tier2_pattern-switch,,,,A2,4,subject; verb; object; modifier; time,,,,,7,4
+de,mechanics,time_expressions_inversion_a2_tier2_micro-transform,,,,A2,4,subject; verb; object; modifier; time,,,,,7,5
+de,mechanics,time_expressions_inversion_a2_tier2_error-trap,,,,A2,4,subject; verb; object; modifier; time,,,,,7,6
+de,mechanics,time_expressions_inversion_a2_tier3_pattern-switch,,,,A2,5,subject; verb; object; modifier; time,,,,,7,7
+de,mechanics,time_expressions_inversion_a2_tier3_micro-transform,,,,A2,5,subject; verb; object; modifier; time,,,,,7,8
+de,mechanics,time_expressions_inversion_a2_tier3_error-trap,,,,A2,5,subject; verb; object; modifier; time,,,,,7,9
+de,mechanics,verb_present_tense_a2_tier1_pattern-switch,,,,A2,3,subject; verb; object; modifier; time,,,,,7,10
+de,mechanics,verb_present_tense_a2_tier1_slot-substitution,,,,A2,3,subject; verb; object; modifier; time,,,,,7,11
+de,mechanics,verb_present_tense_a2_tier2_pattern-switch,,,,A2,4,subject; verb; object; modifier; time,,,,,7,12
+de,mechanics,verb_present_tense_a2_tier2_slot-substitution,,,,A2,4,subject; verb; object; modifier; time,,,,,7,13
+de,mechanics,verb_present_tense_a2_tier3_pattern-switch,,,,A2,5,subject; verb; object; modifier; time,,,,,7,14
+de,mechanics,verb_present_tense_a2_tier3_slot-substitution,,,,A2,5,subject; verb; object; modifier; time,,,,,7,15
+de,mechanics,word_order_main_clause_a2_tier1_pattern-switch,,,,A2,3,subject; verb; object; modifier; time,,,,,7,16
+de,mechanics,word_order_main_clause_a2_tier1_slot-substitution,,,,A2,3,subject; verb; object; modifier; time,,,,,7,17
+de,mechanics,word_order_main_clause_a2_tier1_error-trap,,,,A2,3,subject; verb; object; modifier; time,,,,,7,18
+de,mechanics,word_order_main_clause_a2_tier2_pattern-switch,,,,A2,4,subject; verb; object; modifier; time,,,,,7,19
+de,mechanics,word_order_main_clause_a2_tier2_slot-substitution,,,,A2,4,subject; verb; object; modifier; time,,,,,7,20
+de,mechanics,word_order_main_clause_a2_tier2_error-trap,,,,A2,4,subject; verb; object; modifier; time,,,,,8,1
+de,mechanics,word_order_main_clause_a2_tier3_pattern-switch,,,,A2,5,subject; verb; object; modifier; time,,,,,8,2
+de,mechanics,word_order_main_clause_a2_tier3_slot-substitution,,,,A2,5,subject; verb; object; modifier; time,,,,,8,3
+de,mechanics,word_order_main_clause_a2_tier3_error-trap,,,,A2,5,subject; verb; object; modifier; time,,,,,8,4
+de,tracks,gov_office_a1_default,government_office,,,A1,25,,,,,,1,1

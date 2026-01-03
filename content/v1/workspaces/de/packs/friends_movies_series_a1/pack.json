@@ -285,7 +285,7 @@
     },
     {
       "id": "prompt-011",
-      "text": "Wir hasten zum Park heute",
+      "text": "Wir hasten zum Park morgen",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -307,7 +307,7 @@
           "zum Park"
         ],
         "modifier": [
-          "heute"
+          "morgen"
         ]
       }
     },
@@ -351,10 +351,7 @@
           "prompt-002",
           "prompt-003",
           "prompt-004"
-        ],
-        "title_i18n": {
-          "en": "Making Plans"
-        }
+        ]
       },
       {
         "id": "variation",
@@ -365,10 +362,7 @@
           "prompt-007",
           "prompt-008",
           "prompt-009"
-        ],
-        "title_i18n": {
-          "en": "Suggestions & Preferences"
-        }
+        ]
       },
       {
         "id": "switch",
@@ -377,10 +371,7 @@
           "prompt-010",
           "prompt-011",
           "prompt-012"
-        ],
-        "title_i18n": {
-          "en": "Responding & Rescheduling"
-        }
+        ]
       }
     ]
   },
@@ -422,7 +413,7 @@
     "multiSlotRate": 1,
     "scenarioTokenHitAvg": 1.25,
     "scenarioTokenQualifiedRate": 0.25,
-    "uniqueTokenRate": 0.6060606060606061,
+    "uniqueTokenRate": 0.5909090909090909,
     "bannedPhraseViolations": 0,
     "passesQualityGates": false,
     "focus": "modal_verbs",
@@ -467,18 +458,14 @@
     "source": "template",
     "sourceRef": "friends_small_talk",
     "extractorVersion": "1.0.0",
-    "generatedAt": "2025-12-31T08:08:23.265Z"
+    "generatedAt": "2026-01-03T09:59:18.715Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T07:30:00.000Z"
   },
   "contentId": "de:pack:friends_movies_series_a1",
-  "contentHash": "737629c31ef85a5672dd53bdea608102a5b7837e13524e891467bb65ea831f5c",
-  "revisionId": "737629c31ef8",
-  "title_i18n": {
-    "en": "Movies & Series"
-  },
-  "description_i18n": {
-    "en": "Practice friends_small_talk scenarios at A1 level."
-  }
+  "contentHash": "7eacbbb8b9e028cde26da199e24495af088bbb7e0211ad21ca3057d331b08e9a",
+  "revisionId": "7eacbbb8b9e0"
 }

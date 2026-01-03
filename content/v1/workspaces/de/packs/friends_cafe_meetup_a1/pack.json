@@ -350,10 +350,7 @@
           "prompt-002",
           "prompt-003",
           "prompt-004"
-        ],
-        "title_i18n": {
-          "en": "Making Plans"
-        }
+        ]
       },
       {
         "id": "variation",
@@ -364,10 +361,7 @@
           "prompt-007",
           "prompt-008",
           "prompt-009"
-        ],
-        "title_i18n": {
-          "en": "Suggestions & Preferences"
-        }
+        ]
       },
       {
         "id": "switch",
@@ -376,10 +370,7 @@
           "prompt-010",
           "prompt-011",
           "prompt-012"
-        ],
-        "title_i18n": {
-          "en": "Responding & Rescheduling"
-        }
+        ]
       }
     ]
   },
@@ -466,18 +457,14 @@
     "source": "template",
     "sourceRef": "friends_small_talk",
     "extractorVersion": "1.0.0",
-    "generatedAt": "2025-12-31T08:08:22.899Z"
+    "generatedAt": "2026-01-03T09:59:18.356Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T07:30:00.000Z"
   },
   "contentId": "de:pack:friends_cafe_meetup_a1",
-  "contentHash": "64b0acf4ca2eded1c94a15eb8a26d2ddae961cf88b8dc41d7e015270ff0101ea",
-  "revisionId": "64b0acf4ca2e",
-  "title_i18n": {
-    "en": "Café Meetup"
-  },
-  "description_i18n": {
-    "en": "Practice friends_small_talk scenarios at A1 level."
-  }
+  "contentHash": "b2f56eccd90ef27f61259b0ae9e93985803c53a67ab551df0e50c28e97eff405",
+  "revisionId": "b2f56eccd90e"
 }

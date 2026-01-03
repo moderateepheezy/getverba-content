@@ -348,10 +348,7 @@
           "prompt-002",
           "prompt-003",
           "prompt-004"
-        ],
-        "title_i18n": {
-          "en": "Making Plans"
-        }
+        ]
       },
       {
         "id": "variation",
@@ -362,10 +359,7 @@
           "prompt-007",
           "prompt-008",
           "prompt-009"
-        ],
-        "title_i18n": {
-          "en": "Suggestions & Preferences"
-        }
+        ]
       },
       {
         "id": "switch",
@@ -374,10 +368,7 @@
           "prompt-010",
           "prompt-011",
           "prompt-012"
-        ],
-        "title_i18n": {
-          "en": "Responding & Rescheduling"
-        }
+        ]
       }
     ]
   },
@@ -464,18 +455,12 @@
     "source": "template",
     "sourceRef": "friends_small_talk",
     "extractorVersion": "1.0.0",
-    "generatedAt": "2025-12-31T08:08:24.343Z"
+    "generatedAt": "2026-01-03T09:59:19.742Z"
   },
   "review": {
     "status": "needs_review"
   },
   "contentId": "de:pack:friends_reschedule_and_decline_a2",
-  "contentHash": "85e97ed0f8b6d886aa3ddd96f3279332c83ba491dfabc0962de3c3bcdb165fcd",
-  "revisionId": "85e97ed0f8b6",
-  "title_i18n": {
-    "en": "Rescheduling & Declining"
-  },
-  "description_i18n": {
-    "en": "Practice friends_small_talk scenarios at A2 level."
-  }
+  "contentHash": "70ee99c0011700192a6cf1975bc80ee09d1dab77c29ac8160ead77232d01faf1",
+  "revisionId": "70ee99c00117"
 }

@@ -48,6 +48,28 @@
         "modifier": [
           "am Montag"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something.",
+        "es": "Me gustaría solicitar algo.",
+        "fr": "Je voudrais demander quelque chose.",
+        "it": "Vorrei chiedere una cosa.",
+        "pt": "Gostaria de fazer um pedido.",
+        "ru": "Я хотел бы попросить кое-что.",
+        "ja": "お願いしたいことがある。",
+        "ko": "요청하고 싶은 것이 있습니다.",
+        "zh-CN": "我有个请求。",
+        "zh-TW": "我有个请求。",
+        "ar": "أود أن أطلب شيئاً.",
+        "tr": "Bir şey rica etmek istiyorum.",
+        "pl": "Chciałbym o coś poprosić.",
+        "nl": "Ik wil graag iets aanvragen.",
+        "sv": "Jag skulle vilja be om en sak.",
+        "no": "Jeg vil gjerne be om noe.",
+        "da": "Jeg vil gerne bede om noget.",
+        "fi": "Haluaisin pyytää jotakin.",
+        "el": "Θα ήθελα να ζητήσω κάτι.",
+        "cs": "Chtěl bych o něco požádat."
       }
     },
     {
@@ -76,6 +98,28 @@
         "modifier": [
           "um 15:00"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something.",
+        "es": "Me gustaría solicitar algo.",
+        "fr": "Je voudrais demander quelque chose.",
+        "it": "Vorrei chiedere una cosa.",
+        "pt": "Gostaria de fazer um pedido.",
+        "ru": "Я хотел бы попросить кое-что.",
+        "ja": "お願いしたいことがある。",
+        "ko": "요청하고 싶은 것이 있습니다.",
+        "zh-CN": "我有个请求。",
+        "zh-TW": "我有个请求。",
+        "ar": "أود أن أطلب شيئاً.",
+        "tr": "Bir şey rica etmek istiyorum.",
+        "pl": "Chciałbym o coś poprosić.",
+        "nl": "Ik wil graag iets aanvragen.",
+        "sv": "Jag skulle vilja be om en sak.",
+        "no": "Jeg vil gjerne be om noe.",
+        "da": "Jeg vil gerne bede om noget.",
+        "fi": "Haluaisin pyytää jotakin.",
+        "el": "Θα ήθελα να ζητήσω κάτι.",
+        "cs": "Chtěl bych o něco požádat."
       }
     },
     {
@@ -99,6 +143,28 @@
         "object": [
           "die Diagnose"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     },
     {
@@ -123,6 +189,28 @@
         "object": [
           "die Symptome"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something.",
+        "es": "Necesito programar algo.",
+        "fr": "Je dois programmer quelque chose.",
+        "it": "Devo programmare qualcosa.",
+        "pt": "Preciso de marcar uma coisa.",
+        "ru": "Мне нужно кое-что запланировать.",
+        "ja": "何か予定を入れないと。",
+        "ko": "일정을 잡아야 합니다.",
+        "zh-CN": "我需要安排一些事情。",
+        "zh-TW": "我需要安排一些事情。",
+        "ar": "أحتاج إلى جدولة شيء ما.",
+        "tr": "Bir şeyler ayarlamam lazım.",
+        "pl": "Muszę coś zaplanować.",
+        "nl": "Ik moet iets plannen.",
+        "sv": "Jag måste planera in något.",
+        "no": "Jeg må planlegge noe.",
+        "da": "Jeg er nødt til at planlægge noget.",
+        "fi": "Minun on varattava aikaa.",
+        "el": "Πρέπει να προγραμματίσω κάτι.",
+        "cs": "Musím si něco naplánovat."
       }
     },
     {
@@ -147,6 +235,28 @@
         "object": [
           "die Diagnose"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     },
     {
@@ -171,6 +281,28 @@
         "object": [
           "einen Termin"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something.",
+        "es": "Necesito programar algo.",
+        "fr": "Je dois programmer quelque chose.",
+        "it": "Devo programmare qualcosa.",
+        "pt": "Preciso de marcar uma coisa.",
+        "ru": "Мне нужно кое-что запланировать.",
+        "ja": "何か予定を入れないと。",
+        "ko": "일정을 잡아야 합니다.",
+        "zh-CN": "我需要安排一些事情。",
+        "zh-TW": "我需要安排一些事情。",
+        "ar": "أحتاج إلى جدولة شيء ما.",
+        "tr": "Bir şeyler ayarlamam lazım.",
+        "pl": "Muszę coś zaplanować.",
+        "nl": "Ik moet iets plannen.",
+        "sv": "Jag måste planera in något.",
+        "no": "Jeg må planlegge noe.",
+        "da": "Jeg er nødt til at planlægge noget.",
+        "fi": "Minun on varattava aikaa.",
+        "el": "Πρέπει να προγραμματίσω κάτι.",
+        "cs": "Musím si něco naplánovat."
       }
     },
     {
@@ -194,6 +326,28 @@
         "object": [
           "einen Termin"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something.",
+        "es": "Necesito programar algo.",
+        "fr": "Je dois programmer quelque chose.",
+        "it": "Devo programmare qualcosa.",
+        "pt": "Preciso de marcar uma coisa.",
+        "ru": "Мне нужно кое-что запланировать.",
+        "ja": "何か予定を入れないと。",
+        "ko": "일정을 잡아야 합니다.",
+        "zh-CN": "我需要安排一些事情。",
+        "zh-TW": "我需要安排一些事情。",
+        "ar": "أحتاج إلى جدولة شيء ما.",
+        "tr": "Bir şeyler ayarlamam lazım.",
+        "pl": "Muszę coś zaplanować.",
+        "nl": "Ik moet iets plannen.",
+        "sv": "Jag måste planera in något.",
+        "no": "Jeg må planlegge noe.",
+        "da": "Jeg er nødt til at planlægge noget.",
+        "fi": "Minun on varattava aikaa.",
+        "el": "Πρέπει να προγραμματίσω κάτι.",
+        "cs": "Musím si něco naplánovat."
       }
     }
   ],
@@ -319,15 +473,55 @@
     "generatedAt": "2026-01-01T00:56:01.146Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T07:30:00.000Z"
   },
   "contentId": "de:pack:doctor_pack_2_a1",
   "contentHash": "fa7a48e5fd8f8b12b63c7d2301390033263db3d052ac51dd24bbee81aba65728",
   "revisionId": "fa7a48e5fd8f",
   "title_i18n": {
-    "en": "Doctor A1 — 2: Describing Symptoms"
+    "en": "Doctor A1 — 2: Describing Symptoms",
+    "es": "Doctor A1 - 2: Descripción de los síntomas",
+    "fr": "Docteur A1 - 2 : Description des symptômes",
+    "it": "Medico A1 - 2: descrizione dei sintomi",
+    "pt": "Doctor A1 - 2: Descrever os sintomas",
+    "ru": "Доктор A1 - 2: Описание симптомов",
+    "ja": "医師A1 - 2: 症状の説明",
+    "ko": "닥터 A1 - 2: 증상 설명하기",
+    "zh-CN": "医生 A1 - 2：描述症状",
+    "zh-TW": "医生 A1 - 2：描述症状",
+    "ar": "الطبيب أ 1 - 2: وصف الأعراض",
+    "tr": "Doktor A1 - 2: Belirtileri Tanımlama",
+    "pl": "Lekarz A1 - 2: Opisywanie objawów",
+    "nl": "Dokter A1 - 2: Symptomen beschrijven",
+    "sv": "Läkare A1 - 2: Beskriva symtom",
+    "no": "Lege A1 - 2: Beskrive symptomer",
+    "da": "Læge A1 - 2: Beskrivelse af symptomer",
+    "fi": "Lääkäri A1 - 2: Oireiden kuvaaminen",
+    "el": "Γιατρός A1 - 2: Περιγράφοντας τα συμπτώματα",
+    "cs": "Lékař A1 - 2: Popis příznaků"
   },
   "description_i18n": {
-    "en": "Practice doctor scenarios at A1 level."
+    "en": "Practice doctor scenarios at A1 level.",
+    "es": "Practicar escenarios de médicos a nivel A1.",
+    "fr": "Pratiquer des scénarios de médecins au niveau A1.",
+    "it": "Esercitarsi in scenari medici di livello A1.",
+    "pt": "Praticar cenários médicos ao nível A1.",
+    "ru": "Практикуйте сценарии для врачей на уровне A1.",
+    "ja": "A1レベルの医師シナリオを練習する。",
+    "ko": "A1 수준의 의사 시나리오를 연습하세요.",
+    "zh-CN": "以 A1 水平练习医生情景。",
+    "zh-TW": "以 A1 水平练习医生情景。",
+    "ar": "تدرب على سيناريوهات الطبيب في المستوى A1.",
+    "tr": "A1 seviyesinde doktor senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze dla lekarzy na poziomie A1.",
+    "nl": "Oefen doktersscenario's op A1-niveau.",
+    "sv": "Öva på läkarscenarier på A1-nivå.",
+    "no": "Øv deg på legescenarioer på A1-nivå.",
+    "da": "Øv dig på lægescenarier på A1-niveau.",
+    "fi": "Harjoittele lääkärin skenaarioita A1-tasolla.",
+    "el": "Πρακτική εξάσκηση σε σενάρια γιατρών σε επίπεδο Α1.",
+    "cs": "Procvičování scénářů pro lékaře na úrovni A1."
   }
 }

@@ -82,6 +82,7 @@ Array of prompt objects for practice.
 | `intent` | string | ✅ | Intent category (enum: "greet", "request", "apologize", "inform", "ask", "confirm", "schedule", "order", "ask_price", "thank", "goodbye") |
 | `register` | string | ❌ | Formality level (enum: "formal", "neutral", "informal", "casual"). Defaults to pack-level register if missing. |
 | `gloss_en` | string | ✅ | Natural English meaning anchor (6-180 chars). Must be genuine English, not literal translation. |
+| `gloss_en_i18n` | Record<string, string> | ❌ | Localized meaning translations. Follows same i18n pattern as other fields. When present, must include `"en"` key. |
 | `natural_en` | string | ⚠️ | Native English paraphrase (6-180 chars). Required for `government_office` scenario or A2+ level. Optional but recommended for A1 non-government scenarios. Must be idiomatic English, not identical to `gloss_en`. |
 | `alt_de` | string | ❌ | Optional native German paraphrase (6-240 chars). Should differ meaningfully from main prompt. |
 | `translation` | string | ❌ | English translation (deprecated, use gloss_en instead) |

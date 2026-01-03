@@ -45,11 +45,14 @@
         "modifier": [
           "um 9 Uhr"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
       "id": "prompt-002",
-      "text": "Der Manager soll um 14:30",
+      "text": "Der Manager soll um 15:00 morgen",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -67,8 +70,12 @@
           "soll"
         ],
         "modifier": [
-          "um 14:30"
+          "um 15:00",
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -97,11 +104,14 @@
         "modifier": [
           "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
       "id": "prompt-004",
-      "text": "Sie helfen die Deadline um 14:30",
+      "text": "Sie helfen die Deadline um 15:00 morgen",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -123,8 +133,12 @@
           "die Deadline"
         ],
         "modifier": [
-          "um 14:30"
+          "um 15:00",
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -153,6 +167,9 @@
         "modifier": [
           "am Dienstag"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am working on the project."
       }
     },
     {
@@ -176,6 +193,9 @@
         "object": [
           "das Projekt"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am working on the project."
       }
     },
     {
@@ -199,6 +219,9 @@
         "object": [
           "die Aufgabe"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     }
   ],
@@ -276,7 +299,7 @@
     "multiSlotRate": 1,
     "scenarioTokenHitAvg": 1.1428571428571428,
     "scenarioTokenQualifiedRate": 0.14285714285714285,
-    "uniqueTokenRate": 0.65,
+    "uniqueTokenRate": 0.6190476190476191,
     "bannedPhraseViolations": 0,
     "passesQualityGates": false,
     "focus": "modal_verbs",
@@ -320,15 +343,55 @@
     "generatedAt": "2026-01-01T02:21:49.128Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T08:26:06.993Z"
   },
   "contentId": "de:pack:work_pack_9_a2",
   "contentHash": "24705746663b063006dfad03ad00427154b15c7ecdc6ac9e434c58c69a20268d",
   "revisionId": "24705746663b",
   "title_i18n": {
-    "en": "Work A2 — 9: Client Interactions"
+    "en": "Work A2 — 9: Client Interactions",
+    "es": "Trabajo A2 - 9: Interacciones con los clientes",
+    "fr": "Travail A2 - 9 : Interactions avec les clients",
+    "it": "Lavoro A2 - 9: Interazioni con i clienti",
+    "pt": "Trabalho A2 - 9: Interações com os clientes",
+    "ru": "Работа A2 - 9: Взаимодействие с клиентами",
+    "zh-CN": "工作 A2 - 9：客户互动",
+    "zh-TW": "工作 A2 - 9：客户互动",
+    "ar": "العمل أ2 - 9: التفاعل مع العملاء",
+    "tr": "Çalışma A2 - 9: Müşteri Etkileşimleri",
+    "pl": "Praca A2 - 9: Interakcje z klientami",
+    "nl": "Werk A2 - 9: Interacties met klanten",
+    "sv": "Arbete A2 - 9: Interaktioner med kunder",
+    "no": "Arbeid A2 - 9: Kundeinteraksjoner",
+    "da": "Arbejde A2 - 9: Kundeinteraktioner",
+    "fi": "Työ A2 - 9: Asiakaskohtaamiset",
+    "el": "Εργασία Α2 - 9: Αλληλεπιδράσεις με τους πελάτες",
+    "cs": "Práce A2 - 9: Interakce s klienty",
+    "ja": "作業A2 - 9: 顧客との対話",
+    "ko": "작업 A2 - 9: 클라이언트 상호 작용"
   },
   "description_i18n": {
-    "en": "Practice work scenarios at A2 level."
+    "en": "Practice work scenarios at A2 level.",
+    "es": "Practicar escenarios de trabajo a nivel A2.",
+    "fr": "Pratiquer des scénarios de travail au niveau A2.",
+    "it": "Esercitarsi in scenari di lavoro a livello A2.",
+    "pt": "Praticar cenários de trabalho ao nível A2.",
+    "ru": "Отработайте сценарии работы на уровне A2.",
+    "ja": "A2レベルの仕事のシナリオを練習する。",
+    "ko": "A2 수준의 업무 시나리오를 연습하세요.",
+    "zh-CN": "在 A2 级水平上练习工作场景。",
+    "zh-TW": "在 A2 级水平上练习工作场景。",
+    "ar": "ممارسة سيناريوهات العمل على المستوى A2.",
+    "tr": "A2 seviyesinde çalışma senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze pracy na poziomie A2.",
+    "no": "Øv deg på arbeidsscenarioer på A2-nivå.",
+    "da": "Øv dig i arbejdsscenarier på A2-niveau.",
+    "fi": "Harjoitellaan A2-tason työkuvioita.",
+    "el": "Πρακτική εξάσκηση σε σενάρια εργασίας σε επίπεδο Α2.",
+    "cs": "Procvičování pracovních scénářů na úrovni A2.",
+    "nl": "Oefen werkscenario's op A2-niveau.",
+    "sv": "Öva på arbetsscenarier på A2-nivå."
   }
 }

@@ -264,6 +264,146 @@ function detectDomainKind(item: SectionIndexItem): 'context' | 'mechanics' | 'ex
 }
 
 /**
+ * Derive groupId from pack data (same logic as seed-all-grouping.ts)
+ */
+function deriveGroupId(item: SectionIndexItem, scenarioId: string): string | null {
+  // Use existing groupId if present
+  if (item.groupId) {
+    return item.groupId;
+  }
+  
+  // Derive from scenario-specific logic
+  const text = `${item.title || ''} ${item.shortTitle || ''} ${item.topicLabel || ''} ${item.topicKey || ''}`.toLowerCase();
+  
+  if (scenarioId === 'doctor') {
+    if (text.includes('appointment') || text.includes('booking') || text.includes('termin') || 
+        text.includes('phone') || text.includes('scheduling')) {
+      return 'booking-appointments';
+    }
+    if (text.includes('symptom') || text.includes('describing') || text.includes('beschreib') ||
+        text.includes('pain') || text.includes('illness')) {
+      return 'describing-symptoms';
+    }
+    if (text.includes('prescription') || text.includes('rezept') || text.includes('medication') ||
+        text.includes('medicine') || text.includes('pharmacy')) {
+      return 'getting-prescriptions';
+    }
+    // Fallback based on pack number
+    const match = item.id?.match(/doctor_pack_(\d+)/);
+    if (match) {
+      const num = parseInt(match[1], 10);
+      const mod = num % 3;
+      if (mod === 1) return 'booking-appointments';
+      if (mod === 2) return 'describing-symptoms';
+      return 'getting-prescriptions';
+    }
+  } else if (scenarioId === 'friends_small_talk') {
+    if (text.includes('opening') || text.includes('suggestion') || text.includes('meetup') ||
+        text.includes('café') || text.includes('cafe') || text.includes('plans') || 
+        text.includes('weekend') || text.includes('activity')) {
+      return 'making-plans';
+    }
+    if (text.includes('movie') || text.includes('series') || text.includes('recommendation') ||
+        text.includes('opinion') || text.includes('preference') || text.includes('like') ||
+        text.includes('favorite')) {
+      return 'preferences-opinions';
+    }
+    if (text.includes('declin') || text.includes('reschedule') || text.includes('respond') ||
+        text.includes('cancel') || text.includes('sorry') || text.includes('politely')) {
+      return 'responding-rescheduling';
+    }
+  } else if (scenarioId === 'government_office') {
+    if (text.includes('anmeldung') || text.includes('registration') || text.includes('address') ||
+        text.includes('passport') || text.includes('document')) {
+      return 'registration-documents';
+    }
+    if (text.includes('residence') || text.includes('permit') || text.includes('immigration') ||
+        text.includes('visa') || text.includes('aufenthalts') || text.includes('ausländer')) {
+      return 'permits-visas';
+    }
+    if (text.includes('health') || text.includes('insurance') || text.includes('jobcenter') ||
+        text.includes('job') || text.includes('social') || text.includes('benefit') ||
+        text.includes('krankenkasse')) {
+      return 'public-services';
+    }
+  } else if (scenarioId === 'housing') {
+    if (text.includes('searching') || text.includes('listing') || text.includes('looking') ||
+        text.includes('find') || text.includes('suche') || text.includes('anzeige')) {
+      return 'searching-listings';
+    }
+    if (text.includes('viewing') || text.includes('besichtigung') || text.includes('visit') ||
+        text.includes('tour') || text.includes('inspect')) {
+      return 'viewing-apartments';
+    }
+    if (text.includes('rental') || text.includes('agreement') || text.includes('contract') ||
+        text.includes('mietvertrag') || text.includes('deposit') || text.includes('kaution') ||
+        text.includes('lease') || text.includes('sign')) {
+      return 'rental-agreements';
+    }
+  } else if (scenarioId === 'work') {
+    if (text.includes('greeting') || text.includes('introduction') || text.includes('hello') ||
+        text.includes('welcome') || text.includes('first day') || text.includes('sample') ||
+        text.includes('begrüß')) {
+      return 'office-greetings';
+    }
+    if (text.includes('meeting') || text.includes('schedule') || text.includes('calendar') ||
+        text.includes('termine') || text.includes('besprechung') || text.includes('call') ||
+        text.includes('agenda')) {
+      return 'meetings-scheduling';
+    }
+    if (text.includes('task') || text.includes('request') || text.includes('problem') ||
+        text.includes('help') || text.includes('report') || text.includes('project') ||
+        text.includes('deadline') || text.includes('assign') || text.includes('solving')) {
+      return 'tasks-requests';
+    }
+  }
+  
+  return null;
+}
+
+/**
+ * Get group title from groupId
+ */
+function getGroupTitle(groupId: string): { title: string; title_i18n: Record<string, string> } {
+  const groupTitles: Record<string, { title: string; title_i18n: Record<string, string> }> = {
+    'booking-appointments': { title: 'Booking Appointments', title_i18n: { en: 'Booking Appointments' } },
+    'describing-symptoms': { title: 'Describing Symptoms', title_i18n: { en: 'Describing Symptoms' } },
+    'getting-prescriptions': { title: 'Getting Prescriptions', title_i18n: { en: 'Getting Prescriptions' } },
+    'making-plans': { title: 'Making Plans', title_i18n: { en: 'Making Plans' } },
+    'preferences-opinions': { title: 'Preferences & Opinions', title_i18n: { en: 'Preferences & Opinions' } },
+    'responding-rescheduling': { title: 'Responding & Rescheduling', title_i18n: { en: 'Responding & Rescheduling' } },
+    'registration-documents': { title: 'Registration & Documents', title_i18n: { en: 'Registration & Documents' } },
+    'permits-visas': { title: 'Permits & Visas', title_i18n: { en: 'Permits & Visas' } },
+    'public-services': { title: 'Public Services', title_i18n: { en: 'Public Services' } },
+    'searching-listings': { title: 'Searching & Listings', title_i18n: { en: 'Searching & Listings' } },
+    'viewing-apartments': { title: 'Viewing Apartments', title_i18n: { en: 'Viewing Apartments' } },
+    'rental-agreements': { title: 'Rental Agreements', title_i18n: { en: 'Rental Agreements' } },
+    'office-greetings': { title: 'Office Greetings', title_i18n: { en: 'Office Greetings' } },
+    'meetings-scheduling': { title: 'Meetings & Scheduling', title_i18n: { en: 'Meetings & Scheduling' } },
+    'tasks-requests': { title: 'Tasks & Requests', title_i18n: { en: 'Tasks & Requests' } }
+  };
+  
+  return groupTitles[groupId] || { title: groupId, title_i18n: { en: groupId } };
+}
+
+/**
+ * Enrich items with grouping metadata if missing
+ */
+function enrichItemsWithGrouping(items: SectionIndexItem[], scenarioId: string): void {
+  for (const item of items) {
+    if (!item.groupId) {
+      const groupId = deriveGroupId(item, scenarioId);
+      if (groupId) {
+        item.groupId = groupId;
+        const groupInfo = getGroupTitle(groupId);
+        item.groupTitle = groupInfo.title;
+        item.groupTitle_i18n = groupInfo.title_i18n;
+      }
+    }
+  }
+}
+
+/**
  * Filter items to only include context packs (exclude mechanics)
  */
 function filterContextItems(items: SectionIndexItem[]): SectionIndexItem[] {
@@ -1046,6 +1186,9 @@ function generateScenarioIndex(
   // Filter out mechanics packs (only include context packs)
   const contextItems = filterContextItems(items);
   
+  // Enrich items with grouping metadata if missing
+  enrichItemsWithGrouping(contextItems, scenarioId);
+  
   if (contextItems.length === 0) {
     // Create empty index
     const emptyIndex: SectionIndex = {
@@ -1067,6 +1210,7 @@ function generateScenarioIndex(
     console.log(`   📝 Created empty scenario index: context/${scenarioId} (no context items, filtered mechanics)`);
     
     // Remove old pagination files
+    // Remove old index.page{n}.json files
     let pageNum = 2;
     while (true) {
       const pagePath = join(scenarioDir, `index.page${pageNum}.json`);
@@ -1075,6 +1219,16 @@ function generateScenarioIndex(
         pageNum++;
       } else {
         break;
+      }
+    }
+    // Remove old pages directory files
+    const pagesDir = join(scenarioDir, 'pages');
+    if (existsSync(pagesDir)) {
+      const pageFiles = readdirSync(pagesDir);
+      for (const file of pageFiles) {
+        if (file.match(/^\d+\.json$/)) {
+          rmSync(join(pagesDir, file));
+        }
       }
     }
     return 0;
@@ -1091,26 +1245,27 @@ function generateScenarioIndex(
     pages.push(sortedItems.slice(i, i + pageSize));
   }
   
-  // Remove old pagination files
-  if (existsSync(scenarioDir)) {
-    const files = readdirSync(scenarioDir);
-    for (const file of files) {
-      if (file.match(/^index\.page\d+\.json$/)) {
-        const filePath = join(scenarioDir, file);
-        rmSync(filePath);
+    // Remove old pagination files
+    if (existsSync(scenarioDir)) {
+      // Remove old index.page{n}.json files
+      const files = readdirSync(scenarioDir);
+      for (const file of files) {
+        if (file.match(/^index\.page\d+\.json$/)) {
+          const filePath = join(scenarioDir, file);
+          rmSync(filePath);
+        }
       }
-    }
-    // Remove old pages directory if it exists
-    const pagesDir = join(scenarioDir, 'pages');
-    if (existsSync(pagesDir)) {
-      const pageFiles = readdirSync(pagesDir);
-      for (const file of pageFiles) {
-        if (file.match(/^\d+\.json$/)) {
-          rmSync(join(pagesDir, file));
+      // Clean up pages directory (will be recreated with correct format)
+      const pagesDir = join(scenarioDir, 'pages');
+      if (existsSync(pagesDir)) {
+        const pageFiles = readdirSync(pagesDir);
+        for (const file of pageFiles) {
+          if (file.match(/^\d+\.json$/)) {
+            rmSync(join(pagesDir, file));
+          }
         }
       }
     }
-  }
   
   // Write paginated index files
   for (let pageNum = 0; pageNum < pages.length; pageNum++) {
@@ -1146,7 +1301,7 @@ function generateScenarioIndex(
       pageSize,
       page: pageNumber,
       items: pageItems,
-      nextPage: isLastPage ? null : `/v1/workspaces/${workspaceId}/context/${scenarioId}/index.page${pageNumber + 1}.json`,
+      nextPage: isLastPage ? null : `/v1/workspaces/${workspaceId}/context/${scenarioId}/pages/${pageNumber + 1}.json`,
       scope,
       recommended: recommended,
       groups: groups.length > 0 ? groups : undefined
@@ -1157,8 +1312,12 @@ function generateScenarioIndex(
       // Page 1: index.json
       filePath = join(scenarioDir, 'index.json');
     } else {
-      // Page 2+: index.page{n}.json (matching existing structure)
-      filePath = join(scenarioDir, `index.page${pageNumber}.json`);
+      // Page 2+: pages/{n}.json (matching validator expectation)
+      const pagesDir = join(scenarioDir, 'pages');
+      if (!existsSync(pagesDir)) {
+        mkdirSync(pagesDir, { recursive: true });
+      }
+      filePath = join(pagesDir, `${pageNumber}.json`);
     }
     
     const jsonContent = JSON.stringify(index, null, 2);
@@ -1235,7 +1394,7 @@ function generateScenarioIndexFile(workspaceId: string, allContextItems: Section
   const scenarioIndex = {
     version: 1,
     kind: 'scenario_index',
-    scenarios: scenarioItems
+    items: scenarioItems
   };
   
   const scenarioIndexPath = join(contextDir, 'scenarios.json');

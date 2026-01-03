@@ -1,27 +1,92 @@
 {
   "mechanicId": "word_order_main_clause",
   "mechanicLabel": "Word Order: Main Clause",
-  "description": "Master verb-second position in main clauses",
-  "supportedLevels": ["A1", "A2", "B1"],
-  "loopTypes": ["pattern_switch", "slot_substitution", "error_trap"],
+  "description": "Practice verb-second position in main clauses (verb in 2nd position)",
+  "description_i18n": {
+    "en": "Practice verb-second position in main clauses (verb in 2nd position)",
+    "de": "Übe Verb-Zweit-Stellung in Hauptsätzen (Verb an 2. Position)"
+  },
+  "supportedLevels": [
+    "A1",
+    "A2",
+    "B1"
+  ],
+  "loopTypes": [
+    "pattern_switch",
+    "slot_substitution",
+    "error_trap"
+  ],
   "canonicalPatterns": [
     "verb_second_position",
     "time_manner_place",
     "subject_verb_object"
   ],
   "slotDictionaries": {
-    "time": ["heute", "morgen", "gestern", "jetzt", "später", "am Montag", "um 9 Uhr"],
-    "subject": ["Ich", "Du", "Er", "Sie", "Wir", "Ihr"],
-    "verb": ["gehe", "komme", "mache", "sehe", "höre", "esse", "trinke"],
-    "object": ["das Buch", "die Zeitung", "den Film", "die Musik", "das Essen"],
-    "location": ["ins Büro", "nach Hause", "zur Arbeit", "zum Park", "in die Stadt"]
+    "time": [
+      "heute",
+      "morgen",
+      "gestern",
+      "jetzt",
+      "später",
+      "am Montag",
+      "um 9 Uhr"
+    ],
+    "subject": [
+      "Ich",
+      "Du",
+      "Er",
+      "Sie",
+      "Wir",
+      "Ihr"
+    ],
+    "verb": [
+      "gehe",
+      "komme",
+      "mache",
+      "sehe",
+      "höre",
+      "esse",
+      "trinke"
+    ],
+    "object": [
+      "das Buch",
+      "die Zeitung",
+      "den Film",
+      "die Musik",
+      "das Essen",
+      "Deutsch",
+      "einen Kaffee"
+    ],
+    "location": [
+      "ins Büro",
+      "nach Hause",
+      "zur Arbeit",
+      "zum Park",
+      "in die Stadt",
+      "zu Freunden"
+    ],
+    "modifier": [
+      "gerne",
+      "schnell",
+      "oft",
+      "selten",
+      "manchmal",
+      "immer",
+      "nie"
+    ]
   },
   "trapPairs": [
     {
       "confusion": "verb position with time expressions",
       "examples": [
-        { "correct": "Heute gehe ich ins Büro", "incorrect": "Heute ich gehe ins Büro" },
-        { "correct": "Morgen komme ich", "incorrect": "Morgen ich komme" }
+        {
+          "correct": "Heute gehe ich ins Büro",
+          "incorrect": "Heute ich gehe ins Büro"
+        },
+        {
+          "correct": "Morgen komme ich",
+          "incorrect": "Morgen ich komme"
+        }
       ]
     }
   ],
@@ -33,12 +98,18 @@
     "placeholder"
   ],
   "requiredTokens": [
-    "heute", "morgen", "jetzt",
-    "gehe", "komme", "mache",
-    "ich", "du", "er", "sie"
+    "heute",
+    "morgen",
+    "jetzt",
+    "gehe",
+    "komme",
+    "mache",
+    "ich",
+    "du",
+    "er",
+    "sie"
   ],
   "minUniqueVerbs": 4,
   "minUniqueSubjects": 5,
   "minMultiSlotRate": 0.35
 }
-

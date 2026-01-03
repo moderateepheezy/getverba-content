@@ -1,0 +1,328 @@
+{
+  "version": "v1",
+  "kind": "context",
+  "total": 16,
+  "pageSize": 12,
+  "page": 2,
+  "items": [
+    {
+      "id": "doctor_pack_5_a2",
+      "kind": "pack",
+      "title": "Doctor A2 — 5: Describing Symptoms",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/doctor_pack_5_a2/pack.json",
+      "contentId": "de:pack:doctor_pack_5_a2",
+      "revisionId": "75b571e95cf9",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "doctor"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "health_appointments",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "doctor",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice doctor appointments and health conversations at A2 level",
+        "whyThisWorks": [
+          "Uses appointment scheduling phrases",
+          "Includes symptom/health vocabulary",
+          "Maintains appropriate formality"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Describing Symptoms",
+      "orderInTopic": 5,
+      "title_i18n": {
+        "en": "Doctor A2 — 5: Describing Symptoms",
+        "es": "Doctor A2 - 5: Descripción de los síntomas",
+        "fr": "Docteur A2 - 5 : Décrire les symptômes",
+        "it": "Medico A2 - 5: Descrizione dei sintomi",
+        "pt": "Doctor A2 - 5: Descrever os sintomas",
+        "ru": "Доктор A2 - 5: Описание симптомов",
+        "ja": "医師A2 - 5: 症状の説明",
+        "ko": "닥터 A2 - 5: 증상 설명하기",
+        "zh-CN": "医生 A2 - 5：描述症状",
+        "zh-TW": "医生 A2 - 5：描述症状",
+        "ar": "الطبيب أ2 - 5 - 5: وصف الأعراض",
+        "tr": "Doktor A2 - 5: Belirtileri Tanımlama",
+        "pl": "Lekarz A2 - 5: Opisywanie objawów",
+        "nl": "A2 - 5: Symptomen beschrijven",
+        "sv": "Läkare A2 - 5: Beskrivning av symtom",
+        "no": "Lege A2 - 5: Beskrive symptomer",
+        "da": "Læge A2 - 5: Beskrivelse af symptomer",
+        "fi": "Lääkäri A2 - 5: Oireiden kuvaaminen",
+        "el": "Γιατρός A2 - 5: Περιγράφοντας τα συμπτώματα",
+        "cs": "Lékař A2 - 5: Popis příznaků"
+      },
+      "domainKind": "context",
+      "groupId": "describing-symptoms",
+      "groupTitle": "Describing Symptoms",
+      "groupTitle_i18n": {
+        "en": "Describing Symptoms"
+      },
+      "isRecommended": true
+    },
+    {
+      "id": "doctor_pack_6_a2",
+      "kind": "pack",
+      "title": "Doctor A2 — 6: Getting Prescription",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/doctor_pack_6_a2/pack.json",
+      "contentId": "de:pack:doctor_pack_6_a2",
+      "revisionId": "7e8814ad53f7",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "doctor"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "health_appointments",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "doctor",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice doctor appointments and health conversations at A2 level",
+        "whyThisWorks": [
+          "Uses appointment scheduling phrases",
+          "Includes symptom/health vocabulary",
+          "Maintains appropriate formality"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Getting Prescription",
+      "orderInTopic": 6,
+      "title_i18n": {
+        "en": "Doctor A2 — 6: Getting Prescription",
+        "es": "Doctor A2 - 6: Obtención de la receta",
+        "fr": "Docteur A2 - 6 : Obtenir une ordonnance",
+        "it": "Medico A2 - 6: Ottenere la prescrizione",
+        "pt": "Doctor A2 - 6: Obter uma receita",
+        "ru": "Доктор А2 - 6: Получение рецепта",
+        "ja": "ドクターA2 - 6: 処方箋をもらう",
+        "ko": "닥터 A2 - 6: 처방전 받기",
+        "zh-CN": "医生 A2 - 6：获取处方",
+        "zh-TW": "医生 A2 - 6：获取处方",
+        "ar": "الطبيب أ2 - 6: الحصول على وصفة طبية",
+        "tr": "Doktor A2 - 6: Reçete Alma",
+        "pl": "Doctor A2 - 6: Uzyskanie recepty",
+        "nl": "Dokter A2 - 6: Een recept krijgen",
+        "sv": "Doctor A2 - 6: Att få recept",
+        "no": "Lege A2 - 6: Få resept",
+        "da": "Læge A2 - 6: At få recept",
+        "fi": "Lääkäri A2 - 6: Reseptin saaminen",
+        "el": "Γιατρός A2 - 6: Συνταγογράφηση",
+        "cs": "Lékař A2 - 6: Získání lékařského předpisu"
+      },
+      "domainKind": "context",
+      "groupId": "getting-prescriptions",
+      "groupTitle": "Getting Prescriptions",
+      "groupTitle_i18n": {
+        "en": "Getting Prescriptions"
+      }
+    },
+    {
+      "id": "doctor_pack_7_a2",
+      "kind": "pack",
+      "title": "Doctor A2 — 7: Making an Appointment",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/doctor_pack_7_a2/pack.json",
+      "contentId": "de:pack:doctor_pack_7_a2",
+      "revisionId": "2cbdee73d8b3",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "doctor"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "health_appointments",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "doctor",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice doctor appointments and health conversations at A2 level",
+        "whyThisWorks": [
+          "Uses appointment scheduling phrases",
+          "Includes symptom/health vocabulary",
+          "Maintains appropriate formality"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Making an Appointment",
+      "orderInTopic": 7,
+      "title_i18n": {
+        "en": "Doctor A2 — 7: Making an Appointment",
+        "es": "Doctor A2 - 7: Concertar una cita",
+        "fr": "Docteur A2 - 7 : Prendre rendez-vous",
+        "it": "Medico A2 - 7: fissare un appuntamento",
+        "pt": "Doctor A2 - 7: Marcação de uma consulta",
+        "ru": "Доктор A2 - 7: Запись на прием",
+        "ja": "ドクターA2 - 7: 予約を取る",
+        "ko": "닥터 A2 - 7: 예약하기",
+        "zh-CN": "医生 A2 - 7：预约",
+        "zh-TW": "医生 A2 - 7：预约",
+        "ar": "الطبيب أ 2 - 7: تحديد موعد طبي",
+        "tr": "Doktor A2 - 7: Randevu Alma",
+        "pl": "Lekarz A2 - 7: Umawianie się na wizytę",
+        "nl": "Dokter A2 - 7: Een afspraak maken",
+        "sv": "Doktor A2 - 7: Att boka tid",
+        "no": "Lege A2 - 7: Bestilling av time",
+        "da": "Læge A2 - 7: At lave en aftale",
+        "fi": "Lääkäri A2 - 7: Ajanvarauksen tekeminen",
+        "el": "Γιατρός A2 - 7: Κλείνοντας ένα ραντεβού",
+        "cs": "Lékař A2 - 7: Objednávání na schůzku"
+      },
+      "domainKind": "context",
+      "groupId": "booking-appointments",
+      "groupTitle": "Booking Appointments",
+      "groupTitle_i18n": {
+        "en": "Booking Appointments"
+      }
+    },
+    {
+      "id": "doctor_pack_8_a2",
+      "kind": "pack",
+      "title": "Doctor A2 — 8: Describing Symptoms",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/doctor_pack_8_a2/pack.json",
+      "contentId": "de:pack:doctor_pack_8_a2",
+      "revisionId": "3a03d7a9f5cb",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "doctor"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "health_appointments",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "doctor",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice doctor appointments and health conversations at A2 level",
+        "whyThisWorks": [
+          "Uses appointment scheduling phrases",
+          "Includes symptom/health vocabulary",
+          "Maintains appropriate formality"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Describing Symptoms",
+      "orderInTopic": 8,
+      "title_i18n": {
+        "en": "Doctor A2 — 8: Describing Symptoms",
+        "es": "Doctor A2 - 8: Descripción de los síntomas",
+        "fr": "Docteur A2 - 8 : Décrire les symptômes",
+        "it": "Medico A2 - 8: Descrizione dei sintomi",
+        "pt": "Doctor A2 - 8: Descrever os sintomas",
+        "ru": "Доктор A2 - 8: Описание симптомов",
+        "ja": "医師A2 - 8: 症状の説明",
+        "ko": "닥터 A2 - 8: 증상 설명하기",
+        "zh-CN": "医生 A2 - 8：描述症状",
+        "zh-TW": "医生 A2 - 8：描述症状",
+        "ar": "الطبيب أ 2 - 8: وصف الأعراض",
+        "tr": "Doktor A2 - 8: Belirtileri Tanımlama",
+        "pl": "Lekarz A2 - 8: Opisywanie objawów",
+        "nl": "A2 - 8: Symptomen beschrijven",
+        "sv": "Läkare A2 - 8: Beskrivning av symtom",
+        "no": "Lege A2 - 8: Beskrive symptomer",
+        "da": "Læge A2 - 8: Beskrivelse af symptomer",
+        "fi": "Lääkäri A2 - 8: Oireiden kuvaaminen",
+        "el": "Γιατρός A2 - 8: Περιγράφοντας τα συμπτώματα",
+        "cs": "Doktor A2 - 8: Popis příznaků"
+      },
+      "domainKind": "context",
+      "groupId": "describing-symptoms",
+      "groupTitle": "Describing Symptoms",
+      "groupTitle_i18n": {
+        "en": "Describing Symptoms"
+      }
+    }
+  ],
+  "nextPage": null,
+  "scope": {
+    "scopeKind": "scenario",
+    "scopeId": "doctor",
+    "scopeTitle": "Doctor"
+  },
+  "recommended": {
+    "itemId": "doctor_pack_5_a2",
+    "entryUrl": "/v1/workspaces/de/packs/doctor_pack_5_a2/pack.json"
+  }
+}

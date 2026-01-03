@@ -28,7 +28,7 @@
       "text": "Der Beamte möchte die Unterlagen um 14:30",
       "intent": "request",
       "gloss_en": "I need the documents.",
-      "natural_en": "I need those documents.",
+      "natural_en": "Could I get those documents, please?",
       "audioUrl": "/v1/audio/jobcenter_basic_a2/prompt-001.mp3",
       "slotsChanged": [
         "subject",
@@ -47,6 +47,9 @@
         "modifier": [
           "um 14:30"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need the documents."
       }
     },
     {
@@ -73,6 +76,9 @@
         "modifier": [
           "heute"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to make an appointment."
       }
     },
     {
@@ -97,6 +103,9 @@
         "object": [
           "die Aufenthaltserlaubnis"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -121,6 +130,9 @@
         "object": [
           "einen Termin"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to make an appointment."
       }
     },
     {
@@ -145,6 +157,9 @@
         "object": [
           "die Unterlagen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need the documents."
       }
     },
     {
@@ -172,6 +187,9 @@
         "modifier": [
           "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need the form."
       }
     },
     {
@@ -199,6 +217,9 @@
         "modifier": [
           "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     }
   ],
@@ -328,9 +349,47 @@
   "contentHash": "843b66dfd579f3e60b6683bbacce18d079cd559bac725cea8531edf60482199d",
   "revisionId": "843b66dfd579",
   "title_i18n": {
-    "en": "Government Office A2 — Jobcenter Basic"
+    "en": "Government Office A2 — Jobcenter Basic",
+    "es": "Oficina Gubernamental A2 - Jobcenter Basic",
+    "fr": "Government Office A2 - Jobcenter Basic",
+    "it": "Ufficio governativo A2 - Jobcenter Basic",
+    "pt": "Gabinete do Governo A2 - Jobcenter Basic",
+    "ru": "Государственный офис A2 - Центр занятости населения Базовый",
+    "ja": "官庁A2 - ジョブセンター・ベーシック",
+    "ko": "정부청사 A2 - 잡센터 기본",
+    "zh-CN": "政府办公室 A2 - 基本工作中心",
+    "zh-TW": "政府办公室 A2 - 基本工作中心",
+    "ar": "المكتب الحكومي A2 - مركز الوظائف الأساسية",
+    "tr": "Devlet Ofisi A2 - Jobcenter Basic",
+    "pl": "Biuro rządowe A2 - Jobcenter Basic",
+    "nl": "Overheidsbureau A2 - Jobcenter Basis",
+    "sv": "Regeringskansliet A2 - Jobcenter Basic",
+    "no": "Government Office A2 - Jobcenter Basic",
+    "da": "Regeringskontor A2 - Jobcenter Basic",
+    "fi": "Valtion virasto A2 - Jobcenter Basic",
+    "el": "Κυβερνητικό γραφείο A2 - Jobcenter Basic",
+    "cs": "Úřad vlády A2 - Jobcenter Basic"
   },
   "description_i18n": {
-    "en": "Practice government_office scenarios at A2 level."
+    "en": "Practice government_office scenarios at A2 level.",
+    "es": "Practicar escenarios de government_office en el nivel A2.",
+    "fr": "Pratiquer les scénarios government_office au niveau A2.",
+    "it": "Esercitatevi con gli scenari government_office a livello A2.",
+    "pt": "Praticar cenários de government_office ao nível A2.",
+    "ru": "Отработайте сценарии government_office на уровне A2.",
+    "ja": "A2レベルの政府機関のシナリオを練習する。",
+    "ko": "A2 레벨의 정부_오피스 시나리오를 연습하세요.",
+    "zh-CN": "在 A2 级水平上练习政府办公情景。",
+    "zh-TW": "在 A2 级水平上练习政府办公情景。",
+    "ar": "تدرب على سيناريوهات_المكاتب_الحكومية على مستوى A2.",
+    "tr": "A2 seviyesinde government_office senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze government_office na poziomie A2.",
+    "nl": "Oefen overheid_kantoor scenario's op A2 niveau.",
+    "sv": "Öva på scenarier för government_office på A2-nivå.",
+    "no": "Øv på scenarier for offentlige kontorer på A2-nivå.",
+    "da": "Øv dig på government_office-scenarier på A2-niveau.",
+    "fi": "Harjoittele government_office-skenaarioita A2-tasolla.",
+    "el": "Εξάσκηση σε σενάρια government_office σε επίπεδο A2.",
+    "cs": "Procvičte si scénáře government_office na úrovni A2."
   }
 }

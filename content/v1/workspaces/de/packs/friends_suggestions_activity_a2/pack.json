@@ -347,10 +347,7 @@
           "prompt-002",
           "prompt-003",
           "prompt-004"
-        ],
-        "title_i18n": {
-          "en": "Making Plans"
-        }
+        ]
       },
       {
         "id": "variation",
@@ -361,10 +358,7 @@
           "prompt-007",
           "prompt-008",
           "prompt-009"
-        ],
-        "title_i18n": {
-          "en": "Suggestions & Preferences"
-        }
+        ]
       },
       {
         "id": "switch",
@@ -373,10 +367,7 @@
           "prompt-010",
           "prompt-011",
           "prompt-012"
-        ],
-        "title_i18n": {
-          "en": "Responding & Rescheduling"
-        }
+        ]
       }
     ]
   },
@@ -463,18 +454,12 @@
     "source": "template",
     "sourceRef": "friends_small_talk",
     "extractorVersion": "1.0.0",
-    "generatedAt": "2025-12-31T08:08:23.596Z"
+    "generatedAt": "2026-01-03T09:59:19.073Z"
   },
   "review": {
     "status": "needs_review"
   },
   "contentId": "de:pack:friends_suggestions_activity_a2",
-  "contentHash": "0b5454a601deda2c9bca26f11b2b855ff92f575ef50e56134b87a5b098679388",
-  "revisionId": "0b5454a601de",
-  "title_i18n": {
-    "en": "Activity Suggestions"
-  },
-  "description_i18n": {
-    "en": "Practice friends_small_talk scenarios at A2 level."
-  }
+  "contentHash": "38d09398460f8c2bcc6ce23e098e49bf71a9eb98e4ddc70c9e42cb68f3a136fa",
+  "revisionId": "38d09398460f"
 }

@@ -48,11 +48,33 @@
         "modifier": [
           "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     },
     {
       "id": "prompt-002",
-      "text": "Die Ärztin vereinbart die Untersuchung um 15:00",
+      "text": "Wir vereinbaren die Untersuchung um 15:00",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -65,10 +87,10 @@
       ],
       "slots": {
         "subject": [
-          "Die Ärztin"
+          "Wir"
         ],
         "verb": [
-          "vereinbart"
+          "vereinbaren"
         ],
         "object": [
           "die Untersuchung"
@@ -76,6 +98,28 @@
         "modifier": [
           "um 15:00"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     },
     {
@@ -99,6 +143,28 @@
         "object": [
           "die Medikamente"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something.",
+        "es": "Me gustaría solicitar algo.",
+        "fr": "Je voudrais demander quelque chose.",
+        "it": "Vorrei chiedere una cosa.",
+        "pt": "Gostaria de fazer um pedido.",
+        "ru": "Я хотел бы попросить кое-что.",
+        "ja": "お願いしたいことがある。",
+        "ko": "요청하고 싶은 것이 있습니다.",
+        "zh-CN": "我有个请求。",
+        "zh-TW": "我有个请求。",
+        "ar": "أود أن أطلب شيئاً.",
+        "tr": "Bir şey rica etmek istiyorum.",
+        "pl": "Chciałbym o coś poprosić.",
+        "nl": "Ik wil graag iets aanvragen.",
+        "sv": "Jag skulle vilja be om en sak.",
+        "no": "Jeg vil gjerne be om noe.",
+        "da": "Jeg vil gerne bede om noget.",
+        "fi": "Haluaisin pyytää jotakin.",
+        "el": "Θα ήθελα να ζητήσω κάτι.",
+        "cs": "Chtěl bych o něco požádat."
       }
     },
     {
@@ -123,6 +189,28 @@
         "object": [
           "die Behandlung"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     },
     {
@@ -146,6 +234,28 @@
         "object": [
           "die Medikamente"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something.",
+        "es": "Me gustaría solicitar algo.",
+        "fr": "Je voudrais demander quelque chose.",
+        "it": "Vorrei chiedere una cosa.",
+        "pt": "Gostaria de fazer um pedido.",
+        "ru": "Я хотел бы попросить кое-что.",
+        "ja": "お願いしたいことがある。",
+        "ko": "요청하고 싶은 것이 있습니다.",
+        "zh-CN": "我有个请求。",
+        "zh-TW": "我有个请求。",
+        "ar": "أود أن أطلب شيئاً.",
+        "tr": "Bir şey rica etmek istiyorum.",
+        "pl": "Chciałbym o coś poprosić.",
+        "nl": "Ik wil graag iets aanvragen.",
+        "sv": "Jag skulle vilja be om en sak.",
+        "no": "Jeg vil gjerne be om noe.",
+        "da": "Jeg vil gerne bede om noget.",
+        "fi": "Haluaisin pyytää jotakin.",
+        "el": "Θα ήθελα να ζητήσω κάτι.",
+        "cs": "Chtěl bych o něco požádat."
       }
     },
     {
@@ -169,6 +279,28 @@
         "object": [
           "die Symptome"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something.",
+        "es": "Me gustaría solicitar algo.",
+        "fr": "Je voudrais demander quelque chose.",
+        "it": "Vorrei chiedere una cosa.",
+        "pt": "Gostaria de fazer um pedido.",
+        "ru": "Я хотел бы попросить кое-что.",
+        "ja": "お願いしたいことがある。",
+        "ko": "요청하고 싶은 것이 있습니다.",
+        "zh-CN": "我有个请求。",
+        "zh-TW": "我有个请求。",
+        "ar": "أود أن أطلب شيئاً.",
+        "tr": "Bir şey rica etmek istiyorum.",
+        "pl": "Chciałbym o coś poprosić.",
+        "nl": "Ik wil graag iets aanvragen.",
+        "sv": "Jag skulle vilja be om en sak.",
+        "no": "Jeg vil gjerne be om noe.",
+        "da": "Jeg vil gerne bede om noget.",
+        "fi": "Haluaisin pyytää jotakin.",
+        "el": "Θα ήθελα να ζητήσω κάτι.",
+        "cs": "Chtěl bych o něco požádat."
       }
     },
     {
@@ -193,6 +325,28 @@
         "object": [
           "die Medikamente"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     }
   ],
@@ -270,7 +424,7 @@
     "multiSlotRate": 1,
     "scenarioTokenHitAvg": 0.2857142857142857,
     "scenarioTokenQualifiedRate": 0,
-    "uniqueTokenRate": 0.4722222222222222,
+    "uniqueTokenRate": 0.5142857142857142,
     "bannedPhraseViolations": 0,
     "passesQualityGates": false,
     "focus": "modal_verbs",
@@ -314,15 +468,55 @@
     "generatedAt": "2026-01-01T00:56:04.542Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T07:30:00.000Z"
   },
   "contentId": "de:pack:doctor_pack_7_a1",
   "contentHash": "a3d01f6ee7e5f9c72456d6b677fdb0c175cc33149a3b3cc50184a915f893ce73",
   "revisionId": "a3d01f6ee7e5",
   "title_i18n": {
-    "en": "Doctor A1 — 7: Making an Appointment"
+    "en": "Doctor A1 — 7: Making an Appointment",
+    "es": "Doctor A1 - 7: Concertar una cita",
+    "fr": "Docteur A1 - 7 : Prendre rendez-vous",
+    "it": "Medico A1 - 7: fissare un appuntamento",
+    "pt": "Doctor A1 - 7: Marcar uma consulta",
+    "ru": "Доктор A1 - 7: Запись на прием",
+    "ja": "ドクターA1 - 7: 予約を取る",
+    "ko": "닥터 A1 - 7: 예약하기",
+    "zh-CN": "医生 A1 - 7：预约",
+    "zh-TW": "医生 A1 - 7：预约",
+    "ar": "الطبيب أ1 - 7: تحديد موعد مع الطبيب A1 - 7: تحديد موعد",
+    "tr": "Doktor A1 - 7: Randevu Alma",
+    "pl": "Lekarz A1 - 7: Umawianie się na wizytę",
+    "nl": "Dokter A1 - 7: Een afspraak maken",
+    "sv": "Doktor A1 - 7: Att boka tid",
+    "no": "Lege A1 - 7: Bestilling av time",
+    "da": "Læge A1 - 7: At lave en aftale",
+    "fi": "Lääkäri A1 - 7: Ajanvarauksen tekeminen",
+    "el": "Γιατρός A1 - 7: Κλείνοντας ένα ραντεβού",
+    "cs": "Lékař A1 - 7: Objednání na schůzku"
   },
   "description_i18n": {
-    "en": "Practice doctor scenarios at A1 level."
+    "en": "Practice doctor scenarios at A1 level.",
+    "es": "Practicar escenarios de médicos a nivel A1.",
+    "fr": "Pratiquer des scénarios de médecins au niveau A1.",
+    "it": "Esercitarsi in scenari medici di livello A1.",
+    "pt": "Praticar cenários médicos ao nível A1.",
+    "ru": "Практикуйте сценарии для врачей на уровне A1.",
+    "ja": "A1レベルの医師シナリオを練習する。",
+    "ko": "A1 수준의 의사 시나리오를 연습하세요.",
+    "zh-CN": "以 A1 水平练习医生情景。",
+    "zh-TW": "以 A1 水平练习医生情景。",
+    "ar": "تدرب على سيناريوهات الطبيب في المستوى A1.",
+    "tr": "A1 seviyesinde doktor senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze dla lekarzy na poziomie A1.",
+    "nl": "Oefen doktersscenario's op A1-niveau.",
+    "sv": "Öva på läkarscenarier på A1-nivå.",
+    "no": "Øv deg på legescenarioer på A1-nivå.",
+    "da": "Øv dig på lægescenarier på A1-niveau.",
+    "fi": "Harjoittele lääkärin skenaarioita A1-tasolla.",
+    "el": "Πρακτική εξάσκηση σε σενάρια γιατρών σε επίπεδο Α1.",
+    "cs": "Procvičování scénářů pro lékaře na úrovni A1."
   }
 }

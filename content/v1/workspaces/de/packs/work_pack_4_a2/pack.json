@@ -45,6 +45,9 @@
         "modifier": [
           "um 14:30"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "The meeting starts at the scheduled time."
       }
     },
     {
@@ -69,6 +72,9 @@
         "modifier": [
           "um 9 Uhr"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something."
       }
     },
     {
@@ -97,6 +103,9 @@
         "modifier": [
           "am Montag"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
@@ -124,6 +133,9 @@
         "modifier": [
           "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
@@ -152,6 +164,9 @@
         "modifier": [
           "nächste Woche"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something."
       }
     },
     {
@@ -175,6 +190,9 @@
         "object": [
           "das Projekt"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am working on the project."
       }
     },
     {
@@ -199,6 +217,9 @@
         "object": [
           "die Aufgabe"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     }
   ],
@@ -320,15 +341,55 @@
     "generatedAt": "2026-01-01T02:21:46.708Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T08:26:06.990Z"
   },
   "contentId": "de:pack:work_pack_4_a2",
   "contentHash": "70193e60dcf7997f8ee46d6617a8c94532a4c53462b4f18d80421b4db9cd4aa6",
   "revisionId": "70193e60dcf7",
   "title_i18n": {
-    "en": "Work A2 — 4: Project Updates"
+    "en": "Work A2 — 4: Project Updates",
+    "es": "Trabajo A2 - 4: Actualización de proyectos",
+    "fr": "Travail A2 - 4 : Mises à jour des projets",
+    "it": "Lavoro A2 - 4: Aggiornamenti del progetto",
+    "pt": "Trabalho A2 - 4: Actualizações de projectos",
+    "ru": "Работа A2 - 4: Обновление проекта",
+    "ja": "作業A2 - 4: プロジェクトの最新情報",
+    "ko": "작업 A2 - 4: 프로젝트 업데이트",
+    "zh-CN": "工作 A2 - 4：项目更新",
+    "zh-TW": "工作 A2 - 4：项目更新",
+    "ar": "العمل أ 2 - 4: تحديثات المشروع",
+    "tr": "Çalışma A2 - 4: Proje Güncellemeleri",
+    "pl": "Praca A2 - 4: Aktualizacje projektów",
+    "nl": "Werk A2 - 4: Projectupdates",
+    "sv": "Arbete A2 - 4: Projektuppdateringar",
+    "no": "Arbeid A2 - 4: Prosjektoppdateringer",
+    "da": "Arbejde A2 - 4: Projektopdateringer",
+    "fi": "Työ A2 - 4: Hankepäivitykset",
+    "el": "Εργασία Α2 - 4: Ενημέρωση έργου",
+    "cs": "Práce A2 - 4: Aktualizace projektu"
   },
   "description_i18n": {
-    "en": "Practice work scenarios at A2 level."
+    "en": "Practice work scenarios at A2 level.",
+    "es": "Practicar escenarios de trabajo a nivel A2.",
+    "fr": "Pratiquer des scénarios de travail au niveau A2.",
+    "it": "Esercitarsi in scenari di lavoro a livello A2.",
+    "pt": "Praticar cenários de trabalho ao nível A2.",
+    "ru": "Отработайте сценарии работы на уровне A2.",
+    "ja": "A2レベルの仕事のシナリオを練習する。",
+    "ko": "A2 수준의 업무 시나리오를 연습하세요.",
+    "zh-CN": "在 A2 级水平上练习工作场景。",
+    "zh-TW": "在 A2 级水平上练习工作场景。",
+    "ar": "ممارسة سيناريوهات العمل على المستوى A2.",
+    "tr": "A2 seviyesinde çalışma senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze pracy na poziomie A2.",
+    "nl": "Oefen werkscenario's op A2-niveau.",
+    "sv": "Öva på arbetsscenarier på A2-nivå.",
+    "no": "Øv deg på arbeidsscenarioer på A2-nivå.",
+    "da": "Øv dig i arbejdsscenarier på A2-niveau.",
+    "fi": "Harjoitellaan A2-tason työkuvioita.",
+    "el": "Πρακτική εξάσκηση σε σενάρια εργασίας σε επίπεδο Α2.",
+    "cs": "Procvičování pracovních scénářů na úrovni A2."
   }
 }

@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A1",
-  "title": "Time Expressions & Inversion: A1 (Tier 2)",
-  "shortTitle": "Time Expressions & Invers...",
+  "title": "Time Expressions & Inversion: A1 (Tier 2) - Pattern",
+  "shortTitle": "Time Expressions  A1 Pattern",
   "subtitle": "Tier 2 - pattern switch - Master verb inversion with time ex",
   "estimatedMinutes": 4,
   "mechanicId": "time_expressions_inversion",
@@ -17,6 +17,8 @@
   "variationSlots": [
     "subject",
     "verb",
+    "object",
+    "modifier",
     "time"
   ],
   "sessionPlan": {
@@ -62,62 +64,81 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "er esset.",
+      "text": "gestern isst es Musik.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "er esset.",
+      "natural_en": "gestern isst es Musik.",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "time",
+        "object"
       ],
       "slots": {
         "subject": [
-          "er"
+          "es"
         ],
         "verb": [
-          "esset"
+          "isst"
+        ],
+        "object": [
+          "Musik"
+        ],
+        "time": [
+          "gestern"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier2/prompt-001.mp3"
     },
     {
       "id": "prompt-002",
-      "text": "du arbeitest.",
+      "text": "gestern siehst du Hausaufgaben.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "du arbeitest.",
+      "natural_en": "gestern siehst du Hausaufgaben.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time"
       ],
       "slots": {
         "subject": [
           "du"
         ],
         "verb": [
-          "arbeitest"
+          "siehst"
+        ],
+        "object": [
+          "Hausaufgaben"
+        ],
+        "time": [
+          "gestern"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier2/prompt-002.mp3"
     },
     {
       "id": "prompt-003",
-      "text": "gestern wir arbeite.",
+      "text": "gestern arbeitet er Musik.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "gestern wir arbeite.",
+      "natural_en": "gestern arbeitet er Musik.",
       "slotsChanged": [
         "time",
         "subject",
-        "verb"
+        "verb",
+        "object"
       ],
       "slots": {
         "subject": [
-          "wir"
+          "er"
         ],
         "verb": [
-          "arbeite"
+          "arbeitet"
+        ],
+        "object": [
+          "Musik"
         ],
         "time": [
           "gestern"
@@ -127,51 +148,62 @@
     },
     {
       "id": "prompt-004",
-      "text": "wir gehe.",
+      "text": "heute Abend macht sie.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "wir gehe.",
-      "slotsChanged": [
-        "subject",
-        "verb"
-      ],
-      "slots": {
-        "subject": [
-          "wir"
-        ],
-        "verb": [
-          "gehe"
-        ]
-      },
-      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier2/prompt-004.mp3"
-    },
-    {
-      "id": "prompt-005",
-      "text": "sie gehet.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "sie gehet.",
+      "natural_en": "heute Abend macht sie.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "time"
       ],
       "slots": {
         "subject": [
           "sie"
         ],
         "verb": [
-          "gehet"
+          "macht"
+        ],
+        "time": [
+          "heute Abend"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier2/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "morgen Vormittag lerne ich Sport.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "morgen Vormittag lerne ich Sport.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "ich"
+        ],
+        "verb": [
+          "lerne"
+        ],
+        "object": [
+          "Sport"
+        ],
+        "time": [
+          "morgen Vormittag"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier2/prompt-005.mp3"
     },
     {
       "id": "prompt-006",
-      "text": "heute sie machet.",
+      "text": "morgen Vormittag trinkt man.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "heute sie machet.",
+      "natural_en": "morgen Vormittag trinkt man.",
       "slotsChanged": [
         "time",
         "subject",
@@ -179,54 +211,69 @@
       ],
       "slots": {
         "subject": [
-          "sie"
+          "man"
         ],
         "verb": [
-          "machet"
+          "trinkt"
         ],
         "time": [
-          "heute"
+          "morgen Vormittag"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier2/prompt-006.mp3"
     },
     {
       "id": "prompt-007",
-      "text": "ich gehee.",
+      "text": "gestern hört ihr Hausaufgaben.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "ich gehee.",
+      "natural_en": "gestern hört ihr Hausaufgaben.",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "time",
+        "object"
       ],
       "slots": {
         "subject": [
-          "ich"
+          "ihr"
         ],
         "verb": [
-          "gehee"
+          "hört"
+        ],
+        "object": [
+          "Hausaufgaben"
+        ],
+        "time": [
+          "gestern"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier2/prompt-007.mp3"
     },
     {
       "id": "prompt-008",
-      "text": "er gehet.",
+      "text": "gestern gehen wir Musik.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "er gehet.",
+      "natural_en": "gestern gehen wir Musik.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time"
       ],
       "slots": {
         "subject": [
-          "er"
+          "wir"
         ],
         "verb": [
-          "gehet"
+          "gehen"
+        ],
+        "object": [
+          "Musik"
+        ],
+        "time": [
+          "gestern"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier2/prompt-008.mp3"
@@ -247,20 +294,24 @@
     ],
     "coverage": {
       "verbs": [
-        "esset",
-        "arbeitest",
-        "arbeite",
-        "gehe",
-        "gehet",
-        "machet",
-        "gehee"
+        "isst",
+        "siehst",
+        "arbeitet",
+        "macht",
+        "lerne",
+        "trinkt",
+        "hört",
+        "gehen"
       ],
       "subjects": [
-        "er",
+        "es",
         "du",
-        "wir",
+        "er",
         "sie",
-        "ich"
+        "ich",
+        "man",
+        "ihr",
+        "wir"
       ],
       "patterns": [
         "time_verb_subject",
@@ -275,22 +326,31 @@
     "qualitySignals": {
       "tokenHitsCount": 8,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 7,
-      "uniqueSubjectCount": 5,
+      "uniqueVerbCount": 8,
+      "uniqueSubjectCount": 8,
       "trapPairCount": 0,
-      "bannedPhraseCheckPassed": false
+      "bannedPhraseCheckPassed": true
     }
   },
   "provenance": {
     "source": "template",
     "sourceRef": "mechanics/time_expressions_inversion",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.650Z"
+    "generatedAt": "2026-01-03T09:52:17.368Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Time Expressions & Inversion: A1 (Tier 2) - Pattern"
+  },
+  "shortTitle_i18n": {
+    "en": "Time Expressions  A1 Pattern"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 2 - pattern switch - Master verb inversion with time ex"
+  },
   "contentId": "de:drill:time_expressions_inversion_a1_tier2_pattern-switch",
-  "contentHash": "d15bad84140c0fe21d811cc9e9194fa93357723230ad85571b9508b1aba8c07c",
-  "revisionId": "d15bad84140c"
+  "contentHash": "6e043849443b1bf4fe9d409495b1099bbcbb2e739d434eaf9181b5f391dccaa6",
+  "revisionId": "6e043849443b"
 }

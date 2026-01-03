@@ -45,6 +45,9 @@
         "modifier": [
           "um 14:30"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -69,6 +72,9 @@
         "modifier": [
           "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something."
       }
     },
     {
@@ -96,6 +102,9 @@
         "modifier": [
           "um 9 Uhr"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
@@ -123,6 +132,9 @@
         "modifier": [
           "nächste Woche"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "The meeting starts at the scheduled time."
       }
     },
     {
@@ -150,6 +162,9 @@
         "modifier": [
           "um 9 Uhr"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "The meeting starts at the scheduled time."
       }
     },
     {
@@ -174,6 +189,9 @@
         "object": [
           "die Aufgabe"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -198,6 +216,9 @@
         "object": [
           "das Projekt"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am working on the project."
       }
     }
   ],
@@ -319,15 +340,55 @@
     "generatedAt": "2026-01-01T02:21:48.514Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T08:26:06.992Z"
   },
   "contentId": "de:pack:work_pack_8_a2",
   "contentHash": "f774f4003219ebc3baa248e55d46a9cc1d696f76032ac82be325bc10819400eb",
   "revisionId": "f774f4003219",
   "title_i18n": {
-    "en": "Work A2 — 8: Deadline Management"
+    "en": "Work A2 — 8: Deadline Management",
+    "es": "Trabajo A2 - 8: Gestión de plazos",
+    "fr": "Travail A2 - 8 : Gestion des délais",
+    "it": "Lavoro A2 - 8: Gestione delle scadenze",
+    "pt": "Trabalho A2 - 8: Gestão de prazos",
+    "ru": "Работа A2 - 8: Управление сроками",
+    "ja": "ワークA2 - 8: デッドライン・マネジメント",
+    "ko": "작업 A2 - 8: 마감일 관리",
+    "zh-CN": "工作 A2 - 8：期限管理",
+    "zh-TW": "工作 A2 - 8：期限管理",
+    "ar": "العمل أ 2 - 8: إدارة المواعيد النهائية",
+    "tr": "Çalışma A2 - 8: Teslim Tarihi Yönetimi",
+    "pl": "Praca A2 - 8: Zarządzanie terminami",
+    "nl": "Werk A2 - 8: Deadlinebeheer",
+    "sv": "Arbete A2 - 8: Hantering av deadlines",
+    "no": "Arbeid A2 - 8: Håndtering av tidsfrister",
+    "da": "Arbejde A2 - 8: Styring af deadlines",
+    "fi": "Työ A2 - 8: Määräaikojen hallinta",
+    "el": "Εργασία A2 - 8: Διαχείριση προθεσμιών",
+    "cs": "Práce A2 - 8: Řízení termínů"
   },
   "description_i18n": {
-    "en": "Practice work scenarios at A2 level."
+    "en": "Practice work scenarios at A2 level.",
+    "es": "Practicar escenarios de trabajo a nivel A2.",
+    "fr": "Pratiquer des scénarios de travail au niveau A2.",
+    "it": "Esercitarsi in scenari di lavoro a livello A2.",
+    "pt": "Praticar cenários de trabalho ao nível A2.",
+    "ru": "Отработайте сценарии работы на уровне A2.",
+    "ja": "A2レベルの仕事のシナリオを練習する。",
+    "ko": "A2 수준의 업무 시나리오를 연습하세요.",
+    "zh-CN": "在 A2 级水平上练习工作场景。",
+    "zh-TW": "在 A2 级水平上练习工作场景。",
+    "ar": "ممارسة سيناريوهات العمل على المستوى A2.",
+    "tr": "A2 seviyesinde çalışma senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze pracy na poziomie A2.",
+    "nl": "Oefen werkscenario's op A2-niveau.",
+    "sv": "Öva på arbetsscenarier på A2-nivå.",
+    "no": "Øv deg på arbeidsscenarioer på A2-nivå.",
+    "da": "Øv dig i arbejdsscenarier på A2-niveau.",
+    "fi": "Harjoitellaan A2-tason työkuvioita.",
+    "el": "Πρακτική εξάσκηση σε σενάρια εργασίας σε επίπεδο Α2.",
+    "cs": "Procvičování pracovních scénářů na úrovni A2."
   }
 }

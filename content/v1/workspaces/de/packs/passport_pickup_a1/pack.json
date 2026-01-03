@@ -28,7 +28,7 @@
       "text": "Die Sachbearbeiterin möchte die Anmeldung um 9 Uhr",
       "intent": "request",
       "gloss_en": "I need to register my address.",
-      "natural_en": "I need to register my address.",
+      "natural_en": "I'd say need to register my address.",
       "audioUrl": "/v1/audio/passport_pickup_a1/prompt-001.mp3",
       "slotsChanged": [
         "subject",
@@ -48,6 +48,9 @@
         "modifier": [
           "um 9 Uhr"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to register my address."
       }
     },
     {
@@ -55,7 +58,7 @@
       "text": "Die Sachbearbeiterin kann die Anmeldung um 9 Uhr",
       "intent": "request",
       "gloss_en": "I need to register my address.",
-      "natural_en": "I need to register my address.",
+      "natural_en": "I'd say need to register my address.",
       "audioUrl": "/v1/audio/passport_pickup_a1/prompt-002.mp3",
       "slotsChanged": [
         "verb"
@@ -73,6 +76,9 @@
         "modifier": [
           "um 9 Uhr"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to register my address."
       }
     },
     {
@@ -97,6 +103,9 @@
         "object": [
           "das Formular"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need the form."
       }
     },
     {
@@ -104,7 +113,7 @@
       "text": "Ich hole die Anmeldung",
       "intent": "inform",
       "gloss_en": "I need to register my address.",
-      "natural_en": "I need to register my address.",
+      "natural_en": "I'm here to register my address.",
       "audioUrl": "/v1/audio/passport_pickup_a1/prompt-004.mp3",
       "slotsChanged": [
         "subject",
@@ -121,6 +130,9 @@
         "object": [
           "die Anmeldung"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to register my address."
       }
     },
     {
@@ -145,6 +157,9 @@
         "object": [
           "den Pass"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to pick up my passport."
       }
     },
     {
@@ -172,6 +187,9 @@
         "modifier": [
           "sofort"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need the documents."
       }
     },
     {
@@ -200,6 +218,9 @@
         "modifier": [
           "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to make an appointment."
       }
     }
   ],
@@ -329,9 +350,47 @@
   "contentHash": "247bdba4297fc51ed376ffeb068da81f58f2b7aa7a1e1dbfa042202ade173af9",
   "revisionId": "247bdba4297f",
   "title_i18n": {
-    "en": "Government Office A1 — Passport Pickup"
+    "en": "Government Office A1 — Passport Pickup",
+    "es": "Oficina del Gobierno A1 - Recogida de pasaportes",
+    "fr": "Bureau gouvernemental A1 - Retrait des passeports",
+    "it": "Ufficio governativo A1 - Ritiro passaporti",
+    "pt": "Gabinete do Governo A1 - Levantamento de passaportes",
+    "ru": "Правительственный офис A1 - Получение паспорта",
+    "ja": "A1 - パスポート受け取り",
+    "ko": "정부청사 A1 - 여권 픽업",
+    "zh-CN": "A1 号政府办公室 - 护照领取",
+    "zh-TW": "A1 号政府办公室 - 护照领取",
+    "ar": "المكتب الحكومي A1 - استلام الجوازات",
+    "tr": "Devlet Dairesi A1 - Pasaport Teslim Alma",
+    "pl": "Biuro rządowe A1 - odbiór paszportów",
+    "nl": "Overheidsdienst A1 - Afhalen paspoort",
+    "sv": "Regeringskansliet A1 - Passhämtning",
+    "no": "Regjeringskontor A1 - Henting av pass",
+    "da": "Regeringskontor A1 - Afhentning af pas",
+    "fi": "Valtioneuvoston kanslia A1 - Passin nouto",
+    "el": "Κυβερνητικό γραφείο A1 - Παραλαβή διαβατηρίου",
+    "cs": "Úřad vlády A1 - Vyzvednutí pasu"
   },
   "description_i18n": {
-    "en": "Practice government_office scenarios at A1 level."
+    "en": "Practice government_office scenarios at A1 level.",
+    "es": "Practicar escenarios de government_office en el nivel A1.",
+    "fr": "Pratiquez les scénarios government_office au niveau A1.",
+    "it": "Esercitatevi con gli scenari government_office a livello A1.",
+    "pt": "Praticar cenários government_office ao nível A1.",
+    "ru": "Отработайте сценарии government_office на уровне A1.",
+    "ja": "A1レベルのgovernment_officeシナリオを練習する。",
+    "ko": "A1 수준의 정부_오피스 시나리오를 연습하세요.",
+    "zh-CN": "练习 A1 级的政府办公情景。",
+    "zh-TW": "练习 A1 级的政府办公情景。",
+    "ar": "ممارسة سيناريوهات_المكاتب_الحكومية على المستوى A1.",
+    "tr": "A1 seviyesinde government_office senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze government_office na poziomie A1.",
+    "nl": "Oefen overheid_kantoor scenario's op A1 niveau.",
+    "sv": "Öva på scenarier för government_office på A1-nivå.",
+    "no": "Øv på scenarier for offentlige kontorer på A1-nivå.",
+    "da": "Øv dig på government_office-scenarier på A1-niveau.",
+    "fi": "Harjoittele government_office-skenaarioita A1-tasolla.",
+    "el": "Εξάσκηση σε σενάρια government_office σε επίπεδο A1.",
+    "cs": "Procvičování scénářů government_office na úrovni A1."
   }
 }

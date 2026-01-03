@@ -45,11 +45,14 @@
         "modifier": [
           "um 14:30"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
       "id": "prompt-002",
-      "text": "Der Manager beginnt am Dienstag",
+      "text": "Der Manager beginnt am Dienstag heute",
       "intent": "schedule",
       "gloss_en": "I need to schedule something.",
       "natural_en": "I need to schedule that.",
@@ -66,8 +69,12 @@
           "beginnt"
         ],
         "modifier": [
-          "am Dienstag"
+          "am Dienstag",
+          "heute"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
@@ -95,6 +102,9 @@
         "modifier": [
           "um 14:30"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something."
       }
     },
     {
@@ -122,6 +132,9 @@
         "modifier": [
           "um 9 Uhr"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
@@ -150,6 +163,9 @@
         "modifier": [
           "um 14:30"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -174,6 +190,9 @@
         "object": [
           "die Besprechung"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -197,6 +216,9 @@
         "object": [
           "die Besprechung"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     }
   ],
@@ -274,7 +296,7 @@
     "multiSlotRate": 1,
     "scenarioTokenHitAvg": 1.4285714285714286,
     "scenarioTokenQualifiedRate": 0.42857142857142855,
-    "uniqueTokenRate": 0.5,
+    "uniqueTokenRate": 0.5121951219512195,
     "bannedPhraseViolations": 0,
     "passesQualityGates": false,
     "focus": "modal_verbs",
@@ -318,15 +340,55 @@
     "generatedAt": "2026-01-01T02:21:47.080Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T08:26:06.990Z"
   },
   "contentId": "de:pack:work_pack_5_a2",
   "contentHash": "d9a6487284bf6464fbaba2e1b5a2f8b29b5fb01f8ef9cdf0a5dd1e4bc474c435",
   "revisionId": "d9a6487284bf",
   "title_i18n": {
-    "en": "Work A2 — 5: Scheduling"
+    "en": "Work A2 — 5: Scheduling",
+    "es": "Trabajo A2 - 5: Programación",
+    "fr": "Travail A2 - 5 : Programmation",
+    "it": "Lavoro A2 - 5: Programmazione",
+    "pt": "Trabalho A2 - 5: Programação",
+    "ru": "Работа A2 - 5: Планирование",
+    "ja": "作業 A2 - 5: スケジューリング",
+    "ko": "작업 A2 - 5: 스케줄링",
+    "zh-CN": "工作 A2 - 5：日程安排",
+    "zh-TW": "工作 A2 - 5：日程安排",
+    "ar": "العمل أ 2 - 5: الجدولة",
+    "tr": "Çalışma A2 - 5: Çizelgeleme",
+    "pl": "Praca A2 - 5: Planowanie",
+    "nl": "Werk A2 - 5: Planning",
+    "sv": "Arbete A2 - 5: Schemaläggning",
+    "no": "Arbeid A2 - 5: Planlegging",
+    "da": "Arbejde A2 - 5: Planlægning",
+    "fi": "Työ A2 - 5: Aikataulutus",
+    "el": "Εργασία Α2 - 5: Προγραμματισμός",
+    "cs": "Práce A2 - 5: Plánování"
   },
   "description_i18n": {
-    "en": "Practice work scenarios at A2 level."
+    "en": "Practice work scenarios at A2 level.",
+    "es": "Practicar escenarios de trabajo a nivel A2.",
+    "fr": "Pratiquer des scénarios de travail au niveau A2.",
+    "it": "Esercitarsi in scenari di lavoro a livello A2.",
+    "pt": "Praticar cenários de trabalho ao nível A2.",
+    "ru": "Отработайте сценарии работы на уровне A2.",
+    "ja": "A2レベルの仕事のシナリオを練習する。",
+    "ko": "A2 수준의 업무 시나리오를 연습하세요.",
+    "zh-CN": "在 A2 级水平上练习工作场景。",
+    "zh-TW": "在 A2 级水平上练习工作场景。",
+    "ar": "ممارسة سيناريوهات العمل على المستوى A2.",
+    "tr": "A2 seviyesinde çalışma senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze pracy na poziomie A2.",
+    "nl": "Oefen werkscenario's op A2-niveau.",
+    "sv": "Öva på arbetsscenarier på A2-nivå.",
+    "no": "Øv deg på arbeidsscenarioer på A2-nivå.",
+    "da": "Øv dig i arbejdsscenarier på A2-niveau.",
+    "fi": "Harjoitellaan A2-tason työkuvioita.",
+    "el": "Πρακτική εξάσκηση σε σενάρια εργασίας σε επίπεδο Α2.",
+    "cs": "Procvičování pracovních scénářů na úrovni A2."
   }
 }

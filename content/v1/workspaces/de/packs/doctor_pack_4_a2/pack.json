@@ -25,7 +25,7 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Sie möchte die Medikamente um 10 Uhr",
+      "text": "Sie möchte die Medikamente um 10 Uhr morgen",
       "intent": "request",
       "gloss_en": "I would like to request something.",
       "natural_en": "I'd like to request that.",
@@ -46,13 +46,36 @@
           "die Medikamente"
         ],
         "modifier": [
-          "um 10 Uhr"
+          "um 10 Uhr",
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something.",
+        "es": "Me gustaría solicitar algo.",
+        "fr": "Je voudrais demander quelque chose.",
+        "it": "Vorrei chiedere una cosa.",
+        "pt": "Gostaria de fazer um pedido.",
+        "ru": "Я хотел бы попросить кое-что.",
+        "ja": "お願いしたいことがある。",
+        "ko": "요청하고 싶은 것이 있습니다.",
+        "zh-CN": "我有个请求。",
+        "zh-TW": "我有个请求。",
+        "ar": "أود أن أطلب شيئاً.",
+        "tr": "Bir şey rica etmek istiyorum.",
+        "pl": "Chciałbym o coś poprosić.",
+        "nl": "Ik wil graag iets aanvragen.",
+        "sv": "Jag skulle vilja be om en sak.",
+        "no": "Jeg vil gjerne be om noe.",
+        "da": "Jeg vil gerne bede om noget.",
+        "fi": "Haluaisin pyytää jotakin.",
+        "el": "Θα ήθελα να ζητήσω κάτι.",
+        "cs": "Chtěl bych o něco požádat."
       }
     },
     {
       "id": "prompt-002",
-      "text": "Ich nehme einen Termin nächste Woche um 18:00",
+      "text": "Ich nehme einen Termin nächste Woche um 18:00 morgen",
       "intent": "schedule",
       "gloss_en": "I need to schedule something.",
       "natural_en": "I need to schedule that.",
@@ -74,13 +97,36 @@
           "einen Termin"
         ],
         "modifier": [
-          "nächste Woche"
+          "nächste Woche",
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something.",
+        "es": "Necesito programar algo.",
+        "fr": "Je dois programmer quelque chose.",
+        "it": "Devo programmare qualcosa.",
+        "pt": "Preciso de marcar uma coisa.",
+        "ru": "Мне нужно кое-что запланировать.",
+        "ja": "何か予定を入れないと。",
+        "ko": "일정을 잡아야 합니다.",
+        "zh-CN": "我需要安排一些事情。",
+        "zh-TW": "我需要安排一些事情。",
+        "ar": "أحتاج إلى جدولة شيء ما.",
+        "tr": "Bir şeyler ayarlamam lazım.",
+        "pl": "Muszę coś zaplanować.",
+        "nl": "Ik moet iets plannen.",
+        "sv": "Jag måste planera in något.",
+        "no": "Jeg må planlegge noe.",
+        "da": "Jeg er nødt til at planlægge noget.",
+        "fi": "Minun on varattava aikaa.",
+        "el": "Πρέπει να προγραμματίσω κάτι.",
+        "cs": "Musím si něco naplánovat."
       }
     },
     {
       "id": "prompt-003",
-      "text": "Die Ärztin kann die Diagnose",
+      "text": "Die Ärztin kann die Diagnose morgen",
       "intent": "request",
       "gloss_en": "I would like to request something.",
       "natural_en": "I'd like to request that.",
@@ -99,12 +145,37 @@
         ],
         "object": [
           "die Diagnose"
+        ],
+        "modifier": [
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something.",
+        "es": "Me gustaría solicitar algo.",
+        "fr": "Je voudrais demander quelque chose.",
+        "it": "Vorrei chiedere una cosa.",
+        "pt": "Gostaria de fazer um pedido.",
+        "ru": "Я хотел бы попросить кое-что.",
+        "ja": "お願いしたいことがある。",
+        "ko": "요청하고 싶은 것이 있습니다.",
+        "zh-CN": "我有个请求。",
+        "zh-TW": "我有个请求。",
+        "ar": "أود أن أطلب شيئاً.",
+        "tr": "Bir şey rica etmek istiyorum.",
+        "pl": "Chciałbym o coś poprosić.",
+        "nl": "Ik wil graag iets aanvragen.",
+        "sv": "Jag skulle vilja be om en sak.",
+        "no": "Jeg vil gjerne be om noe.",
+        "da": "Jeg vil gerne bede om noget.",
+        "fi": "Haluaisin pyytää jotakin.",
+        "el": "Θα ήθελα να ζητήσω κάτι.",
+        "cs": "Chtěl bych o něco požádat."
       }
     },
     {
       "id": "prompt-004",
-      "text": "Der Arzt kann die Symptome",
+      "text": "Der Arzt kann die Symptome morgen",
       "intent": "request",
       "gloss_en": "I would like to request something.",
       "natural_en": "I'd like to request that.",
@@ -122,12 +193,37 @@
         ],
         "object": [
           "die Symptome"
+        ],
+        "modifier": [
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something.",
+        "es": "Me gustaría solicitar algo.",
+        "fr": "Je voudrais demander quelque chose.",
+        "it": "Vorrei chiedere una cosa.",
+        "pt": "Gostaria de fazer um pedido.",
+        "ru": "Я хотел бы попросить кое-что.",
+        "ja": "お願いしたいことがある。",
+        "ko": "요청하고 싶은 것이 있습니다.",
+        "zh-CN": "我有个请求。",
+        "zh-TW": "我有个请求。",
+        "ar": "أود أن أطلب شيئاً.",
+        "tr": "Bir şey rica etmek istiyorum.",
+        "pl": "Chciałbym o coś poprosić.",
+        "nl": "Ik wil graag iets aanvragen.",
+        "sv": "Jag skulle vilja be om en sak.",
+        "no": "Jeg vil gjerne be om noe.",
+        "da": "Jeg vil gerne bede om noget.",
+        "fi": "Haluaisin pyytää jotakin.",
+        "el": "Θα ήθελα να ζητήσω κάτι.",
+        "cs": "Chtěl bych o něco požádat."
       }
     },
     {
       "id": "prompt-005",
-      "text": "Die Ärztin kann die Untersuchung",
+      "text": "Die Ärztin kann die Untersuchung morgen",
       "intent": "request",
       "gloss_en": "I would like to request something.",
       "natural_en": "I'd like to request that.",
@@ -145,12 +241,37 @@
         ],
         "object": [
           "die Untersuchung"
+        ],
+        "modifier": [
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something.",
+        "es": "Me gustaría solicitar algo.",
+        "fr": "Je voudrais demander quelque chose.",
+        "it": "Vorrei chiedere una cosa.",
+        "pt": "Gostaria de fazer um pedido.",
+        "ru": "Я хотел бы попросить кое-что.",
+        "ja": "お願いしたいことがある。",
+        "ko": "요청하고 싶은 것이 있습니다.",
+        "zh-CN": "我有个请求。",
+        "zh-TW": "我有个请求。",
+        "ar": "أود أن أطلب شيئاً.",
+        "tr": "Bir şey rica etmek istiyorum.",
+        "pl": "Chciałbym o coś poprosić.",
+        "nl": "Ik wil graag iets aanvragen.",
+        "sv": "Jag skulle vilja be om en sak.",
+        "no": "Jeg vil gjerne be om noe.",
+        "da": "Jeg vil gerne bede om noget.",
+        "fi": "Haluaisin pyytää jotakin.",
+        "el": "Θα ήθελα να ζητήσω κάτι.",
+        "cs": "Chtěl bych o něco požádat."
       }
     },
     {
       "id": "prompt-006",
-      "text": "Der Arzt kann die Symptome",
+      "text": "Der Arzt kann die Behandlung morgen",
       "intent": "request",
       "gloss_en": "I would like to request something.",
       "natural_en": "I'd like to request that.",
@@ -167,13 +288,38 @@
           "kann"
         ],
         "object": [
-          "die Symptome"
+          "die Behandlung"
+        ],
+        "modifier": [
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something.",
+        "es": "Me gustaría solicitar algo.",
+        "fr": "Je voudrais demander quelque chose.",
+        "it": "Vorrei chiedere una cosa.",
+        "pt": "Gostaria de fazer um pedido.",
+        "ru": "Я хотел бы попросить кое-что.",
+        "ja": "お願いしたいことがある。",
+        "ko": "요청하고 싶은 것이 있습니다.",
+        "zh-CN": "我有个请求。",
+        "zh-TW": "我有个请求。",
+        "ar": "أود أن أطلب شيئاً.",
+        "tr": "Bir şey rica etmek istiyorum.",
+        "pl": "Chciałbym o coś poprosić.",
+        "nl": "Ik wil graag iets aanvragen.",
+        "sv": "Jag skulle vilja be om en sak.",
+        "no": "Jeg vil gjerne be om noe.",
+        "da": "Jeg vil gerne bede om noget.",
+        "fi": "Haluaisin pyytää jotakin.",
+        "el": "Θα ήθελα να ζητήσω κάτι.",
+        "cs": "Chtěl bych o něco požádat."
       }
     },
     {
       "id": "prompt-007",
-      "text": "Sie vereinbaren die Untersuchung",
+      "text": "Sie vereinbaren die Untersuchung morgen",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -192,7 +338,32 @@
         ],
         "object": [
           "die Untersuchung"
+        ],
+        "modifier": [
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     }
   ],
@@ -268,9 +439,9 @@
     "qualityGateVersion": "qg-2025-01-01",
     "promptCount": 7,
     "multiSlotRate": 1,
-    "scenarioTokenHitAvg": 0.2857142857142857,
+    "scenarioTokenHitAvg": 0.14285714285714285,
     "scenarioTokenQualifiedRate": 0,
-    "uniqueTokenRate": 0.5641025641025641,
+    "uniqueTokenRate": 0.5217391304347826,
     "bannedPhraseViolations": 0,
     "passesQualityGates": false,
     "focus": "modal_verbs",
@@ -314,15 +485,55 @@
     "generatedAt": "2026-01-01T00:56:02.881Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T08:26:06.974Z"
   },
   "contentId": "de:pack:doctor_pack_4_a2",
   "contentHash": "a84e084fdd120b79a3595e17eafc7b528f8b00d6321f89c836762a1d67ada85d",
   "revisionId": "a84e084fdd12",
   "title_i18n": {
-    "en": "Doctor A2 — 4: Making an Appointment"
+    "en": "Doctor A2 — 4: Making an Appointment",
+    "es": "Doctor A2 - 4: Concertar una cita",
+    "fr": "Docteur A2 - 4 : Prendre rendez-vous",
+    "it": "Medico A2 - 4: fissare un appuntamento",
+    "pt": "Doutor A2 - 4: Marcação de uma consulta",
+    "ru": "Доктор A2 - 4: Запись на прием",
+    "ja": "ドクターA2 - 4: 予約を取る",
+    "ko": "닥터 A2 - 4: 예약하기",
+    "zh-CN": "医生 A2 - 4：预约",
+    "zh-TW": "医生 A2 - 4：预约",
+    "ar": "الطبيب أ2 - 4: تحديد موعد طبي A2 - 4: تحديد موعد طبي",
+    "tr": "Doktor A2 - 4: Randevu Alma",
+    "pl": "Lekarz A2 - 4: Umawianie się na wizytę",
+    "nl": "Dokter A2 - 4: Een afspraak maken",
+    "sv": "Doktor A2 - 4: Att boka tid",
+    "no": "Lege A2 - 4: Bestilling av time",
+    "da": "Læge A2 - 4: At lave en aftale",
+    "fi": "Lääkäri A2 - 4: Ajanvarauksen tekeminen",
+    "el": "Γιατρός A2 - 4: Κλείνοντας ένα ραντεβού",
+    "cs": "Lékař A2 - 4: Objednání na schůzku"
   },
   "description_i18n": {
-    "en": "Practice doctor scenarios at A2 level."
+    "en": "Practice doctor scenarios at A2 level.",
+    "es": "Practicar escenarios de médicos a nivel A2.",
+    "fr": "Pratiquer des scénarios de médecins au niveau A2.",
+    "it": "Esercitarsi in scenari medici di livello A2.",
+    "pt": "Praticar cenários médicos ao nível A2.",
+    "ru": "Практикуйте сценарии врачей на уровне A2.",
+    "ja": "A2レベルの医師シナリオを練習する。",
+    "ko": "A2 수준의 의사 시나리오를 연습하세요.",
+    "zh-CN": "A2 级别的实习医生情景。",
+    "zh-TW": "A2 级别的实习医生情景。",
+    "ar": "ممارسة سيناريوهات الطبيب في المستوى A2.",
+    "tr": "A2 seviyesinde doktor senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze dla lekarzy na poziomie A2.",
+    "nl": "Oefen doktersscenario's op A2-niveau.",
+    "sv": "Öva på läkarscenarier på A2-nivå.",
+    "no": "Øv deg på legescenarioer på A2-nivå.",
+    "da": "Øv dig på lægescenarier på A2-niveau.",
+    "fi": "Harjoittele lääkärin skenaarioita A2-tasolla.",
+    "el": "Πρακτική εξάσκηση σε σενάρια γιατρών σε επίπεδο Α2.",
+    "cs": "Cvičné scénáře pro lékaře na úrovni A2."
   }
 }

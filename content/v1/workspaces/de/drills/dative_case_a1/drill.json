@@ -1,0 +1,43 @@
+{
+  "id": "dative_case_a1",
+  "schemaVersion": 1,
+  "kind": "drill",
+  "title": "Dative Case A1",
+  "shortTitle": "Dative Case A1",
+  "level": "A1",
+  "estimatedMinutes": 10,
+  "description": "Practice dative case usage",
+  "instructions": "Complete each exercise to practice this grammar concept.",
+  "exercises": [
+    {
+      "id": "ex-001",
+      "type": "fill-blank",
+      "prompt": "Ich helfe ___ Mann. (der)",
+      "answer": "dem",
+      "hint": "Dative masculine is dem"
+    }
+  ],
+  "passingScore": 70,
+  "tags": [
+    "grammar",
+    "dative"
+  ],
+  "analytics": {
+    "variationSlots": [],
+    "uniqueVerbCount": 0,
+    "primaryStructure": "simple_sentence",
+    "slotSwitchDensity": 0,
+    "promptDiversityScore": 0,
+    "scenarioCoverageScore": 0,
+    "estimatedCognitiveLoad": "low",
+    "intendedOutcome": "practice"
+  },
+  "contentId": "de:drill:dative_case_a1",
+  "revisionId": "000000000000",
+  "contentHash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "review": {
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T10:00:00.000Z"
+  }
+}

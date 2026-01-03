@@ -1,0 +1,912 @@
+{
+  "version": "v1",
+  "kind": "context",
+  "total": 24,
+  "pageSize": 12,
+  "page": 2,
+  "items": [
+    {
+      "id": "friends_plans_weekend_a1",
+      "kind": "pack",
+      "title": "Plans for the Weekend",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_plans_weekend_a1/pack.json",
+      "contentId": "de:pack:friends_plans_weekend_a1",
+      "revisionId": "c4e70b22942c",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Plans for the Weekend",
+      "domainKind": "context",
+      "groupId": "making-plans",
+      "groupTitle": "Making Plans",
+      "groupTitle_i18n": {
+        "en": "Making Plans"
+      },
+      "isRecommended": true
+    },
+    {
+      "id": "friends_suggestions_activity_a2",
+      "kind": "pack",
+      "title": "Activity Suggestions",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_suggestions_activity_a2/pack.json",
+      "contentId": "de:pack:friends_suggestions_activity_a2",
+      "revisionId": "38d09398460f",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Activity Suggestions",
+      "domainKind": "context",
+      "groupId": "making-plans",
+      "groupTitle": "Making Plans",
+      "groupTitle_i18n": {
+        "en": "Making Plans"
+      }
+    },
+    {
+      "id": "friends_small_talk_pack_1_a2",
+      "kind": "pack",
+      "title": "Friends Small Talk A2 — 1: Opening",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_1_a2/pack.json",
+      "contentId": "de:pack:friends_small_talk_pack_1_a2",
+      "revisionId": "1d54daea60f4",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Opening",
+      "orderInTopic": 1,
+      "title_i18n": {
+        "en": "Friends Small Talk A2 — 1: Opening",
+        "es": "Charla de amigos A2 - 1: Apertura",
+        "fr": "Friends Small Talk A2 - 1 : Ouverture",
+        "it": "Amici di piccola taglia A2 - 1: Apertura",
+        "pt": "Conversa de amigos A2 - 1: Abertura",
+        "ru": "Светская беседа друзей A2 - 1: Открытие",
+        "ja": "友人スモールトーク A2 - 1: オープニング",
+        "ko": "친구 스몰토크 A2 - 1: 오프닝",
+        "zh-CN": "朋友小谈话 A2 - 1：开场",
+        "zh-TW": "朋友小谈话 A2 - 1：开场",
+        "ar": "حديث الأصدقاء الصغار A2 - 1: الافتتاحية",
+        "tr": "Arkadaşlar Küçük Konuşma A2 - 1: Açılış",
+        "pl": "Przyjaciele Small Talk A2 - 1: Otwarcie",
+        "nl": "Vrienden Small Talk A2 - 1: Opening",
+        "sv": "Vänner Small Talk A2 - 1: Inledning",
+        "no": "Venner Small Talk A2 - 1: Åpning",
+        "da": "Venner Small Talk A2 - 1: Åbning",
+        "fi": "Ystävät Small Talk A2 - 1: Avaus",
+        "el": "Φίλοι Small Talk A2 - 1: Έναρξη",
+        "cs": "Přátelé Small Talk A2 - 1: Zahájení"
+      },
+      "domainKind": "context",
+      "groupId": "making-plans",
+      "groupTitle": "Making Plans",
+      "groupTitle_i18n": {
+        "en": "Making Plans"
+      }
+    },
+    {
+      "id": "friends_small_talk_pack_2_a2",
+      "kind": "pack",
+      "title": "Friends Small Talk A2 — 2: Suggestions",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_2_a2/pack.json",
+      "contentId": "de:pack:friends_small_talk_pack_2_a2",
+      "revisionId": "a72e7e6d4b3d",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Suggestions",
+      "orderInTopic": 2,
+      "title_i18n": {
+        "en": "Friends Small Talk A2 — 2: Suggestions",
+        "es": "Charla de amigos A2 - 2: Sugerencias",
+        "fr": "Friends Small Talk A2 - 2 : Suggestions",
+        "it": "Chiacchiere tra amici A2 - 2: Suggerimenti",
+        "pt": "Conversa de amigos A2 - 2: Sugestões",
+        "ru": "Светская беседа друзей A2 - 2: Предложения",
+        "ja": "友達の世間話 A2 - 2: 提案",
+        "ko": "친구 스몰토크 A2 - 2: 제안 사항",
+        "zh-CN": "朋友间的小谈话 A2 - 2：建议",
+        "zh-TW": "朋友间的小谈话 A2 - 2：建议",
+        "ar": "حديث الأصدقاء الصغير أ2 - 2 - 2: الاقتراحات",
+        "tr": "Arkadaşlar Küçük Konuşma A2 - 2: Öneriler",
+        "pl": "Przyjaciele Small Talk A2 - 2: Sugestie",
+        "nl": "Vrienden Small Talk A2 - 2: Suggesties",
+        "sv": "Vänner Småprat A2 - 2: Förslag",
+        "no": "Venner Small Talk A2 - 2: Forslag",
+        "da": "Venner Small Talk A2 - 2: Forslag",
+        "fi": "Ystävät Small Talk A2 - 2: Ehdotukset",
+        "el": "Φίλοι Small Talk A2 - 2: Προτάσεις",
+        "cs": "Přátelé Small Talk A2 - 2: Návrhy"
+      },
+      "domainKind": "context",
+      "groupId": "making-plans",
+      "groupTitle": "Making Plans",
+      "groupTitle_i18n": {
+        "en": "Making Plans"
+      }
+    },
+    {
+      "id": "friends_small_talk_pack_3_a2",
+      "kind": "pack",
+      "title": "Friends Small Talk A2 — 3: Preferences",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_3_a2/pack.json",
+      "contentId": "de:pack:friends_small_talk_pack_3_a2",
+      "revisionId": "4311c6d18dd6",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Preferences",
+      "orderInTopic": 3,
+      "title_i18n": {
+        "en": "Friends Small Talk A2 — 3: Preferences",
+        "es": "Charla de amigos A2 - 3: Preferencias",
+        "fr": "Friends Small Talk A2 - 3 : Préférences",
+        "it": "Chiacchiere tra amici A2 - 3: Preferenze",
+        "pt": "Conversa de amigos A2 - 3: Preferências",
+        "ru": "Светская беседа друзей A2 - 3: Предпочтения",
+        "ja": "世間話 A2 - 3: 好み",
+        "ko": "친구 스몰토크 A2 - 3: 환경설정",
+        "zh-CN": "朋友间的小交谈 A2 - 3：偏好",
+        "zh-TW": "朋友间的小交谈 A2 - 3：偏好",
+        "ar": "حديث الأصدقاء الصغار أ 2 - 3: التفضيلات",
+        "tr": "Arkadaşlar Küçük Konuşma A2 - 3: Tercihler",
+        "pl": "Przyjaciele Small Talk A2 - 3: Preferencje",
+        "nl": "Vrienden Small Talk A2 - 3: Voorkeuren",
+        "sv": "Vänner Small Talk A2 - 3: Preferenser",
+        "no": "Venner Small Talk A2 - 3: Preferanser",
+        "da": "Venner Small Talk A2 - 3: Præferencer",
+        "fi": "Ystävät Small Talk A2 - 3: Mieltymykset",
+        "el": "Φίλοι Small Talk A2 - 3: Προτιμήσεις",
+        "cs": "Přátelé Small Talk A2 - 3: Preference"
+      },
+      "domainKind": "context",
+      "groupId": "making-plans",
+      "groupTitle": "Making Plans",
+      "groupTitle_i18n": {
+        "en": "Making Plans"
+      }
+    },
+    {
+      "id": "friends_small_talk_pack_4_a2",
+      "kind": "pack",
+      "title": "Friends Small Talk A2 — 4: Rescheduling",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_4_a2/pack.json",
+      "contentId": "de:pack:friends_small_talk_pack_4_a2",
+      "revisionId": "763033693e3a",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Rescheduling",
+      "orderInTopic": 4,
+      "title_i18n": {
+        "en": "Friends Small Talk A2 — 4: Rescheduling",
+        "es": "Charla de amigos A2 - 4: Reprogramación",
+        "fr": "Friends Small Talk A2 - 4 : Reprogrammation",
+        "it": "Chiacchiere tra amici A2 - 4: Riprogrammazione",
+        "pt": "Conversa de amigos A2 - 4: Reagendamento",
+        "ru": "Светская беседа друзей A2 - 4: Перенос сроков",
+        "ja": "世間話 A2 - 4: リスケジュール",
+        "ko": "친구 스몰토크 A2 - 4: 일정 변경하기",
+        "zh-CN": "朋友之间的小谈话 A2 - 4：重新安排时间",
+        "zh-TW": "朋友之间的小谈话 A2 - 4：重新安排时间",
+        "ar": "حديث الأصدقاء الصغير ج2 - 4: إعادة الجدولة",
+        "tr": "Arkadaşlar Küçük Konuşma A2 - 4: Yeniden Planlama",
+        "pl": "Przyjaciele Small Talk A2 - 4: Zmiana harmonogramu",
+        "nl": "Vrienden Small Talk A2 - 4: Opnieuw plannen",
+        "sv": "Vänner Small Talk A2 - 4: Ombokning",
+        "no": "Venner Small Talk A2 - 4: Omdisponering",
+        "da": "Venner Small Talk A2 - 4: Omlægning af planer",
+        "fi": "Ystävät Small Talk A2 - 4: Aikataulujen muuttaminen",
+        "el": "Φίλοι Small Talk A2 - 4: Επαναπρογραμματισμός",
+        "cs": "Přátelé Small Talk A2 - 4: Změna plánu"
+      },
+      "domainKind": "context",
+      "groupId": "making-plans",
+      "groupTitle": "Making Plans",
+      "groupTitle_i18n": {
+        "en": "Making Plans"
+      }
+    },
+    {
+      "id": "friends_small_talk_pack_5_a2",
+      "kind": "pack",
+      "title": "Friends Small Talk A2 — 5: Follow-ups",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_5_a2/pack.json",
+      "contentId": "de:pack:friends_small_talk_pack_5_a2",
+      "revisionId": "5bd4e10fc1f6",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Follow-ups",
+      "orderInTopic": 5,
+      "title_i18n": {
+        "en": "Friends Small Talk A2 — 5: Follow-ups",
+        "es": "Charla de amigos A2 - 5: Seguimiento",
+        "fr": "Friends Small Talk A2 - 5 : Suivi",
+        "it": "Amici Small Talk A2 - 5: Follow-up",
+        "pt": "Conversa de amigos A2 - 5: Acompanhamento",
+        "ru": "Светская беседа друзей A2 - 5: последующие действия",
+        "ja": "世間話 A2 - 5: フォローアップ",
+        "ko": "친구 스몰토크 A2 - 5: 후속 조치",
+        "zh-CN": "朋友小谈话 A2 - 5：后续行动",
+        "zh-TW": "朋友小谈话 A2 - 5：后续行动",
+        "ar": "حديث الأصدقاء الصغار ج2 - 5: المتابعات",
+        "tr": "Arkadaşlar Küçük Konuşma A2 - 5: Takipler",
+        "pl": "Przyjaciele Small Talk A2 - 5: Dalsze działania",
+        "nl": "Vrienden Small Talk A2 - 5: Follow-ups",
+        "sv": "Vänner Small Talk A2 - 5: Uppföljningar",
+        "no": "Venner Small Talk A2 - 5: Oppfølging",
+        "da": "Venner Small Talk A2 - 5: Opfølgning",
+        "fi": "Ystävät Small Talk A2 - 5: Jatkotoimenpiteet",
+        "el": "Φίλοι Small Talk A2 - 5: Follow-ups",
+        "cs": "Přátelé Small Talk A2 - 5: Následná opatření"
+      },
+      "domainKind": "context",
+      "groupId": "making-plans",
+      "groupTitle": "Making Plans",
+      "groupTitle_i18n": {
+        "en": "Making Plans"
+      }
+    },
+    {
+      "id": "friends_small_talk_pack_6_a2",
+      "kind": "pack",
+      "title": "Friends Small Talk A2 — 6: Ending politely",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_6_a2/pack.json",
+      "contentId": "de:pack:friends_small_talk_pack_6_a2",
+      "revisionId": "d87a800d44b1",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Ending politely",
+      "orderInTopic": 6,
+      "title_i18n": {
+        "en": "Friends Small Talk A2 — 6: Ending politely",
+        "es": "Charla de amigos A2 - 6: Terminar con educación",
+        "fr": "Friends Small Talk A2 - 6 : Terminer poliment",
+        "it": "Chiacchiere tra amici A2 - 6: Concludere con gentilezza",
+        "pt": "Conversa de amigos A2 - 6: Terminar educadamente",
+        "ru": "Светские беседы с друзьями A2 - 6: Вежливое завершение",
+        "ja": "世間話 A2 - 6: 丁寧に終わらせる",
+        "ko": "친구 스몰토크 A2 - 6: 정중하게 끝내기",
+        "zh-CN": "朋友间的小交谈 A2 - 6：礼貌结束",
+        "zh-TW": "朋友间的小交谈 A2 - 6：礼貌结束",
+        "ar": "حديث الأصدقاء القصير ج2 - 6: إنهاء الحديث مع الأصدقاء بأدب",
+        "tr": "Arkadaşlar Küçük Konuşmalar A2 - 6: Kibarca Bitirmek",
+        "pl": "Small Talk A2 - 6: Grzeczne zakończenie rozmowy",
+        "nl": "Vrienden Small Talk A2 - 6: Beleefd eindigen",
+        "sv": "Friends Small Talk A2 - 6: Avsluta artigt",
+        "no": "Venner Small Talk A2 - 6: Avslutt høflig",
+        "da": "Venner Small Talk A2 - 6: At afslutte høfligt",
+        "fi": "Ystävät Small Talk A2 - 6: Lopeta kohteliaasti",
+        "el": "Φίλοι Small Talk A2 - 6: Τελειώνοντας ευγενικά",
+        "cs": "Small Talk A2 - 6: Zdvořilé ukončení rozhovoru"
+      },
+      "domainKind": "context",
+      "groupId": "making-plans",
+      "groupTitle": "Making Plans",
+      "groupTitle_i18n": {
+        "en": "Making Plans"
+      }
+    },
+    {
+      "id": "friends_small_talk_pack_7_a2",
+      "kind": "pack",
+      "title": "Friends Small Talk A2 — 7: Making Plans",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_7_a2/pack.json",
+      "contentId": "de:pack:friends_small_talk_pack_7_a2",
+      "revisionId": "5a54f8734d19",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Making Plans",
+      "orderInTopic": 7,
+      "title_i18n": {
+        "en": "Friends Small Talk A2 — 7: Making Plans",
+        "es": "Charla de amigos A2 - 7: Hacer planes",
+        "fr": "Friends Small Talk A2 - 7 : Faire des projets",
+        "it": "Chiacchiere tra amici A2 - 7: fare progetti",
+        "pt": "Conversa de amigos A2 - 7: Fazer planos",
+        "ru": "Светская беседа друзей A2 - 7: Строим планы",
+        "ja": "世間話 A2 - 7: 計画を立てる",
+        "ko": "친구 잡담 A2 - 7: 계획 세우기",
+        "zh-CN": "朋友之间的小谈话 A2 - 7：制定计划",
+        "zh-TW": "朋友之间的小谈话 A2 - 7：制定计划",
+        "ar": "حديث الأصدقاء الصغار أ2 - 7 - 7: وضع الخطط",
+        "tr": "Arkadaşlar Küçük Konuşmalar A2 - 7: Plan Yapmak",
+        "pl": "Przyjaciele Small Talk A2 - 7: Tworzenie planów",
+        "nl": "Vrienden Small Talk A2 - 7: Plannen maken",
+        "sv": "Vänner Small Talk A2 - 7: Att göra upp planer",
+        "no": "Venner Small Talk A2 - 7: Å legge planer",
+        "da": "Venner Small Talk A2 - 7: At lægge planer",
+        "fi": "Ystävät Small Talk A2 - 7: Suunnitelmien tekeminen",
+        "el": "Φίλοι Small Talk A2 - 7: Κάνοντας σχέδια",
+        "cs": "Přátelé Small Talk A2 - 7: Plánování"
+      },
+      "domainKind": "context",
+      "groupId": "making-plans",
+      "groupTitle": "Making Plans",
+      "groupTitle_i18n": {
+        "en": "Making Plans"
+      }
+    },
+    {
+      "id": "friends_small_talk_pack_8_a2",
+      "kind": "pack",
+      "title": "Friends Small Talk A2 — 8: Responding",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_8_a2/pack.json",
+      "contentId": "de:pack:friends_small_talk_pack_8_a2",
+      "revisionId": "a72744b15d50",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Responding",
+      "orderInTopic": 8,
+      "title_i18n": {
+        "en": "Friends Small Talk A2 — 8: Responding",
+        "es": "Charla de amigos A2 - 8: Responder",
+        "fr": "Friends Small Talk A2 - 8 : Répondre",
+        "it": "Piccole conversazioni con gli amici A2 - 8: Rispondere",
+        "pt": "Conversa de amigos A2 - 8: Responder",
+        "ru": "Светская беседа с друзьями A2 - 8: ответная реакция",
+        "ja": "友達の世間話 A2 - 8: 応答する",
+        "ko": "친구 스몰토크 A2 - 8: 응답하기",
+        "zh-CN": "朋友之间的小交谈 A2 - 8：回应",
+        "zh-TW": "朋友之间的小交谈 A2 - 8：回应",
+        "ar": "حديث الأصدقاء الصغار ج2 - 8: الاستجابة",
+        "tr": "Arkadaşlar Küçük Konuşma A2 - 8: Yanıt Verme",
+        "pl": "Przyjaciele Small Talk A2 - 8: Odpowiadanie",
+        "nl": "Vrienden Small Talk A2 - 8: Reageren",
+        "sv": "Vänner Small Talk A2 - 8: Att svara",
+        "no": "Venner Small Talk A2 - 8: Å svare",
+        "da": "Venner Small Talk A2 - 8: Svar på spørgsmål",
+        "fi": "Ystävät Small Talk A2 - 8: Vastaaminen",
+        "el": "Φίλοι Small Talk A2 - 8: Ανταπόκριση",
+        "cs": "Přátelé Small Talk A2 - 8: Reagování"
+      },
+      "domainKind": "context",
+      "groupId": "making-plans",
+      "groupTitle": "Making Plans",
+      "groupTitle_i18n": {
+        "en": "Making Plans"
+      }
+    },
+    {
+      "id": "friends_opinions_recommendations_a2",
+      "kind": "pack",
+      "title": "Opinions & Recommendations",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_opinions_recommendations_a2/pack.json",
+      "contentId": "de:pack:friends_opinions_recommendations_a2",
+      "revisionId": "9fe10c6db196",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Opinions & Recommendations",
+      "domainKind": "context",
+      "groupId": "making-plans",
+      "groupTitle": "Making Plans",
+      "groupTitle_i18n": {
+        "en": "Making Plans"
+      }
+    },
+    {
+      "id": "friends_reschedule_and_decline_a2",
+      "kind": "pack",
+      "title": "Rescheduling & Declining",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_reschedule_and_decline_a2/pack.json",
+      "contentId": "de:pack:friends_reschedule_and_decline_a2",
+      "revisionId": "70ee99c00117",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Rescheduling & Declining",
+      "domainKind": "context",
+      "groupId": "making-plans",
+      "groupTitle": "Making Plans",
+      "groupTitle_i18n": {
+        "en": "Making Plans"
+      }
+    }
+  ],
+  "nextPage": null,
+  "scope": {
+    "scopeKind": "scenario",
+    "scopeId": "friends_small_talk",
+    "scopeTitle": "Friends Small Talk"
+  },
+  "recommended": {
+    "itemId": "friends_plans_weekend_a1",
+    "entryUrl": "/v1/workspaces/de/packs/friends_plans_weekend_a1/pack.json"
+  },
+  "groups": [
+    {
+      "id": "making-plans",
+      "title": "Making Plans",
+      "title_i18n": {
+        "en": "Making Plans"
+      },
+      "kind": "context_group",
+      "itemIds": [
+        "friends_plans_weekend_a1",
+        "friends_suggestions_activity_a2",
+        "friends_small_talk_pack_1_a2",
+        "friends_small_talk_pack_2_a2",
+        "friends_small_talk_pack_3_a2",
+        "friends_small_talk_pack_4_a2",
+        "friends_small_talk_pack_5_a2",
+        "friends_small_talk_pack_6_a2",
+        "friends_small_talk_pack_7_a2",
+        "friends_small_talk_pack_8_a2",
+        "friends_opinions_recommendations_a2",
+        "friends_reschedule_and_decline_a2"
+      ]
+    }
+  ]
+}

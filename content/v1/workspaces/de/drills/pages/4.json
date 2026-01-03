@@ -1,240 +1,408 @@
 {
   "version": "v1",
   "kind": "drills",
-  "total": 149,
+  "total": 144,
   "pageSize": 20,
   "page": 4,
   "items": [
     {
+      "id": "verb_present_tense_a1_tier1_pattern-switch",
+      "kind": "drill",
+      "title": "Verb Present Tense: A1 (Tier 1) - Pattern",
+      "level": "A1",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a1_tier1_pattern-switch/drill.json",
+      "contentId": "de:drill:verb_present_tense_a1_tier1_pattern-switch",
+      "revisionId": "c9870dce7c3e",
+      "title_i18n": {
+        "en": "Verb Present Tense: A1 (Tier 1) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - pattern switch - Practice present tense verb conjug"
+      },
+      "shortTitle_i18n": {
+        "en": "Verb Present Tens A1 Pattern"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "verb_present_tense_a1_tier1_slot-substitution",
+      "kind": "drill",
+      "title": "Verb Present Tense: A1 (Tier 1) - Slot",
+      "level": "A1",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a1_tier1_slot-substitution/drill.json",
+      "contentId": "de:drill:verb_present_tense_a1_tier1_slot-substitution",
+      "revisionId": "5e187a19bd67",
+      "title_i18n": {
+        "en": "Verb Present Tense: A1 (Tier 1) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - slot substitution - Practice present tense verb con"
+      },
+      "shortTitle_i18n": {
+        "en": "Verb Present Tense A1 Slot"
+      },
+      "domainKind": "context"
+    },
+    {
       "id": "verb_present_tense_a1_tier2_pattern-switch",
       "kind": "drill",
-      "title": "Verb Present Tense: A1 (Tier 2)",
+      "title": "Verb Present Tense: A1 (Tier 2) - Pattern",
       "level": "A1",
       "durationMinutes": 4,
       "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a1_tier2_pattern-switch/drill.json",
       "contentId": "de:drill:verb_present_tense_a1_tier2_pattern-switch",
-      "revisionId": "5820b7e14c25",
+      "revisionId": "35df9a7f884c",
+      "title_i18n": {
+        "en": "Verb Present Tense: A1 (Tier 2) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - pattern switch - Practice present tense verb conjug"
+      },
+      "shortTitle_i18n": {
+        "en": "Verb Present Tens A1 Pattern"
+      },
       "domainKind": "context"
     },
     {
       "id": "verb_present_tense_a1_tier2_slot-substitution",
       "kind": "drill",
-      "title": "Verb Present Tense: A1 (Tier 2)",
+      "title": "Verb Present Tense: A1 (Tier 2) - Slot",
       "level": "A1",
       "durationMinutes": 4,
       "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a1_tier2_slot-substitution/drill.json",
       "contentId": "de:drill:verb_present_tense_a1_tier2_slot-substitution",
-      "revisionId": "dd5b49e43f61",
-      "domainKind": "context"
-    },
-    {
-      "id": "verb_present_tense_a1_tier3_contrast-pairs",
-      "kind": "drill",
-      "title": "Verb Present Tense: A1 (Tier 3)",
-      "level": "A1",
-      "durationMinutes": 5,
-      "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a1_tier3_contrast-pairs/drill.json",
-      "contentId": "de:drill:verb_present_tense_a1_tier3_contrast-pairs",
-      "revisionId": "c44c9d0ff8be",
+      "revisionId": "d066399dce69",
+      "title_i18n": {
+        "en": "Verb Present Tense: A1 (Tier 2) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - slot substitution - Practice present tense verb con"
+      },
+      "shortTitle_i18n": {
+        "en": "Verb Present Tense A1 Slot"
+      },
       "domainKind": "context"
     },
     {
       "id": "verb_present_tense_a1_tier3_pattern-switch",
       "kind": "drill",
-      "title": "Verb Present Tense: A1 (Tier 3)",
+      "title": "Verb Present Tense: A1 (Tier 3) - Pattern",
       "level": "A1",
       "durationMinutes": 5,
       "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a1_tier3_pattern-switch/drill.json",
       "contentId": "de:drill:verb_present_tense_a1_tier3_pattern-switch",
-      "revisionId": "1951d2db96d1",
+      "revisionId": "c76a5c306701",
+      "title_i18n": {
+        "en": "Verb Present Tense: A1 (Tier 3) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - pattern switch - Practice present tense verb conjug"
+      },
+      "shortTitle_i18n": {
+        "en": "Verb Present Tens A1 Pattern"
+      },
       "domainKind": "context"
     },
     {
       "id": "verb_present_tense_a1_tier3_slot-substitution",
       "kind": "drill",
-      "title": "Verb Present Tense: A1 (Tier 3)",
+      "title": "Verb Present Tense: A1 (Tier 3) - Slot",
       "level": "A1",
       "durationMinutes": 5,
       "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a1_tier3_slot-substitution/drill.json",
       "contentId": "de:drill:verb_present_tense_a1_tier3_slot-substitution",
-      "revisionId": "fefe0656535c",
-      "domainKind": "context"
-    },
-    {
-      "id": "verb_endings_a1_1",
-      "kind": "drill",
-      "title": "veru endings - A1",
-      "level": "A1",
-      "durationMinutes": 10,
-      "entryUrl": "/v1/workspaces/de/drills/verb_endings_a1_1/drill.json",
-      "contentId": "de:drill:verb_endings_a1_1",
-      "revisionId": "68ffcd5206b7",
-      "tags": [
-        "grammar"
-      ],
+      "revisionId": "94998ae9216e",
       "title_i18n": {
-        "en": "veru endings - A1"
+        "en": "Verb Present Tense: A1 (Tier 3) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - slot substitution - Practice present tense verb con"
+      },
+      "shortTitle_i18n": {
+        "en": "Verb Present Tense A1 Slot"
       },
       "domainKind": "context"
     },
     {
-      "id": "verb_endings_a1",
+      "id": "word_order_main_clause_a1_tier1_pattern-switch",
       "kind": "drill",
-      "title": "veru endings a1",
+      "title": "Word Order: Main Clause: A1 (Tier 1) - Pattern",
       "level": "A1",
-      "durationMinutes": 10,
-      "entryUrl": "/v1/workspaces/de/drills/verb_endings_a1/drill.json",
-      "contentId": "de:drill:verb_endings_a1",
-      "revisionId": "a2a2f719aaa4",
-      "tags": [
-        "grammar"
-      ],
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a1_tier1_pattern-switch/drill.json",
+      "contentId": "de:drill:word_order_main_clause_a1_tier1_pattern-switch",
+      "revisionId": "a399f2e5ac0b",
       "title_i18n": {
-        "en": "veru endings a1"
+        "en": "Word Order: Main Clause: A1 (Tier 1) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - pattern switch - Master verb-second position in mai"
+      },
+      "shortTitle_i18n": {
+        "en": "Word Order: Main  A1 Pattern"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "word_order_main_clause_a1_tier1_slot-substitution",
+      "kind": "drill",
+      "title": "Word Order: Main Clause: A1 (Tier 1) - Slot",
+      "level": "A1",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a1_tier1_slot-substitution/drill.json",
+      "contentId": "de:drill:word_order_main_clause_a1_tier1_slot-substitution",
+      "revisionId": "1a8b0257cd37",
+      "title_i18n": {
+        "en": "Word Order: Main Clause: A1 (Tier 1) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - slot substitution - Master verb-second position in "
+      },
+      "shortTitle_i18n": {
+        "en": "Word Order: Main Cla A1 Slot"
       },
       "domainKind": "context"
     },
     {
       "id": "word_order_main_clause_a1_tier1_error-trap",
       "kind": "drill",
-      "title": "Word Order: Main Clause: A1 (Tier 1)",
+      "title": "Word Order: Main Clause: A1 (Tier 1) - Trap",
       "level": "A1",
       "durationMinutes": 3,
       "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a1_tier1_error-trap/drill.json",
       "contentId": "de:drill:word_order_main_clause_a1_tier1_error-trap",
-      "revisionId": "a8f3d0f9cf9e",
-      "domainKind": "context"
-    },
-    {
-      "id": "word_order_main_clause_a1_tier1_pattern-switch",
-      "kind": "drill",
-      "title": "Word Order: Main Clause: A1 (Tier 1)",
-      "level": "A1",
-      "durationMinutes": 3,
-      "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a1_tier1_pattern-switch/drill.json",
-      "contentId": "de:drill:word_order_main_clause_a1_tier1_pattern-switch",
-      "revisionId": "53b15b43a232",
-      "domainKind": "context"
-    },
-    {
-      "id": "word_order_main_clause_a1_tier1_slot-substitution",
-      "kind": "drill",
-      "title": "Word Order: Main Clause: A1 (Tier 1)",
-      "level": "A1",
-      "durationMinutes": 3,
-      "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a1_tier1_slot-substitution/drill.json",
-      "contentId": "de:drill:word_order_main_clause_a1_tier1_slot-substitution",
-      "revisionId": "ba2cd7e5248d",
-      "domainKind": "context"
-    },
-    {
-      "id": "word_order_main_clause_a1_tier2_error-trap",
-      "kind": "drill",
-      "title": "Word Order: Main Clause: A1 (Tier 2)",
-      "level": "A1",
-      "durationMinutes": 4,
-      "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a1_tier2_error-trap/drill.json",
-      "contentId": "de:drill:word_order_main_clause_a1_tier2_error-trap",
-      "revisionId": "b8af8d4a7cf8",
+      "revisionId": "754a3234accc",
+      "title_i18n": {
+        "en": "Word Order: Main Clause: A1 (Tier 1) - Trap"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - error trap - Master verb-second position in main cl"
+      },
+      "shortTitle_i18n": {
+        "en": "Word Order: Main Cla A1 Trap"
+      },
       "domainKind": "context"
     },
     {
       "id": "word_order_main_clause_a1_tier2_pattern-switch",
       "kind": "drill",
-      "title": "Word Order: Main Clause: A1 (Tier 2)",
+      "title": "Word Order: Main Clause: A1 (Tier 2) - Pattern",
       "level": "A1",
       "durationMinutes": 4,
       "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a1_tier2_pattern-switch/drill.json",
       "contentId": "de:drill:word_order_main_clause_a1_tier2_pattern-switch",
-      "revisionId": "15a69e243f8f",
+      "revisionId": "643eac34fec9",
+      "title_i18n": {
+        "en": "Word Order: Main Clause: A1 (Tier 2) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - pattern switch - Master verb-second position in mai"
+      },
+      "shortTitle_i18n": {
+        "en": "Word Order: Main  A1 Pattern"
+      },
       "domainKind": "context"
     },
     {
       "id": "word_order_main_clause_a1_tier2_slot-substitution",
       "kind": "drill",
-      "title": "Word Order: Main Clause: A1 (Tier 2)",
+      "title": "Word Order: Main Clause: A1 (Tier 2) - Slot",
       "level": "A1",
       "durationMinutes": 4,
       "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a1_tier2_slot-substitution/drill.json",
       "contentId": "de:drill:word_order_main_clause_a1_tier2_slot-substitution",
-      "revisionId": "72efbae8f3da",
+      "revisionId": "cb1a152f0f76",
+      "title_i18n": {
+        "en": "Word Order: Main Clause: A1 (Tier 2) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - slot substitution - Master verb-second position in "
+      },
+      "shortTitle_i18n": {
+        "en": "Word Order: Main Cla A1 Slot"
+      },
       "domainKind": "context"
     },
     {
-      "id": "word_order_main_clause_a1_tier3_error-trap",
+      "id": "word_order_main_clause_a1_tier2_error-trap",
       "kind": "drill",
-      "title": "Word Order: Main Clause: A1 (Tier 3)",
+      "title": "Word Order: Main Clause: A1 (Tier 2) - Trap",
       "level": "A1",
-      "durationMinutes": 5,
-      "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a1_tier3_error-trap/drill.json",
-      "contentId": "de:drill:word_order_main_clause_a1_tier3_error-trap",
-      "revisionId": "4249ff3f432a",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a1_tier2_error-trap/drill.json",
+      "contentId": "de:drill:word_order_main_clause_a1_tier2_error-trap",
+      "revisionId": "2c39d8136b11",
+      "title_i18n": {
+        "en": "Word Order: Main Clause: A1 (Tier 2) - Trap"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - error trap - Master verb-second position in main cl"
+      },
+      "shortTitle_i18n": {
+        "en": "Word Order: Main Cla A1 Trap"
+      },
       "domainKind": "context"
     },
     {
       "id": "word_order_main_clause_a1_tier3_pattern-switch",
       "kind": "drill",
-      "title": "Word Order: Main Clause: A1 (Tier 3)",
+      "title": "Word Order: Main Clause: A1 (Tier 3) - Pattern",
       "level": "A1",
       "durationMinutes": 5,
       "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a1_tier3_pattern-switch/drill.json",
       "contentId": "de:drill:word_order_main_clause_a1_tier3_pattern-switch",
-      "revisionId": "8e2a6f3fde73",
+      "revisionId": "3c67644209aa",
+      "title_i18n": {
+        "en": "Word Order: Main Clause: A1 (Tier 3) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - pattern switch - Master verb-second position in mai"
+      },
+      "shortTitle_i18n": {
+        "en": "Word Order: Main  A1 Pattern"
+      },
       "domainKind": "context"
     },
     {
       "id": "word_order_main_clause_a1_tier3_slot-substitution",
       "kind": "drill",
-      "title": "Word Order: Main Clause: A1 (Tier 3)",
+      "title": "Word Order: Main Clause: A1 (Tier 3) - Slot",
       "level": "A1",
       "durationMinutes": 5,
       "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a1_tier3_slot-substitution/drill.json",
       "contentId": "de:drill:word_order_main_clause_a1_tier3_slot-substitution",
-      "revisionId": "2575fede7b35",
+      "revisionId": "9460678ad566",
+      "title_i18n": {
+        "en": "Word Order: Main Clause: A1 (Tier 3) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - slot substitution - Master verb-second position in "
+      },
+      "shortTitle_i18n": {
+        "en": "Word Order: Main Cla A1 Slot"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "word_order_main_clause_a1_tier3_error-trap",
+      "kind": "drill",
+      "title": "Word Order: Main Clause: A1 (Tier 3) - Trap",
+      "level": "A1",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a1_tier3_error-trap/drill.json",
+      "contentId": "de:drill:word_order_main_clause_a1_tier3_error-trap",
+      "revisionId": "7a780d7406cf",
+      "title_i18n": {
+        "en": "Word Order: Main Clause: A1 (Tier 3) - Trap"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - error trap - Master verb-second position in main cl"
+      },
+      "shortTitle_i18n": {
+        "en": "Word Order: Main Cla A1 Trap"
+      },
       "domainKind": "context"
     },
     {
       "id": "case_endings_akkusativ_a2_tier1_contrast-pairs",
       "kind": "drill",
-      "title": "Case Endings: Akkusativ: A2 (Tier 1)",
+      "title": "Case Endings: Akkusativ: A2 (Tier 1) - Pairs",
       "level": "A2",
       "durationMinutes": 3,
       "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a2_tier1_contrast-pairs/drill.json",
       "contentId": "de:drill:case_endings_akkusativ_a2_tier1_contrast-pairs",
-      "revisionId": "f46daf6bbe87",
+      "revisionId": "3c712ea1f950",
+      "title_i18n": {
+        "en": "Case Endings: Akkusativ: A2 (Tier 1) - Pairs"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - contrast pairs - Master accusative case endings (de"
+      },
+      "shortTitle_i18n": {
+        "en": "Case Endings: Akkus A2 Pairs"
+      },
       "domainKind": "context"
     },
     {
       "id": "case_endings_akkusativ_a2_tier1_pattern-switch",
       "kind": "drill",
-      "title": "Case Endings: Akkusativ: A2 (Tier 1)",
+      "title": "Case Endings: Akkusativ: A2 (Tier 1) - Pattern",
       "level": "A2",
       "durationMinutes": 3,
       "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a2_tier1_pattern-switch/drill.json",
       "contentId": "de:drill:case_endings_akkusativ_a2_tier1_pattern-switch",
-      "revisionId": "3438890f2e16",
+      "revisionId": "158f6b5028d9",
+      "title_i18n": {
+        "en": "Case Endings: Akkusativ: A2 (Tier 1) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - pattern switch - Master accusative case endings (de"
+      },
+      "shortTitle_i18n": {
+        "en": "Case Endings: Akk A2 Pattern"
+      },
       "domainKind": "context"
     },
     {
       "id": "case_endings_akkusativ_a2_tier1_slot-substitution",
       "kind": "drill",
-      "title": "Case Endings: Akkusativ: A2 (Tier 1)",
+      "title": "Case Endings: Akkusativ: A2 (Tier 1) - Slot",
       "level": "A2",
       "durationMinutes": 3,
       "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a2_tier1_slot-substitution/drill.json",
       "contentId": "de:drill:case_endings_akkusativ_a2_tier1_slot-substitution",
-      "revisionId": "7ee6971ab95b",
+      "revisionId": "b929f17c1bf5",
+      "title_i18n": {
+        "en": "Case Endings: Akkusativ: A2 (Tier 1) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - slot substitution - Master accusative case endings "
+      },
+      "shortTitle_i18n": {
+        "en": "Case Endings: Akkusa A2 Slot"
+      },
       "domainKind": "context"
     },
     {
       "id": "case_endings_akkusativ_a2_tier2_contrast-pairs",
       "kind": "drill",
-      "title": "Case Endings: Akkusativ: A2 (Tier 2)",
+      "title": "Case Endings: Akkusativ: A2 (Tier 2) - Pairs",
       "level": "A2",
       "durationMinutes": 4,
       "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a2_tier2_contrast-pairs/drill.json",
       "contentId": "de:drill:case_endings_akkusativ_a2_tier2_contrast-pairs",
-      "revisionId": "cb9e66352813",
+      "revisionId": "473761592ae7",
+      "title_i18n": {
+        "en": "Case Endings: Akkusativ: A2 (Tier 2) - Pairs"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - contrast pairs - Master accusative case endings (de"
+      },
+      "shortTitle_i18n": {
+        "en": "Case Endings: Akkus A2 Pairs"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "case_endings_akkusativ_a2_tier2_pattern-switch",
+      "kind": "drill",
+      "title": "Case Endings: Akkusativ: A2 (Tier 2) - Pattern",
+      "level": "A2",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a2_tier2_pattern-switch/drill.json",
+      "contentId": "de:drill:case_endings_akkusativ_a2_tier2_pattern-switch",
+      "revisionId": "52fe5e662c27",
+      "title_i18n": {
+        "en": "Case Endings: Akkusativ: A2 (Tier 2) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - pattern switch - Master accusative case endings (de"
+      },
+      "shortTitle_i18n": {
+        "en": "Case Endings: Akk A2 Pattern"
+      },
       "domainKind": "context"
     }
   ],

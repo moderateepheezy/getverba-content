@@ -45,6 +45,9 @@
         "modifier": [
           "am Dienstag"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
@@ -69,6 +72,9 @@
         "modifier": [
           "um 14:30"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -97,6 +103,9 @@
         "modifier": [
           "am Montag"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
@@ -125,6 +134,9 @@
         "modifier": [
           "um 14:30"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am working on the project."
       }
     },
     {
@@ -153,6 +165,9 @@
         "modifier": [
           "am Montag"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "The meeting starts at the scheduled time."
       }
     },
     {
@@ -177,6 +192,9 @@
         "object": [
           "die Besprechung"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -201,6 +219,9 @@
         "object": [
           "den Termin"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     }
   ],
@@ -322,15 +343,55 @@
     "generatedAt": "2026-01-01T02:21:45.518Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T08:26:06.989Z"
   },
   "contentId": "de:pack:work_pack_1_a2",
   "contentHash": "b2fc7e455cde096b017dc8f19ee9ade09c2b3e85d2fa1b3d8a7dba7fc887b2bf",
   "revisionId": "b2fc7e455cde",
   "title_i18n": {
-    "en": "Work A2 — 1: Office Greetings"
+    "en": "Work A2 — 1: Office Greetings",
+    "es": "Trabajo A2 - 1: Saludos en la oficina",
+    "fr": "Travail A2 - 1 : Salutations de bureau",
+    "it": "Lavoro A2 - 1: saluti in ufficio",
+    "pt": "Trabalho A2 - 1: Saudações do escritório",
+    "ru": "Работа A2 - 1: Офисные приветствия",
+    "ja": "作品A2 - 1: オフィスでの挨拶",
+    "ko": "업무 A2 - 1: 사무실 인사말",
+    "zh-CN": "工作 A2 - 1：办公室问候语",
+    "zh-TW": "工作 A2 - 1：办公室问候语",
+    "ar": "العمل أ 2 - 1: تحيات المكتب",
+    "tr": "Çalışma A2 - 1: Ofis Selamlaşması",
+    "pl": "Praca A2 - 1: Pozdrowienia z biura",
+    "nl": "Werk A2 - 1: Kantoor Groeten",
+    "sv": "Arbete A2 - 1: Hälsningar från kontoret",
+    "no": "Arbeid A2 - 1: Hilsener fra kontoret",
+    "da": "Arbejde A2 - 1: Hilsen på kontoret",
+    "fi": "Työ A2 - 1: Toimiston tervehdykset",
+    "el": "Εργασία A2 - 1: Χαιρετισμοί γραφείου",
+    "cs": "Práce A2 - 1: Kancelářské pozdravy"
   },
   "description_i18n": {
-    "en": "Practice work scenarios at A2 level."
+    "en": "Practice work scenarios at A2 level.",
+    "es": "Practicar escenarios de trabajo a nivel A2.",
+    "fr": "Pratiquer des scénarios de travail au niveau A2.",
+    "it": "Esercitarsi in scenari di lavoro a livello A2.",
+    "pt": "Praticar cenários de trabalho ao nível A2.",
+    "ru": "Отработайте сценарии работы на уровне A2.",
+    "ja": "A2レベルの仕事のシナリオを練習する。",
+    "ko": "A2 수준의 업무 시나리오를 연습하세요.",
+    "zh-CN": "在 A2 级水平上练习工作场景。",
+    "zh-TW": "在 A2 级水平上练习工作场景。",
+    "ar": "ممارسة سيناريوهات العمل على المستوى A2.",
+    "tr": "A2 seviyesinde çalışma senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze pracy na poziomie A2.",
+    "nl": "Oefen werkscenario's op A2-niveau.",
+    "sv": "Öva på arbetsscenarier på A2-nivå.",
+    "no": "Øv deg på arbeidsscenarioer på A2-nivå.",
+    "da": "Øv dig i arbejdsscenarier på A2-niveau.",
+    "fi": "Harjoitellaan A2-tason työkuvioita.",
+    "el": "Πρακτική εξάσκηση σε σενάρια εργασίας σε επίπεδο Α2.",
+    "cs": "Procvičování pracovních scénářů na úrovni A2."
   }
 }

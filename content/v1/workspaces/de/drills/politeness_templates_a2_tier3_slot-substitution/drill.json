@@ -6,9 +6,9 @@
   "workspace": "de",
   "language": "de",
   "level": "A2",
-  "title": "Politeness Templates: A2 (Tier 3)",
-  "shortTitle": "Politeness Templates A2",
-  "subtitle": "Tier 3 - slot substitution",
+  "title": "Politeness Templates: A2 (Tier 3) - Slot",
+  "shortTitle": "Politeness Templates A2 Slot",
+  "subtitle": "Tier 3 - slot substitution - Master formal politeness formul",
   "estimatedMinutes": 5,
   "mechanicId": "politeness_templates",
   "mechanicLabel": "Politeness Templates",
@@ -18,7 +18,8 @@
     "subject",
     "verb",
     "object",
-    "modifier"
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -65,220 +66,300 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "undefined helfen mir.",
+      "text": "Könnten Sie die zum Bahnhof am Montag helfen?",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "undefined helfen mir.",
+      "natural_en": "Könnten Sie die zum Bahnhof am Montag helfen?",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          null
+          "Könnten Sie"
         ],
         "verb": [
           "helfen"
         ],
         "object": [
-          "mir"
+          "die"
+        ],
+        "time": [
+          "am Montag"
+        ],
+        "location": [
+          "zum Bahnhof"
         ]
       },
       "audioUrl": "/v1/audio/politeness_templates_A2_tier3/prompt-001.mp3"
     },
     {
       "id": "prompt-002",
-      "text": "undefined schließen.",
+      "text": "Würden Sie hier nächste Woche geben?",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "undefined schließen.",
+      "natural_en": "Würden Sie hier nächste Woche geben?",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          null
+          "Würden Sie"
         ],
         "verb": [
-          "schließen"
+          "geben"
+        ],
+        "time": [
+          "nächste Woche"
+        ],
+        "location": [
+          "hier"
         ]
       },
       "audioUrl": "/v1/audio/politeness_templates_A2_tier3/prompt-002.mp3"
     },
     {
       "id": "prompt-003",
-      "text": "undefined geben einen.",
+      "text": "Dürfte ich mir zum Bahnhof heute machen?",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "undefined geben einen.",
+      "natural_en": "Dürfte ich mir zum Bahnhof heute machen?",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          null
+          "Dürfte ich"
         ],
         "verb": [
-          "geben"
+          "machen"
         ],
         "object": [
-          "einen"
+          "mir"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "zum Bahnhof"
         ]
       },
       "audioUrl": "/v1/audio/politeness_templates_A2_tier3/prompt-003.mp3"
     },
     {
       "id": "prompt-004",
-      "text": "undefined bringen.",
+      "text": "Ich hätte gern zum Bahnhof morgen schließen?",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "undefined bringen.",
+      "natural_en": "Ich hätte gern zum Bahnhof morgen schließen?",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          null
+          "Ich hätte gern"
         ],
         "verb": [
-          "bringen"
+          "schließen"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "zum Bahnhof"
         ]
       },
       "audioUrl": "/v1/audio/politeness_templates_A2_tier3/prompt-004.mp3"
     },
     {
       "id": "prompt-005",
-      "text": "undefined helfen eine.",
+      "text": "Ich möchte das zum Bahnhof nächste Woche sagen?",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "undefined helfen eine.",
+      "natural_en": "Ich möchte das zum Bahnhof nächste Woche sagen?",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          null
+          "Ich möchte"
         ],
         "verb": [
-          "helfen"
+          "sagen"
         ],
         "object": [
-          "eine"
+          "das"
+        ],
+        "time": [
+          "nächste Woche"
+        ],
+        "location": [
+          "zum Bahnhof"
         ]
       },
       "audioUrl": "/v1/audio/politeness_templates_A2_tier3/prompt-005.mp3"
     },
     {
       "id": "prompt-006",
-      "text": "undefined sagen.",
+      "text": "Können Sie hier morgen bringen?",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "undefined sagen.",
+      "natural_en": "Können Sie hier morgen bringen?",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          null
+          "Können Sie"
         ],
         "verb": [
-          "sagen"
+          "bringen"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "hier"
         ]
       },
       "audioUrl": "/v1/audio/politeness_templates_A2_tier3/prompt-006.mp3"
     },
     {
       "id": "prompt-007",
-      "text": "undefined bringen uns.",
+      "text": "Könnten Sie eine da am Montag zeigen?",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "undefined bringen uns.",
+      "natural_en": "Könnten Sie eine da am Montag zeigen?",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          null
+          "Könnten Sie"
         ],
         "verb": [
-          "bringen"
+          "zeigen"
         ],
         "object": [
-          "uns"
+          "eine"
+        ],
+        "time": [
+          "am Montag"
+        ],
+        "location": [
+          "da"
         ]
       },
       "audioUrl": "/v1/audio/politeness_templates_A2_tier3/prompt-007.mp3"
     },
     {
       "id": "prompt-008",
-      "text": "undefined zeigen.",
+      "text": "Würden Sie ins Hotel nächste Woche öffnen?",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "undefined zeigen.",
+      "natural_en": "Würden Sie ins Hotel nächste Woche öffnen?",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          null
+          "Würden Sie"
         ],
         "verb": [
-          "zeigen"
+          "öffnen"
+        ],
+        "time": [
+          "nächste Woche"
+        ],
+        "location": [
+          "ins Hotel"
         ]
       },
       "audioUrl": "/v1/audio/politeness_templates_A2_tier3/prompt-008.mp3"
     },
     {
       "id": "prompt-009",
-      "text": "undefined bringen das.",
+      "text": "Dürfte ich uns ins Hotel heute helfen?",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "undefined bringen das.",
+      "natural_en": "Dürfte ich uns ins Hotel heute helfen?",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          null
+          "Dürfte ich"
         ],
         "verb": [
-          "bringen"
+          "helfen"
         ],
         "object": [
-          "das"
+          "uns"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "ins Hotel"
         ]
       },
       "audioUrl": "/v1/audio/politeness_templates_A2_tier3/prompt-009.mp3"
     },
     {
       "id": "prompt-010",
-      "text": "undefined geben.",
+      "text": "Ich hätte gern zum Bahnhof nächste Woche geben?",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "undefined geben.",
+      "natural_en": "Ich hätte gern zum Bahnhof nächste Woche geben?",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "time",
+        "location"
       ],
       "slots": {
         "subject": [
-          null
+          "Ich hätte gern"
         ],
         "verb": [
           "geben"
+        ],
+        "time": [
+          "nächste Woche"
+        ],
+        "location": [
+          "zum Bahnhof"
         ]
       },
       "audioUrl": "/v1/audio/politeness_templates_A2_tier3/prompt-010.mp3"
@@ -300,14 +381,21 @@
     "coverage": {
       "verbs": [
         "helfen",
-        "schließen",
         "geben",
-        "bringen",
+        "machen",
+        "schließen",
         "sagen",
-        "zeigen"
+        "bringen",
+        "zeigen",
+        "öffnen"
       ],
       "subjects": [
-        null
+        "Könnten Sie",
+        "Würden Sie",
+        "Dürfte ich",
+        "Ich hätte gern",
+        "Ich möchte",
+        "Können Sie"
       ],
       "patterns": [
         "polite_requests",
@@ -320,10 +408,10 @@
     "estPromptCount": 10,
     "timeboxMinutes": 5,
     "qualitySignals": {
-      "tokenHitsCount": 2,
+      "tokenHitsCount": 10,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 6,
-      "uniqueSubjectCount": 1,
+      "uniqueVerbCount": 8,
+      "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -332,12 +420,21 @@
     "source": "template",
     "sourceRef": "mechanics/politeness_templates",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:16:26.936Z"
+    "generatedAt": "2026-01-03T09:52:17.362Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Politeness Templates: A2 (Tier 3) - Slot"
+  },
+  "shortTitle_i18n": {
+    "en": "Politeness Templates A2 Slot"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 3 - slot substitution - Master formal politeness formul"
+  },
   "contentId": "de:drill:politeness_templates_a2_tier3_slot-substitution",
-  "contentHash": "fcd1e172c4c7ea3ac321b903464836a28c173332a1c2535e9bcc55efc738a446",
-  "revisionId": "fcd1e172c4c7"
+  "contentHash": "6d5e99b06fb58a9cd25a1c149cdb47d7dfc26a226a64b32f79a98531f51ffb60",
+  "revisionId": "6d5e99b06fb5"
 }

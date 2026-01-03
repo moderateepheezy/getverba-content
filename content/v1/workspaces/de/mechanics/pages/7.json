@@ -1,233 +1,407 @@
 {
   "version": "v1",
   "kind": "drills",
-  "total": 149,
+  "total": 144,
   "pageSize": 20,
   "page": 7,
   "items": [
     {
-      "id": "question_formation_a2_tier3_pattern-switch",
+      "id": "time_expressions_inversion_a2_tier1_pattern-switch",
       "kind": "drill",
-      "title": "Question Formation: A2 (Tier 3)",
-      "level": "A2",
-      "durationMinutes": 5,
-      "entryUrl": "/v1/workspaces/de/drills/question_formation_a2_tier3_pattern-switch/drill.json",
-      "contentId": "de:drill:question_formation_a2_tier3_pattern-switch",
-      "revisionId": "277413002a5e",
-      "domainKind": "context"
-    },
-    {
-      "id": "time_expressions_inversion_a2_tier1_error-trap",
-      "kind": "drill",
-      "title": "Time Expressions & Inversion: A2 (Tier 1)",
+      "title": "Time Expressions & Inversion: A2 (Tier 1) - Pattern",
       "level": "A2",
       "durationMinutes": 3,
-      "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a2_tier1_error-trap/drill.json",
-      "contentId": "de:drill:time_expressions_inversion_a2_tier1_error-trap",
-      "revisionId": "59e85a892174",
+      "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a2_tier1_pattern-switch/drill.json",
+      "contentId": "de:drill:time_expressions_inversion_a2_tier1_pattern-switch",
+      "revisionId": "ef1a2f6ed282",
+      "title_i18n": {
+        "en": "Time Expressions & Inversion: A2 (Tier 1) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - pattern switch - Master verb inversion with time ex"
+      },
+      "shortTitle_i18n": {
+        "en": "Time Expressions  A2 Pattern"
+      },
       "domainKind": "context"
     },
     {
       "id": "time_expressions_inversion_a2_tier1_micro-transform",
       "kind": "drill",
-      "title": "Time Expressions & Inversion: A2 (Tier 1)",
+      "title": "Time Expressions & Inversion: A2 (Tier 1) - Transform",
       "level": "A2",
       "durationMinutes": 3,
       "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a2_tier1_micro-transform/drill.json",
       "contentId": "de:drill:time_expressions_inversion_a2_tier1_micro-transform",
-      "revisionId": "c1fd6f7fc189",
+      "revisionId": "1a7709bd60af",
+      "title_i18n": {
+        "en": "Time Expressions & Inversion: A2 (Tier 1) - Transform"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - micro transform - Master verb inversion with time e"
+      },
+      "shortTitle_i18n": {
+        "en": "Time Expression A2 Transform"
+      },
       "domainKind": "context"
     },
     {
-      "id": "time_expressions_inversion_a2_tier1_pattern-switch",
+      "id": "time_expressions_inversion_a2_tier1_error-trap",
       "kind": "drill",
-      "title": "Time Expressions & Inversion: A2 (Tier 1)",
+      "title": "Time Expressions & Inversion: A2 (Tier 1) - Trap",
       "level": "A2",
       "durationMinutes": 3,
-      "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a2_tier1_pattern-switch/drill.json",
-      "contentId": "de:drill:time_expressions_inversion_a2_tier1_pattern-switch",
-      "revisionId": "be77e7d7bf0c",
-      "domainKind": "context"
-    },
-    {
-      "id": "time_expressions_inversion_a2_tier2_error-trap",
-      "kind": "drill",
-      "title": "Time Expressions & Inversion: A2 (Tier 2)",
-      "level": "A2",
-      "durationMinutes": 4,
-      "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a2_tier2_error-trap/drill.json",
-      "contentId": "de:drill:time_expressions_inversion_a2_tier2_error-trap",
-      "revisionId": "be8030fa416f",
-      "domainKind": "context"
-    },
-    {
-      "id": "time_expressions_inversion_a2_tier2_micro-transform",
-      "kind": "drill",
-      "title": "Time Expressions & Inversion: A2 (Tier 2)",
-      "level": "A2",
-      "durationMinutes": 4,
-      "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a2_tier2_micro-transform/drill.json",
-      "contentId": "de:drill:time_expressions_inversion_a2_tier2_micro-transform",
-      "revisionId": "73b1d3587fff",
+      "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a2_tier1_error-trap/drill.json",
+      "contentId": "de:drill:time_expressions_inversion_a2_tier1_error-trap",
+      "revisionId": "adeb7de49491",
+      "title_i18n": {
+        "en": "Time Expressions & Inversion: A2 (Tier 1) - Trap"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - error trap - Master verb inversion with time expres"
+      },
+      "shortTitle_i18n": {
+        "en": "Time Expressions & I A2 Trap"
+      },
       "domainKind": "context"
     },
     {
       "id": "time_expressions_inversion_a2_tier2_pattern-switch",
       "kind": "drill",
-      "title": "Time Expressions & Inversion: A2 (Tier 2)",
+      "title": "Time Expressions & Inversion: A2 (Tier 2) - Pattern",
       "level": "A2",
       "durationMinutes": 4,
       "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a2_tier2_pattern-switch/drill.json",
       "contentId": "de:drill:time_expressions_inversion_a2_tier2_pattern-switch",
-      "revisionId": "eb60f019c7bf",
+      "revisionId": "0eddf73fa765",
+      "title_i18n": {
+        "en": "Time Expressions & Inversion: A2 (Tier 2) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - pattern switch - Master verb inversion with time ex"
+      },
+      "shortTitle_i18n": {
+        "en": "Time Expressions  A2 Pattern"
+      },
       "domainKind": "context"
     },
     {
-      "id": "time_expressions_inversion_a2_tier3_error-trap",
+      "id": "time_expressions_inversion_a2_tier2_micro-transform",
       "kind": "drill",
-      "title": "Time Expressions & Inversion: A2 (Tier 3)",
+      "title": "Time Expressions & Inversion: A2 (Tier 2) - Transform",
       "level": "A2",
-      "durationMinutes": 5,
-      "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a2_tier3_error-trap/drill.json",
-      "contentId": "de:drill:time_expressions_inversion_a2_tier3_error-trap",
-      "revisionId": "ea056d9fc682",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a2_tier2_micro-transform/drill.json",
+      "contentId": "de:drill:time_expressions_inversion_a2_tier2_micro-transform",
+      "revisionId": "191fa569eba7",
+      "title_i18n": {
+        "en": "Time Expressions & Inversion: A2 (Tier 2) - Transform"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - micro transform - Master verb inversion with time e"
+      },
+      "shortTitle_i18n": {
+        "en": "Time Expression A2 Transform"
+      },
       "domainKind": "context"
     },
     {
-      "id": "time_expressions_inversion_a2_tier3_micro-transform",
+      "id": "time_expressions_inversion_a2_tier2_error-trap",
       "kind": "drill",
-      "title": "Time Expressions & Inversion: A2 (Tier 3)",
+      "title": "Time Expressions & Inversion: A2 (Tier 2) - Trap",
       "level": "A2",
-      "durationMinutes": 5,
-      "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a2_tier3_micro-transform/drill.json",
-      "contentId": "de:drill:time_expressions_inversion_a2_tier3_micro-transform",
-      "revisionId": "57e993369140",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a2_tier2_error-trap/drill.json",
+      "contentId": "de:drill:time_expressions_inversion_a2_tier2_error-trap",
+      "revisionId": "f5283d6385f3",
+      "title_i18n": {
+        "en": "Time Expressions & Inversion: A2 (Tier 2) - Trap"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - error trap - Master verb inversion with time expres"
+      },
+      "shortTitle_i18n": {
+        "en": "Time Expressions & I A2 Trap"
+      },
       "domainKind": "context"
     },
     {
       "id": "time_expressions_inversion_a2_tier3_pattern-switch",
       "kind": "drill",
-      "title": "Time Expressions & Inversion: A2 (Tier 3)",
+      "title": "Time Expressions & Inversion: A2 (Tier 3) - Pattern",
       "level": "A2",
       "durationMinutes": 5,
       "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a2_tier3_pattern-switch/drill.json",
       "contentId": "de:drill:time_expressions_inversion_a2_tier3_pattern-switch",
-      "revisionId": "f25e4fc99724",
+      "revisionId": "7b7b8c9f9f20",
+      "title_i18n": {
+        "en": "Time Expressions & Inversion: A2 (Tier 3) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - pattern switch - Master verb inversion with time ex"
+      },
+      "shortTitle_i18n": {
+        "en": "Time Expressions  A2 Pattern"
+      },
       "domainKind": "context"
     },
     {
-      "id": "verb_present_tense_a2_tier1_contrast-pairs",
+      "id": "time_expressions_inversion_a2_tier3_micro-transform",
       "kind": "drill",
-      "title": "Verb Present Tense: A2 (Tier 1)",
+      "title": "Time Expressions & Inversion: A2 (Tier 3) - Transform",
       "level": "A2",
-      "durationMinutes": 3,
-      "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a2_tier1_contrast-pairs/drill.json",
-      "contentId": "de:drill:verb_present_tense_a2_tier1_contrast-pairs",
-      "revisionId": "6851edc79fcf",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a2_tier3_micro-transform/drill.json",
+      "contentId": "de:drill:time_expressions_inversion_a2_tier3_micro-transform",
+      "revisionId": "2e515fe4414d",
+      "title_i18n": {
+        "en": "Time Expressions & Inversion: A2 (Tier 3) - Transform"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - micro transform - Master verb inversion with time e"
+      },
+      "shortTitle_i18n": {
+        "en": "Time Expression A2 Transform"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "time_expressions_inversion_a2_tier3_error-trap",
+      "kind": "drill",
+      "title": "Time Expressions & Inversion: A2 (Tier 3) - Trap",
+      "level": "A2",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a2_tier3_error-trap/drill.json",
+      "contentId": "de:drill:time_expressions_inversion_a2_tier3_error-trap",
+      "revisionId": "b777322c4f7a",
+      "title_i18n": {
+        "en": "Time Expressions & Inversion: A2 (Tier 3) - Trap"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - error trap - Master verb inversion with time expres"
+      },
+      "shortTitle_i18n": {
+        "en": "Time Expressions & I A2 Trap"
+      },
       "domainKind": "context"
     },
     {
       "id": "verb_present_tense_a2_tier1_pattern-switch",
       "kind": "drill",
-      "title": "Verb Present Tense: A2 (Tier 1)",
+      "title": "Verb Present Tense: A2 (Tier 1) - Pattern",
       "level": "A2",
       "durationMinutes": 3,
       "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a2_tier1_pattern-switch/drill.json",
       "contentId": "de:drill:verb_present_tense_a2_tier1_pattern-switch",
-      "revisionId": "2510a6148adf",
+      "revisionId": "8c253d85e652",
+      "title_i18n": {
+        "en": "Verb Present Tense: A2 (Tier 1) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - pattern switch - Practice present tense verb conjug"
+      },
+      "shortTitle_i18n": {
+        "en": "Verb Present Tens A2 Pattern"
+      },
       "domainKind": "context"
     },
     {
       "id": "verb_present_tense_a2_tier1_slot-substitution",
       "kind": "drill",
-      "title": "Verb Present Tense: A2 (Tier 1)",
+      "title": "Verb Present Tense: A2 (Tier 1) - Slot",
       "level": "A2",
       "durationMinutes": 3,
       "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a2_tier1_slot-substitution/drill.json",
       "contentId": "de:drill:verb_present_tense_a2_tier1_slot-substitution",
-      "revisionId": "19c0d8a218d2",
-      "domainKind": "context"
-    },
-    {
-      "id": "verb_present_tense_a2_tier2_contrast-pairs",
-      "kind": "drill",
-      "title": "Verb Present Tense: A2 (Tier 2)",
-      "level": "A2",
-      "durationMinutes": 4,
-      "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a2_tier2_contrast-pairs/drill.json",
-      "contentId": "de:drill:verb_present_tense_a2_tier2_contrast-pairs",
-      "revisionId": "ffb9a6bb24de",
+      "revisionId": "d8ff23be8496",
+      "title_i18n": {
+        "en": "Verb Present Tense: A2 (Tier 1) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - slot substitution - Practice present tense verb con"
+      },
+      "shortTitle_i18n": {
+        "en": "Verb Present Tense A2 Slot"
+      },
       "domainKind": "context"
     },
     {
       "id": "verb_present_tense_a2_tier2_pattern-switch",
       "kind": "drill",
-      "title": "Verb Present Tense: A2 (Tier 2)",
+      "title": "Verb Present Tense: A2 (Tier 2) - Pattern",
       "level": "A2",
       "durationMinutes": 4,
       "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a2_tier2_pattern-switch/drill.json",
       "contentId": "de:drill:verb_present_tense_a2_tier2_pattern-switch",
-      "revisionId": "a51be623bf5a",
+      "revisionId": "d233a00ea785",
+      "title_i18n": {
+        "en": "Verb Present Tense: A2 (Tier 2) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - pattern switch - Practice present tense verb conjug"
+      },
+      "shortTitle_i18n": {
+        "en": "Verb Present Tens A2 Pattern"
+      },
       "domainKind": "context"
     },
     {
       "id": "verb_present_tense_a2_tier2_slot-substitution",
       "kind": "drill",
-      "title": "Verb Present Tense: A2 (Tier 2)",
+      "title": "Verb Present Tense: A2 (Tier 2) - Slot",
       "level": "A2",
       "durationMinutes": 4,
       "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a2_tier2_slot-substitution/drill.json",
       "contentId": "de:drill:verb_present_tense_a2_tier2_slot-substitution",
-      "revisionId": "c947d9d120c1",
-      "domainKind": "context"
-    },
-    {
-      "id": "verb_present_tense_a2_tier3_contrast-pairs",
-      "kind": "drill",
-      "title": "Verb Present Tense: A2 (Tier 3)",
-      "level": "A2",
-      "durationMinutes": 5,
-      "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a2_tier3_contrast-pairs/drill.json",
-      "contentId": "de:drill:verb_present_tense_a2_tier3_contrast-pairs",
-      "revisionId": "5bccd6165e36",
+      "revisionId": "07e975ec1a32",
+      "title_i18n": {
+        "en": "Verb Present Tense: A2 (Tier 2) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - slot substitution - Practice present tense verb con"
+      },
+      "shortTitle_i18n": {
+        "en": "Verb Present Tense A2 Slot"
+      },
       "domainKind": "context"
     },
     {
       "id": "verb_present_tense_a2_tier3_pattern-switch",
       "kind": "drill",
-      "title": "Verb Present Tense: A2 (Tier 3)",
+      "title": "Verb Present Tense: A2 (Tier 3) - Pattern",
       "level": "A2",
       "durationMinutes": 5,
       "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a2_tier3_pattern-switch/drill.json",
       "contentId": "de:drill:verb_present_tense_a2_tier3_pattern-switch",
-      "revisionId": "744b20ab57d2",
+      "revisionId": "59e4a31e5441",
+      "title_i18n": {
+        "en": "Verb Present Tense: A2 (Tier 3) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - pattern switch - Practice present tense verb conjug"
+      },
+      "shortTitle_i18n": {
+        "en": "Verb Present Tens A2 Pattern"
+      },
       "domainKind": "context"
     },
     {
       "id": "verb_present_tense_a2_tier3_slot-substitution",
       "kind": "drill",
-      "title": "Verb Present Tense: A2 (Tier 3)",
+      "title": "Verb Present Tense: A2 (Tier 3) - Slot",
       "level": "A2",
       "durationMinutes": 5,
       "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a2_tier3_slot-substitution/drill.json",
       "contentId": "de:drill:verb_present_tense_a2_tier3_slot-substitution",
-      "revisionId": "471ff49e8127",
+      "revisionId": "2af3194bb43c",
+      "title_i18n": {
+        "en": "Verb Present Tense: A2 (Tier 3) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 3 - slot substitution - Practice present tense verb con"
+      },
+      "shortTitle_i18n": {
+        "en": "Verb Present Tense A2 Slot"
+      },
       "domainKind": "context"
     },
     {
-      "id": "verb_endings_a2_1",
+      "id": "word_order_main_clause_a2_tier1_pattern-switch",
       "kind": "drill",
-      "title": "veru endings - A2",
+      "title": "Word Order: Main Clause: A2 (Tier 1) - Pattern",
       "level": "A2",
-      "durationMinutes": 10,
-      "entryUrl": "/v1/workspaces/de/drills/verb_endings_a2_1/drill.json",
-      "contentId": "de:drill:verb_endings_a2_1",
-      "revisionId": "f1c194a8d6ec",
-      "tags": [
-        "grammar"
-      ],
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a2_tier1_pattern-switch/drill.json",
+      "contentId": "de:drill:word_order_main_clause_a2_tier1_pattern-switch",
+      "revisionId": "1cda7453331d",
       "title_i18n": {
-        "en": "veru endings - A2"
+        "en": "Word Order: Main Clause: A2 (Tier 1) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - pattern switch - Master verb-second position in mai"
+      },
+      "shortTitle_i18n": {
+        "en": "Word Order: Main  A2 Pattern"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "word_order_main_clause_a2_tier1_slot-substitution",
+      "kind": "drill",
+      "title": "Word Order: Main Clause: A2 (Tier 1) - Slot",
+      "level": "A2",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a2_tier1_slot-substitution/drill.json",
+      "contentId": "de:drill:word_order_main_clause_a2_tier1_slot-substitution",
+      "revisionId": "913e425a0f28",
+      "title_i18n": {
+        "en": "Word Order: Main Clause: A2 (Tier 1) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - slot substitution - Master verb-second position in "
+      },
+      "shortTitle_i18n": {
+        "en": "Word Order: Main Cla A2 Slot"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "word_order_main_clause_a2_tier1_error-trap",
+      "kind": "drill",
+      "title": "Word Order: Main Clause: A2 (Tier 1) - Trap",
+      "level": "A2",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a2_tier1_error-trap/drill.json",
+      "contentId": "de:drill:word_order_main_clause_a2_tier1_error-trap",
+      "revisionId": "b5821262b86a",
+      "title_i18n": {
+        "en": "Word Order: Main Clause: A2 (Tier 1) - Trap"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 1 - error trap - Master verb-second position in main cl"
+      },
+      "shortTitle_i18n": {
+        "en": "Word Order: Main Cla A2 Trap"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "word_order_main_clause_a2_tier2_pattern-switch",
+      "kind": "drill",
+      "title": "Word Order: Main Clause: A2 (Tier 2) - Pattern",
+      "level": "A2",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a2_tier2_pattern-switch/drill.json",
+      "contentId": "de:drill:word_order_main_clause_a2_tier2_pattern-switch",
+      "revisionId": "6b6874550cbe",
+      "title_i18n": {
+        "en": "Word Order: Main Clause: A2 (Tier 2) - Pattern"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - pattern switch - Master verb-second position in mai"
+      },
+      "shortTitle_i18n": {
+        "en": "Word Order: Main  A2 Pattern"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "word_order_main_clause_a2_tier2_slot-substitution",
+      "kind": "drill",
+      "title": "Word Order: Main Clause: A2 (Tier 2) - Slot",
+      "level": "A2",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/word_order_main_clause_a2_tier2_slot-substitution/drill.json",
+      "contentId": "de:drill:word_order_main_clause_a2_tier2_slot-substitution",
+      "revisionId": "b91328cffad6",
+      "title_i18n": {
+        "en": "Word Order: Main Clause: A2 (Tier 2) - Slot"
+      },
+      "subtitle_i18n": {
+        "en": "Tier 2 - slot substitution - Master verb-second position in "
+      },
+      "shortTitle_i18n": {
+        "en": "Word Order: Main Cla A2 Slot"
       },
       "domainKind": "context"
     }

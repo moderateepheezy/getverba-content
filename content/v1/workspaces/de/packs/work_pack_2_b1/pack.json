@@ -25,7 +25,7 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Der Manager helft um 14:30",
+      "text": "Der Manager helft um 14:30 morgen",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -43,13 +43,17 @@
           "helft"
         ],
         "modifier": [
-          "um 14:30"
+          "um 14:30",
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
       "id": "prompt-002",
-      "text": "Sie organisieren am Dienstag kollege",
+      "text": "Sie organisieren am Dienstag kollege morgen",
       "intent": "schedule",
       "gloss_en": "I need to schedule something.",
       "natural_en": "I need to schedule that.",
@@ -67,13 +71,17 @@
           "organisieren"
         ],
         "modifier": [
-          "am Dienstag"
+          "am Dienstag",
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
       "id": "prompt-003",
-      "text": "Wir organisieren das Meeting morgen",
+      "text": "Wir organisieren das Meeting morgen morgen",
       "intent": "inform",
       "gloss_en": "The meeting starts at the scheduled time.",
       "natural_en": "The meeting is at the scheduled time.",
@@ -96,11 +104,14 @@
         "modifier": [
           "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "The meeting starts at the scheduled time."
       }
     },
     {
       "id": "prompt-004",
-      "text": "Wir besprechen die Deadline am Dienstag",
+      "text": "Wir besprechen die Deadline am Dienstag morgen",
       "intent": "schedule",
       "gloss_en": "I need to schedule something.",
       "natural_en": "I need to schedule that.",
@@ -121,13 +132,17 @@
           "die Deadline"
         ],
         "modifier": [
-          "am Dienstag"
+          "am Dienstag",
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
       "id": "prompt-005",
-      "text": "Ich soll das Projekt nächste Woche",
+      "text": "Ich soll das Projekt nächste Woche morgen",
       "intent": "inform",
       "gloss_en": "I am working on the project.",
       "natural_en": "I'm working on that project.",
@@ -149,13 +164,17 @@
           "das Projekt"
         ],
         "modifier": [
-          "nächste Woche"
+          "nächste Woche",
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am working on the project."
       }
     },
     {
       "id": "prompt-006",
-      "text": "Ich plane das Meeting",
+      "text": "Ich plane das Meeting morgen",
       "intent": "inform",
       "gloss_en": "The meeting starts at the scheduled time.",
       "natural_en": "The meeting is at the scheduled time.",
@@ -173,12 +192,18 @@
         ],
         "object": [
           "das Meeting"
+        ],
+        "modifier": [
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "The meeting starts at the scheduled time."
       }
     },
     {
       "id": "prompt-007",
-      "text": "Ich vereinbare das Meeting",
+      "text": "Ich vereinbare das Meeting morgen",
       "intent": "schedule",
       "gloss_en": "The meeting starts at the scheduled time.",
       "natural_en": "The meeting is at the scheduled time.",
@@ -195,7 +220,13 @@
         ],
         "object": [
           "das Meeting"
+        ],
+        "modifier": [
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "The meeting starts at the scheduled time."
       }
     }
   ],
@@ -273,7 +304,7 @@
     "multiSlotRate": 0.8571428571428571,
     "scenarioTokenHitAvg": 1,
     "scenarioTokenQualifiedRate": 0,
-    "uniqueTokenRate": 0.6857142857142857,
+    "uniqueTokenRate": 0.5714285714285714,
     "bannedPhraseViolations": 0,
     "passesQualityGates": false,
     "focus": "modal_verbs",
@@ -317,15 +348,55 @@
     "generatedAt": "2026-01-01T02:21:59.467Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T08:26:06.989Z"
   },
   "contentId": "de:pack:work_pack_2_b1",
   "contentHash": "7b474a73e2ed269107ad2d2576dd6c4ddca3398c9996b0888328fd74b33631ee",
   "revisionId": "7b474a73e2ed",
   "title_i18n": {
-    "en": "Work B1 — 2: Meeting Phrases"
+    "en": "Work B1 — 2: Meeting Phrases",
+    "es": "Trabajo B1 - 2: Frases de reunión",
+    "fr": "Travail B1 - 2 : Phrases de rencontre",
+    "it": "Lavoro B1 - 2: Frasi di riunione",
+    "pt": "Trabalho B1 - 2: Frases de reunião",
+    "ru": "Работа B1 - 2: Встречные фразы",
+    "ja": "ワークB1 - 2: ミーティング・フレーズ",
+    "ko": "작업 B1 - 2: 회의 문구",
+    "zh-CN": "工作 B1 - 2：会议用语",
+    "zh-TW": "工作 B1 - 2：会议用语",
+    "ar": "العمل ب 1 - 2: عبارات الاجتماع",
+    "tr": "Çalışma B1 - 2: Toplantı İfadeleri",
+    "pl": "Praca B1 - 2: Zwroty dotyczące spotkań",
+    "nl": "Werk B1 - 2: Vergaderzinnen",
+    "sv": "Arbete B1 - 2: Mötesfraser",
+    "no": "Arbeid B1 - 2: Møtefraser",
+    "da": "Arbejde B1 - 2: Mødesætninger",
+    "fi": "Työ B1 - 2: Kokousfraasit",
+    "el": "Εργασία B1 - 2: Φράσεις συνάντησης",
+    "cs": "Práce B1 - 2: Fráze pro setkání"
   },
   "description_i18n": {
-    "en": "Practice work scenarios at B1 level."
+    "en": "Practice work scenarios at B1 level.",
+    "es": "Practicar escenarios de trabajo a nivel B1.",
+    "fr": "Pratiquer des scénarios de travail au niveau B1.",
+    "it": "Esercitarsi in scenari di lavoro a livello B1.",
+    "pt": "Praticar cenários de trabalho ao nível B1.",
+    "ru": "Отработайте сценарии работы на уровне B1.",
+    "ja": "B1レベルの仕事のシナリオを練習する。",
+    "ko": "B1 수준의 업무 시나리오를 연습하세요.",
+    "zh-CN": "练习 B1 级的工作场景。",
+    "zh-TW": "练习 B1 级的工作场景。",
+    "ar": "تدرب على سيناريوهات العمل على مستوى B1.",
+    "tr": "B1 seviyesinde çalışma senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze pracy na poziomie B1.",
+    "nl": "Oefen werkscenario's op B1-niveau.",
+    "sv": "Öva på arbetsscenarier på B1-nivå.",
+    "no": "Øv deg på arbeidsscenarioer på B1-nivå.",
+    "da": "Øv dig i arbejdsscenarier på B1-niveau.",
+    "el": "Πρακτική εξάσκηση σε σενάρια εργασίας σε επίπεδο Β1.",
+    "cs": "Procvičování pracovních scénářů na úrovni B1.",
+    "fi": "Harjoitellaan B1-tason työkuvioita."
   }
 }

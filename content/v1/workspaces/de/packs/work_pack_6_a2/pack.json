@@ -45,6 +45,9 @@
         "modifier": [
           "am Dienstag"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
@@ -67,6 +70,9 @@
         "modifier": [
           "um 9 Uhr"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
@@ -95,6 +101,9 @@
         "modifier": [
           "am Montag"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
@@ -123,6 +132,9 @@
         "modifier": [
           "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am working on the project."
       }
     },
     {
@@ -150,6 +162,9 @@
         "modifier": [
           "um 14:30"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am working on the project."
       }
     },
     {
@@ -174,6 +189,9 @@
         "object": [
           "die Besprechung"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -197,6 +215,9 @@
         "object": [
           "die Deadline"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     }
   ],
@@ -318,15 +339,55 @@
     "generatedAt": "2026-01-01T02:21:47.482Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T08:26:06.991Z"
   },
   "contentId": "de:pack:work_pack_6_a2",
   "contentHash": "a3146c75a02431e796ed7f2ea16d39bb6722fa1e3080f5b1a231f521b82be15d",
   "revisionId": "a3146c75a024",
   "title_i18n": {
-    "en": "Work A2 — 6: Email Communication"
+    "en": "Work A2 — 6: Email Communication",
+    "es": "Trabajo A2 - 6: Comunicación por correo electrónico",
+    "fr": "Travail A2 - 6 : Communication par courrier électronique",
+    "it": "Lavoro A2 - 6: Comunicazione via e-mail",
+    "pt": "Trabalho A2 - 6: Comunicação por correio eletrónico",
+    "ru": "Работа A2 - 6: Общение по электронной почте",
+    "ja": "作業A2 - 6: 電子メールによるコミュニケーション",
+    "ko": "작업 A2 - 6: 이메일 커뮤니케이션",
+    "zh-CN": "工作 A2 - 6：电子邮件交流",
+    "zh-TW": "工作 A2 - 6：电子邮件交流",
+    "ar": "العمل أ 2 - 6: التواصل عبر البريد الإلكتروني",
+    "tr": "Çalışma A2 - 6: E-posta İletişimi",
+    "pl": "Praca A2 - 6: Komunikacja e-mail",
+    "nl": "Werk A2 - 6: Communicatie per e-mail",
+    "sv": "Arbete A2 - 6: E-postkommunikation",
+    "no": "Arbeid A2 - 6: E-postkommunikasjon",
+    "da": "Arbejde A2 - 6: E-mail-kommunikation",
+    "fi": "Työ A2 - 6: Sähköpostiviestintä",
+    "el": "Εργασία A2 - 6: Επικοινωνία μέσω ηλεκτρονικού ταχυδρομείου",
+    "cs": "Práce A2 - 6: E-mailová komunikace"
   },
   "description_i18n": {
-    "en": "Practice work scenarios at A2 level."
+    "en": "Practice work scenarios at A2 level.",
+    "es": "Practicar escenarios de trabajo a nivel A2.",
+    "fr": "Pratiquer des scénarios de travail au niveau A2.",
+    "it": "Esercitarsi in scenari di lavoro a livello A2.",
+    "pt": "Praticar cenários de trabalho ao nível A2.",
+    "ru": "Отработайте сценарии работы на уровне A2.",
+    "ja": "A2レベルの仕事のシナリオを練習する。",
+    "ko": "A2 수준의 업무 시나리오를 연습하세요.",
+    "zh-CN": "在 A2 级水平上练习工作场景。",
+    "zh-TW": "在 A2 级水平上练习工作场景。",
+    "ar": "ممارسة سيناريوهات العمل على المستوى A2.",
+    "tr": "A2 seviyesinde çalışma senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze pracy na poziomie A2.",
+    "nl": "Oefen werkscenario's op A2-niveau.",
+    "sv": "Öva på arbetsscenarier på A2-nivå.",
+    "no": "Øv deg på arbeidsscenarioer på A2-nivå.",
+    "da": "Øv dig i arbejdsscenarier på A2-niveau.",
+    "fi": "Harjoitellaan A2-tason työkuvioita.",
+    "el": "Πρακτική εξάσκηση σε σενάρια εργασίας σε επίπεδο Α2.",
+    "cs": "Procvičování pracovních scénářů na úrovni A2."
   }
 }

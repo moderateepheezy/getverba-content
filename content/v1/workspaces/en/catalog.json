@@ -11,15 +11,9 @@
       "title": "Context Library",
       "itemsUrl": "/v1/workspaces/en/context/index.json",
       "analyticsRollup": {
-        "scenarios": {
-          "intro_lesson": 1
-        },
-        "levels": {
-          "A1": 1
-        },
-        "primaryStructures": {
-          "basic_phrases": 1
-        }
+        "scenarios": {},
+        "levels": {},
+        "primaryStructures": {}
       },
       "title_i18n": {
         "en": "Context Library"

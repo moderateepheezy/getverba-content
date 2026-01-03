@@ -1,0 +1,886 @@
+{
+  "version": "v1",
+  "kind": "context",
+  "total": 23,
+  "pageSize": 12,
+  "page": 2,
+  "items": [
+    {
+      "id": "work_pack_8_a2",
+      "kind": "pack",
+      "title": "Work A2 — 8: Deadline Management",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_8_a2/pack.json",
+      "contentId": "de:pack:work_pack_8_a2",
+      "revisionId": "f774f4003219",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A2 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A2 level Uses professional vocabulary appropriately",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Deadline Management",
+      "orderInTopic": 8,
+      "title_i18n": {
+        "en": "Work A2 — 8: Deadline Management",
+        "es": "Trabajo A2 - 8: Gestión de plazos",
+        "fr": "Travail A2 - 8 : Gestion des délais",
+        "it": "Lavoro A2 - 8: Gestione delle scadenze",
+        "pt": "Trabalho A2 - 8: Gestão de prazos",
+        "ru": "Работа A2 - 8: Управление сроками",
+        "ja": "ワークA2 - 8: デッドライン・マネジメント",
+        "ko": "작업 A2 - 8: 마감일 관리",
+        "zh-CN": "工作 A2 - 8：期限管理",
+        "zh-TW": "工作 A2 - 8：期限管理",
+        "ar": "العمل أ 2 - 8: إدارة المواعيد النهائية",
+        "tr": "Çalışma A2 - 8: Teslim Tarihi Yönetimi",
+        "pl": "Praca A2 - 8: Zarządzanie terminami",
+        "nl": "Werk A2 - 8: Deadlinebeheer",
+        "sv": "Arbete A2 - 8: Hantering av deadlines",
+        "no": "Arbeid A2 - 8: Håndtering av tidsfrister",
+        "da": "Arbejde A2 - 8: Styring af deadlines",
+        "fi": "Työ A2 - 8: Määräaikojen hallinta",
+        "el": "Εργασία A2 - 8: Διαχείριση προθεσμιών",
+        "cs": "Práce A2 - 8: Řízení termínů"
+      },
+      "domainKind": "context",
+      "groupId": "tasks-requests",
+      "groupTitle": "Tasks & Requests",
+      "groupTitle_i18n": {
+        "en": "Tasks & Requests"
+      },
+      "isRecommended": true
+    },
+    {
+      "id": "work_pack_9_a2",
+      "kind": "pack",
+      "title": "Work A2 — 9: Client Interactions",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_9_a2/pack.json",
+      "contentId": "de:pack:work_pack_9_a2",
+      "revisionId": "24705746663b",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A2 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A2 level Uses professional vocabulary appropriately",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Client Interactions",
+      "orderInTopic": 9,
+      "title_i18n": {
+        "en": "Work A2 — 9: Client Interactions",
+        "es": "Trabajo A2 - 9: Interacciones con los clientes",
+        "fr": "Travail A2 - 9 : Interactions avec les clients",
+        "it": "Lavoro A2 - 9: Interazioni con i clienti",
+        "pt": "Trabalho A2 - 9: Interações com os clientes",
+        "ru": "Работа A2 - 9: Взаимодействие с клиентами",
+        "zh-CN": "工作 A2 - 9：客户互动",
+        "zh-TW": "工作 A2 - 9：客户互动",
+        "ar": "العمل أ2 - 9: التفاعل مع العملاء",
+        "tr": "Çalışma A2 - 9: Müşteri Etkileşimleri",
+        "pl": "Praca A2 - 9: Interakcje z klientami",
+        "nl": "Werk A2 - 9: Interacties met klanten",
+        "sv": "Arbete A2 - 9: Interaktioner med kunder",
+        "no": "Arbeid A2 - 9: Kundeinteraksjoner",
+        "da": "Arbejde A2 - 9: Kundeinteraktioner",
+        "fi": "Työ A2 - 9: Asiakaskohtaamiset",
+        "el": "Εργασία Α2 - 9: Αλληλεπιδράσεις με τους πελάτες",
+        "cs": "Práce A2 - 9: Interakce s klienty",
+        "ja": "作業A2 - 9: 顧客との対話",
+        "ko": "작업 A2 - 9: 클라이언트 상호 작용"
+      },
+      "domainKind": "context",
+      "groupId": "tasks-requests",
+      "groupTitle": "Tasks & Requests",
+      "groupTitle_i18n": {
+        "en": "Tasks & Requests"
+      }
+    },
+    {
+      "id": "work_sample_3_a2",
+      "kind": "pack",
+      "title": "Work A2 — Sample 3",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_sample_3_a2/pack.json",
+      "contentId": "de:pack:work_sample_3_a2",
+      "revisionId": "c141635cdd5c",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A2 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A2 level Uses professional vocabulary appropriately",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Work — Sample 3",
+      "title_i18n": {
+        "en": "Work A2 — Sample 3",
+        "es": "Trabajo A2 - Muestra 3",
+        "fr": "Travail A2 - Échantillon 3",
+        "it": "Lavoro A2 - Campione 3",
+        "pt": "Trabalho A2 - Amostra 3",
+        "ru": "Работа A2 - Образец 3",
+        "ja": "作品A2 - サンプル3",
+        "ko": "작업 A2 - 샘플 3",
+        "zh-CN": "工作 A2 - 样本 3",
+        "zh-TW": "工作 A2 - 样本 3",
+        "ar": "العمل A2 - العينة 3",
+        "tr": "Çalışma A2 - Örnek 3",
+        "pl": "Praca A2 - Próbka 3",
+        "nl": "Werk A2 - Voorbeeld 3",
+        "sv": "Arbete A2 - Prov 3",
+        "no": "Arbeid A2 - Eksempel 3",
+        "da": "Arbejde A2 - Prøve 3",
+        "fi": "Työ A2 - Näyte 3",
+        "el": "Εργασία A2 - Δείγμα 3",
+        "cs": "Práce A2 - ukázka 3"
+      },
+      "domainKind": "context",
+      "groupId": "office-greetings",
+      "groupTitle": "Office Greetings",
+      "groupTitle_i18n": {
+        "en": "Office Greetings"
+      }
+    },
+    {
+      "id": "work_pack_1_b1",
+      "kind": "pack",
+      "title": "Work B1 — 1: Office Greetings",
+      "level": "B1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_1_b1/pack.json",
+      "contentId": "de:pack:work_pack_1_b1",
+      "revisionId": "1af3f947547f",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at B1 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "stretch"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at B1 level Uses professional vocabulary appropriately",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Office Greetings",
+      "orderInTopic": 1,
+      "title_i18n": {
+        "en": "Work B1 — 1: Office Greetings",
+        "es": "Trabajo B1 - 1: Saludos en la oficina",
+        "fr": "Travail B1 - 1 : Salutations de bureau",
+        "it": "Lavoro B1 - 1: Saluti in ufficio",
+        "pt": "Trabalho B1 - 1: Saudações do escritório",
+        "ru": "Работа B1 - 1: Офисные приветствия",
+        "ja": "作品B1 - 1: オフィスでの挨拶",
+        "ko": "업무 B1 - 1: 사무실 인사말",
+        "zh-CN": "工作 B1 - 1：办公室问候语",
+        "zh-TW": "工作 B1 - 1：办公室问候语",
+        "ar": "العمل ب 1 - 1: تحيات المكتب",
+        "tr": "Çalışma B1 - 1: Ofis Selamlaşması",
+        "pl": "Praca B1 - 1: Pozdrowienia z biura",
+        "nl": "Werk B1 - 1: Kantoor Groeten",
+        "sv": "Arbete B1 - 1: Hälsningar från kontoret",
+        "no": "Arbeid B1 - 1: Hilsener fra kontoret",
+        "da": "Arbejde B1 - 1: Hilsen på kontoret",
+        "fi": "Työ B1 - 1: Toimiston tervehdykset",
+        "el": "Εργασία B1 - 1: Χαιρετισμοί γραφείου",
+        "cs": "Práce B1 - 1: Kancelářské pozdravy"
+      },
+      "domainKind": "context",
+      "groupId": "office-greetings",
+      "groupTitle": "Office Greetings",
+      "groupTitle_i18n": {
+        "en": "Office Greetings"
+      }
+    },
+    {
+      "id": "work_pack_2_b1",
+      "kind": "pack",
+      "title": "Work B1 — 2: Meeting Phrases",
+      "level": "B1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_2_b1/pack.json",
+      "contentId": "de:pack:work_pack_2_b1",
+      "revisionId": "7b474a73e2ed",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at B1 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "stretch"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at B1 level Uses professional vocabulary appropriately",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Meeting Phrases",
+      "orderInTopic": 2,
+      "title_i18n": {
+        "en": "Work B1 — 2: Meeting Phrases",
+        "es": "Trabajo B1 - 2: Frases de reunión",
+        "fr": "Travail B1 - 2 : Phrases de rencontre",
+        "it": "Lavoro B1 - 2: Frasi di riunione",
+        "pt": "Trabalho B1 - 2: Frases de reunião",
+        "ru": "Работа B1 - 2: Встречные фразы",
+        "ja": "ワークB1 - 2: ミーティング・フレーズ",
+        "ko": "작업 B1 - 2: 회의 문구",
+        "zh-CN": "工作 B1 - 2：会议用语",
+        "zh-TW": "工作 B1 - 2：会议用语",
+        "ar": "العمل ب 1 - 2: عبارات الاجتماع",
+        "tr": "Çalışma B1 - 2: Toplantı İfadeleri",
+        "pl": "Praca B1 - 2: Zwroty dotyczące spotkań",
+        "nl": "Werk B1 - 2: Vergaderzinnen",
+        "sv": "Arbete B1 - 2: Mötesfraser",
+        "no": "Arbeid B1 - 2: Møtefraser",
+        "da": "Arbejde B1 - 2: Mødesætninger",
+        "fi": "Työ B1 - 2: Kokousfraasit",
+        "el": "Εργασία B1 - 2: Φράσεις συνάντησης",
+        "cs": "Práce B1 - 2: Fráze pro setkání"
+      },
+      "domainKind": "context",
+      "groupId": "meetings-scheduling",
+      "groupTitle": "Meetings & Scheduling",
+      "groupTitle_i18n": {
+        "en": "Meetings & Scheduling"
+      }
+    },
+    {
+      "id": "work_pack_3_b1",
+      "kind": "pack",
+      "title": "Work B1 — 3: Work Requests",
+      "level": "B1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_3_b1/pack.json",
+      "contentId": "de:pack:work_pack_3_b1",
+      "revisionId": "91cc05826781",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at B1 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "stretch"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at B1 level Uses professional vocabulary appropriately",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Work Requests",
+      "orderInTopic": 3,
+      "title_i18n": {
+        "en": "Work B1 — 3: Work Requests",
+        "es": "Trabajo B1 - 3: Solicitudes de trabajo",
+        "fr": "Travail B1 - 3 : Demandes de travail",
+        "it": "Lavoro B1 - 3: Richieste di lavoro",
+        "pt": "Trabalho B1 - 3: Pedidos de trabalho",
+        "ru": "Работа B1 - 3: Запросы на работу",
+        "ja": "作業 B1 - 3: 作業依頼",
+        "ko": "작업 B1 - 3: 작업 요청",
+        "zh-CN": "工作 B1 - 3：工作申请",
+        "zh-TW": "工作 B1 - 3：工作申请",
+        "ar": "العمل ب 1 - 3: طلبات العمل",
+        "tr": "İş B1 - 3: İş Talepleri",
+        "pl": "Praca B1 - 3: Żądania pracy",
+        "nl": "Werk B1 - 3: Werkaanvragen",
+        "sv": "Arbete B1 - 3: Arbetsförfrågningar",
+        "no": "Arbeid B1 - 3: Arbeidsforespørsler",
+        "da": "Arbejde B1 - 3: Arbejdsanmodninger",
+        "fi": "Työ B1 - 3: Työpyynnöt",
+        "el": "Εργασία B1 - 3: Αιτήματα εργασίας",
+        "cs": "Práce B1 - 3: Požadavky na práci"
+      },
+      "domainKind": "context",
+      "groupId": "tasks-requests",
+      "groupTitle": "Tasks & Requests",
+      "groupTitle_i18n": {
+        "en": "Tasks & Requests"
+      }
+    },
+    {
+      "id": "work_pack_4_b1",
+      "kind": "pack",
+      "title": "Work B1 — 4: Project Updates",
+      "level": "B1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_4_b1/pack.json",
+      "contentId": "de:pack:work_pack_4_b1",
+      "revisionId": "c2fdd051e5bc",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at B1 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "stretch"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at B1 level Uses professional vocabulary appropriately",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Project Updates",
+      "orderInTopic": 4,
+      "title_i18n": {
+        "en": "Work B1 — 4: Project Updates",
+        "es": "Trabajo B1 - 4: Actualización de proyectos",
+        "fr": "Travail B1 - 4 : Mise à jour des projets",
+        "it": "Lavoro B1 - 4: Aggiornamenti del progetto",
+        "pt": "Trabalho B1 - 4: Atualização dos projectos",
+        "ru": "Работа B1 - 4: Обновление проекта",
+        "ja": "作業B1 - 4: プロジェクトの最新情報",
+        "ko": "작업 B1 - 4: 프로젝트 업데이트",
+        "zh-CN": "工作 B1 - 4：项目更新",
+        "zh-TW": "工作 B1 - 4：项目更新",
+        "ar": "العمل ب1 - 4: تحديثات المشروع",
+        "tr": "Çalışma B1 - 4: Proje Güncellemeleri",
+        "pl": "Praca B1 - 4: Aktualizacje projektów",
+        "nl": "Werk B1 - 4: Projectupdates",
+        "sv": "Arbete B1 - 4: Projektuppdateringar",
+        "no": "Arbeid B1 - 4: Prosjektoppdateringer",
+        "da": "Arbejde B1 - 4: Projektopdateringer",
+        "fi": "Työ B1 - 4: Hankepäivitykset",
+        "el": "Εργασία B1 - 4: Ενημερώσεις έργων",
+        "cs": "Práce B1 - 4: Aktualizace projektu"
+      },
+      "domainKind": "context",
+      "groupId": "tasks-requests",
+      "groupTitle": "Tasks & Requests",
+      "groupTitle_i18n": {
+        "en": "Tasks & Requests"
+      }
+    },
+    {
+      "id": "work_pack_5_b1",
+      "kind": "pack",
+      "title": "Work B1 — 5: Scheduling",
+      "level": "B1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_5_b1/pack.json",
+      "contentId": "de:pack:work_pack_5_b1",
+      "revisionId": "302ece93a9ea",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at B1 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "stretch"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at B1 level Uses professional vocabulary appropriately",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Scheduling",
+      "orderInTopic": 5,
+      "title_i18n": {
+        "en": "Work B1 — 5: Scheduling",
+        "pt": "Trabalho B1 - 5: Programação",
+        "ru": "Работа B1 - 5: Планирование",
+        "ja": "作業B1 - 5: スケジューリング",
+        "ko": "작업 B1 - 5: 일정 예약",
+        "zh-CN": "工作 B1 - 5：时间安排",
+        "zh-TW": "工作 B1 - 5：时间安排",
+        "ar": "العمل ب 1 - 5: الجدولة",
+        "tr": "Çalışma B1 - 5: Çizelgeleme",
+        "pl": "Praca B1 - 5: Planowanie",
+        "nl": "Werk B1 - 5: Planning",
+        "sv": "Arbete B1 - 5: Schemaläggning",
+        "no": "Arbeid B1 - 5: Planlegging",
+        "da": "Arbejde B1 - 5: Planlægning",
+        "fi": "Työ B1 - 5: Aikataulutus",
+        "el": "Εργασία B1 - 5: Προγραμματισμός",
+        "cs": "Práce B1 - 5: Plánování",
+        "es": "Trabajo B1 - 5: Programación",
+        "fr": "Travail B1 - 5 : Programmation",
+        "it": "Lavoro B1 - 5: Programmazione"
+      },
+      "domainKind": "context",
+      "groupId": "tasks-requests",
+      "groupTitle": "Tasks & Requests",
+      "groupTitle_i18n": {
+        "en": "Tasks & Requests"
+      }
+    },
+    {
+      "id": "work_pack_6_b1",
+      "kind": "pack",
+      "title": "Work B1 — 6: Email Communication",
+      "level": "B1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_6_b1/pack.json",
+      "contentId": "de:pack:work_pack_6_b1",
+      "revisionId": "52ca92b9f803",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at B1 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "stretch"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at B1 level Uses professional vocabulary appropriately",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Email Communication",
+      "orderInTopic": 6,
+      "title_i18n": {
+        "en": "Work B1 — 6: Email Communication",
+        "es": "Trabajo B1 - 6: Comunicación por correo electrónico",
+        "fr": "Travail B1 - 6 : Communication par courrier électronique",
+        "it": "Lavoro B1 - 6: Comunicazione via e-mail",
+        "pt": "Trabalho B1 - 6: Comunicação por correio eletrónico",
+        "ru": "Работа B1 - 6: Общение по электронной почте",
+        "ja": "ワーク B1 - 6: 電子メールによるコミュニケーション",
+        "ko": "업무 B1 - 6: 이메일 커뮤니케이션",
+        "zh-CN": "工作 B1 - 6：电子邮件通信",
+        "zh-TW": "工作 B1 - 6：电子邮件通信",
+        "ar": "العمل ب1 - 6: التواصل عبر البريد الإلكتروني",
+        "tr": "Çalışma B1 - 6: E-posta İletişimi",
+        "pl": "Praca B1 - 6: Komunikacja e-mail",
+        "nl": "Werk B1 - 6: Communicatie per e-mail",
+        "sv": "Arbete B1 - 6: E-postkommunikation",
+        "no": "Arbeid B1 - 6: E-postkommunikasjon",
+        "da": "Arbejde B1 - 6: E-mail-kommunikation",
+        "fi": "Työ B1 - 6: Sähköpostiviestintä",
+        "el": "Εργασία B1 - 6: Επικοινωνία μέσω ηλεκτρονικού ταχυδρομείου",
+        "cs": "Práce B1 - 6: E-mailová komunikace"
+      },
+      "domainKind": "context",
+      "groupId": "tasks-requests",
+      "groupTitle": "Tasks & Requests",
+      "groupTitle_i18n": {
+        "en": "Tasks & Requests"
+      }
+    },
+    {
+      "id": "work_pack_7_b1",
+      "kind": "pack",
+      "title": "Work B1 — 7: Team Collaboration",
+      "level": "B1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_7_b1/pack.json",
+      "contentId": "de:pack:work_pack_7_b1",
+      "revisionId": "e38f4a17b6bc",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at B1 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "stretch"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at B1 level Uses professional vocabulary appropriately",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Team Collaboration",
+      "orderInTopic": 7,
+      "title_i18n": {
+        "en": "Work B1 — 7: Team Collaboration",
+        "es": "Trabajo B1 - 7: Colaboración en equipo",
+        "fr": "Travail B1 - 7 : Collaboration au sein d'une équipe",
+        "it": "Lavoro B1 - 7: Collaborazione di gruppo",
+        "pt": "Trabalho B1 - 7: Colaboração em equipa",
+        "ru": "Работа B1 - 7: Сотрудничество в команде",
+        "ja": "ワークB1 - 7: チームコラボレーション",
+        "ko": "작업 B1 - 7: 팀 협업",
+        "zh-CN": "工作 B1 - 7：团队协作",
+        "zh-TW": "工作 B1 - 7：团队协作",
+        "ar": "العمل ب 1 - 7: التعاون الجماعي",
+        "tr": "Çalışma B1 - 7: Ekip İşbirliği",
+        "pl": "Praca B1 - 7: Współpraca zespołowa",
+        "nl": "Werk B1 - 7: Samenwerking in teams",
+        "sv": "Arbete B1 - 7: Samarbete i team",
+        "no": "Arbeid B1 - 7: Samarbeid i team",
+        "da": "Arbejde B1 - 7: Teamsamarbejde",
+        "fi": "Työ B1 - 7: Tiimityöskentely",
+        "el": "Εργασία B1 - 7: Ομαδική συνεργασία",
+        "cs": "Práce B1 - 7: Týmová spolupráce"
+      },
+      "domainKind": "context",
+      "groupId": "tasks-requests",
+      "groupTitle": "Tasks & Requests",
+      "groupTitle_i18n": {
+        "en": "Tasks & Requests"
+      }
+    },
+    {
+      "id": "work_pack_8_b1",
+      "kind": "pack",
+      "title": "Work B1 — 8: Deadline Management",
+      "level": "B1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_8_b1/pack.json",
+      "contentId": "de:pack:work_pack_8_b1",
+      "revisionId": "1a19fa0344a9",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at B1 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "stretch"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at B1 level Uses professional vocabulary appropriately",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Deadline Management",
+      "orderInTopic": 8,
+      "title_i18n": {
+        "en": "Work B1 — 8: Deadline Management",
+        "es": "Trabajo B1 - 8: Gestión de plazos",
+        "fr": "Travail B1 - 8 : Gestion des délais",
+        "it": "Lavoro B1 - 8: Gestione delle scadenze",
+        "pt": "Trabalho B1 - 8: Gestão de prazos",
+        "ru": "Работа B1 - 8: Управление сроками",
+        "ja": "ワークB1 - 8: デッドライン・マネジメント",
+        "ko": "작업 B1 - 8: 마감일 관리",
+        "zh-CN": "工作 B1 - 8：期限管理",
+        "zh-TW": "工作 B1 - 8：期限管理",
+        "ar": "العمل ب 1 - 8: إدارة المواعيد النهائية",
+        "tr": "Çalışma B1 - 8: Teslim Tarihi Yönetimi",
+        "pl": "Praca B1 - 8: Zarządzanie terminami",
+        "nl": "Werk B1 - 8: Deadlinebeheer",
+        "sv": "Arbete B1 - 8: Hantering av deadlines",
+        "no": "Arbeid B1 - 8: Håndtering av tidsfrister",
+        "da": "Arbejde B1 - 8: Styring af deadlines",
+        "fi": "Työ B1 - 8: Määräaikojen hallinta",
+        "el": "Εργασία B1 - 8: Διαχείριση προθεσμιών",
+        "cs": "Práce B1 - 8: Řízení termínů"
+      },
+      "domainKind": "context",
+      "groupId": "tasks-requests",
+      "groupTitle": "Tasks & Requests",
+      "groupTitle_i18n": {
+        "en": "Tasks & Requests"
+      }
+    }
+  ],
+  "nextPage": null,
+  "scope": {
+    "scopeKind": "scenario",
+    "scopeId": "work",
+    "scopeTitle": "Work"
+  },
+  "recommended": {
+    "itemId": "work_pack_8_a2",
+    "entryUrl": "/v1/workspaces/de/packs/work_pack_8_a2/pack.json"
+  },
+  "groups": [
+    {
+      "id": "tasks-requests",
+      "title": "Tasks & Requests",
+      "title_i18n": {
+        "en": "Tasks & Requests"
+      },
+      "kind": "context_group",
+      "itemIds": [
+        "work_pack_8_a2",
+        "work_pack_9_a2",
+        "work_pack_3_b1",
+        "work_pack_4_b1",
+        "work_pack_5_b1",
+        "work_pack_6_b1",
+        "work_pack_7_b1",
+        "work_pack_8_b1"
+      ]
+    }
+  ]
+}

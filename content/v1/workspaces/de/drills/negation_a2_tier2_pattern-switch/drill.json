@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A2",
-  "title": "Negation: A2 (Tier 2)",
-  "shortTitle": "Negation A2",
+  "title": "Negation: A2 (Tier 2) - Pattern",
+  "shortTitle": "Negation A2 Pattern",
   "subtitle": "Tier 2 - pattern switch - Master negation placement (nicht, ",
   "estimatedMinutes": 4,
   "mechanicId": "negation",
@@ -17,7 +17,9 @@
   "variationSlots": [
     "subject",
     "verb",
-    "object"
+    "object",
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -62,84 +64,164 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Wir trinke Kaffee.",
+      "text": "am Abend habee ich Zeit.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir trinke Kaffee.",
+      "natural_en": "am Abend habee ich Zeit.",
       "slotsChanged": [
         "subject",
         "verb",
+        "time",
         "object"
       ],
       "slots": {
         "subject": [
-          "Wir"
+          "Ich"
         ],
         "verb": [
-          "trinke"
+          "habee"
         ],
         "object": [
-          "Kaffee"
+          "Zeit"
+        ],
+        "time": [
+          "am Abend"
         ]
       },
       "audioUrl": "/v1/audio/negation_A2_tier2/prompt-001.mp3"
     },
     {
       "id": "prompt-002",
-      "text": "Du habest den Film.",
+      "text": "am Abend habe du die Zeitung.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du habest den Film.",
+      "natural_en": "am Abend habe du die Zeitung.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time"
       ],
       "slots": {
         "subject": [
           "Du"
         ],
         "verb": [
-          "habest"
+          "habe"
         ],
         "object": [
-          "den Film"
+          "die Zeitung"
+        ],
+        "time": [
+          "am Abend"
         ]
       },
       "audioUrl": "/v1/audio/negation_A2_tier2/prompt-002.mp3"
     },
     {
       "id": "prompt-003",
-      "text": "Du bist das Buch.",
+      "text": "heute komme er überhaupt Tee.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du bist das Buch.",
+      "natural_en": "heute komme er überhaupt Tee.",
       "slotsChanged": [
         "time",
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
-          "Du"
+          "Er"
         ],
         "verb": [
-          "bist"
+          "komme"
         ],
         "object": [
-          "das Buch"
+          "Tee"
+        ],
+        "modifier": [
+          "überhaupt"
+        ],
+        "time": [
+          "heute"
         ]
       },
       "audioUrl": "/v1/audio/negation_A2_tier2/prompt-003.mp3"
     },
     {
       "id": "prompt-004",
-      "text": "Sie kommet den Film.",
+      "text": "später höre wir mehr Tee kein.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie kommet den Film.",
+      "natural_en": "später höre wir mehr Tee.",
       "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "höre"
+        ],
+        "object": [
+          "Tee"
+        ],
+        "modifier": [
+          "mehr",
+          "kein"
+        ],
+        "time": [
+          "später"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A2_tier2/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "jetzt machet ihr die Musik keine.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jetzt machet ihr die Musik.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "machet"
+        ],
+        "object": [
+          "die Musik"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "modifier": [
+          "keine"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A2_tier2/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "am Abend gehe Sie das Buch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Abend gehe Sie das Buch.",
+      "slotsChanged": [
+        "time",
         "subject",
         "verb",
         "object"
@@ -149,96 +231,27 @@
           "Sie"
         ],
         "verb": [
-          "kommet"
+          "gehe"
         ],
         "object": [
-          "den Film"
-        ]
-      },
-      "audioUrl": "/v1/audio/negation_A2_tier2/prompt-004.mp3"
-    },
-    {
-      "id": "prompt-005",
-      "text": "Ich sehee die Zeitung.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ich sehee die Zeitung.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Ich"
+          "das Buch"
         ],
-        "verb": [
-          "sehee"
-        ],
-        "object": [
-          "die Zeitung"
-        ]
-      },
-      "audioUrl": "/v1/audio/negation_A2_tier2/prompt-005.mp3"
-    },
-    {
-      "id": "prompt-006",
-      "text": "Ihr habet die Zeitung.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ihr habet die Zeitung.",
-      "slotsChanged": [
-        "time",
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Ihr"
-        ],
-        "verb": [
-          "habet"
-        ],
-        "object": [
-          "die Zeitung"
+        "time": [
+          "am Abend"
         ]
       },
       "audioUrl": "/v1/audio/negation_A2_tier2/prompt-006.mp3"
     },
     {
       "id": "prompt-007",
-      "text": "Er habet Kaffee.",
+      "text": "am Abend kommee ich Lust.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er habet Kaffee.",
+      "natural_en": "am Abend kommee ich Lust.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Er"
-        ],
-        "verb": [
-          "habet"
-        ],
-        "object": [
-          "Kaffee"
-        ]
-      },
-      "audioUrl": "/v1/audio/negation_A2_tier2/prompt-007.mp3"
-    },
-    {
-      "id": "prompt-008",
-      "text": "Ich höree die Zeitung.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ich höree die Zeitung.",
-      "slotsChanged": [
-        "subject",
-        "verb",
+        "time",
         "object"
       ],
       "slots": {
@@ -246,10 +259,41 @@
           "Ich"
         ],
         "verb": [
-          "höree"
+          "kommee"
         ],
         "object": [
-          "die Zeitung"
+          "Lust"
+        ],
+        "time": [
+          "am Abend"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A2_tier2/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "am Abend gehest du das Essen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Abend gehest du das Essen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "gehest"
+        ],
+        "object": [
+          "das Essen"
+        ],
+        "time": [
+          "am Abend"
         ]
       },
       "audioUrl": "/v1/audio/negation_A2_tier2/prompt-008.mp3"
@@ -270,21 +314,22 @@
     ],
     "coverage": {
       "verbs": [
-        "trinke",
-        "habest",
-        "bist",
-        "kommet",
-        "sehee",
-        "habet",
-        "höree"
+        "habee",
+        "habe",
+        "komme",
+        "höre",
+        "machet",
+        "gehe",
+        "kommee",
+        "gehest"
       ],
       "subjects": [
-        "Wir",
-        "Du",
-        "Sie",
         "Ich",
+        "Du",
+        "Er",
+        "Wir",
         "Ihr",
-        "Er"
+        "Sie"
       ],
       "patterns": [
         "nicht_placement",
@@ -297,9 +342,9 @@
     "estPromptCount": 8,
     "timeboxMinutes": 4,
     "qualitySignals": {
-      "tokenHitsCount": 4,
+      "tokenHitsCount": 8,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 7,
+      "uniqueVerbCount": 8,
       "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
@@ -309,12 +354,21 @@
     "source": "template",
     "sourceRef": "mechanics/negation",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.642Z"
+    "generatedAt": "2026-01-03T09:52:17.357Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Negation: A2 (Tier 2) - Pattern"
+  },
+  "shortTitle_i18n": {
+    "en": "Negation A2 Pattern"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 2 - pattern switch - Master negation placement (nicht, "
+  },
   "contentId": "de:drill:negation_a2_tier2_pattern-switch",
-  "contentHash": "eed5b03313779cdf4b82cc665bf7ec9b16dce96c27621c2dbe51d602e2321823",
-  "revisionId": "eed5b0331377"
+  "contentHash": "5c1b769edc2dc1e181f79d917227734b2b042d441768994ccac9199374a6091e",
+  "revisionId": "5c1b769edc2d"
 }

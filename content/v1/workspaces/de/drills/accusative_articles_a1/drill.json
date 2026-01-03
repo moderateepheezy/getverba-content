@@ -1,0 +1,44 @@
+{
+  "id": "accusative_articles_a1",
+  "schemaVersion": 1,
+  "kind": "drill",
+  "title": "Accusative Articles",
+  "shortTitle": "Accusative Articles",
+  "level": "A1",
+  "estimatedMinutes": 5,
+  "description": "Practice accusative articles (den, die, das)",
+  "instructions": "Fill in the correct article.",
+  "exercises": [
+    {
+      "id": "ex-001",
+      "type": "fill-blank",
+      "prompt": "Ich sehe ___ Mann. (der)",
+      "answer": "den",
+      "hint": "Masculine accusative changes to den"
+    }
+  ],
+  "passingScore": 70,
+  "tags": [
+    "grammar",
+    "articles",
+    "accusative"
+  ],
+  "analytics": {
+    "variationSlots": [],
+    "uniqueVerbCount": 0,
+    "primaryStructure": "simple_sentence",
+    "slotSwitchDensity": 0,
+    "promptDiversityScore": 0,
+    "scenarioCoverageScore": 0,
+    "estimatedCognitiveLoad": "low",
+    "intendedOutcome": "practice"
+  },
+  "contentId": "de:drill:accusative_articles_a1",
+  "revisionId": "000000000000",
+  "contentHash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "review": {
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T10:00:00.000Z"
+  }
+}

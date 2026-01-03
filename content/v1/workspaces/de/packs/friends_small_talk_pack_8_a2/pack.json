@@ -27,7 +27,7 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Ich gehen ins Café spaziergang um 20:30",
+      "text": "Ich gehen ins Café spaziergang um 20:30 morgen",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -48,13 +48,36 @@
           "ins Café spaziergang"
         ],
         "modifier": [
-          "um 20:30"
+          "um 20:30",
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     },
     {
       "id": "prompt-002",
-      "text": "Wir schauen ins Kino abends",
+      "text": "Wir schauen ins Kino abends morgen",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -77,13 +100,36 @@
           "ins Kino"
         ],
         "modifier": [
-          "abends"
+          "abends",
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     },
     {
       "id": "prompt-003",
-      "text": "Ich hätte Zeit um 19 Uhr",
+      "text": "Ich hätte Zeit um 19 Uhr morgen",
       "intent": "request",
       "gloss_en": "I would like to request something.",
       "natural_en": "I'd like to request that.",
@@ -106,13 +152,36 @@
           "Zeit"
         ],
         "modifier": [
-          "um 19 Uhr"
+          "um 19 Uhr",
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something.",
+        "es": "Me gustaría solicitar algo.",
+        "fr": "Je voudrais demander quelque chose.",
+        "it": "Vorrei chiedere una cosa.",
+        "pt": "Gostaria de fazer um pedido.",
+        "ru": "Я хотел бы попросить кое-что.",
+        "ja": "お願いしたいことがある。",
+        "ko": "요청하고 싶은 것이 있습니다.",
+        "zh-CN": "我有个请求。",
+        "zh-TW": "我有个请求。",
+        "ar": "أود أن أطلب شيئاً.",
+        "tr": "Bir şey rica etmek istiyorum.",
+        "pl": "Chciałbym o coś poprosić.",
+        "nl": "Ik wil graag iets aanvragen.",
+        "sv": "Jag skulle vilja be om en sak.",
+        "no": "Jeg vil gjerne be om noe.",
+        "da": "Jeg vil gerne bede om noget.",
+        "fi": "Haluaisin pyytää jotakin.",
+        "el": "Θα ήθελα να ζητήσω κάτι.",
+        "cs": "Chtěl bych o něco požádat."
       }
     },
     {
       "id": "prompt-004",
-      "text": "Du kannst Kaffee um 20:30",
+      "text": "Du kannst Kaffee um 20:30 morgen",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -134,13 +203,36 @@
           "Kaffee"
         ],
         "modifier": [
-          "um 20:30"
+          "um 20:30",
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     },
     {
       "id": "prompt-005",
-      "text": "Ich möchtest Lust",
+      "text": "Ich möchtest Lust morgen",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -159,12 +251,37 @@
         ],
         "object": [
           "Lust"
+        ],
+        "modifier": [
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     },
     {
       "id": "prompt-006",
-      "text": "Hast du können einen Film",
+      "text": "Hast du können einen Film morgen",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -183,12 +300,37 @@
         ],
         "object": [
           "einen Film"
+        ],
+        "modifier": [
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     },
     {
       "id": "prompt-007",
-      "text": "Lass uns hast einen Spaziergang",
+      "text": "Lass uns hast einen Spaziergang morgen",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -207,12 +349,37 @@
         ],
         "object": [
           "einen Spaziergang"
+        ],
+        "modifier": [
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     },
     {
       "id": "prompt-008",
-      "text": "Wir hätte ins Café cafe",
+      "text": "Wir hätte ins Café cafe morgen",
       "intent": "request",
       "gloss_en": "I would like to request something.",
       "natural_en": "I'd like to request that.",
@@ -231,12 +398,37 @@
         ],
         "object": [
           "ins Café cafe"
+        ],
+        "modifier": [
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something.",
+        "es": "Me gustaría solicitar algo.",
+        "fr": "Je voudrais demander quelque chose.",
+        "it": "Vorrei chiedere una cosa.",
+        "pt": "Gostaria de fazer um pedido.",
+        "ru": "Я хотел бы попросить кое-что.",
+        "ja": "お願いしたいことがある。",
+        "ko": "요청하고 싶은 것이 있습니다.",
+        "zh-CN": "我有个请求。",
+        "zh-TW": "我有个请求。",
+        "ar": "أود أن أطلب شيئاً.",
+        "tr": "Bir şey rica etmek istiyorum.",
+        "pl": "Chciałbym o coś poprosić.",
+        "nl": "Ik wil graag iets aanvragen.",
+        "sv": "Jag skulle vilja be om en sak.",
+        "no": "Jeg vil gjerne be om noe.",
+        "da": "Jeg vil gerne bede om noget.",
+        "fi": "Haluaisin pyytää jotakin.",
+        "el": "Θα ήθελα να ζητήσω κάτι.",
+        "cs": "Chtěl bych o něco požádat."
       }
     },
     {
       "id": "prompt-009",
-      "text": "Ich schauen ins Café gym",
+      "text": "Ich schauen ins Café gym morgen",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -255,12 +447,37 @@
         ],
         "object": [
           "ins Café gym"
+        ],
+        "modifier": [
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     },
     {
       "id": "prompt-010",
-      "text": "Sollen wir hätte eine Serie um 20:30",
+      "text": "Sollen wir hätte eine Serie um 20:30 morgen",
       "intent": "request",
       "gloss_en": "I would like to request something.",
       "natural_en": "I'd like to request that.",
@@ -282,13 +499,36 @@
           "eine Serie"
         ],
         "modifier": [
-          "um 20:30"
+          "um 20:30",
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something.",
+        "es": "Me gustaría solicitar algo.",
+        "fr": "Je voudrais demander quelque chose.",
+        "it": "Vorrei chiedere una cosa.",
+        "pt": "Gostaria de fazer um pedido.",
+        "ru": "Я хотел бы попросить кое-что.",
+        "ja": "お願いしたいことがある。",
+        "ko": "요청하고 싶은 것이 있습니다.",
+        "zh-CN": "我有个请求。",
+        "zh-TW": "我有个请求。",
+        "ar": "أود أن أطلب شيئاً.",
+        "tr": "Bir şey rica etmek istiyorum.",
+        "pl": "Chciałbym o coś poprosić.",
+        "nl": "Ik wil graag iets aanvragen.",
+        "sv": "Jag skulle vilja be om en sak.",
+        "no": "Jeg vil gjerne be om noe.",
+        "da": "Jeg vil gerne bede om noget.",
+        "fi": "Haluaisin pyytää jotakin.",
+        "el": "Θα ήθελα να ζητήσω κάτι.",
+        "cs": "Chtěl bych o něco požádat."
       }
     },
     {
       "id": "prompt-011",
-      "text": "Hast du sollen ins Kino heute",
+      "text": "Hast du sollen ins Kino heute morgen",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -310,13 +550,36 @@
           "ins Kino"
         ],
         "modifier": [
-          "heute"
+          "heute",
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     },
     {
       "id": "prompt-012",
-      "text": "Du trinken ins Training später",
+      "text": "Du trinken ins Training später morgen",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -338,8 +601,31 @@
           "ins Training"
         ],
         "modifier": [
-          "später"
+          "später",
+          "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information.",
+        "es": "Estoy proporcionando información.",
+        "fr": "Je fournis des informations.",
+        "it": "Sto fornendo informazioni.",
+        "pt": "Estou a fornecer informações.",
+        "ru": "Я предоставляю информацию.",
+        "ja": "私は情報を提供している。",
+        "ko": "정보를 제공하고 있습니다.",
+        "zh-CN": "我在提供信息。",
+        "zh-TW": "我在提供信息。",
+        "ar": "أنا أقدم المعلومات",
+        "tr": "Ben bilgi veriyorum.",
+        "pl": "Przekazuję informacje.",
+        "nl": "Ik geef informatie.",
+        "sv": "Jag tillhandahåller information.",
+        "no": "Jeg gir informasjon.",
+        "da": "Jeg giver information.",
+        "fi": "Annan tietoja.",
+        "el": "Παρέχω πληροφορίες.",
+        "cs": "Poskytuji informace."
       }
     }
   ],
@@ -423,11 +709,11 @@
     "qualityGateVersion": "qg-2025-01-01",
     "promptCount": 12,
     "multiSlotRate": 1,
-    "scenarioTokenHitAvg": 1.25,
-    "scenarioTokenQualifiedRate": 0.25,
-    "uniqueTokenRate": 0.546875,
+    "scenarioTokenHitAvg": 2.25,
+    "scenarioTokenQualifiedRate": 1,
+    "uniqueTokenRate": 0.47368421052631576,
     "bannedPhraseViolations": 0,
-    "passesQualityGates": false,
+    "passesQualityGates": true,
     "focus": "modal_verbs",
     "cognitiveLoad": "high",
     "responseSpeedTargetMs": 1500,
@@ -473,15 +759,55 @@
     "generatedAt": "2026-01-01T00:56:11.312Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T08:26:06.981Z"
   },
   "contentId": "de:pack:friends_small_talk_pack_8_a2",
   "contentHash": "a72744b15d50c266c7f2fdbc098a8c7f16ab13425b9bc2b23ee89cdd60d816ce",
   "revisionId": "a72744b15d50",
   "title_i18n": {
-    "en": "Friends Small Talk A2 — 8: Responding"
+    "en": "Friends Small Talk A2 — 8: Responding",
+    "es": "Charla de amigos A2 - 8: Responder",
+    "fr": "Friends Small Talk A2 - 8 : Répondre",
+    "it": "Piccole conversazioni con gli amici A2 - 8: Rispondere",
+    "pt": "Conversa de amigos A2 - 8: Responder",
+    "ru": "Светская беседа с друзьями A2 - 8: ответная реакция",
+    "ja": "友達の世間話 A2 - 8: 応答する",
+    "ko": "친구 스몰토크 A2 - 8: 응답하기",
+    "zh-CN": "朋友之间的小交谈 A2 - 8：回应",
+    "zh-TW": "朋友之间的小交谈 A2 - 8：回应",
+    "ar": "حديث الأصدقاء الصغار ج2 - 8: الاستجابة",
+    "tr": "Arkadaşlar Küçük Konuşma A2 - 8: Yanıt Verme",
+    "pl": "Przyjaciele Small Talk A2 - 8: Odpowiadanie",
+    "nl": "Vrienden Small Talk A2 - 8: Reageren",
+    "sv": "Vänner Small Talk A2 - 8: Att svara",
+    "no": "Venner Small Talk A2 - 8: Å svare",
+    "da": "Venner Small Talk A2 - 8: Svar på spørgsmål",
+    "fi": "Ystävät Small Talk A2 - 8: Vastaaminen",
+    "el": "Φίλοι Small Talk A2 - 8: Ανταπόκριση",
+    "cs": "Přátelé Small Talk A2 - 8: Reagování"
   },
   "description_i18n": {
-    "en": "Practice friends_small_talk scenarios at A2 level."
+    "en": "Practice friends_small_talk scenarios at A2 level.",
+    "es": "Practicar situaciones de friends_small_talk en el nivel A2.",
+    "fr": "Pratiquez les scénarios friends_small_talk au niveau A2.",
+    "it": "Esercitatevi con gli scenari friends_small_talk a livello A2.",
+    "pt": "Praticar cenários friends_small_talk ao nível A2.",
+    "ru": "Отработайте сценарии friends_small_talk на уровне A2.",
+    "ja": "A2レベルのfriends_small_talkのシナリオを練習する。",
+    "ko": "A2 레벨의 친구_small_talk 시나리오를 연습하세요.",
+    "zh-CN": "在 A2 级水平上练习 \"朋友_小对话 \"场景。",
+    "zh-TW": "在 A2 级水平上练习 \"朋友_小对话 \"场景。",
+    "ar": "تدرّب على سيناريوهات_حديث_الأصدقاء_الصغير_والحديث على المستوى A2.",
+    "tr": "A2 seviyesinde friends_small_talk senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze friends_small_talk na poziomie A2.",
+    "nl": "Oefen friends_small_talk scenario's op A2-niveau.",
+    "sv": "Öva på friends_small_talk-scenarier på A2-nivå.",
+    "no": "Øv på friends_small_talk-scenarioer på A2-nivå.",
+    "da": "Øv dig på friends_small_talk-scenarier på A2-niveau.",
+    "fi": "Harjoittele friends_small_talk-skenaarioita A2-tasolla.",
+    "el": "Εξάσκηση σε σενάρια friends_small_talk σε επίπεδο Α2.",
+    "cs": "Procvičování scénářů friends_small_talk na úrovni A2."
   }
 }

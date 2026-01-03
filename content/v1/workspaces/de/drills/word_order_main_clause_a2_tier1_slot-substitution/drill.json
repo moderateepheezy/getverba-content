@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A2",
-  "title": "Word Order: Main Clause: A2 (Tier 1)",
-  "shortTitle": "Word Order: Main Clause A2",
+  "title": "Word Order: Main Clause: A2 (Tier 1) - Slot",
+  "shortTitle": "Word Order: Main Cla A2 Slot",
   "subtitle": "Tier 1 - slot substitution - Master verb-second position in ",
   "estimatedMinutes": 3,
   "mechanicId": "word_order_main_clause",
@@ -18,6 +18,7 @@
     "subject",
     "verb",
     "object",
+    "modifier",
     "time"
   ],
   "sessionPlan": {
@@ -61,58 +62,38 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Sie kommet die Zeitung.",
+      "text": "er esset selten Deutsch.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie kommet die Zeitung.",
+      "natural_en": "er esset selten Deutsch.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
-          "Sie"
+          "er"
         ],
         "verb": [
-          "kommet"
+          "esset"
         ],
         "object": [
-          "die Zeitung"
+          "Deutsch"
+        ],
+        "modifier": [
+          "selten"
         ]
       },
       "audioUrl": "/v1/audio/word_order_main_clause_A2_tier1/prompt-001.mp3"
     },
     {
       "id": "prompt-002",
-      "text": "Ich machee das Buch.",
+      "text": "Sie gehet einen Kaffee.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ich machee das Buch.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Ich"
-        ],
-        "verb": [
-          "machee"
-        ],
-        "object": [
-          "das Buch"
-        ]
-      },
-      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier1/prompt-002.mp3"
-    },
-    {
-      "id": "prompt-003",
-      "text": "Sie gehet das Buch.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie gehet das Buch.",
+      "natural_en": "Sie gehet einen Kaffee.",
       "slotsChanged": [
         "subject",
         "verb",
@@ -126,65 +107,73 @@
           "gehet"
         ],
         "object": [
-          "das Buch"
+          "einen Kaffee"
         ]
       },
-      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier1/prompt-003.mp3"
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier1/prompt-002.mp3"
     },
     {
-      "id": "prompt-004",
-      "text": "Er gehet die Musik.",
+      "id": "prompt-003",
+      "text": "Er kommet schnell Deutsch.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er gehet die Musik.",
+      "natural_en": "Er kommet schnell Deutsch.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
           "Er"
         ],
         "verb": [
-          "gehet"
+          "kommet"
         ],
         "object": [
-          "die Musik"
+          "Deutsch"
+        ],
+        "modifier": [
+          "schnell"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier1/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Ich trinkee nie das Essen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich trinkee nie das Essen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "trinkee"
+        ],
+        "object": [
+          "das Essen"
+        ],
+        "modifier": [
+          "nie"
         ]
       },
       "audioUrl": "/v1/audio/word_order_main_clause_A2_tier1/prompt-004.mp3"
     },
     {
       "id": "prompt-005",
-      "text": "Ihr höret die Zeitung.",
+      "text": "Wir mache die Zeitung.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ihr höret die Zeitung.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Ihr"
-        ],
-        "verb": [
-          "höret"
-        ],
-        "object": [
-          "die Zeitung"
-        ]
-      },
-      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier1/prompt-005.mp3"
-    },
-    {
-      "id": "prompt-006",
-      "text": "Wir gehe den Film.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir gehe den Film.",
+      "natural_en": "Wir mache die Zeitung.",
       "slotsChanged": [
         "subject",
         "verb",
@@ -195,10 +184,38 @@
           "Wir"
         ],
         "verb": [
-          "gehe"
+          "mache"
+        ],
+        "object": [
+          "die Zeitung"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier1/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Du hörest manchmal den Film.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du hörest manchmal den Film.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "hörest"
         ],
         "object": [
           "den Film"
+        ],
+        "modifier": [
+          "manchmal"
         ]
       },
       "audioUrl": "/v1/audio/word_order_main_clause_A2_tier1/prompt-006.mp3"
@@ -219,18 +236,20 @@
     ],
     "coverage": {
       "verbs": [
-        "kommet",
-        "machee",
+        "esset",
         "gehet",
-        "höret",
-        "gehe"
+        "kommet",
+        "trinkee",
+        "mache",
+        "hörest"
       ],
       "subjects": [
+        "er",
         "Sie",
-        "Ich",
         "Er",
-        "Ihr",
-        "Wir"
+        "Ich",
+        "Wir",
+        "Du"
       ],
       "patterns": [
         "verb_second_position",
@@ -243,10 +262,10 @@
     "estPromptCount": 6,
     "timeboxMinutes": 3,
     "qualitySignals": {
-      "tokenHitsCount": 5,
+      "tokenHitsCount": 6,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 5,
-      "uniqueSubjectCount": 5,
+      "uniqueVerbCount": 6,
+      "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -255,12 +274,21 @@
     "source": "template",
     "sourceRef": "mechanics/word_order_main_clause",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.656Z"
+    "generatedAt": "2026-01-03T09:52:17.375Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Word Order: Main Clause: A2 (Tier 1) - Slot"
+  },
+  "shortTitle_i18n": {
+    "en": "Word Order: Main Cla A2 Slot"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 1 - slot substitution - Master verb-second position in "
+  },
   "contentId": "de:drill:word_order_main_clause_a2_tier1_slot-substitution",
-  "contentHash": "642fbcb34e72cff8965a9d1727f2ba5bb40d3f02a611a47e3ff75fa4265b1bc9",
-  "revisionId": "642fbcb34e72"
+  "contentHash": "913e425a0f283df68cb4df7adb2743e9d711d64c68345127c06c479f0482c71f",
+  "revisionId": "913e425a0f28"
 }

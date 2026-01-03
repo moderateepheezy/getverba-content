@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A1",
-  "title": "Negation: A1 (Tier 1)",
-  "shortTitle": "Negation A1",
+  "title": "Negation: A1 (Tier 1) - Trap",
+  "shortTitle": "Negation A1 Trap",
   "subtitle": "Tier 1 - error trap - Master negation placement (nicht, kein",
   "estimatedMinutes": 3,
   "mechanicId": "negation",
@@ -17,7 +17,9 @@
   "variationSlots": [
     "subject",
     "verb",
-    "object"
+    "object",
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -60,86 +62,15 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Wir komme die Zeitung.",
+      "text": "Wir mache leider das Buch keinen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir komme die Zeitung.",
+      "natural_en": "Wir mache leider das Buch.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Wir"
-        ],
-        "verb": [
-          "komme"
-        ],
-        "object": [
-          "die Zeitung"
-        ]
-      },
-      "audioUrl": "/v1/audio/negation_A1_tier1/prompt-001.mp3"
-    },
-    {
-      "id": "prompt-002",
-      "text": "Du kommest das Buch.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du kommest das Buch.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Du"
-        ],
-        "verb": [
-          "kommest"
-        ],
-        "object": [
-          "das Buch"
-        ]
-      },
-      "audioUrl": "/v1/audio/negation_A1_tier1/prompt-002.mp3"
-    },
-    {
-      "id": "prompt-003",
-      "text": "Sie habet den Film.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie habet den Film.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Sie"
-        ],
-        "verb": [
-          "habet"
-        ],
-        "object": [
-          "den Film"
-        ]
-      },
-      "audioUrl": "/v1/audio/negation_A1_tier1/prompt-003.mp3"
-    },
-    {
-      "id": "prompt-004",
-      "text": "Wir mache den Film.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir mache den Film.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
@@ -149,21 +80,84 @@
           "mache"
         ],
         "object": [
-          "den Film"
+          "das Buch"
+        ],
+        "modifier": [
+          "leider",
+          "keinen"
         ]
       },
-      "audioUrl": "/v1/audio/negation_A1_tier1/prompt-004.mp3"
+      "audioUrl": "/v1/audio/negation_A1_tier1/prompt-001.mp3"
     },
     {
-      "id": "prompt-005",
-      "text": "Du bist Tee.",
+      "id": "prompt-002",
+      "text": "Sie habet mehr die Musik.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du bist Tee.",
+      "natural_en": "Sie habet mehr die Musik.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "habet"
+        ],
+        "object": [
+          "die Musik"
+        ],
+        "modifier": [
+          "mehr"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier1/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "Ich höree überhaupt den Film keinen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich höree überhaupt den Film.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "höree"
+        ],
+        "object": [
+          "den Film"
+        ],
+        "modifier": [
+          "überhaupt",
+          "keinen"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier1/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Du bist mehr zu Hause den Film keine.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du bist mehr zu Hause den Film.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "location"
       ],
       "slots": {
         "subject": [
@@ -173,31 +167,74 @@
           "bist"
         ],
         "object": [
-          "Tee"
+          "den Film"
+        ],
+        "modifier": [
+          "mehr",
+          "keine"
+        ],
+        "location": [
+          "zu Hause"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier1/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Er habe leider hier Lust.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er habe leider hier Lust.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "habe"
+        ],
+        "object": [
+          "Lust"
+        ],
+        "modifier": [
+          "leider"
+        ],
+        "location": [
+          "hier"
         ]
       },
       "audioUrl": "/v1/audio/negation_A1_tier1/prompt-005.mp3"
     },
     {
       "id": "prompt-006",
-      "text": "Sie machet die Zeitung.",
+      "text": "nicht sehet wirklich Geld.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie machet die Zeitung.",
+      "natural_en": "nicht sehet wirklich Geld.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
-          "Sie"
+          "nicht"
         ],
         "verb": [
-          "machet"
+          "sehet"
         ],
         "object": [
-          "die Zeitung"
+          "Geld"
+        ],
+        "modifier": [
+          "wirklich"
         ]
       },
       "audioUrl": "/v1/audio/negation_A1_tier1/prompt-006.mp3"
@@ -218,17 +255,20 @@
     ],
     "coverage": {
       "verbs": [
-        "komme",
-        "kommest",
-        "habet",
         "mache",
+        "habet",
+        "höree",
         "bist",
-        "machet"
+        "habe",
+        "sehet"
       ],
       "subjects": [
         "Wir",
+        "Sie",
+        "Ich",
         "Du",
-        "Sie"
+        "Er",
+        "nicht"
       ],
       "patterns": [
         "nicht_placement",
@@ -241,10 +281,10 @@
     "estPromptCount": 6,
     "timeboxMinutes": 3,
     "qualitySignals": {
-      "tokenHitsCount": 3,
+      "tokenHitsCount": 6,
       "multiSlotRate": 1,
       "uniqueVerbCount": 6,
-      "uniqueSubjectCount": 3,
+      "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -253,12 +293,21 @@
     "source": "template",
     "sourceRef": "mechanics/negation",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.640Z"
+    "generatedAt": "2026-01-03T09:52:17.354Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Negation: A1 (Tier 1) - Trap"
+  },
+  "shortTitle_i18n": {
+    "en": "Negation A1 Trap"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 1 - error trap - Master negation placement (nicht, kein"
+  },
   "contentId": "de:drill:negation_a1_tier1_error-trap",
-  "contentHash": "c874dc36794bffa793d6446c9108af365495633f7bc35574f48a2042409699d7",
-  "revisionId": "c874dc36794b"
+  "contentHash": "cb07f95934d1aa141c1858967476719346760755da26f6fc9c57e5d700c3234e",
+  "revisionId": "cb07f95934d1"
 }

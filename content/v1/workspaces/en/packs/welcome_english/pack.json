@@ -32,7 +32,10 @@
         "subject",
         "verb",
         "modifier"
-      ]
+      ],
+      "gloss_en_i18n": {
+        "en": "I welcome you to our English learning course starting on Monday"
+      }
     },
     {
       "id": "prompt-002",
@@ -60,7 +63,10 @@
         "verb",
         "object",
         "modifier"
-      ]
+      ],
+      "gloss_en_i18n": {
+        "en": "We offer language courses starting at 10:00 for $5"
+      }
     }
   ],
   "sessionPlan": {

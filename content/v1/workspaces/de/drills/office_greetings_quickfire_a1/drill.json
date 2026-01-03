@@ -30,6 +30,9 @@
         "time": [
           "Morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am greeting someone."
       }
     },
     {
@@ -50,6 +53,9 @@
         "subject": [
           "Frau Müller"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am greeting someone formally."
       }
     },
     {
@@ -66,6 +72,9 @@
         "subject": [
           "Ihnen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am asking how someone is."
       }
     },
     {
@@ -86,6 +95,9 @@
         "modifier": [
           "gut"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am responding to a greeting."
       }
     },
     {
@@ -102,6 +114,9 @@
         "subject": [
           "Sie"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am introducing myself."
       }
     },
     {
@@ -122,6 +137,9 @@
         "modifier": [
           "neue Mitarbeiter"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am introducing myself."
       }
     },
     {
@@ -138,6 +156,9 @@
         "time": [
           "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am saying goodbye."
       }
     },
     {
@@ -154,6 +175,9 @@
         "modifier": [
           "Feierabend"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am wishing someone a good evening after work."
       }
     }
   ],
@@ -251,7 +275,26 @@
     }
   },
   "title_i18n": {
-    "en": "Office Greetings Quickfire (A1)"
+    "en": "Office Greetings Quickfire (A1)",
+    "es": "Saludos en la oficina Quickfire (A1)",
+    "fr": "Office Greetings Quickfire (A1)",
+    "it": "Saluti d'ufficio Quickfire (A1)",
+    "pt": "Saudações do escritório Quickfire (A1)",
+    "ru": "Быстрое обучение офисным приветствиям (A1)",
+    "ja": "オフィス挨拶クイックファイア (A1)",
+    "ko": "사무실 인사말 퀵파이어(A1)",
+    "zh-CN": "办公室问候语速记 (A1)",
+    "zh-TW": "办公室问候语速记 (A1)",
+    "ar": "تحيات المكتب السريعة (A1)",
+    "tr": "Ofis Selamlaşmaları Hızlı Ateş (A1)",
+    "pl": "Office Greetings Quickfire (A1)",
+    "nl": "Kantoor Groeten Snelvuur (A1)",
+    "sv": "Kontorshälsningar Quickfire (A1)",
+    "no": "Hurtighilsener fra kontoret (A1)",
+    "da": "Office Greetings Quickfire (A1)",
+    "fi": "Toimiston tervehdykset Quickfire (A1)",
+    "el": "Γρήγορη πυροδότηση χαιρετισμών γραφείου (Α1)",
+    "cs": "Kancelářské pozdravy Quickfire (A1)"
   },
   "description_i18n": {
     "en": "Quick-fire speaking practice for essential office greetings and polite phrases. Perfect for newcomers preparing for their first day at a German workplace."

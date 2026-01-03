@@ -1,7 +1,7 @@
 {
   "version": 1,
   "kind": "scenario_index",
-  "scenarios": [
+  "items": [
     {
       "id": "doctor",
       "title": "Doctor",

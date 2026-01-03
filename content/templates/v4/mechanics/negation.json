@@ -1,26 +1,99 @@
 {
   "mechanicId": "negation",
   "mechanicLabel": "Negation",
-  "description": "Master negation placement (nicht, kein, keine)",
-  "supportedLevels": ["A1", "A2"],
-  "loopTypes": ["micro_transform", "pattern_switch", "error_trap"],
+  "description": "Practice negation (nicht, kein, keine, keinen)",
+  "description_i18n": {
+    "en": "Practice negation (nicht, kein, keine, keinen)",
+    "de": "Übe Verneinung (nicht, kein, keine, keinen)"
+  },
+  "supportedLevels": [
+    "A1",
+    "A2"
+  ],
+  "loopTypes": [
+    "micro_transform",
+    "pattern_switch",
+    "error_trap"
+  ],
   "canonicalPatterns": [
     "nicht_placement",
     "kein_keine_keinen",
     "affirmative_to_negative"
   ],
   "slotDictionaries": {
-    "subject": ["Ich", "Du", "Er", "Sie", "Wir", "Ihr"],
-    "verb": ["gehe", "komme", "mache", "sehe", "höre", "esse", "trinke", "habe", "bin"],
-    "object": ["das Buch", "die Zeitung", "den Film", "die Musik", "das Essen", "Kaffee", "Tee"],
-    "negation": ["nicht", "kein", "keine", "keinen", "keinem"]
+    "subject": [
+      "Ich",
+      "Du",
+      "Er",
+      "Sie",
+      "Wir",
+      "Ihr"
+    ],
+    "verb": [
+      "gehe",
+      "komme",
+      "mache",
+      "sehe",
+      "höre",
+      "esse",
+      "trinke",
+      "habe",
+      "bin"
+    ],
+    "object": [
+      "das Buch",
+      "die Zeitung",
+      "den Film",
+      "die Musik",
+      "das Essen",
+      "Kaffee",
+      "Tee",
+      "Zeit",
+      "Geld",
+      "Lust"
+    ],
+    "negation": [
+      "nicht",
+      "kein",
+      "keine",
+      "keinen",
+      "keinem"
+    ],
+    "time": [
+      "heute",
+      "morgen",
+      "jetzt",
+      "später",
+      "am Abend"
+    ],
+    "location": [
+      "zu Hause",
+      "im Büro",
+      "in der Schule",
+      "im Kino",
+      "hier",
+      "dort"
+    ],
+    "modifier": [
+      "wirklich",
+      "leider",
+      "gar",
+      "überhaupt",
+      "mehr"
+    ]
   },
   "trapPairs": [
     {
       "confusion": "nicht vs kein placement",
       "examples": [
-        { "correct": "Ich habe kein Buch", "incorrect": "Ich habe nicht Buch" },
-        { "correct": "Ich gehe nicht", "incorrect": "Ich gehe kein" }
+        {
+          "correct": "Ich habe kein Buch",
+          "incorrect": "Ich habe nicht Buch"
+        },
+        {
+          "correct": "Ich gehe nicht",
+          "incorrect": "Ich gehe kein"
+        }
       ]
     }
   ],
@@ -33,11 +106,16 @@
   ],
   "requiredTokens": [
     "nicht",
-    "kein", "keine", "keinen", "keinem",
-    "habe", "bin", "gehe", "komme"
+    "kein",
+    "keine",
+    "keinen",
+    "keinem",
+    "habe",
+    "bin",
+    "gehe",
+    "komme"
   ],
   "minUniqueVerbs": 4,
   "minUniqueSubjects": 5,
   "minMultiSlotRate": 0.3
 }
-

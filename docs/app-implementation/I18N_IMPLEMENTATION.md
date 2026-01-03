@@ -155,6 +155,35 @@ function getLocalizedGroupTitle(
 }
 ```
 
+### 5. Localized Prompt Meaning Helper
+
+```typescript
+function getLocalizedGlossEn(
+  prompt: {
+    gloss_en: string;
+    gloss_en_i18n?: Record<string, string>;
+  },
+  userLocale: string = 'en'
+): string {
+  // Same fallback chain as other i18n fields
+  if (prompt.gloss_en_i18n?.[userLocale]) {
+    return prompt.gloss_en_i18n[userLocale];
+  }
+  
+  const languageCode = userLocale.split('-')[0];
+  if (languageCode !== userLocale && prompt.gloss_en_i18n?.[languageCode]) {
+    return prompt.gloss_en_i18n[languageCode];
+  }
+  
+  if (prompt.gloss_en_i18n?.en) {
+    return prompt.gloss_en_i18n.en;
+  }
+  
+  // Ultimate fallback to base field
+  return prompt.gloss_en;
+}
+```
+
 ## React Hook Example
 
 ```typescript
@@ -170,6 +199,8 @@ interface UseLocalizedContentOptions {
   description_i18n?: Record<string, string>;
   groupTitle?: string;
   groupTitle_i18n?: Record<string, string>;
+  gloss_en?: string;
+  gloss_en_i18n?: Record<string, string>;
 }
 
 export function useLocalizedContent(item: UseLocalizedContentOptions) {
@@ -192,6 +223,7 @@ export function useLocalizedContent(item: UseLocalizedContentOptions) {
       shortTitle: getLocalized(item.shortTitle, item.shortTitle_i18n),
       description: getLocalized(item.description, item.description_i18n),
       groupTitle: getLocalized(item.groupTitle, item.groupTitle_i18n),
+      glossEn: getLocalized(item.gloss_en, item.gloss_en_i18n) || item.gloss_en,
     };
   }, [item, userLocale]);
 }
@@ -320,6 +352,43 @@ function groupItems<T extends { groupId?: string; groupTitle?: string; groupTitl
   
   // Return groups in order of first appearance
   return groupOrder.map(id => groups.get(id)!);
+}
+```
+
+### Example: Prompt Component with Meaning
+
+```typescript
+import { useLocalizedContent } from './useLocalizedContent';
+
+interface PromptComponentProps {
+  prompt: {
+    id: string;
+    text: string;
+    gloss_en: string;
+    gloss_en_i18n?: Record<string, string>;
+    intent: string;
+  };
+  userLocale: string;
+}
+
+export function PromptComponent({ prompt, userLocale }: PromptComponentProps) {
+  const { glossEn } = useLocalizedContent({
+    gloss_en: prompt.gloss_en,
+    gloss_en_i18n: prompt.gloss_en_i18n
+  });
+  
+  return (
+    <div className="prompt">
+      <p className="prompt-text">{prompt.text}</p>
+      {/* Meaning block - ALWAYS show for all prompts with gloss_en */}
+      {/* Note: gloss_en is required for all prompts, so this block should always appear */}
+      {prompt.gloss_en && (
+        <div className="meaning-block">
+          <strong>Meaning:</strong> {glossEn}
+        </div>
+      )}
+    </div>
+  );
 }
 ```
 
@@ -701,11 +770,34 @@ describe('getLocalizedTitle', () => {
 - Check `groupItems()` function
 - Ensure no items are filtered before grouping
 
+## Prompt Meaning Display
+
+**Important**: The Meaning block should **always** be displayed for all prompts that have a `gloss_en` field. Since `gloss_en` is required for all prompts, the Meaning block should appear for every prompt.
+
+### Implementation Pattern
+
+```typescript
+// ✅ Correct: Always show meaning if gloss_en exists
+{prompt.gloss_en && (
+  <div className="meaning-block">
+    <strong>Meaning:</strong> {getLocalizedGlossEn(prompt, userLocale)}
+  </div>
+)}
+
+// ❌ Incorrect: Don't check for translation/helperText
+{prompt.translation && ( // Wrong - deprecated field
+  <div className="meaning-block">...</div>
+)}
+```
+
+The frontend should use `gloss_en` (or `gloss_en_i18n` with fallback) to display the meaning, not the deprecated `translation` or `helperText` fields.
+
 ## Related Documentation
 
 - [Backend i18n Contract](../../content-pipeline/I18N_CONTRACT.md) - Complete backend schema
 - [Section Index Schema](../../content-pipeline/SECTION_INDEX_PAGINATION.md) - Index structure
 - [Scenario Index Schema](../../content-pipeline/SCENARIO_INDEX_SCHEMA.md) - Scenario structure
+- [Prompt Meaning Contract](../../content-pipeline/PROMPT_MEANING_CONTRACT.md) - Meaning field requirements
 
 ## Support
 

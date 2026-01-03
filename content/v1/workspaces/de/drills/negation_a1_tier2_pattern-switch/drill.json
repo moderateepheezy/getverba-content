@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A1",
-  "title": "Negation: A1 (Tier 2)",
-  "shortTitle": "Negation A1",
+  "title": "Negation: A1 (Tier 2) - Pattern",
+  "shortTitle": "Negation A1 Pattern",
   "subtitle": "Tier 2 - pattern switch - Master negation placement (nicht, ",
   "estimatedMinutes": 4,
   "mechanicId": "negation",
@@ -17,7 +17,9 @@
   "variationSlots": [
     "subject",
     "verb",
-    "object"
+    "object",
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -62,86 +64,14 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Wir höre den Film.",
+      "text": "später komme Sie das Buch.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Wir höre den Film.",
+      "natural_en": "später komme Sie das Buch.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Wir"
-        ],
-        "verb": [
-          "höre"
-        ],
-        "object": [
-          "den Film"
-        ]
-      },
-      "audioUrl": "/v1/audio/negation_A1_tier2/prompt-001.mp3"
-    },
-    {
-      "id": "prompt-002",
-      "text": "Ich machee Tee.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ich machee Tee.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Ich"
-        ],
-        "verb": [
-          "machee"
-        ],
-        "object": [
-          "Tee"
-        ]
-      },
-      "audioUrl": "/v1/audio/negation_A1_tier2/prompt-002.mp3"
-    },
-    {
-      "id": "prompt-003",
-      "text": "Ihr gehet Tee.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ihr gehet Tee.",
-      "slotsChanged": [
         "time",
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Ihr"
-        ],
-        "verb": [
-          "gehet"
-        ],
-        "object": [
-          "Tee"
-        ]
-      },
-      "audioUrl": "/v1/audio/negation_A1_tier2/prompt-003.mp3"
-    },
-    {
-      "id": "prompt-004",
-      "text": "Sie machet den Film.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie machet den Film.",
-      "slotsChanged": [
-        "subject",
-        "verb",
         "object"
       ],
       "slots": {
@@ -149,24 +79,28 @@
           "Sie"
         ],
         "verb": [
-          "machet"
+          "komme"
         ],
         "object": [
-          "den Film"
+          "das Buch"
+        ],
+        "time": [
+          "später"
         ]
       },
-      "audioUrl": "/v1/audio/negation_A1_tier2/prompt-004.mp3"
+      "audioUrl": "/v1/audio/negation_A1_tier2/prompt-001.mp3"
     },
     {
-      "id": "prompt-005",
-      "text": "Ich habee das Essen.",
+      "id": "prompt-002",
+      "text": "jetzt habee ich die Musik.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ich habee das Essen.",
+      "natural_en": "jetzt habee ich die Musik.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time"
       ],
       "slots": {
         "subject": [
@@ -176,22 +110,26 @@
           "habee"
         ],
         "object": [
-          "das Essen"
+          "die Musik"
+        ],
+        "time": [
+          "jetzt"
         ]
       },
-      "audioUrl": "/v1/audio/negation_A1_tier2/prompt-005.mp3"
+      "audioUrl": "/v1/audio/negation_A1_tier2/prompt-002.mp3"
     },
     {
-      "id": "prompt-006",
-      "text": "Du machest die Zeitung.",
+      "id": "prompt-003",
+      "text": "jetzt machest du überhaupt Tee nicht.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du machest die Zeitung.",
+      "natural_en": "jetzt machest du überhaupt Tee.",
       "slotsChanged": [
         "time",
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
@@ -201,55 +139,170 @@
           "machest"
         ],
         "object": [
-          "die Zeitung"
+          "Tee"
+        ],
+        "modifier": [
+          "überhaupt",
+          "nicht"
+        ],
+        "time": [
+          "jetzt"
         ]
       },
-      "audioUrl": "/v1/audio/negation_A1_tier2/prompt-006.mp3"
+      "audioUrl": "/v1/audio/negation_A1_tier2/prompt-003.mp3"
     },
     {
-      "id": "prompt-007",
-      "text": "Ihr esset Tee.",
+      "id": "prompt-004",
+      "text": "jetzt gehe er gar Lust.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ihr esset Tee.",
+      "natural_en": "jetzt gehe er gar Lust.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "time",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "gehe"
+        ],
+        "object": [
+          "Lust"
+        ],
+        "modifier": [
+          "gar"
+        ],
+        "time": [
+          "jetzt"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier2/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "jetzt gehet ihr überhaupt Lust.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jetzt gehet ihr überhaupt Lust.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "modifier"
       ],
       "slots": {
         "subject": [
           "Ihr"
         ],
         "verb": [
-          "esset"
+          "gehet"
         ],
         "object": [
-          "Tee"
+          "Lust"
+        ],
+        "modifier": [
+          "überhaupt"
+        ],
+        "time": [
+          "jetzt"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier2/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "heute komme wir leider Lust.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute komme wir leider Lust.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "komme"
+        ],
+        "object": [
+          "Lust"
+        ],
+        "modifier": [
+          "leider"
+        ],
+        "time": [
+          "heute"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier2/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "heute gehe Sie das Essen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute gehe Sie das Essen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "gehe"
+        ],
+        "object": [
+          "das Essen"
+        ],
+        "time": [
+          "heute"
         ]
       },
       "audioUrl": "/v1/audio/negation_A1_tier2/prompt-007.mp3"
     },
     {
       "id": "prompt-008",
-      "text": "Du gehest Tee.",
+      "text": "später gehe ich überhaupt Lust.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du gehest Tee.",
+      "natural_en": "später gehe ich überhaupt Lust.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "time",
+        "modifier"
       ],
       "slots": {
         "subject": [
-          "Du"
+          "Ich"
         ],
         "verb": [
-          "gehest"
+          "gehe"
         ],
         "object": [
-          "Tee"
+          "Lust"
+        ],
+        "modifier": [
+          "überhaupt"
+        ],
+        "time": [
+          "später"
         ]
       },
       "audioUrl": "/v1/audio/negation_A1_tier2/prompt-008.mp3"
@@ -270,21 +323,19 @@
     ],
     "coverage": {
       "verbs": [
-        "höre",
-        "machee",
-        "gehet",
-        "machet",
+        "komme",
         "habee",
         "machest",
-        "esset",
-        "gehest"
+        "gehe",
+        "gehet"
       ],
       "subjects": [
-        "Wir",
-        "Ich",
-        "Ihr",
         "Sie",
-        "Du"
+        "Ich",
+        "Du",
+        "Er",
+        "Ihr",
+        "Wir"
       ],
       "patterns": [
         "nicht_placement",
@@ -297,10 +348,10 @@
     "estPromptCount": 8,
     "timeboxMinutes": 4,
     "qualitySignals": {
-      "tokenHitsCount": 3,
+      "tokenHitsCount": 8,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 8,
-      "uniqueSubjectCount": 5,
+      "uniqueVerbCount": 5,
+      "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -309,12 +360,21 @@
     "source": "template",
     "sourceRef": "mechanics/negation",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.641Z"
+    "generatedAt": "2026-01-03T09:52:17.354Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Negation: A1 (Tier 2) - Pattern"
+  },
+  "shortTitle_i18n": {
+    "en": "Negation A1 Pattern"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 2 - pattern switch - Master negation placement (nicht, "
+  },
   "contentId": "de:drill:negation_a1_tier2_pattern-switch",
-  "contentHash": "cf374095ff77c0b17dc3a0fc8df03e5c235563f54ec52aad09053cb6b9c6fd29",
-  "revisionId": "cf374095ff77"
+  "contentHash": "1b47b74887a823235be299f8530c686f14d15be0e5e614fd35867f2c34f70a01",
+  "revisionId": "1b47b74887a8"
 }

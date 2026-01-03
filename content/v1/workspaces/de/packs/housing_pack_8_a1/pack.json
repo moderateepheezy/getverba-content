@@ -45,11 +45,14 @@
         "object": [
           "das Zimmer"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something."
       }
     },
     {
       "id": "prompt-002",
-      "text": "Die Vermieterin braucht die Miete um 14:30",
+      "text": "Die Vermieterin braucht die Miete um 14:30 heute",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -68,7 +71,13 @@
         ],
         "object": [
           "die Miete"
+        ],
+        "modifier": [
+          "heute"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -97,6 +106,9 @@
         "modifier": [
           "gerne"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -124,6 +136,9 @@
         "modifier": [
           "bitte"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -152,6 +167,9 @@
         "modifier": [
           "gerne"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -175,6 +193,9 @@
         "object": [
           "die Kaution"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -199,6 +220,9 @@
         "object": [
           "den Mietvertrag"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something."
       }
     }
   ],
@@ -276,7 +300,7 @@
     "multiSlotRate": 1,
     "scenarioTokenHitAvg": 0,
     "scenarioTokenQualifiedRate": 0,
-    "uniqueTokenRate": 0.631578947368421,
+    "uniqueTokenRate": 0.6410256410256411,
     "bannedPhraseViolations": 0,
     "passesQualityGates": false,
     "focus": "case_system",
@@ -320,15 +344,55 @@
     "generatedAt": "2026-01-01T00:56:18.451Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T08:26:06.987Z"
   },
   "contentId": "de:pack:housing_pack_8_a1",
   "contentHash": "1762f6e965230822f1bebe574a5e9099e903b523477c4203f050fac5d38130f2",
   "revisionId": "1762f6e96523",
   "title_i18n": {
-    "en": "Housing A1 — 8: Viewing Apartments"
+    "en": "Housing A1 — 8: Viewing Apartments",
+    "es": "Viviendas A1 - 8: Apartamentos con vistas",
+    "fr": "Logement A1 - 8 : Appartements de visualisation",
+    "it": "Alloggi A1 - 8: Appartamenti da vedere",
+    "pt": "Habitação A1 - 8: Apartamentos para visitas",
+    "ru": "Жилье A1 - 8: Квартиры для просмотра",
+    "ja": "住宅A1～8：ビューイング・アパートメント",
+    "ko": "주택 A1 - 8: 아파트 보기",
+    "zh-CN": "住房 A1 - 8：观景公寓",
+    "zh-TW": "住房 A1 - 8：观景公寓",
+    "ar": "الإسكان A1 - 8: عرض الشقق السكنية A1 - 8: عرض الشقق",
+    "tr": "Konut A1 - 8: Daireleri Görüntüleme",
+    "pl": "Mieszkania A1 - 8: Apartamenty widokowe",
+    "nl": "Huisvesting A1 - 8: Bezichtigingsappartementen",
+    "sv": "Bostäder A1 - 8: Visningslägenheter",
+    "no": "Bolig A1 - 8: Visningsleiligheter",
+    "da": "Bolig A1 - 8: Udsigtslejligheder",
+    "fi": "Asuminen A1 - 8: Katseluasunnot",
+    "el": "Στέγαση A1 - 8: Προβολή διαμερισμάτων",
+    "cs": "Bydlení A1 - 8: Prohlídka apartmánů"
   },
   "description_i18n": {
-    "en": "Practice housing scenarios at A1 level."
+    "en": "Practice housing scenarios at A1 level.",
+    "es": "Practicar escenarios de vivienda en el nivel A1.",
+    "fr": "Pratiquer des scénarios de logement au niveau A1.",
+    "it": "Esercitazione di scenari abitativi a livello A1.",
+    "pt": "Praticar cenários de habitação ao nível A1.",
+    "ja": "A1レベルの住宅シナリオを練習する。",
+    "ko": "A1 수준의 주택 시나리오를 연습하세요.",
+    "zh-CN": "在 A1 级水平上练习住房方案。",
+    "zh-TW": "在 A1 级水平上练习住房方案。",
+    "ar": "ممارسة سيناريوهات الإسكان على المستوى A1.",
+    "tr": "A1 seviyesinde konut senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze mieszkaniowe na poziomie A1.",
+    "nl": "Oefen huisvestingsscenario's op A1-niveau.",
+    "sv": "Öva på bostadsscenarier på A1-nivå.",
+    "no": "Øv på boligscenarioer på A1-nivå.",
+    "da": "Øv dig på boligscenarier på A1-niveau.",
+    "fi": "Harjoitellaan asumisen skenaarioita A1-tasolla.",
+    "el": "Πρακτική εξάσκηση σε σενάρια στέγασης σε επίπεδο Α1.",
+    "cs": "Procvičování scénářů bydlení na úrovni A1.",
+    "ru": "Отработка сценариев строительства жилья на уровне А1."
   }
 }

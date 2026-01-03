@@ -1,0 +1,39 @@
+{
+    "id": "separable_verbs_a1",
+    "schemaVersion": 1,
+    "kind": "drill",
+    "title": "Separable Verbs",
+    "shortTitle": "Separable Verbs",
+    "level": "A1",
+    "estimatedMinutes": 5,
+    "description": "Practice common separable verbs",
+    "instructions": "Form sentences with separable verbs.",
+    "exercises": [
+        {
+            "id": "ex-001",
+            "type": "fill-blank",
+            "prompt": "Ich ___ am Morgen ___. (aufstehen)",
+            "answer": "stehe auf",
+            "hint": "aufstehen splits into stehe ... auf"
+        }
+    ],
+    "passingScore": 70,
+    "tags": [
+        "grammar",
+        "verbs",
+        "separable"
+    ],
+    "analytics": {
+        "variationSlots": [],
+        "uniqueVerbCount": 0,
+        "primaryStructure": "simple_sentence",
+        "slotSwitchDensity": 0,
+        "promptDiversityScore": 0,
+        "scenarioCoverageScore": 0,
+        "estimatedCognitiveLoad": "low",
+        "intendedOutcome": "practice"
+    },
+    "contentId": "de:drill:separable_verbs_a1",
+    "revisionId": "000000000000",
+    "contentHash": "0000000000000000000000000000000000000000000000000000000000000000"
+}

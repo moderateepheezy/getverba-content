@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A2",
-  "title": "Modal Verbs: A2 (Tier 1)",
-  "shortTitle": "Modal Verbs A2",
+  "title": "Modal Verbs: A2 (Tier 1) - Pattern",
+  "shortTitle": "Modal Verbs A2 Pattern",
   "subtitle": "Tier 1 - pattern switch - Master modal verb patterns (können",
   "estimatedMinutes": 3,
   "mechanicId": "modal_verbs",
@@ -17,7 +17,9 @@
   "variationSlots": [
     "subject",
     "verb",
-    "object"
+    "object",
+    "modifier",
+    "time"
   ],
   "sessionPlan": {
     "version": 1,
@@ -60,11 +62,159 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Ich höre den.",
+      "text": "Sie möchte gerne in der Stadt es hören.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Ich höre den.",
+      "natural_en": "Sie möchte gerne in der Stadt es hören.",
       "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "möchte"
+        ],
+        "object": [
+          "es"
+        ],
+        "modifier": [
+          "gerne"
+        ],
+        "location": [
+          "in der Stadt"
+        ],
+        "infinitive": [
+          "hören"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Er soll zur Arbeit trinken.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er soll zur Arbeit trinken.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "soll"
+        ],
+        "object": [
+          "zur Arbeit"
+        ],
+        "infinitive": [
+          "trinken"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "heute kannst du einen spielen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute kannst du einen spielen.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "kannst"
+        ],
+        "object": [
+          "einen"
+        ],
+        "time": [
+          "heute"
+        ],
+        "infinitive": [
+          "spielen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Ihr wollt nach Hause schlafen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ihr wollt nach Hause schlafen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "wollt"
+        ],
+        "object": [
+          "nach Hause"
+        ],
+        "infinitive": [
+          "schlafen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Wir möchten nach Hause kommen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Wir möchten nach Hause kommen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "möchten"
+        ],
+        "object": [
+          "nach Hause"
+        ],
+        "infinitive": [
+          "kommen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "jetzt kann ich den arbeiten.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jetzt kann ich den arbeiten.",
+      "slotsChanged": [
+        "time",
         "subject",
         "verb",
         "object"
@@ -74,132 +224,16 @@
           "Ich"
         ],
         "verb": [
-          "höre"
+          "kann"
         ],
         "object": [
           "den"
-        ]
-      },
-      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-001.mp3"
-    },
-    {
-      "id": "prompt-002",
-      "text": "Du kommst den.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du kommst den.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Du"
         ],
-        "verb": [
-          "kommst"
+        "time": [
+          "jetzt"
         ],
-        "object": [
-          "den"
-        ]
-      },
-      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-002.mp3"
-    },
-    {
-      "id": "prompt-003",
-      "text": "Du hörst das.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Du hörst das.",
-      "slotsChanged": [
-        "time",
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Du"
-        ],
-        "verb": [
-          "hörst"
-        ],
-        "object": [
-          "das"
-        ]
-      },
-      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-003.mp3"
-    },
-    {
-      "id": "prompt-004",
-      "text": "Sie hört einen.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie hört einen.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Sie"
-        ],
-        "verb": [
-          "hört"
-        ],
-        "object": [
-          "einen"
-        ]
-      },
-      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-004.mp3"
-    },
-    {
-      "id": "prompt-005",
-      "text": "Er geht einen.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er geht einen.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Er"
-        ],
-        "verb": [
-          "geht"
-        ],
-        "object": [
-          "einen"
-        ]
-      },
-      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-005.mp3"
-    },
-    {
-      "id": "prompt-006",
-      "text": "Er trinkt das.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Er trinkt das.",
-      "slotsChanged": [
-        "time",
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Er"
-        ],
-        "verb": [
-          "trinkt"
-        ],
-        "object": [
-          "das"
+        "infinitive": [
+          "arbeiten"
         ]
       },
       "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-006.mp3"
@@ -220,18 +254,20 @@
     ],
     "coverage": {
       "verbs": [
-        "höre",
-        "kommst",
-        "hörst",
-        "hört",
-        "geht",
-        "trinkt"
+        "möchte",
+        "soll",
+        "kannst",
+        "wollt",
+        "möchten",
+        "kann"
       ],
       "subjects": [
-        "Ich",
-        "Du",
         "Sie",
-        "Er"
+        "Er",
+        "Du",
+        "Ihr",
+        "Wir",
+        "Ich"
       ],
       "patterns": [
         "modal_verb_infinitive",
@@ -244,10 +280,10 @@
     "estPromptCount": 6,
     "timeboxMinutes": 3,
     "qualitySignals": {
-      "tokenHitsCount": 0,
+      "tokenHitsCount": 6,
       "multiSlotRate": 1,
       "uniqueVerbCount": 6,
-      "uniqueSubjectCount": 4,
+      "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -256,12 +292,21 @@
     "source": "template",
     "sourceRef": "mechanics/modal_verbs",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.636Z"
+    "generatedAt": "2026-01-03T09:52:17.352Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Modal Verbs: A2 (Tier 1) - Pattern"
+  },
+  "shortTitle_i18n": {
+    "en": "Modal Verbs A2 Pattern"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 1 - pattern switch - Master modal verb patterns (können"
+  },
   "contentId": "de:drill:modal_verbs_a2_tier1_pattern-switch",
-  "contentHash": "05c0ba0eccf5cbf59315ba4dc6a0b3573278e259681bd3515692ba51aed7b835",
-  "revisionId": "05c0ba0eccf5"
+  "contentHash": "c5603a7397faa676c967e2ce5ff51326c32ffbf3ac6d4fb9cd1e50756c6111a4",
+  "revisionId": "c5603a7397fa"
 }

@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A2",
-  "title": "Time Expressions & Inversion: A2 (Tier 1)",
-  "shortTitle": "Time Expressions & Invers...",
+  "title": "Time Expressions & Inversion: A2 (Tier 1) - Trap",
+  "shortTitle": "Time Expressions & I A2 Trap",
   "subtitle": "Tier 1 - error trap - Master verb inversion with time expres",
   "estimatedMinutes": 3,
   "mechanicId": "time_expressions_inversion",
@@ -17,6 +17,8 @@
   "variationSlots": [
     "subject",
     "verb",
+    "object",
+    "modifier",
     "time"
   ],
   "sessionPlan": {
@@ -60,120 +62,172 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "wir esse.",
+      "text": "ich trinke vielleicht Essen morgen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "wir esse.",
+      "natural_en": "ich trinke vielleicht Essen.",
       "slotsChanged": [
         "subject",
-        "verb"
-      ],
-      "slots": {
-        "subject": [
-          "wir"
-        ],
-        "verb": [
-          "esse"
-        ]
-      },
-      "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier1/prompt-001.mp3"
-    },
-    {
-      "id": "prompt-002",
-      "text": "ich essee.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "ich essee.",
-      "slotsChanged": [
-        "subject",
-        "verb"
+        "verb",
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
           "ich"
         ],
         "verb": [
-          "essee"
+          "trinke"
+        ],
+        "object": [
+          "Essen"
+        ],
+        "modifier": [
+          "vielleicht",
+          "morgen"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier1/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "du machst vielleicht Musik heute.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "du machst vielleicht Musik.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "du"
+        ],
+        "verb": [
+          "machst"
+        ],
+        "object": [
+          "Musik"
+        ],
+        "modifier": [
+          "vielleicht",
+          "heute"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier1/prompt-002.mp3"
     },
     {
       "id": "prompt-003",
-      "text": "ihr kommet.",
+      "text": "ihr arbeitet gerne Pause heute.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "ihr kommet.",
+      "natural_en": "ihr arbeitet gerne Pause.",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
           "ihr"
         ],
         "verb": [
-          "kommet"
+          "arbeitet"
+        ],
+        "object": [
+          "Pause"
+        ],
+        "modifier": [
+          "gerne",
+          "heute"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier1/prompt-003.mp3"
     },
     {
       "id": "prompt-004",
-      "text": "wir komme.",
+      "text": "man kommt zusammen Pause jetzt.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "wir komme.",
+      "natural_en": "man kommt zusammen Pause.",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
-          "wir"
+          "man"
         ],
         "verb": [
-          "komme"
+          "kommt"
+        ],
+        "object": [
+          "Pause"
+        ],
+        "modifier": [
+          "zusammen",
+          "jetzt"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier1/prompt-004.mp3"
     },
     {
       "id": "prompt-005",
-      "text": "wir trinke.",
+      "text": "wir lernen Hausaufgaben heute.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "wir trinke.",
+      "natural_en": "wir lernen Hausaufgaben.",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "object"
       ],
       "slots": {
         "subject": [
           "wir"
         ],
         "verb": [
-          "trinke"
+          "lernen"
+        ],
+        "object": [
+          "Hausaufgaben"
+        ],
+        "modifier": [
+          "heute"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier1/prompt-005.mp3"
     },
     {
       "id": "prompt-006",
-      "text": "ihr machet.",
+      "text": "er isst zusammen Sport morgen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "ihr machet.",
+      "natural_en": "er isst zusammen Sport.",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
-          "ihr"
+          "er"
         ],
         "verb": [
-          "machet"
+          "isst"
+        ],
+        "object": [
+          "Sport"
+        ],
+        "modifier": [
+          "zusammen",
+          "morgen"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier1/prompt-006.mp3"
@@ -194,17 +248,20 @@
     ],
     "coverage": {
       "verbs": [
-        "esse",
-        "essee",
-        "kommet",
-        "komme",
         "trinke",
-        "machet"
+        "machst",
+        "arbeitet",
+        "kommt",
+        "lernen",
+        "isst"
       ],
       "subjects": [
-        "wir",
         "ich",
-        "ihr"
+        "du",
+        "ihr",
+        "man",
+        "wir",
+        "er"
       ],
       "patterns": [
         "time_verb_subject",
@@ -217,10 +274,10 @@
     "estPromptCount": 6,
     "timeboxMinutes": 3,
     "qualitySignals": {
-      "tokenHitsCount": 4,
+      "tokenHitsCount": 6,
       "multiSlotRate": 1,
       "uniqueVerbCount": 6,
-      "uniqueSubjectCount": 3,
+      "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -229,12 +286,21 @@
     "source": "template",
     "sourceRef": "mechanics/time_expressions_inversion",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.651Z"
+    "generatedAt": "2026-01-03T09:52:17.369Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Time Expressions & Inversion: A2 (Tier 1) - Trap"
+  },
+  "shortTitle_i18n": {
+    "en": "Time Expressions & I A2 Trap"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 1 - error trap - Master verb inversion with time expres"
+  },
   "contentId": "de:drill:time_expressions_inversion_a2_tier1_error-trap",
-  "contentHash": "59e85a8921741c54ed45998cd1012de3b133baf79ba223f3e2275ad8b0de9a71",
-  "revisionId": "59e85a892174"
+  "contentHash": "adeb7de494911d6899cf93bcff8eea30c197903055d8ca9daea3b4eb18556616",
+  "revisionId": "adeb7de49491"
 }

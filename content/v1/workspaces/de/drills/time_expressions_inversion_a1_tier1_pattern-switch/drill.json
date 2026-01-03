@@ -6,8 +6,8 @@
   "workspace": "de",
   "language": "de",
   "level": "A1",
-  "title": "Time Expressions & Inversion: A1 (Tier 1)",
-  "shortTitle": "Time Expressions & Invers...",
+  "title": "Time Expressions & Inversion: A1 (Tier 1) - Pattern",
+  "shortTitle": "Time Expressions  A1 Pattern",
   "subtitle": "Tier 1 - pattern switch - Master verb inversion with time ex",
   "estimatedMinutes": 3,
   "mechanicId": "time_expressions_inversion",
@@ -17,6 +17,8 @@
   "variationSlots": [
     "subject",
     "verb",
+    "object",
+    "modifier",
     "time"
   ],
   "sessionPlan": {
@@ -60,116 +62,68 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "ihr sehet.",
+      "text": "es hört schnell Pause morgen.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "ihr sehet.",
+      "natural_en": "es hört schnell Pause.",
       "slotsChanged": [
         "subject",
-        "verb"
+        "verb",
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
-          "ihr"
+          "es"
         ],
         "verb": [
-          "sehet"
+          "hört"
+        ],
+        "object": [
+          "Pause"
+        ],
+        "modifier": [
+          "schnell",
+          "morgen"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier1/prompt-001.mp3"
     },
     {
       "id": "prompt-002",
-      "text": "er gehet.",
+      "text": "sie kommt schnell Essen heute.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "er gehet.",
+      "natural_en": "sie kommt schnell Essen.",
       "slotsChanged": [
         "subject",
         "verb",
-        "object"
+        "object",
+        "modifier"
       ],
       "slots": {
         "subject": [
-          "er"
+          "sie"
         ],
         "verb": [
-          "gehet"
+          "kommt"
+        ],
+        "object": [
+          "Essen"
+        ],
+        "modifier": [
+          "schnell",
+          "heute"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier1/prompt-002.mp3"
     },
     {
       "id": "prompt-003",
-      "text": "gestern ihr trinket.",
+      "text": "heute Abend trinkt er.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "gestern ihr trinket.",
-      "slotsChanged": [
-        "time",
-        "subject",
-        "verb"
-      ],
-      "slots": {
-        "subject": [
-          "ihr"
-        ],
-        "verb": [
-          "trinket"
-        ],
-        "time": [
-          "gestern"
-        ]
-      },
-      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier1/prompt-003.mp3"
-    },
-    {
-      "id": "prompt-004",
-      "text": "ich lernee.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "ich lernee.",
-      "slotsChanged": [
-        "subject",
-        "verb"
-      ],
-      "slots": {
-        "subject": [
-          "ich"
-        ],
-        "verb": [
-          "lernee"
-        ]
-      },
-      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier1/prompt-004.mp3"
-    },
-    {
-      "id": "prompt-005",
-      "text": "ich sehee.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "ich sehee.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "ich"
-        ],
-        "verb": [
-          "sehee"
-        ]
-      },
-      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier1/prompt-005.mp3"
-    },
-    {
-      "id": "prompt-006",
-      "text": "am Montag er lernet.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "am Montag er lernet.",
+      "natural_en": "heute Abend trinkt er.",
       "slotsChanged": [
         "time",
         "subject",
@@ -180,10 +134,91 @@
           "er"
         ],
         "verb": [
-          "lernet"
+          "trinkt"
         ],
         "time": [
-          "am Montag"
+          "heute Abend"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier1/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "ihr geht wirklich Essen jetzt.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "ihr geht wirklich Essen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "ihr"
+        ],
+        "verb": [
+          "geht"
+        ],
+        "object": [
+          "Essen"
+        ],
+        "modifier": [
+          "wirklich",
+          "jetzt"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier1/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "gestern mache alleine Musik.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "gestern mache alleine Musik.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "gestern"
+        ],
+        "verb": [
+          "mache"
+        ],
+        "object": [
+          "Musik"
+        ],
+        "modifier": [
+          "alleine"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier1/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "heute Abend lernt man.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute Abend lernt man.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "man"
+        ],
+        "verb": [
+          "lernt"
+        ],
+        "time": [
+          "heute Abend"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier1/prompt-006.mp3"
@@ -204,17 +239,20 @@
     ],
     "coverage": {
       "verbs": [
-        "sehet",
-        "gehet",
-        "trinket",
-        "lernee",
-        "sehee",
-        "lernet"
+        "hört",
+        "kommt",
+        "trinkt",
+        "geht",
+        "mache",
+        "lernt"
       ],
       "subjects": [
-        "ihr",
+        "es",
+        "sie",
         "er",
-        "ich"
+        "ihr",
+        "gestern",
+        "man"
       ],
       "patterns": [
         "time_verb_subject",
@@ -227,10 +265,10 @@
     "estPromptCount": 6,
     "timeboxMinutes": 3,
     "qualitySignals": {
-      "tokenHitsCount": 5,
+      "tokenHitsCount": 6,
       "multiSlotRate": 1,
       "uniqueVerbCount": 6,
-      "uniqueSubjectCount": 3,
+      "uniqueSubjectCount": 6,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -239,12 +277,21 @@
     "source": "template",
     "sourceRef": "mechanics/time_expressions_inversion",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T00:18:10.650Z"
+    "generatedAt": "2026-01-03T09:52:17.367Z"
   },
   "review": {
     "status": "needs_review"
   },
+  "title_i18n": {
+    "en": "Time Expressions & Inversion: A1 (Tier 1) - Pattern"
+  },
+  "shortTitle_i18n": {
+    "en": "Time Expressions  A1 Pattern"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 1 - pattern switch - Master verb inversion with time ex"
+  },
   "contentId": "de:drill:time_expressions_inversion_a1_tier1_pattern-switch",
-  "contentHash": "51baed1587694ec3505430e1bd792c0482a9a706c0806464d20bd9e687fa765f",
-  "revisionId": "51baed158769"
+  "contentHash": "0e0580d215debc9ad5a6b23717800af6ba04098ae025a9674a4c870f874cb042",
+  "revisionId": "0e0580d215de"
 }

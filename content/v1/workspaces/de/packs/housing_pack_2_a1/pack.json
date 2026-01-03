@@ -45,6 +45,9 @@
         "object": [
           "das Zimmer"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -69,6 +72,9 @@
         "object": [
           "die Kaution"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -96,6 +102,9 @@
         "modifier": [
           "gerne"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -124,6 +133,9 @@
         "modifier": [
           "ruhig"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -151,6 +163,9 @@
         "modifier": [
           "bitte"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -175,6 +190,9 @@
         "object": [
           "die Adresse"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -199,6 +217,9 @@
         "object": [
           "das Zimmer"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     }
   ],
@@ -320,15 +341,55 @@
     "generatedAt": "2026-01-01T00:56:13.316Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T08:26:06.983Z"
   },
   "contentId": "de:pack:housing_pack_2_a1",
   "contentHash": "8232644e4a0a87cf84acf4ba8ba91dde034aff50fb4ce42370526bd25230f51c",
   "revisionId": "8232644e4a0a",
   "title_i18n": {
-    "en": "Housing A1 — 2: Viewing Apartments"
+    "en": "Housing A1 — 2: Viewing Apartments",
+    "es": "Viviendas A1 - 2: Apartamentos con vistas",
+    "fr": "Logement A1 - 2 : Appartements de visualisation",
+    "it": "Alloggi A1 - 2: Appartamenti da vedere",
+    "pt": "Habitação A1 - 2: Apartamentos para visitas",
+    "ru": "Жилье A1 - 2: Квартиры для просмотра",
+    "ja": "住宅 A1 - 2：ビューイング・アパートメント",
+    "ko": "주택 A1 - 2: 아파트 보기",
+    "zh-CN": "住房 A1 - 2：观景公寓",
+    "zh-TW": "住房 A1 - 2：观景公寓",
+    "ar": "السكن A1 - 2: عرض الشقق السكنية A1 - 2: عرض الشقق",
+    "tr": "Konut A1 - 2: Daireleri Görüntüleme",
+    "pl": "Mieszkania A1 - 2: Apartamenty widokowe",
+    "nl": "Huisvesting A1 - 2: Bezichtigingsappartementen",
+    "sv": "Bostäder A1 - 2: Visningslägenheter",
+    "no": "Bolig A1 - 2: Visningsleiligheter",
+    "da": "Bolig A1 - 2: Visning af lejligheder",
+    "fi": "Asuminen A1 - 2: Katseluasunnot",
+    "el": "Στέγαση A1 - 2: Προβολή διαμερισμάτων",
+    "cs": "Bydlení A1 - 2: Prohlídka apartmánů"
   },
   "description_i18n": {
-    "en": "Practice housing scenarios at A1 level."
+    "en": "Practice housing scenarios at A1 level.",
+    "es": "Practicar escenarios de vivienda en el nivel A1.",
+    "fr": "Pratiquer des scénarios de logement au niveau A1.",
+    "it": "Esercitazione di scenari abitativi a livello A1.",
+    "pt": "Praticar cenários de habitação ao nível A1.",
+    "ru": "Отработка сценариев строительства жилья на уровне А1.",
+    "ja": "A1レベルの住宅シナリオを練習する。",
+    "ko": "A1 수준의 주택 시나리오를 연습하세요.",
+    "zh-CN": "在 A1 级水平上练习住房方案。",
+    "zh-TW": "在 A1 级水平上练习住房方案。",
+    "ar": "ممارسة سيناريوهات الإسكان على المستوى A1.",
+    "tr": "A1 seviyesinde konut senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze mieszkaniowe na poziomie A1.",
+    "nl": "Oefen huisvestingsscenario's op A1-niveau.",
+    "sv": "Öva på bostadsscenarier på A1-nivå.",
+    "no": "Øv på boligscenarioer på A1-nivå.",
+    "da": "Øv dig på boligscenarier på A1-niveau.",
+    "fi": "Harjoitellaan asumisen skenaarioita A1-tasolla.",
+    "el": "Πρακτική εξάσκηση σε σενάρια στέγασης σε επίπεδο Α1.",
+    "cs": "Procvičování scénářů bydlení na úrovni A1."
   }
 }

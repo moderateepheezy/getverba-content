@@ -45,6 +45,9 @@
         "modifier": [
           "morgen"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -68,6 +71,9 @@
         "modifier": [
           "um 14:30"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "The meeting starts at the scheduled time."
       }
     },
     {
@@ -96,6 +102,9 @@
         "modifier": [
           "um 9 Uhr"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
@@ -124,6 +133,9 @@
         "modifier": [
           "nächste Woche"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am working on the project."
       }
     },
     {
@@ -151,6 +163,9 @@
         "modifier": [
           "um 9 Uhr"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
@@ -174,6 +189,9 @@
         "object": [
           "den Termin"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
@@ -198,6 +216,9 @@
         "object": [
           "das Projekt"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am working on the project."
       }
     }
   ],
@@ -319,15 +340,55 @@
     "generatedAt": "2026-01-01T02:21:49.930Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T08:26:06.988Z"
   },
   "contentId": "de:pack:work_pack_10_a2",
   "contentHash": "77340ab700daf570b6f38a1d7b6005d3b25f390019dc6f4590ab906d05322b92",
   "revisionId": "77340ab700da",
   "title_i18n": {
-    "en": "Work A2 — 10: Problem Solving"
+    "en": "Work A2 — 10: Problem Solving",
+    "es": "Trabajo A2 - 10: Resolución de problemas",
+    "fr": "Travail A2 - 10 : Résolution de problèmes",
+    "it": "Lavoro A2 - 10: Risoluzione dei problemi",
+    "pt": "Trabalho A2 - 10: Resolução de problemas",
+    "ru": "Работа A2 - 10: Решение проблем",
+    "ja": "ワークA2 - 10: 問題解決",
+    "ko": "작업 A2 - 10: 문제 해결",
+    "zh-CN": "作业 A2 - 10：解决问题",
+    "zh-TW": "作业 A2 - 10：解决问题",
+    "ar": "العمل أ2 - 10: حل المشكلات",
+    "tr": "Çalışma A2 - 10: Problem Çözme",
+    "pl": "Praca A2 - 10: Rozwiązywanie problemów",
+    "nl": "Werk A2 - 10: Problemen oplossen",
+    "sv": "Arbete A2 - 10: Problemlösning",
+    "no": "Arbeid A2 - 10: Problemløsning",
+    "da": "Arbejde A2 - 10: Problemløsning",
+    "fi": "Työ A2 - 10: Ongelmanratkaisu",
+    "el": "Εργασία A2 - 10: Επίλυση προβλημάτων",
+    "cs": "Práce A2 - 10: Řešení problémů"
   },
   "description_i18n": {
-    "en": "Practice work scenarios at A2 level."
+    "en": "Practice work scenarios at A2 level.",
+    "es": "Practicar escenarios de trabajo a nivel A2.",
+    "fr": "Pratiquer des scénarios de travail au niveau A2.",
+    "it": "Esercitarsi in scenari di lavoro a livello A2.",
+    "pt": "Praticar cenários de trabalho ao nível A2.",
+    "ru": "Отработайте сценарии работы на уровне A2.",
+    "ja": "A2レベルの仕事のシナリオを練習する。",
+    "ko": "A2 수준의 업무 시나리오를 연습하세요.",
+    "zh-CN": "在 A2 级水平上练习工作场景。",
+    "zh-TW": "在 A2 级水平上练习工作场景。",
+    "ar": "ممارسة سيناريوهات العمل على المستوى A2.",
+    "tr": "A2 seviyesinde çalışma senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze pracy na poziomie A2.",
+    "nl": "Oefen werkscenario's op A2-niveau.",
+    "sv": "Öva på arbetsscenarier på A2-nivå.",
+    "no": "Øv deg på arbeidsscenarioer på A2-nivå.",
+    "da": "Øv dig i arbejdsscenarier på A2-niveau.",
+    "fi": "Harjoitellaan A2-tason työkuvioita.",
+    "el": "Πρακτική εξάσκηση σε σενάρια εργασίας σε επίπεδο Α2.",
+    "cs": "Procvičování pracovních scénářů na úrovni A2."
   }
 }

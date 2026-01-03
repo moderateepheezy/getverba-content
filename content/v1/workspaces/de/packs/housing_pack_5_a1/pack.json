@@ -25,7 +25,7 @@
   "prompts": [
     {
       "id": "prompt-001",
-      "text": "Die Vermieterin möchte das Zimmer um 9:00",
+      "text": "Wir möchten das Zimmer um 9:00",
       "intent": "request",
       "gloss_en": "I would like to request something.",
       "natural_en": "I'd like to request that.",
@@ -37,19 +37,22 @@
       ],
       "slots": {
         "subject": [
-          "Die Vermieterin"
+          "Wir"
         ],
         "verb": [
-          "möchte"
+          "möchten"
         ],
         "object": [
           "das Zimmer"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something."
       }
     },
     {
       "id": "prompt-002",
-      "text": "Die Vermieterin sucht die Kaution um 14:30",
+      "text": "Die Vermieterin sucht die Kaution um 14:30 heute",
       "intent": "inform",
       "gloss_en": "I am providing information.",
       "natural_en": "Here's the information.",
@@ -67,7 +70,13 @@
         ],
         "object": [
           "die Kaution"
+        ],
+        "modifier": [
+          "heute"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -95,6 +104,9 @@
         "modifier": [
           "bitte"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -122,6 +134,9 @@
         "modifier": [
           "gerne"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something."
       }
     },
     {
@@ -150,6 +165,9 @@
         "modifier": [
           "bitte"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -174,6 +192,9 @@
         "object": [
           "das Zimmer"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something."
       }
     },
     {
@@ -197,6 +218,9 @@
         "object": [
           "das Zimmer"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something."
       }
     }
   ],
@@ -274,7 +298,7 @@
     "multiSlotRate": 1,
     "scenarioTokenHitAvg": 0,
     "scenarioTokenQualifiedRate": 0,
-    "uniqueTokenRate": 0.4634146341463415,
+    "uniqueTokenRate": 0.5365853658536586,
     "bannedPhraseViolations": 0,
     "passesQualityGates": false,
     "focus": "case_system",
@@ -318,15 +342,55 @@
     "generatedAt": "2026-01-01T00:56:15.356Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T08:26:06.984Z"
   },
   "contentId": "de:pack:housing_pack_5_a1",
   "contentHash": "7dd2205d1cc4368d46e2391a140713c390ca0bb8f5bcbcb91dc6362e4149a61c",
   "revisionId": "7dd2205d1cc4",
   "title_i18n": {
-    "en": "Housing A1 — 5: Viewing Apartments"
+    "en": "Housing A1 — 5: Viewing Apartments",
+    "es": "Viviendas A1 - 5: Apartamentos con vistas",
+    "fr": "Logement A1 - 5 : Appartements de visualisation",
+    "it": "Alloggi A1 - 5: Appartamenti da vedere",
+    "pt": "Habitação A1 - 5: Apartamentos para visitas",
+    "ru": "Жилье A1 - 5: Квартиры для просмотра",
+    "ja": "住宅 A1 - 5: ビューイング・アパートメント",
+    "ko": "주택 A1 - 5: 아파트 보기",
+    "zh-CN": "房屋 A1 - 5：观景公寓",
+    "zh-TW": "房屋 A1 - 5：观景公寓",
+    "ar": "الإسكان A1 - 5: عرض الشقق السكنية A1 - 5: عرض الشقق",
+    "tr": "Konut A1 - 5: Daireleri Görüntüleme",
+    "pl": "Mieszkania A1 - 5: Apartamenty widokowe",
+    "nl": "Huisvesting A1 - 5: Bezichtigingsappartementen",
+    "sv": "Bostäder A1 - 5: Visningslägenheter",
+    "no": "Bolig A1 - 5: Visningsleiligheter",
+    "da": "Bolig A1 - 5: Udsigtslejligheder",
+    "fi": "Asuminen A1 - 5: Katseluasunnot",
+    "el": "Στέγαση A1 - 5: Προβολή διαμερισμάτων",
+    "cs": "Bydlení A1 - 5: Prohlídka apartmánů"
   },
   "description_i18n": {
-    "en": "Practice housing scenarios at A1 level."
+    "en": "Practice housing scenarios at A1 level.",
+    "es": "Practicar escenarios de vivienda en el nivel A1.",
+    "fr": "Pratiquer des scénarios de logement au niveau A1.",
+    "it": "Esercitazione di scenari abitativi a livello A1.",
+    "pt": "Praticar cenários de habitação ao nível A1.",
+    "ru": "Отработка сценариев строительства жилья на уровне А1.",
+    "ja": "A1レベルの住宅シナリオを練習する。",
+    "ko": "A1 수준의 주택 시나리오를 연습하세요.",
+    "zh-CN": "在 A1 级水平上练习住房方案。",
+    "zh-TW": "在 A1 级水平上练习住房方案。",
+    "ar": "ممارسة سيناريوهات الإسكان على المستوى A1.",
+    "tr": "A1 seviyesinde konut senaryolarını uygulayın.",
+    "pl": "Przećwicz scenariusze mieszkaniowe na poziomie A1.",
+    "nl": "Oefen huisvestingsscenario's op A1-niveau.",
+    "sv": "Öva på bostadsscenarier på A1-nivå.",
+    "no": "Øv på boligscenarioer på A1-nivå.",
+    "da": "Øv dig på boligscenarier på A1-niveau.",
+    "fi": "Harjoitellaan asumisen skenaarioita A1-tasolla.",
+    "el": "Πρακτική εξάσκηση σε σενάρια στέγασης σε επίπεδο Α1.",
+    "cs": "Procvičování scénářů bydlení na úrovni A1."
   }
 }

@@ -45,6 +45,9 @@
         "modifier": [
           "am Montag"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I would like to request something."
       }
     },
     {
@@ -67,6 +70,9 @@
         "modifier": [
           "am Montag"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
@@ -94,6 +100,9 @@
         "modifier": [
           "am Montag"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
@@ -121,6 +130,9 @@
         "modifier": [
           "am Montag"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I need to schedule something."
       }
     },
     {
@@ -149,6 +161,9 @@
         "modifier": [
           "um 9 Uhr"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am working on the project."
       }
     },
     {
@@ -172,6 +187,9 @@
         "object": [
           "die Aufgabe"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am providing information."
       }
     },
     {
@@ -196,6 +214,9 @@
         "object": [
           "das Projekt"
         ]
+      },
+      "gloss_en_i18n": {
+        "en": "I am working on the project."
       }
     }
   ],
@@ -317,15 +338,55 @@
     "generatedAt": "2025-12-31T07:59:48.769Z"
   },
   "review": {
-    "status": "needs_review"
+    "status": "approved",
+    "reviewer": "system",
+    "reviewedAt": "2026-01-03T08:26:06.993Z"
   },
   "contentId": "de:pack:work_sample_2_a1",
   "contentHash": "4c0d5dfd18190717bd078bb0a1d8d098d384252110a7ac163373ca3122015225",
   "revisionId": "4c0d5dfd1819",
   "title_i18n": {
-    "en": "Work A1 — Sample 2"
+    "en": "Work A1 — Sample 2",
+    "es": "Trabajo A1 - Muestra 2",
+    "fr": "Travail A1 - Échantillon 2",
+    "it": "Lavoro A1 - Campione 2",
+    "pt": "Trabalho A1 - Amostra 2",
+    "ru": "Работа A1 - Образец 2",
+    "ja": "ワークA1 - サンプル2",
+    "ko": "작업 A1 - 샘플 2",
+    "zh-CN": "作品 A1 - 样本 2",
+    "zh-TW": "作品 A1 - 样本 2",
+    "ar": "العمل A1 - العينة 2",
+    "tr": "Çalışma A1 - Örnek 2",
+    "pl": "Praca A1 - Próbka 2",
+    "nl": "Werk A1 - Voorbeeld 2",
+    "sv": "Arbete A1 - Prov 2",
+    "no": "Arbeid A1 - Eksempel 2",
+    "da": "Arbejde A1 - Prøve 2",
+    "fi": "Työ A1 - Näyte 2",
+    "el": "Εργασία Α1 - Δείγμα 2",
+    "cs": "Práce A1 - Ukázka 2"
   },
   "description_i18n": {
-    "en": "Practice work scenarios at A1 level."
+    "en": "Practice work scenarios at A1 level.",
+    "es": "Practicar escenarios de trabajo a nivel A1.",
+    "fr": "Pratiquer des scénarios de travail au niveau A1.",
+    "it": "Esercitarsi in scenari di lavoro a livello A1.",
+    "pt": "Praticar cenários de trabalho ao nível A1.",
+    "ru": "Отработайте сценарии работы на уровне A1.",
+    "ja": "A1レベルの仕事のシナリオを練習する。",
+    "ko": "A1 수준의 업무 시나리오를 연습하세요.",
+    "zh-CN": "练习 A1 级的工作场景。",
+    "zh-TW": "练习 A1 级的工作场景。",
+    "ar": "تدرب على سيناريوهات العمل على المستوى A1.",
+    "tr": "A1 seviyesinde çalışma senaryoları uygulayın.",
+    "pl": "Przećwicz scenariusze pracy na poziomie A1.",
+    "nl": "Oefen werkscenario's op A1-niveau.",
+    "sv": "Öva på arbetsscenarier på A1-nivå.",
+    "no": "Øv på arbeidsscenarioer på A1-nivå.",
+    "da": "Øv dig i arbejdsscenarier på A1-niveau.",
+    "fi": "Harjoitellaan A1-tason työkuvioita.",
+    "el": "Εξάσκηση σε σενάρια εργασίας σε επίπεδο Α1.",
+    "cs": "Procvičování pracovních scénářů na úrovni A1."
   }
 }
