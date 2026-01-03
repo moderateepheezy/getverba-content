@@ -1,0 +1,315 @@
+{
+  "schemaVersion": 1,
+  "id": "question_formation_a2_tier2_fast-recall",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A2",
+  "title": "Question Formation: A2 (Tier 2)",
+  "shortTitle": "Question Formation A2",
+  "subtitle": "Tier 2 - fast recall - Form questions using question words a",
+  "estimatedMinutes": 4,
+  "mechanicId": "question_formation",
+  "mechanicLabel": "Question Formation",
+  "loopType": "fast_recall",
+  "difficultyTier": 2,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "step-1",
+        "title": "Step 1",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002",
+          "prompt-003"
+        ],
+        "title_i18n": {
+          "en": "Step 1"
+        }
+      },
+      {
+        "id": "step-2",
+        "title": "Step 2",
+        "promptIds": [
+          "prompt-004",
+          "prompt-005",
+          "prompt-006"
+        ],
+        "title_i18n": {
+          "en": "Step 2"
+        }
+      },
+      {
+        "id": "step-3",
+        "title": "Step 3",
+        "promptIds": [
+          "prompt-007",
+          "prompt-008"
+        ],
+        "title_i18n": {
+          "en": "Step 3"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Sie lernt den.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie lernt den.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "lernt"
+        ],
+        "object": [
+          "den"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A2_tier2/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Sie seit die.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie seit die.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "seit"
+        ],
+        "object": [
+          "die"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A2_tier2/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "ihr seit einen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "ihr seit einen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "ihr"
+        ],
+        "verb": [
+          "seit"
+        ],
+        "object": [
+          "einen"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A2_tier2/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "du kommst eine.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "du kommst eine.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "du"
+        ],
+        "verb": [
+          "kommst"
+        ],
+        "object": [
+          "eine"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A2_tier2/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Sie macht das.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie macht das.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "macht"
+        ],
+        "object": [
+          "das"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A2_tier2/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Sie macht eine.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie macht eine.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "macht"
+        ],
+        "object": [
+          "eine"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A2_tier2/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "sie habt einen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "sie habt einen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "sie"
+        ],
+        "verb": [
+          "habt"
+        ],
+        "object": [
+          "einen"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A2_tier2/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "ihr wohnt das.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "ihr wohnt das.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "ihr"
+        ],
+        "verb": [
+          "wohnt"
+        ],
+        "object": [
+          "das"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A2_tier2/prompt-008.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "question_formation",
+    "loopType": "fast_recall",
+    "targetStructures": [
+      "question_word_order",
+      "verb_inversion",
+      "yes_no_questions"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "lernt",
+        "seit",
+        "kommst",
+        "macht",
+        "habt",
+        "wohnt"
+      ],
+      "subjects": [
+        "Sie",
+        "ihr",
+        "du",
+        "sie"
+      ],
+      "patterns": [
+        "question_word_order",
+        "verb_inversion",
+        "yes_no_questions"
+      ]
+    },
+    "difficultyTier": 2,
+    "recommendedReps": 3,
+    "estPromptCount": 8,
+    "timeboxMinutes": 4,
+    "qualitySignals": {
+      "tokenHitsCount": 2,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 6,
+      "uniqueSubjectCount": 4,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/question_formation",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-03T00:18:10.649Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:drill:question_formation_a2_tier2_fast-recall",
+  "contentHash": "8e82153e8d19971fb9cc055fa36a8d5bbc093aece0639c779b18afc2d62b75eb",
+  "revisionId": "8e82153e8d19"
+}

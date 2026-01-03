@@ -1,0 +1,44 @@
+{
+  "mechanicId": "politeness_templates",
+  "mechanicLabel": "Politeness Templates",
+  "description": "Master formal politeness formulas (Könnten Sie..., Würden Sie..., Ich hätte gern...)",
+  "supportedLevels": ["A1", "A2", "B1"],
+  "loopTypes": ["slot_substitution", "fast_recall", "pattern_switch"],
+  "canonicalPatterns": [
+    "polite_requests",
+    "conditional_politeness",
+    "formal_greetings"
+  ],
+  "slotDictionaries": {
+    "politeStart": ["Könnten Sie", "Würden Sie", "Dürfte ich", "Ich hätte gern", "Ich möchte", "Können Sie"],
+    "verb": ["helfen", "geben", "sagen", "zeigen", "bringen", "machen", "öffnen", "schließen"],
+    "object": ["das", "den", "die", "einen", "eine", "mir", "uns"],
+    "modifier": ["bitte", "vielleicht", "gerne", "sofort", "später"]
+  },
+  "trapPairs": [
+    {
+      "confusion": "formal vs informal politeness",
+      "examples": [
+        { "correct": "Könnten Sie mir helfen?", "incorrect": "Kannst du mir helfen?" },
+        { "correct": "Ich hätte gern", "incorrect": "Ich will" }
+      ]
+    }
+  ],
+  "bannedPhrases": [
+    "TODO",
+    "FIXME",
+    "example",
+    "test",
+    "placeholder"
+  ],
+  "requiredTokens": [
+    "könnten", "würden", "dürfte",
+    "hätte", "möchte",
+    "sie", "mir", "uns",
+    "bitte"
+  ],
+  "minUniqueVerbs": 5,
+  "minUniqueSubjects": 1,
+  "minMultiSlotRate": 0.5
+}
+

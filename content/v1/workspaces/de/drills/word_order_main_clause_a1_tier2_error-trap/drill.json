@@ -1,0 +1,317 @@
+{
+  "schemaVersion": 1,
+  "id": "word_order_main_clause_a1_tier2_error-trap",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A1",
+  "title": "Word Order: Main Clause: A1 (Tier 2)",
+  "shortTitle": "Word Order: Main Clause A1",
+  "subtitle": "Tier 2 - error trap - Master verb-second position in main cl",
+  "estimatedMinutes": 4,
+  "mechanicId": "word_order_main_clause",
+  "mechanicLabel": "Word Order: Main Clause",
+  "loopType": "error_trap",
+  "difficultyTier": 2,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "time"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "step-1",
+        "title": "Step 1",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002",
+          "prompt-003"
+        ],
+        "title_i18n": {
+          "en": "Step 1"
+        }
+      },
+      {
+        "id": "step-2",
+        "title": "Step 2",
+        "promptIds": [
+          "prompt-004",
+          "prompt-005",
+          "prompt-006"
+        ],
+        "title_i18n": {
+          "en": "Step 2"
+        }
+      },
+      {
+        "id": "step-3",
+        "title": "Step 3",
+        "promptIds": [
+          "prompt-007",
+          "prompt-008"
+        ],
+        "title_i18n": {
+          "en": "Step 3"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Sie trinket das Buch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie trinket das Buch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "trinket"
+        ],
+        "object": [
+          "das Buch"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A1_tier2/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Wir trinke den Film.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Wir trinke den Film.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "trinke"
+        ],
+        "object": [
+          "den Film"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A1_tier2/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "Ihr esset die Musik.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ihr esset die Musik.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "esset"
+        ],
+        "object": [
+          "die Musik"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A1_tier2/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Sie höret die Zeitung.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie höret die Zeitung.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "höret"
+        ],
+        "object": [
+          "die Zeitung"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A1_tier2/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Ich kommee das Buch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich kommee das Buch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "kommee"
+        ],
+        "object": [
+          "das Buch"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A1_tier2/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Sie gehet die Musik.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie gehet die Musik.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "gehet"
+        ],
+        "object": [
+          "die Musik"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A1_tier2/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "Ihr esset die Zeitung.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ihr esset die Zeitung.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "esset"
+        ],
+        "object": [
+          "die Zeitung"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A1_tier2/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "Sie sehet die Zeitung.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie sehet die Zeitung.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "sehet"
+        ],
+        "object": [
+          "die Zeitung"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A1_tier2/prompt-008.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "word_order_main_clause",
+    "loopType": "error_trap",
+    "targetStructures": [
+      "verb_second_position",
+      "time_manner_place",
+      "subject_verb_object"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "trinket",
+        "trinke",
+        "esset",
+        "höret",
+        "kommee",
+        "gehet",
+        "sehet"
+      ],
+      "subjects": [
+        "Sie",
+        "Wir",
+        "Ihr",
+        "Ich"
+      ],
+      "patterns": [
+        "verb_second_position",
+        "time_manner_place",
+        "subject_verb_object"
+      ]
+    },
+    "difficultyTier": 2,
+    "recommendedReps": 3,
+    "estPromptCount": 8,
+    "timeboxMinutes": 4,
+    "qualitySignals": {
+      "tokenHitsCount": 5,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 7,
+      "uniqueSubjectCount": 4,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/word_order_main_clause",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-03T00:18:10.656Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:drill:word_order_main_clause_a1_tier2_error-trap",
+  "contentHash": "b8af8d4a7cf893be9d0c8cac4df11e870a40e2bc7c339777a8bf61ef96e3aaf8",
+  "revisionId": "b8af8d4a7cf8"
+}

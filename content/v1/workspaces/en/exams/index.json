@@ -3,6 +3,7 @@
   "kind": "exams",
   "total": 0,
   "pageSize": 20,
+  "page": 1,
   "items": [],
   "nextPage": null
 }

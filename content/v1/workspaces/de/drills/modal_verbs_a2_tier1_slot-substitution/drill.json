@@ -1,0 +1,264 @@
+{
+  "schemaVersion": 1,
+  "id": "modal_verbs_a2_tier1_slot-substitution",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A2",
+  "title": "Modal Verbs: A2 (Tier 1)",
+  "shortTitle": "Modal Verbs A2",
+  "subtitle": "Tier 1 - slot substitution - Master modal verb patterns (kön",
+  "estimatedMinutes": 3,
+  "mechanicId": "modal_verbs",
+  "mechanicLabel": "Modal Verbs",
+  "loopType": "slot_substitution",
+  "difficultyTier": 1,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "step-1",
+        "title": "Step 1",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Step 1"
+        }
+      },
+      {
+        "id": "step-2",
+        "title": "Step 2",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Step 2"
+        }
+      },
+      {
+        "id": "step-3",
+        "title": "Step 3",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006"
+        ],
+        "title_i18n": {
+          "en": "Step 3"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Ihr macht eine.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ihr macht eine.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "macht"
+        ],
+        "object": [
+          "eine"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Ihr esst die.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ihr esst die.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "esst"
+        ],
+        "object": [
+          "die"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "Ich sehe den.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich sehe den.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "sehe"
+        ],
+        "object": [
+          "den"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Ich gehe zur Arbeit.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich gehe zur Arbeit.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "gehe"
+        ],
+        "object": [
+          "zur Arbeit"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Ich lerne eine.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich lerne eine.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "lerne"
+        ],
+        "object": [
+          "eine"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Wir essen ins Kino.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Wir essen ins Kino.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "essen"
+        ],
+        "object": [
+          "ins Kino"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier1/prompt-006.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "modal_verbs",
+    "loopType": "slot_substitution",
+    "targetStructures": [
+      "modal_verb_infinitive",
+      "modal_verb_requests",
+      "modal_verb_ability"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "macht",
+        "esst",
+        "sehe",
+        "gehe",
+        "lerne",
+        "essen"
+      ],
+      "subjects": [
+        "Ihr",
+        "Ich",
+        "Wir"
+      ],
+      "patterns": [
+        "modal_verb_infinitive",
+        "modal_verb_requests",
+        "modal_verb_ability"
+      ]
+    },
+    "difficultyTier": 1,
+    "recommendedReps": 2,
+    "estPromptCount": 6,
+    "timeboxMinutes": 3,
+    "qualitySignals": {
+      "tokenHitsCount": 0,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 6,
+      "uniqueSubjectCount": 3,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/modal_verbs",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-03T00:18:10.637Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:drill:modal_verbs_a2_tier1_slot-substitution",
+  "contentHash": "8c15ecc0c32b9f00086234ade5e1549ecf82bbd88dc778800ced0b860765b9a1",
+  "revisionId": "8c15ecc0c32b"
+}

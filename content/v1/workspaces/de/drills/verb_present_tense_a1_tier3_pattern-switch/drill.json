@@ -1,0 +1,372 @@
+{
+  "schemaVersion": 1,
+  "id": "verb_present_tense_a1_tier3_pattern-switch",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A1",
+  "title": "Verb Present Tense: A1 (Tier 3)",
+  "shortTitle": "Verb Present Tense A1",
+  "subtitle": "Tier 3 - pattern switch - Master present tense verb conjugat",
+  "estimatedMinutes": 5,
+  "mechanicId": "verb_present_tense",
+  "mechanicLabel": "Verb Present Tense",
+  "loopType": "pattern_switch",
+  "difficultyTier": 3,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "pattern-1",
+        "title": "Pattern 1: Basic Forms",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Pattern 1: Basic Forms"
+        }
+      },
+      {
+        "id": "pattern-2",
+        "title": "Pattern 2: Extended Forms",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Pattern 2: Extended Forms"
+        }
+      },
+      {
+        "id": "pattern-3",
+        "title": "Pattern 3: Complex Forms",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006",
+          "prompt-007",
+          "prompt-008",
+          "prompt-009",
+          "prompt-010"
+        ],
+        "title_i18n": {
+          "en": "Pattern 3: Complex Forms"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Es geht Kaffee.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Es geht Kaffee.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Es"
+        ],
+        "verb": [
+          "geht"
+        ],
+        "object": [
+          "Kaffee"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier3/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Er spielt Haus.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er spielt Haus.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "spielt"
+        ],
+        "object": [
+          "Haus"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier3/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "Sie macht Fußball.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie macht Fußball.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "macht"
+        ],
+        "object": [
+          "Fußball"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier3/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Sie hört Essen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie hört Essen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "hört"
+        ],
+        "object": [
+          "Essen"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier3/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Sie arbeitt Musik.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie arbeitt Musik.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "arbeitt"
+        ],
+        "object": [
+          "Musik"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier3/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Er macht Haus.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er macht Haus.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "macht"
+        ],
+        "object": [
+          "Haus"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier3/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "Ich spiele Essen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich spiele Essen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "spiele"
+        ],
+        "object": [
+          "Essen"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier3/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "Er spielt Englisch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er spielt Englisch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "spielt"
+        ],
+        "object": [
+          "Englisch"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier3/prompt-008.mp3"
+    },
+    {
+      "id": "prompt-009",
+      "text": "Sie seht Gitarre.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie seht Gitarre.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "seht"
+        ],
+        "object": [
+          "Gitarre"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier3/prompt-009.mp3"
+    },
+    {
+      "id": "prompt-010",
+      "text": "Du trinkst Musik.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du trinkst Musik.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "trinkst"
+        ],
+        "object": [
+          "Musik"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier3/prompt-010.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "verb_present_tense",
+    "loopType": "pattern_switch",
+    "targetStructures": [
+      "present_tense_conjugation",
+      "verb_second_position",
+      "subject_verb_agreement"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "geht",
+        "spielt",
+        "macht",
+        "hört",
+        "arbeitt",
+        "spiele",
+        "seht",
+        "trinkst"
+      ],
+      "subjects": [
+        "Es",
+        "Er",
+        "Sie",
+        "Ich",
+        "Du"
+      ],
+      "patterns": [
+        "present_tense_conjugation",
+        "verb_second_position",
+        "subject_verb_agreement"
+      ]
+    },
+    "difficultyTier": 3,
+    "recommendedReps": 4,
+    "estPromptCount": 10,
+    "timeboxMinutes": 5,
+    "qualitySignals": {
+      "tokenHitsCount": 10,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 8,
+      "uniqueSubjectCount": 5,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/verb_present_tense",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-03T00:18:10.653Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:drill:verb_present_tense_a1_tier3_pattern-switch",
+  "contentHash": "1951d2db96d18e5e3f4c2cd5b71b7d78400eb50eb1faeb90c446386831b09b63",
+  "revisionId": "1951d2db96d1"
+}

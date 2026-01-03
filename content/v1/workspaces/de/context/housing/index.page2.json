@@ -3,16 +3,17 @@
   "kind": "context",
   "total": 20,
   "pageSize": 12,
+  "page": 2,
   "items": [
     {
       "id": "housing_pack_2_a2",
       "kind": "pack",
-      "title": "Housing - A2",
+      "title": "Housing A2 — 2: Viewing Apartments",
       "level": "A2",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/housing_pack_2_a2/pack.json",
       "contentId": "de:pack:housing_pack_2_a2",
-      "revisionId": "446b852f0cbe",
+      "revisionId": "4b1bfc3138d7",
       "scenario": "housing",
       "register": "neutral",
       "primaryStructure": "dative_case",
@@ -47,17 +48,26 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary"
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Viewing Apartments",
+      "orderInTopic": 2,
+      "title_i18n": {
+        "en": "Housing A2 — 2: Viewing Apartments"
+      },
+      "domainKind": "context",
+      "isRecommended": true
     },
     {
       "id": "housing_pack_3_a2",
       "kind": "pack",
-      "title": "Housing - A2",
+      "title": "Housing A2 — 3: Rental Agreement",
       "level": "A2",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/housing_pack_3_a2/pack.json",
       "contentId": "de:pack:housing_pack_3_a2",
-      "revisionId": "751e2940a864",
+      "revisionId": "50b7bb0268fb",
       "scenario": "housing",
       "register": "neutral",
       "primaryStructure": "dative_case",
@@ -92,17 +102,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary"
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Rental Agreement",
+      "orderInTopic": 3,
+      "title_i18n": {
+        "en": "Housing A2 — 3: Rental Agreement"
+      },
+      "domainKind": "context"
     },
     {
       "id": "housing_pack_4_a2",
       "kind": "pack",
-      "title": "Housing - A2",
+      "title": "Housing A2 — 4: Searching for Housing",
       "level": "A2",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/housing_pack_4_a2/pack.json",
       "contentId": "de:pack:housing_pack_4_a2",
-      "revisionId": "09b5ee8c5e94",
+      "revisionId": "45bc5570efd8",
       "scenario": "housing",
       "register": "neutral",
       "primaryStructure": "dative_case",
@@ -137,17 +155,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary"
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Searching for Housing",
+      "orderInTopic": 4,
+      "title_i18n": {
+        "en": "Housing A2 — 4: Searching for Housing"
+      },
+      "domainKind": "context"
     },
     {
       "id": "housing_pack_5_a2",
       "kind": "pack",
-      "title": "Housing - A2",
+      "title": "Housing A2 — 5: Viewing Apartments",
       "level": "A2",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/housing_pack_5_a2/pack.json",
       "contentId": "de:pack:housing_pack_5_a2",
-      "revisionId": "21cd8129b16c",
+      "revisionId": "62df97c9f444",
       "scenario": "housing",
       "register": "neutral",
       "primaryStructure": "dative_case",
@@ -182,17 +208,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary"
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Viewing Apartments",
+      "orderInTopic": 5,
+      "title_i18n": {
+        "en": "Housing A2 — 5: Viewing Apartments"
+      },
+      "domainKind": "context"
     },
     {
       "id": "housing_pack_6_a2",
       "kind": "pack",
-      "title": "Housing - A2",
+      "title": "Housing A2 — 6: Rental Agreement",
       "level": "A2",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/housing_pack_6_a2/pack.json",
       "contentId": "de:pack:housing_pack_6_a2",
-      "revisionId": "3d69fac371a7",
+      "revisionId": "a69dc1b33e8d",
       "scenario": "housing",
       "register": "neutral",
       "primaryStructure": "dative_case",
@@ -227,17 +261,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary"
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Rental Agreement",
+      "orderInTopic": 6,
+      "title_i18n": {
+        "en": "Housing A2 — 6: Rental Agreement"
+      },
+      "domainKind": "context"
     },
     {
       "id": "housing_pack_7_a2",
       "kind": "pack",
-      "title": "Housing - A2",
+      "title": "Housing A2 — 7: Searching for Housing",
       "level": "A2",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/housing_pack_7_a2/pack.json",
       "contentId": "de:pack:housing_pack_7_a2",
-      "revisionId": "9a5f57a965c3",
+      "revisionId": "538f2c89a33b",
       "scenario": "housing",
       "register": "neutral",
       "primaryStructure": "dative_case",
@@ -272,17 +314,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary"
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Searching for Housing",
+      "orderInTopic": 7,
+      "title_i18n": {
+        "en": "Housing A2 — 7: Searching for Housing"
+      },
+      "domainKind": "context"
     },
     {
       "id": "housing_pack_8_a2",
       "kind": "pack",
-      "title": "Housing - A2",
+      "title": "Housing A2 — 8: Viewing Apartments",
       "level": "A2",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/housing_pack_8_a2/pack.json",
       "contentId": "de:pack:housing_pack_8_a2",
-      "revisionId": "8ee69b5ffb75",
+      "revisionId": "eca4cf7e303b",
       "scenario": "housing",
       "register": "neutral",
       "primaryStructure": "dative_case",
@@ -317,17 +367,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary"
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Viewing Apartments",
+      "orderInTopic": 8,
+      "title_i18n": {
+        "en": "Housing A2 — 8: Viewing Apartments"
+      },
+      "domainKind": "context"
     },
     {
       "id": "housing_pack_9_a2",
       "kind": "pack",
-      "title": "Housing - A2",
+      "title": "Housing A2 — 9: Rental Agreement",
       "level": "A2",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/housing_pack_9_a2/pack.json",
       "contentId": "de:pack:housing_pack_9_a2",
-      "revisionId": "c92cfdfd67d7",
+      "revisionId": "fabd5ecd04b5",
       "scenario": "housing",
       "register": "neutral",
       "primaryStructure": "dative_case",
@@ -362,8 +420,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary"
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Rental Agreement",
+      "orderInTopic": 9,
+      "title_i18n": {
+        "en": "Housing A2 — 9: Rental Agreement"
+      },
+      "domainKind": "context"
     }
   ],
-  "nextPage": null
+  "nextPage": null,
+  "scope": {
+    "scopeKind": "scenario",
+    "scopeId": "housing",
+    "scopeTitle": "Housing"
+  },
+  "recommended": {
+    "itemId": "housing_pack_2_a2",
+    "entryUrl": "/v1/workspaces/de/packs/housing_pack_2_a2/pack.json"
+  }
 }

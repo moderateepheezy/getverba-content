@@ -1,0 +1,337 @@
+{
+  "schemaVersion": 1,
+  "id": "goethe_a1",
+  "kind": "exam",
+  "title": "Goethe-Zertifikat A1: Start Deutsch 1",
+  "level": "A1",
+  "estimatedMinutes": 65,
+  "phraseCount": 24,
+  "description": "Official Goethe-Institut A1 certification exam practice. Tests basic German skills for everyday situations like introducing yourself, shopping, and simple conversations.",
+  "examType": "certification",
+  "examProvider": "goethe-institut",
+  "officialExamInfo": {
+    "name": "Goethe-Zertifikat A1: Start Deutsch 1",
+    "provider": "Goethe-Institut",
+    "cefrLevel": "A1",
+    "recognizedBy": [
+      "German employers",
+      "German universities (for au pairs)",
+      "German immigration (family reunification)"
+    ],
+    "duration": 65,
+    "passingScore": 60,
+    "sections": [
+      "Hören",
+      "Lesen",
+      "Schreiben",
+      "Sprechen"
+    ]
+  },
+  "sections": [
+    {
+      "id": "hoeren",
+      "title": "Hören (Listening)",
+      "titleEn": "Listening",
+      "durationMinutes": 20,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "hoeren_1",
+          "title": "Teil 1: Kurze Ansagen",
+          "description": "Listen to short announcements and match them to pictures",
+          "itemCount": 6,
+          "format": "multiple_choice_pictures",
+          "title_i18n": {
+            "en": "Teil 1: Kurze Ansagen"
+          },
+          "description_i18n": {
+            "en": "Listen to short announcements and match them to pictures"
+          }
+        },
+        {
+          "id": "hoeren_2",
+          "title": "Teil 2: Kurze Gespräche",
+          "description": "Listen to short conversations and answer questions",
+          "itemCount": 4,
+          "format": "multiple_choice",
+          "title_i18n": {
+            "en": "Teil 2: Kurze Gespräche"
+          },
+          "description_i18n": {
+            "en": "Listen to short conversations and answer questions"
+          }
+        },
+        {
+          "id": "hoeren_3",
+          "title": "Teil 3: Ansagen am Telefon",
+          "description": "Listen to telephone announcements and complete information",
+          "itemCount": 5,
+          "format": "gap_fill",
+          "title_i18n": {
+            "en": "Teil 3: Ansagen am Telefon"
+          },
+          "description_i18n": {
+            "en": "Listen to telephone announcements and complete information"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Hören (Listening)"
+      }
+    },
+    {
+      "id": "lesen",
+      "title": "Lesen (Reading)",
+      "titleEn": "Reading",
+      "durationMinutes": 25,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "lesen_1",
+          "title": "Teil 1: Schilder und Kurznachrichten",
+          "description": "Read signs and short messages, match to situations",
+          "itemCount": 5,
+          "format": "matching",
+          "title_i18n": {
+            "en": "Teil 1: Schilder und Kurznachrichten"
+          },
+          "description_i18n": {
+            "en": "Read signs and short messages, match to situations"
+          }
+        },
+        {
+          "id": "lesen_2",
+          "title": "Teil 2: Anzeigen",
+          "description": "Read advertisements and answer true/false questions",
+          "itemCount": 5,
+          "format": "true_false",
+          "title_i18n": {
+            "en": "Teil 2: Anzeigen"
+          },
+          "description_i18n": {
+            "en": "Read advertisements and answer true/false questions"
+          }
+        },
+        {
+          "id": "lesen_3",
+          "title": "Teil 3: Kurze Texte",
+          "description": "Read short texts and complete missing words",
+          "itemCount": 5,
+          "format": "gap_fill",
+          "title_i18n": {
+            "en": "Teil 3: Kurze Texte"
+          },
+          "description_i18n": {
+            "en": "Read short texts and complete missing words"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Lesen (Reading)"
+      }
+    },
+    {
+      "id": "schreiben",
+      "title": "Schreiben (Writing)",
+      "titleEn": "Writing",
+      "durationMinutes": 20,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "schreiben_1",
+          "title": "Teil 1: Formular ausfüllen",
+          "description": "Fill out a form with personal information",
+          "itemCount": 5,
+          "format": "form_fill",
+          "title_i18n": {
+            "en": "Teil 1: Formular ausfüllen"
+          },
+          "description_i18n": {
+            "en": "Fill out a form with personal information"
+          }
+        },
+        {
+          "id": "schreiben_2",
+          "title": "Teil 2: Kurze Nachricht",
+          "description": "Write a short message (30 words) responding to a situation",
+          "itemCount": 1,
+          "format": "short_text",
+          "wordLimit": 30,
+          "title_i18n": {
+            "en": "Teil 2: Kurze Nachricht"
+          },
+          "description_i18n": {
+            "en": "Write a short message (30 words) responding to a situation"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Schreiben (Writing)"
+      }
+    },
+    {
+      "id": "sprechen",
+      "title": "Sprechen (Speaking)",
+      "titleEn": "Speaking",
+      "durationMinutes": 15,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "sprechen_1",
+          "title": "Teil 1: Sich vorstellen",
+          "description": "Introduce yourself (name, age, country, languages, job/studies, hobbies)",
+          "format": "presentation",
+          "title_i18n": {
+            "en": "Teil 1: Sich vorstellen"
+          },
+          "description_i18n": {
+            "en": "Introduce yourself (name, age, country, languages, job/studies, hobbies)"
+          }
+        },
+        {
+          "id": "sprechen_2",
+          "title": "Teil 2: Informationen erfragen",
+          "description": "Ask for information using prompt cards (shopping, appointments, etc.)",
+          "format": "information_exchange",
+          "title_i18n": {
+            "en": "Teil 2: Informationen erfragen"
+          },
+          "description_i18n": {
+            "en": "Ask for information using prompt cards (shopping, appointments, etc.)"
+          }
+        },
+        {
+          "id": "sprechen_3",
+          "title": "Teil 3: Bitten formulieren",
+          "description": "Make requests in everyday situations using prompt cards",
+          "format": "roleplay",
+          "title_i18n": {
+            "en": "Teil 3: Bitten formulieren"
+          },
+          "description_i18n": {
+            "en": "Make requests in everyday situations using prompt cards"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Sprechen (Speaking)"
+      }
+    }
+  ],
+  "practiceModules": [
+    {
+      "id": "intro_vocab",
+      "title": "Introduction Vocabulary",
+      "description": "Master key vocabulary for self-introduction",
+      "topics": [
+        "name",
+        "age",
+        "nationality",
+        "profession",
+        "hobbies",
+        "family"
+      ],
+      "title_i18n": {
+        "en": "Introduction Vocabulary"
+      },
+      "description_i18n": {
+        "en": "Master key vocabulary for self-introduction"
+      }
+    },
+    {
+      "id": "numbers_dates",
+      "title": "Numbers & Dates",
+      "description": "Practice numbers, prices, and date expressions",
+      "topics": [
+        "cardinal_numbers",
+        "ordinal_numbers",
+        "prices",
+        "dates",
+        "times"
+      ],
+      "title_i18n": {
+        "en": "Numbers & Dates"
+      },
+      "description_i18n": {
+        "en": "Practice numbers, prices, and date expressions"
+      }
+    },
+    {
+      "id": "daily_situations",
+      "title": "Daily Situations",
+      "description": "Practice common everyday scenarios",
+      "topics": [
+        "shopping",
+        "restaurant",
+        "transportation",
+        "appointments"
+      ],
+      "title_i18n": {
+        "en": "Daily Situations"
+      },
+      "description_i18n": {
+        "en": "Practice common everyday scenarios"
+      }
+    }
+  ],
+  "sampleQuestions": [
+    {
+      "section": "hoeren",
+      "part": 1,
+      "type": "multiple_choice",
+      "audioDescription": "Announcement: 'Der Zug nach München fährt heute von Gleis 3.'",
+      "question": "Which platform does the train to Munich leave from?",
+      "options": [
+        "Gleis 1",
+        "Gleis 2",
+        "Gleis 3"
+      ],
+      "correctAnswer": "Gleis 3"
+    },
+    {
+      "section": "lesen",
+      "part": 1,
+      "type": "matching",
+      "text": "Montag bis Freitag: 9-18 Uhr, Samstag: 9-14 Uhr",
+      "question": "What are the Saturday opening hours?",
+      "correctAnswer": "9-14 Uhr"
+    },
+    {
+      "section": "sprechen",
+      "part": 1,
+      "type": "presentation",
+      "promptCard": {
+        "topic": "Sich vorstellen",
+        "points": [
+          "Name?",
+          "Woher?",
+          "Sprachen?",
+          "Beruf?",
+          "Hobby?"
+        ]
+      }
+    }
+  ],
+  "tips": [
+    "Practice listening to German announcements and short dialogues daily",
+    "Learn common phrases for self-introduction and basic requests",
+    "Familiarize yourself with German signs and notices",
+    "Practice filling out forms with personal information"
+  ],
+  "resources": [
+    {
+      "type": "official",
+      "title": "Goethe-Institut Practice Materials",
+      "url": "https://www.goethe.de/de/spr/kup/prf/prf/gzsd1.html"
+    }
+  ],
+  "contentId": "de:exam:goethe_a1",
+  "contentHash": "0ed183304f10a45d08f861fbb51d32f17e4569cb49ebf1895f70d17f8aa9a3d0",
+  "revisionId": "0ed183304f10",
+  "title_i18n": {
+    "en": "Goethe-Zertifikat A1: Start Deutsch 1"
+  },
+  "description_i18n": {
+    "en": "Official Goethe-Institut A1 certification exam practice. Tests basic German skills for everyday situations like introducing yourself, shopping, and simple conversations."
+  }
+}

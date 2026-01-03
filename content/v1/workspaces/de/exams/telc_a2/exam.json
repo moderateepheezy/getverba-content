@@ -1,0 +1,276 @@
+{
+  "schemaVersion": 1,
+  "id": "telc_a2",
+  "kind": "exam",
+  "title": "telc Deutsch A2",
+  "level": "A2",
+  "estimatedMinutes": 70,
+  "phraseCount": 26,
+  "description": "telc A2 certification exam practice. Tests elementary German for routine tasks and direct exchange of information on familiar topics.",
+  "examType": "certification",
+  "examProvider": "telc",
+  "officialExamInfo": {
+    "name": "telc Deutsch A2",
+    "provider": "telc GmbH",
+    "cefrLevel": "A2",
+    "recognizedBy": [
+      "German employers",
+      "German immigration",
+      "Some professional training programs"
+    ],
+    "duration": 70,
+    "passingScore": 60,
+    "sections": [
+      "Hören",
+      "Lesen",
+      "Schreiben",
+      "Sprechen"
+    ]
+  },
+  "sections": [
+    {
+      "id": "hoeren_lesen",
+      "title": "Hören und Lesen",
+      "titleEn": "Listening and Reading",
+      "durationMinutes": 60,
+      "weight": 50,
+      "parts": [
+        {
+          "id": "hoeren_1",
+          "title": "Hören Teil 1",
+          "description": "Listen to conversations and answer questions",
+          "itemCount": 5,
+          "format": "true_false",
+          "title_i18n": {
+            "en": "Hören Teil 1"
+          },
+          "description_i18n": {
+            "en": "Listen to conversations and answer questions"
+          }
+        },
+        {
+          "id": "hoeren_2",
+          "title": "Hören Teil 2",
+          "description": "Listen to radio segments and answer questions",
+          "itemCount": 5,
+          "format": "multiple_choice",
+          "title_i18n": {
+            "en": "Hören Teil 2"
+          },
+          "description_i18n": {
+            "en": "Listen to radio segments and answer questions"
+          }
+        },
+        {
+          "id": "hoeren_3",
+          "title": "Hören Teil 3",
+          "description": "Listen to messages and note information",
+          "itemCount": 5,
+          "format": "gap_fill",
+          "title_i18n": {
+            "en": "Hören Teil 3"
+          },
+          "description_i18n": {
+            "en": "Listen to messages and note information"
+          }
+        },
+        {
+          "id": "lesen_1",
+          "title": "Lesen Teil 1",
+          "description": "Read notices and match to situations",
+          "itemCount": 5,
+          "format": "matching",
+          "title_i18n": {
+            "en": "Lesen Teil 1"
+          },
+          "description_i18n": {
+            "en": "Read notices and match to situations"
+          }
+        },
+        {
+          "id": "lesen_2",
+          "title": "Lesen Teil 2",
+          "description": "Read a text and answer true/false",
+          "itemCount": 5,
+          "format": "true_false",
+          "title_i18n": {
+            "en": "Lesen Teil 2"
+          },
+          "description_i18n": {
+            "en": "Read a text and answer true/false"
+          }
+        },
+        {
+          "id": "lesen_3",
+          "title": "Lesen Teil 3",
+          "description": "Read short texts and match to people",
+          "itemCount": 5,
+          "format": "matching",
+          "title_i18n": {
+            "en": "Lesen Teil 3"
+          },
+          "description_i18n": {
+            "en": "Read short texts and match to people"
+          }
+        },
+        {
+          "id": "lesen_4",
+          "title": "Lesen Teil 4",
+          "description": "Read text and fill gaps",
+          "itemCount": 10,
+          "format": "gap_fill",
+          "title_i18n": {
+            "en": "Lesen Teil 4"
+          },
+          "description_i18n": {
+            "en": "Read text and fill gaps"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Hören und Lesen"
+      }
+    },
+    {
+      "id": "schreiben",
+      "title": "Schreiben (Writing)",
+      "titleEn": "Writing",
+      "durationMinutes": 30,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "schreiben_1",
+          "title": "Kurze Nachricht",
+          "description": "Write a short message (about 30 words)",
+          "itemCount": 1,
+          "format": "short_message",
+          "wordLimit": 30,
+          "title_i18n": {
+            "en": "Kurze Nachricht"
+          },
+          "description_i18n": {
+            "en": "Write a short message (about 30 words)"
+          }
+        },
+        {
+          "id": "schreiben_2",
+          "title": "Brief/E-Mail",
+          "description": "Write a letter or email (about 40 words)",
+          "itemCount": 1,
+          "format": "letter",
+          "wordLimit": 40,
+          "requiredPoints": 3,
+          "title_i18n": {
+            "en": "Brief/E-Mail"
+          },
+          "description_i18n": {
+            "en": "Write a letter or email (about 40 words)"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Schreiben (Writing)"
+      }
+    },
+    {
+      "id": "sprechen",
+      "title": "Sprechen (Speaking)",
+      "titleEn": "Speaking",
+      "durationMinutes": 11,
+      "weight": 25,
+      "groupExam": true,
+      "parts": [
+        {
+          "id": "sprechen_1",
+          "title": "Sich vorstellen",
+          "description": "Introduce yourself to your partner",
+          "format": "self_introduction",
+          "title_i18n": {
+            "en": "Sich vorstellen"
+          },
+          "description_i18n": {
+            "en": "Introduce yourself to your partner"
+          }
+        },
+        {
+          "id": "sprechen_2",
+          "title": "Ein Gespräch führen",
+          "description": "Have a conversation based on picture prompts",
+          "format": "dialogue",
+          "title_i18n": {
+            "en": "Ein Gespräch führen"
+          },
+          "description_i18n": {
+            "en": "Have a conversation based on picture prompts"
+          }
+        },
+        {
+          "id": "sprechen_3",
+          "title": "Etwas aushandeln",
+          "description": "Negotiate or plan something with partner",
+          "format": "negotiation",
+          "title_i18n": {
+            "en": "Etwas aushandeln"
+          },
+          "description_i18n": {
+            "en": "Negotiate or plan something with partner"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Sprechen (Speaking)"
+      }
+    }
+  ],
+  "practiceModules": [
+    {
+      "id": "routine_tasks",
+      "title": "Routine Tasks",
+      "description": "Language for daily routines and simple transactions",
+      "topics": [
+        "shopping",
+        "appointments",
+        "transportation",
+        "services"
+      ],
+      "title_i18n": {
+        "en": "Routine Tasks"
+      },
+      "description_i18n": {
+        "en": "Language for daily routines and simple transactions"
+      }
+    },
+    {
+      "id": "personal_background",
+      "title": "Personal Background",
+      "description": "Talking about yourself, family, and immediate surroundings",
+      "topics": [
+        "family",
+        "work",
+        "home",
+        "education",
+        "hobbies"
+      ],
+      "title_i18n": {
+        "en": "Personal Background"
+      },
+      "description_i18n": {
+        "en": "Talking about yourself, family, and immediate surroundings"
+      }
+    }
+  ],
+  "tips": [
+    "Focus on understanding the gist of straightforward texts",
+    "Practice describing your daily routine and personal background",
+    "Learn to make simple transactions in shops and services"
+  ],
+  "contentId": "de:exam:telc_a2",
+  "contentHash": "9155443c777b30aa29a86b66c77ecf64bcbb9bf03a2debcd5e308920af228148",
+  "revisionId": "9155443c777b",
+  "title_i18n": {
+    "en": "telc Deutsch A2"
+  },
+  "description_i18n": {
+    "en": "telc A2 certification exam practice. Tests elementary German for routine tasks and direct exchange of information on familiar topics."
+  }
+}

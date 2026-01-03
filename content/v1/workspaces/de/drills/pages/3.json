@@ -1,0 +1,245 @@
+{
+  "version": "v1",
+  "kind": "drills",
+  "total": 149,
+  "pageSize": 20,
+  "page": 3,
+  "items": [
+    {
+      "id": "question_formation_a1_tier2_fast-recall",
+      "kind": "drill",
+      "title": "Question Formation: A1 (Tier 2)",
+      "level": "A1",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/question_formation_a1_tier2_fast-recall/drill.json",
+      "contentId": "de:drill:question_formation_a1_tier2_fast-recall",
+      "revisionId": "df41b0c8db8f",
+      "domainKind": "context"
+    },
+    {
+      "id": "question_formation_a1_tier2_micro-transform",
+      "kind": "drill",
+      "title": "Question Formation: A1 (Tier 2)",
+      "level": "A1",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/question_formation_a1_tier2_micro-transform/drill.json",
+      "contentId": "de:drill:question_formation_a1_tier2_micro-transform",
+      "revisionId": "a2fe21bfc7f9",
+      "domainKind": "context"
+    },
+    {
+      "id": "question_formation_a1_tier2_pattern-switch",
+      "kind": "drill",
+      "title": "Question Formation: A1 (Tier 2)",
+      "level": "A1",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/question_formation_a1_tier2_pattern-switch/drill.json",
+      "contentId": "de:drill:question_formation_a1_tier2_pattern-switch",
+      "revisionId": "0f1e731bdfab",
+      "domainKind": "context"
+    },
+    {
+      "id": "question_formation_a1_tier3_fast-recall",
+      "kind": "drill",
+      "title": "Question Formation: A1 (Tier 3)",
+      "level": "A1",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/question_formation_a1_tier3_fast-recall/drill.json",
+      "contentId": "de:drill:question_formation_a1_tier3_fast-recall",
+      "revisionId": "3f7baefbdbc3",
+      "domainKind": "context"
+    },
+    {
+      "id": "question_formation_a1_tier3_micro-transform",
+      "kind": "drill",
+      "title": "Question Formation: A1 (Tier 3)",
+      "level": "A1",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/question_formation_a1_tier3_micro-transform/drill.json",
+      "contentId": "de:drill:question_formation_a1_tier3_micro-transform",
+      "revisionId": "612d7824f895",
+      "domainKind": "context"
+    },
+    {
+      "id": "question_formation_a1_tier3_pattern-switch",
+      "kind": "drill",
+      "title": "Question Formation: A1 (Tier 3)",
+      "level": "A1",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/question_formation_a1_tier3_pattern-switch/drill.json",
+      "contentId": "de:drill:question_formation_a1_tier3_pattern-switch",
+      "revisionId": "2e712a01f641",
+      "domainKind": "context"
+    },
+    {
+      "id": "time_expressions_inversion_a1_tier1_error-trap",
+      "kind": "drill",
+      "title": "Time Expressions & Inversion: A1 (Tier 1)",
+      "level": "A1",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a1_tier1_error-trap/drill.json",
+      "contentId": "de:drill:time_expressions_inversion_a1_tier1_error-trap",
+      "revisionId": "256f98235543",
+      "domainKind": "context"
+    },
+    {
+      "id": "time_expressions_inversion_a1_tier1_micro-transform",
+      "kind": "drill",
+      "title": "Time Expressions & Inversion: A1 (Tier 1)",
+      "level": "A1",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a1_tier1_micro-transform/drill.json",
+      "contentId": "de:drill:time_expressions_inversion_a1_tier1_micro-transform",
+      "revisionId": "3837a24ea95a",
+      "domainKind": "context"
+    },
+    {
+      "id": "time_expressions_inversion_a1_tier1_pattern-switch",
+      "kind": "drill",
+      "title": "Time Expressions & Inversion: A1 (Tier 1)",
+      "level": "A1",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a1_tier1_pattern-switch/drill.json",
+      "contentId": "de:drill:time_expressions_inversion_a1_tier1_pattern-switch",
+      "revisionId": "51baed158769",
+      "domainKind": "context"
+    },
+    {
+      "id": "time_expressions_inversion_a1_tier2_error-trap",
+      "kind": "drill",
+      "title": "Time Expressions & Inversion: A1 (Tier 2)",
+      "level": "A1",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a1_tier2_error-trap/drill.json",
+      "contentId": "de:drill:time_expressions_inversion_a1_tier2_error-trap",
+      "revisionId": "3ac11c3125e6",
+      "domainKind": "context"
+    },
+    {
+      "id": "time_expressions_inversion_a1_tier2_micro-transform",
+      "kind": "drill",
+      "title": "Time Expressions & Inversion: A1 (Tier 2)",
+      "level": "A1",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a1_tier2_micro-transform/drill.json",
+      "contentId": "de:drill:time_expressions_inversion_a1_tier2_micro-transform",
+      "revisionId": "f2f033216651",
+      "domainKind": "context"
+    },
+    {
+      "id": "time_expressions_inversion_a1_tier2_pattern-switch",
+      "kind": "drill",
+      "title": "Time Expressions & Inversion: A1 (Tier 2)",
+      "level": "A1",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a1_tier2_pattern-switch/drill.json",
+      "contentId": "de:drill:time_expressions_inversion_a1_tier2_pattern-switch",
+      "revisionId": "d15bad84140c",
+      "domainKind": "context"
+    },
+    {
+      "id": "time_expressions_inversion_a1_tier3_error-trap",
+      "kind": "drill",
+      "title": "Time Expressions & Inversion: A1 (Tier 3)",
+      "level": "A1",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a1_tier3_error-trap/drill.json",
+      "contentId": "de:drill:time_expressions_inversion_a1_tier3_error-trap",
+      "revisionId": "a46a63bc8197",
+      "domainKind": "context"
+    },
+    {
+      "id": "time_expressions_inversion_a1_tier3_micro-transform",
+      "kind": "drill",
+      "title": "Time Expressions & Inversion: A1 (Tier 3)",
+      "level": "A1",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a1_tier3_micro-transform/drill.json",
+      "contentId": "de:drill:time_expressions_inversion_a1_tier3_micro-transform",
+      "revisionId": "36633f03350e",
+      "domainKind": "context"
+    },
+    {
+      "id": "time_expressions_inversion_a1_tier3_pattern-switch",
+      "kind": "drill",
+      "title": "Time Expressions & Inversion: A1 (Tier 3)",
+      "level": "A1",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/time_expressions_inversion_a1_tier3_pattern-switch/drill.json",
+      "contentId": "de:drill:time_expressions_inversion_a1_tier3_pattern-switch",
+      "revisionId": "bb34fe690fe6",
+      "domainKind": "context"
+    },
+    {
+      "id": "verb_present_tense_a1",
+      "kind": "drill",
+      "title": "Verb Endings: Present Tense (A1)",
+      "level": "A1",
+      "durationMinutes": 8,
+      "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a1/drill.json",
+      "contentId": "de:drill:verb_present_tense_a1",
+      "revisionId": "df88562851c8",
+      "scenario": "mechanics",
+      "register": "neutral",
+      "primaryStructure": "present_tense_conjugation",
+      "tags": [
+        "grammar",
+        "verbs",
+        "conjugation",
+        "present_tense"
+      ],
+      "drillType": "conjugation",
+      "cognitiveLoad": "low",
+      "whyThisWorks": "Master present tense verb conjugation patterns for A1 German learners Correctly conjugate regular verbs in present tense",
+      "title_i18n": {
+        "en": "Verb Endings: Present Tense (A1)"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "verb_present_tense_a1_tier1_contrast-pairs",
+      "kind": "drill",
+      "title": "Verb Present Tense: A1 (Tier 1)",
+      "level": "A1",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a1_tier1_contrast-pairs/drill.json",
+      "contentId": "de:drill:verb_present_tense_a1_tier1_contrast-pairs",
+      "revisionId": "a0a7bf01e74f",
+      "domainKind": "context"
+    },
+    {
+      "id": "verb_present_tense_a1_tier1_pattern-switch",
+      "kind": "drill",
+      "title": "Verb Present Tense: A1 (Tier 1)",
+      "level": "A1",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a1_tier1_pattern-switch/drill.json",
+      "contentId": "de:drill:verb_present_tense_a1_tier1_pattern-switch",
+      "revisionId": "2c073b31c305",
+      "domainKind": "context"
+    },
+    {
+      "id": "verb_present_tense_a1_tier1_slot-substitution",
+      "kind": "drill",
+      "title": "Verb Present Tense: A1 (Tier 1)",
+      "level": "A1",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a1_tier1_slot-substitution/drill.json",
+      "contentId": "de:drill:verb_present_tense_a1_tier1_slot-substitution",
+      "revisionId": "4f44b2421384",
+      "domainKind": "context"
+    },
+    {
+      "id": "verb_present_tense_a1_tier2_contrast-pairs",
+      "kind": "drill",
+      "title": "Verb Present Tense: A1 (Tier 2)",
+      "level": "A1",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/verb_present_tense_a1_tier2_contrast-pairs/drill.json",
+      "contentId": "de:drill:verb_present_tense_a1_tier2_contrast-pairs",
+      "revisionId": "b2b633953f10",
+      "domainKind": "context"
+    }
+  ],
+  "nextPage": "/v1/workspaces/de/drills/pages/4.json"
+}

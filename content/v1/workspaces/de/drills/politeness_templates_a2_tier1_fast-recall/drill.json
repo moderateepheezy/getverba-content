@@ -1,0 +1,256 @@
+{
+  "schemaVersion": 1,
+  "id": "politeness_templates_a2_tier1_fast-recall",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A2",
+  "title": "Politeness Templates: A2 (Tier 1)",
+  "shortTitle": "Politeness Templates A2",
+  "subtitle": "Tier 1 - fast recall",
+  "estimatedMinutes": 3,
+  "mechanicId": "politeness_templates",
+  "mechanicLabel": "Politeness Templates",
+  "loopType": "fast_recall",
+  "difficultyTier": 1,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "step-1",
+        "title": "Step 1",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Step 1"
+        }
+      },
+      {
+        "id": "step-2",
+        "title": "Step 2",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Step 2"
+        }
+      },
+      {
+        "id": "step-3",
+        "title": "Step 3",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006"
+        ],
+        "title_i18n": {
+          "en": "Step 3"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "undefined zeigen den.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "undefined zeigen den.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          null
+        ],
+        "verb": [
+          "zeigen"
+        ],
+        "object": [
+          "den"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A2_tier1/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "undefined öffnen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "undefined öffnen.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          null
+        ],
+        "verb": [
+          "öffnen"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A2_tier1/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "undefined machen eine.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "undefined machen eine.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          null
+        ],
+        "verb": [
+          "machen"
+        ],
+        "object": [
+          "eine"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A2_tier1/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "undefined öffnen eine.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "undefined öffnen eine.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          null
+        ],
+        "verb": [
+          "öffnen"
+        ],
+        "object": [
+          "eine"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A2_tier1/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "undefined öffnen das.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "undefined öffnen das.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          null
+        ],
+        "verb": [
+          "öffnen"
+        ],
+        "object": [
+          "das"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A2_tier1/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "undefined machen den.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "undefined machen den.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          null
+        ],
+        "verb": [
+          "machen"
+        ],
+        "object": [
+          "den"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A2_tier1/prompt-006.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "politeness_templates",
+    "loopType": "fast_recall",
+    "targetStructures": [
+      "polite_requests",
+      "conditional_politeness",
+      "formal_greetings"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "zeigen",
+        "öffnen",
+        "machen"
+      ],
+      "subjects": [
+        null
+      ],
+      "patterns": [
+        "polite_requests",
+        "conditional_politeness",
+        "formal_greetings"
+      ]
+    },
+    "difficultyTier": 1,
+    "recommendedReps": 2,
+    "estPromptCount": 6,
+    "timeboxMinutes": 3,
+    "qualitySignals": {
+      "tokenHitsCount": 0,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 3,
+      "uniqueSubjectCount": 1,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/politeness_templates",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-03T00:16:26.936Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:drill:politeness_templates_a2_tier1_fast-recall",
+  "contentHash": "5b8cd467e7a927cf5a5ced8da8e6bcb2ecd2bf5f0896e161123591abf8e9a179",
+  "revisionId": "5b8cd467e7a9"
+}

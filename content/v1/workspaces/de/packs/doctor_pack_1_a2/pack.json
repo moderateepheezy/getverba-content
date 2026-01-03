@@ -3,7 +3,7 @@
   "id": "doctor_pack_1_a2",
   "kind": "pack",
   "packVersion": "1.0.0",
-  "title": "Doctor - A2",
+  "title": "Doctor A2 — 1: Making an Appointment",
   "level": "A2",
   "estimatedMinutes": 15,
   "description": "Practice doctor scenarios at A2 level.",
@@ -203,7 +203,10 @@
         "promptIds": [
           "prompt-001",
           "prompt-002"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Making an Appointment"
+        }
       },
       {
         "id": "symptoms",
@@ -212,7 +215,10 @@
           "prompt-003",
           "prompt-004",
           "prompt-005"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Describing Symptoms"
+        }
       },
       {
         "id": "prescription",
@@ -220,7 +226,10 @@
         "promptIds": [
           "prompt-006",
           "prompt-007"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Getting Prescription"
+        }
       }
     ]
   },
@@ -294,20 +303,28 @@
     "exitConditions": {
       "targetMinutes": 15,
       "completeWhen": "sessionPlan_completed_twice"
-    }
+    },
+    "topicKey": "making-an-appointment",
+    "topicLabel": "Making an Appointment",
+    "shortTitle": "Appointment scheduling",
+    "orderInTopic": 1
   },
   "provenance": {
     "source": "template",
     "sourceRef": "doctor",
     "extractorVersion": "1.0.0",
-    "generatedAt": "2025-12-31T07:35:50.394Z"
+    "generatedAt": "2026-01-01T00:56:00.509Z"
   },
   "review": {
-    "status": "approved",
-    "reviewer": "Afees",
-    "reviewedAt": "2025-12-31T08:31:39Z"
+    "status": "needs_review"
   },
   "contentId": "de:pack:doctor_pack_1_a2",
-  "contentHash": "a285fedcaa5b7e57fdf9b10c2720f794fa94fe28e722faaeee9202dea66a336a",
-  "revisionId": "a285fedcaa5b"
+  "contentHash": "70383687eb7375ece4f2cbeb9deef3cc464403d61e96d12f2e5d8dddf4ef5189",
+  "revisionId": "70383687eb73",
+  "title_i18n": {
+    "en": "Doctor A2 — 1: Making an Appointment"
+  },
+  "description_i18n": {
+    "en": "Practice doctor scenarios at A2 level."
+  }
 }

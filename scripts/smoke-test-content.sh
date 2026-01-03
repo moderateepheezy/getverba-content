@@ -451,6 +451,143 @@ test_workspace() {
     echo "      ✅ Scenario index accessible and valid"
   fi
   
+  # Test 2.6: Test drills index
+  echo "   🔧 Testing drills index..."
+  local DRILLS_INDEX_URL="${BASE_URL}/v1/workspaces/${WORKSPACE}/drills/index.json"
+  local DRILLS_RESPONSE=$(curl -s -w "\n%{http_code}" "$DRILLS_INDEX_URL")
+  local DRILLS_HTTP_CODE=$(echo "$DRILLS_RESPONSE" | tail -n1)
+  local DRILLS_BODY=$(echo "$DRILLS_RESPONSE" | sed '$d')
+  
+  if [ "$DRILLS_HTTP_CODE" != "200" ] && [ "$DRILLS_HTTP_CODE" != "304" ]; then
+    echo "      ⚠️  Warning: Drills index returned HTTP $DRILLS_HTTP_CODE (may not exist yet)"
+  else
+    if ! echo "$DRILLS_BODY" | jq empty 2>/dev/null; then
+      echo "      ❌ Error: Drills index is not valid JSON"
+      return 1
+    fi
+    
+    # Validate drills index structure
+    local DRILLS_VERSION=$(echo "$DRILLS_BODY" | jq -r '.version // ""')
+    local DRILLS_KIND=$(echo "$DRILLS_BODY" | jq -r '.kind // ""')
+    local DRILLS_TOTAL=$(echo "$DRILLS_BODY" | jq -r '.total // 0')
+    
+    if [ "$DRILLS_VERSION" != "v1" ]; then
+      echo "      ❌ Error: Drills index version must be v1, got $DRILLS_VERSION"
+      return 1
+    fi
+    if [ "$DRILLS_KIND" != "drills" ]; then
+      echo "      ❌ Error: Drills index kind must be drills, got $DRILLS_KIND"
+      return 1
+    fi
+    
+    local DRILL_COUNT=$(echo "$DRILLS_BODY" | jq '.items | length // 0')
+    echo "      ✅ Drills index accessible, found $DRILL_COUNT drill(s)"
+    
+    # Require at least 2 drills for valid smoke test
+    if [ "$DRILL_COUNT" -lt 2 ]; then
+      echo "      ⚠️  Warning: Less than 2 drills found (expected at least 2)"
+    fi
+    
+    # Test each drill entry URL (sample first 3)
+    if [ "$DRILL_COUNT" -gt 0 ]; then
+      local SAMPLE_COUNT=$((DRILL_COUNT < 3 ? DRILL_COUNT : 3))
+      echo "      Testing $SAMPLE_COUNT drill entry(ies)..."
+      local DRILL_INDEX=0
+      echo "$DRILLS_BODY" | jq -c ".items[0:$SAMPLE_COUNT][]" | while IFS= read -r drill; do
+        DRILL_INDEX=$((DRILL_INDEX + 1))
+        local DRILL_ID=$(echo "$drill" | jq -r '.id // "unknown"')
+        local DRILL_KIND=$(echo "$drill" | jq -r '.kind // ""')
+        local DRILL_ENTRY_URL=$(echo "$drill" | jq -r '.entryUrl // ""')
+        
+        # Validate kind is "drill"
+        if [ "$DRILL_KIND" != "drill" ]; then
+          echo "         ❌ Drill $DRILL_INDEX ($DRILL_ID): kind must be 'drill', got '$DRILL_KIND'"
+          exit 1
+        fi
+        
+        if [ -z "$DRILL_ENTRY_URL" ]; then
+          echo "         ❌ Drill $DRILL_INDEX ($DRILL_ID): Missing entryUrl"
+          exit 1
+        fi
+        
+        # Validate entryUrl matches canonical pattern
+        if ! echo "$DRILL_ENTRY_URL" | grep -qE "^/v1/workspaces/[^/]+/drills/[^/]+/drill\.json$"; then
+          echo "         ❌ Drill $DRILL_INDEX ($DRILL_ID): entryUrl does not match canonical pattern"
+          echo "            Got: $DRILL_ENTRY_URL"
+          echo "            Expected: /v1/workspaces/{ws}/drills/{id}/drill.json"
+          exit 1
+        fi
+        
+        local DRILL_FULL_URL="${BASE_URL}${DRILL_ENTRY_URL}"
+        
+        # Fetch drill entry
+        local DRILL_ENTRY_RESPONSE=$(curl -s -w "\n%{http_code}" "$DRILL_FULL_URL")
+        local DRILL_ENTRY_HTTP_CODE=$(echo "$DRILL_ENTRY_RESPONSE" | tail -n1)
+        local DRILL_ENTRY_BODY=$(echo "$DRILL_ENTRY_RESPONSE" | sed '$d')
+        
+        if [ "$DRILL_ENTRY_HTTP_CODE" != "200" ] && [ "$DRILL_ENTRY_HTTP_CODE" != "304" ]; then
+          echo "         ❌ Drill $DRILL_INDEX ($DRILL_ID): Entry returned HTTP $DRILL_ENTRY_HTTP_CODE"
+          echo "            URL: $DRILL_FULL_URL"
+          exit 1
+        fi
+        
+        if ! echo "$DRILL_ENTRY_BODY" | jq empty 2>/dev/null; then
+          echo "         ❌ Drill $DRILL_INDEX ($DRILL_ID): Entry is not valid JSON"
+          exit 1
+        fi
+        
+        local ENTRY_ID=$(echo "$DRILL_ENTRY_BODY" | jq -r '.id // ""')
+        local ENTRY_KIND=$(echo "$DRILL_ENTRY_BODY" | jq -r '.kind // ""')
+        local ENTRY_TITLE=$(echo "$DRILL_ENTRY_BODY" | jq -r '.title // ""')
+        
+        if [ -z "$ENTRY_ID" ] || [ -z "$ENTRY_KIND" ] || [ -z "$ENTRY_TITLE" ]; then
+          echo "         ❌ Drill $DRILL_INDEX ($DRILL_ID): Entry missing required fields (id, kind, title)"
+          exit 1
+        fi
+        
+        if [ "$ENTRY_KIND" != "drill" ]; then
+          echo "         ❌ Drill $DRILL_INDEX ($DRILL_ID): Entry kind must be 'drill', got '$ENTRY_KIND'"
+          exit 1
+        fi
+        
+        # Check if drill has prompts or promptsUrl (playable by session engine)
+        local HAS_PROMPTS=$(echo "$DRILL_ENTRY_BODY" | jq '.prompts | length // 0')
+        local HAS_PROMPTS_URL=$(echo "$DRILL_ENTRY_BODY" | jq -r '.promptsUrl // ""')
+        local HAS_SESSION_PLAN=$(echo "$DRILL_ENTRY_BODY" | jq -r '.sessionPlan.version // ""')
+        
+        if [ "$HAS_PROMPTS" -gt 0 ] || [ -n "$HAS_PROMPTS_URL" ]; then
+          if [ -z "$HAS_SESSION_PLAN" ]; then
+            echo "         ⚠️  Drill $DRILL_INDEX ($DRILL_ID): Has prompts but missing sessionPlan"
+          else
+            echo "         ✅ Drill $DRILL_INDEX ($DRILL_ID): Entry valid with sessionPlan (playable)"
+          fi
+        else
+          echo "         ✅ Drill $DRILL_INDEX ($DRILL_ID): Entry valid (exercise-based)"
+        fi
+        
+        # If promptsUrl is present, test that it's accessible
+        if [ -n "$HAS_PROMPTS_URL" ]; then
+          local PROMPTS_FULL_URL="${BASE_URL}${HAS_PROMPTS_URL}"
+          local PROMPTS_RESPONSE=$(curl -s -w "\n%{http_code}" "$PROMPTS_FULL_URL")
+          local PROMPTS_HTTP_CODE=$(echo "$PROMPTS_RESPONSE" | tail -n1)
+          
+          if [ "$PROMPTS_HTTP_CODE" != "200" ] && [ "$PROMPTS_HTTP_CODE" != "304" ]; then
+            echo "         ❌ Drill $DRILL_INDEX ($DRILL_ID): promptsUrl returned HTTP $PROMPTS_HTTP_CODE"
+            echo "            URL: $PROMPTS_FULL_URL"
+            exit 1
+          fi
+          echo "         ✅ Drill $DRILL_INDEX ($DRILL_ID): promptsUrl accessible"
+        fi
+      done
+      
+      if [ $? -ne 0 ]; then
+        return 1
+      fi
+    fi
+    
+    echo "      ✅ Drills index accessible and valid"
+  fi
+  
   # Test 3: Test featured.json if it exists
   echo "   🎯 Testing featured content..."
   

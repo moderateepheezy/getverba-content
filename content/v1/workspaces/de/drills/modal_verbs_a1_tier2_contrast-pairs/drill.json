@@ -1,0 +1,328 @@
+{
+  "schemaVersion": 1,
+  "id": "modal_verbs_a1_tier2_contrast-pairs",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A1",
+  "title": "Modal Verbs: A1 (Tier 2)",
+  "shortTitle": "Modal Verbs A1",
+  "subtitle": "Tier 2 - contrast pairs - Master modal verb patterns (können",
+  "estimatedMinutes": 4,
+  "mechanicId": "modal_verbs",
+  "mechanicLabel": "Modal Verbs",
+  "loopType": "contrast_pairs",
+  "difficultyTier": 2,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "pair-1",
+        "title": "Pair 1",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Pair 1"
+        }
+      },
+      {
+        "id": "pair-2",
+        "title": "Pair 2",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Pair 2"
+        }
+      },
+      {
+        "id": "pair-3",
+        "title": "Pair 3",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006"
+        ],
+        "title_i18n": {
+          "en": "Pair 3"
+        }
+      },
+      {
+        "id": "pair-4",
+        "title": "Pair 4",
+        "promptIds": [
+          "prompt-007",
+          "prompt-008"
+        ],
+        "title_i18n": {
+          "en": "Pair 4"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Er macht ins Kino.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er macht ins Kino.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "macht"
+        ],
+        "object": [
+          "ins Kino"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier2/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Wir gehen eine.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Wir gehen eine.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "gehen"
+        ],
+        "object": [
+          "eine"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier2/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "Du gehst ins Kino.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du gehst ins Kino.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "gehst"
+        ],
+        "object": [
+          "ins Kino"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier2/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Ihr hört einen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ihr hört einen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "hört"
+        ],
+        "object": [
+          "einen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier2/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Du lernst einen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du lernst einen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "lernst"
+        ],
+        "object": [
+          "einen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier2/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Sie kauft zur Arbeit.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie kauft zur Arbeit.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "kauft"
+        ],
+        "object": [
+          "zur Arbeit"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier2/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "Ich höre den.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich höre den.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "höre"
+        ],
+        "object": [
+          "den"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier2/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "Ihr seht nach Hause.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ihr seht nach Hause.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "seht"
+        ],
+        "object": [
+          "nach Hause"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier2/prompt-008.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "modal_verbs",
+    "loopType": "contrast_pairs",
+    "targetStructures": [
+      "modal_verb_infinitive",
+      "modal_verb_requests",
+      "modal_verb_ability"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "macht",
+        "gehen",
+        "gehst",
+        "hört",
+        "lernst",
+        "kauft",
+        "höre",
+        "seht"
+      ],
+      "subjects": [
+        "Er",
+        "Wir",
+        "Du",
+        "Ihr",
+        "Sie",
+        "Ich"
+      ],
+      "patterns": [
+        "modal_verb_infinitive",
+        "modal_verb_requests",
+        "modal_verb_ability"
+      ]
+    },
+    "difficultyTier": 2,
+    "recommendedReps": 3,
+    "estPromptCount": 8,
+    "timeboxMinutes": 4,
+    "qualitySignals": {
+      "tokenHitsCount": 0,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 8,
+      "uniqueSubjectCount": 6,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/modal_verbs",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-03T00:18:10.635Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:drill:modal_verbs_a1_tier2_contrast-pairs",
+  "contentHash": "bb9d5171b80162c7e74bf4e8ae373c5ed9ffe9edef45ebf1f369694df1a021f5",
+  "revisionId": "bb9d5171b801"
+}

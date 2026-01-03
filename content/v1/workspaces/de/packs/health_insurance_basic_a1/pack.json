@@ -3,7 +3,7 @@
   "id": "health_insurance_basic_a1",
   "kind": "pack",
   "packVersion": "1.0.0",
-  "title": "Government Office - A1",
+  "title": "Government Office A1 — Health Insurance Basic",
   "level": "A1",
   "estimatedMinutes": 15,
   "description": "Practice government_office scenarios at A1 level.",
@@ -214,7 +214,10 @@
         "promptIds": [
           "prompt-001",
           "prompt-002"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Making an Appointment"
+        }
       },
       {
         "id": "documents",
@@ -223,7 +226,10 @@
           "prompt-003",
           "prompt-004",
           "prompt-005"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Required Documents"
+        }
       },
       {
         "id": "questions",
@@ -231,7 +237,10 @@
         "promptIds": [
           "prompt-006",
           "prompt-007"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Asking Questions"
+        }
       }
     ]
   },
@@ -320,5 +329,11 @@
   },
   "contentId": "de:pack:health_insurance_basic_a1",
   "contentHash": "638378c578d55097365f577edb8f35f61a8a049bd121959f366389dbbcbf3afb",
-  "revisionId": "638378c578d5"
+  "revisionId": "638378c578d5",
+  "title_i18n": {
+    "en": "Government Office A1 — Health Insurance Basic"
+  },
+  "description_i18n": {
+    "en": "Practice government_office scenarios at A1 level."
+  }
 }

@@ -1,0 +1,317 @@
+{
+  "schemaVersion": 1,
+  "id": "telc_b1",
+  "kind": "exam",
+  "title": "telc Deutsch B1",
+  "level": "B1",
+  "estimatedMinutes": 120,
+  "phraseCount": 34,
+  "description": "telc B1 certification exam practice. Equivalent to Goethe-Zertifikat B1, recognized for German citizenship and intermediate language proficiency.",
+  "examType": "certification",
+  "examProvider": "telc",
+  "officialExamInfo": {
+    "name": "telc Deutsch B1",
+    "provider": "telc GmbH",
+    "cefrLevel": "B1",
+    "recognizedBy": [
+      "German citizenship",
+      "German employers",
+      "Universities (some programs)",
+      "Immigration"
+    ],
+    "duration": 150,
+    "passingScore": 60,
+    "sections": [
+      "Hören",
+      "Lesen",
+      "Schreiben",
+      "Sprechen"
+    ]
+  },
+  "sections": [
+    {
+      "id": "hoeren",
+      "title": "Hören (Listening)",
+      "titleEn": "Listening",
+      "durationMinutes": 30,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "hoeren_1",
+          "title": "Teil 1: Kurze Hörtexte",
+          "description": "Listen to short texts and match to statements",
+          "itemCount": 5,
+          "format": "matching",
+          "title_i18n": {
+            "en": "Teil 1: Kurze Hörtexte"
+          },
+          "description_i18n": {
+            "en": "Listen to short texts and match to statements"
+          }
+        },
+        {
+          "id": "hoeren_2",
+          "title": "Teil 2: Längerer Hörtext",
+          "description": "Listen to a longer text and answer questions",
+          "itemCount": 10,
+          "format": "true_false",
+          "title_i18n": {
+            "en": "Teil 2: Längerer Hörtext"
+          },
+          "description_i18n": {
+            "en": "Listen to a longer text and answer questions"
+          }
+        },
+        {
+          "id": "hoeren_3",
+          "title": "Teil 3: Gespräch",
+          "description": "Listen to a conversation and answer questions",
+          "itemCount": 5,
+          "format": "multiple_choice",
+          "title_i18n": {
+            "en": "Teil 3: Gespräch"
+          },
+          "description_i18n": {
+            "en": "Listen to a conversation and answer questions"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Hören (Listening)"
+      }
+    },
+    {
+      "id": "lesen",
+      "title": "Lesen (Reading)",
+      "titleEn": "Reading",
+      "durationMinutes": 60,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "lesen_1",
+          "title": "Teil 1: Zuordnung",
+          "description": "Match headlines to texts",
+          "itemCount": 5,
+          "format": "matching",
+          "title_i18n": {
+            "en": "Teil 1: Zuordnung"
+          },
+          "description_i18n": {
+            "en": "Match headlines to texts"
+          }
+        },
+        {
+          "id": "lesen_2",
+          "title": "Teil 2: Artikel",
+          "description": "Read an article and answer questions",
+          "itemCount": 5,
+          "format": "multiple_choice",
+          "title_i18n": {
+            "en": "Teil 2: Artikel"
+          },
+          "description_i18n": {
+            "en": "Read an article and answer questions"
+          }
+        },
+        {
+          "id": "lesen_3",
+          "title": "Teil 3: Situationen",
+          "description": "Match situations to texts",
+          "itemCount": 10,
+          "format": "matching",
+          "title_i18n": {
+            "en": "Teil 3: Situationen"
+          },
+          "description_i18n": {
+            "en": "Match situations to texts"
+          }
+        },
+        {
+          "id": "lesen_4",
+          "title": "Teil 4: Leserbrief",
+          "description": "Read a reader letter and answer questions",
+          "itemCount": 5,
+          "format": "true_false",
+          "title_i18n": {
+            "en": "Teil 4: Leserbrief"
+          },
+          "description_i18n": {
+            "en": "Read a reader letter and answer questions"
+          }
+        },
+        {
+          "id": "lesen_5",
+          "title": "Teil 5: Lückentext",
+          "description": "Fill gaps in a text",
+          "itemCount": 10,
+          "format": "gap_fill",
+          "title_i18n": {
+            "en": "Teil 5: Lückentext"
+          },
+          "description_i18n": {
+            "en": "Fill gaps in a text"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Lesen (Reading)"
+      }
+    },
+    {
+      "id": "schreiben",
+      "title": "Schreiben (Writing)",
+      "titleEn": "Writing",
+      "durationMinutes": 30,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "schreiben_1",
+          "title": "Formeller Brief",
+          "description": "Write a formal letter (about 150 words)",
+          "itemCount": 1,
+          "format": "formal_letter",
+          "wordLimit": 150,
+          "requiredPoints": 4,
+          "title_i18n": {
+            "en": "Formeller Brief"
+          },
+          "description_i18n": {
+            "en": "Write a formal letter (about 150 words)"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Schreiben (Writing)"
+      }
+    },
+    {
+      "id": "sprechen",
+      "title": "Sprechen (Speaking)",
+      "titleEn": "Speaking",
+      "durationMinutes": 15,
+      "weight": 25,
+      "groupExam": true,
+      "parts": [
+        {
+          "id": "sprechen_1",
+          "title": "Teil 1a: Kontaktaufnahme",
+          "description": "Get to know your partner",
+          "format": "introduction",
+          "title_i18n": {
+            "en": "Teil 1a: Kontaktaufnahme"
+          },
+          "description_i18n": {
+            "en": "Get to know your partner"
+          }
+        },
+        {
+          "id": "sprechen_1b",
+          "title": "Teil 1b: Gespräch",
+          "description": "Have a conversation about a topic",
+          "format": "dialogue",
+          "title_i18n": {
+            "en": "Teil 1b: Gespräch"
+          },
+          "description_i18n": {
+            "en": "Have a conversation about a topic"
+          }
+        },
+        {
+          "id": "sprechen_2",
+          "title": "Teil 2: Präsentation",
+          "description": "Give a short presentation on a topic",
+          "format": "presentation",
+          "title_i18n": {
+            "en": "Teil 2: Präsentation"
+          },
+          "description_i18n": {
+            "en": "Give a short presentation on a topic"
+          }
+        },
+        {
+          "id": "sprechen_3",
+          "title": "Teil 3: Gemeinsam planen",
+          "description": "Plan something together with partner",
+          "format": "collaborative_planning",
+          "title_i18n": {
+            "en": "Teil 3: Gemeinsam planen"
+          },
+          "description_i18n": {
+            "en": "Plan something together with partner"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Sprechen (Speaking)"
+      }
+    }
+  ],
+  "practiceModules": [
+    {
+      "id": "opinions_arguments",
+      "title": "Opinions & Arguments",
+      "description": "Expressing and justifying opinions",
+      "topics": [
+        "agreeing",
+        "disagreeing",
+        "giving_reasons",
+        "examples"
+      ],
+      "title_i18n": {
+        "en": "Opinions & Arguments"
+      },
+      "description_i18n": {
+        "en": "Expressing and justifying opinions"
+      }
+    },
+    {
+      "id": "formal_writing",
+      "title": "Formal Writing",
+      "description": "Writing formal letters and emails",
+      "topics": [
+        "complaints",
+        "requests",
+        "applications",
+        "enquiries"
+      ],
+      "title_i18n": {
+        "en": "Formal Writing"
+      },
+      "description_i18n": {
+        "en": "Writing formal letters and emails"
+      }
+    },
+    {
+      "id": "presentations",
+      "title": "Giving Presentations",
+      "description": "Structuring and delivering short talks",
+      "topics": [
+        "introduction",
+        "main_points",
+        "conclusion",
+        "questions"
+      ],
+      "title_i18n": {
+        "en": "Giving Presentations"
+      },
+      "description_i18n": {
+        "en": "Structuring and delivering short talks"
+      }
+    }
+  ],
+  "tips": [
+    "Practice understanding the main points of clear standard speech",
+    "Learn to produce simple connected text on familiar topics",
+    "Work on describing experiences, events, dreams, and ambitions",
+    "Practice giving reasons and explanations for opinions"
+  ],
+  "contentId": "de:exam:telc_b1",
+  "contentHash": "35f299438337bab9fb20d2e4ccddcd17b9b1ebdbcaa75caa3a1a5375af2edc75",
+  "revisionId": "35f299438337",
+  "title_i18n": {
+    "en": "telc Deutsch B1"
+  },
+  "description_i18n": {
+    "en": "telc B1 certification exam practice. Equivalent to Goethe-Zertifikat B1, recognized for German citizenship and intermediate language proficiency."
+  }
+}

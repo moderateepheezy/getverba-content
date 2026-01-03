@@ -1,0 +1,260 @@
+{
+  "schemaVersion": 1,
+  "id": "case_endings_akkusativ_a2_tier1_contrast-pairs",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A2",
+  "title": "Case Endings: Akkusativ: A2 (Tier 1)",
+  "shortTitle": "Case Endings: Akkusativ A2",
+  "subtitle": "Tier 1 - contrast pairs - Master accusative case endings (de",
+  "estimatedMinutes": 3,
+  "mechanicId": "case_endings_akkusativ",
+  "mechanicLabel": "Case Endings: Akkusativ",
+  "loopType": "contrast_pairs",
+  "difficultyTier": 1,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "pair-1",
+        "title": "Pair 1",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Pair 1"
+        }
+      },
+      {
+        "id": "pair-2",
+        "title": "Pair 2",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Pair 2"
+        }
+      },
+      {
+        "id": "pair-3",
+        "title": "Pair 3",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006"
+        ],
+        "title_i18n": {
+          "en": "Pair 3"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Du trinkest.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du trinkest.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "trinkest"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier1/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Wir trinke das Brot.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Wir trinke das Brot.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "trinke"
+        ],
+        "object": [
+          "das Brot"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier1/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "Er trinket den Tisch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er trinket den Tisch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "trinket"
+        ],
+        "object": [
+          "den Tisch"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier1/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Wir lese die Milch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Wir lese die Milch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "lese"
+        ],
+        "object": [
+          "die Milch"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier1/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Du lesest einen Stuhl.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du lesest einen Stuhl.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "lesest"
+        ],
+        "object": [
+          "einen Stuhl"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier1/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Wir nehme eine Tasse.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Wir nehme eine Tasse.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "nehme"
+        ],
+        "object": [
+          "eine Tasse"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier1/prompt-006.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "case_endings_akkusativ",
+    "loopType": "contrast_pairs",
+    "targetStructures": [
+      "akkusativ_articles",
+      "akkusativ_pronouns",
+      "direct_object_marking"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "trinkest",
+        "trinke",
+        "trinket",
+        "lese",
+        "lesest",
+        "nehme"
+      ],
+      "subjects": [
+        "Du",
+        "Wir",
+        "Er"
+      ],
+      "patterns": [
+        "akkusativ_articles",
+        "akkusativ_pronouns",
+        "direct_object_marking"
+      ]
+    },
+    "difficultyTier": 1,
+    "recommendedReps": 2,
+    "estPromptCount": 6,
+    "timeboxMinutes": 3,
+    "qualitySignals": {
+      "tokenHitsCount": 5,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 6,
+      "uniqueSubjectCount": 3,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/case_endings_akkusativ",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-03T00:18:10.634Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:drill:case_endings_akkusativ_a2_tier1_contrast-pairs",
+  "contentHash": "f46daf6bbe87046e5e9581236398f9d8dc091c23bc4118b099ce794cbd04143d",
+  "revisionId": "f46daf6bbe87"
+}

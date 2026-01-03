@@ -1,0 +1,345 @@
+{
+  "schemaVersion": 1,
+  "id": "goethe_c1",
+  "kind": "exam",
+  "title": "Goethe-Zertifikat C1",
+  "level": "C1",
+  "estimatedMinutes": 120,
+  "phraseCount": 48,
+  "description": "Official Goethe-Institut C1 certification exam practice. Required for academic and high-level professional contexts in Germany. Proves proficient language use for complex situations.",
+  "examType": "certification",
+  "examProvider": "goethe-institut",
+  "officialExamInfo": {
+    "name": "Goethe-Zertifikat C1",
+    "provider": "Goethe-Institut",
+    "cefrLevel": "C1",
+    "recognizedBy": [
+      "German universities (DSH equivalent)",
+      "Medical professions",
+      "Legal professions",
+      "Academic positions",
+      "German citizenship (high level)"
+    ],
+    "duration": 190,
+    "passingScore": 60,
+    "sections": [
+      "Lesen",
+      "Hören",
+      "Schreiben",
+      "Sprechen"
+    ]
+  },
+  "sections": [
+    {
+      "id": "lesen",
+      "title": "Lesen (Reading)",
+      "titleEn": "Reading",
+      "durationMinutes": 70,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "lesen_1",
+          "title": "Teil 1: Sachtext",
+          "description": "Read a complex factual text and answer detailed comprehension questions",
+          "itemCount": 8,
+          "format": "multiple_choice",
+          "title_i18n": {
+            "en": "Teil 1: Sachtext"
+          },
+          "description_i18n": {
+            "en": "Read a complex factual text and answer detailed comprehension questions"
+          }
+        },
+        {
+          "id": "lesen_2",
+          "title": "Teil 2: Lückentext",
+          "description": "Complete a text with missing words/phrases from a list",
+          "itemCount": 6,
+          "format": "gap_fill_selection",
+          "title_i18n": {
+            "en": "Teil 2: Lückentext"
+          },
+          "description_i18n": {
+            "en": "Complete a text with missing words/phrases from a list"
+          }
+        },
+        {
+          "id": "lesen_3",
+          "title": "Teil 3: Zuordnung",
+          "description": "Match summaries or statements to text sections",
+          "itemCount": 7,
+          "format": "matching",
+          "title_i18n": {
+            "en": "Teil 3: Zuordnung"
+          },
+          "description_i18n": {
+            "en": "Match summaries or statements to text sections"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Lesen (Reading)"
+      }
+    },
+    {
+      "id": "hoeren",
+      "title": "Hören (Listening)",
+      "titleEn": "Listening",
+      "durationMinutes": 40,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "hoeren_1",
+          "title": "Teil 1: Vorträge und Interviews",
+          "description": "Listen to academic lectures or expert interviews and answer questions",
+          "itemCount": 8,
+          "format": "multiple_choice",
+          "title_i18n": {
+            "en": "Teil 1: Vorträge und Interviews"
+          },
+          "description_i18n": {
+            "en": "Listen to academic lectures or expert interviews and answer questions"
+          }
+        },
+        {
+          "id": "hoeren_2",
+          "title": "Teil 2: Radiobeitrag",
+          "description": "Listen to a radio feature and complete notes",
+          "itemCount": 8,
+          "format": "gap_fill",
+          "title_i18n": {
+            "en": "Teil 2: Radiobeitrag"
+          },
+          "description_i18n": {
+            "en": "Listen to a radio feature and complete notes"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Hören (Listening)"
+      }
+    },
+    {
+      "id": "schreiben",
+      "title": "Schreiben (Writing)",
+      "titleEn": "Writing",
+      "durationMinutes": 80,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "schreiben_1",
+          "title": "Teil 1: Textzusammenfassung und Kommentar",
+          "description": "Summarize a text and write a critical commentary (350-400 words total)",
+          "itemCount": 1,
+          "format": "summary_and_commentary",
+          "wordLimit": 400,
+          "requirements": [
+            "summarize_main_points",
+            "analyze_arguments",
+            "give_opinion",
+            "conclude"
+          ],
+          "title_i18n": {
+            "en": "Teil 1: Textzusammenfassung und Kommentar"
+          },
+          "description_i18n": {
+            "en": "Summarize a text and write a critical commentary (350-400 words total)"
+          }
+        },
+        {
+          "id": "schreiben_2",
+          "title": "Teil 2: Formeller Brief",
+          "description": "Write a formal letter addressing multiple complex points",
+          "itemCount": 1,
+          "format": "formal_letter",
+          "wordLimit": 200,
+          "requiredPoints": 5,
+          "title_i18n": {
+            "en": "Teil 2: Formeller Brief"
+          },
+          "description_i18n": {
+            "en": "Write a formal letter addressing multiple complex points"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Schreiben (Writing)"
+      }
+    },
+    {
+      "id": "sprechen",
+      "title": "Sprechen (Speaking)",
+      "titleEn": "Speaking",
+      "durationMinutes": 15,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "sprechen_1",
+          "title": "Teil 1: Vortrag",
+          "description": "Give a structured presentation on a complex topic (5 min)",
+          "format": "academic_presentation",
+          "duration": 5,
+          "structure": [
+            "thesis_statement",
+            "background",
+            "analysis",
+            "examples",
+            "conclusion"
+          ],
+          "title_i18n": {
+            "en": "Teil 1: Vortrag"
+          },
+          "description_i18n": {
+            "en": "Give a structured presentation on a complex topic (5 min)"
+          }
+        },
+        {
+          "id": "sprechen_2",
+          "title": "Teil 2: Diskussion",
+          "description": "Engage in a nuanced discussion on the topic with examiner",
+          "format": "academic_discussion",
+          "duration": 10,
+          "title_i18n": {
+            "en": "Teil 2: Diskussion"
+          },
+          "description_i18n": {
+            "en": "Engage in a nuanced discussion on the topic with examiner"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Sprechen (Speaking)"
+      }
+    }
+  ],
+  "practiceModules": [
+    {
+      "id": "academic_discourse",
+      "title": "Academic Discourse",
+      "description": "Language for university lectures, papers, and academic discussions",
+      "topics": [
+        "academic_vocabulary",
+        "discourse_markers",
+        "hedging",
+        "citations",
+        "argumentation"
+      ],
+      "title_i18n": {
+        "en": "Academic Discourse"
+      },
+      "description_i18n": {
+        "en": "Language for university lectures, papers, and academic discussions"
+      }
+    },
+    {
+      "id": "professional_mastery",
+      "title": "Professional Language Mastery",
+      "description": "High-level professional communication",
+      "topics": [
+        "negotiations",
+        "presentations",
+        "reports",
+        "strategic_communication",
+        "conflict_resolution"
+      ],
+      "title_i18n": {
+        "en": "Professional Language Mastery"
+      },
+      "description_i18n": {
+        "en": "High-level professional communication"
+      }
+    },
+    {
+      "id": "text_analysis",
+      "title": "Text Analysis & Synthesis",
+      "description": "Skills for summarizing and critically analyzing complex texts",
+      "topics": [
+        "identifying_thesis",
+        "analyzing_structure",
+        "evaluating_arguments",
+        "synthesizing_sources"
+      ],
+      "title_i18n": {
+        "en": "Text Analysis & Synthesis"
+      },
+      "description_i18n": {
+        "en": "Skills for summarizing and critically analyzing complex texts"
+      }
+    },
+    {
+      "id": "nuanced_expression",
+      "title": "Nuanced Expression",
+      "description": "Advanced vocabulary and expressions for precise meaning",
+      "topics": [
+        "connotation",
+        "register",
+        "idioms",
+        "collocations",
+        "stylistic_variation"
+      ],
+      "title_i18n": {
+        "en": "Nuanced Expression"
+      },
+      "description_i18n": {
+        "en": "Advanced vocabulary and expressions for precise meaning"
+      }
+    }
+  ],
+  "sampleQuestions": [
+    {
+      "section": "lesen",
+      "part": 1,
+      "type": "multiple_choice",
+      "textExcerpt": "Die epistemische Unsicherheit in der Klimaforschung wird häufig missverstanden. Während Laien Unsicherheit als Zeichen mangelnden Wissens interpretieren, ist sie für Wissenschaftler ein inhärenter Bestandteil jeder empirischen Forschung...",
+      "question": "Welche Aussage trifft laut dem Text auf das Verständnis von wissenschaftlicher Unsicherheit zu?",
+      "options": [
+        "Wissenschaftler und Laien interpretieren Unsicherheit unterschiedlich",
+        "Unsicherheit in der Forschung lässt sich vollständig eliminieren",
+        "Klimaforscher versuchen, Unsicherheiten zu verschleiern"
+      ]
+    },
+    {
+      "section": "schreiben",
+      "part": 1,
+      "type": "summary_and_commentary",
+      "topic": "Fassen Sie den folgenden Text über die Auswirkungen von künstlicher Intelligenz auf die Arbeitswelt zusammen und nehmen Sie kritisch dazu Stellung.",
+      "instructions": "Schreiben Sie ca. 350-400 Wörter. Strukturieren Sie Ihren Text in Zusammenfassung (ca. 100 Wörter) und kritischen Kommentar (ca. 250 Wörter)."
+    },
+    {
+      "section": "sprechen",
+      "part": 1,
+      "type": "academic_presentation",
+      "topic": "Die Zukunft der Demokratie im digitalen Zeitalter",
+      "structure": [
+        "These formulieren",
+        "Historischer/gesellschaftlicher Kontext",
+        "Analyse der aktuellen Situation",
+        "Konkrete Beispiele und Gegenbeispiele",
+        "Schlussfolgerung und Ausblick"
+      ]
+    }
+  ],
+  "tips": [
+    "C1 requires near-native fluency - immerse yourself in authentic German media daily",
+    "Master academic and professional registers - read Spiegel, Zeit, FAZ",
+    "Practice text analysis: identify thesis, arguments, and rhetorical strategies",
+    "Develop a repertoire of sophisticated connectors and hedging expressions",
+    "Work on impromptu speaking - the discussion requires flexible, spontaneous language use"
+  ],
+  "resources": [
+    {
+      "type": "official",
+      "title": "Goethe-Institut C1 Materials",
+      "url": "https://www.goethe.de/de/spr/kup/prf/prf/gc1.html"
+    }
+  ],
+  "contentId": "de:exam:goethe_c1",
+  "contentHash": "21c8eca53d84a45d7e8da2cb995e61e5e0840643ae37c92b21a5eed5e06aa2c9",
+  "revisionId": "21c8eca53d84",
+  "title_i18n": {
+    "en": "Goethe-Zertifikat C1"
+  },
+  "description_i18n": {
+    "en": "Official Goethe-Institut C1 certification exam practice. Required for academic and high-level professional contexts in Germany. Proves proficient language use for complex situations."
+  }
+}

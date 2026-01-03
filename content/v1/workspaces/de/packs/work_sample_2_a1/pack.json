@@ -3,7 +3,7 @@
   "id": "work_sample_2_a1",
   "kind": "pack",
   "packVersion": "1.0.0",
-  "title": "Work - A1",
+  "title": "Work A1 — Sample 2",
   "level": "A1",
   "estimatedMinutes": 15,
   "description": "Practice work scenarios at A1 level.",
@@ -208,7 +208,10 @@
         "promptIds": [
           "prompt-001",
           "prompt-002"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Office Greetings"
+        }
       },
       {
         "id": "meetings",
@@ -217,7 +220,10 @@
           "prompt-003",
           "prompt-004",
           "prompt-005"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Meeting Phrases"
+        }
       },
       {
         "id": "requests",
@@ -225,7 +231,10 @@
         "promptIds": [
           "prompt-006",
           "prompt-007"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Work Requests"
+        }
       }
     ]
   },
@@ -312,5 +321,11 @@
   },
   "contentId": "de:pack:work_sample_2_a1",
   "contentHash": "4c0d5dfd18190717bd078bb0a1d8d098d384252110a7ac163373ca3122015225",
-  "revisionId": "4c0d5dfd1819"
+  "revisionId": "4c0d5dfd1819",
+  "title_i18n": {
+    "en": "Work A1 — Sample 2"
+  },
+  "description_i18n": {
+    "en": "Practice work scenarios at A1 level."
+  }
 }

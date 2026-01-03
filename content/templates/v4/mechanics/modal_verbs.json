@@ -1,0 +1,52 @@
+{
+  "mechanicId": "modal_verbs",
+  "mechanicLabel": "Modal Verbs",
+  "description": "Master modal verb patterns (können, müssen, sollen, wollen, möchten)",
+  "supportedLevels": ["A1", "A2", "B1"],
+  "loopTypes": ["pattern_switch", "slot_substitution", "contrast_pairs"],
+  "canonicalPatterns": [
+    "modal_verb_infinitive",
+    "modal_verb_requests",
+    "modal_verb_ability"
+  ],
+  "slotDictionaries": {
+    "subject": ["Ich", "Du", "Er", "Sie", "Wir", "Ihr"],
+    "modal": ["kann", "kannst", "können", "muss", "musst", "müssen", "soll", "sollst", "sollen", "will", "willst", "wollen", "möchte", "möchtest", "möchten"],
+    "verb": ["gehen", "kommen", "machen", "sehen", "hören", "essen", "trinken", "kaufen", "lernen"],
+    "object": ["das", "den", "die", "einen", "eine", "ins Kino", "zur Arbeit", "nach Hause"]
+  },
+  "trapPairs": [
+    {
+      "confusion": "modal verb conjugation",
+      "examples": [
+        { "correct": "Ich kann", "incorrect": "Ich kannst" },
+        { "correct": "Du kannst", "incorrect": "Du kann" }
+      ]
+    },
+    {
+      "confusion": "modal + infinitive word order",
+      "examples": [
+        { "correct": "Ich kann gehen", "incorrect": "Ich kann ich gehe" },
+        { "correct": "Du musst lernen", "incorrect": "Du musst du lernst" }
+      ]
+    }
+  ],
+  "bannedPhrases": [
+    "TODO",
+    "FIXME",
+    "example",
+    "test",
+    "placeholder"
+  ],
+  "requiredTokens": [
+    "kann", "kannst", "können",
+    "muss", "musst", "müssen",
+    "soll", "sollst", "sollen",
+    "will", "willst", "wollen",
+    "möchte", "möchtest", "möchten"
+  ],
+  "minUniqueVerbs": 5,
+  "minUniqueSubjects": 5,
+  "minMultiSlotRate": 0.4
+}
+

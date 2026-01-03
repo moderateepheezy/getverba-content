@@ -351,7 +351,10 @@
           "prompt-002",
           "prompt-003",
           "prompt-004"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Making Plans"
+        }
       },
       {
         "id": "variation",
@@ -362,7 +365,10 @@
           "prompt-007",
           "prompt-008",
           "prompt-009"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Suggestions & Preferences"
+        }
       },
       {
         "id": "switch",
@@ -371,7 +377,10 @@
           "prompt-010",
           "prompt-011",
           "prompt-012"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Responding & Rescheduling"
+        }
       }
     ]
   },
@@ -465,5 +474,11 @@
   },
   "contentId": "de:pack:friends_opinions_recommendations_a2",
   "contentHash": "401c7753c9621fb1520f5c8983f6a35e54f75ca720383f55d968f75c26c183ea",
-  "revisionId": "401c7753c962"
+  "revisionId": "401c7753c962",
+  "title_i18n": {
+    "en": "Opinions & Recommendations"
+  },
+  "description_i18n": {
+    "en": "Practice friends_small_talk scenarios at A2 level."
+  }
 }

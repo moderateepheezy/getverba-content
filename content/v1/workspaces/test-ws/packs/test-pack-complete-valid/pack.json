@@ -97,12 +97,21 @@
         "promptIds": [
           "prompt-001",
           "prompt-002"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Step 1"
+        }
       }
     ]
   },
   "tags": [
     "test",
     "telemetry"
-  ]
+  ],
+  "title_i18n": {
+    "en": "Test Pack"
+  },
+  "description_i18n": {
+    "en": "Test description"
+  }
 }

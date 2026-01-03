@@ -64,62 +64,126 @@ function resolveEntryPath(entryUrl: string): string | null {
 }
 
 /**
- * Extract all entry references from manifest
+ * Extract all entry references from catalog and mechanics indexes
  */
 function extractEntryReferences(manifest: any): EntryReference[] {
   const references: EntryReference[] = [];
   
-  if (!manifest.workspaces || !Array.isArray(manifest.workspaces)) {
+  if (!manifest.workspaces || typeof manifest.workspaces !== 'object') {
     return references;
   }
   
-  for (const ws of manifest.workspaces) {
-    if (!ws.sections || !Array.isArray(ws.sections)) {
-      continue;
-    }
+  // Iterate over workspace entries
+  for (const [workspace, catalogPath] of Object.entries(manifest.workspaces)) {
+    if (typeof catalogPath !== 'string') continue;
     
-    for (const section of ws.sections) {
-      if (!section.itemsUrl) {
-        continue;
+    // Load catalog
+    const catalogMatch = catalogPath.match(/^\/v1\/workspaces\/([^/]+)\/catalog\.json$/);
+    if (!catalogMatch) continue;
+    
+    const catalogPathResolved = join(CONTENT_DIR, 'workspaces', workspace, 'catalog.json');
+    if (!existsSync(catalogPathResolved)) continue;
+    
+    try {
+      const catalogContent = readFileSync(catalogPathResolved, 'utf-8');
+      const catalog = JSON.parse(catalogContent);
+      
+      // Extract from catalog sections
+      if (catalog.sections && Array.isArray(catalog.sections)) {
+        for (const section of catalog.sections) {
+          if (!section.itemsUrl) continue;
+          
+          // Load section index
+          const indexMatch = section.itemsUrl.match(/^\/v1\/workspaces\/([^/]+)\/([^/]+)\/index\.json$/);
+          if (!indexMatch) continue;
+          
+          const [, workspaceFromUrl, sectionName] = indexMatch;
+          const indexPath = join(CONTENT_DIR, 'workspaces', workspaceFromUrl, sectionName, 'index.json');
+          
+          if (!existsSync(indexPath)) continue;
+          
+          try {
+            const indexContent = readFileSync(indexPath, 'utf-8');
+            const index = JSON.parse(indexContent);
+            
+            if (index.items && Array.isArray(index.items)) {
+              for (const item of index.items) {
+                if (item.entryUrl) {
+                  const entryMatch = item.entryUrl.match(/^\/v1\/workspaces\/([^/]+)\/(packs|drills)\/([^/]+)\/(pack|drill)\.json$/);
+                  if (entryMatch) {
+                    const [, , kind, id] = entryMatch;
+                    references.push({
+                      kind: kind as 'pack' | 'drill',
+                      id,
+                      entryUrl: item.entryUrl,
+                      workspace: workspaceFromUrl,
+                      section: sectionName
+                    });
+                  }
+                }
+              }
+            }
+          } catch (error: any) {
+            console.warn(`Warning: Failed to load index ${indexPath}: ${error.message}`);
+          }
+        }
       }
       
-      // Load section index
-      const indexMatch = section.itemsUrl.match(/^\/v1\/workspaces\/([^/]+)\/([^/]+)\/index\.json$/);
-      if (!indexMatch) {
-        continue;
-      }
-      
-      const [, workspace, sectionName] = indexMatch;
-      const indexPath = join(CONTENT_DIR, 'workspaces', workspace, sectionName, 'index.json');
-      
-      if (!existsSync(indexPath)) {
-        continue;
-      }
-      
-      try {
-        const indexContent = readFileSync(indexPath, 'utf-8');
-        const index = JSON.parse(indexContent);
-        
-        if (index.items && Array.isArray(index.items)) {
-          for (const item of index.items) {
-            if (item.entryUrl) {
-              const entryMatch = item.entryUrl.match(/^\/v1\/workspaces\/([^/]+)\/(packs|drills)\/([^/]+)\/(pack|drill)\.json$/);
-              if (entryMatch) {
-                const [, , kind, id] = entryMatch;
-                references.push({
-                  kind: kind as 'pack' | 'drill',
-                  id,
-                  entryUrl: item.entryUrl,
-                  workspace,
-                  section: sectionName
-                });
+      // Extract from mechanics index (v4)
+      const mechanicsIndexPath = join(CONTENT_DIR, 'workspaces', workspace, 'mechanics', 'index.json');
+      if (existsSync(mechanicsIndexPath)) {
+        try {
+          const mechanicsIndexContent = readFileSync(mechanicsIndexPath, 'utf-8');
+          const mechanicsIndex = JSON.parse(mechanicsIndexContent);
+          
+          if (mechanicsIndex.mechanics && Array.isArray(mechanicsIndex.mechanics)) {
+            for (const mechanic of mechanicsIndex.mechanics) {
+              if (!mechanic.itemsUrl) continue;
+              
+              // Load per-mechanic drill index
+              const mechanicMatch = mechanic.itemsUrl.match(/^\/v1\/workspaces\/([^/]+)\/mechanics\/([^/]+)\/index\.json$/);
+              if (!mechanicMatch) continue;
+              
+              const [, workspaceFromUrl, mechanicId] = mechanicMatch;
+              const mechanicIndexPath = join(CONTENT_DIR, 'workspaces', workspaceFromUrl, 'mechanics', mechanicId, 'index.json');
+              
+              if (!existsSync(mechanicIndexPath)) continue;
+              
+              try {
+                const mechanicIndexContent = readFileSync(mechanicIndexPath, 'utf-8');
+                const mechanicIndex = JSON.parse(mechanicIndexContent);
+                
+                if (mechanicIndex.items && Array.isArray(mechanicIndex.items)) {
+                  for (const item of mechanicIndex.items) {
+                    if (item.entryUrl) {
+                      const entryMatch = item.entryUrl.match(/^\/v1\/workspaces\/([^/]+)\/drills\/([^/]+)\/drill\.json$/);
+                      if (entryMatch) {
+                        const [, , id] = entryMatch;
+                        // Avoid duplicates
+                        if (!references.find(r => r.entryUrl === item.entryUrl)) {
+                          references.push({
+                            kind: 'drill',
+                            id,
+                            entryUrl: item.entryUrl,
+                            workspace: workspaceFromUrl,
+                            section: `mechanics/${mechanicId}`
+                          });
+                        }
+                      }
+                    }
+                  }
+                }
+              } catch (error: any) {
+                console.warn(`Warning: Failed to load mechanic index ${mechanicIndexPath}: ${error.message}`);
               }
             }
           }
+        } catch (error: any) {
+          console.warn(`Warning: Failed to load mechanics index ${mechanicsIndexPath}: ${error.message}`);
         }
-      } catch (error: any) {
-        console.warn(`Warning: Failed to load index ${indexPath}: ${error.message}`);
       }
+    } catch (error: any) {
+      console.warn(`Warning: Failed to load catalog ${catalogPathResolved}: ${error.message}`);
     }
   }
   

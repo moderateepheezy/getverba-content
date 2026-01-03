@@ -1,0 +1,320 @@
+{
+  "schemaVersion": 1,
+  "id": "negation_a1_tier2_pattern-switch",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A1",
+  "title": "Negation: A1 (Tier 2)",
+  "shortTitle": "Negation A1",
+  "subtitle": "Tier 2 - pattern switch - Master negation placement (nicht, ",
+  "estimatedMinutes": 4,
+  "mechanicId": "negation",
+  "mechanicLabel": "Negation",
+  "loopType": "pattern_switch",
+  "difficultyTier": 2,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "pattern-1",
+        "title": "Pattern 1: Basic Forms",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Pattern 1: Basic Forms"
+        }
+      },
+      {
+        "id": "pattern-2",
+        "title": "Pattern 2: Extended Forms",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Pattern 2: Extended Forms"
+        }
+      },
+      {
+        "id": "pattern-3",
+        "title": "Pattern 3: Complex Forms",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006",
+          "prompt-007",
+          "prompt-008"
+        ],
+        "title_i18n": {
+          "en": "Pattern 3: Complex Forms"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Wir höre den Film.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Wir höre den Film.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "höre"
+        ],
+        "object": [
+          "den Film"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier2/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Ich machee Tee.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich machee Tee.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "machee"
+        ],
+        "object": [
+          "Tee"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier2/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "Ihr gehet Tee.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ihr gehet Tee.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "gehet"
+        ],
+        "object": [
+          "Tee"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier2/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Sie machet den Film.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie machet den Film.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "machet"
+        ],
+        "object": [
+          "den Film"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier2/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Ich habee das Essen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich habee das Essen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "habee"
+        ],
+        "object": [
+          "das Essen"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier2/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Du machest die Zeitung.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du machest die Zeitung.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "machest"
+        ],
+        "object": [
+          "die Zeitung"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier2/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "Ihr esset Tee.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ihr esset Tee.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "esset"
+        ],
+        "object": [
+          "Tee"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier2/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "Du gehest Tee.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du gehest Tee.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "gehest"
+        ],
+        "object": [
+          "Tee"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier2/prompt-008.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "negation",
+    "loopType": "pattern_switch",
+    "targetStructures": [
+      "nicht_placement",
+      "kein_keine_keinen",
+      "affirmative_to_negative"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "höre",
+        "machee",
+        "gehet",
+        "machet",
+        "habee",
+        "machest",
+        "esset",
+        "gehest"
+      ],
+      "subjects": [
+        "Wir",
+        "Ich",
+        "Ihr",
+        "Sie",
+        "Du"
+      ],
+      "patterns": [
+        "nicht_placement",
+        "kein_keine_keinen",
+        "affirmative_to_negative"
+      ]
+    },
+    "difficultyTier": 2,
+    "recommendedReps": 3,
+    "estPromptCount": 8,
+    "timeboxMinutes": 4,
+    "qualitySignals": {
+      "tokenHitsCount": 3,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 8,
+      "uniqueSubjectCount": 5,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/negation",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-03T00:18:10.641Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:drill:negation_a1_tier2_pattern-switch",
+  "contentHash": "cf374095ff77c0b17dc3a0fc8df03e5c235563f54ec52aad09053cb6b9c6fd29",
+  "revisionId": "cf374095ff77"
+}

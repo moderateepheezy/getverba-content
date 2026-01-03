@@ -1,0 +1,382 @@
+{
+  "schemaVersion": 1,
+  "id": "goethe_b2",
+  "kind": "exam",
+  "title": "Goethe-Zertifikat B2",
+  "level": "B2",
+  "estimatedMinutes": 120,
+  "phraseCount": 42,
+  "description": "Official Goethe-Institut B2 certification exam practice. Required for many German university programs and professional qualifications. Proves independent language proficiency.",
+  "examType": "certification",
+  "examProvider": "goethe-institut",
+  "officialExamInfo": {
+    "name": "Goethe-Zertifikat B2",
+    "provider": "Goethe-Institut",
+    "cefrLevel": "B2",
+    "recognizedBy": [
+      "German universities",
+      "German employers",
+      "Professional qualifications (nursing, etc.)",
+      "German immigration"
+    ],
+    "duration": 190,
+    "passingScore": 60,
+    "sections": [
+      "Hören",
+      "Lesen",
+      "Schreiben",
+      "Sprechen"
+    ]
+  },
+  "sections": [
+    {
+      "id": "hoeren",
+      "title": "Hören (Listening)",
+      "titleEn": "Listening",
+      "durationMinutes": 40,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "hoeren_1",
+          "title": "Teil 1: Interview",
+          "description": "Listen to an interview and answer multiple choice questions",
+          "itemCount": 6,
+          "format": "multiple_choice",
+          "title_i18n": {
+            "en": "Teil 1: Interview"
+          },
+          "description_i18n": {
+            "en": "Listen to an interview and answer multiple choice questions"
+          }
+        },
+        {
+          "id": "hoeren_2",
+          "title": "Teil 2: Vortrag",
+          "description": "Listen to a lecture and complete notes",
+          "itemCount": 6,
+          "format": "gap_fill",
+          "title_i18n": {
+            "en": "Teil 2: Vortrag"
+          },
+          "description_i18n": {
+            "en": "Listen to a lecture and complete notes"
+          }
+        },
+        {
+          "id": "hoeren_3",
+          "title": "Teil 3: Diskussion",
+          "description": "Listen to a discussion and match opinions to speakers",
+          "itemCount": 8,
+          "format": "matching",
+          "title_i18n": {
+            "en": "Teil 3: Diskussion"
+          },
+          "description_i18n": {
+            "en": "Listen to a discussion and match opinions to speakers"
+          }
+        },
+        {
+          "id": "hoeren_4",
+          "title": "Teil 4: Stellungnahmen",
+          "description": "Listen to statements and determine if they are true or false",
+          "itemCount": 10,
+          "format": "true_false",
+          "title_i18n": {
+            "en": "Teil 4: Stellungnahmen"
+          },
+          "description_i18n": {
+            "en": "Listen to statements and determine if they are true or false"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Hören (Listening)"
+      }
+    },
+    {
+      "id": "lesen",
+      "title": "Lesen (Reading)",
+      "titleEn": "Reading",
+      "durationMinutes": 65,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "lesen_1",
+          "title": "Teil 1: Sachtext",
+          "description": "Read a factual text and answer multiple choice questions",
+          "itemCount": 5,
+          "format": "multiple_choice",
+          "title_i18n": {
+            "en": "Teil 1: Sachtext"
+          },
+          "description_i18n": {
+            "en": "Read a factual text and answer multiple choice questions"
+          }
+        },
+        {
+          "id": "lesen_2",
+          "title": "Teil 2: Kommentare",
+          "description": "Read opinions/comments and match to headings",
+          "itemCount": 5,
+          "format": "matching",
+          "title_i18n": {
+            "en": "Teil 2: Kommentare"
+          },
+          "description_i18n": {
+            "en": "Read opinions/comments and match to headings"
+          }
+        },
+        {
+          "id": "lesen_3",
+          "title": "Teil 3: Kleinanzeigen",
+          "description": "Read ads and match to situations",
+          "itemCount": 5,
+          "format": "matching",
+          "title_i18n": {
+            "en": "Teil 3: Kleinanzeigen"
+          },
+          "description_i18n": {
+            "en": "Read ads and match to situations"
+          }
+        },
+        {
+          "id": "lesen_4",
+          "title": "Teil 4: Informationstext",
+          "description": "Read an information text and fill in missing words",
+          "itemCount": 10,
+          "format": "gap_fill",
+          "title_i18n": {
+            "en": "Teil 4: Informationstext"
+          },
+          "description_i18n": {
+            "en": "Read an information text and fill in missing words"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Lesen (Reading)"
+      }
+    },
+    {
+      "id": "schreiben",
+      "title": "Schreiben (Writing)",
+      "titleEn": "Writing",
+      "durationMinutes": 75,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "schreiben_1",
+          "title": "Teil 1: Forumsbeitrag",
+          "description": "Write an argumentative forum post (150-200 words) on a given topic",
+          "itemCount": 1,
+          "format": "argumentative_text",
+          "wordLimit": 200,
+          "requirements": [
+            "present_both_sides",
+            "give_opinion",
+            "justify_with_examples"
+          ],
+          "title_i18n": {
+            "en": "Teil 1: Forumsbeitrag"
+          },
+          "description_i18n": {
+            "en": "Write an argumentative forum post (150-200 words) on a given topic"
+          }
+        },
+        {
+          "id": "schreiben_2",
+          "title": "Teil 2: Formelle Nachricht",
+          "description": "Write a formal message (100-120 words) addressing specific points",
+          "itemCount": 1,
+          "format": "formal_message",
+          "wordLimit": 120,
+          "requiredPoints": 4,
+          "title_i18n": {
+            "en": "Teil 2: Formelle Nachricht"
+          },
+          "description_i18n": {
+            "en": "Write a formal message (100-120 words) addressing specific points"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Schreiben (Writing)"
+      }
+    },
+    {
+      "id": "sprechen",
+      "title": "Sprechen (Speaking)",
+      "titleEn": "Speaking",
+      "durationMinutes": 15,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "sprechen_1",
+          "title": "Teil 1: Vortrag",
+          "description": "Give a structured presentation on a topic (4 min)",
+          "format": "presentation",
+          "duration": 4,
+          "structure": [
+            "introduction",
+            "arguments_pro",
+            "arguments_contra",
+            "personal_opinion",
+            "conclusion"
+          ],
+          "title_i18n": {
+            "en": "Teil 1: Vortrag"
+          },
+          "description_i18n": {
+            "en": "Give a structured presentation on a topic (4 min)"
+          }
+        },
+        {
+          "id": "sprechen_2",
+          "title": "Teil 2: Diskussion",
+          "description": "Discuss the topic with the examiner, respond to questions and challenges",
+          "format": "discussion",
+          "duration": 5,
+          "title_i18n": {
+            "en": "Teil 2: Diskussion"
+          },
+          "description_i18n": {
+            "en": "Discuss the topic with the examiner, respond to questions and challenges"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Sprechen (Speaking)"
+      }
+    }
+  ],
+  "practiceModules": [
+    {
+      "id": "academic_german",
+      "title": "Academic German",
+      "description": "Language for university and academic contexts",
+      "topics": [
+        "lectures",
+        "seminars",
+        "academic_writing",
+        "presentations",
+        "research"
+      ],
+      "title_i18n": {
+        "en": "Academic German"
+      },
+      "description_i18n": {
+        "en": "Language for university and academic contexts"
+      }
+    },
+    {
+      "id": "professional_german",
+      "title": "Professional German",
+      "description": "Advanced workplace communication",
+      "topics": [
+        "business_correspondence",
+        "negotiations",
+        "presentations",
+        "reports",
+        "meetings"
+      ],
+      "title_i18n": {
+        "en": "Professional German"
+      },
+      "description_i18n": {
+        "en": "Advanced workplace communication"
+      }
+    },
+    {
+      "id": "argumentation",
+      "title": "Argumentation & Opinion",
+      "description": "Structuring arguments and expressing nuanced opinions",
+      "topics": [
+        "thesis_antithesis",
+        "connecting_arguments",
+        "hedging",
+        "emphasizing",
+        "concluding"
+      ],
+      "title_i18n": {
+        "en": "Argumentation & Opinion"
+      },
+      "description_i18n": {
+        "en": "Structuring arguments and expressing nuanced opinions"
+      }
+    },
+    {
+      "id": "complex_topics",
+      "title": "Complex Topics",
+      "description": "Discussing abstract and complex subjects",
+      "topics": [
+        "technology_society",
+        "environment",
+        "politics",
+        "culture",
+        "ethics"
+      ],
+      "title_i18n": {
+        "en": "Complex Topics"
+      },
+      "description_i18n": {
+        "en": "Discussing abstract and complex subjects"
+      }
+    }
+  ],
+  "sampleQuestions": [
+    {
+      "section": "lesen",
+      "part": 1,
+      "type": "multiple_choice",
+      "textExcerpt": "Die Digitalisierung verändert nicht nur unsere Arbeitswelt, sondern auch die Art und Weise, wie wir lernen und kommunizieren...",
+      "question": "Was ist laut dem Text die größte Herausforderung der Digitalisierung?",
+      "options": [
+        "Der Verlust von Arbeitsplätzen",
+        "Die Anpassung der Bildungssysteme",
+        "Die zunehmende Isolation"
+      ]
+    },
+    {
+      "section": "schreiben",
+      "part": 1,
+      "type": "argumentative_text",
+      "topic": "Sollte Homeoffice zur Pflicht für alle Arbeitgeber werden, die es ermöglichen können?",
+      "instructions": "Schreiben Sie einen Forumsbeitrag. Nennen Sie Vor- und Nachteile, äußern Sie Ihre Meinung und begründen Sie diese."
+    },
+    {
+      "section": "sprechen",
+      "part": 1,
+      "type": "presentation",
+      "topic": "Soziale Medien: Fluch oder Segen?",
+      "structure": [
+        "Einleitung: Relevanz des Themas",
+        "Vorteile von sozialen Medien",
+        "Nachteile und Risiken",
+        "Ihre persönliche Meinung",
+        "Fazit und Ausblick"
+      ]
+    }
+  ],
+  "tips": [
+    "B2 requires understanding complex texts on abstract topics - read German newspapers regularly",
+    "Practice structuring arguments with thesis, antithesis, and synthesis",
+    "Work on spontaneous speech for the discussion section",
+    "Learn advanced connectors and hedging expressions"
+  ],
+  "resources": [
+    {
+      "type": "official",
+      "title": "Goethe-Institut B2 Materials",
+      "url": "https://www.goethe.de/de/spr/kup/prf/prf/gb2.html"
+    }
+  ],
+  "contentId": "de:exam:goethe_b2",
+  "contentHash": "ecfd092a6c09410a7deb911ebbdbe50c4c45138b8ed43f84f2f678d6e2fb0618",
+  "revisionId": "ecfd092a6c09",
+  "title_i18n": {
+    "en": "Goethe-Zertifikat B2"
+  },
+  "description_i18n": {
+    "en": "Official Goethe-Institut B2 certification exam practice. Required for many German university programs and professional qualifications. Proves independent language proficiency."
+  }
+}

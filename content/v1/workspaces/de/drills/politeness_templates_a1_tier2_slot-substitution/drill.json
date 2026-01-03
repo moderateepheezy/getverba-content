@@ -1,0 +1,298 @@
+{
+  "schemaVersion": 1,
+  "id": "politeness_templates_a1_tier2_slot-substitution",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A1",
+  "title": "Politeness Templates: A1 (Tier 2)",
+  "shortTitle": "Politeness Templates A1",
+  "subtitle": "Tier 2 - slot substitution",
+  "estimatedMinutes": 4,
+  "mechanicId": "politeness_templates",
+  "mechanicLabel": "Politeness Templates",
+  "loopType": "slot_substitution",
+  "difficultyTier": 2,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "step-1",
+        "title": "Step 1",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002",
+          "prompt-003"
+        ],
+        "title_i18n": {
+          "en": "Step 1"
+        }
+      },
+      {
+        "id": "step-2",
+        "title": "Step 2",
+        "promptIds": [
+          "prompt-004",
+          "prompt-005",
+          "prompt-006"
+        ],
+        "title_i18n": {
+          "en": "Step 2"
+        }
+      },
+      {
+        "id": "step-3",
+        "title": "Step 3",
+        "promptIds": [
+          "prompt-007",
+          "prompt-008"
+        ],
+        "title_i18n": {
+          "en": "Step 3"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "undefined helfen das.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "undefined helfen das.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          null
+        ],
+        "verb": [
+          "helfen"
+        ],
+        "object": [
+          "das"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier2/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "undefined schließen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "undefined schließen.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          null
+        ],
+        "verb": [
+          "schließen"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier2/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "undefined zeigen uns.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "undefined zeigen uns.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          null
+        ],
+        "verb": [
+          "zeigen"
+        ],
+        "object": [
+          "uns"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier2/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "undefined machen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "undefined machen.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          null
+        ],
+        "verb": [
+          "machen"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier2/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "undefined machen den.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "undefined machen den.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          null
+        ],
+        "verb": [
+          "machen"
+        ],
+        "object": [
+          "den"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier2/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "undefined geben.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "undefined geben.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          null
+        ],
+        "verb": [
+          "geben"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier2/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "undefined sagen uns.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "undefined sagen uns.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          null
+        ],
+        "verb": [
+          "sagen"
+        ],
+        "object": [
+          "uns"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier2/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "undefined bringen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "undefined bringen.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          null
+        ],
+        "verb": [
+          "bringen"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier2/prompt-008.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "politeness_templates",
+    "loopType": "slot_substitution",
+    "targetStructures": [
+      "polite_requests",
+      "conditional_politeness",
+      "formal_greetings"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "helfen",
+        "schließen",
+        "zeigen",
+        "machen",
+        "geben",
+        "sagen",
+        "bringen"
+      ],
+      "subjects": [
+        null
+      ],
+      "patterns": [
+        "polite_requests",
+        "conditional_politeness",
+        "formal_greetings"
+      ]
+    },
+    "difficultyTier": 2,
+    "recommendedReps": 3,
+    "estPromptCount": 8,
+    "timeboxMinutes": 4,
+    "qualitySignals": {
+      "tokenHitsCount": 2,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 7,
+      "uniqueSubjectCount": 1,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/politeness_templates",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-03T00:16:26.934Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:drill:politeness_templates_a1_tier2_slot-substitution",
+  "contentHash": "a308488e253916eb0ed8abdd56997291085c76acda40831dfdaa105ccf883f82",
+  "revisionId": "a308488e2539"
+}

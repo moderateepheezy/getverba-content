@@ -1,0 +1,265 @@
+{
+  "schemaVersion": 1,
+  "id": "question_formation_a1_tier1_fast-recall",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A1",
+  "title": "Question Formation: A1 (Tier 1)",
+  "shortTitle": "Question Formation A1",
+  "subtitle": "Tier 1 - fast recall - Form questions using question words a",
+  "estimatedMinutes": 3,
+  "mechanicId": "question_formation",
+  "mechanicLabel": "Question Formation",
+  "loopType": "fast_recall",
+  "difficultyTier": 1,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "step-1",
+        "title": "Step 1",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Step 1"
+        }
+      },
+      {
+        "id": "step-2",
+        "title": "Step 2",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Step 2"
+        }
+      },
+      {
+        "id": "step-3",
+        "title": "Step 3",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006"
+        ],
+        "title_i18n": {
+          "en": "Step 3"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "er macht eine.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "er macht eine.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "er"
+        ],
+        "verb": [
+          "macht"
+        ],
+        "object": [
+          "eine"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A1_tier1/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "du seist das.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "du seist das.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "du"
+        ],
+        "verb": [
+          "seist"
+        ],
+        "object": [
+          "das"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A1_tier1/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "du kommst das.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "du kommst das.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "du"
+        ],
+        "verb": [
+          "kommst"
+        ],
+        "object": [
+          "das"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A1_tier1/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Sie arbeitt einen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie arbeitt einen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "arbeitt"
+        ],
+        "object": [
+          "einen"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A1_tier1/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "ihr habt das.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "ihr habt das.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "ihr"
+        ],
+        "verb": [
+          "habt"
+        ],
+        "object": [
+          "das"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A1_tier1/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "du wohnst die.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "du wohnst die.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "du"
+        ],
+        "verb": [
+          "wohnst"
+        ],
+        "object": [
+          "die"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A1_tier1/prompt-006.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "question_formation",
+    "loopType": "fast_recall",
+    "targetStructures": [
+      "question_word_order",
+      "verb_inversion",
+      "yes_no_questions"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "macht",
+        "seist",
+        "kommst",
+        "arbeitt",
+        "habt",
+        "wohnst"
+      ],
+      "subjects": [
+        "er",
+        "du",
+        "Sie",
+        "ihr"
+      ],
+      "patterns": [
+        "question_word_order",
+        "verb_inversion",
+        "yes_no_questions"
+      ]
+    },
+    "difficultyTier": 1,
+    "recommendedReps": 2,
+    "estPromptCount": 6,
+    "timeboxMinutes": 3,
+    "qualitySignals": {
+      "tokenHitsCount": 2,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 6,
+      "uniqueSubjectCount": 4,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/question_formation",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-03T00:18:10.648Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:drill:question_formation_a1_tier1_fast-recall",
+  "contentHash": "224bdc685dd6177bfcf36989474f01ee6404171863b6e0f3d2b9885c9e2c3cc0",
+  "revisionId": "224bdc685dd6"
+}

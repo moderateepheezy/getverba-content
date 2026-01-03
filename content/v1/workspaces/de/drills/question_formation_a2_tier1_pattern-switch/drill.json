@@ -1,0 +1,261 @@
+{
+  "schemaVersion": 1,
+  "id": "question_formation_a2_tier1_pattern-switch",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A2",
+  "title": "Question Formation: A2 (Tier 1)",
+  "shortTitle": "Question Formation A2",
+  "subtitle": "Tier 1 - pattern switch - Form questions using question word",
+  "estimatedMinutes": 3,
+  "mechanicId": "question_formation",
+  "mechanicLabel": "Question Formation",
+  "loopType": "pattern_switch",
+  "difficultyTier": 1,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "pattern-1",
+        "title": "Pattern 1: Basic Forms",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Pattern 1: Basic Forms"
+        }
+      },
+      {
+        "id": "pattern-2",
+        "title": "Pattern 2: Extended Forms",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Pattern 2: Extended Forms"
+        }
+      },
+      {
+        "id": "pattern-3",
+        "title": "Pattern 3: Complex Forms",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006"
+        ],
+        "title_i18n": {
+          "en": "Pattern 3: Complex Forms"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "sie kommt das.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "sie kommt das.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "sie"
+        ],
+        "verb": [
+          "kommt"
+        ],
+        "object": [
+          "das"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A2_tier1/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "sie geht das.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "sie geht das.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "sie"
+        ],
+        "verb": [
+          "geht"
+        ],
+        "object": [
+          "das"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A2_tier1/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "sie seit die.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "sie seit die.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "sie"
+        ],
+        "verb": [
+          "seit"
+        ],
+        "object": [
+          "die"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A2_tier1/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Sie macht die.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie macht die.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "macht"
+        ],
+        "object": [
+          "die"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A2_tier1/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "er macht das.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "er macht das.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "er"
+        ],
+        "verb": [
+          "macht"
+        ],
+        "object": [
+          "das"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A2_tier1/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Sie arbeitt.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie arbeitt.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "arbeitt"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A2_tier1/prompt-006.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "question_formation",
+    "loopType": "pattern_switch",
+    "targetStructures": [
+      "question_word_order",
+      "verb_inversion",
+      "yes_no_questions"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "kommt",
+        "geht",
+        "seit",
+        "macht",
+        "arbeitt"
+      ],
+      "subjects": [
+        "sie",
+        "Sie",
+        "er"
+      ],
+      "patterns": [
+        "question_word_order",
+        "verb_inversion",
+        "yes_no_questions"
+      ]
+    },
+    "difficultyTier": 1,
+    "recommendedReps": 2,
+    "estPromptCount": 6,
+    "timeboxMinutes": 3,
+    "qualitySignals": {
+      "tokenHitsCount": 0,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 5,
+      "uniqueSubjectCount": 3,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/question_formation",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-03T00:18:10.649Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:drill:question_formation_a2_tier1_pattern-switch",
+  "contentHash": "15de3b3c32879d07d32d758d63991ded73ab60faba98e75eed698b97a841a9b1",
+  "revisionId": "15de3b3c3287"
+}

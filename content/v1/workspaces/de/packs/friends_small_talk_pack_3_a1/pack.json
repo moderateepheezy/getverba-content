@@ -3,7 +3,7 @@
   "id": "friends_small_talk_pack_3_a1",
   "kind": "pack",
   "packVersion": "1.0.0",
-  "title": "Friends Small Talk - A1",
+  "title": "Friends Small Talk A1 — 3: Preferences",
   "level": "A1",
   "estimatedMinutes": 15,
   "description": "Practice friends_small_talk scenarios at A1 level.",
@@ -349,7 +349,10 @@
           "prompt-002",
           "prompt-003",
           "prompt-004"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Making Plans"
+        }
       },
       {
         "id": "variation",
@@ -360,7 +363,10 @@
           "prompt-007",
           "prompt-008",
           "prompt-009"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Suggestions & Preferences"
+        }
       },
       {
         "id": "switch",
@@ -369,7 +375,10 @@
           "prompt-010",
           "prompt-011",
           "prompt-012"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Responding & Rescheduling"
+        }
       }
     ]
   },
@@ -456,14 +465,18 @@
     "source": "template",
     "sourceRef": "friends_small_talk",
     "extractorVersion": "1.0.0",
-    "generatedAt": "2025-12-31T08:23:44.248Z"
+    "generatedAt": "2026-01-01T00:56:07.602Z"
   },
   "review": {
-    "status": "approved",
-    "reviewer": "Afees",
-    "reviewedAt": "2025-12-31T08:31:18Z"
+    "status": "needs_review"
   },
   "contentId": "de:pack:friends_small_talk_pack_3_a1",
-  "contentHash": "80f93db42efb3010969476e40cc05761cbac884137fe997416aade1b9bb8e3ed",
-  "revisionId": "80f93db42efb"
+  "contentHash": "1ad36ae364b983a99b982de80c0f0e90f8dd093a98c36ff2ba480645591ec0a8",
+  "revisionId": "1ad36ae364b9",
+  "title_i18n": {
+    "en": "Friends Small Talk A1 — 3: Preferences"
+  },
+  "description_i18n": {
+    "en": "Practice friends_small_talk scenarios at A1 level."
+  }
 }

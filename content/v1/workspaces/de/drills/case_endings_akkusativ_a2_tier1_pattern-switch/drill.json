@@ -1,0 +1,267 @@
+{
+  "schemaVersion": 1,
+  "id": "case_endings_akkusativ_a2_tier1_pattern-switch",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A2",
+  "title": "Case Endings: Akkusativ: A2 (Tier 1)",
+  "shortTitle": "Case Endings: Akkusativ A2",
+  "subtitle": "Tier 1 - pattern switch - Master accusative case endings (de",
+  "estimatedMinutes": 3,
+  "mechanicId": "case_endings_akkusativ",
+  "mechanicLabel": "Case Endings: Akkusativ",
+  "loopType": "pattern_switch",
+  "difficultyTier": 1,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "pattern-1",
+        "title": "Pattern 1: Basic Forms",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Pattern 1: Basic Forms"
+        }
+      },
+      {
+        "id": "pattern-2",
+        "title": "Pattern 2: Extended Forms",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Pattern 2: Extended Forms"
+        }
+      },
+      {
+        "id": "pattern-3",
+        "title": "Pattern 3: Complex Forms",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006"
+        ],
+        "title_i18n": {
+          "en": "Pattern 3: Complex Forms"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Sie machet die Milch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie machet die Milch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "machet"
+        ],
+        "object": [
+          "die Milch"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier1/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Er sehet das Buch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er sehet das Buch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "sehet"
+        ],
+        "object": [
+          "das Buch"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier1/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "Wir habe das Brot.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Wir habe das Brot.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "habe"
+        ],
+        "object": [
+          "das Brot"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier1/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Du lesest einen Stuhl.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du lesest einen Stuhl.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "lesest"
+        ],
+        "object": [
+          "einen Stuhl"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier1/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Wir mache eine Tasse.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Wir mache eine Tasse.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "mache"
+        ],
+        "object": [
+          "eine Tasse"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier1/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Du essest das Brot.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du essest das Brot.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "essest"
+        ],
+        "object": [
+          "das Brot"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_A2_tier1/prompt-006.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "case_endings_akkusativ",
+    "loopType": "pattern_switch",
+    "targetStructures": [
+      "akkusativ_articles",
+      "akkusativ_pronouns",
+      "direct_object_marking"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "machet",
+        "sehet",
+        "habe",
+        "lesest",
+        "mache",
+        "essest"
+      ],
+      "subjects": [
+        "Sie",
+        "Er",
+        "Wir",
+        "Du"
+      ],
+      "patterns": [
+        "akkusativ_articles",
+        "akkusativ_pronouns",
+        "direct_object_marking"
+      ]
+    },
+    "difficultyTier": 1,
+    "recommendedReps": 2,
+    "estPromptCount": 6,
+    "timeboxMinutes": 3,
+    "qualitySignals": {
+      "tokenHitsCount": 6,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 6,
+      "uniqueSubjectCount": 4,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/case_endings_akkusativ",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-03T00:18:10.633Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:drill:case_endings_akkusativ_a2_tier1_pattern-switch",
+  "contentHash": "3438890f2e16526f1484f26cddaf8ae9ba59f278b1a2fad8f037f83bc9d3a37e",
+  "revisionId": "3438890f2e16"
+}

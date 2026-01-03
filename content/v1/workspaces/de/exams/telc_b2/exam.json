@@ -1,0 +1,341 @@
+{
+  "schemaVersion": 1,
+  "id": "telc_b2",
+  "kind": "exam",
+  "title": "telc Deutsch B2",
+  "level": "B2",
+  "estimatedMinutes": 120,
+  "phraseCount": 42,
+  "description": "telc B2 certification exam practice. Widely recognized for professional qualifications, especially in healthcare (nursing recognition) and university admission. Proves independent language proficiency.",
+  "examType": "certification",
+  "examProvider": "telc",
+  "officialExamInfo": {
+    "name": "telc Deutsch B2",
+    "provider": "telc GmbH",
+    "cefrLevel": "B2",
+    "recognizedBy": [
+      "German nursing recognition",
+      "German employers",
+      "Universities (some programs)",
+      "Professional qualifications"
+    ],
+    "duration": 140,
+    "passingScore": 60,
+    "sections": [
+      "Lesen und Sprachbausteine",
+      "Hören",
+      "Schreiben",
+      "Sprechen"
+    ]
+  },
+  "sections": [
+    {
+      "id": "lesen",
+      "title": "Lesen und Sprachbausteine (Reading and Language Elements)",
+      "titleEn": "Reading and Language Elements",
+      "durationMinutes": 90,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "lesen_1",
+          "title": "Leseverstehen Teil 1",
+          "description": "Read a text and match summaries to paragraphs",
+          "itemCount": 5,
+          "format": "matching",
+          "title_i18n": {
+            "en": "Leseverstehen Teil 1"
+          },
+          "description_i18n": {
+            "en": "Read a text and match summaries to paragraphs"
+          }
+        },
+        {
+          "id": "lesen_2",
+          "title": "Leseverstehen Teil 2",
+          "description": "Read a text and answer multiple choice questions",
+          "itemCount": 5,
+          "format": "multiple_choice",
+          "title_i18n": {
+            "en": "Leseverstehen Teil 2"
+          },
+          "description_i18n": {
+            "en": "Read a text and answer multiple choice questions"
+          }
+        },
+        {
+          "id": "lesen_3",
+          "title": "Leseverstehen Teil 3",
+          "description": "Match situations to short texts",
+          "itemCount": 10,
+          "format": "matching",
+          "title_i18n": {
+            "en": "Leseverstehen Teil 3"
+          },
+          "description_i18n": {
+            "en": "Match situations to short texts"
+          }
+        },
+        {
+          "id": "sprachbausteine_1",
+          "title": "Sprachbausteine Teil 1",
+          "description": "Complete a text with missing words (grammar focus)",
+          "itemCount": 10,
+          "format": "gap_fill_grammar",
+          "title_i18n": {
+            "en": "Sprachbausteine Teil 1"
+          },
+          "description_i18n": {
+            "en": "Complete a text with missing words (grammar focus)"
+          }
+        },
+        {
+          "id": "sprachbausteine_2",
+          "title": "Sprachbausteine Teil 2",
+          "description": "Complete a text with missing words (vocabulary focus)",
+          "itemCount": 10,
+          "format": "gap_fill_vocabulary",
+          "title_i18n": {
+            "en": "Sprachbausteine Teil 2"
+          },
+          "description_i18n": {
+            "en": "Complete a text with missing words (vocabulary focus)"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Lesen und Sprachbausteine (Reading and Language Elements)"
+      }
+    },
+    {
+      "id": "hoeren",
+      "title": "Hören (Listening)",
+      "titleEn": "Listening",
+      "durationMinutes": 20,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "hoeren_1",
+          "title": "Hörverstehen Teil 1",
+          "description": "Listen to messages and match information",
+          "itemCount": 5,
+          "format": "matching",
+          "title_i18n": {
+            "en": "Hörverstehen Teil 1"
+          },
+          "description_i18n": {
+            "en": "Listen to messages and match information"
+          }
+        },
+        {
+          "id": "hoeren_2",
+          "title": "Hörverstehen Teil 2",
+          "description": "Listen to an interview and answer true/false questions",
+          "itemCount": 10,
+          "format": "true_false",
+          "title_i18n": {
+            "en": "Hörverstehen Teil 2"
+          },
+          "description_i18n": {
+            "en": "Listen to an interview and answer true/false questions"
+          }
+        },
+        {
+          "id": "hoeren_3",
+          "title": "Hörverstehen Teil 3",
+          "description": "Listen to statements and match to situations",
+          "itemCount": 5,
+          "format": "matching",
+          "title_i18n": {
+            "en": "Hörverstehen Teil 3"
+          },
+          "description_i18n": {
+            "en": "Listen to statements and match to situations"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Hören (Listening)"
+      }
+    },
+    {
+      "id": "schreiben",
+      "title": "Schreiben (Writing)",
+      "titleEn": "Writing",
+      "durationMinutes": 30,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "schreiben_1",
+          "title": "Schriftlicher Ausdruck",
+          "description": "Choose one of two topics and write a semi-formal or formal text",
+          "itemCount": 1,
+          "format": "formal_text",
+          "wordLimit": 180,
+          "requirements": [
+            "address_all_points",
+            "appropriate_register",
+            "coherent_structure"
+          ],
+          "title_i18n": {
+            "en": "Schriftlicher Ausdruck"
+          },
+          "description_i18n": {
+            "en": "Choose one of two topics and write a semi-formal or formal text"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Schreiben (Writing)"
+      }
+    },
+    {
+      "id": "sprechen",
+      "title": "Sprechen (Speaking)",
+      "titleEn": "Speaking",
+      "durationMinutes": 20,
+      "weight": 25,
+      "isPartnerExam": true,
+      "parts": [
+        {
+          "id": "sprechen_1a",
+          "title": "Teil 1A: Präsentation",
+          "description": "Give a short presentation on a given topic (2-3 min)",
+          "format": "presentation",
+          "duration": 3,
+          "title_i18n": {
+            "en": "Teil 1A: Präsentation"
+          },
+          "description_i18n": {
+            "en": "Give a short presentation on a given topic (2-3 min)"
+          }
+        },
+        {
+          "id": "sprechen_1b",
+          "title": "Teil 1B: Reaktion",
+          "description": "React to partner's presentation and ask follow-up questions",
+          "format": "discussion",
+          "duration": 2,
+          "title_i18n": {
+            "en": "Teil 1B: Reaktion"
+          },
+          "description_i18n": {
+            "en": "React to partner's presentation and ask follow-up questions"
+          }
+        },
+        {
+          "id": "sprechen_2",
+          "title": "Teil 2: Diskussion",
+          "description": "Discuss a controversial topic with partner, reach a conclusion",
+          "format": "pair_discussion",
+          "duration": 6,
+          "title_i18n": {
+            "en": "Teil 2: Diskussion"
+          },
+          "description_i18n": {
+            "en": "Discuss a controversial topic with partner, reach a conclusion"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Sprechen (Speaking)"
+      }
+    }
+  ],
+  "practiceModules": [
+    {
+      "id": "professional_german",
+      "title": "Professional German",
+      "description": "Workplace communication and professional contexts",
+      "topics": [
+        "business_correspondence",
+        "meetings",
+        "presentations",
+        "reports",
+        "negotiations"
+      ],
+      "title_i18n": {
+        "en": "Professional German"
+      },
+      "description_i18n": {
+        "en": "Workplace communication and professional contexts"
+      }
+    },
+    {
+      "id": "healthcare_german",
+      "title": "Healthcare German",
+      "description": "Medical and nursing terminology (telc B2 is common for nursing recognition)",
+      "topics": [
+        "patient_communication",
+        "medical_documentation",
+        "colleague_handover",
+        "emergency_procedures"
+      ],
+      "title_i18n": {
+        "en": "Healthcare German"
+      },
+      "description_i18n": {
+        "en": "Medical and nursing terminology (telc B2 is common for nursing recognition)"
+      }
+    },
+    {
+      "id": "argumentation",
+      "title": "Argumentation",
+      "description": "Building and defending arguments in discussions",
+      "topics": [
+        "thesis_statements",
+        "supporting_arguments",
+        "counterarguments",
+        "conclusions"
+      ],
+      "title_i18n": {
+        "en": "Argumentation"
+      },
+      "description_i18n": {
+        "en": "Building and defending arguments in discussions"
+      }
+    }
+  ],
+  "sampleQuestions": [
+    {
+      "section": "lesen",
+      "part": 2,
+      "type": "multiple_choice",
+      "textExcerpt": "Die Vier-Tage-Woche wird in immer mehr Unternehmen als Alternative zum klassischen Arbeitszeitmodell diskutiert. Befürworter argumentieren...",
+      "question": "Welche Aussage entspricht dem Inhalt des Textes?",
+      "options": [
+        "Die Produktivität sinkt bei kürzerer Arbeitszeit",
+        "Manche Unternehmen testen bereits das Modell",
+        "Arbeitnehmer lehnen das Modell mehrheitlich ab"
+      ]
+    },
+    {
+      "section": "schreiben",
+      "part": 1,
+      "type": "formal_text",
+      "topic": "Sie haben einen Zeitungsartikel über umweltfreundliche Mobilität gelesen. Schreiben Sie einen Leserbrief.",
+      "instructions": "Schreiben Sie ca. 150-180 Wörter. Gehen Sie auf folgende Punkte ein: Ihre Meinung zum Thema, Erfahrungen aus Ihrem Alltag, Vorschläge für Verbesserungen."
+    }
+  ],
+  "tips": [
+    "telc B2 emphasizes practical language use - focus on real-world topics",
+    "The speaking exam is done with a partner - practice interactive discussion",
+    "For healthcare careers, combine with telc Deutsch B2 Pflege",
+    "Sprachbausteine sections test grammar systematically - review Konjunktiv II, passive, Relativsätze"
+  ],
+  "resources": [
+    {
+      "type": "official",
+      "title": "telc Deutsch B2 Materials",
+      "url": "https://www.telc.net/pruefungsteilnehmende/sprachpruefungen/pruefungen/detail/telc-deutsch-b2.html"
+    }
+  ],
+  "contentId": "de:exam:telc_b2",
+  "contentHash": "d967d21154c06534e0e3a778054f9b7f78a992b8eaf67b3b29647eb7332a5ebd",
+  "revisionId": "d967d21154c0",
+  "title_i18n": {
+    "en": "telc Deutsch B2"
+  },
+  "description_i18n": {
+    "en": "telc B2 certification exam practice. Widely recognized for professional qualifications, especially in healthcare (nursing recognition) and university admission. Proves independent language proficiency."
+  }
+}

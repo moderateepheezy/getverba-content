@@ -1,0 +1,1091 @@
+{
+  "version": "v1",
+  "kind": "context",
+  "total": 89,
+  "pageSize": 20,
+  "page": 3,
+  "items": [
+    {
+      "id": "doctor_pack_4_a2",
+      "kind": "pack",
+      "title": "Doctor A2 — 4: Making an Appointment",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/doctor_pack_4_a2/pack.json",
+      "contentId": "de:pack:doctor_pack_4_a2",
+      "revisionId": "a84e084fdd12",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "doctor"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "health_appointments",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "doctor",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice doctor appointments and health conversations at A2 level",
+        "whyThisWorks": [
+          "Uses appointment scheduling phrases",
+          "Includes symptom/health vocabulary",
+          "Maintains appropriate formality"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Making an Appointment",
+      "orderInTopic": 4,
+      "title_i18n": {
+        "en": "Doctor A2 — 4: Making an Appointment"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "doctor_pack_5_a2",
+      "kind": "pack",
+      "title": "Doctor A2 — 5: Describing Symptoms",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/doctor_pack_5_a2/pack.json",
+      "contentId": "de:pack:doctor_pack_5_a2",
+      "revisionId": "75b571e95cf9",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "doctor"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "health_appointments",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "doctor",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice doctor appointments and health conversations at A2 level",
+        "whyThisWorks": [
+          "Uses appointment scheduling phrases",
+          "Includes symptom/health vocabulary",
+          "Maintains appropriate formality"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Describing Symptoms",
+      "orderInTopic": 5,
+      "title_i18n": {
+        "en": "Doctor A2 — 5: Describing Symptoms"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "doctor_pack_6_a2",
+      "kind": "pack",
+      "title": "Doctor A2 — 6: Getting Prescription",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/doctor_pack_6_a2/pack.json",
+      "contentId": "de:pack:doctor_pack_6_a2",
+      "revisionId": "7e8814ad53f7",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "doctor"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "health_appointments",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "doctor",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice doctor appointments and health conversations at A2 level",
+        "whyThisWorks": [
+          "Uses appointment scheduling phrases",
+          "Includes symptom/health vocabulary",
+          "Maintains appropriate formality"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Getting Prescription",
+      "orderInTopic": 6,
+      "title_i18n": {
+        "en": "Doctor A2 — 6: Getting Prescription"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "doctor_pack_7_a2",
+      "kind": "pack",
+      "title": "Doctor A2 — 7: Making an Appointment",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/doctor_pack_7_a2/pack.json",
+      "contentId": "de:pack:doctor_pack_7_a2",
+      "revisionId": "2cbdee73d8b3",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "doctor"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "health_appointments",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "doctor",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice doctor appointments and health conversations at A2 level",
+        "whyThisWorks": [
+          "Uses appointment scheduling phrases",
+          "Includes symptom/health vocabulary",
+          "Maintains appropriate formality"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Making an Appointment",
+      "orderInTopic": 7,
+      "title_i18n": {
+        "en": "Doctor A2 — 7: Making an Appointment"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "doctor_pack_8_a2",
+      "kind": "pack",
+      "title": "Doctor A2 — 8: Describing Symptoms",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/doctor_pack_8_a2/pack.json",
+      "contentId": "de:pack:doctor_pack_8_a2",
+      "revisionId": "3a03d7a9f5cb",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "doctor"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "health_appointments",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "doctor",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice doctor appointments and health conversations at A2 level",
+        "whyThisWorks": [
+          "Uses appointment scheduling phrases",
+          "Includes symptom/health vocabulary",
+          "Maintains appropriate formality"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Describing Symptoms",
+      "orderInTopic": 8,
+      "title_i18n": {
+        "en": "Doctor A2 — 8: Describing Symptoms"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "friends_small_talk_pack_1_a2",
+      "kind": "pack",
+      "title": "Friends Small Talk A2 — 1: Opening",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_1_a2/pack.json",
+      "contentId": "de:pack:friends_small_talk_pack_1_a2",
+      "revisionId": "1d54daea60f4",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Opening",
+      "orderInTopic": 1,
+      "title_i18n": {
+        "en": "Friends Small Talk A2 — 1: Opening"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "friends_small_talk_pack_2_a2",
+      "kind": "pack",
+      "title": "Friends Small Talk A2 — 2: Suggestions",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_2_a2/pack.json",
+      "contentId": "de:pack:friends_small_talk_pack_2_a2",
+      "revisionId": "a72e7e6d4b3d",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Suggestions",
+      "orderInTopic": 2,
+      "title_i18n": {
+        "en": "Friends Small Talk A2 — 2: Suggestions"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "friends_small_talk_pack_3_a2",
+      "kind": "pack",
+      "title": "Friends Small Talk A2 — 3: Preferences",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_3_a2/pack.json",
+      "contentId": "de:pack:friends_small_talk_pack_3_a2",
+      "revisionId": "4311c6d18dd6",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Preferences",
+      "orderInTopic": 3,
+      "title_i18n": {
+        "en": "Friends Small Talk A2 — 3: Preferences"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "friends_small_talk_pack_4_a2",
+      "kind": "pack",
+      "title": "Friends Small Talk A2 — 4: Rescheduling",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_4_a2/pack.json",
+      "contentId": "de:pack:friends_small_talk_pack_4_a2",
+      "revisionId": "763033693e3a",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Rescheduling",
+      "orderInTopic": 4,
+      "title_i18n": {
+        "en": "Friends Small Talk A2 — 4: Rescheduling"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "friends_small_talk_pack_5_a2",
+      "kind": "pack",
+      "title": "Friends Small Talk A2 — 5: Follow-ups",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_5_a2/pack.json",
+      "contentId": "de:pack:friends_small_talk_pack_5_a2",
+      "revisionId": "5bd4e10fc1f6",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Follow-ups",
+      "orderInTopic": 5,
+      "title_i18n": {
+        "en": "Friends Small Talk A2 — 5: Follow-ups"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "friends_small_talk_pack_6_a2",
+      "kind": "pack",
+      "title": "Friends Small Talk A2 — 6: Ending politely",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_6_a2/pack.json",
+      "contentId": "de:pack:friends_small_talk_pack_6_a2",
+      "revisionId": "d87a800d44b1",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Ending politely",
+      "orderInTopic": 6,
+      "title_i18n": {
+        "en": "Friends Small Talk A2 — 6: Ending politely"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "friends_small_talk_pack_7_a2",
+      "kind": "pack",
+      "title": "Friends Small Talk A2 — 7: Making Plans",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_7_a2/pack.json",
+      "contentId": "de:pack:friends_small_talk_pack_7_a2",
+      "revisionId": "5a54f8734d19",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Making Plans",
+      "orderInTopic": 7,
+      "title_i18n": {
+        "en": "Friends Small Talk A2 — 7: Making Plans"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "friends_small_talk_pack_8_a2",
+      "kind": "pack",
+      "title": "Friends Small Talk A2 — 8: Responding",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_8_a2/pack.json",
+      "contentId": "de:pack:friends_small_talk_pack_8_a2",
+      "revisionId": "a72744b15d50",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Responding",
+      "orderInTopic": 8,
+      "title_i18n": {
+        "en": "Friends Small Talk A2 — 8: Responding"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "immigration_office_questions_a2",
+      "kind": "pack",
+      "title": "Government Office A2 — Immigration Office Questions",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/immigration_office_questions_a2/pack.json",
+      "contentId": "de:pack:immigration_office_questions_a2",
+      "revisionId": "d33a028980da",
+      "scenario": "government_office",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "government_office"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "polite_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "government_office",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice formal government_office interactions at A2 level",
+        "whyThisWorks": [
+          "Uses formal address (Sie/Ihnen) correctly",
+          "Includes required scenario tokens (Termin, Formular, etc.)",
+          "Maintains polite modal verb constructions"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice formal government_office interactions at A2 level Uses formal address (Sie/Ihnen) correctly",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Government Office — Immig...",
+      "title_i18n": {
+        "en": "Government Office A2 — Immigration Office Questions"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "jobcenter_basic_a2",
+      "kind": "pack",
+      "title": "Government Office A2 — Jobcenter Basic",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/jobcenter_basic_a2/pack.json",
+      "contentId": "de:pack:jobcenter_basic_a2",
+      "revisionId": "843b66dfd579",
+      "scenario": "government_office",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "government_office"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "polite_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "government_office",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice formal government_office interactions at A2 level",
+        "whyThisWorks": [
+          "Uses formal address (Sie/Ihnen) correctly",
+          "Includes required scenario tokens (Termin, Formular, etc.)",
+          "Maintains polite modal verb constructions"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice formal government_office interactions at A2 level Uses formal address (Sie/Ihnen) correctly",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Government Office — Jobce...",
+      "title_i18n": {
+        "en": "Government Office A2 — Jobcenter Basic"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "residence_permit_appointment_a2",
+      "kind": "pack",
+      "title": "Government Office A2 — Residence Permit Appointment",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/residence_permit_appointment_a2/pack.json",
+      "contentId": "de:pack:residence_permit_appointment_a2",
+      "revisionId": "ff43cce07d05",
+      "scenario": "government_office",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "government_office"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "polite_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "government_office",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice formal government_office interactions at A2 level",
+        "whyThisWorks": [
+          "Uses formal address (Sie/Ihnen) correctly",
+          "Includes required scenario tokens (Termin, Formular, etc.)",
+          "Maintains polite modal verb constructions"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice formal government_office interactions at A2 level Uses formal address (Sie/Ihnen) correctly",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Government Office — Resid...",
+      "title_i18n": {
+        "en": "Government Office A2 — Residence Permit Appointment"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "housing_pack_1_a2",
+      "kind": "pack",
+      "title": "Housing A2 — 1: Searching for Housing",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_1_a2/pack.json",
+      "contentId": "de:pack:housing_pack_1_a2",
+      "revisionId": "0588bff52a8e",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A2 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Searching for Housing",
+      "orderInTopic": 1,
+      "title_i18n": {
+        "en": "Housing A2 — 1: Searching for Housing"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "housing_pack_10_a2",
+      "kind": "pack",
+      "title": "Housing A2 — 10: Searching for Housing",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_10_a2/pack.json",
+      "contentId": "de:pack:housing_pack_10_a2",
+      "revisionId": "fd120d720ff8",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A2 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Searching for Housing",
+      "orderInTopic": 10,
+      "title_i18n": {
+        "en": "Housing A2 — 10: Searching for Housing"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "housing_pack_2_a2",
+      "kind": "pack",
+      "title": "Housing A2 — 2: Viewing Apartments",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_2_a2/pack.json",
+      "contentId": "de:pack:housing_pack_2_a2",
+      "revisionId": "4b1bfc3138d7",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A2 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Viewing Apartments",
+      "orderInTopic": 2,
+      "title_i18n": {
+        "en": "Housing A2 — 2: Viewing Apartments"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "housing_pack_3_a2",
+      "kind": "pack",
+      "title": "Housing A2 — 3: Rental Agreement",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_3_a2/pack.json",
+      "contentId": "de:pack:housing_pack_3_a2",
+      "revisionId": "50b7bb0268fb",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A2 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Rental Agreement",
+      "orderInTopic": 3,
+      "title_i18n": {
+        "en": "Housing A2 — 3: Rental Agreement"
+      },
+      "domainKind": "context"
+    }
+  ],
+  "nextPage": "/v1/workspaces/de/context/pages/4.json"
+}

@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "kind": "scenario_index",
+  "items": [
+    {
+      "id": "work",
+      "title": "Work",
+      "subtitle": "Office Greetings",
+      "icon": "briefcase",
+      "itemCount": 0,
+      "itemsUrl": "/v1/workspaces/test-ws/context/work/nonexistent.json"
+    }
+  ]
+}

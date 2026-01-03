@@ -1,0 +1,1072 @@
+{
+  "version": "v1",
+  "kind": "context",
+  "total": 89,
+  "pageSize": 20,
+  "page": 2,
+  "items": [
+    {
+      "id": "health_insurance_basic_a1",
+      "kind": "pack",
+      "title": "Government Office A1 — Health Insurance Basic",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/health_insurance_basic_a1/pack.json",
+      "contentId": "de:pack:health_insurance_basic_a1",
+      "revisionId": "638378c578d5",
+      "scenario": "government_office",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "government_office"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "polite_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "government_office",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice formal government_office interactions at A1 level",
+        "whyThisWorks": [
+          "Uses formal address (Sie/Ihnen) correctly",
+          "Includes required scenario tokens (Termin, Formular, etc.)",
+          "Maintains polite modal verb constructions"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice formal government_office interactions at A1 level Uses formal address (Sie/Ihnen) correctly",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Government Office — Healt...",
+      "title_i18n": {
+        "en": "Government Office A1 — Health Insurance Basic"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "passport_pickup_a1",
+      "kind": "pack",
+      "title": "Government Office A1 — Passport Pickup",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/passport_pickup_a1/pack.json",
+      "contentId": "de:pack:passport_pickup_a1",
+      "revisionId": "247bdba4297f",
+      "scenario": "government_office",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "government_office"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "polite_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "government_office",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice formal government_office interactions at A1 level",
+        "whyThisWorks": [
+          "Uses formal address (Sie/Ihnen) correctly",
+          "Includes required scenario tokens (Termin, Formular, etc.)",
+          "Maintains polite modal verb constructions"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice formal government_office interactions at A1 level Uses formal address (Sie/Ihnen) correctly",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Government Office — Passp...",
+      "title_i18n": {
+        "en": "Government Office A1 — Passport Pickup"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "housing_pack_1_a1",
+      "kind": "pack",
+      "title": "Housing A1 — 1: Searching for Housing",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_1_a1/pack.json",
+      "contentId": "de:pack:housing_pack_1_a1",
+      "revisionId": "abd055e0048b",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A1 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A1 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Searching for Housing",
+      "orderInTopic": 1,
+      "title_i18n": {
+        "en": "Housing A1 — 1: Searching for Housing"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "housing_pack_10_a1",
+      "kind": "pack",
+      "title": "Housing A1 — 10: Searching for Housing",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_10_a1/pack.json",
+      "contentId": "de:pack:housing_pack_10_a1",
+      "revisionId": "41da5c2a6027",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A1 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A1 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Searching for Housing",
+      "orderInTopic": 10,
+      "title_i18n": {
+        "en": "Housing A1 — 10: Searching for Housing"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "housing_pack_2_a1",
+      "kind": "pack",
+      "title": "Housing A1 — 2: Viewing Apartments",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_2_a1/pack.json",
+      "contentId": "de:pack:housing_pack_2_a1",
+      "revisionId": "8232644e4a0a",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A1 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A1 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Viewing Apartments",
+      "orderInTopic": 2,
+      "title_i18n": {
+        "en": "Housing A1 — 2: Viewing Apartments"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "housing_pack_3_a1",
+      "kind": "pack",
+      "title": "Housing A1 — 3: Rental Agreement",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_3_a1/pack.json",
+      "contentId": "de:pack:housing_pack_3_a1",
+      "revisionId": "acc206eb79c0",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A1 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A1 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Rental Agreement",
+      "orderInTopic": 3,
+      "title_i18n": {
+        "en": "Housing A1 — 3: Rental Agreement"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "housing_pack_4_a1",
+      "kind": "pack",
+      "title": "Housing A1 — 4: Searching for Housing",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_4_a1/pack.json",
+      "contentId": "de:pack:housing_pack_4_a1",
+      "revisionId": "86233f1f264b",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A1 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A1 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Searching for Housing",
+      "orderInTopic": 4,
+      "title_i18n": {
+        "en": "Housing A1 — 4: Searching for Housing"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "housing_pack_5_a1",
+      "kind": "pack",
+      "title": "Housing A1 — 5: Viewing Apartments",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_5_a1/pack.json",
+      "contentId": "de:pack:housing_pack_5_a1",
+      "revisionId": "7dd2205d1cc4",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A1 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A1 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Viewing Apartments",
+      "orderInTopic": 5,
+      "title_i18n": {
+        "en": "Housing A1 — 5: Viewing Apartments"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "housing_pack_6_a1",
+      "kind": "pack",
+      "title": "Housing A1 — 6: Rental Agreement",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_6_a1/pack.json",
+      "contentId": "de:pack:housing_pack_6_a1",
+      "revisionId": "3898ff439c1d",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A1 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A1 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Rental Agreement",
+      "orderInTopic": 6,
+      "title_i18n": {
+        "en": "Housing A1 — 6: Rental Agreement"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "housing_pack_7_a1",
+      "kind": "pack",
+      "title": "Housing A1 — 7: Searching for Housing",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_7_a1/pack.json",
+      "contentId": "de:pack:housing_pack_7_a1",
+      "revisionId": "284925bccb93",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A1 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A1 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Searching for Housing",
+      "orderInTopic": 7,
+      "title_i18n": {
+        "en": "Housing A1 — 7: Searching for Housing"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "housing_pack_8_a1",
+      "kind": "pack",
+      "title": "Housing A1 — 8: Viewing Apartments",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_8_a1/pack.json",
+      "contentId": "de:pack:housing_pack_8_a1",
+      "revisionId": "1762f6e96523",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A1 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A1 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Viewing Apartments",
+      "orderInTopic": 8,
+      "title_i18n": {
+        "en": "Housing A1 — 8: Viewing Apartments"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "housing_pack_9_a1",
+      "kind": "pack",
+      "title": "Housing A1 — 9: Rental Agreement",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_9_a1/pack.json",
+      "contentId": "de:pack:housing_pack_9_a1",
+      "revisionId": "e90af77c6e30",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A1 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A1 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Rental Agreement",
+      "orderInTopic": 9,
+      "title_i18n": {
+        "en": "Housing A1 — 9: Rental Agreement"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "friends_movies_series_a1",
+      "kind": "pack",
+      "title": "Movies & Series",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_movies_series_a1/pack.json",
+      "contentId": "de:pack:friends_movies_series_a1",
+      "revisionId": "737629c31ef8",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Movies & Series",
+      "title_i18n": {
+        "en": "Movies & Series"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "friends_plans_weekend_a1",
+      "kind": "pack",
+      "title": "Plans for the Weekend",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_plans_weekend_a1/pack.json",
+      "contentId": "de:pack:friends_plans_weekend_a1",
+      "revisionId": "3a806a176c23",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Plans for the Weekend",
+      "title_i18n": {
+        "en": "Plans for the Weekend"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "work_sample_1_a1",
+      "kind": "pack",
+      "title": "Work A1 — Sample 1",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_sample_1_a1/pack.json",
+      "contentId": "de:pack:work_sample_1_a1",
+      "revisionId": "ef4cd17ff591",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A1 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A1 level Uses professional vocabulary appropriately",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Work — Sample 1",
+      "title_i18n": {
+        "en": "Work A1 — Sample 1"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "work_sample_2_a1",
+      "kind": "pack",
+      "title": "Work A1 — Sample 2",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_sample_2_a1/pack.json",
+      "contentId": "de:pack:work_sample_2_a1",
+      "revisionId": "4c0d5dfd1819",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A1 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A1 level Uses professional vocabulary appropriately",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Work — Sample 2",
+      "title_i18n": {
+        "en": "Work A1 — Sample 2"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "friends_suggestions_activity_a2",
+      "kind": "pack",
+      "title": "Activity Suggestions",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_suggestions_activity_a2/pack.json",
+      "contentId": "de:pack:friends_suggestions_activity_a2",
+      "revisionId": "0b5454a601de",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Activity Suggestions",
+      "title_i18n": {
+        "en": "Activity Suggestions"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "doctor_pack_1_a2",
+      "kind": "pack",
+      "title": "Doctor A2 — 1: Making an Appointment",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/doctor_pack_1_a2/pack.json",
+      "contentId": "de:pack:doctor_pack_1_a2",
+      "revisionId": "70383687eb73",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "doctor"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "health_appointments",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "doctor",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice doctor appointments and health conversations at A2 level",
+        "whyThisWorks": [
+          "Uses appointment scheduling phrases",
+          "Includes symptom/health vocabulary",
+          "Maintains appropriate formality"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases",
+      "topicKey": "making-an-appointment",
+      "topicLabel": "Making an Appointment",
+      "shortTitle": "Appointment scheduling",
+      "orderInTopic": 1,
+      "title_i18n": {
+        "en": "Doctor A2 — 1: Making an Appointment"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "doctor_pack_2_a2",
+      "kind": "pack",
+      "title": "Doctor A2 — 2: Describing Symptoms",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/doctor_pack_2_a2/pack.json",
+      "contentId": "de:pack:doctor_pack_2_a2",
+      "revisionId": "60b8bed0b625",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "doctor"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "health_appointments",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "doctor",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice doctor appointments and health conversations at A2 level",
+        "whyThisWorks": [
+          "Uses appointment scheduling phrases",
+          "Includes symptom/health vocabulary",
+          "Maintains appropriate formality"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases",
+      "topicKey": "describing-symptoms",
+      "topicLabel": "Describing Symptoms",
+      "shortTitle": "Symptom communication",
+      "orderInTopic": 2,
+      "title_i18n": {
+        "en": "Doctor A2 — 2: Describing Symptoms"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "doctor_pack_3_a2",
+      "kind": "pack",
+      "title": "Doctor A2 — 3: Getting Prescription",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/doctor_pack_3_a2/pack.json",
+      "contentId": "de:pack:doctor_pack_3_a2",
+      "revisionId": "5f284a54caab",
+      "scenario": "doctor",
+      "register": "neutral",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "doctor"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "health_appointments",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "doctor",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice doctor appointments and health conversations at A2 level",
+        "whyThisWorks": [
+          "Uses appointment scheduling phrases",
+          "Includes symptom/health vocabulary",
+          "Maintains appropriate formality"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases",
+      "topicKey": "getting-prescription",
+      "topicLabel": "Getting Prescription",
+      "shortTitle": "Prescription process",
+      "orderInTopic": 3,
+      "title_i18n": {
+        "en": "Doctor A2 — 3: Getting Prescription"
+      },
+      "domainKind": "context"
+    }
+  ],
+  "nextPage": "/v1/workspaces/de/context/pages/3.json"
+}

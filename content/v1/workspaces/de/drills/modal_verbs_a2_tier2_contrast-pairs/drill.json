@@ -1,0 +1,327 @@
+{
+  "schemaVersion": 1,
+  "id": "modal_verbs_a2_tier2_contrast-pairs",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A2",
+  "title": "Modal Verbs: A2 (Tier 2)",
+  "shortTitle": "Modal Verbs A2",
+  "subtitle": "Tier 2 - contrast pairs - Master modal verb patterns (können",
+  "estimatedMinutes": 4,
+  "mechanicId": "modal_verbs",
+  "mechanicLabel": "Modal Verbs",
+  "loopType": "contrast_pairs",
+  "difficultyTier": 2,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "pair-1",
+        "title": "Pair 1",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Pair 1"
+        }
+      },
+      {
+        "id": "pair-2",
+        "title": "Pair 2",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Pair 2"
+        }
+      },
+      {
+        "id": "pair-3",
+        "title": "Pair 3",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006"
+        ],
+        "title_i18n": {
+          "en": "Pair 3"
+        }
+      },
+      {
+        "id": "pair-4",
+        "title": "Pair 4",
+        "promptIds": [
+          "prompt-007",
+          "prompt-008"
+        ],
+        "title_i18n": {
+          "en": "Pair 4"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Ich lerne den.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich lerne den.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "lerne"
+        ],
+        "object": [
+          "den"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier2/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Wir essen ins Kino.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Wir essen ins Kino.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "essen"
+        ],
+        "object": [
+          "ins Kino"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier2/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "Er kauft nach Hause.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er kauft nach Hause.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "kauft"
+        ],
+        "object": [
+          "nach Hause"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier2/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Wir gehen den.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Wir gehen den.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "gehen"
+        ],
+        "object": [
+          "den"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier2/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Ich esse das.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich esse das.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "esse"
+        ],
+        "object": [
+          "das"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier2/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Sie lernt zur Arbeit.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie lernt zur Arbeit.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "lernt"
+        ],
+        "object": [
+          "zur Arbeit"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier2/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "Ich höre nach Hause.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich höre nach Hause.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "höre"
+        ],
+        "object": [
+          "nach Hause"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier2/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "Ihr trinkt zur Arbeit.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ihr trinkt zur Arbeit.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "trinkt"
+        ],
+        "object": [
+          "zur Arbeit"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier2/prompt-008.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "modal_verbs",
+    "loopType": "contrast_pairs",
+    "targetStructures": [
+      "modal_verb_infinitive",
+      "modal_verb_requests",
+      "modal_verb_ability"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "lerne",
+        "essen",
+        "kauft",
+        "gehen",
+        "esse",
+        "lernt",
+        "höre",
+        "trinkt"
+      ],
+      "subjects": [
+        "Ich",
+        "Wir",
+        "Er",
+        "Sie",
+        "Ihr"
+      ],
+      "patterns": [
+        "modal_verb_infinitive",
+        "modal_verb_requests",
+        "modal_verb_ability"
+      ]
+    },
+    "difficultyTier": 2,
+    "recommendedReps": 3,
+    "estPromptCount": 8,
+    "timeboxMinutes": 4,
+    "qualitySignals": {
+      "tokenHitsCount": 0,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 8,
+      "uniqueSubjectCount": 5,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/modal_verbs",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-03T00:18:10.638Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:drill:modal_verbs_a2_tier2_contrast-pairs",
+  "contentHash": "818337d20e3b8ffc18f602c4f3080e3e04c2451ec72c0bb24dfa46a0b65651f2",
+  "revisionId": "818337d20e3b"
+}

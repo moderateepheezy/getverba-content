@@ -1,0 +1,386 @@
+{
+  "schemaVersion": 1,
+  "id": "modal_verbs_a1_tier3_contrast-pairs",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A1",
+  "title": "Modal Verbs: A1 (Tier 3)",
+  "shortTitle": "Modal Verbs A1",
+  "subtitle": "Tier 3 - contrast pairs - Master modal verb patterns (können",
+  "estimatedMinutes": 5,
+  "mechanicId": "modal_verbs",
+  "mechanicLabel": "Modal Verbs",
+  "loopType": "contrast_pairs",
+  "difficultyTier": 3,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "pair-1",
+        "title": "Pair 1",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Pair 1"
+        }
+      },
+      {
+        "id": "pair-2",
+        "title": "Pair 2",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Pair 2"
+        }
+      },
+      {
+        "id": "pair-3",
+        "title": "Pair 3",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006"
+        ],
+        "title_i18n": {
+          "en": "Pair 3"
+        }
+      },
+      {
+        "id": "pair-4",
+        "title": "Pair 4",
+        "promptIds": [
+          "prompt-007",
+          "prompt-008"
+        ],
+        "title_i18n": {
+          "en": "Pair 4"
+        }
+      },
+      {
+        "id": "pair-5",
+        "title": "Pair 5",
+        "promptIds": [
+          "prompt-009",
+          "prompt-010"
+        ],
+        "title_i18n": {
+          "en": "Pair 5"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Er hört die.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er hört die.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "hört"
+        ],
+        "object": [
+          "die"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier3/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Sie lernt eine.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie lernt eine.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "lernt"
+        ],
+        "object": [
+          "eine"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier3/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "Du machst eine.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du machst eine.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "machst"
+        ],
+        "object": [
+          "eine"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier3/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Sie seht einen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie seht einen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "seht"
+        ],
+        "object": [
+          "einen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier3/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Ich gehe den.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich gehe den.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "gehe"
+        ],
+        "object": [
+          "den"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier3/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Ihr macht die.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ihr macht die.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "macht"
+        ],
+        "object": [
+          "die"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier3/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "Du essst die.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du essst die.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "essst"
+        ],
+        "object": [
+          "die"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier3/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "Ihr lernt einen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ihr lernt einen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "lernt"
+        ],
+        "object": [
+          "einen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier3/prompt-008.mp3"
+    },
+    {
+      "id": "prompt-009",
+      "text": "Du kaufst einen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du kaufst einen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "kaufst"
+        ],
+        "object": [
+          "einen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier3/prompt-009.mp3"
+    },
+    {
+      "id": "prompt-010",
+      "text": "Ihr seht nach Hause.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ihr seht nach Hause.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "seht"
+        ],
+        "object": [
+          "nach Hause"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier3/prompt-010.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "modal_verbs",
+    "loopType": "contrast_pairs",
+    "targetStructures": [
+      "modal_verb_infinitive",
+      "modal_verb_requests",
+      "modal_verb_ability"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "hört",
+        "lernt",
+        "machst",
+        "seht",
+        "gehe",
+        "macht",
+        "essst",
+        "kaufst"
+      ],
+      "subjects": [
+        "Er",
+        "Sie",
+        "Du",
+        "Ich",
+        "Ihr"
+      ],
+      "patterns": [
+        "modal_verb_infinitive",
+        "modal_verb_requests",
+        "modal_verb_ability"
+      ]
+    },
+    "difficultyTier": 3,
+    "recommendedReps": 4,
+    "estPromptCount": 10,
+    "timeboxMinutes": 5,
+    "qualitySignals": {
+      "tokenHitsCount": 0,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 8,
+      "uniqueSubjectCount": 5,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/modal_verbs",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-03T00:18:10.636Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:drill:modal_verbs_a1_tier3_contrast-pairs",
+  "contentHash": "aacd823f7d8355b8a1cc9eeeaadb7b418e40cfe7dbdde162978f43f81f8152f7",
+  "revisionId": "aacd823f7d83"
+}

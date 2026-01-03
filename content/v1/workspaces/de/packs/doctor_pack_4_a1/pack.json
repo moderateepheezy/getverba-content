@@ -3,7 +3,7 @@
   "id": "doctor_pack_4_a1",
   "kind": "pack",
   "packVersion": "1.0.0",
-  "title": "Doctor - A1",
+  "title": "Doctor A1 — 4: Making an Appointment",
   "level": "A1",
   "estimatedMinutes": 15,
   "description": "Practice doctor scenarios at A1 level.",
@@ -205,7 +205,10 @@
         "promptIds": [
           "prompt-001",
           "prompt-002"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Making an Appointment"
+        }
       },
       {
         "id": "symptoms",
@@ -214,7 +217,10 @@
           "prompt-003",
           "prompt-004",
           "prompt-005"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Describing Symptoms"
+        }
       },
       {
         "id": "prescription",
@@ -222,7 +228,10 @@
         "promptIds": [
           "prompt-006",
           "prompt-007"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Getting Prescription"
+        }
       }
     ]
   },
@@ -302,14 +311,18 @@
     "source": "template",
     "sourceRef": "doctor",
     "extractorVersion": "1.0.0",
-    "generatedAt": "2025-12-31T07:35:42.482Z"
+    "generatedAt": "2026-01-01T00:56:02.543Z"
   },
   "review": {
-    "status": "approved",
-    "reviewer": "Afees",
-    "reviewedAt": "2025-12-31T08:31:40Z"
+    "status": "needs_review"
   },
   "contentId": "de:pack:doctor_pack_4_a1",
-  "contentHash": "a8d97179b99eaf0cba5f79804cfc7fdef914553dab4705326d40671e2464cc19",
-  "revisionId": "a8d97179b99e"
+  "contentHash": "737220a2c43c1e7124c9f55865909c223d4b431660fe2a1eaefb9cf121a1f52c",
+  "revisionId": "737220a2c43c",
+  "title_i18n": {
+    "en": "Doctor A1 — 4: Making an Appointment"
+  },
+  "description_i18n": {
+    "en": "Practice doctor scenarios at A1 level."
+  }
 }

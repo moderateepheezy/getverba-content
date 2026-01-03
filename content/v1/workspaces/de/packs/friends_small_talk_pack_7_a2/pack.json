@@ -3,7 +3,7 @@
   "id": "friends_small_talk_pack_7_a2",
   "kind": "pack",
   "packVersion": "1.0.0",
-  "title": "Friends Small Talk - A2",
+  "title": "Friends Small Talk A2 — 7: Making Plans",
   "level": "A2",
   "estimatedMinutes": 15,
   "description": "Practice friends_small_talk scenarios at A2 level.",
@@ -350,7 +350,10 @@
           "prompt-002",
           "prompt-003",
           "prompt-004"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Making Plans"
+        }
       },
       {
         "id": "variation",
@@ -361,7 +364,10 @@
           "prompt-007",
           "prompt-008",
           "prompt-009"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Suggestions & Preferences"
+        }
       },
       {
         "id": "switch",
@@ -370,7 +376,10 @@
           "prompt-010",
           "prompt-011",
           "prompt-012"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Responding & Rescheduling"
+        }
       }
     ]
   },
@@ -457,14 +466,18 @@
     "source": "template",
     "sourceRef": "friends_small_talk",
     "extractorVersion": "1.0.0",
-    "generatedAt": "2025-12-31T08:23:49.708Z"
+    "generatedAt": "2026-01-01T00:56:10.632Z"
   },
   "review": {
-    "status": "approved",
-    "reviewer": "Afees",
-    "reviewedAt": "2025-12-31T08:31:40Z"
+    "status": "needs_review"
   },
   "contentId": "de:pack:friends_small_talk_pack_7_a2",
-  "contentHash": "806500ff46be0fba4d98fa518cb01efb086ccab710f391354f824b6ca5900c8f",
-  "revisionId": "806500ff46be"
+  "contentHash": "5a54f8734d19b9506d618c98e78e3a02a60525834dace556f593331a0fb09737",
+  "revisionId": "5a54f8734d19",
+  "title_i18n": {
+    "en": "Friends Small Talk A2 — 7: Making Plans"
+  },
+  "description_i18n": {
+    "en": "Practice friends_small_talk scenarios at A2 level."
+  }
 }

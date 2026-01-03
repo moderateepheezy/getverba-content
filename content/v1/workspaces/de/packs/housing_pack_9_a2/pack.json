@@ -3,7 +3,7 @@
   "id": "housing_pack_9_a2",
   "kind": "pack",
   "packVersion": "1.0.0",
-  "title": "Housing - A2",
+  "title": "Housing A2 — 9: Rental Agreement",
   "level": "A2",
   "estimatedMinutes": 15,
   "description": "Practice housing scenarios at A2 level.",
@@ -212,7 +212,10 @@
         "promptIds": [
           "prompt-001",
           "prompt-002"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Searching for Housing"
+        }
       },
       {
         "id": "viewing",
@@ -221,7 +224,10 @@
           "prompt-003",
           "prompt-004",
           "prompt-005"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Viewing Apartments"
+        }
       },
       {
         "id": "rental",
@@ -229,7 +235,10 @@
         "promptIds": [
           "prompt-006",
           "prompt-007"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Rental Agreement"
+        }
       }
     ]
   },
@@ -309,14 +318,18 @@
     "source": "template",
     "sourceRef": "housing",
     "extractorVersion": "1.0.0",
-    "generatedAt": "2025-12-31T07:35:31.639Z"
+    "generatedAt": "2026-01-01T00:56:20.641Z"
   },
   "review": {
-    "status": "approved",
-    "reviewer": "Afees",
-    "reviewedAt": "2025-12-31T08:31:40Z"
+    "status": "needs_review"
   },
   "contentId": "de:pack:housing_pack_9_a2",
-  "contentHash": "c92cfdfd67d7eea0e94628e153f7c3ff5b8b9d4c9f971cff9ffb4ae3e177f44e",
-  "revisionId": "c92cfdfd67d7"
+  "contentHash": "fabd5ecd04b5c423640fc3608d87b52e654f8b6cb7f3daa76e9468c40e0595c3",
+  "revisionId": "fabd5ecd04b5",
+  "title_i18n": {
+    "en": "Housing A2 — 9: Rental Agreement"
+  },
+  "description_i18n": {
+    "en": "Practice housing scenarios at A2 level."
+  }
 }

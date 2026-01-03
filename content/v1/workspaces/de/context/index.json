@@ -3,6 +3,7 @@
   "kind": "context",
   "total": 89,
   "pageSize": 20,
+  "page": 1,
   "items": [
     {
       "id": "friends_cafe_meetup_a1",
@@ -50,17 +51,24 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases"
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Café Meetup",
+      "title_i18n": {
+        "en": "Café Meetup"
+      },
+      "domainKind": "context"
     },
     {
       "id": "doctor_pack_1_a1",
       "kind": "pack",
-      "title": "Doctor - A1",
+      "title": "Doctor A1 — 1: Making an Appointment",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/doctor_pack_1_a1/pack.json",
       "contentId": "de:pack:doctor_pack_1_a1",
-      "revisionId": "bf5d0d8a4ec6",
+      "revisionId": "d68ee6ac287b",
       "scenario": "doctor",
       "register": "neutral",
       "primaryStructure": "modal_verbs_requests",
@@ -95,17 +103,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases"
+      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases",
+      "topicKey": "making-an-appointment",
+      "topicLabel": "Making an Appointment",
+      "shortTitle": "Phone booking",
+      "orderInTopic": 1,
+      "title_i18n": {
+        "en": "Doctor A1 — 1: Making an Appointment"
+      },
+      "domainKind": "context"
     },
     {
       "id": "doctor_pack_2_a1",
       "kind": "pack",
-      "title": "Doctor - A1",
+      "title": "Doctor A1 — 2: Describing Symptoms",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/doctor_pack_2_a1/pack.json",
       "contentId": "de:pack:doctor_pack_2_a1",
-      "revisionId": "c7e6abd7be4a",
+      "revisionId": "fa7a48e5fd8f",
       "scenario": "doctor",
       "register": "neutral",
       "primaryStructure": "modal_verbs_requests",
@@ -140,17 +156,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases"
+      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases",
+      "topicKey": "describing-symptoms",
+      "topicLabel": "Describing Symptoms",
+      "shortTitle": "Symptom description",
+      "orderInTopic": 2,
+      "title_i18n": {
+        "en": "Doctor A1 — 2: Describing Symptoms"
+      },
+      "domainKind": "context"
     },
     {
       "id": "doctor_pack_3_a1",
       "kind": "pack",
-      "title": "Doctor - A1",
+      "title": "Doctor A1 — 3: Getting Prescription",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/doctor_pack_3_a1/pack.json",
       "contentId": "de:pack:doctor_pack_3_a1",
-      "revisionId": "cd19562cdf9d",
+      "revisionId": "eb69dc954e19",
       "scenario": "doctor",
       "register": "neutral",
       "primaryStructure": "modal_verbs_requests",
@@ -185,17 +209,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases"
+      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases",
+      "topicKey": "getting-prescription",
+      "topicLabel": "Getting Prescription",
+      "shortTitle": "Prescription pickup",
+      "orderInTopic": 3,
+      "title_i18n": {
+        "en": "Doctor A1 — 3: Getting Prescription"
+      },
+      "domainKind": "context"
     },
     {
       "id": "doctor_pack_4_a1",
       "kind": "pack",
-      "title": "Doctor - A1",
+      "title": "Doctor A1 — 4: Making an Appointment",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/doctor_pack_4_a1/pack.json",
       "contentId": "de:pack:doctor_pack_4_a1",
-      "revisionId": "a8d97179b99e",
+      "revisionId": "737220a2c43c",
       "scenario": "doctor",
       "register": "neutral",
       "primaryStructure": "modal_verbs_requests",
@@ -230,17 +262,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases"
+      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Making an Appointment",
+      "orderInTopic": 4,
+      "title_i18n": {
+        "en": "Doctor A1 — 4: Making an Appointment"
+      },
+      "domainKind": "context"
     },
     {
       "id": "doctor_pack_5_a1",
       "kind": "pack",
-      "title": "Doctor - A1",
+      "title": "Doctor A1 — 5: Describing Symptoms",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/doctor_pack_5_a1/pack.json",
       "contentId": "de:pack:doctor_pack_5_a1",
-      "revisionId": "ecc55bd74d8a",
+      "revisionId": "7f8e355623a0",
       "scenario": "doctor",
       "register": "neutral",
       "primaryStructure": "modal_verbs_requests",
@@ -275,17 +315,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases"
+      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Describing Symptoms",
+      "orderInTopic": 5,
+      "title_i18n": {
+        "en": "Doctor A1 — 5: Describing Symptoms"
+      },
+      "domainKind": "context"
     },
     {
       "id": "doctor_pack_6_a1",
       "kind": "pack",
-      "title": "Doctor - A1",
+      "title": "Doctor A1 — 6: Getting Prescription",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/doctor_pack_6_a1/pack.json",
       "contentId": "de:pack:doctor_pack_6_a1",
-      "revisionId": "4bf0a9469a02",
+      "revisionId": "e7ceaed78804",
       "scenario": "doctor",
       "register": "neutral",
       "primaryStructure": "modal_verbs_requests",
@@ -320,17 +368,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases"
+      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Getting Prescription",
+      "orderInTopic": 6,
+      "title_i18n": {
+        "en": "Doctor A1 — 6: Getting Prescription"
+      },
+      "domainKind": "context"
     },
     {
       "id": "doctor_pack_7_a1",
       "kind": "pack",
-      "title": "Doctor - A1",
+      "title": "Doctor A1 — 7: Making an Appointment",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/doctor_pack_7_a1/pack.json",
       "contentId": "de:pack:doctor_pack_7_a1",
-      "revisionId": "c0d2be4a745d",
+      "revisionId": "a3d01f6ee7e5",
       "scenario": "doctor",
       "register": "neutral",
       "primaryStructure": "modal_verbs_requests",
@@ -365,17 +421,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases"
+      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Making an Appointment",
+      "orderInTopic": 7,
+      "title_i18n": {
+        "en": "Doctor A1 — 7: Making an Appointment"
+      },
+      "domainKind": "context"
     },
     {
       "id": "doctor_pack_8_a1",
       "kind": "pack",
-      "title": "Doctor - A1",
+      "title": "Doctor A1 — 8: Describing Symptoms",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/doctor_pack_8_a1/pack.json",
       "contentId": "de:pack:doctor_pack_8_a1",
-      "revisionId": "30cdfd3662ff",
+      "revisionId": "3fb86afb868f",
       "scenario": "doctor",
       "register": "neutral",
       "primaryStructure": "modal_verbs_requests",
@@ -410,17 +474,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases"
+      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Describing Symptoms",
+      "orderInTopic": 8,
+      "title_i18n": {
+        "en": "Doctor A1 — 8: Describing Symptoms"
+      },
+      "domainKind": "context"
     },
     {
       "id": "friends_small_talk_pack_1_a1",
       "kind": "pack",
-      "title": "Friends Small Talk - A1",
+      "title": "Friends Small Talk A1 — 1: Opening",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_1_a1/pack.json",
       "contentId": "de:pack:friends_small_talk_pack_1_a1",
-      "revisionId": "69f688116e7d",
+      "revisionId": "daba3898a63a",
       "scenario": "friends_small_talk",
       "register": "casual",
       "primaryStructure": "modal_verbs_suggestions",
@@ -458,17 +530,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases"
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Opening",
+      "orderInTopic": 1,
+      "title_i18n": {
+        "en": "Friends Small Talk A1 — 1: Opening"
+      },
+      "domainKind": "context"
     },
     {
       "id": "friends_small_talk_pack_10_a1",
       "kind": "pack",
-      "title": "Friends Small Talk - A1",
+      "title": "Friends Small Talk A1 — 10: Declining politely",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_10_a1/pack.json",
       "contentId": "de:pack:friends_small_talk_pack_10_a1",
-      "revisionId": "b3646bfe985f",
+      "revisionId": "377df60a3f4c",
       "scenario": "friends_small_talk",
       "register": "casual",
       "primaryStructure": "modal_verbs_suggestions",
@@ -506,17 +586,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases"
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Declining politely",
+      "orderInTopic": 10,
+      "title_i18n": {
+        "en": "Friends Small Talk A1 — 10: Declining politely"
+      },
+      "domainKind": "context"
     },
     {
       "id": "friends_small_talk_pack_2_a1",
       "kind": "pack",
-      "title": "Friends Small Talk - A1",
+      "title": "Friends Small Talk A1 — 2: Suggestions",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_2_a1/pack.json",
       "contentId": "de:pack:friends_small_talk_pack_2_a1",
-      "revisionId": "53412ec6b84d",
+      "revisionId": "55d9e101c50b",
       "scenario": "friends_small_talk",
       "register": "casual",
       "primaryStructure": "modal_verbs_suggestions",
@@ -554,17 +642,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases"
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Suggestions",
+      "orderInTopic": 2,
+      "title_i18n": {
+        "en": "Friends Small Talk A1 — 2: Suggestions"
+      },
+      "domainKind": "context"
     },
     {
       "id": "friends_small_talk_pack_3_a1",
       "kind": "pack",
-      "title": "Friends Small Talk - A1",
+      "title": "Friends Small Talk A1 — 3: Preferences",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_3_a1/pack.json",
       "contentId": "de:pack:friends_small_talk_pack_3_a1",
-      "revisionId": "80f93db42efb",
+      "revisionId": "1ad36ae364b9",
       "scenario": "friends_small_talk",
       "register": "casual",
       "primaryStructure": "modal_verbs_suggestions",
@@ -602,17 +698,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases"
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Preferences",
+      "orderInTopic": 3,
+      "title_i18n": {
+        "en": "Friends Small Talk A1 — 3: Preferences"
+      },
+      "domainKind": "context"
     },
     {
       "id": "friends_small_talk_pack_4_a1",
       "kind": "pack",
-      "title": "Friends Small Talk - A1",
+      "title": "Friends Small Talk A1 — 4: Rescheduling",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_4_a1/pack.json",
       "contentId": "de:pack:friends_small_talk_pack_4_a1",
-      "revisionId": "accf36350377",
+      "revisionId": "6c4900200c24",
       "scenario": "friends_small_talk",
       "register": "casual",
       "primaryStructure": "modal_verbs_suggestions",
@@ -650,17 +754,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases"
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Rescheduling",
+      "orderInTopic": 4,
+      "title_i18n": {
+        "en": "Friends Small Talk A1 — 4: Rescheduling"
+      },
+      "domainKind": "context"
     },
     {
       "id": "friends_small_talk_pack_5_a1",
       "kind": "pack",
-      "title": "Friends Small Talk - A1",
+      "title": "Friends Small Talk A1 — 5: Follow-ups",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_5_a1/pack.json",
       "contentId": "de:pack:friends_small_talk_pack_5_a1",
-      "revisionId": "3e85525a9def",
+      "revisionId": "a37760c5d1d1",
       "scenario": "friends_small_talk",
       "register": "casual",
       "primaryStructure": "modal_verbs_suggestions",
@@ -698,17 +810,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases"
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Follow-ups",
+      "orderInTopic": 5,
+      "title_i18n": {
+        "en": "Friends Small Talk A1 — 5: Follow-ups"
+      },
+      "domainKind": "context"
     },
     {
       "id": "friends_small_talk_pack_6_a1",
       "kind": "pack",
-      "title": "Friends Small Talk - A1",
+      "title": "Friends Small Talk A1 — 6: Ending politely",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_6_a1/pack.json",
       "contentId": "de:pack:friends_small_talk_pack_6_a1",
-      "revisionId": "f86498873d0d",
+      "revisionId": "65df0cac7008",
       "scenario": "friends_small_talk",
       "register": "casual",
       "primaryStructure": "modal_verbs_suggestions",
@@ -746,17 +866,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases"
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Ending politely",
+      "orderInTopic": 6,
+      "title_i18n": {
+        "en": "Friends Small Talk A1 — 6: Ending politely"
+      },
+      "domainKind": "context"
     },
     {
       "id": "friends_small_talk_pack_7_a1",
       "kind": "pack",
-      "title": "Friends Small Talk - A1",
+      "title": "Friends Small Talk A1 — 7: Making Plans",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_7_a1/pack.json",
       "contentId": "de:pack:friends_small_talk_pack_7_a1",
-      "revisionId": "18538d00245d",
+      "revisionId": "167824cc833c",
       "scenario": "friends_small_talk",
       "register": "casual",
       "primaryStructure": "modal_verbs_suggestions",
@@ -794,17 +922,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases"
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Making Plans",
+      "orderInTopic": 7,
+      "title_i18n": {
+        "en": "Friends Small Talk A1 — 7: Making Plans"
+      },
+      "domainKind": "context"
     },
     {
       "id": "friends_small_talk_pack_8_a1",
       "kind": "pack",
-      "title": "Friends Small Talk - A1",
+      "title": "Friends Small Talk A1 — 8: Responding",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_8_a1/pack.json",
       "contentId": "de:pack:friends_small_talk_pack_8_a1",
-      "revisionId": "dbed049a1db0",
+      "revisionId": "1bf881a609c5",
       "scenario": "friends_small_talk",
       "register": "casual",
       "primaryStructure": "modal_verbs_suggestions",
@@ -842,17 +978,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases"
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Responding",
+      "orderInTopic": 8,
+      "title_i18n": {
+        "en": "Friends Small Talk A1 — 8: Responding"
+      },
+      "domainKind": "context"
     },
     {
       "id": "friends_small_talk_pack_9_a1",
       "kind": "pack",
-      "title": "Friends Small Talk - A1",
+      "title": "Friends Small Talk A1 — 9: Confirming",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_9_a1/pack.json",
       "contentId": "de:pack:friends_small_talk_pack_9_a1",
-      "revisionId": "2876b43e9715",
+      "revisionId": "de1eb649b84d",
       "scenario": "friends_small_talk",
       "register": "casual",
       "primaryStructure": "modal_verbs_suggestions",
@@ -890,12 +1034,20 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases"
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Confirming",
+      "orderInTopic": 9,
+      "title_i18n": {
+        "en": "Friends Small Talk A1 — 9: Confirming"
+      },
+      "domainKind": "context"
     },
     {
       "id": "anmeldung_address_registration_a1",
       "kind": "pack",
-      "title": "Government Office - A1",
+      "title": "Government Office A1 — Anmeldung Address Registration",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/anmeldung_address_registration_a1/pack.json",
@@ -935,8 +1087,15 @@
         "difficultyHint": "standard"
       },
       "drillType": "roleplay-bounded",
-      "whyThisWorks": "Practice formal government_office interactions at A1 level Uses formal address (Sie/Ihnen) correctly"
+      "whyThisWorks": "Practice formal government_office interactions at A1 level Uses formal address (Sie/Ihnen) correctly",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Government Office — Anmel...",
+      "title_i18n": {
+        "en": "Government Office A1 — Anmeldung Address Registration"
+      },
+      "domainKind": "context"
     }
   ],
-  "nextPage": "/v1/workspaces/de/context/index.page2.json"
+  "nextPage": "/v1/workspaces/de/context/pages/2.json"
 }

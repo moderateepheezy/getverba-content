@@ -1,0 +1,326 @@
+{
+  "schemaVersion": 1,
+  "id": "verb_present_tense_a2_tier2_contrast-pairs",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A2",
+  "title": "Verb Present Tense: A2 (Tier 2)",
+  "shortTitle": "Verb Present Tense A2",
+  "subtitle": "Tier 2 - contrast pairs - Master present tense verb conjugat",
+  "estimatedMinutes": 4,
+  "mechanicId": "verb_present_tense",
+  "mechanicLabel": "Verb Present Tense",
+  "loopType": "contrast_pairs",
+  "difficultyTier": 2,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "pair-1",
+        "title": "Pair 1",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Pair 1"
+        }
+      },
+      {
+        "id": "pair-2",
+        "title": "Pair 2",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Pair 2"
+        }
+      },
+      {
+        "id": "pair-3",
+        "title": "Pair 3",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006"
+        ],
+        "title_i18n": {
+          "en": "Pair 3"
+        }
+      },
+      {
+        "id": "pair-4",
+        "title": "Pair 4",
+        "promptIds": [
+          "prompt-007",
+          "prompt-008"
+        ],
+        "title_i18n": {
+          "en": "Pair 4"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Du hörst Gitarre.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du hörst Gitarre.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "hörst"
+        ],
+        "object": [
+          "Gitarre"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A2_tier2/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Sie seht Musik.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie seht Musik.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "seht"
+        ],
+        "object": [
+          "Musik"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A2_tier2/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "Ich gehe Gitarre.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich gehe Gitarre.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "gehe"
+        ],
+        "object": [
+          "Gitarre"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A2_tier2/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Sie macht Fußball.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie macht Fußball.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "macht"
+        ],
+        "object": [
+          "Fußball"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A2_tier2/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Ich trinke Buch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich trinke Buch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "trinke"
+        ],
+        "object": [
+          "Buch"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A2_tier2/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Es seht Englisch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Es seht Englisch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Es"
+        ],
+        "verb": [
+          "seht"
+        ],
+        "object": [
+          "Englisch"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A2_tier2/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "Ich höre Musik.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich höre Musik.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "höre"
+        ],
+        "object": [
+          "Musik"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A2_tier2/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "Sie hört Deutsch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie hört Deutsch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "hört"
+        ],
+        "object": [
+          "Deutsch"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A2_tier2/prompt-008.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "verb_present_tense",
+    "loopType": "contrast_pairs",
+    "targetStructures": [
+      "present_tense_conjugation",
+      "verb_second_position",
+      "subject_verb_agreement"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "hörst",
+        "seht",
+        "gehe",
+        "macht",
+        "trinke",
+        "höre",
+        "hört"
+      ],
+      "subjects": [
+        "Du",
+        "Sie",
+        "Ich",
+        "Es"
+      ],
+      "patterns": [
+        "present_tense_conjugation",
+        "verb_second_position",
+        "subject_verb_agreement"
+      ]
+    },
+    "difficultyTier": 2,
+    "recommendedReps": 3,
+    "estPromptCount": 8,
+    "timeboxMinutes": 4,
+    "qualitySignals": {
+      "tokenHitsCount": 8,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 7,
+      "uniqueSubjectCount": 4,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/verb_present_tense",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-03T00:18:10.655Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:drill:verb_present_tense_a2_tier2_contrast-pairs",
+  "contentHash": "ffb9a6bb24de917687455b2c759481b152595ec42f73d051868996e50e980214",
+  "revisionId": "ffb9a6bb24de"
+}

@@ -19,11 +19,27 @@
       "id": "ex-002",
       "type": "multiple-choice",
       "prompt": "TODO: Add multiple choice question",
-      "options": ["Option A", "Option B", "Option C", "Option D"],
+      "options": [
+        "Option A",
+        "Option B",
+        "Option C",
+        "Option D"
+      ],
       "answer": "Option A",
       "hint": "TODO: Add hint"
     }
   ],
   "passingScore": 70,
-  "tags": ["grammar"]
+  "tags": [
+    "grammar"
+  ],
+  "title_i18n": {
+    "en": "veru endings - A1"
+  },
+  "description_i18n": {
+    "en": "TODO: Add description for veru endings - A1"
+  },
+  "contentId": "de:drill:verb_endings_a1_1",
+  "contentHash": "68ffcd5206b762be54c11ce3e4563a392c7d2ba6296ab751c6da37a8482ae8ea",
+  "revisionId": "68ffcd5206b7"
 }

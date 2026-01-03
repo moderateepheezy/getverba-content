@@ -4,6 +4,7 @@ import { readFileSync, readdirSync, statSync, existsSync } from 'fs';
 import { join, dirname, relative } from 'path';
 import { fileURLToPath } from 'url';
 import { computePackAnalytics, computeDrillAnalytics } from './content-quality/computeAnalytics';
+import { validateI18nAndGrouping } from './content-quality/i18nValidation.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -120,6 +121,15 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
     } else if (entry.title.length > MAX_TITLE_LENGTH) {
       addError(contextFile, `Item ${itemIdx} entry document title is too long (${entry.title.length} chars). Max is ${MAX_TITLE_LENGTH} chars.`);
     }
+    
+    // Validate i18n fields (optional, but must be valid if present)
+    const i18nResult = validateI18nAndGrouping(entry);
+    if (!i18nResult.valid) {
+      for (const err of i18nResult.errors) {
+        addError(contextFile, `Item ${itemIdx} entry document i18n validation: ${err}`);
+      }
+    }
+    
     if (typeof entry.estimatedMinutes !== 'number') {
       addError(contextFile, `Item ${itemIdx} entry document missing or invalid field: estimatedMinutes (must be number)`);
     } else if (entry.estimatedMinutes < MIN_DURATION_MINUTES || entry.estimatedMinutes > MAX_DURATION_MINUTES) {
@@ -472,6 +482,178 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
         addError(contextFile, `Item ${itemIdx} drill entry missing or invalid field: analytics (must be object)`);
       } else {
         validateDrillAnalytics(entry.analytics, entry, contextFile, itemIdx);
+      }
+      
+      // Drill quality gates (for prompts-based drills)
+      if (entry.prompts && Array.isArray(entry.prompts) && entry.prompts.length > 0) {
+        validateDrillQualityGates(entry, contextFile, itemIdx);
+      }
+      
+      // Drills can have either prompts array OR promptsUrl (for session engine playability)
+      const hasPrompts = entry.prompts && Array.isArray(entry.prompts) && entry.prompts.length > 0;
+      const hasPromptsUrl = entry.promptsUrl && typeof entry.promptsUrl === 'string';
+      const hasExercises = entry.exercises && Array.isArray(entry.exercises) && entry.exercises.length > 0;
+      
+      // At least one content delivery method is required: prompts, promptsUrl, or exercises
+      if (!hasPrompts && !hasPromptsUrl && !hasExercises) {
+        addError(contextFile, `Item ${itemIdx} drill entry must have either: prompts array, promptsUrl, or exercises array`);
+      }
+      
+      // Validate promptsUrl pattern if present
+      if (hasPromptsUrl) {
+        const promptsUrlPattern = /^\/v1\/workspaces\/[^/]+\/drills\/[^/]+\/prompts\.json$/;
+        if (!promptsUrlPattern.test(entry.promptsUrl)) {
+          addError(contextFile, `Item ${itemIdx} drill entry promptsUrl does not match canonical pattern: /v1/workspaces/{workspace}/drills/{id}/prompts.json`);
+        }
+      }
+      
+      // Validate prompts array if present
+      if (hasPrompts) {
+        entry.prompts.forEach((prompt: any, pIdx: number) => {
+          if (!prompt.id || typeof prompt.id !== 'string') {
+            addError(contextFile, `Item ${itemIdx} drill entry prompt ${pIdx} missing or invalid field: id`);
+          }
+          if (!prompt.text || typeof prompt.text !== 'string') {
+            addError(contextFile, `Item ${itemIdx} drill entry prompt ${pIdx} missing or invalid field: text`);
+          } else {
+            // Prompt quality guardrails
+            if (prompt.text.length < MIN_PROMPT_TEXT_LENGTH) {
+              addError(contextFile, `Item ${itemIdx} drill entry prompt ${pIdx} text is too short (${prompt.text.length} chars). Min is ${MIN_PROMPT_TEXT_LENGTH} chars.`);
+            }
+            if (prompt.text.length > MAX_PROMPT_TEXT_LENGTH) {
+              addError(contextFile, `Item ${itemIdx} drill entry prompt ${pIdx} text is too long (${prompt.text.length} chars). Max is ${MAX_PROMPT_TEXT_LENGTH} chars.`);
+            }
+          }
+        });
+      }
+      
+      // Validate sessionPlan if prompts or promptsUrl is present (required for session engine playability)
+      if (hasPrompts || hasPromptsUrl) {
+        if (!entry.sessionPlan || typeof entry.sessionPlan !== 'object') {
+          addError(contextFile, `Item ${itemIdx} drill entry has prompts but missing sessionPlan (required for session engine playability)`);
+        } else {
+          // Validate sessionPlan.version
+          if (entry.sessionPlan.version !== 1) {
+            addError(contextFile, `Item ${itemIdx} drill entry sessionPlan.version must be 1`);
+          }
+          
+          // Validate sessionPlan.steps
+          if (!Array.isArray(entry.sessionPlan.steps) || entry.sessionPlan.steps.length === 0) {
+            addError(contextFile, `Item ${itemIdx} drill entry sessionPlan.steps must be a non-empty array`);
+          } else {
+            entry.sessionPlan.steps.forEach((step: any, sIdx: number) => {
+              if (!step.id || typeof step.id !== 'string') {
+                addError(contextFile, `Item ${itemIdx} drill entry sessionPlan.steps[${sIdx}] missing or invalid field: id (must be string)`);
+              }
+              if (!step.title || typeof step.title !== 'string') {
+                addError(contextFile, `Item ${itemIdx} drill entry sessionPlan.steps[${sIdx}] missing or invalid field: title (must be string)`);
+              }
+              if (!Array.isArray(step.promptIds) || step.promptIds.length === 0) {
+                addError(contextFile, `Item ${itemIdx} drill entry sessionPlan.steps[${sIdx}] missing or invalid field: promptIds (must be non-empty array)`);
+              } else {
+                // Validate each promptId is a string
+                step.promptIds.forEach((promptId: any, pIdIdx: number) => {
+                  if (typeof promptId !== 'string') {
+                    addError(contextFile, `Item ${itemIdx} drill entry sessionPlan.steps[${sIdx}].promptIds[${pIdIdx}] must be a string`);
+                  }
+                });
+              }
+            });
+            
+            // Validate that all referenced promptIds exist in prompts array (if inline prompts)
+            if (hasPrompts) {
+              const promptIds = new Set(entry.prompts.map((p: any) => p.id).filter(Boolean));
+              entry.sessionPlan.steps.forEach((step: any, sIdx: number) => {
+                if (Array.isArray(step.promptIds)) {
+                  step.promptIds.forEach((promptId: string) => {
+                    if (!promptIds.has(promptId)) {
+                      addError(contextFile, `Item ${itemIdx} drill entry sessionPlan.steps[${sIdx}] references promptId "${promptId}" which does not exist in prompts array`);
+                    }
+                  });
+                }
+              });
+            }
+            // If promptsUrl is used, we can't validate promptIds exist (they're in external file)
+          }
+        }
+        
+        // Warn if outline.length doesn't match steps.length (non-fatal)
+        if (entry.sessionPlan && Array.isArray(entry.outline) && Array.isArray(entry.sessionPlan.steps) && entry.outline.length !== entry.sessionPlan.steps.length) {
+          console.warn(`⚠️  Item ${itemIdx} drill entry outline.length (${entry.outline.length}) does not match sessionPlan.steps.length (${entry.sessionPlan.steps.length}). This is allowed but may indicate a mismatch.`);
+        }
+      }
+      
+      // Drill v4 specific validation
+      if (entry.drillVersion === 'v4') {
+        // Required v4 fields
+        if (!entry.workspace || typeof entry.workspace !== 'string') {
+          addError(contextFile, `Item ${itemIdx} drill v4 entry missing or invalid field: workspace (must be string)`);
+        }
+        if (!entry.language || typeof entry.language !== 'string') {
+          addError(contextFile, `Item ${itemIdx} drill v4 entry missing or invalid field: language (must be string)`);
+        }
+        if (!entry.shortTitle || typeof entry.shortTitle !== 'string') {
+          addError(contextFile, `Item ${itemIdx} drill v4 entry missing or invalid field: shortTitle (must be string)`);
+        } else if (entry.shortTitle.length > 28) {
+          addError(contextFile, `Item ${itemIdx} drill v4 entry shortTitle is too long (${entry.shortTitle.length} chars). Max is 28 chars.`);
+        }
+        if (!entry.subtitle || typeof entry.subtitle !== 'string') {
+          addError(contextFile, `Item ${itemIdx} drill v4 entry missing or invalid field: subtitle (must be string)`);
+        } else {
+          if (entry.subtitle.length < 40 || entry.subtitle.length > 60) {
+            addError(contextFile, `Item ${itemIdx} drill v4 entry subtitle length is invalid (${entry.subtitle.length} chars). Must be 40-60 chars.`);
+          }
+        }
+        if (!entry.mechanicId || typeof entry.mechanicId !== 'string') {
+          addError(contextFile, `Item ${itemIdx} drill v4 entry missing or invalid field: mechanicId (must be string)`);
+        }
+        if (!entry.mechanicLabel || typeof entry.mechanicLabel !== 'string') {
+          addError(contextFile, `Item ${itemIdx} drill v4 entry missing or invalid field: mechanicLabel (must be string)`);
+        }
+        if (!entry.loopType || typeof entry.loopType !== 'string') {
+          addError(contextFile, `Item ${itemIdx} drill v4 entry missing or invalid field: loopType (must be string)`);
+        } else {
+          const validLoopTypes = ['pattern_switch', 'slot_substitution', 'micro_transform', 'fast_recall', 'contrast_pairs', 'error_trap'];
+          if (!validLoopTypes.includes(entry.loopType)) {
+            addError(contextFile, `Item ${itemIdx} drill v4 entry loopType "${entry.loopType}" is invalid. Must be one of: ${validLoopTypes.join(', ')}`);
+          }
+        }
+        if (typeof entry.difficultyTier !== 'number') {
+          addError(contextFile, `Item ${itemIdx} drill v4 entry missing or invalid field: difficultyTier (must be number)`);
+        } else if (entry.difficultyTier < 1 || entry.difficultyTier > 3) {
+          addError(contextFile, `Item ${itemIdx} drill v4 entry difficultyTier (${entry.difficultyTier}) must be 1, 2, or 3`);
+        }
+        if (!Array.isArray(entry.variationSlots) || entry.variationSlots.length === 0) {
+          addError(contextFile, `Item ${itemIdx} drill v4 entry missing or invalid field: variationSlots (must be non-empty array)`);
+        }
+        if (typeof entry.estimatedMinutes !== 'number') {
+          addError(contextFile, `Item ${itemIdx} drill v4 entry missing or invalid field: estimatedMinutes (must be number)`);
+        } else if (entry.estimatedMinutes < 2 || entry.estimatedMinutes > 6) {
+          addError(contextFile, `Item ${itemIdx} drill v4 entry estimatedMinutes (${entry.estimatedMinutes}) must be between 2 and 6`);
+        }
+        
+        // Validate v4 analytics structure
+        if (entry.analytics && typeof entry.analytics === 'object') {
+          if (!entry.analytics.mechanicId || typeof entry.analytics.mechanicId !== 'string') {
+            addError(contextFile, `Item ${itemIdx} drill v4 entry analytics.mechanicId missing or invalid`);
+          }
+          if (!entry.analytics.loopType || typeof entry.analytics.loopType !== 'string') {
+            addError(contextFile, `Item ${itemIdx} drill v4 entry analytics.loopType missing or invalid`);
+          }
+          if (!Array.isArray(entry.analytics.targetStructures)) {
+            addError(contextFile, `Item ${itemIdx} drill v4 entry analytics.targetStructures must be an array`);
+          }
+          if (!entry.analytics.qualitySignals || typeof entry.analytics.qualitySignals !== 'object') {
+            addError(contextFile, `Item ${itemIdx} drill v4 entry analytics.qualitySignals missing or invalid`);
+          } else {
+            if (typeof entry.analytics.qualitySignals.multiSlotRate !== 'number') {
+              addError(contextFile, `Item ${itemIdx} drill v4 entry analytics.qualitySignals.multiSlotRate missing or invalid`);
+            }
+            if (typeof entry.analytics.qualitySignals.bannedPhraseCheckPassed !== 'boolean') {
+              addError(contextFile, `Item ${itemIdx} drill v4 entry analytics.qualitySignals.bannedPhraseCheckPassed missing or invalid`);
+            }
+          }
+        }
       }
     }
     
@@ -1536,6 +1718,23 @@ function validateAnalytics(analytics: any, entry: any, contextFile: string, item
  * Validate catalog-level analytics for drill entries
  */
 function validateDrillAnalytics(analytics: any, entry: any, contextFile: string, itemIdx: number): void {
+  // For v4 drills, use different validation
+  if (entry.drillVersion === 'v4') {
+    // v4 analytics validation is handled in the v4-specific validation section
+    // Just check that analytics exists and has required v4 fields
+    if (!analytics.mechanicId || typeof analytics.mechanicId !== 'string') {
+      addError(contextFile, `Item ${itemIdx} drill v4 entry analytics.mechanicId missing or invalid`);
+    }
+    if (!analytics.loopType || typeof analytics.loopType !== 'string') {
+      addError(contextFile, `Item ${itemIdx} drill v4 entry analytics.loopType missing or invalid`);
+    }
+    if (!Array.isArray(analytics.targetStructures)) {
+      addError(contextFile, `Item ${itemIdx} drill v4 entry analytics.targetStructures must be an array`);
+    }
+    return; // Skip old analytics validation for v4
+  }
+  
+  // Legacy drill analytics validation
   // Validate primaryStructure (required)
   if (!analytics.primaryStructure || typeof analytics.primaryStructure !== 'string') {
     addError(contextFile, `Item ${itemIdx} drill entry analytics.primaryStructure missing or invalid (must be string, required)`);
@@ -2055,6 +2254,125 @@ function validatePackAnalytics(entry: any, contextFile: string, itemIdx: number)
   }
 }
 
+/**
+ * Validate drill quality gates (v4 specific)
+ */
+function validateDrillQualityGates(entry: any, contextFile: string, itemIdx: number): void {
+  if (!entry.prompts || !Array.isArray(entry.prompts) || entry.prompts.length === 0) {
+    return; // No prompts to validate
+  }
+  
+  const prompts = entry.prompts.filter((p: any) => p && p.text && typeof p.text === 'string');
+  
+  if (prompts.length === 0) {
+    return; // No valid prompts
+  }
+  
+  // Load mechanic template to get required tokens and banned phrases
+  let mechanicTemplate: any = null;
+  if (entry.mechanicId) {
+    try {
+      const templatePath = join(__dirname, '..', 'content', 'templates', 'v4', 'mechanics', `${entry.mechanicId}.json`);
+      if (existsSync(templatePath)) {
+        mechanicTemplate = JSON.parse(readFileSync(templatePath, 'utf-8'));
+      }
+    } catch (error: any) {
+      // Template not found or invalid - skip mechanic-specific checks
+    }
+  }
+  
+  // Rule 1: Generic phrase denylist (drill-specific)
+  const DRILL_DENYLIST_PHRASES = [
+    "in today's lesson",
+    "let's practice",
+    "this sentence",
+    "i like to",
+    "the quick brown fox",
+    "lorem ipsum",
+    "TODO",
+    "FIXME",
+    "example",
+    "test",
+    "placeholder"
+  ];
+  
+  // Add template-specific banned phrases if available
+  const bannedPhrases = mechanicTemplate && Array.isArray(mechanicTemplate.bannedPhrases)
+    ? [...DRILL_DENYLIST_PHRASES, ...mechanicTemplate.bannedPhrases]
+    : DRILL_DENYLIST_PHRASES;
+  
+  for (const prompt of prompts) {
+    const textLower = prompt.text.toLowerCase();
+    for (const phrase of bannedPhrases) {
+      if (textLower.includes(phrase.toLowerCase())) {
+        addError(contextFile, `Item ${itemIdx} drill entry Quality Gate violation: prompt "${prompt.id || 'unknown'}" contains denylisted phrase "${phrase}"`);
+        return; // Fail fast on first violation
+      }
+    }
+  }
+  
+  // Rule 2: Mechanic token requirements (each prompt must contain >=1 token from mechanic dictionary)
+  if (mechanicTemplate && Array.isArray(mechanicTemplate.requiredTokens)) {
+    let promptsWithoutTokens = 0;
+    for (const prompt of prompts) {
+      const textLower = prompt.text.toLowerCase();
+      let hasToken = false;
+      for (const token of mechanicTemplate.requiredTokens) {
+        if (textLower.includes(token.toLowerCase())) {
+          hasToken = true;
+          break;
+        }
+      }
+      if (!hasToken) {
+        promptsWithoutTokens++;
+      }
+    }
+    
+    // Require at least 80% of prompts to have mechanic tokens
+    const tokenHitRate = (prompts.length - promptsWithoutTokens) / prompts.length;
+    if (tokenHitRate < 0.8) {
+      addError(contextFile, `Item ${itemIdx} drill entry Quality Gate violation: insufficient mechanic token coverage. Drill "${entry.id}" has ${promptsWithoutTokens} prompts without required mechanic tokens (required: >=80% coverage)`);
+    }
+  }
+  
+  // Rule 3: Variation requirement (>=30% of transitions have 2+ slotsChanged)
+  const multiSlotRate = computeMultiSlotRate(prompts);
+  if (multiSlotRate < 0.3) {
+    addError(contextFile, `Item ${itemIdx} drill entry Quality Gate violation: insufficient multi-slot variation. Drill "${entry.id}" has multiSlotRate ${(multiSlotRate * 100).toFixed(1)}% (required: >=30%)`);
+  }
+  
+  // Rule 4: Coverage requirement (unique verb/subject counts)
+  if (mechanicTemplate) {
+    const uniqueVerbs = computeDistinctVerbs(prompts);
+    const uniqueSubjects = computeDistinctSubjects(prompts);
+    
+    if (mechanicTemplate.minUniqueVerbs && uniqueVerbs < mechanicTemplate.minUniqueVerbs) {
+      addError(contextFile, `Item ${itemIdx} drill entry Quality Gate violation: insufficient verb variation. Drill "${entry.id}" has ${uniqueVerbs} unique verbs (required: >=${mechanicTemplate.minUniqueVerbs})`);
+    }
+    
+    if (mechanicTemplate.minUniqueSubjects && uniqueSubjects < mechanicTemplate.minUniqueSubjects) {
+      addError(contextFile, `Item ${itemIdx} drill entry Quality Gate violation: insufficient subject variation. Drill "${entry.id}" has ${uniqueSubjects} unique subjects (required: >=${mechanicTemplate.minUniqueSubjects})`);
+    }
+  }
+  
+  // Rule 5: SessionPlan coherence (all promptIds must exist)
+  if (entry.sessionPlan && Array.isArray(entry.sessionPlan.steps)) {
+    const promptIds = new Set(prompts.map((p: any) => p.id).filter(Boolean));
+    entry.sessionPlan.steps.forEach((step: any, stepIdx: number) => {
+      if (Array.isArray(step.promptIds)) {
+        step.promptIds.forEach((promptId: string) => {
+          if (!promptIds.has(promptId)) {
+            addError(contextFile, `Item ${itemIdx} drill entry Quality Gate violation: sessionPlan.steps[${stepIdx}] references missing promptId "${promptId}"`);
+          }
+        });
+      }
+    });
+  }
+  
+  // Rule 6: Title integrity (shortTitle unique within mechanicId + level)
+  // This is checked at index generation time, not here
+}
+
 function validateSchemaVersion(docType: string, doc: any, filePath: string): void {
   if (typeof doc.schemaVersion !== 'number') {
     addError(filePath, `${docType} missing required field: schemaVersion (must be number)`);
@@ -2534,6 +2852,66 @@ function validateNoDuplicateTitles(
   }
 }
 
+/**
+ * Validate i18n object structure
+ */
+function validateI18nObject(
+  i18n: any,
+  fieldName: string,
+  filePath: string,
+  context: string,
+  maxLength?: number
+): boolean {
+  if (i18n === undefined || i18n === null) {
+    return true; // Optional field
+  }
+  
+  if (typeof i18n !== 'object' || Array.isArray(i18n)) {
+    addError(filePath, `${context}: ${fieldName} must be an object (Record<string, string>)`);
+    return false;
+  }
+  
+  let isValid = true;
+  for (const [langCode, value] of Object.entries(i18n)) {
+    if (typeof langCode !== 'string' || langCode.length === 0) {
+      addError(filePath, `${context}: ${fieldName} has invalid language code`);
+      isValid = false;
+      continue;
+    }
+    
+    if (typeof value !== 'string') {
+      addError(filePath, `${context}: ${fieldName}[${langCode}] must be a string`);
+      isValid = false;
+      continue;
+    }
+    
+    if (value.trim().length === 0) {
+      addError(filePath, `${context}: ${fieldName}[${langCode}] must be non-empty`);
+      isValid = false;
+      continue;
+    }
+    
+    if (maxLength && value.length > maxLength) {
+      addError(filePath, `${context}: ${fieldName}[${langCode}] exceeds max length (${value.length} > ${maxLength})`);
+      isValid = false;
+    }
+  }
+  
+  // Soft rule: warn if "en" is missing (configurable)
+  const requireEn = process.env.REQUIRE_I18N_EN === 'true';
+  if (!i18n.en) {
+    if (requireEn) {
+      addError(filePath, `${context}: ${fieldName} must include "en" key`);
+      isValid = false;
+    } else {
+      // Just warn in dev
+      console.warn(`⚠️  ${context}: ${fieldName} missing "en" key (recommended)`);
+    }
+  }
+  
+  return isValid;
+}
+
 function validateIndex(indexPath: string): void {
   try {
     const content = readFileSync(indexPath, 'utf-8');
@@ -2551,15 +2929,43 @@ function validateIndex(indexPath: string): void {
     }
     if (typeof index.pageSize !== 'number') {
       addError(indexPath, 'Missing or invalid field: pageSize (must be number)');
+    } else if (index.pageSize <= 0) {
+      addError(indexPath, 'Invalid field: pageSize (must be > 0)');
     }
+    
+    // Validate page number (required for pagination contract)
+    if (typeof index.page !== 'number') {
+      addError(indexPath, 'Missing or invalid field: page (must be number)');
+    } else if (index.page < 1) {
+      addError(indexPath, 'Invalid field: page (must be >= 1)');
+    }
+    
     if (!Array.isArray(index.items)) {
       addError(indexPath, 'Missing or invalid field: items (must be an array)');
       return;
+    }
+    
+    // Validate items.length <= pageSize
+    if (index.items.length > index.pageSize) {
+      addError(indexPath, `Invalid: items.length (${index.items.length}) exceeds pageSize (${index.pageSize})`);
     }
 
     // Validate nextPage
     if (index.nextPage !== null && typeof index.nextPage !== 'string') {
       addError(indexPath, 'Invalid field: nextPage (must be null or string)');
+    } else if (index.nextPage && typeof index.nextPage === 'string') {
+      // Validate nextPage URL pattern: must match /v1/workspaces/{ws}/.../pages/{n}.json
+      const nextPagePattern = /^\/v1\/workspaces\/[^/]+\/.+\/pages\/\d+\.json$/;
+      if (!nextPagePattern.test(index.nextPage)) {
+        addError(indexPath, `Invalid nextPage URL pattern: ${index.nextPage} (must match /v1/workspaces/{ws}/.../pages/{n}.json)`);
+      } else {
+        // Validate nextPage file exists
+        const nextPagePath = index.nextPage.replace(/^\/v1\//, '');
+        const fullPath = join(CONTENT_DIR, nextPagePath);
+        if (!existsSync(fullPath)) {
+          addError(indexPath, `nextPage points to non-existent file: ${index.nextPage} (expected at ${fullPath})`);
+        }
+      }
     }
 
     // Validate items
@@ -2582,6 +2988,30 @@ function validateIndex(indexPath: string): void {
         // Validate title length
         validateTitle(item.title, indexPath, idx);
       }
+      
+      // Validate i18n and grouping fields (optional, but must be valid if present)
+      const i18nResult = validateI18nAndGrouping(item);
+      if (!i18nResult.valid) {
+        for (const err of i18nResult.errors) {
+          addError(indexPath, `Item ${idx} i18n validation: ${err}`);
+        }
+      }
+      // Log warnings but don't fail
+      for (const warning of i18nResult.warnings) {
+        console.warn(`⚠️  Item ${idx} in ${indexPath}: ${warning}`);
+      }
+      
+      // Additional i18n validation for index items
+      if (item.shortTitle_i18n) {
+        validateI18nObject(item.shortTitle_i18n, 'shortTitle_i18n', indexPath, `Item ${idx}`, 28);
+      }
+      if (item.subtitle_i18n) {
+        validateI18nObject(item.subtitle_i18n, 'subtitle_i18n', indexPath, `Item ${idx}`);
+      }
+      if (item.topicLabel_i18n) {
+        validateI18nObject(item.topicLabel_i18n, 'topicLabel_i18n', indexPath, `Item ${idx}`);
+      }
+      
       if (!item.level || typeof item.level !== 'string' || item.level.trim() === '') {
         addError(indexPath, `Item ${idx} missing or invalid field: level (must be non-empty string)`);
       } else {
@@ -2745,6 +3175,80 @@ function validateIndex(indexPath: string): void {
           }
         }
       }
+      
+      // Validate topic grouping metadata (optional fields, for pack items)
+      // topicKey validation
+      if (item.topicKey !== undefined) {
+        if (typeof item.topicKey !== 'string') {
+          addError(indexPath, `Item ${idx} topicKey must be a string`);
+        } else {
+          // Must be kebab-case
+          if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(item.topicKey)) {
+            addError(indexPath, `Item ${idx} topicKey must be kebab-case: ^[a-z0-9]+(?:-[a-z0-9]+)*$`);
+          }
+          // Length <= 64
+          if (item.topicKey.length > 64) {
+            addError(indexPath, `Item ${idx} topicKey too long (${item.topicKey.length} chars, max 64)`);
+          }
+        }
+      }
+      
+      // topicLabel validation
+      if (item.topicLabel !== undefined) {
+        if (typeof item.topicLabel !== 'string') {
+          addError(indexPath, `Item ${idx} topicLabel must be a string`);
+        } else {
+          // Length 3..60
+          if (item.topicLabel.length < 3) {
+            addError(indexPath, `Item ${idx} topicLabel too short (${item.topicLabel.length} chars, min 3)`);
+          }
+          if (item.topicLabel.length > 60) {
+            addError(indexPath, `Item ${idx} topicLabel too long (${item.topicLabel.length} chars, max 60)`);
+          }
+          // Must not be purely numeric
+          if (/^\d+$/.test(item.topicLabel)) {
+            addError(indexPath, `Item ${idx} topicLabel must not be purely numeric`);
+          }
+          // Warn about generic labels
+          const genericLabels = ['general', 'basics', 'introduction', 'part', 'pack', 'lesson', 'unit', 'module'];
+          if (genericLabels.includes(item.topicLabel.toLowerCase().trim())) {
+            console.warn(`⚠️  Item ${idx} in ${indexPath} topicLabel "${item.topicLabel}" is a generic value`);
+          }
+        }
+      }
+      
+      // shortTitle validation
+      if (item.shortTitle !== undefined) {
+        if (typeof item.shortTitle !== 'string') {
+          addError(indexPath, `Item ${idx} shortTitle must be a string`);
+        } else {
+          // Length 3..28 (hard fail > 28)
+          if (item.shortTitle.length < 3) {
+            addError(indexPath, `Item ${idx} shortTitle too short (${item.shortTitle.length} chars, min 3)`);
+          }
+          if (item.shortTitle.length > 28) {
+            addError(indexPath, `Item ${idx} shortTitle too long (${item.shortTitle.length} chars, max 28)`);
+          }
+        }
+      }
+      
+      // orderInTopic validation
+      if (item.orderInTopic !== undefined) {
+        if (typeof item.orderInTopic !== 'number') {
+          addError(indexPath, `Item ${idx} orderInTopic must be a number`);
+        } else if (!Number.isInteger(item.orderInTopic)) {
+          addError(indexPath, `Item ${idx} orderInTopic must be an integer`);
+        } else if (item.orderInTopic < 1) {
+          addError(indexPath, `Item ${idx} orderInTopic must be >= 1`);
+        }
+      }
+      
+      // Soft warning: for pack items, warn if none of topic fields present after generation
+      if ((item.kind === 'pack' || item.kind === 'context') && 
+          !item.topicKey && !item.topicLabel && !item.shortTitle) {
+        console.warn(`⚠️  Item ${idx} in ${indexPath} is a pack but missing topic grouping fields (topicKey/topicLabel/shortTitle)`);
+      }
+      
       // durationMinutes - validate type and bounds
       if (item.durationMinutes !== undefined) {
         if (typeof item.durationMinutes !== 'number') {

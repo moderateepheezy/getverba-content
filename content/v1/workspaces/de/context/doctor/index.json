@@ -3,16 +3,17 @@
   "kind": "context",
   "total": 16,
   "pageSize": 12,
+  "page": 1,
   "items": [
     {
       "id": "doctor_pack_1_a1",
       "kind": "pack",
-      "title": "Doctor - A1",
+      "title": "Doctor A1 — 1: Making an Appointment",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/doctor_pack_1_a1/pack.json",
       "contentId": "de:pack:doctor_pack_1_a1",
-      "revisionId": "bf5d0d8a4ec6",
+      "revisionId": "d68ee6ac287b",
       "scenario": "doctor",
       "register": "neutral",
       "primaryStructure": "modal_verbs_requests",
@@ -47,17 +48,26 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases"
+      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases",
+      "topicKey": "making-an-appointment",
+      "topicLabel": "Making an Appointment",
+      "shortTitle": "Phone booking",
+      "orderInTopic": 1,
+      "title_i18n": {
+        "en": "Doctor A1 — 1: Making an Appointment"
+      },
+      "domainKind": "context",
+      "isRecommended": true
     },
     {
       "id": "doctor_pack_2_a1",
       "kind": "pack",
-      "title": "Doctor - A1",
+      "title": "Doctor A1 — 2: Describing Symptoms",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/doctor_pack_2_a1/pack.json",
       "contentId": "de:pack:doctor_pack_2_a1",
-      "revisionId": "c7e6abd7be4a",
+      "revisionId": "fa7a48e5fd8f",
       "scenario": "doctor",
       "register": "neutral",
       "primaryStructure": "modal_verbs_requests",
@@ -92,17 +102,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases"
+      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases",
+      "topicKey": "describing-symptoms",
+      "topicLabel": "Describing Symptoms",
+      "shortTitle": "Symptom description",
+      "orderInTopic": 2,
+      "title_i18n": {
+        "en": "Doctor A1 — 2: Describing Symptoms"
+      },
+      "domainKind": "context"
     },
     {
       "id": "doctor_pack_3_a1",
       "kind": "pack",
-      "title": "Doctor - A1",
+      "title": "Doctor A1 — 3: Getting Prescription",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/doctor_pack_3_a1/pack.json",
       "contentId": "de:pack:doctor_pack_3_a1",
-      "revisionId": "cd19562cdf9d",
+      "revisionId": "eb69dc954e19",
       "scenario": "doctor",
       "register": "neutral",
       "primaryStructure": "modal_verbs_requests",
@@ -137,17 +155,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases"
+      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases",
+      "topicKey": "getting-prescription",
+      "topicLabel": "Getting Prescription",
+      "shortTitle": "Prescription pickup",
+      "orderInTopic": 3,
+      "title_i18n": {
+        "en": "Doctor A1 — 3: Getting Prescription"
+      },
+      "domainKind": "context"
     },
     {
       "id": "doctor_pack_4_a1",
       "kind": "pack",
-      "title": "Doctor - A1",
+      "title": "Doctor A1 — 4: Making an Appointment",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/doctor_pack_4_a1/pack.json",
       "contentId": "de:pack:doctor_pack_4_a1",
-      "revisionId": "a8d97179b99e",
+      "revisionId": "737220a2c43c",
       "scenario": "doctor",
       "register": "neutral",
       "primaryStructure": "modal_verbs_requests",
@@ -182,17 +208,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases"
+      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Making an Appointment",
+      "orderInTopic": 4,
+      "title_i18n": {
+        "en": "Doctor A1 — 4: Making an Appointment"
+      },
+      "domainKind": "context"
     },
     {
       "id": "doctor_pack_5_a1",
       "kind": "pack",
-      "title": "Doctor - A1",
+      "title": "Doctor A1 — 5: Describing Symptoms",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/doctor_pack_5_a1/pack.json",
       "contentId": "de:pack:doctor_pack_5_a1",
-      "revisionId": "ecc55bd74d8a",
+      "revisionId": "7f8e355623a0",
       "scenario": "doctor",
       "register": "neutral",
       "primaryStructure": "modal_verbs_requests",
@@ -227,17 +261,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases"
+      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Describing Symptoms",
+      "orderInTopic": 5,
+      "title_i18n": {
+        "en": "Doctor A1 — 5: Describing Symptoms"
+      },
+      "domainKind": "context"
     },
     {
       "id": "doctor_pack_6_a1",
       "kind": "pack",
-      "title": "Doctor - A1",
+      "title": "Doctor A1 — 6: Getting Prescription",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/doctor_pack_6_a1/pack.json",
       "contentId": "de:pack:doctor_pack_6_a1",
-      "revisionId": "4bf0a9469a02",
+      "revisionId": "e7ceaed78804",
       "scenario": "doctor",
       "register": "neutral",
       "primaryStructure": "modal_verbs_requests",
@@ -272,17 +314,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases"
+      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Getting Prescription",
+      "orderInTopic": 6,
+      "title_i18n": {
+        "en": "Doctor A1 — 6: Getting Prescription"
+      },
+      "domainKind": "context"
     },
     {
       "id": "doctor_pack_7_a1",
       "kind": "pack",
-      "title": "Doctor - A1",
+      "title": "Doctor A1 — 7: Making an Appointment",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/doctor_pack_7_a1/pack.json",
       "contentId": "de:pack:doctor_pack_7_a1",
-      "revisionId": "c0d2be4a745d",
+      "revisionId": "a3d01f6ee7e5",
       "scenario": "doctor",
       "register": "neutral",
       "primaryStructure": "modal_verbs_requests",
@@ -317,17 +367,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases"
+      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Making an Appointment",
+      "orderInTopic": 7,
+      "title_i18n": {
+        "en": "Doctor A1 — 7: Making an Appointment"
+      },
+      "domainKind": "context"
     },
     {
       "id": "doctor_pack_8_a1",
       "kind": "pack",
-      "title": "Doctor - A1",
+      "title": "Doctor A1 — 8: Describing Symptoms",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/doctor_pack_8_a1/pack.json",
       "contentId": "de:pack:doctor_pack_8_a1",
-      "revisionId": "30cdfd3662ff",
+      "revisionId": "3fb86afb868f",
       "scenario": "doctor",
       "register": "neutral",
       "primaryStructure": "modal_verbs_requests",
@@ -362,17 +420,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases"
+      "whyThisWorks": "Practice doctor appointments and health conversations at A1 level Uses appointment scheduling phrases",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Describing Symptoms",
+      "orderInTopic": 8,
+      "title_i18n": {
+        "en": "Doctor A1 — 8: Describing Symptoms"
+      },
+      "domainKind": "context"
     },
     {
       "id": "doctor_pack_1_a2",
       "kind": "pack",
-      "title": "Doctor - A2",
+      "title": "Doctor A2 — 1: Making an Appointment",
       "level": "A2",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/doctor_pack_1_a2/pack.json",
       "contentId": "de:pack:doctor_pack_1_a2",
-      "revisionId": "a285fedcaa5b",
+      "revisionId": "70383687eb73",
       "scenario": "doctor",
       "register": "neutral",
       "primaryStructure": "modal_verbs_requests",
@@ -407,17 +473,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases"
+      "whyThisWorks": "Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases",
+      "topicKey": "making-an-appointment",
+      "topicLabel": "Making an Appointment",
+      "shortTitle": "Appointment scheduling",
+      "orderInTopic": 1,
+      "title_i18n": {
+        "en": "Doctor A2 — 1: Making an Appointment"
+      },
+      "domainKind": "context"
     },
     {
       "id": "doctor_pack_2_a2",
       "kind": "pack",
-      "title": "Doctor - A2",
+      "title": "Doctor A2 — 2: Describing Symptoms",
       "level": "A2",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/doctor_pack_2_a2/pack.json",
       "contentId": "de:pack:doctor_pack_2_a2",
-      "revisionId": "ddb2fbc960c7",
+      "revisionId": "60b8bed0b625",
       "scenario": "doctor",
       "register": "neutral",
       "primaryStructure": "modal_verbs_requests",
@@ -452,17 +526,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases"
+      "whyThisWorks": "Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases",
+      "topicKey": "describing-symptoms",
+      "topicLabel": "Describing Symptoms",
+      "shortTitle": "Symptom communication",
+      "orderInTopic": 2,
+      "title_i18n": {
+        "en": "Doctor A2 — 2: Describing Symptoms"
+      },
+      "domainKind": "context"
     },
     {
       "id": "doctor_pack_3_a2",
       "kind": "pack",
-      "title": "Doctor - A2",
+      "title": "Doctor A2 — 3: Getting Prescription",
       "level": "A2",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/doctor_pack_3_a2/pack.json",
       "contentId": "de:pack:doctor_pack_3_a2",
-      "revisionId": "b318ce2ae367",
+      "revisionId": "5f284a54caab",
       "scenario": "doctor",
       "register": "neutral",
       "primaryStructure": "modal_verbs_requests",
@@ -497,17 +579,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases"
+      "whyThisWorks": "Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases",
+      "topicKey": "getting-prescription",
+      "topicLabel": "Getting Prescription",
+      "shortTitle": "Prescription process",
+      "orderInTopic": 3,
+      "title_i18n": {
+        "en": "Doctor A2 — 3: Getting Prescription"
+      },
+      "domainKind": "context"
     },
     {
       "id": "doctor_pack_4_a2",
       "kind": "pack",
-      "title": "Doctor - A2",
+      "title": "Doctor A2 — 4: Making an Appointment",
       "level": "A2",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/doctor_pack_4_a2/pack.json",
       "contentId": "de:pack:doctor_pack_4_a2",
-      "revisionId": "1dc683e1aa02",
+      "revisionId": "a84e084fdd12",
       "scenario": "doctor",
       "register": "neutral",
       "primaryStructure": "modal_verbs_requests",
@@ -542,8 +632,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases"
+      "whyThisWorks": "Practice doctor appointments and health conversations at A2 level Uses appointment scheduling phrases",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Making an Appointment",
+      "orderInTopic": 4,
+      "title_i18n": {
+        "en": "Doctor A2 — 4: Making an Appointment"
+      },
+      "domainKind": "context"
     }
   ],
-  "nextPage": "/v1/workspaces/de/context/doctor/index.page2.json"
+  "nextPage": "/v1/workspaces/de/context/doctor/index.page2.json",
+  "scope": {
+    "scopeKind": "scenario",
+    "scopeId": "doctor",
+    "scopeTitle": "Doctor"
+  },
+  "recommended": {
+    "itemId": "doctor_pack_1_a1",
+    "entryUrl": "/v1/workspaces/de/packs/doctor_pack_1_a1/pack.json"
+  }
 }

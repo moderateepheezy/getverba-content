@@ -1,0 +1,370 @@
+{
+  "schemaVersion": 1,
+  "id": "modal_verbs_a2_tier3_pattern-switch",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A2",
+  "title": "Modal Verbs: A2 (Tier 3)",
+  "shortTitle": "Modal Verbs A2",
+  "subtitle": "Tier 3 - pattern switch - Master modal verb patterns (können",
+  "estimatedMinutes": 5,
+  "mechanicId": "modal_verbs",
+  "mechanicLabel": "Modal Verbs",
+  "loopType": "pattern_switch",
+  "difficultyTier": 3,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "pattern-1",
+        "title": "Pattern 1: Basic Forms",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Pattern 1: Basic Forms"
+        }
+      },
+      {
+        "id": "pattern-2",
+        "title": "Pattern 2: Extended Forms",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Pattern 2: Extended Forms"
+        }
+      },
+      {
+        "id": "pattern-3",
+        "title": "Pattern 3: Complex Forms",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006",
+          "prompt-007",
+          "prompt-008",
+          "prompt-009",
+          "prompt-010"
+        ],
+        "title_i18n": {
+          "en": "Pattern 3: Complex Forms"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Er trinkt die.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er trinkt die.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "trinkt"
+        ],
+        "object": [
+          "die"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier3/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Ihr macht eine.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ihr macht eine.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "macht"
+        ],
+        "object": [
+          "eine"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier3/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "Er macht eine.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er macht eine.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "macht"
+        ],
+        "object": [
+          "eine"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier3/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Sie kauft eine.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie kauft eine.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "kauft"
+        ],
+        "object": [
+          "eine"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier3/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Du essst die.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du essst die.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "essst"
+        ],
+        "object": [
+          "die"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier3/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Ich mache einen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich mache einen.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "mache"
+        ],
+        "object": [
+          "einen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier3/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "Sie trinkt zur Arbeit.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie trinkt zur Arbeit.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "trinkt"
+        ],
+        "object": [
+          "zur Arbeit"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier3/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "Sie kommt einen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie kommt einen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "kommt"
+        ],
+        "object": [
+          "einen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier3/prompt-008.mp3"
+    },
+    {
+      "id": "prompt-009",
+      "text": "Ihr hört zur Arbeit.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ihr hört zur Arbeit.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "hört"
+        ],
+        "object": [
+          "zur Arbeit"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier3/prompt-009.mp3"
+    },
+    {
+      "id": "prompt-010",
+      "text": "Sie hört zur Arbeit.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie hört zur Arbeit.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "hört"
+        ],
+        "object": [
+          "zur Arbeit"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A2_tier3/prompt-010.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "modal_verbs",
+    "loopType": "pattern_switch",
+    "targetStructures": [
+      "modal_verb_infinitive",
+      "modal_verb_requests",
+      "modal_verb_ability"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "trinkt",
+        "macht",
+        "kauft",
+        "essst",
+        "mache",
+        "kommt",
+        "hört"
+      ],
+      "subjects": [
+        "Er",
+        "Ihr",
+        "Sie",
+        "Du",
+        "Ich"
+      ],
+      "patterns": [
+        "modal_verb_infinitive",
+        "modal_verb_requests",
+        "modal_verb_ability"
+      ]
+    },
+    "difficultyTier": 3,
+    "recommendedReps": 4,
+    "estPromptCount": 10,
+    "timeboxMinutes": 5,
+    "qualitySignals": {
+      "tokenHitsCount": 0,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 7,
+      "uniqueSubjectCount": 5,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/modal_verbs",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-03T00:18:10.638Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:drill:modal_verbs_a2_tier3_pattern-switch",
+  "contentHash": "22e1a02d260d93f4fb2c3736126a033f5e32b439c3d12c268cb778367f104c78",
+  "revisionId": "22e1a02d260d"
+}

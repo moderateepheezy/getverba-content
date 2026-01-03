@@ -1,0 +1,315 @@
+{
+  "schemaVersion": 1,
+  "id": "case_endings_akkusativ_a1_tier2_slot-substitution",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A1",
+  "title": "Case Endings: Akkusativ: A1 (Tier 2)",
+  "shortTitle": "Case Endings: Akkusativ A1",
+  "subtitle": "Tier 2 - slot substitution - Master accusative case endings ",
+  "estimatedMinutes": 4,
+  "mechanicId": "case_endings_akkusativ",
+  "mechanicLabel": "Case Endings: Akkusativ",
+  "loopType": "slot_substitution",
+  "difficultyTier": 2,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "step-1",
+        "title": "Step 1",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002",
+          "prompt-003"
+        ],
+        "title_i18n": {
+          "en": "Step 1"
+        }
+      },
+      {
+        "id": "step-2",
+        "title": "Step 2",
+        "promptIds": [
+          "prompt-004",
+          "prompt-005",
+          "prompt-006"
+        ],
+        "title_i18n": {
+          "en": "Step 2"
+        }
+      },
+      {
+        "id": "step-3",
+        "title": "Step 3",
+        "promptIds": [
+          "prompt-007",
+          "prompt-008"
+        ],
+        "title_i18n": {
+          "en": "Step 3"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Ich nehmee die Milch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich nehmee die Milch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "nehmee"
+        ],
+        "object": [
+          "die Milch"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_A1_tier2/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Ich essee das Brot.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich essee das Brot.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "essee"
+        ],
+        "object": [
+          "das Brot"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_A1_tier2/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "Er nehmet die Zeitung.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er nehmet die Zeitung.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "nehmet"
+        ],
+        "object": [
+          "die Zeitung"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_A1_tier2/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Sie kaufet den Tisch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie kaufet den Tisch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "kaufet"
+        ],
+        "object": [
+          "den Tisch"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_A1_tier2/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Er trinket die Milch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er trinket die Milch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "trinket"
+        ],
+        "object": [
+          "die Milch"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_A1_tier2/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Wir esse die Milch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Wir esse die Milch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "esse"
+        ],
+        "object": [
+          "die Milch"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_A1_tier2/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "Er nehmet den Kaffee.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er nehmet den Kaffee.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "nehmet"
+        ],
+        "object": [
+          "den Kaffee"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_A1_tier2/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "Er trinket die Milch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er trinket die Milch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "trinket"
+        ],
+        "object": [
+          "die Milch"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_A1_tier2/prompt-008.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "case_endings_akkusativ",
+    "loopType": "slot_substitution",
+    "targetStructures": [
+      "akkusativ_articles",
+      "akkusativ_pronouns",
+      "direct_object_marking"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "nehmee",
+        "essee",
+        "nehmet",
+        "kaufet",
+        "trinket",
+        "esse"
+      ],
+      "subjects": [
+        "Ich",
+        "Er",
+        "Sie",
+        "Wir"
+      ],
+      "patterns": [
+        "akkusativ_articles",
+        "akkusativ_pronouns",
+        "direct_object_marking"
+      ]
+    },
+    "difficultyTier": 2,
+    "recommendedReps": 3,
+    "estPromptCount": 8,
+    "timeboxMinutes": 4,
+    "qualitySignals": {
+      "tokenHitsCount": 8,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 6,
+      "uniqueSubjectCount": 4,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/case_endings_akkusativ",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-03T00:18:10.632Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:drill:case_endings_akkusativ_a1_tier2_slot-substitution",
+  "contentHash": "0f1c2c2ef2553085ab373ce8d67a605f68b4718f669f4fe436f12e5dd520a47d",
+  "revisionId": "0f1c2c2ef255"
+}

@@ -1,0 +1,31 @@
+{
+  "mechanicId": "verb_present_tense",
+  "mechanicLabel": "Verb Present Tense",
+  "description": "Practice present tense verb conjugations",
+  "supportedLevels": [
+    "A1",
+    "A2"
+  ],
+  "loopTypesAllowed": [
+    "pattern_switch",
+    "slot_substitution"
+  ],
+  "canonicalPatterns": [
+    "present_tense"
+  ],
+  "slotDictionaries": {
+    "subjects": [
+      "Ich",
+      "Du",
+      "Er",
+      "Sie"
+    ],
+    "verbs": [
+      "gehen",
+      "kommen",
+      "sehen"
+    ]
+  },
+  "trapPairs": [],
+  "bannedPhrases": []
+}

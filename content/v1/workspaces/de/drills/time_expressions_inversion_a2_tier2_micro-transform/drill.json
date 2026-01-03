@@ -1,0 +1,290 @@
+{
+  "schemaVersion": 1,
+  "id": "time_expressions_inversion_a2_tier2_micro-transform",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A2",
+  "title": "Time Expressions & Inversion: A2 (Tier 2)",
+  "shortTitle": "Time Expressions & Invers...",
+  "subtitle": "Tier 2 - micro transform - Master verb inversion with time e",
+  "estimatedMinutes": 4,
+  "mechanicId": "time_expressions_inversion",
+  "mechanicLabel": "Time Expressions & Inversion",
+  "loopType": "micro_transform",
+  "difficultyTier": 2,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "time"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "step-1",
+        "title": "Step 1",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002",
+          "prompt-003"
+        ],
+        "title_i18n": {
+          "en": "Step 1"
+        }
+      },
+      {
+        "id": "step-2",
+        "title": "Step 2",
+        "promptIds": [
+          "prompt-004",
+          "prompt-005",
+          "prompt-006"
+        ],
+        "title_i18n": {
+          "en": "Step 2"
+        }
+      },
+      {
+        "id": "step-3",
+        "title": "Step 3",
+        "promptIds": [
+          "prompt-007",
+          "prompt-008"
+        ],
+        "title_i18n": {
+          "en": "Step 3"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "sie gehet.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "sie gehet.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "sie"
+        ],
+        "verb": [
+          "gehet"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier2/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "ihr höret.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "ihr höret.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "ihr"
+        ],
+        "verb": [
+          "höret"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier2/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "wir sehe.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "wir sehe.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "wir"
+        ],
+        "verb": [
+          "sehe"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier2/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "ich sehee.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "ich sehee.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "ich"
+        ],
+        "verb": [
+          "sehee"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier2/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "er arbeitet.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "er arbeitet.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "er"
+        ],
+        "verb": [
+          "arbeitet"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier2/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "sie höret.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "sie höret.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "sie"
+        ],
+        "verb": [
+          "höret"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier2/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "du machest.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "du machest.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "du"
+        ],
+        "verb": [
+          "machest"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier2/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "du lernest.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "du lernest.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "du"
+        ],
+        "verb": [
+          "lernest"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier2/prompt-008.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "time_expressions_inversion",
+    "loopType": "micro_transform",
+    "targetStructures": [
+      "time_verb_subject",
+      "inversion_rule",
+      "temporal_adverbs"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "gehet",
+        "höret",
+        "sehe",
+        "sehee",
+        "arbeitet",
+        "machest",
+        "lernest"
+      ],
+      "subjects": [
+        "sie",
+        "ihr",
+        "wir",
+        "ich",
+        "er",
+        "du"
+      ],
+      "patterns": [
+        "time_verb_subject",
+        "inversion_rule",
+        "temporal_adverbs"
+      ]
+    },
+    "difficultyTier": 2,
+    "recommendedReps": 3,
+    "estPromptCount": 8,
+    "timeboxMinutes": 4,
+    "qualitySignals": {
+      "tokenHitsCount": 5,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 7,
+      "uniqueSubjectCount": 6,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/time_expressions_inversion",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-03T00:18:10.651Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:drill:time_expressions_inversion_a2_tier2_micro-transform",
+  "contentHash": "73b1d3587fff2fe62e4975460b9fa37044d1ac4b410cf72e16192a31f25d9484",
+  "revisionId": "73b1d3587fff"
+}

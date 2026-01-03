@@ -47,6 +47,11 @@
   "ordering": {
     "type": "fixed"
   },
-  "version": 1
+  "version": 1,
+  "title_i18n": {
+    "en": "Government Office Basics (A1)"
+  },
+  "description_i18n": {
+    "en": "Essential routines for navigating German government offices: address registration (Anmeldung), appointments, residence permits, passport/ID documents, and basic counter interactions."
+  }
 }
-

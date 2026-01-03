@@ -1,0 +1,266 @@
+{
+  "schemaVersion": 1,
+  "id": "verb_present_tense_a2_tier1_slot-substitution",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A2",
+  "title": "Verb Present Tense: A2 (Tier 1)",
+  "shortTitle": "Verb Present Tense A2",
+  "subtitle": "Tier 1 - slot substitution - Master present tense verb conju",
+  "estimatedMinutes": 3,
+  "mechanicId": "verb_present_tense",
+  "mechanicLabel": "Verb Present Tense",
+  "loopType": "slot_substitution",
+  "difficultyTier": 1,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "step-1",
+        "title": "Step 1",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Step 1"
+        }
+      },
+      {
+        "id": "step-2",
+        "title": "Step 2",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Step 2"
+        }
+      },
+      {
+        "id": "step-3",
+        "title": "Step 3",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006"
+        ],
+        "title_i18n": {
+          "en": "Step 3"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Ihr kommt Kaffee.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ihr kommt Kaffee.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "kommt"
+        ],
+        "object": [
+          "Kaffee"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Wir essen Fußball.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Wir essen Fußball.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "essen"
+        ],
+        "object": [
+          "Fußball"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "Sie hört Englisch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie hört Englisch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "hört"
+        ],
+        "object": [
+          "Englisch"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Sie kommt Haus.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie kommt Haus.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "kommt"
+        ],
+        "object": [
+          "Haus"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Er seht Essen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er seht Essen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "seht"
+        ],
+        "object": [
+          "Essen"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Du sehst Buch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du sehst Buch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "sehst"
+        ],
+        "object": [
+          "Buch"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-006.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "verb_present_tense",
+    "loopType": "slot_substitution",
+    "targetStructures": [
+      "present_tense_conjugation",
+      "verb_second_position",
+      "subject_verb_agreement"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "kommt",
+        "essen",
+        "hört",
+        "seht",
+        "sehst"
+      ],
+      "subjects": [
+        "Ihr",
+        "Wir",
+        "Sie",
+        "Er",
+        "Du"
+      ],
+      "patterns": [
+        "present_tense_conjugation",
+        "verb_second_position",
+        "subject_verb_agreement"
+      ]
+    },
+    "difficultyTier": 1,
+    "recommendedReps": 2,
+    "estPromptCount": 6,
+    "timeboxMinutes": 3,
+    "qualitySignals": {
+      "tokenHitsCount": 6,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 5,
+      "uniqueSubjectCount": 5,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/verb_present_tense",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-03T00:18:10.654Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:drill:verb_present_tense_a2_tier1_slot-substitution",
+  "contentHash": "19c0d8a218d25e46f81bb095c9c3da590a30557a5f3fb43273201368a4f0d300",
+  "revisionId": "19c0d8a218d2"
+}

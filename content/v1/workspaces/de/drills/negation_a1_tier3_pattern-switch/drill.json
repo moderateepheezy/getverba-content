@@ -1,0 +1,366 @@
+{
+  "schemaVersion": 1,
+  "id": "negation_a1_tier3_pattern-switch",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A1",
+  "title": "Negation: A1 (Tier 3)",
+  "shortTitle": "Negation A1",
+  "subtitle": "Tier 3 - pattern switch - Master negation placement (nicht, ",
+  "estimatedMinutes": 5,
+  "mechanicId": "negation",
+  "mechanicLabel": "Negation",
+  "loopType": "pattern_switch",
+  "difficultyTier": 3,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "pattern-1",
+        "title": "Pattern 1: Basic Forms",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Pattern 1: Basic Forms"
+        }
+      },
+      {
+        "id": "pattern-2",
+        "title": "Pattern 2: Extended Forms",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Pattern 2: Extended Forms"
+        }
+      },
+      {
+        "id": "pattern-3",
+        "title": "Pattern 3: Complex Forms",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006",
+          "prompt-007",
+          "prompt-008",
+          "prompt-009",
+          "prompt-010"
+        ],
+        "title_i18n": {
+          "en": "Pattern 3: Complex Forms"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Ich essee Tee.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich essee Tee.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "essee"
+        ],
+        "object": [
+          "Tee"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier3/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Sie trinket die Musik.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie trinket die Musik.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "trinket"
+        ],
+        "object": [
+          "die Musik"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier3/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "Sie höret das Buch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie höret das Buch.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "höret"
+        ],
+        "object": [
+          "das Buch"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier3/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Er sehet das Buch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er sehet das Buch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "sehet"
+        ],
+        "object": [
+          "das Buch"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier3/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Sie höret Kaffee.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie höret Kaffee.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "höret"
+        ],
+        "object": [
+          "Kaffee"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier3/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Du trinkest.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du trinkest.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "trinkest"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier3/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "Ich gehee die Zeitung.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich gehee die Zeitung.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "gehee"
+        ],
+        "object": [
+          "die Zeitung"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier3/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "Du sehest das Essen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du sehest das Essen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "sehest"
+        ],
+        "object": [
+          "das Essen"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier3/prompt-008.mp3"
+    },
+    {
+      "id": "prompt-009",
+      "text": "Sie sehet das Buch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie sehet das Buch.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "sehet"
+        ],
+        "object": [
+          "das Buch"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier3/prompt-009.mp3"
+    },
+    {
+      "id": "prompt-010",
+      "text": "Du bist Kaffee.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Du bist Kaffee.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "bist"
+        ],
+        "object": [
+          "Kaffee"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier3/prompt-010.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "negation",
+    "loopType": "pattern_switch",
+    "targetStructures": [
+      "nicht_placement",
+      "kein_keine_keinen",
+      "affirmative_to_negative"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "essee",
+        "trinket",
+        "höret",
+        "sehet",
+        "trinkest",
+        "gehee",
+        "sehest",
+        "bist"
+      ],
+      "subjects": [
+        "Ich",
+        "Sie",
+        "Er",
+        "Du"
+      ],
+      "patterns": [
+        "nicht_placement",
+        "kein_keine_keinen",
+        "affirmative_to_negative"
+      ]
+    },
+    "difficultyTier": 3,
+    "recommendedReps": 4,
+    "estPromptCount": 10,
+    "timeboxMinutes": 5,
+    "qualitySignals": {
+      "tokenHitsCount": 1,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 8,
+      "uniqueSubjectCount": 4,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/negation",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-03T00:18:10.642Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:drill:negation_a1_tier3_pattern-switch",
+  "contentHash": "5b8e74fccb4d2e23e0171c0ddd5781448bf5ae329a00de5181d73e7872d30b05",
+  "revisionId": "5b8e74fccb4d"
+}

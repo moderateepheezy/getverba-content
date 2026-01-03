@@ -3,7 +3,7 @@
   "id": "passport_pickup_a1",
   "kind": "pack",
   "packVersion": "1.0.0",
-  "title": "Government Office - A1",
+  "title": "Government Office A1 — Passport Pickup",
   "level": "A1",
   "estimatedMinutes": 15,
   "description": "Practice government_office scenarios at A1 level.",
@@ -212,7 +212,10 @@
         "promptIds": [
           "prompt-001",
           "prompt-002"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Making an Appointment"
+        }
       },
       {
         "id": "documents",
@@ -221,7 +224,10 @@
           "prompt-003",
           "prompt-004",
           "prompt-005"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Required Documents"
+        }
       },
       {
         "id": "questions",
@@ -229,7 +235,10 @@
         "promptIds": [
           "prompt-006",
           "prompt-007"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Asking Questions"
+        }
       }
     ]
   },
@@ -318,5 +327,11 @@
   },
   "contentId": "de:pack:passport_pickup_a1",
   "contentHash": "247bdba4297fc51ed376ffeb068da81f58f2b7aa7a1e1dbfa042202ade173af9",
-  "revisionId": "247bdba4297f"
+  "revisionId": "247bdba4297f",
+  "title_i18n": {
+    "en": "Government Office A1 — Passport Pickup"
+  },
+  "description_i18n": {
+    "en": "Practice government_office scenarios at A1 level."
+  }
 }

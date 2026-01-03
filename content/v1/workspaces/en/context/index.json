@@ -1,47 +1,9 @@
 {
   "version": "v1",
   "kind": "context",
-  "total": 1,
+  "total": 0,
   "pageSize": 20,
-  "items": [
-    {
-      "id": "welcome_english",
-      "kind": "pack",
-      "title": "Welcome to English",
-      "level": "A1",
-      "durationMinutes": 10,
-      "entryUrl": "/v1/workspaces/en/packs/welcome_english/pack.json",
-      "scenario": "intro_lesson",
-      "register": "neutral",
-      "primaryStructure": "basic_phrases",
-      "tags": [
-        "intro",
-        "basics"
-      ],
-      "analyticsSummary": {
-        "primaryStructure": "basic_phrases",
-        "scenario": "intro_lesson",
-        "register": "neutral",
-        "variationSlots": [
-          "subject",
-          "verb",
-          "object",
-          "modifier"
-        ],
-        "targetResponseSeconds": 2.5,
-        "drillType": "substitution",
-        "cognitiveLoad": "medium",
-        "goal": "Practice intro_lesson scenarios at A1 level",
-        "whyThisWorks": [
-          "Uses intro_lesson vocabulary appropriately",
-          "Varies subject and verb across prompts",
-          "Maintains neutral register consistency"
-        ]
-      },
-      "drillType": "substitution",
-      "cognitiveLoad": "medium",
-      "whyThisWorks": "Practice intro_lesson scenarios at A1 level Uses intro_lesson vocabulary appropriately"
-    }
-  ],
+  "page": 1,
+  "items": [],
   "nextPage": null
 }

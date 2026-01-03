@@ -1,8 +1,230 @@
 {
   "version": "v1",
   "kind": "drills",
-  "total": 0,
+  "total": 149,
   "pageSize": 20,
-  "items": [],
-  "nextPage": null
+  "page": 1,
+  "items": [
+    {
+      "id": "case_endings_akkusativ_a1_tier1_contrast-pairs",
+      "kind": "drill",
+      "title": "Case Endings: Akkusativ: A1 (Tier 1)",
+      "level": "A1",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier1_contrast-pairs/drill.json",
+      "contentId": "de:drill:case_endings_akkusativ_a1_tier1_contrast-pairs",
+      "revisionId": "8c366baebcec",
+      "domainKind": "context"
+    },
+    {
+      "id": "case_endings_akkusativ_a1_tier1_pattern-switch",
+      "kind": "drill",
+      "title": "Case Endings: Akkusativ: A1 (Tier 1)",
+      "level": "A1",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier1_pattern-switch/drill.json",
+      "contentId": "de:drill:case_endings_akkusativ_a1_tier1_pattern-switch",
+      "revisionId": "8d64e7ec49f1",
+      "domainKind": "context"
+    },
+    {
+      "id": "case_endings_akkusativ_a1_tier1_slot-substitution",
+      "kind": "drill",
+      "title": "Case Endings: Akkusativ: A1 (Tier 1)",
+      "level": "A1",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier1_slot-substitution/drill.json",
+      "contentId": "de:drill:case_endings_akkusativ_a1_tier1_slot-substitution",
+      "revisionId": "6352ab71dabc",
+      "domainKind": "context"
+    },
+    {
+      "id": "case_endings_akkusativ_a1_tier2_contrast-pairs",
+      "kind": "drill",
+      "title": "Case Endings: Akkusativ: A1 (Tier 2)",
+      "level": "A1",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier2_contrast-pairs/drill.json",
+      "contentId": "de:drill:case_endings_akkusativ_a1_tier2_contrast-pairs",
+      "revisionId": "53b79a3f56c5",
+      "domainKind": "context"
+    },
+    {
+      "id": "case_endings_akkusativ_a1_tier2_pattern-switch",
+      "kind": "drill",
+      "title": "Case Endings: Akkusativ: A1 (Tier 2)",
+      "level": "A1",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier2_pattern-switch/drill.json",
+      "contentId": "de:drill:case_endings_akkusativ_a1_tier2_pattern-switch",
+      "revisionId": "8f273b015d37",
+      "domainKind": "context"
+    },
+    {
+      "id": "case_endings_akkusativ_a1_tier2_slot-substitution",
+      "kind": "drill",
+      "title": "Case Endings: Akkusativ: A1 (Tier 2)",
+      "level": "A1",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier2_slot-substitution/drill.json",
+      "contentId": "de:drill:case_endings_akkusativ_a1_tier2_slot-substitution",
+      "revisionId": "0f1c2c2ef255",
+      "domainKind": "context"
+    },
+    {
+      "id": "case_endings_akkusativ_a1_tier3_contrast-pairs",
+      "kind": "drill",
+      "title": "Case Endings: Akkusativ: A1 (Tier 3)",
+      "level": "A1",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier3_contrast-pairs/drill.json",
+      "contentId": "de:drill:case_endings_akkusativ_a1_tier3_contrast-pairs",
+      "revisionId": "9bc35694b37b",
+      "domainKind": "context"
+    },
+    {
+      "id": "case_endings_akkusativ_a1_tier3_pattern-switch",
+      "kind": "drill",
+      "title": "Case Endings: Akkusativ: A1 (Tier 3)",
+      "level": "A1",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier3_pattern-switch/drill.json",
+      "contentId": "de:drill:case_endings_akkusativ_a1_tier3_pattern-switch",
+      "revisionId": "96f3a8d89807",
+      "domainKind": "context"
+    },
+    {
+      "id": "case_endings_akkusativ_a1_tier3_slot-substitution",
+      "kind": "drill",
+      "title": "Case Endings: Akkusativ: A1 (Tier 3)",
+      "level": "A1",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/case_endings_akkusativ_a1_tier3_slot-substitution/drill.json",
+      "contentId": "de:drill:case_endings_akkusativ_a1_tier3_slot-substitution",
+      "revisionId": "228cdd02ffaf",
+      "domainKind": "context"
+    },
+    {
+      "id": "modal_verbs_a1_tier1_contrast-pairs",
+      "kind": "drill",
+      "title": "Modal Verbs: A1 (Tier 1)",
+      "level": "A1",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier1_contrast-pairs/drill.json",
+      "contentId": "de:drill:modal_verbs_a1_tier1_contrast-pairs",
+      "revisionId": "03f093e850e8",
+      "domainKind": "context"
+    },
+    {
+      "id": "modal_verbs_a1_tier1_pattern-switch",
+      "kind": "drill",
+      "title": "Modal Verbs: A1 (Tier 1)",
+      "level": "A1",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier1_pattern-switch/drill.json",
+      "contentId": "de:drill:modal_verbs_a1_tier1_pattern-switch",
+      "revisionId": "9ec9e699032a",
+      "domainKind": "context"
+    },
+    {
+      "id": "modal_verbs_a1_tier1_slot-substitution",
+      "kind": "drill",
+      "title": "Modal Verbs: A1 (Tier 1)",
+      "level": "A1",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier1_slot-substitution/drill.json",
+      "contentId": "de:drill:modal_verbs_a1_tier1_slot-substitution",
+      "revisionId": "dc9f10dca541",
+      "domainKind": "context"
+    },
+    {
+      "id": "modal_verbs_a1_tier2_contrast-pairs",
+      "kind": "drill",
+      "title": "Modal Verbs: A1 (Tier 2)",
+      "level": "A1",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier2_contrast-pairs/drill.json",
+      "contentId": "de:drill:modal_verbs_a1_tier2_contrast-pairs",
+      "revisionId": "bb9d5171b801",
+      "domainKind": "context"
+    },
+    {
+      "id": "modal_verbs_a1_tier2_pattern-switch",
+      "kind": "drill",
+      "title": "Modal Verbs: A1 (Tier 2)",
+      "level": "A1",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier2_pattern-switch/drill.json",
+      "contentId": "de:drill:modal_verbs_a1_tier2_pattern-switch",
+      "revisionId": "c07c88a2269c",
+      "domainKind": "context"
+    },
+    {
+      "id": "modal_verbs_a1_tier2_slot-substitution",
+      "kind": "drill",
+      "title": "Modal Verbs: A1 (Tier 2)",
+      "level": "A1",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier2_slot-substitution/drill.json",
+      "contentId": "de:drill:modal_verbs_a1_tier2_slot-substitution",
+      "revisionId": "4dd5c1b69879",
+      "domainKind": "context"
+    },
+    {
+      "id": "modal_verbs_a1_tier3_contrast-pairs",
+      "kind": "drill",
+      "title": "Modal Verbs: A1 (Tier 3)",
+      "level": "A1",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier3_contrast-pairs/drill.json",
+      "contentId": "de:drill:modal_verbs_a1_tier3_contrast-pairs",
+      "revisionId": "aacd823f7d83",
+      "domainKind": "context"
+    },
+    {
+      "id": "modal_verbs_a1_tier3_pattern-switch",
+      "kind": "drill",
+      "title": "Modal Verbs: A1 (Tier 3)",
+      "level": "A1",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier3_pattern-switch/drill.json",
+      "contentId": "de:drill:modal_verbs_a1_tier3_pattern-switch",
+      "revisionId": "b5c83c02721a",
+      "domainKind": "context"
+    },
+    {
+      "id": "modal_verbs_a1_tier3_slot-substitution",
+      "kind": "drill",
+      "title": "Modal Verbs: A1 (Tier 3)",
+      "level": "A1",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/modal_verbs_a1_tier3_slot-substitution/drill.json",
+      "contentId": "de:drill:modal_verbs_a1_tier3_slot-substitution",
+      "revisionId": "b2ea869540f8",
+      "domainKind": "context"
+    },
+    {
+      "id": "negation_a1_tier1_error-trap",
+      "kind": "drill",
+      "title": "Negation: A1 (Tier 1)",
+      "level": "A1",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/negation_a1_tier1_error-trap/drill.json",
+      "contentId": "de:drill:negation_a1_tier1_error-trap",
+      "revisionId": "c874dc36794b",
+      "domainKind": "context"
+    },
+    {
+      "id": "negation_a1_tier1_micro-transform",
+      "kind": "drill",
+      "title": "Negation: A1 (Tier 1)",
+      "level": "A1",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/negation_a1_tier1_micro-transform/drill.json",
+      "contentId": "de:drill:negation_a1_tier1_micro-transform",
+      "revisionId": "7569902db2c7",
+      "domainKind": "context"
+    }
+  ],
+  "nextPage": "/v1/workspaces/de/mechanics/pages/2.json"
 }

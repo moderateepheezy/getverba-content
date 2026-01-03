@@ -1,0 +1,371 @@
+{
+  "schemaVersion": 1,
+  "id": "goethe_a2",
+  "kind": "exam",
+  "title": "Goethe-Zertifikat A2",
+  "level": "A2",
+  "estimatedMinutes": 70,
+  "phraseCount": 28,
+  "description": "Official Goethe-Institut A2 certification exam practice. Tests elementary German for everyday communication, travel, and basic workplace situations.",
+  "examType": "certification",
+  "examProvider": "goethe-institut",
+  "officialExamInfo": {
+    "name": "Goethe-Zertifikat A2",
+    "provider": "Goethe-Institut",
+    "cefrLevel": "A2",
+    "recognizedBy": [
+      "German employers",
+      "German immigration (family reunification)",
+      "Au pair requirements"
+    ],
+    "duration": 70,
+    "passingScore": 60,
+    "sections": [
+      "Hören",
+      "Lesen",
+      "Schreiben",
+      "Sprechen"
+    ]
+  },
+  "sections": [
+    {
+      "id": "hoeren",
+      "title": "Hören (Listening)",
+      "titleEn": "Listening",
+      "durationMinutes": 30,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "hoeren_1",
+          "title": "Teil 1: Alltagsgespräche",
+          "description": "Listen to everyday conversations and match to statements",
+          "itemCount": 5,
+          "format": "true_false",
+          "title_i18n": {
+            "en": "Teil 1: Alltagsgespräche"
+          },
+          "description_i18n": {
+            "en": "Listen to everyday conversations and match to statements"
+          }
+        },
+        {
+          "id": "hoeren_2",
+          "title": "Teil 2: Radiosendung",
+          "description": "Listen to a radio broadcast and answer multiple choice questions",
+          "itemCount": 5,
+          "format": "multiple_choice",
+          "title_i18n": {
+            "en": "Teil 2: Radiosendung"
+          },
+          "description_i18n": {
+            "en": "Listen to a radio broadcast and answer multiple choice questions"
+          }
+        },
+        {
+          "id": "hoeren_3",
+          "title": "Teil 3: Telefonansagen",
+          "description": "Listen to telephone messages and note key information",
+          "itemCount": 5,
+          "format": "gap_fill",
+          "title_i18n": {
+            "en": "Teil 3: Telefonansagen"
+          },
+          "description_i18n": {
+            "en": "Listen to telephone messages and note key information"
+          }
+        },
+        {
+          "id": "hoeren_4",
+          "title": "Teil 4: Gespräch",
+          "description": "Listen to a longer conversation and answer questions",
+          "itemCount": 5,
+          "format": "multiple_choice",
+          "title_i18n": {
+            "en": "Teil 4: Gespräch"
+          },
+          "description_i18n": {
+            "en": "Listen to a longer conversation and answer questions"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Hören (Listening)"
+      }
+    },
+    {
+      "id": "lesen",
+      "title": "Lesen (Reading)",
+      "titleEn": "Reading",
+      "durationMinutes": 30,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "lesen_1",
+          "title": "Teil 1: Informationstafeln",
+          "description": "Read information boards and match to descriptions",
+          "itemCount": 5,
+          "format": "matching",
+          "title_i18n": {
+            "en": "Teil 1: Informationstafeln"
+          },
+          "description_i18n": {
+            "en": "Read information boards and match to descriptions"
+          }
+        },
+        {
+          "id": "lesen_2",
+          "title": "Teil 2: Zeitungsartikel",
+          "description": "Read a newspaper article and answer true/false questions",
+          "itemCount": 5,
+          "format": "true_false",
+          "title_i18n": {
+            "en": "Teil 2: Zeitungsartikel"
+          },
+          "description_i18n": {
+            "en": "Read a newspaper article and answer true/false questions"
+          }
+        },
+        {
+          "id": "lesen_3",
+          "title": "Teil 3: Kleinanzeigen",
+          "description": "Read classified ads and match to situations",
+          "itemCount": 5,
+          "format": "matching",
+          "title_i18n": {
+            "en": "Teil 3: Kleinanzeigen"
+          },
+          "description_i18n": {
+            "en": "Read classified ads and match to situations"
+          }
+        },
+        {
+          "id": "lesen_4",
+          "title": "Teil 4: Anleitungen",
+          "description": "Read instructions and fill in missing words",
+          "itemCount": 5,
+          "format": "gap_fill",
+          "title_i18n": {
+            "en": "Teil 4: Anleitungen"
+          },
+          "description_i18n": {
+            "en": "Read instructions and fill in missing words"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Lesen (Reading)"
+      }
+    },
+    {
+      "id": "schreiben",
+      "title": "Schreiben (Writing)",
+      "titleEn": "Writing",
+      "durationMinutes": 30,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "schreiben_1",
+          "title": "Teil 1: SMS/E-Mail",
+          "description": "Write a short message responding to a situation (40 words)",
+          "itemCount": 1,
+          "format": "short_text",
+          "wordLimit": 40,
+          "title_i18n": {
+            "en": "Teil 1: SMS/E-Mail"
+          },
+          "description_i18n": {
+            "en": "Write a short message responding to a situation (40 words)"
+          }
+        },
+        {
+          "id": "schreiben_2",
+          "title": "Teil 2: Brief",
+          "description": "Write a semi-formal letter (80 words) addressing 3 points",
+          "itemCount": 1,
+          "format": "letter",
+          "wordLimit": 80,
+          "requiredPoints": 3,
+          "title_i18n": {
+            "en": "Teil 2: Brief"
+          },
+          "description_i18n": {
+            "en": "Write a semi-formal letter (80 words) addressing 3 points"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Schreiben (Writing)"
+      }
+    },
+    {
+      "id": "sprechen",
+      "title": "Sprechen (Speaking)",
+      "titleEn": "Speaking",
+      "durationMinutes": 15,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "sprechen_1",
+          "title": "Teil 1: Über sich sprechen",
+          "description": "Talk about yourself based on key points",
+          "format": "presentation",
+          "title_i18n": {
+            "en": "Teil 1: Über sich sprechen"
+          },
+          "description_i18n": {
+            "en": "Talk about yourself based on key points"
+          }
+        },
+        {
+          "id": "sprechen_2",
+          "title": "Teil 2: Gespräch führen",
+          "description": "Have a conversation with a partner about a topic",
+          "format": "dialogue",
+          "title_i18n": {
+            "en": "Teil 2: Gespräch führen"
+          },
+          "description_i18n": {
+            "en": "Have a conversation with a partner about a topic"
+          }
+        },
+        {
+          "id": "sprechen_3",
+          "title": "Teil 3: Gemeinsam planen",
+          "description": "Plan something together with a partner (e.g., a party, trip)",
+          "format": "collaborative_planning",
+          "title_i18n": {
+            "en": "Teil 3: Gemeinsam planen"
+          },
+          "description_i18n": {
+            "en": "Plan something together with a partner (e.g., a party, trip)"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Sprechen (Speaking)"
+      }
+    }
+  ],
+  "practiceModules": [
+    {
+      "id": "travel_vocab",
+      "title": "Travel & Transportation",
+      "description": "Vocabulary and phrases for traveling in German-speaking countries",
+      "topics": [
+        "airport",
+        "train_station",
+        "hotel",
+        "directions",
+        "tickets"
+      ],
+      "title_i18n": {
+        "en": "Travel & Transportation"
+      },
+      "description_i18n": {
+        "en": "Vocabulary and phrases for traveling in German-speaking countries"
+      }
+    },
+    {
+      "id": "shopping_services",
+      "title": "Shopping & Services",
+      "description": "Practice conversations for shops, banks, and post office",
+      "topics": [
+        "clothing",
+        "food_shopping",
+        "banking",
+        "post_office"
+      ],
+      "title_i18n": {
+        "en": "Shopping & Services"
+      },
+      "description_i18n": {
+        "en": "Practice conversations for shops, banks, and post office"
+      }
+    },
+    {
+      "id": "health_body",
+      "title": "Health & Body",
+      "description": "Vocabulary for doctor visits and pharmacy",
+      "topics": [
+        "body_parts",
+        "symptoms",
+        "doctor_visit",
+        "pharmacy"
+      ],
+      "title_i18n": {
+        "en": "Health & Body"
+      },
+      "description_i18n": {
+        "en": "Vocabulary for doctor visits and pharmacy"
+      }
+    },
+    {
+      "id": "work_basics",
+      "title": "Work Basics",
+      "description": "Basic workplace vocabulary and situations",
+      "topics": [
+        "job_titles",
+        "office_vocabulary",
+        "making_appointments",
+        "telephone"
+      ],
+      "title_i18n": {
+        "en": "Work Basics"
+      },
+      "description_i18n": {
+        "en": "Basic workplace vocabulary and situations"
+      }
+    }
+  ],
+  "sampleQuestions": [
+    {
+      "section": "hoeren",
+      "part": 1,
+      "type": "true_false",
+      "audioDescription": "Conversation about weekend plans",
+      "statement": "Die Frau möchte am Samstag ins Kino gehen.",
+      "correctAnswer": true
+    },
+    {
+      "section": "lesen",
+      "part": 2,
+      "type": "true_false",
+      "text": "Das neue Café am Marktplatz ist ab Montag geöffnet. Es bietet Frühstück von 7 bis 11 Uhr...",
+      "statement": "Das Café ist jeden Tag ab 7 Uhr geöffnet.",
+      "correctAnswer": false
+    },
+    {
+      "section": "schreiben",
+      "part": 2,
+      "type": "letter",
+      "situation": "Your German friend invited you to their birthday party. Write back and: thank them, say if you can come, ask what you should bring.",
+      "requiredPoints": [
+        "thank for invitation",
+        "confirm attendance",
+        "ask about gift"
+      ]
+    }
+  ],
+  "tips": [
+    "Practice understanding the main points of clear standard speech on familiar topics",
+    "Learn to write simple connected text on familiar topics",
+    "Practice describing experiences, events, and hopes",
+    "Work on giving reasons and explanations for opinions and plans"
+  ],
+  "resources": [
+    {
+      "type": "official",
+      "title": "Goethe-Institut A2 Materials",
+      "url": "https://www.goethe.de/de/spr/kup/prf/prf/gzsd2.html"
+    }
+  ],
+  "contentId": "de:exam:goethe_a2",
+  "contentHash": "09778f39112f03d672bd3123fbba404f17c24b1a4c03b89c95106e4f2998ec14",
+  "revisionId": "09778f39112f",
+  "title_i18n": {
+    "en": "Goethe-Zertifikat A2"
+  },
+  "description_i18n": {
+    "en": "Official Goethe-Institut A2 certification exam practice. Tests elementary German for everyday communication, travel, and basic workplace situations."
+  }
+}

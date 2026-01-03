@@ -3,7 +3,7 @@
   "id": "anmeldung_address_registration_a1",
   "kind": "pack",
   "packVersion": "1.0.0",
-  "title": "Government Office - A1",
+  "title": "Government Office A1 — Anmeldung Address Registration",
   "level": "A1",
   "estimatedMinutes": 15,
   "description": "Practice government_office scenarios at A1 level.",
@@ -210,7 +210,10 @@
         "promptIds": [
           "prompt-001",
           "prompt-002"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Making an Appointment"
+        }
       },
       {
         "id": "documents",
@@ -219,7 +222,10 @@
           "prompt-003",
           "prompt-004",
           "prompt-005"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Required Documents"
+        }
       },
       {
         "id": "questions",
@@ -227,7 +233,10 @@
         "promptIds": [
           "prompt-006",
           "prompt-007"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Asking Questions"
+        }
       }
     ]
   },
@@ -316,5 +325,11 @@
   },
   "contentId": "de:pack:anmeldung_address_registration_a1",
   "contentHash": "2a2fe75ffaee74f47952d9da2d9273cb6c17e4f456e749c99559b62b70fd2b51",
-  "revisionId": "2a2fe75ffaee"
+  "revisionId": "2a2fe75ffaee",
+  "title_i18n": {
+    "en": "Government Office A1 — Anmeldung Address Registration"
+  },
+  "description_i18n": {
+    "en": "Practice government_office scenarios at A1 level."
+  }
 }

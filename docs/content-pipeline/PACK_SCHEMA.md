@@ -38,6 +38,15 @@ All packs must pass Content Quality Gates v1. See [QUALITY_GATES.md](./QUALITY_G
 
 ## Optional Fields
 
+### i18n Fields (Optional)
+
+Localization fields for user-visible strings. See [I18N_SCAFFOLDING.md](./I18N_SCAFFOLDING.md) for details.
+
+- `title_i18n?: Record<string, string>` - Localized titles (e.g., `{ "en": "Office Meeting" }`)
+- `subtitle_i18n?: Record<string, string>` - Localized subtitles
+
+Generators automatically populate `*_i18n.en` fields for new content. Frontend should use `pickI18n(title_i18n) ?? title` pattern.
+
 ### `prompts` (Optional)
 
 Array of prompt objects for practice.

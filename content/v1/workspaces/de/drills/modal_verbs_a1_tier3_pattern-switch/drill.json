@@ -1,0 +1,368 @@
+{
+  "schemaVersion": 1,
+  "id": "modal_verbs_a1_tier3_pattern-switch",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A1",
+  "title": "Modal Verbs: A1 (Tier 3)",
+  "shortTitle": "Modal Verbs A1",
+  "subtitle": "Tier 3 - pattern switch - Master modal verb patterns (können",
+  "estimatedMinutes": 5,
+  "mechanicId": "modal_verbs",
+  "mechanicLabel": "Modal Verbs",
+  "loopType": "pattern_switch",
+  "difficultyTier": 3,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "pattern-1",
+        "title": "Pattern 1: Basic Forms",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Pattern 1: Basic Forms"
+        }
+      },
+      {
+        "id": "pattern-2",
+        "title": "Pattern 2: Extended Forms",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Pattern 2: Extended Forms"
+        }
+      },
+      {
+        "id": "pattern-3",
+        "title": "Pattern 3: Complex Forms",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006",
+          "prompt-007",
+          "prompt-008",
+          "prompt-009",
+          "prompt-010"
+        ],
+        "title_i18n": {
+          "en": "Pattern 3: Complex Forms"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Sie kommt ins Kino.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie kommt ins Kino.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "kommt"
+        ],
+        "object": [
+          "ins Kino"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier3/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Wir hören nach Hause.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Wir hören nach Hause.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "hören"
+        ],
+        "object": [
+          "nach Hause"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier3/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "Er kauft nach Hause.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er kauft nach Hause.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "kauft"
+        ],
+        "object": [
+          "nach Hause"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier3/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Er lernt zur Arbeit.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er lernt zur Arbeit.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "lernt"
+        ],
+        "object": [
+          "zur Arbeit"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier3/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Ihr trinkt das.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ihr trinkt das.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "trinkt"
+        ],
+        "object": [
+          "das"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier3/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Er kommt zur Arbeit.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Er kommt zur Arbeit.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "kommt"
+        ],
+        "object": [
+          "zur Arbeit"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier3/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "Sie esst den.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Sie esst den.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "esst"
+        ],
+        "object": [
+          "den"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier3/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "Wir essen ins Kino.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Wir essen ins Kino.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "essen"
+        ],
+        "object": [
+          "ins Kino"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier3/prompt-008.mp3"
+    },
+    {
+      "id": "prompt-009",
+      "text": "Wir trinken.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Wir trinken.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "trinken"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier3/prompt-009.mp3"
+    },
+    {
+      "id": "prompt-010",
+      "text": "Ich mache ins Kino.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich mache ins Kino.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "mache"
+        ],
+        "object": [
+          "ins Kino"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier3/prompt-010.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "modal_verbs",
+    "loopType": "pattern_switch",
+    "targetStructures": [
+      "modal_verb_infinitive",
+      "modal_verb_requests",
+      "modal_verb_ability"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "kommt",
+        "hören",
+        "kauft",
+        "lernt",
+        "trinkt",
+        "esst",
+        "essen",
+        "trinken",
+        "mache"
+      ],
+      "subjects": [
+        "Sie",
+        "Wir",
+        "Er",
+        "Ihr",
+        "Ich"
+      ],
+      "patterns": [
+        "modal_verb_infinitive",
+        "modal_verb_requests",
+        "modal_verb_ability"
+      ]
+    },
+    "difficultyTier": 3,
+    "recommendedReps": 4,
+    "estPromptCount": 10,
+    "timeboxMinutes": 5,
+    "qualitySignals": {
+      "tokenHitsCount": 0,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 9,
+      "uniqueSubjectCount": 5,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/modal_verbs",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-03T00:18:10.636Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:drill:modal_verbs_a1_tier3_pattern-switch",
+  "contentHash": "b5c83c02721a24d33ab93f496f0ae80e7478f17578ca3ca378a0f8c4b3cc077a",
+  "revisionId": "b5c83c02721a"
+}

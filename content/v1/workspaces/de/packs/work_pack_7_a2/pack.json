@@ -3,7 +3,7 @@
   "id": "work_pack_7_a2",
   "kind": "pack",
   "packVersion": "1.0.0",
-  "title": "Work - A2",
+  "title": "Work A2 — 7: Team Collaboration",
   "level": "A2",
   "estimatedMinutes": 15,
   "description": "Practice work scenarios at A2 level.",
@@ -207,7 +207,10 @@
         "promptIds": [
           "prompt-001",
           "prompt-002"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Office Greetings"
+        }
       },
       {
         "id": "meetings",
@@ -216,7 +219,10 @@
           "prompt-003",
           "prompt-004",
           "prompt-005"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Meeting Phrases"
+        }
       },
       {
         "id": "requests",
@@ -224,7 +230,10 @@
         "promptIds": [
           "prompt-006",
           "prompt-007"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Work Requests"
+        }
       }
     ]
   },
@@ -304,14 +313,18 @@
     "source": "template",
     "sourceRef": "work",
     "extractorVersion": "1.0.0",
-    "generatedAt": "2025-12-31T08:23:03.091Z"
+    "generatedAt": "2026-01-01T02:21:47.868Z"
   },
   "review": {
-    "status": "approved",
-    "reviewer": "Afees",
-    "reviewedAt": "2025-12-31T08:31:40Z"
+    "status": "needs_review"
   },
   "contentId": "de:pack:work_pack_7_a2",
-  "contentHash": "d68d33a333e4ed19f4d47ff315c25f2ffe9f1414ba0704ed96f3fa5e2936dddf",
-  "revisionId": "d68d33a333e4"
+  "contentHash": "d25d5e653046c088e1a593ddafe4ce24718f3e48f0381844f91178fe708027c1",
+  "revisionId": "d25d5e653046",
+  "title_i18n": {
+    "en": "Work A2 — 7: Team Collaboration"
+  },
+  "description_i18n": {
+    "en": "Practice work scenarios at A2 level."
+  }
 }

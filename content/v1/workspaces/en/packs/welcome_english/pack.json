@@ -72,14 +72,20 @@
         "promptIds": [
           "prompt-001",
           "prompt-002"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Introduction"
+        }
       },
       {
         "id": "phrases",
         "title": "Basic Phrases",
         "promptIds": [
           "prompt-002"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Basic Phrases"
+        }
       }
     ]
   },
@@ -100,7 +106,7 @@
     ],
     "minDistinctSubjects": 2,
     "minDistinctVerbs": 2,
-    "minMultiSlotRate": 0.30,
+    "minMultiSlotRate": 0.3,
     "targetResponseSeconds": 2.5,
     "canonicalIntents": [
       "greet",
@@ -152,13 +158,12 @@
       "vocabulary recall",
       "register consistency",
       "structure accuracy"
-    ],
-    "primaryStructure": "basic_phrases",
-    "variationSlots": [
-      "subject",
-      "verb",
-      "object",
-      "modifier"
     ]
+  },
+  "title_i18n": {
+    "en": "Welcome to English"
+  },
+  "description_i18n": {
+    "en": "A brief introduction to learning English with GetVerba. Get comfortable with the app and basic vocabulary."
   }
 }

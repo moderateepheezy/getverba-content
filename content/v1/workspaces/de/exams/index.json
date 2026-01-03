@@ -1,8 +1,175 @@
 {
   "version": "v1",
   "kind": "exams",
-  "total": 0,
+  "total": 11,
   "pageSize": 20,
-  "items": [],
+  "page": 1,
+  "items": [
+    {
+      "id": "goethe_a1",
+      "kind": "exam",
+      "title": "Goethe-Zertifikat A1: Start Deutsch 1",
+      "level": "A1",
+      "durationMinutes": 65,
+      "entryUrl": "/v1/workspaces/de/exams/goethe_a1/exam.json",
+      "contentId": "de:exam:goethe_a1",
+      "revisionId": "0ed183304f10",
+      "phraseCount": 24,
+      "title_i18n": {
+        "en": "Goethe-Zertifikat A1: Start Deutsch 1"
+      },
+      "domainKind": "exam"
+    },
+    {
+      "id": "telc_a1",
+      "kind": "exam",
+      "title": "telc Deutsch A1",
+      "level": "A1",
+      "durationMinutes": 75,
+      "entryUrl": "/v1/workspaces/de/exams/telc_a1/exam.json",
+      "contentId": "de:exam:telc_a1",
+      "revisionId": "f144e9acc814",
+      "phraseCount": 22,
+      "title_i18n": {
+        "en": "telc Deutsch A1"
+      },
+      "domainKind": "exam"
+    },
+    {
+      "id": "goethe_a2",
+      "kind": "exam",
+      "title": "Goethe-Zertifikat A2",
+      "level": "A2",
+      "durationMinutes": 70,
+      "entryUrl": "/v1/workspaces/de/exams/goethe_a2/exam.json",
+      "contentId": "de:exam:goethe_a2",
+      "revisionId": "09778f39112f",
+      "phraseCount": 28,
+      "title_i18n": {
+        "en": "Goethe-Zertifikat A2"
+      },
+      "domainKind": "exam"
+    },
+    {
+      "id": "telc_a2",
+      "kind": "exam",
+      "title": "telc Deutsch A2",
+      "level": "A2",
+      "durationMinutes": 70,
+      "entryUrl": "/v1/workspaces/de/exams/telc_a2/exam.json",
+      "contentId": "de:exam:telc_a2",
+      "revisionId": "9155443c777b",
+      "phraseCount": 26,
+      "title_i18n": {
+        "en": "telc Deutsch A2"
+      },
+      "domainKind": "exam"
+    },
+    {
+      "id": "dtz_integration",
+      "kind": "exam",
+      "title": "DTZ — Deutsch-Test für Zuwanderer",
+      "level": "B1",
+      "durationMinutes": 100,
+      "entryUrl": "/v1/workspaces/de/exams/dtz_integration/exam.json",
+      "contentId": "de:exam:dtz_integration",
+      "revisionId": "3475fbf0c980",
+      "phraseCount": 35,
+      "title_i18n": {
+        "en": "DTZ — Deutsch-Test für Zuwanderer"
+      },
+      "domainKind": "exam"
+    },
+    {
+      "id": "goethe_b1",
+      "kind": "exam",
+      "title": "Goethe-Zertifikat B1",
+      "level": "B1",
+      "durationMinutes": 120,
+      "entryUrl": "/v1/workspaces/de/exams/goethe_b1/exam.json",
+      "contentId": "de:exam:goethe_b1",
+      "revisionId": "96982966f8f0",
+      "phraseCount": 38,
+      "title_i18n": {
+        "en": "Goethe-Zertifikat B1"
+      },
+      "domainKind": "exam"
+    },
+    {
+      "id": "telc_b1",
+      "kind": "exam",
+      "title": "telc Deutsch B1",
+      "level": "B1",
+      "durationMinutes": 120,
+      "entryUrl": "/v1/workspaces/de/exams/telc_b1/exam.json",
+      "contentId": "de:exam:telc_b1",
+      "revisionId": "35f299438337",
+      "phraseCount": 34,
+      "title_i18n": {
+        "en": "telc Deutsch B1"
+      },
+      "domainKind": "exam"
+    },
+    {
+      "id": "goethe_b2",
+      "kind": "exam",
+      "title": "Goethe-Zertifikat B2",
+      "level": "B2",
+      "durationMinutes": 120,
+      "entryUrl": "/v1/workspaces/de/exams/goethe_b2/exam.json",
+      "contentId": "de:exam:goethe_b2",
+      "revisionId": "ecfd092a6c09",
+      "phraseCount": 42,
+      "title_i18n": {
+        "en": "Goethe-Zertifikat B2"
+      },
+      "domainKind": "exam"
+    },
+    {
+      "id": "telc_b2",
+      "kind": "exam",
+      "title": "telc Deutsch B2",
+      "level": "B2",
+      "durationMinutes": 120,
+      "entryUrl": "/v1/workspaces/de/exams/telc_b2/exam.json",
+      "contentId": "de:exam:telc_b2",
+      "revisionId": "d967d21154c0",
+      "phraseCount": 42,
+      "title_i18n": {
+        "en": "telc Deutsch B2"
+      },
+      "domainKind": "exam"
+    },
+    {
+      "id": "goethe_c1",
+      "kind": "exam",
+      "title": "Goethe-Zertifikat C1",
+      "level": "C1",
+      "durationMinutes": 120,
+      "entryUrl": "/v1/workspaces/de/exams/goethe_c1/exam.json",
+      "contentId": "de:exam:goethe_c1",
+      "revisionId": "21c8eca53d84",
+      "phraseCount": 48,
+      "title_i18n": {
+        "en": "Goethe-Zertifikat C1"
+      },
+      "domainKind": "exam"
+    },
+    {
+      "id": "telc_c1",
+      "kind": "exam",
+      "title": "telc Deutsch C1",
+      "level": "C1",
+      "durationMinutes": 120,
+      "entryUrl": "/v1/workspaces/de/exams/telc_c1/exam.json",
+      "contentId": "de:exam:telc_c1",
+      "revisionId": "42327f518e52",
+      "phraseCount": 50,
+      "title_i18n": {
+        "en": "telc Deutsch C1"
+      },
+      "domainKind": "exam"
+    }
+  ],
   "nextPage": null
 }

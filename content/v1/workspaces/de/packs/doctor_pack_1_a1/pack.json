@@ -3,7 +3,7 @@
   "id": "doctor_pack_1_a1",
   "kind": "pack",
   "packVersion": "1.0.0",
-  "title": "Doctor - A1",
+  "title": "Doctor A1 — 1: Making an Appointment",
   "level": "A1",
   "estimatedMinutes": 15,
   "description": "Practice doctor scenarios at A1 level.",
@@ -203,7 +203,10 @@
         "promptIds": [
           "prompt-001",
           "prompt-002"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Making an Appointment"
+        }
       },
       {
         "id": "symptoms",
@@ -212,7 +215,10 @@
           "prompt-003",
           "prompt-004",
           "prompt-005"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Describing Symptoms"
+        }
       },
       {
         "id": "prescription",
@@ -220,7 +226,10 @@
         "promptIds": [
           "prompt-006",
           "prompt-007"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Getting Prescription"
+        }
       }
     ]
   },
@@ -294,20 +303,28 @@
     "exitConditions": {
       "targetMinutes": 15,
       "completeWhen": "sessionPlan_completed_once"
-    }
+    },
+    "topicKey": "making-an-appointment",
+    "topicLabel": "Making an Appointment",
+    "shortTitle": "Phone booking",
+    "orderInTopic": 1
   },
   "provenance": {
     "source": "template",
     "sourceRef": "doctor",
     "extractorVersion": "1.0.0",
-    "generatedAt": "2025-12-31T07:35:41.341Z"
+    "generatedAt": "2026-01-01T00:55:59.981Z"
   },
   "review": {
-    "status": "approved",
-    "reviewer": "Afees",
-    "reviewedAt": "2025-12-31T08:31:40Z"
+    "status": "needs_review"
   },
   "contentId": "de:pack:doctor_pack_1_a1",
-  "contentHash": "bf5d0d8a4ec6ff93d2f5f6033b94a5ae45d1658942ef52742f8641995265e144",
-  "revisionId": "bf5d0d8a4ec6"
+  "contentHash": "d68ee6ac287bd34f9dbcc8f74b7b66cf42f0449a87a2a997af5cf37333e35580",
+  "revisionId": "d68ee6ac287b",
+  "title_i18n": {
+    "en": "Doctor A1 — 1: Making an Appointment"
+  },
+  "description_i18n": {
+    "en": "Practice doctor scenarios at A1 level."
+  }
 }

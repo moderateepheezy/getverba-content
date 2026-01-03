@@ -3,7 +3,7 @@
   "id": "work_pack_11_a2",
   "kind": "pack",
   "packVersion": "1.0.0",
-  "title": "Work - A2",
+  "title": "Work A2 — 11: Status Reports",
   "level": "A2",
   "estimatedMinutes": 15,
   "description": "Practice work scenarios at A2 level.",
@@ -210,7 +210,10 @@
         "promptIds": [
           "prompt-001",
           "prompt-002"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Office Greetings"
+        }
       },
       {
         "id": "meetings",
@@ -219,7 +222,10 @@
           "prompt-003",
           "prompt-004",
           "prompt-005"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Meeting Phrases"
+        }
       },
       {
         "id": "requests",
@@ -227,7 +233,10 @@
         "promptIds": [
           "prompt-006",
           "prompt-007"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Work Requests"
+        }
       }
     ]
   },
@@ -307,14 +316,18 @@
     "source": "template",
     "sourceRef": "work",
     "extractorVersion": "1.0.0",
-    "generatedAt": "2025-12-31T08:23:04.430Z"
+    "generatedAt": "2026-01-01T02:21:50.510Z"
   },
   "review": {
-    "status": "approved",
-    "reviewer": "Afees",
-    "reviewedAt": "2025-12-31T08:31:39Z"
+    "status": "needs_review"
   },
   "contentId": "de:pack:work_pack_11_a2",
-  "contentHash": "5d8f1eb9849312c58ded9b0cca299d40c64b4bdd54c800b5d78c857e7412731b",
-  "revisionId": "5d8f1eb98493"
+  "contentHash": "4f043d37997135da83063b4ea744f9d6b300b8765b280ce5f77520602a7f3328",
+  "revisionId": "4f043d379971",
+  "title_i18n": {
+    "en": "Work A2 — 11: Status Reports"
+  },
+  "description_i18n": {
+    "en": "Practice work scenarios at A2 level."
+  }
 }

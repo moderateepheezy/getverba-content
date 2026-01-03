@@ -1,0 +1,280 @@
+{
+  "schemaVersion": 1,
+  "id": "verb_present_tense_a1",
+  "kind": "drill",
+  "title": "Verb Endings: Present Tense (A1)",
+  "level": "A1",
+  "estimatedMinutes": 8,
+  "description": "Master the essential present tense verb conjugations for regular German verbs. Practice with common verbs like spielen, lernen, and arbeiten in rapid-fire speaking drills.",
+  "instructions": "Repeat each phrase out loud, focusing on the correct verb ending. Pay attention to the subject-verb agreement.",
+  "scenario": "mechanics",
+  "register": "neutral",
+  "primaryStructure": "present_tense_conjugation",
+  "variationSlots": [
+    "subject",
+    "verb"
+  ],
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Ich spiele Fußball.",
+      "intent": "practice",
+      "gloss_en": "I am practicing verb conjugation.",
+      "natural_en": "I play soccer.",
+      "audioUrl": "/v1/audio/verb_present_tense_a1/prompt-001.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "spiele"
+        ]
+      }
+    },
+    {
+      "id": "prompt-002",
+      "text": "Du spielst Fußball.",
+      "intent": "practice",
+      "gloss_en": "I am practicing verb conjugation.",
+      "natural_en": "You play soccer.",
+      "audioUrl": "/v1/audio/verb_present_tense_a1/prompt-002.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "spielst"
+        ]
+      }
+    },
+    {
+      "id": "prompt-003",
+      "text": "Er spielt Gitarre.",
+      "intent": "practice",
+      "gloss_en": "I am practicing verb conjugation.",
+      "natural_en": "He plays guitar.",
+      "audioUrl": "/v1/audio/verb_present_tense_a1/prompt-003.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "spielt"
+        ]
+      }
+    },
+    {
+      "id": "prompt-004",
+      "text": "Wir lernen Deutsch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing verb conjugation.",
+      "natural_en": "We learn German.",
+      "audioUrl": "/v1/audio/verb_present_tense_a1/prompt-004.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "lernen"
+        ]
+      }
+    },
+    {
+      "id": "prompt-005",
+      "text": "Ihr lernt Englisch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing verb conjugation.",
+      "natural_en": "You (plural) learn English.",
+      "audioUrl": "/v1/audio/verb_present_tense_a1/prompt-005.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "lernt"
+        ]
+      }
+    },
+    {
+      "id": "prompt-006",
+      "text": "Sie arbeiten im Büro.",
+      "intent": "practice",
+      "gloss_en": "I am practicing verb conjugation.",
+      "natural_en": "They work in the office.",
+      "audioUrl": "/v1/audio/verb_present_tense_a1/prompt-006.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "arbeiten"
+        ]
+      }
+    },
+    {
+      "id": "prompt-007",
+      "text": "Ich arbeite zu Hause.",
+      "intent": "practice",
+      "gloss_en": "I am practicing verb conjugation.",
+      "natural_en": "I work at home.",
+      "audioUrl": "/v1/audio/verb_present_tense_a1/prompt-007.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "arbeite"
+        ]
+      }
+    },
+    {
+      "id": "prompt-008",
+      "text": "Du lernst schnell.",
+      "intent": "practice",
+      "gloss_en": "I am practicing verb conjugation.",
+      "natural_en": "You learn quickly.",
+      "audioUrl": "/v1/audio/verb_present_tense_a1/prompt-008.mp3",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "lernst"
+        ]
+      }
+    }
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "ich-du-forms",
+        "title": "Ich & Du Forms",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Ich & Du Forms"
+        }
+      },
+      {
+        "id": "er-sie-es-forms",
+        "title": "Er/Sie/Es Forms",
+        "promptIds": [
+          "prompt-003"
+        ],
+        "title_i18n": {
+          "en": "Er/Sie/Es Forms"
+        }
+      },
+      {
+        "id": "wir-ihr-forms",
+        "title": "Wir & Ihr Forms",
+        "promptIds": [
+          "prompt-004",
+          "prompt-005"
+        ],
+        "title_i18n": {
+          "en": "Wir & Ihr Forms"
+        }
+      },
+      {
+        "id": "sie-formal-forms",
+        "title": "Sie (Formal) & Practice",
+        "promptIds": [
+          "prompt-006",
+          "prompt-007",
+          "prompt-008"
+        ],
+        "title_i18n": {
+          "en": "Sie (Formal) & Practice"
+        }
+      }
+    ]
+  },
+  "outline": [
+    "Ich & Du Forms",
+    "Er/Sie/Es Forms",
+    "Wir & Ihr Forms",
+    "Sie (Formal) & Practice"
+  ],
+  "tags": [
+    "grammar",
+    "verbs",
+    "conjugation",
+    "present_tense"
+  ],
+  "analytics": {
+    "version": 1,
+    "primaryStructure": "present_tense_conjugation",
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "slotSwitchDensity": 1,
+    "promptDiversityScore": 0.75,
+    "scenarioCoverageScore": 0.8,
+    "estimatedCognitiveLoad": "low",
+    "intendedOutcome": "Confident present tense conjugation for regular German verbs",
+    "targetLatencyMs": 2000,
+    "goal": "Master present tense verb conjugation patterns for A1 German learners",
+    "drillType": "conjugation",
+    "cognitiveLoad": "low",
+    "successCriteria": [
+      "Correctly conjugate regular verbs in present tense",
+      "Match verb endings to pronouns automatically",
+      "Respond within 2 seconds per prompt"
+    ],
+    "whyThisWorks": [
+      "Systematic pronoun progression builds muscle memory",
+      "Regular verb patterns reinforce core conjugation rules",
+      "Rapid-fire practice automates verb ending selection"
+    ],
+    "exitConditions": {
+      "targetMinutes": 8,
+      "completeWhen": "sessionPlan_completed_once"
+    }
+  },
+  "title_i18n": {
+    "en": "Verb Endings: Present Tense (A1)"
+  },
+  "description_i18n": {
+    "en": "Master the essential present tense verb conjugations for regular German verbs. Practice with common verbs like spielen, lernen, and arbeiten in rapid-fire speaking drills."
+  },
+  "contentId": "de:drill:verb_present_tense_a1",
+  "contentHash": "df88562851c8d5d9f5a94bb71f0979593da9806c1b732e343448ae2dfb809000",
+  "revisionId": "df88562851c8"
+}

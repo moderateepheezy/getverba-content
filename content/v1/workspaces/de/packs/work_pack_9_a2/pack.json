@@ -3,7 +3,7 @@
   "id": "work_pack_9_a2",
   "kind": "pack",
   "packVersion": "1.0.0",
-  "title": "Work - A2",
+  "title": "Work A2 — 9: Client Interactions",
   "level": "A2",
   "estimatedMinutes": 15,
   "description": "Practice work scenarios at A2 level.",
@@ -211,7 +211,10 @@
         "promptIds": [
           "prompt-001",
           "prompt-002"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Office Greetings"
+        }
       },
       {
         "id": "meetings",
@@ -220,7 +223,10 @@
           "prompt-003",
           "prompt-004",
           "prompt-005"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Meeting Phrases"
+        }
       },
       {
         "id": "requests",
@@ -228,7 +234,10 @@
         "promptIds": [
           "prompt-006",
           "prompt-007"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Work Requests"
+        }
       }
     ]
   },
@@ -308,14 +317,18 @@
     "source": "template",
     "sourceRef": "work",
     "extractorVersion": "1.0.0",
-    "generatedAt": "2025-12-31T08:23:03.774Z"
+    "generatedAt": "2026-01-01T02:21:49.128Z"
   },
   "review": {
-    "status": "approved",
-    "reviewer": "Afees",
-    "reviewedAt": "2025-12-31T08:31:40Z"
+    "status": "needs_review"
   },
   "contentId": "de:pack:work_pack_9_a2",
-  "contentHash": "474de7a7f350b86b9401a46d90060828534dd30a7737b40f4c68349d341ad389",
-  "revisionId": "474de7a7f350"
+  "contentHash": "24705746663b063006dfad03ad00427154b15c7ecdc6ac9e434c58c69a20268d",
+  "revisionId": "24705746663b",
+  "title_i18n": {
+    "en": "Work A2 — 9: Client Interactions"
+  },
+  "description_i18n": {
+    "en": "Practice work scenarios at A2 level."
+  }
 }

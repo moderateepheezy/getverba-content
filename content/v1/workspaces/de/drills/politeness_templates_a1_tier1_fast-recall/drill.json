@@ -1,0 +1,250 @@
+{
+  "schemaVersion": 1,
+  "id": "politeness_templates_a1_tier1_fast-recall",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A1",
+  "title": "Politeness Templates: A1 (Tier 1)",
+  "shortTitle": "Politeness Templates A1",
+  "subtitle": "Tier 1 - fast recall",
+  "estimatedMinutes": 3,
+  "mechanicId": "politeness_templates",
+  "mechanicLabel": "Politeness Templates",
+  "loopType": "fast_recall",
+  "difficultyTier": 1,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "step-1",
+        "title": "Step 1",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Step 1"
+        }
+      },
+      {
+        "id": "step-2",
+        "title": "Step 2",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Step 2"
+        }
+      },
+      {
+        "id": "step-3",
+        "title": "Step 3",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006"
+        ],
+        "title_i18n": {
+          "en": "Step 3"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "undefined sagen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "undefined sagen.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          null
+        ],
+        "verb": [
+          "sagen"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier1/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "undefined helfen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "undefined helfen.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          null
+        ],
+        "verb": [
+          "helfen"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier1/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "undefined helfen uns.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "undefined helfen uns.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          null
+        ],
+        "verb": [
+          "helfen"
+        ],
+        "object": [
+          "uns"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier1/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "undefined geben die.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "undefined geben die.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          null
+        ],
+        "verb": [
+          "geben"
+        ],
+        "object": [
+          "die"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier1/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "undefined machen mir.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "undefined machen mir.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          null
+        ],
+        "verb": [
+          "machen"
+        ],
+        "object": [
+          "mir"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier1/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "undefined zeigen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "undefined zeigen.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          null
+        ],
+        "verb": [
+          "zeigen"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier1/prompt-006.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "politeness_templates",
+    "loopType": "fast_recall",
+    "targetStructures": [
+      "polite_requests",
+      "conditional_politeness",
+      "formal_greetings"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "sagen",
+        "helfen",
+        "geben",
+        "machen",
+        "zeigen"
+      ],
+      "subjects": [
+        null
+      ],
+      "patterns": [
+        "polite_requests",
+        "conditional_politeness",
+        "formal_greetings"
+      ]
+    },
+    "difficultyTier": 1,
+    "recommendedReps": 2,
+    "estPromptCount": 6,
+    "timeboxMinutes": 3,
+    "qualitySignals": {
+      "tokenHitsCount": 2,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 5,
+      "uniqueSubjectCount": 1,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/politeness_templates",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-03T00:16:26.934Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:drill:politeness_templates_a1_tier1_fast-recall",
+  "contentHash": "ff6cec2f62897572efa91434f433f6cd4cf534c010fe27c72065377142d3d9b4",
+  "revisionId": "ff6cec2f6289"
+}

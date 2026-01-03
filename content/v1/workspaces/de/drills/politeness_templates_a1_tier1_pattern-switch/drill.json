@@ -1,0 +1,248 @@
+{
+  "schemaVersion": 1,
+  "id": "politeness_templates_a1_tier1_pattern-switch",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A1",
+  "title": "Politeness Templates: A1 (Tier 1)",
+  "shortTitle": "Politeness Templates A1",
+  "subtitle": "Tier 1 - pattern switch",
+  "estimatedMinutes": 3,
+  "mechanicId": "politeness_templates",
+  "mechanicLabel": "Politeness Templates",
+  "loopType": "pattern_switch",
+  "difficultyTier": 1,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "pattern-1",
+        "title": "Pattern 1: Basic Forms",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Pattern 1: Basic Forms"
+        }
+      },
+      {
+        "id": "pattern-2",
+        "title": "Pattern 2: Extended Forms",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Pattern 2: Extended Forms"
+        }
+      },
+      {
+        "id": "pattern-3",
+        "title": "Pattern 3: Complex Forms",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006"
+        ],
+        "title_i18n": {
+          "en": "Pattern 3: Complex Forms"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "undefined zeigen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "undefined zeigen.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          null
+        ],
+        "verb": [
+          "zeigen"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier1/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "undefined machen eine.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "undefined machen eine.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          null
+        ],
+        "verb": [
+          "machen"
+        ],
+        "object": [
+          "eine"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier1/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "undefined schließen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "undefined schließen.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          null
+        ],
+        "verb": [
+          "schließen"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier1/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "undefined öffnen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "undefined öffnen.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          null
+        ],
+        "verb": [
+          "öffnen"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier1/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "undefined machen mir.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "undefined machen mir.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          null
+        ],
+        "verb": [
+          "machen"
+        ],
+        "object": [
+          "mir"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier1/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "undefined sagen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "undefined sagen.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          null
+        ],
+        "verb": [
+          "sagen"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier1/prompt-006.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "politeness_templates",
+    "loopType": "pattern_switch",
+    "targetStructures": [
+      "polite_requests",
+      "conditional_politeness",
+      "formal_greetings"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "zeigen",
+        "machen",
+        "schließen",
+        "öffnen",
+        "sagen"
+      ],
+      "subjects": [
+        null
+      ],
+      "patterns": [
+        "polite_requests",
+        "conditional_politeness",
+        "formal_greetings"
+      ]
+    },
+    "difficultyTier": 1,
+    "recommendedReps": 2,
+    "estPromptCount": 6,
+    "timeboxMinutes": 3,
+    "qualitySignals": {
+      "tokenHitsCount": 1,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 5,
+      "uniqueSubjectCount": 1,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/politeness_templates",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-03T00:16:26.934Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:drill:politeness_templates_a1_tier1_pattern-switch",
+  "contentHash": "619e690b74e5755a95d96f070f516eff362c5ad6239d0ebc6e0416ae600d6dba",
+  "revisionId": "619e690b74e5"
+}

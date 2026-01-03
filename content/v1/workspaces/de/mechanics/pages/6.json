@@ -1,0 +1,230 @@
+{
+  "version": "v1",
+  "kind": "drills",
+  "total": 149,
+  "pageSize": 20,
+  "page": 6,
+  "items": [
+    {
+      "id": "negation_a2_tier3_error-trap",
+      "kind": "drill",
+      "title": "Negation: A2 (Tier 3)",
+      "level": "A2",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier3_error-trap/drill.json",
+      "contentId": "de:drill:negation_a2_tier3_error-trap",
+      "revisionId": "a578772bff20",
+      "domainKind": "context"
+    },
+    {
+      "id": "negation_a2_tier3_micro-transform",
+      "kind": "drill",
+      "title": "Negation: A2 (Tier 3)",
+      "level": "A2",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier3_micro-transform/drill.json",
+      "contentId": "de:drill:negation_a2_tier3_micro-transform",
+      "revisionId": "431dab561faf",
+      "domainKind": "context"
+    },
+    {
+      "id": "negation_a2_tier3_pattern-switch",
+      "kind": "drill",
+      "title": "Negation: A2 (Tier 3)",
+      "level": "A2",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/negation_a2_tier3_pattern-switch/drill.json",
+      "contentId": "de:drill:negation_a2_tier3_pattern-switch",
+      "revisionId": "208cc6ebcd89",
+      "domainKind": "context"
+    },
+    {
+      "id": "politeness_templates_a2_tier1_fast-recall",
+      "kind": "drill",
+      "title": "Politeness Templates: A2 (Tier 1)",
+      "level": "A2",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a2_tier1_fast-recall/drill.json",
+      "contentId": "de:drill:politeness_templates_a2_tier1_fast-recall",
+      "revisionId": "5b8cd467e7a9",
+      "domainKind": "context"
+    },
+    {
+      "id": "politeness_templates_a2_tier1_pattern-switch",
+      "kind": "drill",
+      "title": "Politeness Templates: A2 (Tier 1)",
+      "level": "A2",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a2_tier1_pattern-switch/drill.json",
+      "contentId": "de:drill:politeness_templates_a2_tier1_pattern-switch",
+      "revisionId": "c47d887dc2bf",
+      "domainKind": "context"
+    },
+    {
+      "id": "politeness_templates_a2_tier1_slot-substitution",
+      "kind": "drill",
+      "title": "Politeness Templates: A2 (Tier 1)",
+      "level": "A2",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a2_tier1_slot-substitution/drill.json",
+      "contentId": "de:drill:politeness_templates_a2_tier1_slot-substitution",
+      "revisionId": "889c008eec9c",
+      "domainKind": "context"
+    },
+    {
+      "id": "politeness_templates_a2_tier2_fast-recall",
+      "kind": "drill",
+      "title": "Politeness Templates: A2 (Tier 2)",
+      "level": "A2",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a2_tier2_fast-recall/drill.json",
+      "contentId": "de:drill:politeness_templates_a2_tier2_fast-recall",
+      "revisionId": "3683576b4085",
+      "domainKind": "context"
+    },
+    {
+      "id": "politeness_templates_a2_tier2_pattern-switch",
+      "kind": "drill",
+      "title": "Politeness Templates: A2 (Tier 2)",
+      "level": "A2",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a2_tier2_pattern-switch/drill.json",
+      "contentId": "de:drill:politeness_templates_a2_tier2_pattern-switch",
+      "revisionId": "c7c78cfaa4f5",
+      "domainKind": "context"
+    },
+    {
+      "id": "politeness_templates_a2_tier2_slot-substitution",
+      "kind": "drill",
+      "title": "Politeness Templates: A2 (Tier 2)",
+      "level": "A2",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a2_tier2_slot-substitution/drill.json",
+      "contentId": "de:drill:politeness_templates_a2_tier2_slot-substitution",
+      "revisionId": "31cc30cc3ac5",
+      "domainKind": "context"
+    },
+    {
+      "id": "politeness_templates_a2_tier3_fast-recall",
+      "kind": "drill",
+      "title": "Politeness Templates: A2 (Tier 3)",
+      "level": "A2",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a2_tier3_fast-recall/drill.json",
+      "contentId": "de:drill:politeness_templates_a2_tier3_fast-recall",
+      "revisionId": "5a9e07615165",
+      "domainKind": "context"
+    },
+    {
+      "id": "politeness_templates_a2_tier3_pattern-switch",
+      "kind": "drill",
+      "title": "Politeness Templates: A2 (Tier 3)",
+      "level": "A2",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a2_tier3_pattern-switch/drill.json",
+      "contentId": "de:drill:politeness_templates_a2_tier3_pattern-switch",
+      "revisionId": "4d41fc901b2a",
+      "domainKind": "context"
+    },
+    {
+      "id": "politeness_templates_a2_tier3_slot-substitution",
+      "kind": "drill",
+      "title": "Politeness Templates: A2 (Tier 3)",
+      "level": "A2",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/politeness_templates_a2_tier3_slot-substitution/drill.json",
+      "contentId": "de:drill:politeness_templates_a2_tier3_slot-substitution",
+      "revisionId": "fcd1e172c4c7",
+      "domainKind": "context"
+    },
+    {
+      "id": "question_formation_a2_tier1_fast-recall",
+      "kind": "drill",
+      "title": "Question Formation: A2 (Tier 1)",
+      "level": "A2",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/question_formation_a2_tier1_fast-recall/drill.json",
+      "contentId": "de:drill:question_formation_a2_tier1_fast-recall",
+      "revisionId": "e7ccc94990c0",
+      "domainKind": "context"
+    },
+    {
+      "id": "question_formation_a2_tier1_micro-transform",
+      "kind": "drill",
+      "title": "Question Formation: A2 (Tier 1)",
+      "level": "A2",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/question_formation_a2_tier1_micro-transform/drill.json",
+      "contentId": "de:drill:question_formation_a2_tier1_micro-transform",
+      "revisionId": "64b4568de270",
+      "domainKind": "context"
+    },
+    {
+      "id": "question_formation_a2_tier1_pattern-switch",
+      "kind": "drill",
+      "title": "Question Formation: A2 (Tier 1)",
+      "level": "A2",
+      "durationMinutes": 3,
+      "entryUrl": "/v1/workspaces/de/drills/question_formation_a2_tier1_pattern-switch/drill.json",
+      "contentId": "de:drill:question_formation_a2_tier1_pattern-switch",
+      "revisionId": "15de3b3c3287",
+      "domainKind": "context"
+    },
+    {
+      "id": "question_formation_a2_tier2_fast-recall",
+      "kind": "drill",
+      "title": "Question Formation: A2 (Tier 2)",
+      "level": "A2",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/question_formation_a2_tier2_fast-recall/drill.json",
+      "contentId": "de:drill:question_formation_a2_tier2_fast-recall",
+      "revisionId": "8e82153e8d19",
+      "domainKind": "context"
+    },
+    {
+      "id": "question_formation_a2_tier2_micro-transform",
+      "kind": "drill",
+      "title": "Question Formation: A2 (Tier 2)",
+      "level": "A2",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/question_formation_a2_tier2_micro-transform/drill.json",
+      "contentId": "de:drill:question_formation_a2_tier2_micro-transform",
+      "revisionId": "d5f547edce6d",
+      "domainKind": "context"
+    },
+    {
+      "id": "question_formation_a2_tier2_pattern-switch",
+      "kind": "drill",
+      "title": "Question Formation: A2 (Tier 2)",
+      "level": "A2",
+      "durationMinutes": 4,
+      "entryUrl": "/v1/workspaces/de/drills/question_formation_a2_tier2_pattern-switch/drill.json",
+      "contentId": "de:drill:question_formation_a2_tier2_pattern-switch",
+      "revisionId": "858d58b9d2d4",
+      "domainKind": "context"
+    },
+    {
+      "id": "question_formation_a2_tier3_fast-recall",
+      "kind": "drill",
+      "title": "Question Formation: A2 (Tier 3)",
+      "level": "A2",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/question_formation_a2_tier3_fast-recall/drill.json",
+      "contentId": "de:drill:question_formation_a2_tier3_fast-recall",
+      "revisionId": "11c7f912f1a3",
+      "domainKind": "context"
+    },
+    {
+      "id": "question_formation_a2_tier3_micro-transform",
+      "kind": "drill",
+      "title": "Question Formation: A2 (Tier 3)",
+      "level": "A2",
+      "durationMinutes": 5,
+      "entryUrl": "/v1/workspaces/de/drills/question_formation_a2_tier3_micro-transform/drill.json",
+      "contentId": "de:drill:question_formation_a2_tier3_micro-transform",
+      "revisionId": "2eaeeb6d929e",
+      "domainKind": "context"
+    }
+  ],
+  "nextPage": "/v1/workspaces/de/mechanics/pages/7.json"
+}

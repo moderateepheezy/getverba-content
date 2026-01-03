@@ -1,0 +1,515 @@
+{
+  "schemaVersion": 1,
+  "id": "dtz_integration",
+  "kind": "exam",
+  "title": "DTZ — Deutsch-Test für Zuwanderer",
+  "level": "B1",
+  "estimatedMinutes": 100,
+  "phraseCount": 35,
+  "description": "The official German integration exam required for settlement permits and naturalization. Tests A2-B1 level German with focus on everyday life in Germany.",
+  "examType": "integration",
+  "examProvider": "telc/BAMF",
+  "officialExamInfo": {
+    "name": "Deutsch-Test für Zuwanderer (DTZ)",
+    "provider": "telc GmbH / Bundesamt für Migration und Flüchtlinge (BAMF)",
+    "cefrLevel": "A2-B1",
+    "recognizedBy": [
+      "German settlement permit (§9 AufenthG)",
+      "German naturalization",
+      "Integration course completion"
+    ],
+    "duration": 100,
+    "passingScores": {
+      "A2": 45,
+      "B1": 60
+    },
+    "sections": [
+      "Hören",
+      "Lesen",
+      "Schreiben",
+      "Sprechen"
+    ]
+  },
+  "sections": [
+    {
+      "id": "hoeren",
+      "title": "Hören (Listening)",
+      "titleEn": "Listening",
+      "durationMinutes": 25,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "hoeren_1",
+          "title": "Teil 1: Ansagen/Durchsagen",
+          "description": "Listen to public announcements and answer true/false questions",
+          "itemCount": 4,
+          "format": "true_false",
+          "context": "Train stations, airports, supermarkets, public offices",
+          "title_i18n": {
+            "en": "Teil 1: Ansagen/Durchsagen"
+          },
+          "description_i18n": {
+            "en": "Listen to public announcements and answer true/false questions"
+          }
+        },
+        {
+          "id": "hoeren_2",
+          "title": "Teil 2: Radiobeiträge",
+          "description": "Listen to radio segments and answer multiple choice questions",
+          "itemCount": 5,
+          "format": "multiple_choice",
+          "context": "News, weather, traffic, events",
+          "title_i18n": {
+            "en": "Teil 2: Radiobeiträge"
+          },
+          "description_i18n": {
+            "en": "Listen to radio segments and answer multiple choice questions"
+          }
+        },
+        {
+          "id": "hoeren_3",
+          "title": "Teil 3: Gespräche",
+          "description": "Listen to conversations and determine what people want/need",
+          "itemCount": 4,
+          "format": "matching",
+          "context": "Doctor, landlord, employer, neighbors",
+          "title_i18n": {
+            "en": "Teil 3: Gespräche"
+          },
+          "description_i18n": {
+            "en": "Listen to conversations and determine what people want/need"
+          }
+        },
+        {
+          "id": "hoeren_4",
+          "title": "Teil 4: Telefonansagen",
+          "description": "Listen to telephone messages and note key information",
+          "itemCount": 3,
+          "format": "gap_fill",
+          "context": "Appointments, reminders, instructions",
+          "title_i18n": {
+            "en": "Teil 4: Telefonansagen"
+          },
+          "description_i18n": {
+            "en": "Listen to telephone messages and note key information"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Hören (Listening)"
+      }
+    },
+    {
+      "id": "lesen",
+      "title": "Lesen (Reading)",
+      "titleEn": "Reading",
+      "durationMinutes": 45,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "lesen_1",
+          "title": "Teil 1: Kataloge/Verzeichnisse",
+          "description": "Read listings and find specific information",
+          "itemCount": 5,
+          "format": "matching",
+          "context": "TV programs, course catalogs, event listings",
+          "title_i18n": {
+            "en": "Teil 1: Kataloge/Verzeichnisse"
+          },
+          "description_i18n": {
+            "en": "Read listings and find specific information"
+          }
+        },
+        {
+          "id": "lesen_2",
+          "title": "Teil 2: Zeitungstext",
+          "description": "Read a newspaper article and answer true/false questions",
+          "itemCount": 5,
+          "format": "true_false",
+          "context": "Local news, human interest stories",
+          "title_i18n": {
+            "en": "Teil 2: Zeitungstext"
+          },
+          "description_i18n": {
+            "en": "Read a newspaper article and answer true/false questions"
+          }
+        },
+        {
+          "id": "lesen_3",
+          "title": "Teil 3: Kleinanzeigen",
+          "description": "Read classified ads and match to situations",
+          "itemCount": 5,
+          "format": "matching",
+          "context": "Jobs, housing, items for sale",
+          "title_i18n": {
+            "en": "Teil 3: Kleinanzeigen"
+          },
+          "description_i18n": {
+            "en": "Read classified ads and match to situations"
+          }
+        },
+        {
+          "id": "lesen_4",
+          "title": "Teil 4: Briefe/E-Mails",
+          "description": "Read letters or emails and understand the main message",
+          "itemCount": 5,
+          "format": "multiple_choice",
+          "context": "Official letters, personal messages",
+          "title_i18n": {
+            "en": "Teil 4: Briefe/E-Mails"
+          },
+          "description_i18n": {
+            "en": "Read letters or emails and understand the main message"
+          }
+        },
+        {
+          "id": "lesen_5",
+          "title": "Teil 5: Formulare/Anleitungen",
+          "description": "Read instructions or forms and fill in missing information",
+          "itemCount": 5,
+          "format": "gap_fill",
+          "context": "Registration forms, user manuals",
+          "title_i18n": {
+            "en": "Teil 5: Formulare/Anleitungen"
+          },
+          "description_i18n": {
+            "en": "Read instructions or forms and fill in missing information"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Lesen (Reading)"
+      }
+    },
+    {
+      "id": "schreiben",
+      "title": "Schreiben (Writing)",
+      "titleEn": "Writing",
+      "durationMinutes": 30,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "schreiben_1",
+          "title": "Brief schreiben",
+          "description": "Write a letter or email (about 80 words) responding to a situation from daily life",
+          "itemCount": 1,
+          "format": "letter",
+          "wordLimit": 80,
+          "requiredPoints": 3,
+          "typicalSituations": [
+            "Responding to a job ad",
+            "Writing to your landlord about a problem",
+            "Apologizing for missing an appointment",
+            "Asking for information about a course"
+          ],
+          "title_i18n": {
+            "en": "Brief schreiben"
+          },
+          "description_i18n": {
+            "en": "Write a letter or email (about 80 words) responding to a situation from daily life"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Schreiben (Writing)"
+      }
+    },
+    {
+      "id": "sprechen",
+      "title": "Sprechen (Speaking)",
+      "titleEn": "Speaking",
+      "durationMinutes": 16,
+      "weight": 25,
+      "groupExam": true,
+      "parts": [
+        {
+          "id": "sprechen_1",
+          "title": "Teil 1: Sich vorstellen",
+          "description": "Introduce yourself to your exam partner",
+          "format": "self_introduction",
+          "duration": 2,
+          "topics": [
+            "Name",
+            "Herkunft",
+            "Wohnort",
+            "Sprachen",
+            "Beruf",
+            "Familie",
+            "Hobbys"
+          ],
+          "title_i18n": {
+            "en": "Teil 1: Sich vorstellen"
+          },
+          "description_i18n": {
+            "en": "Introduce yourself to your exam partner"
+          }
+        },
+        {
+          "id": "sprechen_2",
+          "title": "Teil 2: Über Erfahrungen sprechen",
+          "description": "Talk about a personal experience based on a picture prompt",
+          "format": "monologue",
+          "duration": 4,
+          "typicalTopics": [
+            "Reisen",
+            "Feste feiern",
+            "Einkaufen",
+            "Arztbesuch",
+            "Arbeit"
+          ],
+          "title_i18n": {
+            "en": "Teil 2: Über Erfahrungen sprechen"
+          },
+          "description_i18n": {
+            "en": "Talk about a personal experience based on a picture prompt"
+          }
+        },
+        {
+          "id": "sprechen_3",
+          "title": "Teil 3: Gemeinsam planen",
+          "description": "Plan something together with your exam partner",
+          "format": "collaborative_planning",
+          "duration": 5,
+          "typicalScenarios": [
+            "Ein Fest planen",
+            "Einen Ausflug organisieren",
+            "Ein Geschenk aussuchen",
+            "Eine Wohnung einrichten"
+          ],
+          "title_i18n": {
+            "en": "Teil 3: Gemeinsam planen"
+          },
+          "description_i18n": {
+            "en": "Plan something together with your exam partner"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Sprechen (Speaking)"
+      }
+    }
+  ],
+  "integrationFocus": {
+    "description": "The DTZ specifically tests language skills needed for integration into German society",
+    "keyAreas": [
+      {
+        "area": "Behörden (Authorities)",
+        "topics": [
+          "Anmeldung",
+          "Ausländerbehörde",
+          "Arbeitsamt",
+          "Standesamt"
+        ]
+      },
+      {
+        "area": "Arbeit (Work)",
+        "topics": [
+          "Bewerbung",
+          "Arbeitsvertrag",
+          "Kollegen",
+          "Krankmeldung"
+        ]
+      },
+      {
+        "area": "Wohnen (Housing)",
+        "topics": [
+          "Wohnungssuche",
+          "Mietvertrag",
+          "Nachbarn",
+          "Hausordnung"
+        ]
+      },
+      {
+        "area": "Gesundheit (Health)",
+        "topics": [
+          "Arztbesuch",
+          "Krankenversicherung",
+          "Apotheke",
+          "Notfall"
+        ]
+      },
+      {
+        "area": "Kinder & Schule (Children & School)",
+        "topics": [
+          "Kindergarten",
+          "Schule",
+          "Elternabend",
+          "Hausaufgaben"
+        ]
+      },
+      {
+        "area": "Einkaufen & Dienstleistungen",
+        "topics": [
+          "Supermarkt",
+          "Bank",
+          "Post",
+          "Reparaturen"
+        ]
+      }
+    ]
+  },
+  "practiceModules": [
+    {
+      "id": "authorities_offices",
+      "title": "German Authorities & Offices",
+      "description": "Vocabulary and phrases for dealing with German bureaucracy",
+      "topics": [
+        "registration_office",
+        "immigration_office",
+        "employment_office",
+        "tax_office",
+        "social_services"
+      ],
+      "title_i18n": {
+        "en": "German Authorities & Offices"
+      },
+      "description_i18n": {
+        "en": "Vocabulary and phrases for dealing with German bureaucracy"
+      }
+    },
+    {
+      "id": "housing_daily",
+      "title": "Housing & Daily Life",
+      "description": "Practical language for living in Germany",
+      "topics": [
+        "apartment_search",
+        "contracts",
+        "neighbors",
+        "recycling",
+        "utilities"
+      ],
+      "title_i18n": {
+        "en": "Housing & Daily Life"
+      },
+      "description_i18n": {
+        "en": "Practical language for living in Germany"
+      }
+    },
+    {
+      "id": "work_integration",
+      "title": "Work & Employment",
+      "description": "Language for finding and keeping a job in Germany",
+      "topics": [
+        "job_search",
+        "applications",
+        "interviews",
+        "workplace",
+        "rights"
+      ],
+      "title_i18n": {
+        "en": "Work & Employment"
+      },
+      "description_i18n": {
+        "en": "Language for finding and keeping a job in Germany"
+      }
+    },
+    {
+      "id": "health_insurance",
+      "title": "Health & Insurance",
+      "description": "Navigating the German healthcare system",
+      "topics": [
+        "health_insurance",
+        "doctor_visits",
+        "prescriptions",
+        "emergencies",
+        "specialists"
+      ],
+      "title_i18n": {
+        "en": "Health & Insurance"
+      },
+      "description_i18n": {
+        "en": "Navigating the German healthcare system"
+      }
+    },
+    {
+      "id": "family_education",
+      "title": "Family & Education",
+      "description": "Language for parents and families",
+      "topics": [
+        "daycare",
+        "school_system",
+        "parent_meetings",
+        "homework",
+        "activities"
+      ],
+      "title_i18n": {
+        "en": "Family & Education"
+      },
+      "description_i18n": {
+        "en": "Language for parents and families"
+      }
+    }
+  ],
+  "sampleQuestions": [
+    {
+      "section": "hoeren",
+      "part": 1,
+      "type": "true_false",
+      "audioDescription": "Supermarket announcement: 'Liebe Kunden, heute haben wir frisches Gemüse im Angebot. Die Tomaten kosten nur 1,99 Euro das Kilo.'",
+      "statement": "Die Tomaten kosten 1,99 Euro pro Stück.",
+      "correctAnswer": false
+    },
+    {
+      "section": "lesen",
+      "part": 4,
+      "type": "multiple_choice",
+      "letter": "Sehr geehrter Herr Müller, leider kann Ihr Sohn Max morgen nicht am Sportunterricht teilnehmen. Er hat sich gestern das Knie verletzt. Mit freundlichen Grüßen, Frau Schmidt",
+      "question": "Warum schreibt Frau Schmidt?",
+      "options": [
+        "Max ist krank",
+        "Max darf keinen Sport machen",
+        "Max hat keine Sportkleidung"
+      ]
+    },
+    {
+      "section": "schreiben",
+      "type": "letter",
+      "situation": "Sie können morgen nicht zur Arbeit kommen, weil Ihr Kind krank ist. Schreiben Sie eine E-Mail an Ihren Chef.",
+      "requiredPoints": [
+        "Entschuldigung",
+        "Grund",
+        "Wann Sie wiederkommen"
+      ]
+    },
+    {
+      "section": "sprechen",
+      "part": 3,
+      "type": "collaborative_planning",
+      "scenario": "Ein Kollege hat Geburtstag. Planen Sie zusammen eine kleine Feier im Büro.",
+      "prompts": [
+        "Wann?",
+        "Was mitbringen?",
+        "Wer einladen?",
+        "Geschenk?"
+      ]
+    }
+  ],
+  "tips": [
+    "Focus on practical, everyday German - the DTZ tests real-life communication skills",
+    "Practice understanding announcements in public places",
+    "Learn vocabulary related to German authorities and official letters",
+    "Practice writing semi-formal letters with clear structure",
+    "Work on collaborative speaking tasks with a partner"
+  ],
+  "resources": [
+    {
+      "type": "official",
+      "title": "BAMF Integration Course Information",
+      "url": "https://www.bamf.de/DE/Themen/Integration/ZusijudrigeAngebote/Integrationskurse/integrationskurse-node.html"
+    },
+    {
+      "type": "practice",
+      "title": "telc DTZ Practice Materials",
+      "url": "https://www.telc.net/pruefungsteilnehmende/sprachpruefungen/pruefungen/detail/deutsch-test-fuer-zuwanderer-a2-b1.html"
+    }
+  ],
+  "contentId": "de:exam:dtz_integration",
+  "contentHash": "3475fbf0c980af020f29ffdba69fb49fe5b7f12d93c87aca0e1b100190b10ffe",
+  "revisionId": "3475fbf0c980",
+  "title_i18n": {
+    "en": "DTZ — Deutsch-Test für Zuwanderer"
+  },
+  "description_i18n": {
+    "en": "The official German integration exam required for settlement permits and naturalization. Tests A2-B1 level German with focus on everyday life in Germany."
+  }
+}

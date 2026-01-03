@@ -3,7 +3,7 @@
   "id": "doctor_pack_2_a1",
   "kind": "pack",
   "packVersion": "1.0.0",
-  "title": "Doctor - A1",
+  "title": "Doctor A1 — 2: Describing Symptoms",
   "level": "A1",
   "estimatedMinutes": 15,
   "description": "Practice doctor scenarios at A1 level.",
@@ -206,7 +206,10 @@
         "promptIds": [
           "prompt-001",
           "prompt-002"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Making an Appointment"
+        }
       },
       {
         "id": "symptoms",
@@ -215,7 +218,10 @@
           "prompt-003",
           "prompt-004",
           "prompt-005"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Describing Symptoms"
+        }
       },
       {
         "id": "prescription",
@@ -223,7 +229,10 @@
         "promptIds": [
           "prompt-006",
           "prompt-007"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Getting Prescription"
+        }
       }
     ]
   },
@@ -297,20 +306,28 @@
     "exitConditions": {
       "targetMinutes": 15,
       "completeWhen": "sessionPlan_completed_once"
-    }
+    },
+    "topicKey": "describing-symptoms",
+    "topicLabel": "Describing Symptoms",
+    "shortTitle": "Symptom description",
+    "orderInTopic": 2
   },
   "provenance": {
     "source": "template",
     "sourceRef": "doctor",
     "extractorVersion": "1.0.0",
-    "generatedAt": "2025-12-31T07:35:41.684Z"
+    "generatedAt": "2026-01-01T00:56:01.146Z"
   },
   "review": {
-    "status": "approved",
-    "reviewer": "Afees",
-    "reviewedAt": "2025-12-31T08:31:18Z"
+    "status": "needs_review"
   },
   "contentId": "de:pack:doctor_pack_2_a1",
-  "contentHash": "c7e6abd7be4a8cda6af8860ae62f69681dffb9e926e675a06041886a388df0cc",
-  "revisionId": "c7e6abd7be4a"
+  "contentHash": "fa7a48e5fd8f8b12b63c7d2301390033263db3d052ac51dd24bbee81aba65728",
+  "revisionId": "fa7a48e5fd8f",
+  "title_i18n": {
+    "en": "Doctor A1 — 2: Describing Symptoms"
+  },
+  "description_i18n": {
+    "en": "Practice doctor scenarios at A1 level."
+  }
 }

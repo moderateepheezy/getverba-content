@@ -3,7 +3,7 @@
   "id": "housing_pack_1_a2",
   "kind": "pack",
   "packVersion": "1.0.0",
-  "title": "Housing - A2",
+  "title": "Housing A2 — 1: Searching for Housing",
   "level": "A2",
   "estimatedMinutes": 15,
   "description": "Practice housing scenarios at A2 level.",
@@ -212,7 +212,10 @@
         "promptIds": [
           "prompt-001",
           "prompt-002"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Searching for Housing"
+        }
       },
       {
         "id": "viewing",
@@ -221,7 +224,10 @@
           "prompt-003",
           "prompt-004",
           "prompt-005"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Viewing Apartments"
+        }
       },
       {
         "id": "rental",
@@ -229,7 +235,10 @@
         "promptIds": [
           "prompt-006",
           "prompt-007"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Rental Agreement"
+        }
       }
     ]
   },
@@ -309,14 +318,18 @@
     "source": "template",
     "sourceRef": "housing",
     "extractorVersion": "1.0.0",
-    "generatedAt": "2025-12-31T07:35:28.746Z"
+    "generatedAt": "2026-01-01T00:56:12.316Z"
   },
   "review": {
-    "status": "approved",
-    "reviewer": "Afees",
-    "reviewedAt": "2025-12-31T08:31:18Z"
+    "status": "needs_review"
   },
   "contentId": "de:pack:housing_pack_1_a2",
-  "contentHash": "a39da2dc82602c25e821dfe9e9984c3484ef841207b0fef98629103389365a81",
-  "revisionId": "a39da2dc8260"
+  "contentHash": "0588bff52a8ef39b11133104d9045ddcc0f1dd1c6d991c8e2218cc043131cf23",
+  "revisionId": "0588bff52a8e",
+  "title_i18n": {
+    "en": "Housing A2 — 1: Searching for Housing"
+  },
+  "description_i18n": {
+    "en": "Practice housing scenarios at A2 level."
+  }
 }

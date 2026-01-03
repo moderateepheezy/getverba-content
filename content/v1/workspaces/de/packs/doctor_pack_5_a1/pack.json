@@ -3,7 +3,7 @@
   "id": "doctor_pack_5_a1",
   "kind": "pack",
   "packVersion": "1.0.0",
-  "title": "Doctor - A1",
+  "title": "Doctor A1 — 5: Describing Symptoms",
   "level": "A1",
   "estimatedMinutes": 15,
   "description": "Practice doctor scenarios at A1 level.",
@@ -204,7 +204,10 @@
         "promptIds": [
           "prompt-001",
           "prompt-002"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Making an Appointment"
+        }
       },
       {
         "id": "symptoms",
@@ -213,7 +216,10 @@
           "prompt-003",
           "prompt-004",
           "prompt-005"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Describing Symptoms"
+        }
       },
       {
         "id": "prescription",
@@ -221,7 +227,10 @@
         "promptIds": [
           "prompt-006",
           "prompt-007"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Getting Prescription"
+        }
       }
     ]
   },
@@ -301,14 +310,18 @@
     "source": "template",
     "sourceRef": "doctor",
     "extractorVersion": "1.0.0",
-    "generatedAt": "2025-12-31T07:35:42.843Z"
+    "generatedAt": "2026-01-01T00:56:03.197Z"
   },
   "review": {
-    "status": "approved",
-    "reviewer": "Afees",
-    "reviewedAt": "2025-12-31T08:31:40Z"
+    "status": "needs_review"
   },
   "contentId": "de:pack:doctor_pack_5_a1",
-  "contentHash": "ecc55bd74d8a2f6e2c3dc016ce2c6b182e9803f31efe67b9a1cf19f9f890413c",
-  "revisionId": "ecc55bd74d8a"
+  "contentHash": "7f8e355623a05b6c19c0e5d23eb24b3e40c063b9b1468b66f493f1867f0cef2f",
+  "revisionId": "7f8e355623a0",
+  "title_i18n": {
+    "en": "Doctor A1 — 5: Describing Symptoms"
+  },
+  "description_i18n": {
+    "en": "Practice doctor scenarios at A1 level."
+  }
 }

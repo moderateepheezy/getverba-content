@@ -1,0 +1,296 @@
+{
+  "schemaVersion": 1,
+  "id": "time_expressions_inversion_a1_tier2_pattern-switch",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A1",
+  "title": "Time Expressions & Inversion: A1 (Tier 2)",
+  "shortTitle": "Time Expressions & Invers...",
+  "subtitle": "Tier 2 - pattern switch - Master verb inversion with time ex",
+  "estimatedMinutes": 4,
+  "mechanicId": "time_expressions_inversion",
+  "mechanicLabel": "Time Expressions & Inversion",
+  "loopType": "pattern_switch",
+  "difficultyTier": 2,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "time"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "pattern-1",
+        "title": "Pattern 1: Basic Forms",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Pattern 1: Basic Forms"
+        }
+      },
+      {
+        "id": "pattern-2",
+        "title": "Pattern 2: Extended Forms",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Pattern 2: Extended Forms"
+        }
+      },
+      {
+        "id": "pattern-3",
+        "title": "Pattern 3: Complex Forms",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006",
+          "prompt-007",
+          "prompt-008"
+        ],
+        "title_i18n": {
+          "en": "Pattern 3: Complex Forms"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "er esset.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "er esset.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "er"
+        ],
+        "verb": [
+          "esset"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier2/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "du arbeitest.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "du arbeitest.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "du"
+        ],
+        "verb": [
+          "arbeitest"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier2/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "gestern wir arbeite.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "gestern wir arbeite.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "wir"
+        ],
+        "verb": [
+          "arbeite"
+        ],
+        "time": [
+          "gestern"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier2/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "wir gehe.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "wir gehe.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "wir"
+        ],
+        "verb": [
+          "gehe"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier2/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "sie gehet.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "sie gehet.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "sie"
+        ],
+        "verb": [
+          "gehet"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier2/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "heute sie machet.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute sie machet.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "sie"
+        ],
+        "verb": [
+          "machet"
+        ],
+        "time": [
+          "heute"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier2/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "ich gehee.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "ich gehee.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "ich"
+        ],
+        "verb": [
+          "gehee"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier2/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "er gehet.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "er gehet.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "er"
+        ],
+        "verb": [
+          "gehet"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier2/prompt-008.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "time_expressions_inversion",
+    "loopType": "pattern_switch",
+    "targetStructures": [
+      "time_verb_subject",
+      "inversion_rule",
+      "temporal_adverbs"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "esset",
+        "arbeitest",
+        "arbeite",
+        "gehe",
+        "gehet",
+        "machet",
+        "gehee"
+      ],
+      "subjects": [
+        "er",
+        "du",
+        "wir",
+        "sie",
+        "ich"
+      ],
+      "patterns": [
+        "time_verb_subject",
+        "inversion_rule",
+        "temporal_adverbs"
+      ]
+    },
+    "difficultyTier": 2,
+    "recommendedReps": 3,
+    "estPromptCount": 8,
+    "timeboxMinutes": 4,
+    "qualitySignals": {
+      "tokenHitsCount": 8,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 7,
+      "uniqueSubjectCount": 5,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": false
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/time_expressions_inversion",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-03T00:18:10.650Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:drill:time_expressions_inversion_a1_tier2_pattern-switch",
+  "contentHash": "d15bad84140c0fe21d811cc9e9194fa93357723230ad85571b9508b1aba8c07c",
+  "revisionId": "d15bad84140c"
+}

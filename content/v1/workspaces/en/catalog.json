@@ -20,6 +20,9 @@
         "primaryStructures": {
           "basic_phrases": 1
         }
+      },
+      "title_i18n": {
+        "en": "Context Library"
       }
     },
     {
@@ -31,6 +34,9 @@
         "scenarios": {},
         "levels": {},
         "primaryStructures": {}
+      },
+      "title_i18n": {
+        "en": "Exams"
       }
     }
   ]

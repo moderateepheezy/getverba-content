@@ -3,7 +3,7 @@
   "id": "friends_small_talk_pack_8_a2",
   "kind": "pack",
   "packVersion": "1.0.0",
-  "title": "Friends Small Talk - A2",
+  "title": "Friends Small Talk A2 — 8: Responding",
   "level": "A2",
   "estimatedMinutes": 15,
   "description": "Practice friends_small_talk scenarios at A2 level.",
@@ -354,7 +354,10 @@
           "prompt-002",
           "prompt-003",
           "prompt-004"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Making Plans"
+        }
       },
       {
         "id": "variation",
@@ -365,7 +368,10 @@
           "prompt-007",
           "prompt-008",
           "prompt-009"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Suggestions & Preferences"
+        }
       },
       {
         "id": "switch",
@@ -374,7 +380,10 @@
           "prompt-010",
           "prompt-011",
           "prompt-012"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Responding & Rescheduling"
+        }
       }
     ]
   },
@@ -461,14 +470,18 @@
     "source": "template",
     "sourceRef": "friends_small_talk",
     "extractorVersion": "1.0.0",
-    "generatedAt": "2025-12-31T08:23:50.062Z"
+    "generatedAt": "2026-01-01T00:56:11.312Z"
   },
   "review": {
-    "status": "approved",
-    "reviewer": "Afees",
-    "reviewedAt": "2025-12-31T08:31:40Z"
+    "status": "needs_review"
   },
   "contentId": "de:pack:friends_small_talk_pack_8_a2",
-  "contentHash": "8e1766ce71ff953b692d4a3a43857e0d8f569e1d6091324757c5f1591e912cfb",
-  "revisionId": "8e1766ce71ff"
+  "contentHash": "a72744b15d50c266c7f2fdbc098a8c7f16ab13425b9bc2b23ee89cdd60d816ce",
+  "revisionId": "a72744b15d50",
+  "title_i18n": {
+    "en": "Friends Small Talk A2 — 8: Responding"
+  },
+  "description_i18n": {
+    "en": "Practice friends_small_talk scenarios at A2 level."
+  }
 }

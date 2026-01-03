@@ -805,8 +805,9 @@ function parsePackId(packId: string): { seriesKey: string; order: number; level:
   const tail = parts[1];
   
   // The tail is {order}_{level} (level can be lower/upper case)
-  // Match: digits, underscore, then level (A1, a1, A2, etc.)
-  const match = tail.match(/^(\d+)_([aA]\d+)$/);
+  // Match: digits, underscore, then level (A1, a1, A2, B1, b1, B2, C1, c1, C2, etc.)
+  // Levels: A1-A2, B1-B2, C1-C2 (case-insensitive)
+  const match = tail.match(/^(\d+)_([aAbBcC]\d+)$/);
   if (!match) {
     return null;
   }
@@ -834,8 +835,21 @@ const PHASE_LABELS_BY_SCENARIO: Record<string, string[]> = {
     'Confirming',
     'Declining politely'
   ],
+  work: [
+    'Office Greetings',
+    'Meeting Phrases',
+    'Work Requests',
+    'Project Updates',
+    'Scheduling',
+    'Email Communication',
+    'Team Collaboration',
+    'Deadline Management',
+    'Client Interactions',
+    'Problem Solving',
+    'Status Reports',
+    'Professional Feedback'
+  ],
   // Add more scenarios as needed
-  // work: ['Greetings', 'Meetings', 'Requests', ...],
   // restaurant: ['Reservations', 'Ordering', 'Payment', ...],
 };
 

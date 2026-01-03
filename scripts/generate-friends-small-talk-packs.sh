@@ -76,3 +76,4 @@ echo ""
 echo "📋 Entry URLs: /v1/workspaces/$WORKSPACE/packs/<pack-id>/pack.json"
 echo "📋 Section index: content/v1/workspaces/$WORKSPACE/context/index.json"
 
+

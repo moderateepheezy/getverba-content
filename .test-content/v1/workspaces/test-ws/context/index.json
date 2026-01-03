@@ -1,0 +1,17 @@
+{
+  "version": "v1",
+  "kind": "context",
+  "total": 1,
+  "pageSize": 20,
+  "items": [
+    {
+      "id": "test-pack",
+      "kind": "pack",
+      "title": "Test Pack",
+      "level": "A1",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/test-ws/packs/test-pack/pack.json"
+    }
+  ],
+  "nextPage": null
+}

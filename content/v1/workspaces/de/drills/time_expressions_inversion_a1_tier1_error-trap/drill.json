@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 1,
+  "id": "time_expressions_inversion_a1_tier1_error-trap",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A1",
+  "title": "Time Expressions & Inversion: A1 (Tier 1)",
+  "shortTitle": "Time Expressions & Invers...",
+  "subtitle": "Tier 1 - error trap - Master verb inversion with time expres",
+  "estimatedMinutes": 3,
+  "mechanicId": "time_expressions_inversion",
+  "mechanicLabel": "Time Expressions & Inversion",
+  "loopType": "error_trap",
+  "difficultyTier": 1,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "time"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "step-1",
+        "title": "Step 1",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Step 1"
+        }
+      },
+      {
+        "id": "step-2",
+        "title": "Step 2",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Step 2"
+        }
+      },
+      {
+        "id": "step-3",
+        "title": "Step 3",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006"
+        ],
+        "title_i18n": {
+          "en": "Step 3"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "wir sehe.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "wir sehe.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "wir"
+        ],
+        "verb": [
+          "sehe"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier1/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "ihr höret.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "ihr höret.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "ihr"
+        ],
+        "verb": [
+          "höret"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier1/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "ich trinkee.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "ich trinkee.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "ich"
+        ],
+        "verb": [
+          "trinkee"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier1/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "sie arbeitet.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "sie arbeitet.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "sie"
+        ],
+        "verb": [
+          "arbeitet"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier1/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "er höret.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "er höret.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "er"
+        ],
+        "verb": [
+          "höret"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier1/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "sie gehet.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "sie gehet.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "sie"
+        ],
+        "verb": [
+          "gehet"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier1/prompt-006.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "time_expressions_inversion",
+    "loopType": "error_trap",
+    "targetStructures": [
+      "time_verb_subject",
+      "inversion_rule",
+      "temporal_adverbs"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "sehe",
+        "höret",
+        "trinkee",
+        "arbeitet",
+        "gehet"
+      ],
+      "subjects": [
+        "wir",
+        "ihr",
+        "ich",
+        "sie",
+        "er"
+      ],
+      "patterns": [
+        "time_verb_subject",
+        "inversion_rule",
+        "temporal_adverbs"
+      ]
+    },
+    "difficultyTier": 1,
+    "recommendedReps": 2,
+    "estPromptCount": 6,
+    "timeboxMinutes": 3,
+    "qualitySignals": {
+      "tokenHitsCount": 3,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 5,
+      "uniqueSubjectCount": 5,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/time_expressions_inversion",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-03T00:18:10.650Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:drill:time_expressions_inversion_a1_tier1_error-trap",
+  "contentHash": "256f98235543c31b6655a7c1f7aba0db53951d306fea65cca8216717fc8f53ff",
+  "revisionId": "256f98235543"
+}

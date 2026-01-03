@@ -351,7 +351,10 @@
           "prompt-002",
           "prompt-003",
           "prompt-004"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Making Plans"
+        }
       },
       {
         "id": "variation",
@@ -362,7 +365,10 @@
           "prompt-007",
           "prompt-008",
           "prompt-009"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Suggestions & Preferences"
+        }
       },
       {
         "id": "switch",
@@ -371,7 +377,10 @@
           "prompt-010",
           "prompt-011",
           "prompt-012"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Responding & Rescheduling"
+        }
       }
     ]
   },
@@ -465,5 +474,11 @@
   },
   "contentId": "de:pack:friends_movies_series_a1",
   "contentHash": "737629c31ef85a5672dd53bdea608102a5b7837e13524e891467bb65ea831f5c",
-  "revisionId": "737629c31ef8"
+  "revisionId": "737629c31ef8",
+  "title_i18n": {
+    "en": "Movies & Series"
+  },
+  "description_i18n": {
+    "en": "Practice friends_small_talk scenarios at A1 level."
+  }
 }

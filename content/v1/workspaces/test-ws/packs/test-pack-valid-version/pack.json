@@ -45,8 +45,17 @@
       {
         "id": "step1",
         "title": "Step 1",
-        "promptIds": []
+        "promptIds": [],
+        "title_i18n": {
+          "en": "Step 1"
+        }
       }
     ]
+  },
+  "title_i18n": {
+    "en": "Test Pack"
+  },
+  "description_i18n": {
+    "en": "Test description"
   }
 }

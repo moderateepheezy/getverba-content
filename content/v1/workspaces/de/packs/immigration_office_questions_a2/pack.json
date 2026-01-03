@@ -3,7 +3,7 @@
   "id": "immigration_office_questions_a2",
   "kind": "pack",
   "packVersion": "1.0.0",
-  "title": "Government Office - A2",
+  "title": "Government Office A2 — Immigration Office Questions",
   "level": "A2",
   "estimatedMinutes": 15,
   "description": "Practice government_office scenarios at A2 level.",
@@ -212,7 +212,10 @@
         "promptIds": [
           "prompt-001",
           "prompt-002"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Making an Appointment"
+        }
       },
       {
         "id": "documents",
@@ -221,7 +224,10 @@
           "prompt-003",
           "prompt-004",
           "prompt-005"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Required Documents"
+        }
       },
       {
         "id": "questions",
@@ -229,7 +235,10 @@
         "promptIds": [
           "prompt-006",
           "prompt-007"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Asking Questions"
+        }
       }
     ]
   },
@@ -318,5 +327,11 @@
   },
   "contentId": "de:pack:immigration_office_questions_a2",
   "contentHash": "d33a028980da803a35c9738c209b6b83fd3f49816c0f2f6db48fb2bc9b68077c",
-  "revisionId": "d33a028980da"
+  "revisionId": "d33a028980da",
+  "title_i18n": {
+    "en": "Government Office A2 — Immigration Office Questions"
+  },
+  "description_i18n": {
+    "en": "Practice government_office scenarios at A2 level."
+  }
 }

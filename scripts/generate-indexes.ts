@@ -13,6 +13,7 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync, rmSync, mkdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { deriveTopicFields, type PackEntry } from './content-quality/deriveTopicFields.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -23,6 +24,10 @@ const SECTION_CONFIG: Record<string, { kind: string; folders: string[] }> = {
   context: {
     kind: 'context',
     folders: ['packs']
+  },
+  drills: {
+    kind: 'drills',
+    folders: ['drills']
   },
   mechanics: {
     kind: 'drills',
@@ -77,6 +82,45 @@ interface SectionIndexItem {
   // Legacy analytics fields (deprecated, use analyticsSummary)
   drillType?: string;
   whyThisWorks?: string;
+  // Topic grouping metadata (optional, for pack browsing)
+  topicKey?: string;
+  topicLabel?: string;
+  shortTitle?: string;
+  orderInTopic?: number;
+  // Grouping metadata (for context scenario feeds)
+  groupId?: string;
+  groupTitle?: string;
+  groupTitle_i18n?: Record<string, string>;
+  // Domain classification (context vs mechanics vs exam)
+  domainKind?: 'context' | 'mechanics' | 'exam';
+  // Recommended flag (for deterministic recommendation)
+  isRecommended?: boolean;
+  // Exam-specific fields (optional, for exam items)
+  phraseCount?: number;
+  // i18n fields (optional, for localization)
+  title_i18n?: Record<string, string>;
+  subtitle_i18n?: Record<string, string>;
+  shortTitle_i18n?: Record<string, string>;
+  topicLabel_i18n?: Record<string, string>;
+}
+
+interface ContextGroup {
+  id: string;
+  title: string;
+  title_i18n?: Record<string, string>;
+  kind: 'context_group';
+  itemIds: string[];
+}
+
+interface Scope {
+  scopeKind: 'scenario';
+  scopeId: string;
+  scopeTitle: string;
+}
+
+interface Recommended {
+  itemId: string;
+  entryUrl: string;
 }
 
 interface SectionIndex {
@@ -84,8 +128,13 @@ interface SectionIndex {
   kind: string;
   total: number;
   pageSize: number;
+  page: number;
   items: SectionIndexItem[];
   nextPage: string | null;
+  // New fields for context scenario feeds (additive, optional)
+  scope?: Scope;
+  recommended?: Recommended;
+  groups?: ContextGroup[];
 }
 
 interface EntryDocument {
@@ -103,6 +152,14 @@ interface EntryDocument {
   contentId?: string;
   contentHash?: string;
   revisionId?: string;
+  // Domain classification (optional)
+  domainKind?: 'context' | 'mechanics' | 'exam';
+  // Grouping metadata (optional, for context scenario feeds)
+  groupId?: string;
+  groupTitle?: string;
+  groupTitle_i18n?: Record<string, string>;
+  // Exam-specific fields (optional)
+  phraseCount?: number;
   analytics?: {
     version?: number;
     goal: string;
@@ -124,6 +181,187 @@ interface EntryDocument {
     responseSpeedTargetMs?: number;
     fluencyOutcome?: string;
     whyThisWorks?: string[];
+    // Topic grouping metadata (optional, explicit override)
+    topicKey?: string;
+    topicLabel?: string;
+    shortTitle?: string;
+    orderInTopic?: number;
+  };
+}
+
+/**
+ * Detect domainKind (context vs mechanics vs exam)
+ * 
+ * Rules:
+ * - If pack has a scenario (doctor, work, etc.), it's context (even if topicKey suggests mechanics)
+ * - If pack is in drills/mechanics folder or explicitly marked, it's mechanics
+ * - Exams are always exam
+ * - Default to context
+ */
+function detectDomainKind(item: SectionIndexItem): 'context' | 'mechanics' | 'exam' {
+  // Exams are always exam
+  if (item.kind === 'exam') {
+    return 'exam';
+  }
+  
+  // If explicitly set, use it
+  if (item.domainKind) {
+    return item.domainKind;
+  }
+  
+  // Packs with a scenario are ALWAYS context (scenario-based conversation practice)
+  // This is the key rule: scenario packs are context, not mechanics
+  if (item.scenario) {
+    return 'context';
+  }
+  
+  // Mechanics indicators: grammar-focused topicKeys (only if no scenario)
+  const mechanicsTopicKeys = [
+    'dative-case',
+    'accusative-case',
+    'genitive-case',
+    'verb-conjugation',
+    'word-order',
+    'prepositions',
+    'articles',
+    'adjectives',
+    'pronouns',
+    'subjunctive',
+    'passive-voice',
+    'relative-clauses',
+    'conditional',
+    'imperative'
+  ];
+  
+  // Note: "modal-verbs-requests" and "modal-verbs-suggestions" are NOT mechanics
+  // They are context topics that happen to use modal verbs
+  
+  if (item.topicKey && mechanicsTopicKeys.includes(item.topicKey)) {
+    return 'mechanics';
+  }
+  
+  // If primaryStructure suggests mechanics (only if no scenario)
+  if (item.primaryStructure) {
+    const mechanicsStructures = [
+      'dative_case',
+      'accusative_case',
+      'genitive_case',
+      'verb_conjugation',
+      'word_order',
+      'prepositions',
+      'articles',
+      'adjectives',
+      'pronouns'
+    ];
+    
+    if (mechanicsStructures.some(ms => item.primaryStructure!.toLowerCase().includes(ms))) {
+      return 'mechanics';
+    }
+  }
+  
+  // Default to context
+  return 'context';
+}
+
+/**
+ * Filter items to only include context packs (exclude mechanics)
+ */
+function filterContextItems(items: SectionIndexItem[]): SectionIndexItem[] {
+  return items.filter(item => {
+    const domainKind = detectDomainKind(item);
+    return domainKind === 'context';
+  });
+}
+
+/**
+ * Create groups from items (minimum 3 items per group)
+ * Groups are based on groupId field
+ */
+function createGroups(
+  items: SectionIndexItem[],
+  minItemsPerGroup: number = 3
+): ContextGroup[] {
+  // Group items by groupId
+  const groupMap = new Map<string, SectionIndexItem[]>();
+  
+  for (const item of items) {
+    if (item.groupId && item.groupTitle) {
+      if (!groupMap.has(item.groupId)) {
+        groupMap.set(item.groupId, []);
+      }
+      groupMap.get(item.groupId)!.push(item);
+    }
+  }
+  
+  // Create groups (only if they have minimum items)
+  const groups: ContextGroup[] = [];
+  
+  for (const [groupId, groupItems] of groupMap.entries()) {
+    if (groupItems.length >= minItemsPerGroup) {
+      const firstItem = groupItems[0];
+      groups.push({
+        id: groupId,
+        title: firstItem.groupTitle!,
+        title_i18n: firstItem.groupTitle_i18n,
+        kind: 'context_group',
+        itemIds: groupItems.map(item => item.id)
+      });
+    }
+  }
+  
+  // Sort groups by first appearance order in items array
+  const groupOrder = new Map<string, number>();
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+    if (item.groupId && !groupOrder.has(item.groupId)) {
+      groupOrder.set(item.groupId, i);
+    }
+  }
+  
+  return groups.sort((a, b) => {
+    const aOrder = groupOrder.get(a.id) ?? 999;
+    const bOrder = groupOrder.get(b.id) ?? 999;
+    return aOrder - bOrder;
+  });
+}
+
+/**
+ * Select recommended item (deterministic, max 1)
+ * Prefers first incomplete pack by stable order (A1 then A2, then by sequenceIndex, else by id)
+ * If all completed/unknown, defaults to first pack by stable order
+ */
+function selectRecommended(
+  items: SectionIndexItem[]
+): { itemId: string; entryUrl: string } | undefined {
+  if (items.length === 0) {
+    return undefined;
+  }
+  
+  // For now, we don't have user progress data, so default to first item by stable order
+  // Stable order: level (A1 < A2 < ...), then orderInTopic, then id
+  const sorted = [...items].sort((a, b) => {
+    // Primary: level
+    const levelCmp = compareLevels(a.level, b.level);
+    if (levelCmp !== 0) return levelCmp;
+    
+    // Secondary: orderInTopic (if present)
+    if (a.orderInTopic !== undefined && b.orderInTopic !== undefined) {
+      const orderCmp = a.orderInTopic - b.orderInTopic;
+      if (orderCmp !== 0) return orderCmp;
+    } else if (a.orderInTopic !== undefined) {
+      return -1;
+    } else if (b.orderInTopic !== undefined) {
+      return 1;
+    }
+    
+    // Tertiary: id (stable tie-break)
+    return a.id.localeCompare(b.id);
+  });
+  
+  const recommended = sorted[0];
+  return {
+    itemId: recommended.id,
+    entryUrl: recommended.entryUrl
   };
 }
 
@@ -245,6 +483,11 @@ function readEntryDocument(
       }
     }
     
+    // Add exam-specific fields (phraseCount)
+    if (entryType === 'exam' && typeof entry.phraseCount === 'number') {
+      item.phraseCount = entry.phraseCount;
+    }
+    
     // Add analytics summary for pack items (required)
     if (entryType === 'pack' && entry.analytics && typeof entry.analytics === 'object') {
       if (!entry.primaryStructure) {
@@ -363,6 +606,69 @@ function readEntryDocument(
         }
       }
     }
+    
+    // Add topic grouping metadata for pack items
+    if (entryType === 'pack') {
+      const packEntry: PackEntry = {
+        id: entry.id,
+        title: entry.title,
+        level: entry.level,
+        scenario: entry.scenario,
+        primaryStructure: entry.primaryStructure,
+        tags: entry.tags,
+        analytics: entry.analytics ? {
+          topicKey: entry.analytics.topicKey,
+          topicLabel: entry.analytics.topicLabel,
+          shortTitle: entry.analytics.shortTitle,
+          orderInTopic: entry.analytics.orderInTopic,
+          primaryStructure: entry.analytics.primaryStructure
+        } : undefined
+      };
+      
+      const topicFields = deriveTopicFields(packEntry);
+      
+      if (topicFields.topicKey) {
+        item.topicKey = topicFields.topicKey;
+      }
+      if (topicFields.topicLabel) {
+        item.topicLabel = topicFields.topicLabel;
+      }
+      if (topicFields.shortTitle) {
+        item.shortTitle = topicFields.shortTitle;
+      }
+      if (topicFields.orderInTopic !== undefined) {
+        item.orderInTopic = topicFields.orderInTopic;
+      }
+    }
+    
+    // Extract i18n fields from entry (if present)
+    if (entry.title_i18n && typeof entry.title_i18n === 'object') {
+      item.title_i18n = entry.title_i18n;
+    }
+    if (entry.subtitle_i18n && typeof entry.subtitle_i18n === 'object') {
+      item.subtitle_i18n = entry.subtitle_i18n;
+    }
+    if (entry.shortTitle_i18n && typeof entry.shortTitle_i18n === 'object') {
+      item.shortTitle_i18n = entry.shortTitle_i18n;
+    }
+    // For topicLabel_i18n, check analytics
+    if (entry.analytics && entry.analytics.topicLabel_i18n && typeof entry.analytics.topicLabel_i18n === 'object') {
+      item.topicLabel_i18n = entry.analytics.topicLabel_i18n;
+    }
+    
+    // Extract grouping metadata from entry (if present)
+    if (entry.groupId && typeof entry.groupId === 'string') {
+      item.groupId = entry.groupId;
+    }
+    if (entry.groupTitle && typeof entry.groupTitle === 'string') {
+      item.groupTitle = entry.groupTitle;
+    }
+    if (entry.groupTitle_i18n && typeof entry.groupTitle_i18n === 'object') {
+      item.groupTitle_i18n = entry.groupTitle_i18n;
+    }
+    
+    // Detect and set domainKind
+    item.domainKind = detectDomainKind(item);
     
     return item;
   } catch (error: any) {
@@ -542,6 +848,7 @@ function generateIndex(
       kind: config.kind,
       total: 0,
       pageSize: pageSize,
+      page: 1,
       items: [],
       nextPage: null
     };
@@ -583,35 +890,56 @@ function generateIndex(
         rmSync(filePath);
       }
     }
+    // Remove old pages directory if it exists
+    const pagesDir = join(sectionDir, 'pages');
+    if (existsSync(pagesDir)) {
+      const pageFiles = readdirSync(pagesDir);
+      for (const file of pageFiles) {
+        if (file.match(/^\d+\.json$/)) {
+          rmSync(join(pagesDir, file));
+        }
+      }
+    }
+  }
+  
+  // Create pages directory if needed (for page 2+)
+  const pagesDir = join(sectionDir, 'pages');
+  if (pages.length > 1 && !existsSync(pagesDir)) {
+    mkdirSync(pagesDir, { recursive: true });
   }
   
   // Write paginated index files
   for (let pageNum = 0; pageNum < pages.length; pageNum++) {
     const pageItems = pages[pageNum];
     const isLastPage = pageNum === pages.length - 1;
+    const pageNumber = pageNum + 1; // 1-based
     
     const index: SectionIndex = {
       version: 'v1',
       kind: config.kind,
       total,
       pageSize,
+      page: pageNumber,
       items: pageItems,
-      nextPage: isLastPage ? null : `/v1/workspaces/${workspaceId}/${sectionId}/index.page${pageNum + 2}.json`
+      nextPage: isLastPage ? null : `/v1/workspaces/${workspaceId}/${sectionId}/pages/${pageNumber + 1}.json`
     };
     
-    let fileName: string;
+    let filePath: string;
     if (pageNum === 0) {
-      fileName = 'index.json';
+      // Page 1: index.json
+      filePath = join(sectionDir, 'index.json');
     } else {
-      fileName = `index.page${pageNum + 1}.json`;
+      // Page 2+: pages/{n}.json
+      filePath = join(pagesDir, `${pageNumber}.json`);
     }
     
-    const filePath = join(sectionDir, fileName);
     const jsonContent = JSON.stringify(index, null, 2);
-    
     writeFileSync(filePath, jsonContent + '\n', 'utf-8');
     
-    console.log(`✅ Generated ${workspaceId}/${sectionId}/${fileName} (${pageItems.length} items)`);
+    const relativePath = pageNum === 0 
+      ? `${workspaceId}/${sectionId}/index.json`
+      : `${workspaceId}/${sectionId}/pages/${pageNumber}.json`;
+    console.log(`✅ Generated ${relativePath} (${pageItems.length} items, page ${pageNumber})`);
   }
   
   console.log(`   Total: ${total} items across ${pages.length} page(s)`);
@@ -693,6 +1021,7 @@ function generateScenarioIndex(
       kind: 'context',
       total: 0,
       pageSize: pageSize,
+      page: 1,
       items: [],
       nextPage: null
     };
@@ -714,8 +1043,45 @@ function generateScenarioIndex(
     return 0;
   }
   
+  // Filter out mechanics packs (only include context packs)
+  const contextItems = filterContextItems(items);
+  
+  if (contextItems.length === 0) {
+    // Create empty index
+    const emptyIndex: SectionIndex = {
+      version: 'v1',
+      kind: 'context',
+      total: 0,
+      pageSize: pageSize,
+      page: 1,
+      items: [],
+      nextPage: null,
+      scope: {
+        scopeKind: 'scenario',
+        scopeId: scenarioId,
+        scopeTitle: scenarioId.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+      }
+    };
+    
+    writeFileSync(existingIndexPath, JSON.stringify(emptyIndex, null, 2), 'utf-8');
+    console.log(`   📝 Created empty scenario index: context/${scenarioId} (no context items, filtered mechanics)`);
+    
+    // Remove old pagination files
+    let pageNum = 2;
+    while (true) {
+      const pagePath = join(scenarioDir, `index.page${pageNum}.json`);
+      if (existsSync(pagePath)) {
+        rmSync(pagePath, { force: true });
+        pageNum++;
+      } else {
+        break;
+      }
+    }
+    return 0;
+  }
+  
   // Sort deterministically
-  const sortedItems = sortItems(items);
+  const sortedItems = sortItems(contextItems);
   
   // Paginate
   const total = sortedItems.length;
@@ -734,32 +1100,68 @@ function generateScenarioIndex(
         rmSync(filePath);
       }
     }
+    // Remove old pages directory if it exists
+    const pagesDir = join(scenarioDir, 'pages');
+    if (existsSync(pagesDir)) {
+      const pageFiles = readdirSync(pagesDir);
+      for (const file of pageFiles) {
+        if (file.match(/^\d+\.json$/)) {
+          rmSync(join(pagesDir, file));
+        }
+      }
+    }
   }
   
   // Write paginated index files
   for (let pageNum = 0; pageNum < pages.length; pageNum++) {
     const pageItems = pages[pageNum];
     const isLastPage = pageNum === pages.length - 1;
+    const pageNumber = pageNum + 1; // 1-based
+    
+    // Create groups for this page (minimum 3 items per group)
+    const groups = createGroups(pageItems, 3);
+    
+    // Select recommended item (deterministic, max 1)
+    const recommended = selectRecommended(pageItems);
+    
+    // Mark recommended item
+    if (recommended) {
+      const recommendedItem = pageItems.find(item => item.id === recommended.itemId);
+      if (recommendedItem) {
+        recommendedItem.isRecommended = true;
+      }
+    }
+    
+    // Create scope
+    const scope: Scope = {
+      scopeKind: 'scenario',
+      scopeId: scenarioId,
+      scopeTitle: scenarioId.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+    };
     
     const index: SectionIndex = {
       version: 'v1',
       kind: 'context',
       total,
       pageSize,
+      page: pageNumber,
       items: pageItems,
-      nextPage: isLastPage ? null : `/v1/workspaces/${workspaceId}/context/${scenarioId}/index.page${pageNum + 2}.json`
+      nextPage: isLastPage ? null : `/v1/workspaces/${workspaceId}/context/${scenarioId}/index.page${pageNumber + 1}.json`,
+      scope,
+      recommended: recommended,
+      groups: groups.length > 0 ? groups : undefined
     };
     
-    let fileName: string;
+    let filePath: string;
     if (pageNum === 0) {
-      fileName = 'index.json';
+      // Page 1: index.json
+      filePath = join(scenarioDir, 'index.json');
     } else {
-      fileName = `index.page${pageNum + 1}.json`;
+      // Page 2+: index.page{n}.json (matching existing structure)
+      filePath = join(scenarioDir, `index.page${pageNumber}.json`);
     }
     
-    const filePath = join(scenarioDir, fileName);
     const jsonContent = JSON.stringify(index, null, 2);
-    
     writeFileSync(filePath, jsonContent + '\n', 'utf-8');
   }
   

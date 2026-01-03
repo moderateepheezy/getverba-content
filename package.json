@@ -37,6 +37,8 @@
     "telemetry:validate": "tsx scripts/validate-telemetry.ts",
     "telemetry:report": "tsx scripts/telemetry-report.ts",
     "test": "tsx scripts/validate-content.test.ts",
+    "test:i18n-pagination": "tsx scripts/i18n-pagination.test.ts",
+    "test:i18n-pagination-e2e": "tsx scripts/i18n-pagination-e2e.test.ts",
     "test:review": "tsx scripts/review-harness.test.ts",
     "test:curriculum-export": "tsx scripts/export-curriculum-v2.test.ts",
     "test:curriculum-export-b2b": "tsx scripts/export-curriculum-b2b.test.ts",
@@ -87,7 +89,11 @@
     "test:featured": "tsx scripts/generate-featured.test.ts",
     "test:featured-e2e": "tsx scripts/generate-featured-e2e.test.ts",
     "test:featured-full": "npm run test:featured && npm run test:featured-e2e",
-    "test:all": "npm test && npm run test:review && npm run test:curriculum-export && npm run test:curriculum-validate && npm run test:e2e && npm run test:ingest && npm run test:ingest-e2e && npm run test:telemetry-readiness && npm run test:analytics && npm run test:batch && npm run test:batch-e2e && npm run test:expansion-sprint && npm run test:expansion-sprint-full && npm run test:track-full && npm run test:featured-full"
+    "test:i18n": "tsx scripts/content-quality/i18nValidation.test.ts",
+    "test:all": "npm test && npm run test:review && npm run test:curriculum-export && npm run test:curriculum-validate && npm run test:e2e && npm run test:ingest && npm run test:ingest-e2e && npm run test:telemetry-readiness && npm run test:analytics && npm run test:batch && npm run test:batch-e2e && npm run test:expansion-sprint && npm run test:expansion-sprint-full && npm run test:track-full && npm run test:featured-full && npm run test:i18n",
+    "backfill:i18n": "tsx scripts/backfill-title-i18n.ts",
+    "seed:doctor-grouping": "tsx scripts/seed-doctor-grouping.ts",
+    "seed:all-grouping": "tsx scripts/seed-all-grouping.ts"
   },
   "keywords": [
     "getverba",

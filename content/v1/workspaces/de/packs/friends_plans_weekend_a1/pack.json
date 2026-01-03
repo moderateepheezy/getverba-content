@@ -352,7 +352,10 @@
           "prompt-002",
           "prompt-003",
           "prompt-004"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Making Plans"
+        }
       },
       {
         "id": "variation",
@@ -363,7 +366,10 @@
           "prompt-007",
           "prompt-008",
           "prompt-009"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Suggestions & Preferences"
+        }
       },
       {
         "id": "switch",
@@ -372,7 +378,10 @@
           "prompt-010",
           "prompt-011",
           "prompt-012"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Responding & Rescheduling"
+        }
       }
     ]
   },
@@ -466,5 +475,11 @@
   },
   "contentId": "de:pack:friends_plans_weekend_a1",
   "contentHash": "3a806a176c23dcf881163861841ae61e570da3bfeefbf552da7b2fba44ea6555",
-  "revisionId": "3a806a176c23"
+  "revisionId": "3a806a176c23",
+  "title_i18n": {
+    "en": "Plans for the Weekend"
+  },
+  "description_i18n": {
+    "en": "Practice friends_small_talk scenarios at A1 level."
+  }
 }

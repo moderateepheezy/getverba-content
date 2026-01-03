@@ -1,0 +1,343 @@
+{
+  "schemaVersion": 1,
+  "id": "time_expressions_inversion_a2_tier3_pattern-switch",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A2",
+  "title": "Time Expressions & Inversion: A2 (Tier 3)",
+  "shortTitle": "Time Expressions & Invers...",
+  "subtitle": "Tier 3 - pattern switch - Master verb inversion with time ex",
+  "estimatedMinutes": 5,
+  "mechanicId": "time_expressions_inversion",
+  "mechanicLabel": "Time Expressions & Inversion",
+  "loopType": "pattern_switch",
+  "difficultyTier": 3,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "time"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "pattern-1",
+        "title": "Pattern 1: Basic Forms",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Pattern 1: Basic Forms"
+        }
+      },
+      {
+        "id": "pattern-2",
+        "title": "Pattern 2: Extended Forms",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Pattern 2: Extended Forms"
+        }
+      },
+      {
+        "id": "pattern-3",
+        "title": "Pattern 3: Complex Forms",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006",
+          "prompt-007",
+          "prompt-008",
+          "prompt-009",
+          "prompt-010"
+        ],
+        "title_i18n": {
+          "en": "Pattern 3: Complex Forms"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "sie sehet.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "sie sehet.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "sie"
+        ],
+        "verb": [
+          "sehet"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier3/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "sie gehet.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "sie gehet.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "sie"
+        ],
+        "verb": [
+          "gehet"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier3/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "später du essest.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später du essest.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "du"
+        ],
+        "verb": [
+          "essest"
+        ],
+        "time": [
+          "später"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier3/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "ihr lernet.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "ihr lernet.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "ihr"
+        ],
+        "verb": [
+          "lernet"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier3/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "du kommest.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "du kommest.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "du"
+        ],
+        "verb": [
+          "kommest"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier3/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "heute wir gehe.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute wir gehe.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "wir"
+        ],
+        "verb": [
+          "gehe"
+        ],
+        "time": [
+          "heute"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier3/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "du gehest.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "du gehest.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "du"
+        ],
+        "verb": [
+          "gehest"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier3/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "wir lerne.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "wir lerne.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "wir"
+        ],
+        "verb": [
+          "lerne"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier3/prompt-008.mp3"
+    },
+    {
+      "id": "prompt-009",
+      "text": "am Montag du trinkest.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Montag du trinkest.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "du"
+        ],
+        "verb": [
+          "trinkest"
+        ],
+        "time": [
+          "am Montag"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier3/prompt-009.mp3"
+    },
+    {
+      "id": "prompt-010",
+      "text": "sie lernet.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "sie lernet.",
+      "slotsChanged": [
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "sie"
+        ],
+        "verb": [
+          "lernet"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier3/prompt-010.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "time_expressions_inversion",
+    "loopType": "pattern_switch",
+    "targetStructures": [
+      "time_verb_subject",
+      "inversion_rule",
+      "temporal_adverbs"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "sehet",
+        "gehet",
+        "essest",
+        "lernet",
+        "kommest",
+        "gehe",
+        "gehest",
+        "lerne",
+        "trinkest"
+      ],
+      "subjects": [
+        "sie",
+        "du",
+        "ihr",
+        "wir"
+      ],
+      "patterns": [
+        "time_verb_subject",
+        "inversion_rule",
+        "temporal_adverbs"
+      ]
+    },
+    "difficultyTier": 3,
+    "recommendedReps": 4,
+    "estPromptCount": 10,
+    "timeboxMinutes": 5,
+    "qualitySignals": {
+      "tokenHitsCount": 9,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 9,
+      "uniqueSubjectCount": 4,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/time_expressions_inversion",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-03T00:18:10.651Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "contentId": "de:drill:time_expressions_inversion_a2_tier3_pattern-switch",
+  "contentHash": "f25e4fc99724becacb8e5f497315a73ebe8f6159eb537473985b9fe14244f90e",
+  "revisionId": "f25e4fc99724"
+}

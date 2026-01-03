@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "schemaVersion": 1,
+  "workspace": "test-ws",
+  "languageCode": "en",
+  "languageName": "English",
+  "sections": [
+    {
+      "id": "context",
+      "kind": "pack",
+      "title": "Context",
+      "itemsUrl": "/v1/workspaces/test-ws/context/index.json"
+    }
+  ]
+}

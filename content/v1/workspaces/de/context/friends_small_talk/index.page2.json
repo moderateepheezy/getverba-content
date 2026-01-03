@@ -3,6 +3,7 @@
   "kind": "context",
   "total": 24,
   "pageSize": 12,
+  "page": 2,
   "items": [
     {
       "id": "friends_plans_weekend_a1",
@@ -50,7 +51,15 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases"
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A1 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Plans for the Weekend",
+      "title_i18n": {
+        "en": "Plans for the Weekend"
+      },
+      "domainKind": "context",
+      "isRecommended": true
     },
     {
       "id": "friends_suggestions_activity_a2",
@@ -98,17 +107,24 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases"
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Activity Suggestions",
+      "title_i18n": {
+        "en": "Activity Suggestions"
+      },
+      "domainKind": "context"
     },
     {
       "id": "friends_small_talk_pack_1_a2",
       "kind": "pack",
-      "title": "Friends Small Talk - A2",
+      "title": "Friends Small Talk A2 — 1: Opening",
       "level": "A2",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_1_a2/pack.json",
       "contentId": "de:pack:friends_small_talk_pack_1_a2",
-      "revisionId": "4d38bbcdafa7",
+      "revisionId": "1d54daea60f4",
       "scenario": "friends_small_talk",
       "register": "casual",
       "primaryStructure": "modal_verbs_suggestions",
@@ -146,17 +162,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases"
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Opening",
+      "orderInTopic": 1,
+      "title_i18n": {
+        "en": "Friends Small Talk A2 — 1: Opening"
+      },
+      "domainKind": "context"
     },
     {
       "id": "friends_small_talk_pack_2_a2",
       "kind": "pack",
-      "title": "Friends Small Talk - A2",
+      "title": "Friends Small Talk A2 — 2: Suggestions",
       "level": "A2",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_2_a2/pack.json",
       "contentId": "de:pack:friends_small_talk_pack_2_a2",
-      "revisionId": "0147936e5218",
+      "revisionId": "a72e7e6d4b3d",
       "scenario": "friends_small_talk",
       "register": "casual",
       "primaryStructure": "modal_verbs_suggestions",
@@ -194,17 +218,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases"
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Suggestions",
+      "orderInTopic": 2,
+      "title_i18n": {
+        "en": "Friends Small Talk A2 — 2: Suggestions"
+      },
+      "domainKind": "context"
     },
     {
       "id": "friends_small_talk_pack_3_a2",
       "kind": "pack",
-      "title": "Friends Small Talk - A2",
+      "title": "Friends Small Talk A2 — 3: Preferences",
       "level": "A2",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_3_a2/pack.json",
       "contentId": "de:pack:friends_small_talk_pack_3_a2",
-      "revisionId": "aa0fb9d38f35",
+      "revisionId": "4311c6d18dd6",
       "scenario": "friends_small_talk",
       "register": "casual",
       "primaryStructure": "modal_verbs_suggestions",
@@ -242,17 +274,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases"
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Preferences",
+      "orderInTopic": 3,
+      "title_i18n": {
+        "en": "Friends Small Talk A2 — 3: Preferences"
+      },
+      "domainKind": "context"
     },
     {
       "id": "friends_small_talk_pack_4_a2",
       "kind": "pack",
-      "title": "Friends Small Talk - A2",
+      "title": "Friends Small Talk A2 — 4: Rescheduling",
       "level": "A2",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_4_a2/pack.json",
       "contentId": "de:pack:friends_small_talk_pack_4_a2",
-      "revisionId": "46cc1f95f190",
+      "revisionId": "763033693e3a",
       "scenario": "friends_small_talk",
       "register": "casual",
       "primaryStructure": "modal_verbs_suggestions",
@@ -290,17 +330,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases"
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Rescheduling",
+      "orderInTopic": 4,
+      "title_i18n": {
+        "en": "Friends Small Talk A2 — 4: Rescheduling"
+      },
+      "domainKind": "context"
     },
     {
       "id": "friends_small_talk_pack_5_a2",
       "kind": "pack",
-      "title": "Friends Small Talk - A2",
+      "title": "Friends Small Talk A2 — 5: Follow-ups",
       "level": "A2",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_5_a2/pack.json",
       "contentId": "de:pack:friends_small_talk_pack_5_a2",
-      "revisionId": "080a2562df2e",
+      "revisionId": "5bd4e10fc1f6",
       "scenario": "friends_small_talk",
       "register": "casual",
       "primaryStructure": "modal_verbs_suggestions",
@@ -338,17 +386,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases"
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Follow-ups",
+      "orderInTopic": 5,
+      "title_i18n": {
+        "en": "Friends Small Talk A2 — 5: Follow-ups"
+      },
+      "domainKind": "context"
     },
     {
       "id": "friends_small_talk_pack_6_a2",
       "kind": "pack",
-      "title": "Friends Small Talk - A2",
+      "title": "Friends Small Talk A2 — 6: Ending politely",
       "level": "A2",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_6_a2/pack.json",
       "contentId": "de:pack:friends_small_talk_pack_6_a2",
-      "revisionId": "a2233de1e3f1",
+      "revisionId": "d87a800d44b1",
       "scenario": "friends_small_talk",
       "register": "casual",
       "primaryStructure": "modal_verbs_suggestions",
@@ -386,17 +442,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases"
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Ending politely",
+      "orderInTopic": 6,
+      "title_i18n": {
+        "en": "Friends Small Talk A2 — 6: Ending politely"
+      },
+      "domainKind": "context"
     },
     {
       "id": "friends_small_talk_pack_7_a2",
       "kind": "pack",
-      "title": "Friends Small Talk - A2",
+      "title": "Friends Small Talk A2 — 7: Making Plans",
       "level": "A2",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_7_a2/pack.json",
       "contentId": "de:pack:friends_small_talk_pack_7_a2",
-      "revisionId": "806500ff46be",
+      "revisionId": "5a54f8734d19",
       "scenario": "friends_small_talk",
       "register": "casual",
       "primaryStructure": "modal_verbs_suggestions",
@@ -434,17 +498,25 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases"
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Making Plans",
+      "orderInTopic": 7,
+      "title_i18n": {
+        "en": "Friends Small Talk A2 — 7: Making Plans"
+      },
+      "domainKind": "context"
     },
     {
       "id": "friends_small_talk_pack_8_a2",
       "kind": "pack",
-      "title": "Friends Small Talk - A2",
+      "title": "Friends Small Talk A2 — 8: Responding",
       "level": "A2",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/friends_small_talk_pack_8_a2/pack.json",
       "contentId": "de:pack:friends_small_talk_pack_8_a2",
-      "revisionId": "8e1766ce71ff",
+      "revisionId": "a72744b15d50",
       "scenario": "friends_small_talk",
       "register": "casual",
       "primaryStructure": "modal_verbs_suggestions",
@@ -482,7 +554,15 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases"
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Responding",
+      "orderInTopic": 8,
+      "title_i18n": {
+        "en": "Friends Small Talk A2 — 8: Responding"
+      },
+      "domainKind": "context"
     },
     {
       "id": "friends_opinions_recommendations_a2",
@@ -530,7 +610,14 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases"
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Opinions & Recommendations",
+      "title_i18n": {
+        "en": "Opinions & Recommendations"
+      },
+      "domainKind": "context"
     },
     {
       "id": "friends_reschedule_and_decline_a2",
@@ -578,8 +665,24 @@
         "difficultyHint": "standard"
       },
       "drillType": "substitution",
-      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases"
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Rescheduling & Declining",
+      "title_i18n": {
+        "en": "Rescheduling & Declining"
+      },
+      "domainKind": "context"
     }
   ],
-  "nextPage": null
+  "nextPage": null,
+  "scope": {
+    "scopeKind": "scenario",
+    "scopeId": "friends_small_talk",
+    "scopeTitle": "Friends Small Talk"
+  },
+  "recommended": {
+    "itemId": "friends_plans_weekend_a1",
+    "entryUrl": "/v1/workspaces/de/packs/friends_plans_weekend_a1/pack.json"
+  }
 }

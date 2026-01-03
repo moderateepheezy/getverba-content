@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 1,
+  "id": "office_greetings_quickfire_a1",
+  "kind": "drill",
+  "title": "Office Greetings Quickfire (A1)",
+  "level": "A1",
+  "estimatedMinutes": 6,
+  "description": "Quick-fire speaking practice for essential office greetings and polite phrases. Perfect for newcomers preparing for their first day at a German workplace.",
+  "instructions": "Repeat each greeting clearly and confidently. Focus on natural pronunciation and appropriate formality.",
+  "scenario": "work",
+  "register": "formal",
+  "primaryStructure": "greeting_formulas",
+  "variationSlots": [
+    "subject",
+    "modifier",
+    "time"
+  ],
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Guten Morgen.",
+      "intent": "greet",
+      "gloss_en": "I am greeting someone.",
+      "natural_en": "Good morning.",
+      "audioUrl": "/v1/audio/office_greetings_quickfire_a1/prompt-001.mp3",
+      "slotsChanged": [
+        "time"
+      ],
+      "slots": {
+        "time": [
+          "Morgen"
+        ]
+      }
+    },
+    {
+      "id": "prompt-002",
+      "text": "Guten Tag, Frau Müller.",
+      "intent": "greet",
+      "gloss_en": "I am greeting someone formally.",
+      "natural_en": "Good day, Mrs. Müller.",
+      "audioUrl": "/v1/audio/office_greetings_quickfire_a1/prompt-002.mp3",
+      "slotsChanged": [
+        "time",
+        "subject"
+      ],
+      "slots": {
+        "time": [
+          "Tag"
+        ],
+        "subject": [
+          "Frau Müller"
+        ]
+      }
+    },
+    {
+      "id": "prompt-003",
+      "text": "Wie geht es Ihnen?",
+      "intent": "inquire",
+      "gloss_en": "I am asking how someone is.",
+      "natural_en": "How are you? (formal)",
+      "audioUrl": "/v1/audio/office_greetings_quickfire_a1/prompt-003.mp3",
+      "slotsChanged": [
+        "subject"
+      ],
+      "slots": {
+        "subject": [
+          "Ihnen"
+        ]
+      }
+    },
+    {
+      "id": "prompt-004",
+      "text": "Mir geht es gut, danke.",
+      "intent": "respond",
+      "gloss_en": "I am responding to a greeting.",
+      "natural_en": "I'm fine, thank you.",
+      "audioUrl": "/v1/audio/office_greetings_quickfire_a1/prompt-004.mp3",
+      "slotsChanged": [
+        "subject",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Mir"
+        ],
+        "modifier": [
+          "gut"
+        ]
+      }
+    },
+    {
+      "id": "prompt-005",
+      "text": "Freut mich, Sie kennenzulernen.",
+      "intent": "greet",
+      "gloss_en": "I am introducing myself.",
+      "natural_en": "Pleased to meet you.",
+      "audioUrl": "/v1/audio/office_greetings_quickfire_a1/prompt-005.mp3",
+      "slotsChanged": [
+        "subject"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ]
+      }
+    },
+    {
+      "id": "prompt-006",
+      "text": "Ich bin der neue Mitarbeiter.",
+      "intent": "inform",
+      "gloss_en": "I am introducing myself.",
+      "natural_en": "I am the new employee.",
+      "audioUrl": "/v1/audio/office_greetings_quickfire_a1/prompt-006.mp3",
+      "slotsChanged": [
+        "subject",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "modifier": [
+          "neue Mitarbeiter"
+        ]
+      }
+    },
+    {
+      "id": "prompt-007",
+      "text": "Auf Wiedersehen, bis morgen.",
+      "intent": "farewell",
+      "gloss_en": "I am saying goodbye.",
+      "natural_en": "Goodbye, see you tomorrow.",
+      "audioUrl": "/v1/audio/office_greetings_quickfire_a1/prompt-007.mp3",
+      "slotsChanged": [
+        "time"
+      ],
+      "slots": {
+        "time": [
+          "morgen"
+        ]
+      }
+    },
+    {
+      "id": "prompt-008",
+      "text": "Schönen Feierabend!",
+      "intent": "farewell",
+      "gloss_en": "I am wishing someone a good evening after work.",
+      "natural_en": "Have a nice evening! (after work)",
+      "audioUrl": "/v1/audio/office_greetings_quickfire_a1/prompt-008.mp3",
+      "slotsChanged": [
+        "modifier"
+      ],
+      "slots": {
+        "modifier": [
+          "Feierabend"
+        ]
+      }
+    }
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "morning-greetings",
+        "title": "Morning Greetings",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Morning Greetings"
+        }
+      },
+      {
+        "id": "small-talk",
+        "title": "Small Talk",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Small Talk"
+        }
+      },
+      {
+        "id": "introductions",
+        "title": "Introductions",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006"
+        ],
+        "title_i18n": {
+          "en": "Introductions"
+        }
+      },
+      {
+        "id": "farewells",
+        "title": "Farewells",
+        "promptIds": [
+          "prompt-007",
+          "prompt-008"
+        ],
+        "title_i18n": {
+          "en": "Farewells"
+        }
+      }
+    ]
+  },
+  "outline": [
+    "Morning Greetings",
+    "Small Talk",
+    "Introductions",
+    "Farewells"
+  ],
+  "tags": [
+    "greetings",
+    "office",
+    "workplace",
+    "formal"
+  ],
+  "analytics": {
+    "version": 1,
+    "primaryStructure": "greeting_formulas",
+    "variationSlots": [
+      "subject",
+      "modifier",
+      "time"
+    ],
+    "slotSwitchDensity": 0.875,
+    "promptDiversityScore": 0.85,
+    "scenarioCoverageScore": 0.9,
+    "estimatedCognitiveLoad": "low",
+    "intendedOutcome": "Confident workplace greetings and introductions in formal German",
+    "targetLatencyMs": 1500,
+    "goal": "Master essential office greetings for A1 German learners entering the workforce",
+    "drillType": "formulaic",
+    "cognitiveLoad": "low",
+    "successCriteria": [
+      "Greet colleagues appropriately in formal German",
+      "Respond naturally to 'Wie geht es Ihnen?'",
+      "Introduce yourself in a workplace setting"
+    ],
+    "whyThisWorks": [
+      "Formulaic phrases build confidence for real workplace interactions",
+      "Formal register prepares learners for professional settings",
+      "Quick-fire format builds automatic responses"
+    ],
+    "exitConditions": {
+      "targetMinutes": 6,
+      "completeWhen": "sessionPlan_completed_once"
+    }
+  },
+  "title_i18n": {
+    "en": "Office Greetings Quickfire (A1)"
+  },
+  "description_i18n": {
+    "en": "Quick-fire speaking practice for essential office greetings and polite phrases. Perfect for newcomers preparing for their first day at a German workplace."
+  },
+  "contentId": "de:drill:office_greetings_quickfire_a1",
+  "contentHash": "cb279a71e8f2cc8eaac5cd2774ba8c758e8c9dccf8dfe4757d4146a4f647bb58",
+  "revisionId": "cb279a71e8f2"
+}

@@ -1,0 +1,378 @@
+{
+  "schemaVersion": 1,
+  "id": "telc_c1",
+  "kind": "exam",
+  "title": "telc Deutsch C1",
+  "level": "C1",
+  "estimatedMinutes": 120,
+  "phraseCount": 50,
+  "description": "telc C1 certification exam practice. Recognized for high-level academic and professional contexts. Proves proficient language mastery for complex situations in Germany.",
+  "examType": "certification",
+  "examProvider": "telc",
+  "officialExamInfo": {
+    "name": "telc Deutsch C1",
+    "provider": "telc GmbH",
+    "cefrLevel": "C1",
+    "recognizedBy": [
+      "German universities",
+      "Academic positions",
+      "High-level professional roles",
+      "Medical specialist recognition"
+    ],
+    "duration": 195,
+    "passingScore": 60,
+    "sections": [
+      "Leseverstehen",
+      "Hörverstehen",
+      "Schriftlicher Ausdruck",
+      "Mündlicher Ausdruck"
+    ]
+  },
+  "sections": [
+    {
+      "id": "lesen",
+      "title": "Leseverstehen (Reading Comprehension)",
+      "titleEn": "Reading Comprehension",
+      "durationMinutes": 90,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "lesen_1",
+          "title": "Teil 1: Textrekonstruktion",
+          "description": "Reconstruct a text by placing sentences in the correct order",
+          "itemCount": 6,
+          "format": "ordering",
+          "title_i18n": {
+            "en": "Teil 1: Textrekonstruktion"
+          },
+          "description_i18n": {
+            "en": "Reconstruct a text by placing sentences in the correct order"
+          }
+        },
+        {
+          "id": "lesen_2",
+          "title": "Teil 2: Selektives Lesen",
+          "description": "Match information requests to text sections",
+          "itemCount": 8,
+          "format": "matching",
+          "title_i18n": {
+            "en": "Teil 2: Selektives Lesen"
+          },
+          "description_i18n": {
+            "en": "Match information requests to text sections"
+          }
+        },
+        {
+          "id": "lesen_3",
+          "title": "Teil 3: Detailverstehen",
+          "description": "Answer detailed questions about a complex text",
+          "itemCount": 8,
+          "format": "multiple_choice",
+          "title_i18n": {
+            "en": "Teil 3: Detailverstehen"
+          },
+          "description_i18n": {
+            "en": "Answer detailed questions about a complex text"
+          }
+        },
+        {
+          "id": "sprachbausteine",
+          "title": "Sprachbausteine",
+          "description": "Complete text passages with appropriate grammar and vocabulary",
+          "itemCount": 22,
+          "format": "gap_fill_mixed",
+          "title_i18n": {
+            "en": "Sprachbausteine"
+          },
+          "description_i18n": {
+            "en": "Complete text passages with appropriate grammar and vocabulary"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Leseverstehen (Reading Comprehension)"
+      }
+    },
+    {
+      "id": "hoeren",
+      "title": "Hörverstehen (Listening Comprehension)",
+      "titleEn": "Listening Comprehension",
+      "durationMinutes": 40,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "hoeren_1",
+          "title": "Teil 1: Globalverstehen",
+          "description": "Listen to short texts and identify main topics",
+          "itemCount": 6,
+          "format": "matching",
+          "title_i18n": {
+            "en": "Teil 1: Globalverstehen"
+          },
+          "description_i18n": {
+            "en": "Listen to short texts and identify main topics"
+          }
+        },
+        {
+          "id": "hoeren_2",
+          "title": "Teil 2: Detailverstehen",
+          "description": "Listen to a longer text and answer detailed questions",
+          "itemCount": 10,
+          "format": "multiple_choice",
+          "title_i18n": {
+            "en": "Teil 2: Detailverstehen"
+          },
+          "description_i18n": {
+            "en": "Listen to a longer text and answer detailed questions"
+          }
+        },
+        {
+          "id": "hoeren_3",
+          "title": "Teil 3: Selektives Hören",
+          "description": "Listen for specific information in authentic recordings",
+          "itemCount": 6,
+          "format": "true_false_not_given",
+          "title_i18n": {
+            "en": "Teil 3: Selektives Hören"
+          },
+          "description_i18n": {
+            "en": "Listen for specific information in authentic recordings"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Hörverstehen (Listening Comprehension)"
+      }
+    },
+    {
+      "id": "schreiben",
+      "title": "Schriftlicher Ausdruck (Written Expression)",
+      "titleEn": "Written Expression",
+      "durationMinutes": 70,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "schreiben_1",
+          "title": "Aufgabe 1: Zusammenfassung und Stellungnahme",
+          "description": "Summarize input texts and write a detailed commentary",
+          "itemCount": 1,
+          "format": "synthesis_essay",
+          "wordLimit": 350,
+          "requirements": [
+            "synthesize_sources",
+            "analyze_perspectives",
+            "argue_position",
+            "academic_register"
+          ],
+          "title_i18n": {
+            "en": "Aufgabe 1: Zusammenfassung und Stellungnahme"
+          },
+          "description_i18n": {
+            "en": "Summarize input texts and write a detailed commentary"
+          }
+        },
+        {
+          "id": "schreiben_2",
+          "title": "Aufgabe 2: Formeller Brief",
+          "description": "Write a complex formal letter addressing multiple points",
+          "itemCount": 1,
+          "format": "formal_letter",
+          "wordLimit": 200,
+          "title_i18n": {
+            "en": "Aufgabe 2: Formeller Brief"
+          },
+          "description_i18n": {
+            "en": "Write a complex formal letter addressing multiple points"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Schriftlicher Ausdruck (Written Expression)"
+      }
+    },
+    {
+      "id": "sprechen",
+      "title": "Mündlicher Ausdruck (Oral Expression)",
+      "titleEn": "Oral Expression",
+      "durationMinutes": 16,
+      "weight": 25,
+      "isPartnerExam": true,
+      "parts": [
+        {
+          "id": "sprechen_1a",
+          "title": "Teil 1A: Präsentation",
+          "description": "Present a complex topic based on given materials (3-4 min)",
+          "format": "material_based_presentation",
+          "duration": 4,
+          "title_i18n": {
+            "en": "Teil 1A: Präsentation"
+          },
+          "description_i18n": {
+            "en": "Present a complex topic based on given materials (3-4 min)"
+          }
+        },
+        {
+          "id": "sprechen_1b",
+          "title": "Teil 1B: Zusammenfassung und Anschlussfragen",
+          "description": "Summarize partner's presentation and engage in Q&A",
+          "format": "summary_and_questions",
+          "duration": 3,
+          "title_i18n": {
+            "en": "Teil 1B: Zusammenfassung und Anschlussfragen"
+          },
+          "description_i18n": {
+            "en": "Summarize partner's presentation and engage in Q&A"
+          }
+        },
+        {
+          "id": "sprechen_2",
+          "title": "Teil 2: Diskussion und Verhandlung",
+          "description": "Discuss an issue and negotiate a solution with partner",
+          "format": "negotiation",
+          "duration": 6,
+          "title_i18n": {
+            "en": "Teil 2: Diskussion und Verhandlung"
+          },
+          "description_i18n": {
+            "en": "Discuss an issue and negotiate a solution with partner"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Mündlicher Ausdruck (Oral Expression)"
+      }
+    }
+  ],
+  "practiceModules": [
+    {
+      "id": "academic_writing",
+      "title": "Academic Writing",
+      "description": "Writing for academic contexts: essays, summaries, commentaries",
+      "topics": [
+        "thesis_development",
+        "source_synthesis",
+        "argumentation",
+        "academic_style",
+        "citations"
+      ],
+      "title_i18n": {
+        "en": "Academic Writing"
+      },
+      "description_i18n": {
+        "en": "Writing for academic contexts: essays, summaries, commentaries"
+      }
+    },
+    {
+      "id": "professional_discourse",
+      "title": "Professional Discourse",
+      "description": "High-level professional communication",
+      "topics": [
+        "strategic_communication",
+        "negotiations",
+        "presentations",
+        "conflict_resolution",
+        "leadership_language"
+      ],
+      "title_i18n": {
+        "en": "Professional Discourse"
+      },
+      "description_i18n": {
+        "en": "High-level professional communication"
+      }
+    },
+    {
+      "id": "media_literacy",
+      "title": "Media Literacy",
+      "description": "Understanding and analyzing German media texts",
+      "topics": [
+        "news_analysis",
+        "opinion_pieces",
+        "academic_articles",
+        "podcasts",
+        "documentaries"
+      ],
+      "title_i18n": {
+        "en": "Media Literacy"
+      },
+      "description_i18n": {
+        "en": "Understanding and analyzing German media texts"
+      }
+    },
+    {
+      "id": "specialized_vocabulary",
+      "title": "Specialized Vocabulary",
+      "description": "Domain-specific terminology",
+      "topics": [
+        "wissenschaftssprache",
+        "fachsprache",
+        "nominalstil",
+        "passivkonstruktionen"
+      ],
+      "title_i18n": {
+        "en": "Specialized Vocabulary"
+      },
+      "description_i18n": {
+        "en": "Domain-specific terminology"
+      }
+    }
+  ],
+  "sampleQuestions": [
+    {
+      "section": "lesen",
+      "part": 3,
+      "type": "multiple_choice",
+      "textExcerpt": "Die Frage nach der ethischen Verantwortung von Wissenschaftlern ist so alt wie die Wissenschaft selbst. Doch mit den Fortschritten in der Gentechnik und künstlichen Intelligenz gewinnt sie eine neue Dringlichkeit...",
+      "question": "Welche Position vertritt der Autor hinsichtlich wissenschaftlicher Verantwortung?",
+      "options": [
+        "Wissenschaftler tragen keine moralische Verantwortung",
+        "Die ethische Dimension hat sich durch neue Technologien verstärkt",
+        "Ethische Fragen sollten von Politikern entschieden werden"
+      ]
+    },
+    {
+      "section": "schreiben",
+      "part": 1,
+      "type": "synthesis_essay",
+      "topic": "Digitalisierung der Bildung",
+      "instructions": "Sie haben zwei Texte zum Thema 'Digitalisierung der Bildung' gelesen. Fassen Sie die Hauptargumente beider Texte zusammen, vergleichen Sie die Positionen und nehmen Sie begründet Stellung. Schreiben Sie ca. 300-350 Wörter.",
+      "sourceTexts": [
+        "Pro: Digitale Medien ermöglichen individualisiertes Lernen...",
+        "Contra: Bildschirmzeit reduziert Konzentrationsfähigkeit..."
+      ]
+    },
+    {
+      "section": "sprechen",
+      "part": 2,
+      "type": "negotiation",
+      "scenario": "Sie und Ihr Partner planen eine Konferenz zum Thema Nachhaltigkeit. Diskutieren Sie die verschiedenen Optionen und einigen Sie sich auf ein Programm.",
+      "materials": [
+        "Vorschlag A: Fokus auf Wirtschaft",
+        "Vorschlag B: Fokus auf Umwelt",
+        "Vorschlag C: Fokus auf Gesellschaft"
+      ]
+    }
+  ],
+  "tips": [
+    "C1 requires mastery of nuanced language - read sophisticated German texts daily",
+    "Practice synthesizing information from multiple sources in writing",
+    "The speaking exam tests negotiation skills - practice reaching compromises",
+    "Master Wissenschaftssprache (academic German) including Nominalstil and complex connectors",
+    "telc C1 emphasizes authentic, practical language use in professional contexts"
+  ],
+  "resources": [
+    {
+      "type": "official",
+      "title": "telc Deutsch C1 Materials",
+      "url": "https://www.telc.net/pruefungsteilnehmende/sprachpruefungen/pruefungen/detail/telc-deutsch-c1.html"
+    }
+  ],
+  "contentId": "de:exam:telc_c1",
+  "contentHash": "42327f518e520be5b91782112db1bbd074f8855d57c32b2f98baf3484a1fe27e",
+  "revisionId": "42327f518e52",
+  "title_i18n": {
+    "en": "telc Deutsch C1"
+  },
+  "description_i18n": {
+    "en": "telc C1 certification exam practice. Recognized for high-level academic and professional contexts. Proves proficient language mastery for complex situations in Germany."
+  }
+}

@@ -1,0 +1,1074 @@
+{
+  "version": "v1",
+  "kind": "context",
+  "total": 89,
+  "pageSize": 20,
+  "page": 4,
+  "items": [
+    {
+      "id": "housing_pack_4_a2",
+      "kind": "pack",
+      "title": "Housing A2 — 4: Searching for Housing",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_4_a2/pack.json",
+      "contentId": "de:pack:housing_pack_4_a2",
+      "revisionId": "45bc5570efd8",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A2 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Searching for Housing",
+      "orderInTopic": 4,
+      "title_i18n": {
+        "en": "Housing A2 — 4: Searching for Housing"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "housing_pack_5_a2",
+      "kind": "pack",
+      "title": "Housing A2 — 5: Viewing Apartments",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_5_a2/pack.json",
+      "contentId": "de:pack:housing_pack_5_a2",
+      "revisionId": "62df97c9f444",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A2 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Viewing Apartments",
+      "orderInTopic": 5,
+      "title_i18n": {
+        "en": "Housing A2 — 5: Viewing Apartments"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "housing_pack_6_a2",
+      "kind": "pack",
+      "title": "Housing A2 — 6: Rental Agreement",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_6_a2/pack.json",
+      "contentId": "de:pack:housing_pack_6_a2",
+      "revisionId": "a69dc1b33e8d",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A2 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Rental Agreement",
+      "orderInTopic": 6,
+      "title_i18n": {
+        "en": "Housing A2 — 6: Rental Agreement"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "housing_pack_7_a2",
+      "kind": "pack",
+      "title": "Housing A2 — 7: Searching for Housing",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_7_a2/pack.json",
+      "contentId": "de:pack:housing_pack_7_a2",
+      "revisionId": "538f2c89a33b",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A2 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Searching for Housing",
+      "orderInTopic": 7,
+      "title_i18n": {
+        "en": "Housing A2 — 7: Searching for Housing"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "housing_pack_8_a2",
+      "kind": "pack",
+      "title": "Housing A2 — 8: Viewing Apartments",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_8_a2/pack.json",
+      "contentId": "de:pack:housing_pack_8_a2",
+      "revisionId": "eca4cf7e303b",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A2 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Viewing Apartments",
+      "orderInTopic": 8,
+      "title_i18n": {
+        "en": "Housing A2 — 8: Viewing Apartments"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "housing_pack_9_a2",
+      "kind": "pack",
+      "title": "Housing A2 — 9: Rental Agreement",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/housing_pack_9_a2/pack.json",
+      "contentId": "de:pack:housing_pack_9_a2",
+      "revisionId": "fabd5ecd04b5",
+      "scenario": "housing",
+      "register": "neutral",
+      "primaryStructure": "dative_case",
+      "tags": [
+        "housing"
+      ],
+      "focus": "case_system",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "rental_communication",
+      "analyticsSummary": {
+        "primaryStructure": "dative_case",
+        "scenario": "housing",
+        "register": "neutral",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice housing rental and maintenance conversations at A2 level",
+        "whyThisWorks": [
+          "Uses rental/maintenance vocabulary",
+          "Includes address and location phrases",
+          "Varies time and urgency modifiers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice housing rental and maintenance conversations at A2 level Uses rental/maintenance vocabulary",
+      "topicKey": "dative-case",
+      "topicLabel": "Dative Case",
+      "shortTitle": "Rental Agreement",
+      "orderInTopic": 9,
+      "title_i18n": {
+        "en": "Housing A2 — 9: Rental Agreement"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "friends_opinions_recommendations_a2",
+      "kind": "pack",
+      "title": "Opinions & Recommendations",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_opinions_recommendations_a2/pack.json",
+      "contentId": "de:pack:friends_opinions_recommendations_a2",
+      "revisionId": "401c7753c962",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Opinions & Recommendations",
+      "title_i18n": {
+        "en": "Opinions & Recommendations"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "friends_reschedule_and_decline_a2",
+      "kind": "pack",
+      "title": "Rescheduling & Declining",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/friends_reschedule_and_decline_a2/pack.json",
+      "contentId": "de:pack:friends_reschedule_and_decline_a2",
+      "revisionId": "85e97ed0f8b6",
+      "scenario": "friends_small_talk",
+      "register": "casual",
+      "primaryStructure": "modal_verbs_suggestions",
+      "tags": [
+        "friends_small_talk"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "casual_planning",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_suggestions",
+        "scenario": "friends_small_talk",
+        "register": "casual",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time",
+          "location",
+          "polarity"
+        ],
+        "drillType": "substitution",
+        "cognitiveLoad": "high",
+        "goal": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level",
+        "whyThisWorks": [
+          "Uses casual planning and suggestion phrases",
+          "Varies time expressions (heute, morgen, am Wochenende)",
+          "Includes activity and preference vocabulary",
+          "Maintains casual register without slang"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "substitution",
+      "whyThisWorks": "Practice casual friends conversations: making plans, suggestions, and small talk at A2 level Uses casual planning and suggestion phrases",
+      "topicKey": "modal-verbs-suggestions",
+      "topicLabel": "Modal Verbs Suggestions",
+      "shortTitle": "Rescheduling & Declining",
+      "title_i18n": {
+        "en": "Rescheduling & Declining"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "work_pack_1_a2",
+      "kind": "pack",
+      "title": "Work A2 — 1: Office Greetings",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_1_a2/pack.json",
+      "contentId": "de:pack:work_pack_1_a2",
+      "revisionId": "b2fc7e455cde",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A2 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A2 level Uses professional vocabulary appropriately",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Office Greetings",
+      "orderInTopic": 1,
+      "title_i18n": {
+        "en": "Work A2 — 1: Office Greetings"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "work_pack_10_a2",
+      "kind": "pack",
+      "title": "Work A2 — 10: Problem Solving",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_10_a2/pack.json",
+      "contentId": "de:pack:work_pack_10_a2",
+      "revisionId": "77340ab700da",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A2 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A2 level Uses professional vocabulary appropriately",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Problem Solving",
+      "orderInTopic": 10,
+      "title_i18n": {
+        "en": "Work A2 — 10: Problem Solving"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "work_pack_11_a2",
+      "kind": "pack",
+      "title": "Work A2 — 11: Status Reports",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_11_a2/pack.json",
+      "contentId": "de:pack:work_pack_11_a2",
+      "revisionId": "4f043d379971",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A2 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A2 level Uses professional vocabulary appropriately",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Status Reports",
+      "orderInTopic": 11,
+      "title_i18n": {
+        "en": "Work A2 — 11: Status Reports"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "work_pack_12_a2",
+      "kind": "pack",
+      "title": "Work A2 — 12: Professional Feedback",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_12_a2/pack.json",
+      "contentId": "de:pack:work_pack_12_a2",
+      "revisionId": "d8a2be7a4c7f",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A2 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A2 level Uses professional vocabulary appropriately",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Professional Feedback",
+      "orderInTopic": 12,
+      "title_i18n": {
+        "en": "Work A2 — 12: Professional Feedback"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "work_pack_2_a2",
+      "kind": "pack",
+      "title": "Work A2 — 2: Meeting Phrases",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_2_a2/pack.json",
+      "contentId": "de:pack:work_pack_2_a2",
+      "revisionId": "cfab978a677a",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A2 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A2 level Uses professional vocabulary appropriately",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Meeting Phrases",
+      "orderInTopic": 2,
+      "title_i18n": {
+        "en": "Work A2 — 2: Meeting Phrases"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "work_pack_3_a2",
+      "kind": "pack",
+      "title": "Work A2 — 3: Work Requests",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_3_a2/pack.json",
+      "contentId": "de:pack:work_pack_3_a2",
+      "revisionId": "3b37e8a1e966",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A2 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A2 level Uses professional vocabulary appropriately",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Work Requests",
+      "orderInTopic": 3,
+      "title_i18n": {
+        "en": "Work A2 — 3: Work Requests"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "work_pack_4_a2",
+      "kind": "pack",
+      "title": "Work A2 — 4: Project Updates",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_4_a2/pack.json",
+      "contentId": "de:pack:work_pack_4_a2",
+      "revisionId": "70193e60dcf7",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A2 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A2 level Uses professional vocabulary appropriately",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Project Updates",
+      "orderInTopic": 4,
+      "title_i18n": {
+        "en": "Work A2 — 4: Project Updates"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "work_pack_5_a2",
+      "kind": "pack",
+      "title": "Work A2 — 5: Scheduling",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_5_a2/pack.json",
+      "contentId": "de:pack:work_pack_5_a2",
+      "revisionId": "d9a6487284bf",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A2 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A2 level Uses professional vocabulary appropriately",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Scheduling",
+      "orderInTopic": 5,
+      "title_i18n": {
+        "en": "Work A2 — 5: Scheduling"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "work_pack_6_a2",
+      "kind": "pack",
+      "title": "Work A2 — 6: Email Communication",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_6_a2/pack.json",
+      "contentId": "de:pack:work_pack_6_a2",
+      "revisionId": "a3146c75a024",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A2 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A2 level Uses professional vocabulary appropriately",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Email Communication",
+      "orderInTopic": 6,
+      "title_i18n": {
+        "en": "Work A2 — 6: Email Communication"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "work_pack_7_a2",
+      "kind": "pack",
+      "title": "Work A2 — 7: Team Collaboration",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_7_a2/pack.json",
+      "contentId": "de:pack:work_pack_7_a2",
+      "revisionId": "d25d5e653046",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A2 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A2 level Uses professional vocabulary appropriately",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Team Collaboration",
+      "orderInTopic": 7,
+      "title_i18n": {
+        "en": "Work A2 — 7: Team Collaboration"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "work_pack_8_a2",
+      "kind": "pack",
+      "title": "Work A2 — 8: Deadline Management",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_8_a2/pack.json",
+      "contentId": "de:pack:work_pack_8_a2",
+      "revisionId": "f774f4003219",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A2 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A2 level Uses professional vocabulary appropriately",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Deadline Management",
+      "orderInTopic": 8,
+      "title_i18n": {
+        "en": "Work A2 — 8: Deadline Management"
+      },
+      "domainKind": "context"
+    },
+    {
+      "id": "work_pack_9_a2",
+      "kind": "pack",
+      "title": "Work A2 — 9: Client Interactions",
+      "level": "A2",
+      "durationMinutes": 15,
+      "entryUrl": "/v1/workspaces/de/packs/work_pack_9_a2/pack.json",
+      "contentId": "de:pack:work_pack_9_a2",
+      "revisionId": "24705746663b",
+      "scenario": "work",
+      "register": "formal",
+      "primaryStructure": "modal_verbs_requests",
+      "tags": [
+        "work"
+      ],
+      "focus": "modal_verbs",
+      "cognitiveLoad": "high",
+      "fluencyOutcome": "professional_requests",
+      "analyticsSummary": {
+        "primaryStructure": "modal_verbs_requests",
+        "scenario": "work",
+        "register": "formal",
+        "variationSlots": [
+          "subject",
+          "verb",
+          "object",
+          "modifier",
+          "time"
+        ],
+        "drillType": "roleplay-bounded",
+        "cognitiveLoad": "high",
+        "goal": "Practice professional work communication at A2 level",
+        "whyThisWorks": [
+          "Uses professional vocabulary appropriately",
+          "Varies subject and verb across prompts",
+          "Includes time/meeting context markers"
+        ]
+      },
+      "signals": {
+        "multiSlot": "high",
+        "difficultyHint": "standard"
+      },
+      "drillType": "roleplay-bounded",
+      "whyThisWorks": "Practice professional work communication at A2 level Uses professional vocabulary appropriately",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Client Interactions",
+      "orderInTopic": 9,
+      "title_i18n": {
+        "en": "Work A2 — 9: Client Interactions"
+      },
+      "domainKind": "context"
+    }
+  ],
+  "nextPage": "/v1/workspaces/de/context/pages/5.json"
+}

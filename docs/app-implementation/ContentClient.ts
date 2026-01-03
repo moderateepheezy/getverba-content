@@ -118,31 +118,40 @@ class ContentClient {
 
   /**
    * Fetch with ETag-based caching and 304 Not Modified support
+   * 
+   * Always makes a conditional request to check for updates, even if cache is within TTL.
+   * This ensures the app gets fresh content when it's published, without waiting for TTL expiry.
+   * 
+   * Flow:
+   * 1. If we have cached data with ETag, always send If-None-Match header
+   * 2. Server returns 304 if content unchanged, 200 if changed
+   * 3. If 304, use cached data (even if within TTL, this confirms it's still valid)
+   * 4. If 200, update cache with new data and ETag
    */
   private async fetchWithCache<T>(url: string): Promise<T> {
     const cacheKey = url;
     const cached = this.cache.get(cacheKey);
     
-    // Check if cache is still valid (within TTL)
-    if (cached && Date.now() - cached.timestamp < this.CACHE_TTL) {
-      return cached.data;
-    }
-
     const headers: HeadersInit = {};
     
-    // Send If-None-Match if we have a cached ETag
+    // Always send If-None-Match if we have a cached ETag
+    // This allows the server to return 304 if content hasn't changed,
+    // even if our cache is still within TTL. This is the key fix:
+    // we check for updates on every request, not just when TTL expires.
     if (cached?.etag) {
       headers['If-None-Match'] = cached.etag;
     }
 
+    // Make the request (conditional if we have ETag)
     const response = await fetch(url, { headers });
 
-    // 304 Not Modified - use cached data and update timestamp
+    // 304 Not Modified - content hasn't changed, use cached data
     if (response.status === 304) {
       if (cached) {
+        // Refresh timestamp to extend cache validity
         this.cache.set(cacheKey, {
           ...cached,
-          timestamp: Date.now() // Refresh timestamp
+          timestamp: Date.now()
         });
         return cached.data;
       }

@@ -1,0 +1,42 @@
+{
+  "mechanicId": "case_endings_akkusativ",
+  "mechanicLabel": "Case Endings: Akkusativ",
+  "description": "Master accusative case endings (den, die, das, einen, eine)",
+  "supportedLevels": ["A1", "A2", "B1"],
+  "loopTypes": ["pattern_switch", "slot_substitution", "contrast_pairs"],
+  "canonicalPatterns": [
+    "akkusativ_articles",
+    "akkusativ_pronouns",
+    "direct_object_marking"
+  ],
+  "slotDictionaries": {
+    "subject": ["Ich", "Du", "Er", "Sie", "Wir"],
+    "verb": ["sehe", "kaufe", "nehme", "habe", "mache", "lese", "esse", "trinke"],
+    "object": ["den Tisch", "die Zeitung", "das Buch", "einen Stuhl", "eine Tasse", "den Kaffee", "die Milch", "das Brot"]
+  },
+  "trapPairs": [
+    {
+      "confusion": "nominative vs accusative articles",
+      "examples": [
+        { "correct": "Ich sehe den Tisch", "incorrect": "Ich sehe der Tisch" },
+        { "correct": "Der Tisch ist groß", "incorrect": "Den Tisch ist groß" }
+      ]
+    }
+  ],
+  "bannedPhrases": [
+    "TODO",
+    "FIXME",
+    "example",
+    "test",
+    "placeholder"
+  ],
+  "requiredTokens": [
+    "den", "die", "das",
+    "einen", "eine",
+    "sehe", "kaufe", "nehme", "habe"
+  ],
+  "minUniqueVerbs": 5,
+  "minUniqueSubjects": 4,
+  "minMultiSlotRate": 0.35
+}
+

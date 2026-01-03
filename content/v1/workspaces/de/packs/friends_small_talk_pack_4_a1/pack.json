@@ -3,7 +3,7 @@
   "id": "friends_small_talk_pack_4_a1",
   "kind": "pack",
   "packVersion": "1.0.0",
-  "title": "Friends Small Talk - A1",
+  "title": "Friends Small Talk A1 — 4: Rescheduling",
   "level": "A1",
   "estimatedMinutes": 15,
   "description": "Practice friends_small_talk scenarios at A1 level.",
@@ -351,7 +351,10 @@
           "prompt-002",
           "prompt-003",
           "prompt-004"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Making Plans"
+        }
       },
       {
         "id": "variation",
@@ -362,7 +365,10 @@
           "prompt-007",
           "prompt-008",
           "prompt-009"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Suggestions & Preferences"
+        }
       },
       {
         "id": "switch",
@@ -371,7 +377,10 @@
           "prompt-010",
           "prompt-011",
           "prompt-012"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Responding & Rescheduling"
+        }
       }
     ]
   },
@@ -458,14 +467,18 @@
     "source": "template",
     "sourceRef": "friends_small_talk",
     "extractorVersion": "1.0.0",
-    "generatedAt": "2025-12-31T08:23:44.590Z"
+    "generatedAt": "2026-01-01T00:56:08.250Z"
   },
   "review": {
-    "status": "approved",
-    "reviewer": "Afees",
-    "reviewedAt": "2025-12-31T08:31:40Z"
+    "status": "needs_review"
   },
   "contentId": "de:pack:friends_small_talk_pack_4_a1",
-  "contentHash": "accf363503774c722638cbd82c393e17e19702eb201e388c1060af4f19c38b65",
-  "revisionId": "accf36350377"
+  "contentHash": "6c4900200c24cd05e918491719d002823c2faa1dab356ba23d8956e5c4d28d97",
+  "revisionId": "6c4900200c24",
+  "title_i18n": {
+    "en": "Friends Small Talk A1 — 4: Rescheduling"
+  },
+  "description_i18n": {
+    "en": "Practice friends_small_talk scenarios at A1 level."
+  }
 }

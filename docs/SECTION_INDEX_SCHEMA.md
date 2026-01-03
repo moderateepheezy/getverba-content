@@ -51,6 +51,13 @@ Each item in the `items` array must have:
 - `primaryStructure` (string, optional): Primary grammatical structure identifier. Should match the pack's `primaryStructure` field if present.
 - `tags` (string[], optional): Array of tag strings for categorization. Should match the pack's `tags` field if present.
 
+**Topic Grouping Metadata** (optional, for pack items to enable frontend grouping/display):
+
+- `topicKey` (string, optional): Stable slug grouping key for topic lanes (kebab-case, max 64 chars). Used to group packs in carousel lanes without frontend title parsing.
+- `topicLabel` (string, optional): Human-readable lane header text (3-60 chars). Displayed as section header in topic carousels.
+- `shortTitle` (string, optional): Concise card title for carousel display (3-28 chars). More compact than the full title.
+- `orderInTopic` (number, optional): Stable ordering within a topic+level group (integer >= 1). Used for deterministic sort order within lanes.
+
 **Analytics Summary** (required for `kind="pack"` items):
 
 - `analyticsSummary` (object, required for packs): Cached analytics metadata from pack entry. Enables frontend to display "why this pack works" without fetching full pack entry.
@@ -152,6 +159,27 @@ The validator enforces:
 10. ✅ If `nextPage` is a string, the file exists locally
 11. ✅ `level` is a non-empty string
 12. ✅ `durationMinutes` is a number if present
+
+### Topic Grouping Field Validation (Optional)
+
+When topic grouping fields are present, the validator enforces:
+
+- **`topicKey`** (if present):
+  - Must be a string
+  - Must be kebab-case: `^[a-z0-9]+(?:-[a-z0-9]+)*$`
+  - Maximum length: 64 characters
+- **`topicLabel`** (if present):
+  - Must be a string
+  - Length: 3-60 characters
+  - Must not be purely numeric
+  - Warns if value is generic (e.g., "General", "Basics", "Pack", "Part")
+- **`shortTitle`** (if present):
+  - Must be a string
+  - Length: 3-28 characters (hard fail if > 28)
+- **`orderInTopic`** (if present):
+  - Must be an integer >= 1
+
+**Soft warnings:** For pack items, warns if none of `topicKey`, `topicLabel`, or `shortTitle` is present (indicates potential generator failure)
 
 ## Migration from Old Schema
 

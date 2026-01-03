@@ -1,0 +1,260 @@
+{
+  "schemaVersion": 1,
+  "id": "telc_a1",
+  "kind": "exam",
+  "title": "telc Deutsch A1",
+  "level": "A1",
+  "estimatedMinutes": 75,
+  "phraseCount": 22,
+  "description": "telc A1 certification exam practice. Internationally recognized language certificate testing basic German skills for simple everyday communication.",
+  "examType": "certification",
+  "examProvider": "telc",
+  "officialExamInfo": {
+    "name": "telc Deutsch A1",
+    "provider": "telc GmbH",
+    "cefrLevel": "A1",
+    "recognizedBy": [
+      "German employers",
+      "German immigration (family reunification)",
+      "Visa applications"
+    ],
+    "duration": 75,
+    "passingScore": 60,
+    "sections": [
+      "Hören",
+      "Lesen",
+      "Schreiben",
+      "Sprechen"
+    ]
+  },
+  "sections": [
+    {
+      "id": "hoeren_lesen",
+      "title": "Hören und Lesen",
+      "titleEn": "Listening and Reading",
+      "durationMinutes": 65,
+      "weight": 50,
+      "parts": [
+        {
+          "id": "hoeren_1",
+          "title": "Hören Teil 1",
+          "description": "Listen to dialogues and answer questions",
+          "itemCount": 6,
+          "format": "multiple_choice",
+          "title_i18n": {
+            "en": "Hören Teil 1"
+          },
+          "description_i18n": {
+            "en": "Listen to dialogues and answer questions"
+          }
+        },
+        {
+          "id": "hoeren_2",
+          "title": "Hören Teil 2",
+          "description": "Listen to announcements and match to pictures",
+          "itemCount": 4,
+          "format": "matching",
+          "title_i18n": {
+            "en": "Hören Teil 2"
+          },
+          "description_i18n": {
+            "en": "Listen to announcements and match to pictures"
+          }
+        },
+        {
+          "id": "hoeren_3",
+          "title": "Hören Teil 3",
+          "description": "Listen to messages and note information",
+          "itemCount": 5,
+          "format": "gap_fill",
+          "title_i18n": {
+            "en": "Hören Teil 3"
+          },
+          "description_i18n": {
+            "en": "Listen to messages and note information"
+          }
+        },
+        {
+          "id": "lesen_1",
+          "title": "Lesen Teil 1",
+          "description": "Read notices and match to meanings",
+          "itemCount": 5,
+          "format": "matching",
+          "title_i18n": {
+            "en": "Lesen Teil 1"
+          },
+          "description_i18n": {
+            "en": "Read notices and match to meanings"
+          }
+        },
+        {
+          "id": "lesen_2",
+          "title": "Lesen Teil 2",
+          "description": "Read texts and answer true/false",
+          "itemCount": 5,
+          "format": "true_false",
+          "title_i18n": {
+            "en": "Lesen Teil 2"
+          },
+          "description_i18n": {
+            "en": "Read texts and answer true/false"
+          }
+        },
+        {
+          "id": "lesen_3",
+          "title": "Lesen Teil 3",
+          "description": "Read form/letter and fill gaps",
+          "itemCount": 5,
+          "format": "gap_fill",
+          "title_i18n": {
+            "en": "Lesen Teil 3"
+          },
+          "description_i18n": {
+            "en": "Read form/letter and fill gaps"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Hören und Lesen"
+      }
+    },
+    {
+      "id": "schreiben",
+      "title": "Schreiben (Writing)",
+      "titleEn": "Writing",
+      "durationMinutes": 20,
+      "weight": 25,
+      "parts": [
+        {
+          "id": "schreiben_1",
+          "title": "Formular ausfüllen",
+          "description": "Fill out a simple form",
+          "itemCount": 1,
+          "format": "form_fill",
+          "title_i18n": {
+            "en": "Formular ausfüllen"
+          },
+          "description_i18n": {
+            "en": "Fill out a simple form"
+          }
+        },
+        {
+          "id": "schreiben_2",
+          "title": "Kurze Nachricht",
+          "description": "Write a short message (about 30 words)",
+          "itemCount": 1,
+          "format": "short_message",
+          "wordLimit": 30,
+          "title_i18n": {
+            "en": "Kurze Nachricht"
+          },
+          "description_i18n": {
+            "en": "Write a short message (about 30 words)"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Schreiben (Writing)"
+      }
+    },
+    {
+      "id": "sprechen",
+      "title": "Sprechen (Speaking)",
+      "titleEn": "Speaking",
+      "durationMinutes": 11,
+      "weight": 25,
+      "groupExam": true,
+      "parts": [
+        {
+          "id": "sprechen_1",
+          "title": "Buchstabieren und Zahlen",
+          "description": "Spell your name and give numbers",
+          "format": "spelling_numbers",
+          "title_i18n": {
+            "en": "Buchstabieren und Zahlen"
+          },
+          "description_i18n": {
+            "en": "Spell your name and give numbers"
+          }
+        },
+        {
+          "id": "sprechen_2",
+          "title": "Sich vorstellen",
+          "description": "Introduce yourself",
+          "format": "self_introduction",
+          "title_i18n": {
+            "en": "Sich vorstellen"
+          },
+          "description_i18n": {
+            "en": "Introduce yourself"
+          }
+        },
+        {
+          "id": "sprechen_3",
+          "title": "Fragen stellen und beantworten",
+          "description": "Ask and answer questions with partner",
+          "format": "question_answer",
+          "title_i18n": {
+            "en": "Fragen stellen und beantworten"
+          },
+          "description_i18n": {
+            "en": "Ask and answer questions with partner"
+          }
+        }
+      ],
+      "title_i18n": {
+        "en": "Sprechen (Speaking)"
+      }
+    }
+  ],
+  "practiceModules": [
+    {
+      "id": "spelling_numbers",
+      "title": "German Alphabet & Numbers",
+      "description": "Master spelling and number pronunciation",
+      "topics": [
+        "alphabet",
+        "phone_numbers",
+        "addresses",
+        "prices"
+      ],
+      "title_i18n": {
+        "en": "German Alphabet & Numbers"
+      },
+      "description_i18n": {
+        "en": "Master spelling and number pronunciation"
+      }
+    },
+    {
+      "id": "basic_forms",
+      "title": "Filling Out Forms",
+      "description": "Practice with common German forms",
+      "topics": [
+        "personal_data",
+        "contact_info",
+        "registration"
+      ],
+      "title_i18n": {
+        "en": "Filling Out Forms"
+      },
+      "description_i18n": {
+        "en": "Practice with common German forms"
+      }
+    }
+  ],
+  "tips": [
+    "Practice spelling German words aloud",
+    "Learn numbers thoroughly - they appear in all sections",
+    "Focus on understanding simple announcements and signs",
+    "Practice short, simple responses to common questions"
+  ],
+  "contentId": "de:exam:telc_a1",
+  "contentHash": "f144e9acc814bf847a7854a1bf99e5096f2ad37d3d6c32f163c313c5da85fa1e",
+  "revisionId": "f144e9acc814",
+  "title_i18n": {
+    "en": "telc Deutsch A1"
+  },
+  "description_i18n": {
+    "en": "telc A1 certification exam practice. Internationally recognized language certificate testing basic German skills for simple everyday communication."
+  }
+}

@@ -350,7 +350,10 @@
           "prompt-002",
           "prompt-003",
           "prompt-004"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Making Plans"
+        }
       },
       {
         "id": "variation",
@@ -361,7 +364,10 @@
           "prompt-007",
           "prompt-008",
           "prompt-009"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Suggestions & Preferences"
+        }
       },
       {
         "id": "switch",
@@ -370,7 +376,10 @@
           "prompt-010",
           "prompt-011",
           "prompt-012"
-        ]
+        ],
+        "title_i18n": {
+          "en": "Responding & Rescheduling"
+        }
       }
     ]
   },
@@ -464,5 +473,11 @@
   },
   "contentId": "de:pack:friends_cafe_meetup_a1",
   "contentHash": "64b0acf4ca2eded1c94a15eb8a26d2ddae961cf88b8dc41d7e015270ff0101ea",
-  "revisionId": "64b0acf4ca2e"
+  "revisionId": "64b0acf4ca2e",
+  "title_i18n": {
+    "en": "Café Meetup"
+  },
+  "description_i18n": {
+    "en": "Practice friends_small_talk scenarios at A1 level."
+  }
 }

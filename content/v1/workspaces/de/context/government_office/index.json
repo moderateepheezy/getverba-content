@@ -3,11 +3,12 @@
   "kind": "context",
   "total": 6,
   "pageSize": 12,
+  "page": 1,
   "items": [
     {
       "id": "anmeldung_address_registration_a1",
       "kind": "pack",
-      "title": "Government Office - A1",
+      "title": "Government Office A1 — Anmeldung Address Registration",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/anmeldung_address_registration_a1/pack.json",
@@ -47,12 +48,20 @@
         "difficultyHint": "standard"
       },
       "drillType": "roleplay-bounded",
-      "whyThisWorks": "Practice formal government_office interactions at A1 level Uses formal address (Sie/Ihnen) correctly"
+      "whyThisWorks": "Practice formal government_office interactions at A1 level Uses formal address (Sie/Ihnen) correctly",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Government Office — Anmel...",
+      "title_i18n": {
+        "en": "Government Office A1 — Anmeldung Address Registration"
+      },
+      "domainKind": "context",
+      "isRecommended": true
     },
     {
       "id": "health_insurance_basic_a1",
       "kind": "pack",
-      "title": "Government Office - A1",
+      "title": "Government Office A1 — Health Insurance Basic",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/health_insurance_basic_a1/pack.json",
@@ -92,12 +101,19 @@
         "difficultyHint": "standard"
       },
       "drillType": "roleplay-bounded",
-      "whyThisWorks": "Practice formal government_office interactions at A1 level Uses formal address (Sie/Ihnen) correctly"
+      "whyThisWorks": "Practice formal government_office interactions at A1 level Uses formal address (Sie/Ihnen) correctly",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Government Office — Healt...",
+      "title_i18n": {
+        "en": "Government Office A1 — Health Insurance Basic"
+      },
+      "domainKind": "context"
     },
     {
       "id": "passport_pickup_a1",
       "kind": "pack",
-      "title": "Government Office - A1",
+      "title": "Government Office A1 — Passport Pickup",
       "level": "A1",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/passport_pickup_a1/pack.json",
@@ -137,12 +153,19 @@
         "difficultyHint": "standard"
       },
       "drillType": "roleplay-bounded",
-      "whyThisWorks": "Practice formal government_office interactions at A1 level Uses formal address (Sie/Ihnen) correctly"
+      "whyThisWorks": "Practice formal government_office interactions at A1 level Uses formal address (Sie/Ihnen) correctly",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Government Office — Passp...",
+      "title_i18n": {
+        "en": "Government Office A1 — Passport Pickup"
+      },
+      "domainKind": "context"
     },
     {
       "id": "immigration_office_questions_a2",
       "kind": "pack",
-      "title": "Government Office - A2",
+      "title": "Government Office A2 — Immigration Office Questions",
       "level": "A2",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/immigration_office_questions_a2/pack.json",
@@ -182,12 +205,19 @@
         "difficultyHint": "standard"
       },
       "drillType": "roleplay-bounded",
-      "whyThisWorks": "Practice formal government_office interactions at A2 level Uses formal address (Sie/Ihnen) correctly"
+      "whyThisWorks": "Practice formal government_office interactions at A2 level Uses formal address (Sie/Ihnen) correctly",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Government Office — Immig...",
+      "title_i18n": {
+        "en": "Government Office A2 — Immigration Office Questions"
+      },
+      "domainKind": "context"
     },
     {
       "id": "jobcenter_basic_a2",
       "kind": "pack",
-      "title": "Government Office - A2",
+      "title": "Government Office A2 — Jobcenter Basic",
       "level": "A2",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/jobcenter_basic_a2/pack.json",
@@ -227,12 +257,19 @@
         "difficultyHint": "standard"
       },
       "drillType": "roleplay-bounded",
-      "whyThisWorks": "Practice formal government_office interactions at A2 level Uses formal address (Sie/Ihnen) correctly"
+      "whyThisWorks": "Practice formal government_office interactions at A2 level Uses formal address (Sie/Ihnen) correctly",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Government Office — Jobce...",
+      "title_i18n": {
+        "en": "Government Office A2 — Jobcenter Basic"
+      },
+      "domainKind": "context"
     },
     {
       "id": "residence_permit_appointment_a2",
       "kind": "pack",
-      "title": "Government Office - A2",
+      "title": "Government Office A2 — Residence Permit Appointment",
       "level": "A2",
       "durationMinutes": 15,
       "entryUrl": "/v1/workspaces/de/packs/residence_permit_appointment_a2/pack.json",
@@ -272,8 +309,24 @@
         "difficultyHint": "standard"
       },
       "drillType": "roleplay-bounded",
-      "whyThisWorks": "Practice formal government_office interactions at A2 level Uses formal address (Sie/Ihnen) correctly"
+      "whyThisWorks": "Practice formal government_office interactions at A2 level Uses formal address (Sie/Ihnen) correctly",
+      "topicKey": "modal-verbs-requests",
+      "topicLabel": "Modal Verbs Requests",
+      "shortTitle": "Government Office — Resid...",
+      "title_i18n": {
+        "en": "Government Office A2 — Residence Permit Appointment"
+      },
+      "domainKind": "context"
     }
   ],
-  "nextPage": null
+  "nextPage": null,
+  "scope": {
+    "scopeKind": "scenario",
+    "scopeId": "government_office",
+    "scopeTitle": "Government Office"
+  },
+  "recommended": {
+    "itemId": "anmeldung_address_registration_a1",
+    "entryUrl": "/v1/workspaces/de/packs/anmeldung_address_registration_a1/pack.json"
+  }
 }
