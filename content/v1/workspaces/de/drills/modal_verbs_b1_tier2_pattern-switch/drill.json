@@ -1,0 +1,389 @@
+{
+  "schemaVersion": 1,
+  "id": "modal_verbs_b1_tier2_pattern-switch",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "B1",
+  "title": "Modal Verbs: B1 (Tier 2) - Pattern",
+  "shortTitle": "Modal Verbs B1 Pattern",
+  "subtitle": "Tier 2 - pattern switch - Practice modal verbs (können, müss",
+  "estimatedMinutes": 4,
+  "mechanicId": "modal_verbs",
+  "mechanicLabel": "Modal Verbs",
+  "loopType": "pattern_switch",
+  "difficultyTier": 2,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier",
+    "time"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "pattern-1",
+        "title": "Pattern 1: Basic Forms",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Pattern 1: Basic Forms"
+        }
+      },
+      {
+        "id": "pattern-2",
+        "title": "Pattern 2: Extended Forms",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Pattern 2: Extended Forms"
+        }
+      },
+      {
+        "id": "pattern-3",
+        "title": "Pattern 3: Complex Forms",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006",
+          "prompt-007",
+          "prompt-008"
+        ],
+        "title_i18n": {
+          "en": "Pattern 3: Complex Forms"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "jetzt soll er die schlafen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jetzt soll er die schlafen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "soll"
+        ],
+        "object": [
+          "die"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "infinitive": [
+          "schlafen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_B1_tier2/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "bald willst du leider das kaufen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "bald willst du leider das kaufen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "willst"
+        ],
+        "object": [
+          "das"
+        ],
+        "modifier": [
+          "leider"
+        ],
+        "time": [
+          "bald"
+        ],
+        "infinitive": [
+          "kaufen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_B1_tier2/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "morgen möchte Sie nach Hause sehen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "morgen möchte Sie nach Hause sehen.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "möchte"
+        ],
+        "object": [
+          "nach Hause"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "infinitive": [
+          "sehen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_B1_tier2/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "bald möchten wir nach Hause essen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "bald möchten wir nach Hause essen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "möchten"
+        ],
+        "object": [
+          "nach Hause"
+        ],
+        "time": [
+          "bald"
+        ],
+        "infinitive": [
+          "essen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_B1_tier2/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "nächste Woche kann ich die machen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "nächste Woche kann ich die machen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "kann"
+        ],
+        "object": [
+          "die"
+        ],
+        "time": [
+          "nächste Woche"
+        ],
+        "infinitive": [
+          "machen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_B1_tier2/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "am Wochenende sollt ihr trinken.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Wochenende sollt ihr trinken.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "sollt"
+        ],
+        "time": [
+          "am Wochenende"
+        ],
+        "infinitive": [
+          "trinken"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_B1_tier2/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "morgen kann er eine arbeiten.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "morgen kann er eine arbeiten.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "kann"
+        ],
+        "object": [
+          "eine"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "infinitive": [
+          "arbeiten"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_B1_tier2/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "bald musst du wirklich eine spielen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "bald musst du wirklich eine spielen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "modifier"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "musst"
+        ],
+        "object": [
+          "eine"
+        ],
+        "modifier": [
+          "wirklich"
+        ],
+        "time": [
+          "bald"
+        ],
+        "infinitive": [
+          "spielen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_B1_tier2/prompt-008.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "modal_verbs",
+    "loopType": "pattern_switch",
+    "targetStructures": [
+      "modal_verb_infinitive",
+      "modal_verb_requests",
+      "modal_verb_ability"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "soll",
+        "willst",
+        "möchte",
+        "möchten",
+        "kann",
+        "sollt",
+        "musst"
+      ],
+      "subjects": [
+        "Er",
+        "Du",
+        "Sie",
+        "Wir",
+        "Ich",
+        "Ihr"
+      ],
+      "patterns": [
+        "modal_verb_infinitive",
+        "modal_verb_requests",
+        "modal_verb_ability"
+      ]
+    },
+    "difficultyTier": 2,
+    "recommendedReps": 3,
+    "estPromptCount": 8,
+    "timeboxMinutes": 4,
+    "qualitySignals": {
+      "tokenHitsCount": 8,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 7,
+      "uniqueSubjectCount": 6,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/modal_verbs",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-04T06:49:17.665Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "title_i18n": {
+    "en": "Modal Verbs: B1 (Tier 2) - Pattern"
+  },
+  "shortTitle_i18n": {
+    "en": "Modal Verbs B1 Pattern"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 2 - pattern switch - Practice modal verbs (können, müss"
+  },
+  "contentId": "de:drill:modal_verbs_b1_tier2_pattern-switch",
+  "contentHash": "df0fd3377afe2d2fbaa54eb5ab408465cfe7490538cd4321a6c216a333f6392d",
+  "revisionId": "df0fd3377afe"
+}

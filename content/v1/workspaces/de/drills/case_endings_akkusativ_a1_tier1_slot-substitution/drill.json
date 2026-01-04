@@ -8,7 +8,7 @@
   "level": "A1",
   "title": "Case Endings: Akkusativ: A1 (Tier 1) - Slot",
   "shortTitle": "Case Endings: Akkusa A1 Slot",
-  "subtitle": "Tier 1 - slot substitution - Master accusative case endings ",
+  "subtitle": "Tier 1 - slot substitution - Practice accusative case ending",
   "estimatedMinutes": 3,
   "mechanicId": "case_endings_akkusativ",
   "mechanicLabel": "Case Endings: Akkusativ",
@@ -281,12 +281,10 @@
     "source": "template",
     "sourceRef": "mechanics/case_endings_akkusativ",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.338Z"
+    "generatedAt": "2026-01-04T06:49:17.636Z"
   },
   "review": {
-    "status": "approved",
-    "reviewer": "system",
-    "reviewedAt": "2026-01-03T10:00:00.000Z"
+    "status": "needs_review"
   },
   "title_i18n": {
     "en": "Case Endings: Akkusativ: A1 (Tier 1) - Slot"
@@ -295,9 +293,9 @@
     "en": "Case Endings: Akkusa A1 Slot"
   },
   "subtitle_i18n": {
-    "en": "Tier 1 - slot substitution - Master accusative case endings "
+    "en": "Tier 1 - slot substitution - Practice accusative case ending"
   },
   "contentId": "de:drill:case_endings_akkusativ_a1_tier1_slot-substitution",
-  "contentHash": "f43caa75b347855f496c60cecea2a9affbbb47b659f66a7e4a6bdf63ab0d0815",
-  "revisionId": "f43caa75b347"
+  "contentHash": "4b1ae6a92bb5d0a9e7a58311d705efc894df86fa3d931f3fe10c87cae35ebdc4",
+  "revisionId": "4b1ae6a92bb5"
 }

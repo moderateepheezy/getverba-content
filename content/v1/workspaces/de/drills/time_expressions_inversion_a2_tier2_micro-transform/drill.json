@@ -8,7 +8,7 @@
   "level": "A2",
   "title": "Time Expressions & Inversion: A2 (Tier 2) - Transform",
   "shortTitle": "Time Expression A2 Transform",
-  "subtitle": "Tier 2 - micro transform - Master verb inversion with time e",
+  "subtitle": "Tier 2 - micro transform - Practice verb inversion with time",
   "estimatedMinutes": 4,
   "mechanicId": "time_expressions_inversion",
   "mechanicLabel": "Time Expressions & Inversion",
@@ -344,7 +344,7 @@
     "source": "template",
     "sourceRef": "mechanics/time_expressions_inversion",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.370Z"
+    "generatedAt": "2026-01-04T06:49:17.700Z"
   },
   "review": {
     "status": "needs_review"
@@ -356,9 +356,9 @@
     "en": "Time Expression A2 Transform"
   },
   "subtitle_i18n": {
-    "en": "Tier 2 - micro transform - Master verb inversion with time e"
+    "en": "Tier 2 - micro transform - Practice verb inversion with time"
   },
   "contentId": "de:drill:time_expressions_inversion_a2_tier2_micro-transform",
-  "contentHash": "191fa569eba72406fcc192aa661e0756e12fcefad3fa7b9ef1bb1d1cd4a80eeb",
-  "revisionId": "191fa569eba7"
+  "contentHash": "9b9456faf1299b323ba4db6a2680e02142f3510788b3743ddbe9f9242c15c8bb",
+  "revisionId": "9b9456faf129"
 }

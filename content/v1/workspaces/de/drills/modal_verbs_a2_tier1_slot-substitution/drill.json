@@ -8,7 +8,7 @@
   "level": "A2",
   "title": "Modal Verbs: A2 (Tier 1) - Slot",
   "shortTitle": "Modal Verbs A2 Slot",
-  "subtitle": "Tier 1 - slot substitution - Master modal verb patterns (kön",
+  "subtitle": "Tier 1 - slot substitution - Practice modal verbs (können, m",
   "estimatedMinutes": 3,
   "mechanicId": "modal_verbs",
   "mechanicLabel": "Modal Verbs",
@@ -304,7 +304,7 @@
     "source": "template",
     "sourceRef": "mechanics/modal_verbs",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.352Z"
+    "generatedAt": "2026-01-04T06:49:17.660Z"
   },
   "review": {
     "status": "needs_review"
@@ -316,9 +316,9 @@
     "en": "Modal Verbs A2 Slot"
   },
   "subtitle_i18n": {
-    "en": "Tier 1 - slot substitution - Master modal verb patterns (kön"
+    "en": "Tier 1 - slot substitution - Practice modal verbs (können, m"
   },
   "contentId": "de:drill:modal_verbs_a2_tier1_slot-substitution",
-  "contentHash": "1186a792a001ff21e7ae6bb3ea9a07fa40a67b1a74766f30b37027ef7cd39d22",
-  "revisionId": "1186a792a001"
+  "contentHash": "42c8142209416bb1e7dc1477370229cae748c41158582b1be5588f142f705dda",
+  "revisionId": "42c814220941"
 }

@@ -8,7 +8,7 @@
   "level": "A2",
   "title": "Modal Verbs: A2 (Tier 1) - Pattern",
   "shortTitle": "Modal Verbs A2 Pattern",
-  "subtitle": "Tier 1 - pattern switch - Master modal verb patterns (können",
+  "subtitle": "Tier 1 - pattern switch - Practice modal verbs (können, müss",
   "estimatedMinutes": 3,
   "mechanicId": "modal_verbs",
   "mechanicLabel": "Modal Verbs",
@@ -292,7 +292,7 @@
     "source": "template",
     "sourceRef": "mechanics/modal_verbs",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.352Z"
+    "generatedAt": "2026-01-04T06:49:17.660Z"
   },
   "review": {
     "status": "needs_review"
@@ -304,9 +304,9 @@
     "en": "Modal Verbs A2 Pattern"
   },
   "subtitle_i18n": {
-    "en": "Tier 1 - pattern switch - Master modal verb patterns (können"
+    "en": "Tier 1 - pattern switch - Practice modal verbs (können, müss"
   },
   "contentId": "de:drill:modal_verbs_a2_tier1_pattern-switch",
-  "contentHash": "c5603a7397faa676c967e2ce5ff51326c32ffbf3ac6d4fb9cd1e50756c6111a4",
-  "revisionId": "c5603a7397fa"
+  "contentHash": "1fa531efdb996b5120039b8aaac5beb79a7f7cb738dda151aa1b027bf9e83aec",
+  "revisionId": "1fa531efdb99"
 }

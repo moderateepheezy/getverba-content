@@ -1,0 +1,540 @@
+{
+  "schemaVersion": 1,
+  "id": "modal_verbs_a1_tier4_slot-substitution",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A1",
+  "title": "Modal Verbs: A1 (Tier 4) - Slot",
+  "shortTitle": "Modal Verbs A1 Slot",
+  "subtitle": "Tier 4 - slot substitution - Practice modal verbs (können, m",
+  "estimatedMinutes": 5,
+  "mechanicId": "modal_verbs",
+  "mechanicLabel": "Modal Verbs",
+  "loopType": "slot_substitution",
+  "difficultyTier": 4,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier",
+    "time"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "step-1",
+        "title": "Step 1",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002",
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Step 1"
+        }
+      },
+      {
+        "id": "step-2",
+        "title": "Step 2",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006",
+          "prompt-007",
+          "prompt-008"
+        ],
+        "title_i18n": {
+          "en": "Step 2"
+        }
+      },
+      {
+        "id": "step-3",
+        "title": "Step 3",
+        "promptIds": [
+          "prompt-009",
+          "prompt-010",
+          "prompt-011",
+          "prompt-012"
+        ],
+        "title_i18n": {
+          "en": "Step 3"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "heute will Sie in der Stadt nach Hause lernen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute will Sie in der Stadt nach Hause lernen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "will"
+        ],
+        "object": [
+          "nach Hause"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "in der Stadt"
+        ],
+        "infinitive": [
+          "lernen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier4/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "nächste Woche möchte Sie dort sehen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "nächste Woche möchte Sie dort sehen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "möchte"
+        ],
+        "time": [
+          "nächste Woche"
+        ],
+        "location": [
+          "dort"
+        ],
+        "infinitive": [
+          "sehen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier4/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "am Wochenende soll ich hier ins Kino trinken.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Wochenende soll ich hier ins Kino trinken.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "soll"
+        ],
+        "object": [
+          "ins Kino"
+        ],
+        "time": [
+          "am Wochenende"
+        ],
+        "location": [
+          "hier"
+        ],
+        "infinitive": [
+          "trinken"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier4/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "am Wochenende muss ich im Büro kaufen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Wochenende muss ich im Büro kaufen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "muss"
+        ],
+        "time": [
+          "am Wochenende"
+        ],
+        "location": [
+          "im Büro"
+        ],
+        "infinitive": [
+          "kaufen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier4/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "später müsst ihr hier einen spielen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später müsst ihr hier einen spielen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "müsst"
+        ],
+        "object": [
+          "einen"
+        ],
+        "time": [
+          "später"
+        ],
+        "location": [
+          "hier"
+        ],
+        "infinitive": [
+          "spielen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier4/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "am Wochenende könnt ihr zu Hause kommen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Wochenende könnt ihr zu Hause kommen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "könnt"
+        ],
+        "time": [
+          "am Wochenende"
+        ],
+        "location": [
+          "zu Hause"
+        ],
+        "infinitive": [
+          "kommen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier4/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "morgen musst du in der Stadt zur Arbeit gehen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "morgen musst du in der Stadt zur Arbeit gehen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "musst"
+        ],
+        "object": [
+          "zur Arbeit"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "in der Stadt"
+        ],
+        "infinitive": [
+          "gehen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier4/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "morgen sollst du dort arbeiten.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "morgen sollst du dort arbeiten.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "sollst"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "dort"
+        ],
+        "infinitive": [
+          "arbeiten"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier4/prompt-008.mp3"
+    },
+    {
+      "id": "prompt-009",
+      "text": "am Wochenende müssen wir bei Freunden zur Arbeit hören.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Wochenende müssen wir bei Freunden zur Arbeit hören.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "müssen"
+        ],
+        "object": [
+          "zur Arbeit"
+        ],
+        "time": [
+          "am Wochenende"
+        ],
+        "location": [
+          "bei Freunden"
+        ],
+        "infinitive": [
+          "hören"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier4/prompt-009.mp3"
+    },
+    {
+      "id": "prompt-010",
+      "text": "bald sollen wir bei Freunden essen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "bald sollen wir bei Freunden essen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "sollen"
+        ],
+        "time": [
+          "bald"
+        ],
+        "location": [
+          "bei Freunden"
+        ],
+        "infinitive": [
+          "essen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier4/prompt-010.mp3"
+    },
+    {
+      "id": "prompt-011",
+      "text": "am Wochenende muss er in der Stadt nach Hause lernen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Wochenende muss er in der Stadt nach Hause lernen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "muss"
+        ],
+        "object": [
+          "nach Hause"
+        ],
+        "time": [
+          "am Wochenende"
+        ],
+        "location": [
+          "in der Stadt"
+        ],
+        "infinitive": [
+          "lernen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier4/prompt-011.mp3"
+    },
+    {
+      "id": "prompt-012",
+      "text": "nächste Woche muss er zu Hause sehen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "nächste Woche muss er zu Hause sehen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "muss"
+        ],
+        "time": [
+          "nächste Woche"
+        ],
+        "location": [
+          "zu Hause"
+        ],
+        "infinitive": [
+          "sehen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_A1_tier4/prompt-012.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "modal_verbs",
+    "loopType": "slot_substitution",
+    "targetStructures": [
+      "modal_verb_infinitive",
+      "modal_verb_requests",
+      "modal_verb_ability"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "will",
+        "möchte",
+        "soll",
+        "muss",
+        "müsst",
+        "könnt",
+        "musst",
+        "sollst",
+        "müssen",
+        "sollen"
+      ],
+      "subjects": [
+        "Sie",
+        "Ich",
+        "Ihr",
+        "Du",
+        "Wir",
+        "Er"
+      ],
+      "patterns": [
+        "modal_verb_infinitive",
+        "modal_verb_requests",
+        "modal_verb_ability"
+      ]
+    },
+    "difficultyTier": 4,
+    "recommendedReps": 4,
+    "estPromptCount": 12,
+    "timeboxMinutes": 5,
+    "qualitySignals": {
+      "tokenHitsCount": 12,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 10,
+      "uniqueSubjectCount": 6,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/modal_verbs",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-04T06:49:17.657Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "title_i18n": {
+    "en": "Modal Verbs: A1 (Tier 4) - Slot"
+  },
+  "shortTitle_i18n": {
+    "en": "Modal Verbs A1 Slot"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 4 - slot substitution - Practice modal verbs (können, m"
+  },
+  "contentId": "de:drill:modal_verbs_a1_tier4_slot-substitution",
+  "contentHash": "4e8e9fc8d3a88394b9bdc5d8ac818a116aa1578e379aff0b6cbb64f4d3d41b0d",
+  "revisionId": "4e8e9fc8d3a8"
+}

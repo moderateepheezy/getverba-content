@@ -1,0 +1,571 @@
+{
+  "schemaVersion": 1,
+  "id": "modal_verbs_b1_tier4_contrast-pairs",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "B1",
+  "title": "Modal Verbs: B1 (Tier 4) - Pairs",
+  "shortTitle": "Modal Verbs B1 Pairs",
+  "subtitle": "Tier 4 - contrast pairs - Practice modal verbs (können, müss",
+  "estimatedMinutes": 5,
+  "mechanicId": "modal_verbs",
+  "mechanicLabel": "Modal Verbs",
+  "loopType": "contrast_pairs",
+  "difficultyTier": 4,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier",
+    "time"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "pair-1",
+        "title": "Pair 1",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Pair 1"
+        }
+      },
+      {
+        "id": "pair-2",
+        "title": "Pair 2",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Pair 2"
+        }
+      },
+      {
+        "id": "pair-3",
+        "title": "Pair 3",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006"
+        ],
+        "title_i18n": {
+          "en": "Pair 3"
+        }
+      },
+      {
+        "id": "pair-4",
+        "title": "Pair 4",
+        "promptIds": [
+          "prompt-007",
+          "prompt-008"
+        ],
+        "title_i18n": {
+          "en": "Pair 4"
+        }
+      },
+      {
+        "id": "pair-5",
+        "title": "Pair 5",
+        "promptIds": [
+          "prompt-009",
+          "prompt-010"
+        ],
+        "title_i18n": {
+          "en": "Pair 5"
+        }
+      },
+      {
+        "id": "pair-6",
+        "title": "Pair 6",
+        "promptIds": [
+          "prompt-011",
+          "prompt-012"
+        ],
+        "title_i18n": {
+          "en": "Pair 6"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "am Wochenende möchtet ihr zu Hause das sehen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Wochenende möchtet ihr zu Hause das sehen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "möchtet"
+        ],
+        "object": [
+          "das"
+        ],
+        "time": [
+          "am Wochenende"
+        ],
+        "location": [
+          "zu Hause"
+        ],
+        "infinitive": [
+          "sehen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_B1_tier4/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "jetzt wollt ihr hier Deutsch machen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jetzt wollt ihr hier Deutsch machen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "wollt"
+        ],
+        "object": [
+          "Deutsch"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "hier"
+        ],
+        "infinitive": [
+          "machen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_B1_tier4/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "heute müssen wir zu Hause kaufen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute müssen wir zu Hause kaufen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "müssen"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "zu Hause"
+        ],
+        "infinitive": [
+          "kaufen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_B1_tier4/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "morgen wollen wir im Büro essen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "morgen wollen wir im Büro essen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "wollen"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "im Büro"
+        ],
+        "infinitive": [
+          "essen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_B1_tier4/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "heute will er dort die kommen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute will er dort die kommen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "will"
+        ],
+        "object": [
+          "die"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "dort"
+        ],
+        "infinitive": [
+          "kommen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_B1_tier4/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "später möchte er hier den arbeiten.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später möchte er hier den arbeiten.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "möchte"
+        ],
+        "object": [
+          "den"
+        ],
+        "time": [
+          "später"
+        ],
+        "location": [
+          "hier"
+        ],
+        "infinitive": [
+          "arbeiten"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_B1_tier4/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "bald willst du zu Hause zur Arbeit lernen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "bald willst du zu Hause zur Arbeit lernen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "willst"
+        ],
+        "object": [
+          "zur Arbeit"
+        ],
+        "time": [
+          "bald"
+        ],
+        "location": [
+          "zu Hause"
+        ],
+        "infinitive": [
+          "lernen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_B1_tier4/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "nächste Woche musst du im Büro eine gehen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "nächste Woche musst du im Büro eine gehen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "musst"
+        ],
+        "object": [
+          "eine"
+        ],
+        "time": [
+          "nächste Woche"
+        ],
+        "location": [
+          "im Büro"
+        ],
+        "infinitive": [
+          "gehen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_B1_tier4/prompt-008.mp3"
+    },
+    {
+      "id": "prompt-009",
+      "text": "bald soll ich im Büro spielen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "bald soll ich im Büro spielen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "soll"
+        ],
+        "time": [
+          "bald"
+        ],
+        "location": [
+          "im Büro"
+        ],
+        "infinitive": [
+          "spielen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_B1_tier4/prompt-009.mp3"
+    },
+    {
+      "id": "prompt-010",
+      "text": "später möchte ich hier schlafen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später möchte ich hier schlafen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "möchte"
+        ],
+        "time": [
+          "später"
+        ],
+        "location": [
+          "hier"
+        ],
+        "infinitive": [
+          "schlafen"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_B1_tier4/prompt-010.mp3"
+    },
+    {
+      "id": "prompt-011",
+      "text": "jetzt muss Sie zu Hause den hören.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jetzt muss Sie zu Hause den hören.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "muss"
+        ],
+        "object": [
+          "den"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "zu Hause"
+        ],
+        "infinitive": [
+          "hören"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_B1_tier4/prompt-011.mp3"
+    },
+    {
+      "id": "prompt-012",
+      "text": "morgen muss Sie bei Freunden trinken.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "morgen muss Sie bei Freunden trinken.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "muss"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "bei Freunden"
+        ],
+        "infinitive": [
+          "trinken"
+        ]
+      },
+      "audioUrl": "/v1/audio/modal_verbs_B1_tier4/prompt-012.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "modal_verbs",
+    "loopType": "contrast_pairs",
+    "targetStructures": [
+      "modal_verb_infinitive",
+      "modal_verb_requests",
+      "modal_verb_ability"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "möchtet",
+        "wollt",
+        "müssen",
+        "wollen",
+        "will",
+        "möchte",
+        "willst",
+        "musst",
+        "soll",
+        "muss"
+      ],
+      "subjects": [
+        "Ihr",
+        "Wir",
+        "Er",
+        "Du",
+        "Ich",
+        "Sie"
+      ],
+      "patterns": [
+        "modal_verb_infinitive",
+        "modal_verb_requests",
+        "modal_verb_ability"
+      ]
+    },
+    "difficultyTier": 4,
+    "recommendedReps": 4,
+    "estPromptCount": 12,
+    "timeboxMinutes": 5,
+    "qualitySignals": {
+      "tokenHitsCount": 12,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 10,
+      "uniqueSubjectCount": 6,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/modal_verbs",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-04T06:49:17.667Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "title_i18n": {
+    "en": "Modal Verbs: B1 (Tier 4) - Pairs"
+  },
+  "shortTitle_i18n": {
+    "en": "Modal Verbs B1 Pairs"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 4 - contrast pairs - Practice modal verbs (können, müss"
+  },
+  "contentId": "de:drill:modal_verbs_b1_tier4_contrast-pairs",
+  "contentHash": "f7a84f54b82bb8af6373358a5635a1dd35e0f2f01b3b01233a950f5e6fea6303",
+  "revisionId": "f7a84f54b82b"
+}

@@ -1,0 +1,507 @@
+{
+  "schemaVersion": 1,
+  "id": "time_expressions_inversion_a1_tier4_micro-transform",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A1",
+  "title": "Time Expressions & Inversion: A1 (Tier 4) - Transform",
+  "shortTitle": "Time Expression A1 Transform",
+  "subtitle": "Tier 4 - micro transform - Practice verb inversion with time",
+  "estimatedMinutes": 5,
+  "mechanicId": "time_expressions_inversion",
+  "mechanicLabel": "Time Expressions & Inversion",
+  "loopType": "micro_transform",
+  "difficultyTier": 4,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier",
+    "time"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "step-1",
+        "title": "Step 1",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002",
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Step 1"
+        }
+      },
+      {
+        "id": "step-2",
+        "title": "Step 2",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006",
+          "prompt-007",
+          "prompt-008"
+        ],
+        "title_i18n": {
+          "en": "Step 2"
+        }
+      },
+      {
+        "id": "step-3",
+        "title": "Step 3",
+        "promptIds": [
+          "prompt-009",
+          "prompt-010",
+          "prompt-011",
+          "prompt-012"
+        ],
+        "title_i18n": {
+          "en": "Step 3"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "heute Abend machst du nach Hause Musik.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute Abend machst du nach Hause Musik.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "du"
+        ],
+        "verb": [
+          "machst"
+        ],
+        "object": [
+          "Musik"
+        ],
+        "time": [
+          "heute Abend"
+        ],
+        "location": [
+          "nach Hause"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier4/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "jetzt geht er in die Stadt.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jetzt geht er in die Stadt.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "er"
+        ],
+        "verb": [
+          "geht"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "in die Stadt"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier4/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "gestern trinkt ihr zum Park Essen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "gestern trinkt ihr zum Park Essen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "ihr"
+        ],
+        "verb": [
+          "trinkt"
+        ],
+        "object": [
+          "Essen"
+        ],
+        "time": [
+          "gestern"
+        ],
+        "location": [
+          "zum Park"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier4/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "jetzt komme ich zum Park.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jetzt komme ich zum Park.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "ich"
+        ],
+        "verb": [
+          "komme"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "zum Park"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier4/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "morgen Vormittag arbeitet es zum Park Musik.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "morgen Vormittag arbeitet es zum Park Musik.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "es"
+        ],
+        "verb": [
+          "arbeitet"
+        ],
+        "object": [
+          "Musik"
+        ],
+        "time": [
+          "morgen Vormittag"
+        ],
+        "location": [
+          "zum Park"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier4/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "morgen isst sie ins Büro.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "morgen isst sie ins Büro.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "sie"
+        ],
+        "verb": [
+          "isst"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "ins Büro"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier4/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "morgen Vormittag sehen wir in den Urlaub Essen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "morgen Vormittag sehen wir in den Urlaub Essen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "wir"
+        ],
+        "verb": [
+          "sehen"
+        ],
+        "object": [
+          "Essen"
+        ],
+        "time": [
+          "morgen Vormittag"
+        ],
+        "location": [
+          "in den Urlaub"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier4/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "später lernt man ins Kino.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später lernt man ins Kino.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "man"
+        ],
+        "verb": [
+          "lernt"
+        ],
+        "time": [
+          "später"
+        ],
+        "location": [
+          "ins Kino"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier4/prompt-008.mp3"
+    },
+    {
+      "id": "prompt-009",
+      "text": "gestern hörst du in die Stadt Essen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "gestern hörst du in die Stadt Essen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "du"
+        ],
+        "verb": [
+          "hörst"
+        ],
+        "object": [
+          "Essen"
+        ],
+        "time": [
+          "gestern"
+        ],
+        "location": [
+          "in die Stadt"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier4/prompt-009.mp3"
+    },
+    {
+      "id": "prompt-010",
+      "text": "morgen Vormittag macht er zum Park.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "morgen Vormittag macht er zum Park.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "er"
+        ],
+        "verb": [
+          "macht"
+        ],
+        "time": [
+          "morgen Vormittag"
+        ],
+        "location": [
+          "zum Park"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier4/prompt-010.mp3"
+    },
+    {
+      "id": "prompt-011",
+      "text": "jetzt geht ihr in die Stadt Essen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jetzt geht ihr in die Stadt Essen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "ihr"
+        ],
+        "verb": [
+          "geht"
+        ],
+        "object": [
+          "Essen"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "in die Stadt"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier4/prompt-011.mp3"
+    },
+    {
+      "id": "prompt-012",
+      "text": "jetzt trinke ich zur Arbeit.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jetzt trinke ich zur Arbeit.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "ich"
+        ],
+        "verb": [
+          "trinke"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "zur Arbeit"
+        ]
+      },
+      "audioUrl": "/v1/audio/time_expressions_inversion_A1_tier4/prompt-012.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "time_expressions_inversion",
+    "loopType": "micro_transform",
+    "targetStructures": [
+      "time_verb_subject",
+      "inversion_rule",
+      "temporal_adverbs"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "machst",
+        "geht",
+        "trinkt",
+        "komme",
+        "arbeitet",
+        "isst",
+        "sehen",
+        "lernt",
+        "hörst",
+        "macht",
+        "trinke"
+      ],
+      "subjects": [
+        "du",
+        "er",
+        "ihr",
+        "ich",
+        "es",
+        "sie",
+        "wir",
+        "man"
+      ],
+      "patterns": [
+        "time_verb_subject",
+        "inversion_rule",
+        "temporal_adverbs"
+      ]
+    },
+    "difficultyTier": 4,
+    "recommendedReps": 4,
+    "estPromptCount": 12,
+    "timeboxMinutes": 5,
+    "qualitySignals": {
+      "tokenHitsCount": 11,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 11,
+      "uniqueSubjectCount": 8,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/time_expressions_inversion",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-04T06:49:17.697Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "title_i18n": {
+    "en": "Time Expressions & Inversion: A1 (Tier 4) - Transform"
+  },
+  "shortTitle_i18n": {
+    "en": "Time Expression A1 Transform"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 4 - micro transform - Practice verb inversion with time"
+  },
+  "contentId": "de:drill:time_expressions_inversion_a1_tier4_micro-transform",
+  "contentHash": "36acbea08cc6c5701061fdc001649732f1aee6c3afa46319f2695f08a4239344",
+  "revisionId": "36acbea08cc6"
+}

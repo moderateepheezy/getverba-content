@@ -1,0 +1,634 @@
+{
+  "schemaVersion": 1,
+  "id": "negation_a1_tier6_pattern-switch",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A1",
+  "title": "Negation: A1 (Tier 6) - Pattern",
+  "shortTitle": "Negation A1 Pattern",
+  "subtitle": "Tier 6 - pattern switch - Practice negation (nicht, kein, ke",
+  "estimatedMinutes": 5,
+  "mechanicId": "negation",
+  "mechanicLabel": "Negation",
+  "loopType": "pattern_switch",
+  "difficultyTier": 6,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier",
+    "time"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "pattern-1",
+        "title": "Pattern 1: Basic Forms",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Pattern 1: Basic Forms"
+        }
+      },
+      {
+        "id": "pattern-2",
+        "title": "Pattern 2: Extended Forms",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Pattern 2: Extended Forms"
+        }
+      },
+      {
+        "id": "pattern-3",
+        "title": "Pattern 3: Complex Forms",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006",
+          "prompt-007",
+          "prompt-008",
+          "prompt-009",
+          "prompt-010",
+          "prompt-011",
+          "prompt-012",
+          "prompt-013",
+          "prompt-014",
+          "prompt-015",
+          "prompt-016"
+        ],
+        "title_i18n": {
+          "en": "Pattern 3: Complex Forms"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "heute habet er zu Hause.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute habet er zu Hause.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "habet"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "zu Hause"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier6/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "am Abend gehe er in der Schule die Zeitung.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Abend gehe er in der Schule die Zeitung.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "gehe"
+        ],
+        "object": [
+          "die Zeitung"
+        ],
+        "time": [
+          "am Abend"
+        ],
+        "location": [
+          "in der Schule"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier6/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "heute bin wir im Kino.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute bin wir im Kino.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "bin"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "im Kino"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier6/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "am Abend gehe wir zu Hause.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Abend gehe wir zu Hause.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "gehe"
+        ],
+        "time": [
+          "am Abend"
+        ],
+        "location": [
+          "zu Hause"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier6/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "am Abend höret Sie in der Schule Tee keinen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Abend höret Sie in der Schule Tee.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "höret"
+        ],
+        "object": [
+          "Tee"
+        ],
+        "time": [
+          "am Abend"
+        ],
+        "location": [
+          "in der Schule"
+        ],
+        "modifier": [
+          "keinen"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier6/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "später sehet Sie zu Hause keine.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später sehet Sie zu Hause.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "sehet"
+        ],
+        "time": [
+          "später"
+        ],
+        "location": [
+          "zu Hause"
+        ],
+        "modifier": [
+          "keine"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier6/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "jetzt bin du zu Hause.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jetzt bin du zu Hause.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "bin"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "zu Hause"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier6/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "am Abend kommest du zu Hause Zeit.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Abend kommest du zu Hause Zeit.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "kommest"
+        ],
+        "object": [
+          "Zeit"
+        ],
+        "time": [
+          "am Abend"
+        ],
+        "location": [
+          "zu Hause"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier6/prompt-008.mp3"
+    },
+    {
+      "id": "prompt-009",
+      "text": "heute gehee ich zu Hause.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute gehee ich zu Hause.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "gehee"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "zu Hause"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier6/prompt-009.mp3"
+    },
+    {
+      "id": "prompt-010",
+      "text": "morgen habee ich dort den Film.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "morgen habee ich dort den Film.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "habee"
+        ],
+        "object": [
+          "den Film"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "dort"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier6/prompt-010.mp3"
+    },
+    {
+      "id": "prompt-011",
+      "text": "morgen bin ihr dort die Zeitung.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "morgen bin ihr dort die Zeitung.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "bin"
+        ],
+        "object": [
+          "die Zeitung"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "dort"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier6/prompt-011.mp3"
+    },
+    {
+      "id": "prompt-012",
+      "text": "am Abend bin ihr hier.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Abend bin ihr hier.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "bin"
+        ],
+        "time": [
+          "am Abend"
+        ],
+        "location": [
+          "hier"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier6/prompt-012.mp3"
+    },
+    {
+      "id": "prompt-013",
+      "text": "jetzt esset er zu Hause nicht.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jetzt esset er zu Hause.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "esset"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "zu Hause"
+        ],
+        "modifier": [
+          "nicht"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier6/prompt-013.mp3"
+    },
+    {
+      "id": "prompt-014",
+      "text": "morgen habe er dort Geld.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "morgen habe er dort Geld.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "habe"
+        ],
+        "object": [
+          "Geld"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "dort"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier6/prompt-014.mp3"
+    },
+    {
+      "id": "prompt-015",
+      "text": "am Abend sehe wir zu Hause keinem.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Abend sehe wir zu Hause.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "sehe"
+        ],
+        "time": [
+          "am Abend"
+        ],
+        "location": [
+          "zu Hause"
+        ],
+        "modifier": [
+          "keinem"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier6/prompt-015.mp3"
+    },
+    {
+      "id": "prompt-016",
+      "text": "heute mache wir im Büro.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute mache wir im Büro.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "mache"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "im Büro"
+        ]
+      },
+      "audioUrl": "/v1/audio/negation_A1_tier6/prompt-016.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "negation",
+    "loopType": "pattern_switch",
+    "targetStructures": [
+      "nicht_placement",
+      "kein_keine_keinen",
+      "affirmative_to_negative"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "habet",
+        "gehe",
+        "bin",
+        "höret",
+        "sehet",
+        "kommest",
+        "gehee",
+        "habee",
+        "esset",
+        "habe",
+        "sehe",
+        "mache"
+      ],
+      "subjects": [
+        "Er",
+        "Wir",
+        "Sie",
+        "Du",
+        "Ich",
+        "Ihr"
+      ],
+      "patterns": [
+        "nicht_placement",
+        "kein_keine_keinen",
+        "affirmative_to_negative"
+      ]
+    },
+    "difficultyTier": 6,
+    "recommendedReps": 4,
+    "estPromptCount": 16,
+    "timeboxMinutes": 5,
+    "qualitySignals": {
+      "tokenHitsCount": 15,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 12,
+      "uniqueSubjectCount": 6,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/negation",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-04T06:49:17.671Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "title_i18n": {
+    "en": "Negation: A1 (Tier 6) - Pattern"
+  },
+  "shortTitle_i18n": {
+    "en": "Negation A1 Pattern"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 6 - pattern switch - Practice negation (nicht, kein, ke"
+  },
+  "contentId": "de:drill:negation_a1_tier6_pattern-switch",
+  "contentHash": "d2b10e7a5666fbfcc8324e9197f974433dc1be12971bb5eac8b85dfc5e695833",
+  "revisionId": "d2b10e7a5666"
+}

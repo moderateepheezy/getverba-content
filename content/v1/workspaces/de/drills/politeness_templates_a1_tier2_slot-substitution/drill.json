@@ -8,7 +8,7 @@
   "level": "A1",
   "title": "Politeness Templates: A1 (Tier 2) - Slot",
   "shortTitle": "Politeness Templates A1 Slot",
-  "subtitle": "Tier 2 - slot substitution - Master formal politeness formul",
+  "subtitle": "Tier 2 - slot substitution - Practice formal politeness form",
   "estimatedMinutes": 4,
   "mechanicId": "politeness_templates",
   "mechanicLabel": "Politeness Templates",
@@ -326,7 +326,7 @@
     "source": "template",
     "sourceRef": "mechanics/politeness_templates",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.360Z"
+    "generatedAt": "2026-01-04T06:49:17.677Z"
   },
   "review": {
     "status": "needs_review"
@@ -338,9 +338,9 @@
     "en": "Politeness Templates A1 Slot"
   },
   "subtitle_i18n": {
-    "en": "Tier 2 - slot substitution - Master formal politeness formul"
+    "en": "Tier 2 - slot substitution - Practice formal politeness form"
   },
   "contentId": "de:drill:politeness_templates_a1_tier2_slot-substitution",
-  "contentHash": "5d91ac4742657491edc459e642e56955b3cef98e4e3bb2efa937a9171527d0b3",
-  "revisionId": "5d91ac474265"
+  "contentHash": "242172f91b5cf27b41937870fdddb20b9a5d894950bc3123f61ac3087bfe5794",
+  "revisionId": "242172f91b5c"
 }

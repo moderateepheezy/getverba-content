@@ -8,7 +8,7 @@
   "level": "A2",
   "title": "Time Expressions & Inversion: A2 (Tier 2) - Trap",
   "shortTitle": "Time Expressions & I A2 Trap",
-  "subtitle": "Tier 2 - error trap - Master verb inversion with time expres",
+  "subtitle": "Tier 2 - error trap - Practice verb inversion with time expr",
   "estimatedMinutes": 4,
   "mechanicId": "time_expressions_inversion",
   "mechanicLabel": "Time Expressions & Inversion",
@@ -352,7 +352,7 @@
     "source": "template",
     "sourceRef": "mechanics/time_expressions_inversion",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.370Z"
+    "generatedAt": "2026-01-04T06:49:17.700Z"
   },
   "review": {
     "status": "needs_review"
@@ -364,9 +364,9 @@
     "en": "Time Expressions & I A2 Trap"
   },
   "subtitle_i18n": {
-    "en": "Tier 2 - error trap - Master verb inversion with time expres"
+    "en": "Tier 2 - error trap - Practice verb inversion with time expr"
   },
   "contentId": "de:drill:time_expressions_inversion_a2_tier2_error-trap",
-  "contentHash": "f5283d6385f32e2fafe7683772c1424899304b13ea7e285ea9fc787dbc0ac3ce",
-  "revisionId": "f5283d6385f3"
+  "contentHash": "c84ba1ab6abad50d5527f480c31fe23d1cadf73432b48682f05c2c8ebf6493e1",
+  "revisionId": "c84ba1ab6aba"
 }

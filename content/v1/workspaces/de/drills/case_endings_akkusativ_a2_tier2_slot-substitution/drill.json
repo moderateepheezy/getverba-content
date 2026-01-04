@@ -8,7 +8,7 @@
   "level": "A2",
   "title": "Case Endings: Akkusativ: A2 (Tier 2) - Slot",
   "shortTitle": "Case Endings: Akkusa A2 Slot",
-  "subtitle": "Tier 2 - slot substitution - Master accusative case endings ",
+  "subtitle": "Tier 2 - slot substitution - Practice accusative case ending",
   "estimatedMinutes": 4,
   "mechanicId": "case_endings_akkusativ",
   "mechanicLabel": "Case Endings: Akkusativ",
@@ -341,7 +341,7 @@
     "source": "template",
     "sourceRef": "mechanics/case_endings_akkusativ",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.343Z"
+    "generatedAt": "2026-01-04T06:49:17.643Z"
   },
   "review": {
     "status": "needs_review"
@@ -353,9 +353,9 @@
     "en": "Case Endings: Akkusa A2 Slot"
   },
   "subtitle_i18n": {
-    "en": "Tier 2 - slot substitution - Master accusative case endings "
+    "en": "Tier 2 - slot substitution - Practice accusative case ending"
   },
   "contentId": "de:drill:case_endings_akkusativ_a2_tier2_slot-substitution",
-  "contentHash": "68087ea18214b2b7aa12f57d370ad611cc18698ae3abadf813cef9d0fb00f3bc",
-  "revisionId": "68087ea18214"
+  "contentHash": "c64583547c19d370250c9d1bccaf87ecdb5eb4a08157bfbf765cf8c3e340de07",
+  "revisionId": "c64583547c19"
 }

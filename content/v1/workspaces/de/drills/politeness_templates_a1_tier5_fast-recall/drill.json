@@ -1,0 +1,568 @@
+{
+  "schemaVersion": 1,
+  "id": "politeness_templates_a1_tier5_fast-recall",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A1",
+  "title": "Politeness Templates: A1 (Tier 5) - Recall",
+  "shortTitle": "Politeness Templat A1 Recall",
+  "subtitle": "Tier 5 - fast recall - Practice formal politeness formulas (",
+  "estimatedMinutes": 5,
+  "mechanicId": "politeness_templates",
+  "mechanicLabel": "Politeness Templates",
+  "loopType": "fast_recall",
+  "difficultyTier": 5,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier",
+    "time"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "step-1",
+        "title": "Step 1",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002",
+          "prompt-003",
+          "prompt-004",
+          "prompt-005"
+        ],
+        "title_i18n": {
+          "en": "Step 1"
+        }
+      },
+      {
+        "id": "step-2",
+        "title": "Step 2",
+        "promptIds": [
+          "prompt-006",
+          "prompt-007",
+          "prompt-008",
+          "prompt-009",
+          "prompt-010"
+        ],
+        "title_i18n": {
+          "en": "Step 2"
+        }
+      },
+      {
+        "id": "step-3",
+        "title": "Step 3",
+        "promptIds": [
+          "prompt-011",
+          "prompt-012",
+          "prompt-013",
+          "prompt-014"
+        ],
+        "title_i18n": {
+          "en": "Step 3"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "Könnten Sie mir da jetzt helfen?",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Könnten Sie mir da jetzt helfen?",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Könnten Sie"
+        ],
+        "verb": [
+          "helfen"
+        ],
+        "object": [
+          "mir"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "da"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier5/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "Würden Sie uns da heute zeigen?",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Würden Sie uns da heute zeigen?",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Würden Sie"
+        ],
+        "verb": [
+          "zeigen"
+        ],
+        "object": [
+          "uns"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "da"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier5/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "Dürfte ich einen hier heute bringen?",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Dürfte ich einen hier heute bringen?",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Dürfte ich"
+        ],
+        "verb": [
+          "bringen"
+        ],
+        "object": [
+          "einen"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "hier"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier5/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "Ich hätte gern die zum Bahnhof nächste Woche öffnen?",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich hätte gern die zum Bahnhof nächste Woche öffnen?",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ich hätte gern"
+        ],
+        "verb": [
+          "öffnen"
+        ],
+        "object": [
+          "die"
+        ],
+        "time": [
+          "nächste Woche"
+        ],
+        "location": [
+          "zum Bahnhof"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier5/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "Ich möchte in die Stadt am Montag machen?",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich möchte in die Stadt am Montag machen?",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ich möchte"
+        ],
+        "verb": [
+          "machen"
+        ],
+        "time": [
+          "am Montag"
+        ],
+        "location": [
+          "in die Stadt"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier5/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "Können Sie das in die Stadt am Montag geben?",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Können Sie das in die Stadt am Montag geben?",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Können Sie"
+        ],
+        "verb": [
+          "geben"
+        ],
+        "object": [
+          "das"
+        ],
+        "time": [
+          "am Montag"
+        ],
+        "location": [
+          "in die Stadt"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier5/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "Könnten Sie da morgen sagen?",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Könnten Sie da morgen sagen?",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Könnten Sie"
+        ],
+        "verb": [
+          "sagen"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "da"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier5/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "Würden Sie ihm in die Stadt heute schließen?",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Würden Sie ihm in die Stadt heute schließen?",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Würden Sie"
+        ],
+        "verb": [
+          "schließen"
+        ],
+        "object": [
+          "ihm"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "in die Stadt"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier5/prompt-008.mp3"
+    },
+    {
+      "id": "prompt-009",
+      "text": "Dürfte ich ihm in die Stadt heute helfen?",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Dürfte ich ihm in die Stadt heute helfen?",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Dürfte ich"
+        ],
+        "verb": [
+          "helfen"
+        ],
+        "object": [
+          "ihm"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "in die Stadt"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier5/prompt-009.mp3"
+    },
+    {
+      "id": "prompt-010",
+      "text": "Ich hätte gern hier nächste Woche zeigen?",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich hätte gern hier nächste Woche zeigen?",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ich hätte gern"
+        ],
+        "verb": [
+          "zeigen"
+        ],
+        "time": [
+          "nächste Woche"
+        ],
+        "location": [
+          "hier"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier5/prompt-010.mp3"
+    },
+    {
+      "id": "prompt-011",
+      "text": "Ich möchte hier jetzt bringen?",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Ich möchte hier jetzt bringen?",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ich möchte"
+        ],
+        "verb": [
+          "bringen"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "hier"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier5/prompt-011.mp3"
+    },
+    {
+      "id": "prompt-012",
+      "text": "Können Sie zum Bahnhof am Montag öffnen?",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Können Sie zum Bahnhof am Montag öffnen?",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Können Sie"
+        ],
+        "verb": [
+          "öffnen"
+        ],
+        "time": [
+          "am Montag"
+        ],
+        "location": [
+          "zum Bahnhof"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier5/prompt-012.mp3"
+    },
+    {
+      "id": "prompt-013",
+      "text": "Könnten Sie hier jetzt machen?",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Könnten Sie hier jetzt machen?",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Könnten Sie"
+        ],
+        "verb": [
+          "machen"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "hier"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier5/prompt-013.mp3"
+    },
+    {
+      "id": "prompt-014",
+      "text": "Würden Sie eine da nächste Woche geben?",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "Würden Sie eine da nächste Woche geben?",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Würden Sie"
+        ],
+        "verb": [
+          "geben"
+        ],
+        "object": [
+          "eine"
+        ],
+        "time": [
+          "nächste Woche"
+        ],
+        "location": [
+          "da"
+        ]
+      },
+      "audioUrl": "/v1/audio/politeness_templates_A1_tier5/prompt-014.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "politeness_templates",
+    "loopType": "fast_recall",
+    "targetStructures": [
+      "polite_requests",
+      "conditional_politeness",
+      "formal_greetings"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "helfen",
+        "zeigen",
+        "bringen",
+        "öffnen",
+        "machen",
+        "geben",
+        "sagen",
+        "schließen"
+      ],
+      "subjects": [
+        "Könnten Sie",
+        "Würden Sie",
+        "Dürfte ich",
+        "Ich hätte gern",
+        "Ich möchte",
+        "Können Sie"
+      ],
+      "patterns": [
+        "polite_requests",
+        "conditional_politeness",
+        "formal_greetings"
+      ]
+    },
+    "difficultyTier": 5,
+    "recommendedReps": 4,
+    "estPromptCount": 14,
+    "timeboxMinutes": 5,
+    "qualitySignals": {
+      "tokenHitsCount": 14,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 8,
+      "uniqueSubjectCount": 6,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/politeness_templates",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-04T06:49:17.679Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "title_i18n": {
+    "en": "Politeness Templates: A1 (Tier 5) - Recall"
+  },
+  "shortTitle_i18n": {
+    "en": "Politeness Templat A1 Recall"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 5 - fast recall - Practice formal politeness formulas ("
+  },
+  "contentId": "de:drill:politeness_templates_a1_tier5_fast-recall",
+  "contentHash": "878f680a0c3aa1e9eb664a26d2daba1a75eb91b47c24344a97492a445a7df7a1",
+  "revisionId": "878f680a0c3a"
+}

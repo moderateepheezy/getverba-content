@@ -1,0 +1,527 @@
+{
+  "schemaVersion": 1,
+  "id": "case_endings_akkusativ_b1_tier4_contrast-pairs",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "B1",
+  "title": "Case Endings: Akkusativ: B1 (Tier 4) - Pairs",
+  "shortTitle": "Case Endings: Akkus B1 Pairs",
+  "subtitle": "Tier 4 - contrast pairs - Practice accusative case endings (",
+  "estimatedMinutes": 5,
+  "mechanicId": "case_endings_akkusativ",
+  "mechanicLabel": "Case Endings: Akkusativ",
+  "loopType": "contrast_pairs",
+  "difficultyTier": 4,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier",
+    "time"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "pair-1",
+        "title": "Pair 1",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Pair 1"
+        }
+      },
+      {
+        "id": "pair-2",
+        "title": "Pair 2",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Pair 2"
+        }
+      },
+      {
+        "id": "pair-3",
+        "title": "Pair 3",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006"
+        ],
+        "title_i18n": {
+          "en": "Pair 3"
+        }
+      },
+      {
+        "id": "pair-4",
+        "title": "Pair 4",
+        "promptIds": [
+          "prompt-007",
+          "prompt-008"
+        ],
+        "title_i18n": {
+          "en": "Pair 4"
+        }
+      },
+      {
+        "id": "pair-5",
+        "title": "Pair 5",
+        "promptIds": [
+          "prompt-009",
+          "prompt-010"
+        ],
+        "title_i18n": {
+          "en": "Pair 5"
+        }
+      },
+      {
+        "id": "pair-6",
+        "title": "Pair 6",
+        "promptIds": [
+          "prompt-011",
+          "prompt-012"
+        ],
+        "title_i18n": {
+          "en": "Pair 6"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "morgen nehme ich zu Hause.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "morgen nehme ich zu Hause.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "nehme"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "zu Hause"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_B1_tier4/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "jetzt habee ich im Wohnzimmer.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jetzt habee ich im Wohnzimmer.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "habee"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "im Wohnzimmer"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_B1_tier4/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "am Morgen trinket er zu Hause die Milch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Morgen trinket er zu Hause die Milch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "trinket"
+        ],
+        "object": [
+          "die Milch"
+        ],
+        "time": [
+          "am Morgen"
+        ],
+        "location": [
+          "zu Hause"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_B1_tier4/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "heute habe er im Park.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute habe er im Park.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "habe"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "im Park"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_B1_tier4/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "morgen nehme wir im Park.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "morgen nehme wir im Park.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "nehme"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "im Park"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_B1_tier4/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "am Morgen kaufe wir im Supermarkt das Buch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Morgen kaufe wir im Supermarkt das Buch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "kaufe"
+        ],
+        "object": [
+          "das Buch"
+        ],
+        "time": [
+          "am Morgen"
+        ],
+        "location": [
+          "im Supermarkt"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_B1_tier4/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "heute sehet Sie im Wohnzimmer.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute sehet Sie im Wohnzimmer.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "sehet"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "im Wohnzimmer"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_B1_tier4/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "jetzt leset Sie im Wohnzimmer.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jetzt leset Sie im Wohnzimmer.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "leset"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "im Wohnzimmer"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_B1_tier4/prompt-008.mp3"
+    },
+    {
+      "id": "prompt-009",
+      "text": "heute machest du im Büro den Tisch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute machest du im Büro den Tisch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "machest"
+        ],
+        "object": [
+          "den Tisch"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "im Büro"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_B1_tier4/prompt-009.mp3"
+    },
+    {
+      "id": "prompt-010",
+      "text": "am Abend habest du im Wohnzimmer.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Abend habest du im Wohnzimmer.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "habest"
+        ],
+        "time": [
+          "am Abend"
+        ],
+        "location": [
+          "im Wohnzimmer"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_B1_tier4/prompt-010.mp3"
+    },
+    {
+      "id": "prompt-011",
+      "text": "jeden Tag trinkee ich in der Küche die Zeitung.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jeden Tag trinkee ich in der Küche die Zeitung.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "trinkee"
+        ],
+        "object": [
+          "die Zeitung"
+        ],
+        "time": [
+          "jeden Tag"
+        ],
+        "location": [
+          "in der Küche"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_B1_tier4/prompt-011.mp3"
+    },
+    {
+      "id": "prompt-012",
+      "text": "später essee ich im Park einen Apfel.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später essee ich im Park einen Apfel.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "essee"
+        ],
+        "object": [
+          "einen Apfel"
+        ],
+        "time": [
+          "später"
+        ],
+        "location": [
+          "im Park"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_B1_tier4/prompt-012.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "case_endings_akkusativ",
+    "loopType": "contrast_pairs",
+    "targetStructures": [
+      "akkusativ_articles",
+      "akkusativ_pronouns",
+      "direct_object_marking"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "nehme",
+        "habee",
+        "trinket",
+        "habe",
+        "kaufe",
+        "sehet",
+        "leset",
+        "machest",
+        "habest",
+        "trinkee",
+        "essee"
+      ],
+      "subjects": [
+        "Ich",
+        "Er",
+        "Wir",
+        "Sie",
+        "Du"
+      ],
+      "patterns": [
+        "akkusativ_articles",
+        "akkusativ_pronouns",
+        "direct_object_marking"
+      ]
+    },
+    "difficultyTier": 4,
+    "recommendedReps": 4,
+    "estPromptCount": 12,
+    "timeboxMinutes": 5,
+    "qualitySignals": {
+      "tokenHitsCount": 11,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 11,
+      "uniqueSubjectCount": 5,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/case_endings_akkusativ",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-04T06:49:17.651Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "title_i18n": {
+    "en": "Case Endings: Akkusativ: B1 (Tier 4) - Pairs"
+  },
+  "shortTitle_i18n": {
+    "en": "Case Endings: Akkus B1 Pairs"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 4 - contrast pairs - Practice accusative case endings ("
+  },
+  "contentId": "de:drill:case_endings_akkusativ_b1_tier4_contrast-pairs",
+  "contentHash": "64d4b1a3d1394d77c2acc8864d0b42a950a1cc3e0e3f61213a0b6a5f891004eb",
+  "revisionId": "64d4b1a3d139"
+}

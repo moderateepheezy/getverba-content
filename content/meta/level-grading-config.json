@@ -1,0 +1,34 @@
+{
+  "apiProvider": "custom",
+  "apiUrl": "",
+  "apiKey": "",
+  "cacheEnabled": true,
+  "accuracyThreshold": 0.98,
+  "validationRules": {
+    "A1": {
+      "maxHigherLevel": 0.05,
+      "maxLevel": "A2"
+    },
+    "A2": {
+      "maxHigherLevel": 0.10,
+      "maxLevel": "B1"
+    },
+    "B1": {
+      "maxHigherLevel": 0.15,
+      "maxLevel": "B2"
+    },
+    "B2": {
+      "maxHigherLevel": 0.20,
+      "maxLevel": "C1"
+    },
+    "C1": {
+      "maxHigherLevel": 0.25,
+      "maxLevel": "C2"
+    },
+    "C2": {
+      "maxHigherLevel": 0.30,
+      "maxLevel": "C2"
+    }
+  }
+}
+

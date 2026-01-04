@@ -1,0 +1,361 @@
+{
+  "schemaVersion": 1,
+  "id": "case_endings_akkusativ_b1_tier2_pattern-switch",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "B1",
+  "title": "Case Endings: Akkusativ: B1 (Tier 2) - Pattern",
+  "shortTitle": "Case Endings: Akk B1 Pattern",
+  "subtitle": "Tier 2 - pattern switch - Practice accusative case endings (",
+  "estimatedMinutes": 4,
+  "mechanicId": "case_endings_akkusativ",
+  "mechanicLabel": "Case Endings: Akkusativ",
+  "loopType": "pattern_switch",
+  "difficultyTier": 2,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier",
+    "time"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "pattern-1",
+        "title": "Pattern 1: Basic Forms",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002"
+        ],
+        "title_i18n": {
+          "en": "Pattern 1: Basic Forms"
+        }
+      },
+      {
+        "id": "pattern-2",
+        "title": "Pattern 2: Extended Forms",
+        "promptIds": [
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Pattern 2: Extended Forms"
+        }
+      },
+      {
+        "id": "pattern-3",
+        "title": "Pattern 3: Complex Forms",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006",
+          "prompt-007",
+          "prompt-008"
+        ],
+        "title_i18n": {
+          "en": "Pattern 3: Complex Forms"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "am Morgen machet Sie einen Apfel.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Morgen machet Sie einen Apfel.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "machet"
+        ],
+        "object": [
+          "einen Apfel"
+        ],
+        "time": [
+          "am Morgen"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_B1_tier2/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "heute habee ich die Zeitung.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute habee ich die Zeitung.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "habee"
+        ],
+        "object": [
+          "die Zeitung"
+        ],
+        "time": [
+          "heute"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_B1_tier2/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "später nehmet er das Brot.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später nehmet er das Brot.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "nehmet"
+        ],
+        "object": [
+          "das Brot"
+        ],
+        "time": [
+          "später"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_B1_tier2/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "heute kaufest du die Antwort.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute kaufest du die Antwort.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "kaufest"
+        ],
+        "object": [
+          "die Antwort"
+        ],
+        "time": [
+          "heute"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_B1_tier2/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "jeden Tag sehe wir den Bus.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jeden Tag sehe wir den Bus.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "sehe"
+        ],
+        "object": [
+          "den Bus"
+        ],
+        "time": [
+          "jeden Tag"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_B1_tier2/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "später leset Sie die Zeitung.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später leset Sie die Zeitung.",
+      "slotsChanged": [
+        "time",
+        "subject",
+        "verb",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "leset"
+        ],
+        "object": [
+          "die Zeitung"
+        ],
+        "time": [
+          "später"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_B1_tier2/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "morgen trinkee ich einen Apfel.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "morgen trinkee ich einen Apfel.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "object"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "trinkee"
+        ],
+        "object": [
+          "einen Apfel"
+        ],
+        "time": [
+          "morgen"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_B1_tier2/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "heute esset er den Tisch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute esset er den Tisch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "esset"
+        ],
+        "object": [
+          "den Tisch"
+        ],
+        "time": [
+          "heute"
+        ]
+      },
+      "audioUrl": "/v1/audio/case_endings_akkusativ_B1_tier2/prompt-008.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "case_endings_akkusativ",
+    "loopType": "pattern_switch",
+    "targetStructures": [
+      "akkusativ_articles",
+      "akkusativ_pronouns",
+      "direct_object_marking"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "machet",
+        "habee",
+        "nehmet",
+        "kaufest",
+        "sehe",
+        "leset",
+        "trinkee",
+        "esset"
+      ],
+      "subjects": [
+        "Sie",
+        "Ich",
+        "Er",
+        "Du",
+        "Wir"
+      ],
+      "patterns": [
+        "akkusativ_articles",
+        "akkusativ_pronouns",
+        "direct_object_marking"
+      ]
+    },
+    "difficultyTier": 2,
+    "recommendedReps": 3,
+    "estPromptCount": 8,
+    "timeboxMinutes": 4,
+    "qualitySignals": {
+      "tokenHitsCount": 8,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 8,
+      "uniqueSubjectCount": 5,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/case_endings_akkusativ",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-04T06:49:17.649Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "title_i18n": {
+    "en": "Case Endings: Akkusativ: B1 (Tier 2) - Pattern"
+  },
+  "shortTitle_i18n": {
+    "en": "Case Endings: Akk B1 Pattern"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 2 - pattern switch - Practice accusative case endings ("
+  },
+  "contentId": "de:drill:case_endings_akkusativ_b1_tier2_pattern-switch",
+  "contentHash": "9695c46686bd70214a0c806bad50b726ee4e80a0b0dc84162e1d8469d13773df",
+  "revisionId": "9695c46686bd"
+}

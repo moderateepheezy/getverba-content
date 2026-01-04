@@ -1,0 +1,627 @@
+{
+  "schemaVersion": 1,
+  "id": "verb_present_tense_a1_tier6_slot-substitution",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A1",
+  "title": "Verb Present Tense: A1 (Tier 6) - Slot",
+  "shortTitle": "Verb Present Tense A1 Slot",
+  "subtitle": "Tier 6 - slot substitution - Practice present tense verb end",
+  "estimatedMinutes": 5,
+  "mechanicId": "verb_present_tense",
+  "mechanicLabel": "Verb Present Tense",
+  "loopType": "slot_substitution",
+  "difficultyTier": 6,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier",
+    "time"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "step-1",
+        "title": "Step 1",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002",
+          "prompt-003",
+          "prompt-004",
+          "prompt-005",
+          "prompt-006"
+        ],
+        "title_i18n": {
+          "en": "Step 1"
+        }
+      },
+      {
+        "id": "step-2",
+        "title": "Step 2",
+        "promptIds": [
+          "prompt-007",
+          "prompt-008",
+          "prompt-009",
+          "prompt-010",
+          "prompt-011",
+          "prompt-012"
+        ],
+        "title_i18n": {
+          "en": "Step 2"
+        }
+      },
+      {
+        "id": "step-3",
+        "title": "Step 3",
+        "promptIds": [
+          "prompt-013",
+          "prompt-014",
+          "prompt-015",
+          "prompt-016"
+        ],
+        "title_i18n": {
+          "en": "Step 3"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "morgen sehen wir im Büro ein Buch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "morgen sehen wir im Büro ein Buch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "sehen"
+        ],
+        "object": [
+          "ein Buch"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "im Büro"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier6/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "heute machen wir zu Hause.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute machen wir zu Hause.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "machen"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "zu Hause"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier6/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "am Abend lernt er im Büro Musik.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Abend lernt er im Büro Musik.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "lernt"
+        ],
+        "object": [
+          "Musik"
+        ],
+        "time": [
+          "am Abend"
+        ],
+        "location": [
+          "im Büro"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier6/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "am Morgen kommt er im Supermarkt.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Morgen kommt er im Supermarkt.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "kommt"
+        ],
+        "time": [
+          "am Morgen"
+        ],
+        "location": [
+          "im Supermarkt"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier6/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "jeden Tag arbeitet Sie im Garten Tennis.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jeden Tag arbeitet Sie im Garten Tennis.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "arbeitet"
+        ],
+        "object": [
+          "Tennis"
+        ],
+        "time": [
+          "jeden Tag"
+        ],
+        "location": [
+          "im Garten"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier6/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "später schreibt Sie in Berlin.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später schreibt Sie in Berlin.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "schreibt"
+        ],
+        "time": [
+          "später"
+        ],
+        "location": [
+          "in Berlin"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier6/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "oft trinkst du im Supermarkt Wasser.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "oft trinkst du im Supermarkt Wasser.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "trinkst"
+        ],
+        "object": [
+          "Wasser"
+        ],
+        "time": [
+          "oft"
+        ],
+        "location": [
+          "im Supermarkt"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier6/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "später isst du auf der Arbeit.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später isst du auf der Arbeit.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "isst"
+        ],
+        "time": [
+          "später"
+        ],
+        "location": [
+          "auf der Arbeit"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier6/prompt-008.mp3"
+    },
+    {
+      "id": "prompt-009",
+      "text": "jeden Tag spiele ich in Berlin Kaffee.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jeden Tag spiele ich in Berlin Kaffee.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "spiele"
+        ],
+        "object": [
+          "Kaffee"
+        ],
+        "time": [
+          "jeden Tag"
+        ],
+        "location": [
+          "in Berlin"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier6/prompt-009.mp3"
+    },
+    {
+      "id": "prompt-010",
+      "text": "später lese ich zu Hause.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später lese ich zu Hause.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "lese"
+        ],
+        "time": [
+          "später"
+        ],
+        "location": [
+          "zu Hause"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier6/prompt-010.mp3"
+    },
+    {
+      "id": "prompt-011",
+      "text": "am Abend geht ihr im Supermarkt Wasser.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Abend geht ihr im Supermarkt Wasser.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "geht"
+        ],
+        "object": [
+          "Wasser"
+        ],
+        "time": [
+          "am Abend"
+        ],
+        "location": [
+          "im Supermarkt"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier6/prompt-011.mp3"
+    },
+    {
+      "id": "prompt-012",
+      "text": "später wohnt ihr in der Stadt.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später wohnt ihr in der Stadt.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "wohnt"
+        ],
+        "time": [
+          "später"
+        ],
+        "location": [
+          "in der Stadt"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier6/prompt-012.mp3"
+    },
+    {
+      "id": "prompt-013",
+      "text": "immer sehen wir im Supermarkt Kaffee.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "immer sehen wir im Supermarkt Kaffee.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "sehen"
+        ],
+        "object": [
+          "Kaffee"
+        ],
+        "time": [
+          "immer"
+        ],
+        "location": [
+          "im Supermarkt"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier6/prompt-013.mp3"
+    },
+    {
+      "id": "prompt-014",
+      "text": "am Morgen lernen wir im Garten.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Morgen lernen wir im Garten.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "lernen"
+        ],
+        "time": [
+          "am Morgen"
+        ],
+        "location": [
+          "im Garten"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier6/prompt-014.mp3"
+    },
+    {
+      "id": "prompt-015",
+      "text": "selten kommt er im Supermarkt Tennis.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "selten kommt er im Supermarkt Tennis.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "kommt"
+        ],
+        "object": [
+          "Tennis"
+        ],
+        "time": [
+          "selten"
+        ],
+        "location": [
+          "im Supermarkt"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier6/prompt-015.mp3"
+    },
+    {
+      "id": "prompt-016",
+      "text": "jetzt arbeitet er im Restaurant.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jetzt arbeitet er im Restaurant.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "arbeitet"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "im Restaurant"
+        ]
+      },
+      "audioUrl": "/v1/audio/verb_present_tense_A1_tier6/prompt-016.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "verb_present_tense",
+    "loopType": "slot_substitution",
+    "targetStructures": [
+      "present_tense"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "sehen",
+        "machen",
+        "lernt",
+        "kommt",
+        "arbeitet",
+        "schreibt",
+        "trinkst",
+        "isst",
+        "spiele",
+        "lese",
+        "geht",
+        "wohnt",
+        "lernen"
+      ],
+      "subjects": [
+        "Wir",
+        "Er",
+        "Sie",
+        "Du",
+        "Ich",
+        "Ihr"
+      ],
+      "patterns": [
+        "present_tense"
+      ]
+    },
+    "difficultyTier": 6,
+    "recommendedReps": 4,
+    "estPromptCount": 16,
+    "timeboxMinutes": 5,
+    "qualitySignals": {
+      "tokenHitsCount": 16,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 13,
+      "uniqueSubjectCount": 6,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/verb_present_tense",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-04T06:49:17.706Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "title_i18n": {
+    "en": "Verb Present Tense: A1 (Tier 6) - Slot"
+  },
+  "shortTitle_i18n": {
+    "en": "Verb Present Tense A1 Slot"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 6 - slot substitution - Practice present tense verb end"
+  },
+  "contentId": "de:drill:verb_present_tense_a1_tier6_slot-substitution",
+  "contentHash": "9e3a8e4cbb54add767a40a92178276960892ffeb7b874572b794fb7dfc014a4b",
+  "revisionId": "9e3a8e4cbb54"
+}

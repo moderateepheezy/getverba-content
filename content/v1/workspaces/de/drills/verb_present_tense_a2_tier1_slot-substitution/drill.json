@@ -8,7 +8,7 @@
   "level": "A2",
   "title": "Verb Present Tense: A2 (Tier 1) - Slot",
   "shortTitle": "Verb Present Tense A2 Slot",
-  "subtitle": "Tier 1 - slot substitution - Practice present tense verb con",
+  "subtitle": "Tier 1 - slot substitution - Practice present tense verb end",
   "estimatedMinutes": 3,
   "mechanicId": "verb_present_tense",
   "mechanicLabel": "Verb Present Tense",
@@ -73,10 +73,10 @@
       ],
       "slots": {
         "subject": [
-          "Ich"
+          "Fallback"
         ],
         "verb": [
-          "lerne"
+          "Fallback"
         ]
       },
       "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-001.mp3"
@@ -122,10 +122,10 @@
       ],
       "slots": {
         "subject": [
-          "Du"
+          "Fallback"
         ],
         "verb": [
-          "siehst"
+          "Fallback"
         ]
       },
       "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-003.mp3"
@@ -200,10 +200,10 @@
       ],
       "slots": {
         "subject": [
-          "Er"
+          "Fallback"
         ],
         "verb": [
-          "spielt"
+          "Fallback"
         ]
       },
       "audioUrl": "/v1/audio/verb_present_tense_A2_tier1/prompt-006.mp3"
@@ -222,19 +222,16 @@
     ],
     "coverage": {
       "verbs": [
-        "lerne",
+        "Fallback",
         "lernst",
-        "siehst",
         "schreibt",
-        "gehen",
-        "spielt"
+        "gehen"
       ],
       "subjects": [
-        "Ich",
+        "Fallback",
         "Du",
         "Sie",
-        "Wir",
-        "Er"
+        "Wir"
       ],
       "patterns": [
         "present_tense"
@@ -247,8 +244,8 @@
     "qualitySignals": {
       "tokenHitsCount": 6,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 6,
-      "uniqueSubjectCount": 5,
+      "uniqueVerbCount": 4,
+      "uniqueSubjectCount": 4,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -257,7 +254,7 @@
     "source": "template",
     "sourceRef": "mechanics/verb_present_tense",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.372Z"
+    "generatedAt": "2026-01-04T06:49:17.707Z"
   },
   "review": {
     "status": "needs_review"
@@ -269,9 +266,9 @@
     "en": "Verb Present Tense A2 Slot"
   },
   "subtitle_i18n": {
-    "en": "Tier 1 - slot substitution - Practice present tense verb con"
+    "en": "Tier 1 - slot substitution - Practice present tense verb end"
   },
   "contentId": "de:drill:verb_present_tense_a2_tier1_slot-substitution",
-  "contentHash": "d8ff23be8496d75b0a57c810b15c1ffa2c84904678a01cd98e240466d350cefa",
-  "revisionId": "d8ff23be8496"
+  "contentHash": "8793b541fea7e85108825f14e935fe3ae85fd4e0a243db25431fdae39b29685c",
+  "revisionId": "8793b541fea7"
 }

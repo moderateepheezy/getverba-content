@@ -8,7 +8,7 @@
   "level": "A2",
   "title": "Word Order: Main Clause: A2 (Tier 2) - Pattern",
   "shortTitle": "Word Order: Main  A2 Pattern",
-  "subtitle": "Tier 2 - pattern switch - Master verb-second position in mai",
+  "subtitle": "Tier 2 - pattern switch - Practice verb-second position in m",
   "estimatedMinutes": 4,
   "mechanicId": "word_order_main_clause",
   "mechanicLabel": "Word Order: Main Clause",
@@ -341,7 +341,7 @@
     "source": "template",
     "sourceRef": "mechanics/word_order_main_clause",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.376Z"
+    "generatedAt": "2026-01-04T06:49:17.714Z"
   },
   "review": {
     "status": "needs_review"
@@ -353,9 +353,9 @@
     "en": "Word Order: Main  A2 Pattern"
   },
   "subtitle_i18n": {
-    "en": "Tier 2 - pattern switch - Master verb-second position in mai"
+    "en": "Tier 2 - pattern switch - Practice verb-second position in m"
   },
   "contentId": "de:drill:word_order_main_clause_a2_tier2_pattern-switch",
-  "contentHash": "6b6874550cbeed651309c475b300d8fb408513ae1169ea0ba9baa7cc5bfeeba7",
-  "revisionId": "6b6874550cbe"
+  "contentHash": "c17c0fae548d3508c79b7afa6c9b070a820bbcb185d81d257f75fb953cfe36bc",
+  "revisionId": "c17c0fae548d"
 }

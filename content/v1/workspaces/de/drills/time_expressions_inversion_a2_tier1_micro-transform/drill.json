@@ -8,7 +8,7 @@
   "level": "A2",
   "title": "Time Expressions & Inversion: A2 (Tier 1) - Transform",
   "shortTitle": "Time Expression A2 Transform",
-  "subtitle": "Tier 1 - micro transform - Master verb inversion with time e",
+  "subtitle": "Tier 1 - micro transform - Practice verb inversion with time",
   "estimatedMinutes": 3,
   "mechanicId": "time_expressions_inversion",
   "mechanicLabel": "Time Expressions & Inversion",
@@ -51,8 +51,7 @@
         "title": "Step 3",
         "promptIds": [
           "prompt-005",
-          "prompt-006",
-          "prompt-007"
+          "prompt-006"
         ],
         "title_i18n": {
           "en": "Step 3"
@@ -103,16 +102,13 @@
       ],
       "slots": {
         "subject": [
-          "meine Mutter"
+          "gestern"
         ],
         "verb": [
           "kommt"
         ],
         "object": [
-          "Haus"
-        ],
-        "time": [
-          "gestern"
+          "Hausaufgaben"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier1/prompt-002.mp3"
@@ -191,7 +187,7 @@
       ],
       "slots": {
         "subject": [
-          "der Lehrer"
+          "gestern"
         ],
         "verb": [
           "lernt"
@@ -201,9 +197,6 @@
         ],
         "modifier": [
           "zusammen"
-        ],
-        "time": [
-          "gestern"
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier1/prompt-005.mp3"
@@ -236,29 +229,6 @@
         ]
       },
       "audioUrl": "/v1/audio/time_expressions_inversion_A2_tier1/prompt-006.mp3"
-    },
-    {
-      "id": "prompt-007",
-      "text": "Sie spielt gerne Musik.",
-      "intent": "practice",
-      "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "Sie spielt gerne Musik.",
-      "slotsChanged": [
-        "subject",
-        "verb",
-        "object"
-      ],
-      "slots": {
-        "subject": [
-          "Sie"
-        ],
-        "verb": [
-          "spielt"
-        ],
-        "object": [
-          "Musik"
-        ]
-      }
     }
   ],
   "analytics": {
@@ -281,17 +251,14 @@
         "gehst",
         "sieht",
         "lernt",
-        "trinken",
-        "spielt"
+        "trinken"
       ],
       "subjects": [
         "ich",
-        "meine Mutter",
+        "gestern",
         "du",
         "er",
-        "der Lehrer",
-        "wir",
-        "Sie"
+        "wir"
       ],
       "patterns": [
         "time_verb_subject",
@@ -306,8 +273,8 @@
     "qualitySignals": {
       "tokenHitsCount": 6,
       "multiSlotRate": 1,
-      "uniqueVerbCount": 7,
-      "uniqueSubjectCount": 7,
+      "uniqueVerbCount": 6,
+      "uniqueSubjectCount": 5,
       "trapPairCount": 0,
       "bannedPhraseCheckPassed": true
     }
@@ -316,7 +283,7 @@
     "source": "template",
     "sourceRef": "mechanics/time_expressions_inversion",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.369Z"
+    "generatedAt": "2026-01-04T06:49:17.699Z"
   },
   "review": {
     "status": "needs_review"
@@ -328,9 +295,9 @@
     "en": "Time Expression A2 Transform"
   },
   "subtitle_i18n": {
-    "en": "Tier 1 - micro transform - Master verb inversion with time e"
+    "en": "Tier 1 - micro transform - Practice verb inversion with time"
   },
   "contentId": "de:drill:time_expressions_inversion_a2_tier1_micro-transform",
-  "contentHash": "1a7709bd60af4ae363d3efc165a9cbd018e9b3942fdda4f4d84376cf63b169e4",
-  "revisionId": "1a7709bd60af"
+  "contentHash": "27a33755f3b3d536ebdefdf010223dbe92777a4359ea624c2c6f94367004bbd7",
+  "revisionId": "27a33755f3b3"
 }

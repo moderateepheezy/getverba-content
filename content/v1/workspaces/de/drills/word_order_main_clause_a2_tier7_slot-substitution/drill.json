@@ -1,0 +1,696 @@
+{
+  "schemaVersion": 1,
+  "id": "word_order_main_clause_a2_tier7_slot-substitution",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A2",
+  "title": "Word Order: Main Clause: A2 (Tier 7) - Slot",
+  "shortTitle": "Word Order: Main Cla A2 Slot",
+  "subtitle": "Tier 7 - slot substitution - Practice verb-second position i",
+  "estimatedMinutes": 5,
+  "mechanicId": "word_order_main_clause",
+  "mechanicLabel": "Word Order: Main Clause",
+  "loopType": "slot_substitution",
+  "difficultyTier": 7,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier",
+    "time"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "step-1",
+        "title": "Step 1",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002",
+          "prompt-003",
+          "prompt-004",
+          "prompt-005",
+          "prompt-006"
+        ],
+        "title_i18n": {
+          "en": "Step 1"
+        }
+      },
+      {
+        "id": "step-2",
+        "title": "Step 2",
+        "promptIds": [
+          "prompt-007",
+          "prompt-008",
+          "prompt-009",
+          "prompt-010",
+          "prompt-011",
+          "prompt-012"
+        ],
+        "title_i18n": {
+          "en": "Step 2"
+        }
+      },
+      {
+        "id": "step-3",
+        "title": "Step 3",
+        "promptIds": [
+          "prompt-013",
+          "prompt-014",
+          "prompt-015",
+          "prompt-016",
+          "prompt-017",
+          "prompt-018"
+        ],
+        "title_i18n": {
+          "en": "Step 3"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "um 9 Uhr gehest du nach Hause den Film.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "um 9 Uhr gehest du nach Hause den Film.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "gehest"
+        ],
+        "object": [
+          "den Film"
+        ],
+        "time": [
+          "um 9 Uhr"
+        ],
+        "location": [
+          "nach Hause"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier7/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "später hörest du zu Freunden.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später hörest du zu Freunden.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "hörest"
+        ],
+        "time": [
+          "später"
+        ],
+        "location": [
+          "zu Freunden"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier7/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "gestern trinkest du in die Stadt das Essen.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "gestern trinkest du in die Stadt das Essen.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Du"
+        ],
+        "verb": [
+          "trinkest"
+        ],
+        "object": [
+          "das Essen"
+        ],
+        "time": [
+          "gestern"
+        ],
+        "location": [
+          "in die Stadt"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier7/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "gestern kommet er zu Freunden.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "gestern kommet er zu Freunden.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "kommet"
+        ],
+        "time": [
+          "gestern"
+        ],
+        "location": [
+          "zu Freunden"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier7/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "jetzt machet er zu Freunden einen Kaffee.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jetzt machet er zu Freunden einen Kaffee.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "machet"
+        ],
+        "object": [
+          "einen Kaffee"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "zu Freunden"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier7/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "um 9 Uhr sehet er zum Park.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "um 9 Uhr sehet er zum Park.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Er"
+        ],
+        "verb": [
+          "sehet"
+        ],
+        "time": [
+          "um 9 Uhr"
+        ],
+        "location": [
+          "zum Park"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier7/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "heute esse wir zu Freunden Deutsch.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute esse wir zu Freunden Deutsch.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "esse"
+        ],
+        "object": [
+          "Deutsch"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "zu Freunden"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier7/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "später gehe wir zu Freunden.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später gehe wir zu Freunden.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "gehe"
+        ],
+        "time": [
+          "später"
+        ],
+        "location": [
+          "zu Freunden"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier7/prompt-008.mp3"
+    },
+    {
+      "id": "prompt-009",
+      "text": "heute höre wir zu Freunden die Zeitung.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute höre wir zu Freunden die Zeitung.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Wir"
+        ],
+        "verb": [
+          "höre"
+        ],
+        "object": [
+          "die Zeitung"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "zu Freunden"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier7/prompt-009.mp3"
+    },
+    {
+      "id": "prompt-010",
+      "text": "jetzt trinkee ich zum Park.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jetzt trinkee ich zum Park.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "trinkee"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "zum Park"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier7/prompt-010.mp3"
+    },
+    {
+      "id": "prompt-011",
+      "text": "später kommee ich zum Park den Film.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später kommee ich zum Park den Film.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "kommee"
+        ],
+        "object": [
+          "den Film"
+        ],
+        "time": [
+          "später"
+        ],
+        "location": [
+          "zum Park"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier7/prompt-011.mp3"
+    },
+    {
+      "id": "prompt-012",
+      "text": "später machee ich zum Park.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später machee ich zum Park.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ich"
+        ],
+        "verb": [
+          "machee"
+        ],
+        "time": [
+          "später"
+        ],
+        "location": [
+          "zum Park"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier7/prompt-012.mp3"
+    },
+    {
+      "id": "prompt-013",
+      "text": "morgen sehet Sie ins Büro die Zeitung.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "morgen sehet Sie ins Büro die Zeitung.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "sehet"
+        ],
+        "object": [
+          "die Zeitung"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "ins Büro"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier7/prompt-013.mp3"
+    },
+    {
+      "id": "prompt-014",
+      "text": "morgen esset Sie zur Arbeit.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "morgen esset Sie zur Arbeit.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "esset"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "zur Arbeit"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier7/prompt-014.mp3"
+    },
+    {
+      "id": "prompt-015",
+      "text": "am Montag gehet Sie zu Freunden die Musik.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Montag gehet Sie zu Freunden die Musik.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "gehet"
+        ],
+        "object": [
+          "die Musik"
+        ],
+        "time": [
+          "am Montag"
+        ],
+        "location": [
+          "zu Freunden"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier7/prompt-015.mp3"
+    },
+    {
+      "id": "prompt-016",
+      "text": "heute höret ihr zum Park.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute höret ihr zum Park.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "höret"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "zum Park"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier7/prompt-016.mp3"
+    },
+    {
+      "id": "prompt-017",
+      "text": "gestern trinket ihr in die Stadt einen Kaffee.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "gestern trinket ihr in die Stadt einen Kaffee.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "trinket"
+        ],
+        "object": [
+          "einen Kaffee"
+        ],
+        "time": [
+          "gestern"
+        ],
+        "location": [
+          "in die Stadt"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier7/prompt-017.mp3"
+    },
+    {
+      "id": "prompt-018",
+      "text": "um 9 Uhr kommet ihr in die Stadt.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "um 9 Uhr kommet ihr in die Stadt.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Ihr"
+        ],
+        "verb": [
+          "kommet"
+        ],
+        "time": [
+          "um 9 Uhr"
+        ],
+        "location": [
+          "in die Stadt"
+        ]
+      },
+      "audioUrl": "/v1/audio/word_order_main_clause_A2_tier7/prompt-018.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "word_order_main_clause",
+    "loopType": "slot_substitution",
+    "targetStructures": [
+      "verb_second_position",
+      "time_manner_place",
+      "subject_verb_object"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "gehest",
+        "hörest",
+        "trinkest",
+        "kommet",
+        "machet",
+        "sehet",
+        "esse",
+        "gehe",
+        "höre",
+        "trinkee",
+        "kommee",
+        "machee",
+        "esset",
+        "gehet",
+        "höret",
+        "trinket"
+      ],
+      "subjects": [
+        "Du",
+        "Er",
+        "Wir",
+        "Ich",
+        "Sie",
+        "Ihr"
+      ],
+      "patterns": [
+        "verb_second_position",
+        "time_manner_place",
+        "subject_verb_object"
+      ]
+    },
+    "difficultyTier": 7,
+    "recommendedReps": 4,
+    "estPromptCount": 18,
+    "timeboxMinutes": 5,
+    "qualitySignals": {
+      "tokenHitsCount": 18,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 16,
+      "uniqueSubjectCount": 6,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/word_order_main_clause",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-04T06:49:17.717Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "title_i18n": {
+    "en": "Word Order: Main Clause: A2 (Tier 7) - Slot"
+  },
+  "shortTitle_i18n": {
+    "en": "Word Order: Main Cla A2 Slot"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 7 - slot substitution - Practice verb-second position i"
+  },
+  "contentId": "de:drill:word_order_main_clause_a2_tier7_slot-substitution",
+  "contentHash": "0b78cf99ab32565a15f446d17028bd67250782b032de225ba91124888333c6f2",
+  "revisionId": "0b78cf99ab32"
+}

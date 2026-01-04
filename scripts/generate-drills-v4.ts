@@ -16,6 +16,7 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { computeTelemetryIds } from './telemetry-ids';
 import { createHash } from 'crypto';
+import { vocabularyGradingService } from './vocabulary-grading/vocabularyGradingService.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -250,6 +251,61 @@ function loadFallbacks(mechanicId: string, tier: number): string[] {
 }
 
 /**
+ * Filter slot dictionary by level (using vocabulary cache)
+ * Returns only words that are appropriate for the given level
+ */
+function filterDictionaryByLevel(
+  words: string[],
+  level: string,
+  language: string = 'de'
+): string[] {
+  const CEFR_ORDER: Record<string, number> = {
+    'A1': 1, 'A2': 2, 'B1': 3, 'B2': 4, 'C1': 5, 'C2': 6
+  };
+
+  const levelOrder = CEFR_ORDER[level.toUpperCase()] || 999;
+  const maxAllowedOrder = levelOrder + 1; // Allow one level higher
+
+  // Load vocabulary cache
+  const cachePath = join(__dirname, '..', 'content', 'meta', 'vocabulary-cache.json');
+  let cache: any = null;
+  if (existsSync(cachePath)) {
+    try {
+      cache = JSON.parse(readFileSync(cachePath, 'utf-8'));
+    } catch (error) {
+      // Cache not available, return all words
+      return words;
+    }
+  } else {
+    // No cache, return all words (will be validated later)
+    return words;
+  }
+
+  // Filter words based on cached levels
+  const filtered: string[] = [];
+  for (const word of words) {
+    // Extract main word (remove articles, etc.)
+    const normalized = word.toLowerCase().trim();
+    const mainWord = normalized.split(/\s+/)[0]; // Get first word
+
+    const cachedLevel = cache?.vocabulary?.[language]?.[mainWord];
+    if (cachedLevel) {
+      const wordOrder = CEFR_ORDER[cachedLevel] || 999;
+      if (wordOrder <= maxAllowedOrder) {
+        filtered.push(word);
+      }
+      // Skip words that are too advanced
+    } else {
+      // Word not in cache - include it (will be graded later)
+      filtered.push(word);
+    }
+  }
+
+  // Ensure we have at least some words (fallback)
+  return filtered.length > 0 ? filtered : words;
+}
+
+/**
  * Global quality stats tracker
  */
 const globalStats = {
@@ -272,19 +328,22 @@ function generatePrompts(
   const rng = new SeededRandom(seed);
   const prompts: GeneratedPrompt[] = [];
 
-  // Determine prompt count based on tier
-  const promptCounts = { 1: 6, 2: 8, 3: 10 };
-  const promptCount = promptCounts[tier as keyof typeof promptCounts] || 8;
+  // Determine prompt count based on tier (increasing by 2 per tier)
+  const promptCounts: Record<number, number> = { 
+    1: 6, 2: 8, 3: 10, 4: 12, 5: 14, 6: 16, 7: 18 
+  };
+  const promptCount = promptCounts[tier] || 8;
 
-  // Get slot dictionaries
-  const subjects = template.slotDictionaries.subject || [];
-  const verbs = template.slotDictionaries.verb || [];
-  const modals = template.slotDictionaries.modal || []; // For modal verb drills
-  const politeStarts = template.slotDictionaries.politeStart || []; // For politeness templates
-  const objects = template.slotDictionaries.object || [];
-  const modifiers = template.slotDictionaries.modifier || [];
-  const time = template.slotDictionaries.time || [];
-  const location = template.slotDictionaries.location || [];
+  // Get slot dictionaries and filter by level
+  const language = 'de'; // Default language
+  const subjects = filterDictionaryByLevel(template.slotDictionaries.subject || [], level, language);
+  const verbs = filterDictionaryByLevel(template.slotDictionaries.verb || [], level, language);
+  const modals = filterDictionaryByLevel(template.slotDictionaries.modal || [], level, language); // For modal verb drills
+  const politeStarts = filterDictionaryByLevel(template.slotDictionaries.politeStart || [], level, language); // For politeness templates
+  const objects = filterDictionaryByLevel(template.slotDictionaries.object || [], level, language);
+  const modifiers = filterDictionaryByLevel(template.slotDictionaries.modifier || [], level, language);
+  const time = filterDictionaryByLevel(template.slotDictionaries.time || [], level, language);
+  const location = filterDictionaryByLevel(template.slotDictionaries.location || [], level, language);
   const requiredTokens = template.requiredTokens || [];
 
   // Special handling for politeness templates
@@ -1119,8 +1178,12 @@ function generateAllDrills(workspace: string, language: string, filterMechanicId
     .map(f => f.replace('.json', ''))
     .filter(id => !filterMechanicId || id === filterMechanicId);
 
-  const levels = ['A1', 'A2'];
-  const tiers = [1, 2, 3];
+  const levels = ['A1', 'A2', 'B1'];
+  // Tier distribution: A1/A2 get 7 tiers each, B1 gets 6 tiers (total ~20 per category)
+  const getTiersForLevel = (level: string): number[] => {
+    if (level === 'B1') return [1, 2, 3, 4, 5, 6];
+    return [1, 2, 3, 4, 5, 6, 7]; // A1 and A2
+  };
 
   let total = 0;
   let generated = 0;
@@ -1131,6 +1194,7 @@ function generateAllDrills(workspace: string, language: string, filterMechanicId
     if (!template || !template.loopTypes) continue;
     for (const level of levels) {
       if (!template.supportedLevels || !template.supportedLevels.includes(level)) continue;
+      const tiers = getTiersForLevel(level);
       for (const tier of tiers) {
         total += template.loopTypes.length;
       }
@@ -1149,6 +1213,7 @@ function generateAllDrills(workspace: string, language: string, filterMechanicId
     for (const level of levels) {
       if (!template.supportedLevels || !template.supportedLevels.includes(level)) continue;
 
+      const tiers = getTiersForLevel(level);
       for (const tier of tiers) {
         for (const loopType of template.loopTypes) {
           try {

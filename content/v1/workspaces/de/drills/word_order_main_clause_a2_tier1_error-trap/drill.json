@@ -8,7 +8,7 @@
   "level": "A2",
   "title": "Word Order: Main Clause: A2 (Tier 1) - Trap",
   "shortTitle": "Word Order: Main Cla A2 Trap",
-  "subtitle": "Tier 1 - error trap - Master verb-second position in main cl",
+  "subtitle": "Tier 1 - error trap - Practice verb-second position in main ",
   "estimatedMinutes": 3,
   "mechanicId": "word_order_main_clause",
   "mechanicLabel": "Word Order: Main Clause",
@@ -282,7 +282,7 @@
     "source": "template",
     "sourceRef": "mechanics/word_order_main_clause",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.375Z"
+    "generatedAt": "2026-01-04T06:49:17.714Z"
   },
   "review": {
     "status": "needs_review"
@@ -294,9 +294,9 @@
     "en": "Word Order: Main Cla A2 Trap"
   },
   "subtitle_i18n": {
-    "en": "Tier 1 - error trap - Master verb-second position in main cl"
+    "en": "Tier 1 - error trap - Practice verb-second position in main "
   },
   "contentId": "de:drill:word_order_main_clause_a2_tier1_error-trap",
-  "contentHash": "b5821262b86ab0064fabd557f098480e39cf182b03fca240fb13751b0e3947f0",
-  "revisionId": "b5821262b86a"
+  "contentHash": "fcfc03cf9b8a28e4d8b90f92c7f4295517ba006444825ebc46295eee9d74d301",
+  "revisionId": "fcfc03cf9b8a"
 }

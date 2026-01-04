@@ -8,7 +8,7 @@
   "level": "A1",
   "title": "Verb Present Tense: A1 (Tier 2) - Slot",
   "shortTitle": "Verb Present Tense A1 Slot",
-  "subtitle": "Tier 2 - slot substitution - Practice present tense verb con",
+  "subtitle": "Tier 2 - slot substitution - Practice present tense verb end",
   "estimatedMinutes": 4,
   "mechanicId": "verb_present_tense",
   "mechanicLabel": "Verb Present Tense",
@@ -257,10 +257,10 @@
     },
     {
       "id": "prompt-008",
-      "text": "selten lernst du Tennis.",
+      "text": "selten arbeitest du Tennis.",
       "intent": "practice",
       "gloss_en": "I am practicing this grammar mechanic.",
-      "natural_en": "selten lernst du Tennis.",
+      "natural_en": "selten arbeitest du Tennis.",
       "slotsChanged": [
         "subject",
         "verb",
@@ -272,7 +272,7 @@
           "Du"
         ],
         "verb": [
-          "lernst"
+          "arbeitest"
         ],
         "object": [
           "Tennis"
@@ -304,7 +304,7 @@
         "schreiben",
         "seht",
         "mache",
-        "lernst"
+        "arbeitest"
       ],
       "subjects": [
         "Fallback",
@@ -336,7 +336,7 @@
     "source": "template",
     "sourceRef": "mechanics/verb_present_tense",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.371Z"
+    "generatedAt": "2026-01-04T06:49:17.705Z"
   },
   "review": {
     "status": "needs_review"
@@ -348,9 +348,9 @@
     "en": "Verb Present Tense A1 Slot"
   },
   "subtitle_i18n": {
-    "en": "Tier 2 - slot substitution - Practice present tense verb con"
+    "en": "Tier 2 - slot substitution - Practice present tense verb end"
   },
   "contentId": "de:drill:verb_present_tense_a1_tier2_slot-substitution",
-  "contentHash": "d066399dce692291544eded67216ae35cdba23e02cfd7c5b0c51f73e6461e2f1",
-  "revisionId": "d066399dce69"
+  "contentHash": "d168052229e904d416631d58a67087540842659fa47ee5030a4167fc4aa0de65",
+  "revisionId": "d168052229e9"
 }

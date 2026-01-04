@@ -8,7 +8,7 @@
   "level": "A1",
   "title": "Question Formation: A1 (Tier 1) - Transform",
   "shortTitle": "Question Format A1 Transform",
-  "subtitle": "Tier 1 - micro transform - Form questions using question wor",
+  "subtitle": "Tier 1 - micro transform - Practice question formation (Was,",
   "estimatedMinutes": 3,
   "mechanicId": "question_formation",
   "mechanicLabel": "Question Formation",
@@ -286,7 +286,7 @@
     "source": "template",
     "sourceRef": "mechanics/question_formation",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.363Z"
+    "generatedAt": "2026-01-04T06:49:17.686Z"
   },
   "review": {
     "status": "needs_review"
@@ -298,9 +298,9 @@
     "en": "Question Format A1 Transform"
   },
   "subtitle_i18n": {
-    "en": "Tier 1 - micro transform - Form questions using question wor"
+    "en": "Tier 1 - micro transform - Practice question formation (Was,"
   },
   "contentId": "de:drill:question_formation_a1_tier1_micro-transform",
-  "contentHash": "d882751bc33e05f53073ba6ff953debf08cff9d75064219b6e482fccddaf9b69",
-  "revisionId": "d882751bc33e"
+  "contentHash": "98cd90dbc4c452270c5ef204cd2b0dac2e522d2827ea1c1a20a4bcf1c4413dfb",
+  "revisionId": "98cd90dbc4c4"
 }

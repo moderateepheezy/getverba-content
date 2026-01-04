@@ -1,0 +1,520 @@
+{
+  "schemaVersion": 1,
+  "id": "question_formation_a1_tier4_micro-transform",
+  "kind": "drill",
+  "drillVersion": "v4",
+  "workspace": "de",
+  "language": "de",
+  "level": "A1",
+  "title": "Question Formation: A1 (Tier 4) - Transform",
+  "shortTitle": "Question Format A1 Transform",
+  "subtitle": "Tier 4 - micro transform - Practice question formation (Was,",
+  "estimatedMinutes": 5,
+  "mechanicId": "question_formation",
+  "mechanicLabel": "Question Formation",
+  "loopType": "micro_transform",
+  "difficultyTier": 4,
+  "variationSlots": [
+    "subject",
+    "verb",
+    "object",
+    "modifier",
+    "time"
+  ],
+  "sessionPlan": {
+    "version": 1,
+    "steps": [
+      {
+        "id": "step-1",
+        "title": "Step 1",
+        "promptIds": [
+          "prompt-001",
+          "prompt-002",
+          "prompt-003",
+          "prompt-004"
+        ],
+        "title_i18n": {
+          "en": "Step 1"
+        }
+      },
+      {
+        "id": "step-2",
+        "title": "Step 2",
+        "promptIds": [
+          "prompt-005",
+          "prompt-006",
+          "prompt-007",
+          "prompt-008"
+        ],
+        "title_i18n": {
+          "en": "Step 2"
+        }
+      },
+      {
+        "id": "step-3",
+        "title": "Step 3",
+        "promptIds": [
+          "prompt-009",
+          "prompt-010",
+          "prompt-011",
+          "prompt-012"
+        ],
+        "title_i18n": {
+          "en": "Step 3"
+        }
+      }
+    ]
+  },
+  "prompts": [
+    {
+      "id": "prompt-001",
+      "text": "später gehst du im Supermarkt den.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später gehst du im Supermarkt den.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "du"
+        ],
+        "verb": [
+          "gehst"
+        ],
+        "object": [
+          "den"
+        ],
+        "time": [
+          "später"
+        ],
+        "location": [
+          "im Supermarkt"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A1_tier4/prompt-001.mp3"
+    },
+    {
+      "id": "prompt-002",
+      "text": "am Wochenende kommst du zum Park.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Wochenende kommst du zum Park.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "du"
+        ],
+        "verb": [
+          "kommst"
+        ],
+        "time": [
+          "am Wochenende"
+        ],
+        "location": [
+          "zum Park"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A1_tier4/prompt-002.mp3"
+    },
+    {
+      "id": "prompt-003",
+      "text": "heute macht er zum Park eine wann.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute macht er zum Park eine.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "er"
+        ],
+        "verb": [
+          "macht"
+        ],
+        "object": [
+          "eine"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "zum Park"
+        ],
+        "modifier": [
+          "wann"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A1_tier4/prompt-003.mp3"
+    },
+    {
+      "id": "prompt-004",
+      "text": "jetzt seit er zur Arbeit bist.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jetzt seit er zur Arbeit.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "er"
+        ],
+        "verb": [
+          "seit"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "zur Arbeit"
+        ],
+        "modifier": [
+          "bist"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A1_tier4/prompt-004.mp3"
+    },
+    {
+      "id": "prompt-005",
+      "text": "am Wochenende lernt sie in die Stadt das.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Wochenende lernt sie in die Stadt das.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "sie"
+        ],
+        "verb": [
+          "lernt"
+        ],
+        "object": [
+          "das"
+        ],
+        "time": [
+          "am Wochenende"
+        ],
+        "location": [
+          "in die Stadt"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A1_tier4/prompt-005.mp3"
+    },
+    {
+      "id": "prompt-006",
+      "text": "jetzt wo sie zur Arbeit.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "jetzt wo sie zur Arbeit.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "sie"
+        ],
+        "verb": [
+          "wo"
+        ],
+        "time": [
+          "jetzt"
+        ],
+        "location": [
+          "zur Arbeit"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A1_tier4/prompt-006.mp3"
+    },
+    {
+      "id": "prompt-007",
+      "text": "morgen arbeitet ihr zur Arbeit eine warum.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "morgen arbeitet ihr zur Arbeit eine.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "ihr"
+        ],
+        "verb": [
+          "arbeitet"
+        ],
+        "object": [
+          "eine"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "zur Arbeit"
+        ],
+        "modifier": [
+          "warum"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A1_tier4/prompt-007.mp3"
+    },
+    {
+      "id": "prompt-008",
+      "text": "morgen wohnt ihr zum Park.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "morgen wohnt ihr zum Park.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "ihr"
+        ],
+        "verb": [
+          "wohnt"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "zum Park"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A1_tier4/prompt-008.mp3"
+    },
+    {
+      "id": "prompt-009",
+      "text": "später geht Sie nach Hause das was.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "später geht Sie nach Hause das.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "geht"
+        ],
+        "object": [
+          "das"
+        ],
+        "time": [
+          "später"
+        ],
+        "location": [
+          "nach Hause"
+        ],
+        "modifier": [
+          "was"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A1_tier4/prompt-009.mp3"
+    },
+    {
+      "id": "prompt-010",
+      "text": "heute kommt Sie nach Hause warum.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "heute kommt Sie nach Hause.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "Sie"
+        ],
+        "verb": [
+          "kommt"
+        ],
+        "time": [
+          "heute"
+        ],
+        "location": [
+          "nach Hause"
+        ],
+        "modifier": [
+          "warum"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A1_tier4/prompt-010.mp3"
+    },
+    {
+      "id": "prompt-011",
+      "text": "am Wochenende machst du nach Hause die.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "am Wochenende machst du nach Hause die.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "object",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "du"
+        ],
+        "verb": [
+          "machst"
+        ],
+        "object": [
+          "die"
+        ],
+        "time": [
+          "am Wochenende"
+        ],
+        "location": [
+          "nach Hause"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A1_tier4/prompt-011.mp3"
+    },
+    {
+      "id": "prompt-012",
+      "text": "morgen seist du in Berlin.",
+      "intent": "practice",
+      "gloss_en": "I am practicing this grammar mechanic.",
+      "natural_en": "morgen seist du in Berlin.",
+      "slotsChanged": [
+        "subject",
+        "verb",
+        "time",
+        "location"
+      ],
+      "slots": {
+        "subject": [
+          "du"
+        ],
+        "verb": [
+          "seist"
+        ],
+        "time": [
+          "morgen"
+        ],
+        "location": [
+          "in Berlin"
+        ]
+      },
+      "audioUrl": "/v1/audio/question_formation_A1_tier4/prompt-012.mp3"
+    }
+  ],
+  "analytics": {
+    "version": 1,
+    "mechanicId": "question_formation",
+    "loopType": "micro_transform",
+    "targetStructures": [
+      "question_word_order",
+      "verb_inversion",
+      "yes_no_questions"
+    ],
+    "variationSlots": [
+      "subject",
+      "verb"
+    ],
+    "coverage": {
+      "verbs": [
+        "gehst",
+        "kommst",
+        "macht",
+        "seit",
+        "lernt",
+        "wo",
+        "arbeitet",
+        "wohnt",
+        "geht",
+        "kommt",
+        "machst",
+        "seist"
+      ],
+      "subjects": [
+        "du",
+        "er",
+        "sie",
+        "ihr",
+        "Sie"
+      ],
+      "patterns": [
+        "question_word_order",
+        "verb_inversion",
+        "yes_no_questions"
+      ]
+    },
+    "difficultyTier": 4,
+    "recommendedReps": 4,
+    "estPromptCount": 12,
+    "timeboxMinutes": 5,
+    "qualitySignals": {
+      "tokenHitsCount": 11,
+      "multiSlotRate": 1,
+      "uniqueVerbCount": 12,
+      "uniqueSubjectCount": 5,
+      "trapPairCount": 0,
+      "bannedPhraseCheckPassed": true
+    }
+  },
+  "provenance": {
+    "source": "template",
+    "sourceRef": "mechanics/question_formation",
+    "extractorVersion": "v4.0.0",
+    "generatedAt": "2026-01-04T06:49:17.688Z"
+  },
+  "review": {
+    "status": "needs_review"
+  },
+  "title_i18n": {
+    "en": "Question Formation: A1 (Tier 4) - Transform"
+  },
+  "shortTitle_i18n": {
+    "en": "Question Format A1 Transform"
+  },
+  "subtitle_i18n": {
+    "en": "Tier 4 - micro transform - Practice question formation (Was,"
+  },
+  "contentId": "de:drill:question_formation_a1_tier4_micro-transform",
+  "contentHash": "8a70fbeb3815cff7c30735a68c780533a3296fb4a9eaf471c1810140a0967d23",
+  "revisionId": "8a70fbeb3815"
+}

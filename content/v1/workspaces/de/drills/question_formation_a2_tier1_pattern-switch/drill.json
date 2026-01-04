@@ -8,7 +8,7 @@
   "level": "A2",
   "title": "Question Formation: A2 (Tier 1) - Pattern",
   "shortTitle": "Question Formatio A2 Pattern",
-  "subtitle": "Tier 1 - pattern switch - Form questions using question word",
+  "subtitle": "Tier 1 - pattern switch - Practice question formation (Was, ",
   "estimatedMinutes": 3,
   "mechanicId": "question_formation",
   "mechanicLabel": "Question Formation",
@@ -289,7 +289,7 @@
     "source": "template",
     "sourceRef": "mechanics/question_formation",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.366Z"
+    "generatedAt": "2026-01-04T06:49:17.691Z"
   },
   "review": {
     "status": "needs_review"
@@ -301,9 +301,9 @@
     "en": "Question Formatio A2 Pattern"
   },
   "subtitle_i18n": {
-    "en": "Tier 1 - pattern switch - Form questions using question word"
+    "en": "Tier 1 - pattern switch - Practice question formation (Was, "
   },
   "contentId": "de:drill:question_formation_a2_tier1_pattern-switch",
-  "contentHash": "aa19017fccb62f94b10eac2b3a13fb913dfe3ee115475ecaf9fc7402bffd776e",
-  "revisionId": "aa19017fccb6"
+  "contentHash": "18d0f9dee309227fee3827faaf40338c504c7ee0be1593efdc098528d8a71ea0",
+  "revisionId": "18d0f9dee309"
 }

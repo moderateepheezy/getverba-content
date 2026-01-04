@@ -464,6 +464,82 @@ Section index items for packs include derived `signals` object:
 - `standard`: A1-A2 with standard structures
 - `stretch`: B1+ or complex/advanced structures
 
+## Level Accuracy Gate
+
+**Purpose**: Ensure that content labeled with CEFR levels (A1, A2, B1, etc.) actually uses vocabulary appropriate for that level. This gate enforces 98% accuracy in level labeling.
+
+### Validation Rules
+
+**For all content types (drills, packs, exams)**:
+- Content must have a valid CEFR level (`A1`, `A2`, `B1`, `B2`, `C1`, `C2`)
+- Vocabulary in prompts must match the claimed level
+- Maximum allowed percentage of tokens exceeding the claimed level:
+  - **A1**: Max 5% of tokens can be A2, no B1+ tokens
+  - **A2**: Max 10% of tokens can be B1, no B2+ tokens
+  - **B1**: Max 15% of tokens can be B2, no C1+ tokens
+  - **B2**: Max 20% of tokens can be C1, no C2 tokens
+  - **C1**: Max 25% of tokens can be C2
+  - **C2**: Max 30% of tokens can exceed (allowing for advanced content)
+
+### Implementation
+
+**Vocabulary Grading Service**:
+- Uses external API (configurable) to grade vocabulary tokens
+- Caches results in `content/meta/vocabulary-cache.json`
+- Falls back to heuristics if API unavailable
+
+**Validation**:
+- Runs during `npm run content:validate`
+- Checks cached vocabulary levels against claimed content level
+- Flags content with level mismatches
+
+**Analysis & Fixing**:
+- `tsx scripts/analyze-level-accuracy.ts` - Scans all content and generates report
+- `tsx scripts/fix-level-mismatches.ts` - Fixes level mismatches (with `--auto-fix` flag)
+
+### Exam-Specific Rules
+
+Exams have stricter requirements:
+- Must match official exam provider requirements (Goethe, TELC, DTZ)
+- Vocabulary level must match exam CEFR level exactly
+- Maximum 5% of tokens can exceed exam level (stricter than general content)
+
+### Quality Metrics
+
+**Level Accuracy Score**:
+- Computed as percentage of content items with accurate level labeling
+- Target: 98%+ accuracy
+- Tracked in `content/meta/level-accuracy-report.json`
+
+**Failure Conditions**:
+- Hard fail: Any token is 2+ levels above claimed level (e.g., C1 token in A1 content)
+- Hard fail: More than allowed percentage of tokens exceed level
+- Warning: Level accuracy below 98% threshold
+
+### Configuration
+
+Configuration in `content/meta/level-grading-config.json`:
+```json
+{
+  "apiProvider": "custom",
+  "apiUrl": "",
+  "apiKey": "",
+  "cacheEnabled": true,
+  "accuracyThreshold": 0.98,
+  "validationRules": {
+    "A1": { "maxHigherLevel": 0.05, "maxLevel": "A2" },
+    "A2": { "maxHigherLevel": 0.10, "maxLevel": "B1" },
+    "B1": { "maxHigherLevel": 0.15, "maxLevel": "B2" }
+  }
+}
+```
+
+### Integration
+
+- **Generation**: `generate-drills-v4.ts` filters slot dictionaries by level
+- **Validation**: `validate-content.ts` checks level accuracy
+- **CI/CD**: Fails build if level accuracy < 98%
+
 ## Meaning-Safety Gates
 
 **Purpose**: Ensure that "native meaning vs literal meaning" cannot be lost in production. Generated content may be `needs_review` without perfect nuance, but promotion requires meaning-safety fields.

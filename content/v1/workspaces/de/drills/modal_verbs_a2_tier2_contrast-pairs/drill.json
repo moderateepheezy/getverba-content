@@ -8,7 +8,7 @@
   "level": "A2",
   "title": "Modal Verbs: A2 (Tier 2) - Pairs",
   "shortTitle": "Modal Verbs A2 Pairs",
-  "subtitle": "Tier 2 - contrast pairs - Master modal verb patterns (können",
+  "subtitle": "Tier 2 - contrast pairs - Practice modal verbs (können, müss",
   "estimatedMinutes": 4,
   "mechanicId": "modal_verbs",
   "mechanicLabel": "Modal Verbs",
@@ -378,7 +378,7 @@
     "source": "template",
     "sourceRef": "mechanics/modal_verbs",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.352Z"
+    "generatedAt": "2026-01-04T06:49:17.661Z"
   },
   "review": {
     "status": "needs_review"
@@ -390,9 +390,9 @@
     "en": "Modal Verbs A2 Pairs"
   },
   "subtitle_i18n": {
-    "en": "Tier 2 - contrast pairs - Master modal verb patterns (können"
+    "en": "Tier 2 - contrast pairs - Practice modal verbs (können, müss"
   },
   "contentId": "de:drill:modal_verbs_a2_tier2_contrast-pairs",
-  "contentHash": "6aae92e31e3c57434aac418cb0aac1920a2398693f00cde6eae61e54b7a41672",
-  "revisionId": "6aae92e31e3c"
+  "contentHash": "267c2d65433fd259c5ea1cf32359bb5c71e74f6132a6c6eee1d77de9eedb0203",
+  "revisionId": "267c2d65433f"
 }

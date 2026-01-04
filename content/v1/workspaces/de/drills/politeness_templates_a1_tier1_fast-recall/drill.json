@@ -8,7 +8,7 @@
   "level": "A1",
   "title": "Politeness Templates: A1 (Tier 1) - Recall",
   "shortTitle": "Politeness Templat A1 Recall",
-  "subtitle": "Tier 1 - fast recall - Master formal politeness formulas (Kö",
+  "subtitle": "Tier 1 - fast recall - Practice formal politeness formulas (",
   "estimatedMinutes": 3,
   "mechanicId": "politeness_templates",
   "mechanicLabel": "Politeness Templates",
@@ -258,7 +258,7 @@
     "source": "template",
     "sourceRef": "mechanics/politeness_templates",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.359Z"
+    "generatedAt": "2026-01-04T06:49:17.677Z"
   },
   "review": {
     "status": "needs_review"
@@ -270,9 +270,9 @@
     "en": "Politeness Templat A1 Recall"
   },
   "subtitle_i18n": {
-    "en": "Tier 1 - fast recall - Master formal politeness formulas (Kö"
+    "en": "Tier 1 - fast recall - Practice formal politeness formulas ("
   },
   "contentId": "de:drill:politeness_templates_a1_tier1_fast-recall",
-  "contentHash": "756189685cc54034c59e60a1503c81c658231c4a8a4beadbd4c819eb78e533cd",
-  "revisionId": "756189685cc5"
+  "contentHash": "2891fd8d42e6d00befa12a54e4cfb157c3f6e4969fce5fe6407adfc752dedf39",
+  "revisionId": "2891fd8d42e6"
 }

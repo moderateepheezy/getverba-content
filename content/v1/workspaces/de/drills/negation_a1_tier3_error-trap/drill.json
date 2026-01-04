@@ -8,7 +8,7 @@
   "level": "A1",
   "title": "Negation: A1 (Tier 3) - Trap",
   "shortTitle": "Negation A1 Trap",
-  "subtitle": "Tier 3 - error trap - Master negation placement (nicht, kein",
+  "subtitle": "Tier 3 - error trap - Practice negation (nicht, kein, keine,",
   "estimatedMinutes": 5,
   "mechanicId": "negation",
   "mechanicLabel": "Negation",
@@ -427,7 +427,7 @@
     "source": "template",
     "sourceRef": "mechanics/negation",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.355Z"
+    "generatedAt": "2026-01-04T06:49:17.669Z"
   },
   "review": {
     "status": "needs_review"
@@ -439,9 +439,9 @@
     "en": "Negation A1 Trap"
   },
   "subtitle_i18n": {
-    "en": "Tier 3 - error trap - Master negation placement (nicht, kein"
+    "en": "Tier 3 - error trap - Practice negation (nicht, kein, keine,"
   },
   "contentId": "de:drill:negation_a1_tier3_error-trap",
-  "contentHash": "ec3a1659fd99ba5dad23701c9b3b34de9881262d2125d4baecc4279d8c673a86",
-  "revisionId": "ec3a1659fd99"
+  "contentHash": "d290dea13dce99eb45ae52abb284c3364389d92d52c98d80ae9a439adc4b36e0",
+  "revisionId": "d290dea13dce"
 }

@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "content:validate": "tsx scripts/validate-content.ts && tsx scripts/content-expansion-report.ts",
+    "content:validate-levels": "tsx scripts/analyze-level-accuracy.ts",
     "content:validate-with-quality": "tsx scripts/validate-content.ts && tsx scripts/content-quality-report.ts && tsx scripts/content-expansion-report.ts",
     "content:quality": "tsx scripts/quality-report.ts --fail-on-red",
     "content:quality-report": "tsx scripts/content-quality-report.ts",

@@ -1,0 +1,108 @@
+{
+  "goethe": {
+    "A1": {
+      "name": "Goethe-Zertifikat A1: Start Deutsch 1",
+      "cefrLevel": "A1",
+      "duration": 65,
+      "passingScore": 60,
+      "sections": ["Hören", "Lesen", "Schreiben", "Sprechen"],
+      "vocabularyLevel": "A1",
+      "maxHigherLevel": 0.05
+    },
+    "A2": {
+      "name": "Goethe-Zertifikat A2",
+      "cefrLevel": "A2",
+      "duration": 65,
+      "passingScore": 60,
+      "sections": ["Hören", "Lesen", "Schreiben", "Sprechen"],
+      "vocabularyLevel": "A2",
+      "maxHigherLevel": 0.10
+    },
+    "B1": {
+      "name": "Goethe-Zertifikat B1",
+      "cefrLevel": "B1",
+      "duration": 165,
+      "passingScore": 60,
+      "sections": ["Hören", "Lesen", "Schreiben", "Sprechen"],
+      "vocabularyLevel": "B1",
+      "maxHigherLevel": 0.15
+    },
+    "B2": {
+      "name": "Goethe-Zertifikat B2",
+      "cefrLevel": "B2",
+      "duration": 190,
+      "passingScore": 60,
+      "sections": ["Hören", "Lesen", "Schreiben", "Sprechen"],
+      "vocabularyLevel": "B2",
+      "maxHigherLevel": 0.20
+    },
+    "C1": {
+      "name": "Goethe-Zertifikat C1",
+      "cefrLevel": "C1",
+      "duration": 195,
+      "passingScore": 60,
+      "sections": ["Hören", "Lesen", "Schreiben", "Sprechen"],
+      "vocabularyLevel": "C1",
+      "maxHigherLevel": 0.25
+    }
+  },
+  "telc": {
+    "A1": {
+      "name": "telc Deutsch A1",
+      "cefrLevel": "A1",
+      "duration": 60,
+      "passingScore": 60,
+      "sections": ["Hören", "Lesen", "Schreiben", "Sprechen"],
+      "vocabularyLevel": "A1",
+      "maxHigherLevel": 0.05
+    },
+    "A2": {
+      "name": "telc Deutsch A2",
+      "cefrLevel": "A2",
+      "duration": 60,
+      "passingScore": 60,
+      "sections": ["Hören", "Lesen", "Schreiben", "Sprechen"],
+      "vocabularyLevel": "A2",
+      "maxHigherLevel": 0.10
+    },
+    "B1": {
+      "name": "telc Deutsch B1",
+      "cefrLevel": "B1",
+      "duration": 140,
+      "passingScore": 60,
+      "sections": ["Hören", "Lesen", "Schreiben", "Sprechen"],
+      "vocabularyLevel": "B1",
+      "maxHigherLevel": 0.15
+    },
+    "B2": {
+      "name": "telc Deutsch B2",
+      "cefrLevel": "B2",
+      "duration": 160,
+      "passingScore": 60,
+      "sections": ["Hören", "Lesen", "Schreiben", "Sprechen"],
+      "vocabularyLevel": "B2",
+      "maxHigherLevel": 0.20
+    },
+    "C1": {
+      "name": "telc Deutsch C1",
+      "cefrLevel": "C1",
+      "duration": 200,
+      "passingScore": 60,
+      "sections": ["Hören", "Lesen", "Schreiben", "Sprechen"],
+      "vocabularyLevel": "C1",
+      "maxHigherLevel": 0.25
+    }
+  },
+  "dtz": {
+    "B1": {
+      "name": "Deutsch-Test für Zuwanderer (DTZ)",
+      "cefrLevel": "B1",
+      "duration": 180,
+      "passingScore": 60,
+      "sections": ["Hören", "Lesen", "Schreiben", "Sprechen"],
+      "vocabularyLevel": "B1",
+      "maxHigherLevel": 0.15
+    }
+  }
+}
+

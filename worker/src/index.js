@@ -83,12 +83,20 @@ export default {
     }
 
     // --- Passthrough for /v1/** content ---
-    const key = url.pathname.replace(/^\/+/, "");
+    let key = url.pathname.replace(/^\/+/, "");
     if (!key) {
       return new Response("Not Found", {
         status: 404,
         headers: corsHeaders(),
       });
+    }
+
+    // Handle /v1/workspaces/{ws}/drills endpoint (serve index.json)
+    // This matches the BE shaping spec: GET /v1/workspaces/{ws}/drills
+    const drillsMatch = url.pathname.match(/^\/v1\/workspaces\/([^\/]+)\/drills\/?$/);
+    if (drillsMatch) {
+      const workspace = drillsMatch[1];
+      key = `v1/workspaces/${workspace}/drills/index.json`;
     }
 
     return serveKey(request, env, key);

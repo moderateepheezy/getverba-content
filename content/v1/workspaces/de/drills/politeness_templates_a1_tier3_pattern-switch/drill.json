@@ -8,7 +8,7 @@
   "level": "A1",
   "title": "Politeness Templates: A1 (Tier 3) - Pattern",
   "shortTitle": "Politeness Templa A1 Pattern",
-  "subtitle": "Tier 3 - pattern switch - Master formal politeness formulas ",
+  "subtitle": "Tier 3 - pattern switch - Practice formal politeness formula",
   "estimatedMinutes": 5,
   "mechanicId": "politeness_templates",
   "mechanicLabel": "Politeness Templates",
@@ -412,7 +412,7 @@
     "source": "template",
     "sourceRef": "mechanics/politeness_templates",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.361Z"
+    "generatedAt": "2026-01-04T06:49:17.677Z"
   },
   "review": {
     "status": "needs_review"
@@ -424,9 +424,9 @@
     "en": "Politeness Templa A1 Pattern"
   },
   "subtitle_i18n": {
-    "en": "Tier 3 - pattern switch - Master formal politeness formulas "
+    "en": "Tier 3 - pattern switch - Practice formal politeness formula"
   },
   "contentId": "de:drill:politeness_templates_a1_tier3_pattern-switch",
-  "contentHash": "fb312d92591cf881e0d266d3164309167b66a7968a693bc58ffd9bf56dd4eb6e",
-  "revisionId": "fb312d92591c"
+  "contentHash": "627bf4776a333ae8cbad3cfdd1c8759d440e3b30de1dc44ab2d67667b0508d83",
+  "revisionId": "627bf4776a33"
 }

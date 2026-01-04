@@ -8,7 +8,7 @@
   "level": "A2",
   "title": "Negation: A2 (Tier 3) - Pattern",
   "shortTitle": "Negation A2 Pattern",
-  "subtitle": "Tier 3 - pattern switch - Master negation placement (nicht, ",
+  "subtitle": "Tier 3 - pattern switch - Practice negation (nicht, kein, ke",
   "estimatedMinutes": 5,
   "mechanicId": "negation",
   "mechanicLabel": "Negation",
@@ -427,7 +427,7 @@
     "source": "template",
     "sourceRef": "mechanics/negation",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.358Z"
+    "generatedAt": "2026-01-04T06:49:17.674Z"
   },
   "review": {
     "status": "needs_review"
@@ -439,9 +439,9 @@
     "en": "Negation A2 Pattern"
   },
   "subtitle_i18n": {
-    "en": "Tier 3 - pattern switch - Master negation placement (nicht, "
+    "en": "Tier 3 - pattern switch - Practice negation (nicht, kein, ke"
   },
   "contentId": "de:drill:negation_a2_tier3_pattern-switch",
-  "contentHash": "db73e7a60cae91685d62666e8520910542dd538247a54f1cb86c08b9f1d9adc4",
-  "revisionId": "db73e7a60cae"
+  "contentHash": "c2059a6ed034893861375bbfddf89106cdae2c70d6cf12d3c62e33c349b6c1bd",
+  "revisionId": "c2059a6ed034"
 }

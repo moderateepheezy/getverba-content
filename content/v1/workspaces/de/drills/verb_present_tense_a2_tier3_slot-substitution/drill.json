@@ -8,7 +8,7 @@
   "level": "A2",
   "title": "Verb Present Tense: A2 (Tier 3) - Slot",
   "shortTitle": "Verb Present Tense A2 Slot",
-  "subtitle": "Tier 3 - slot substitution - Practice present tense verb con",
+  "subtitle": "Tier 3 - slot substitution - Practice present tense verb end",
   "estimatedMinutes": 5,
   "mechanicId": "verb_present_tense",
   "mechanicLabel": "Verb Present Tense",
@@ -418,7 +418,7 @@
     "source": "template",
     "sourceRef": "mechanics/verb_present_tense",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.373Z"
+    "generatedAt": "2026-01-04T06:49:17.707Z"
   },
   "review": {
     "status": "needs_review"
@@ -430,9 +430,9 @@
     "en": "Verb Present Tense A2 Slot"
   },
   "subtitle_i18n": {
-    "en": "Tier 3 - slot substitution - Practice present tense verb con"
+    "en": "Tier 3 - slot substitution - Practice present tense verb end"
   },
   "contentId": "de:drill:verb_present_tense_a2_tier3_slot-substitution",
-  "contentHash": "2af3194bb43c25949a259d3c27f7bf671b37d5a3b7b2d3ad71ea92f0934e66e2",
-  "revisionId": "2af3194bb43c"
+  "contentHash": "9f852fd12d36e1078d8c9b03b23b0ed1217645d5f7fa34e454be3ad750e6b5b9",
+  "revisionId": "9f852fd12d36"
 }

@@ -8,7 +8,7 @@
   "level": "A1",
   "title": "Verb Present Tense: A1 (Tier 1) - Pattern",
   "shortTitle": "Verb Present Tens A1 Pattern",
-  "subtitle": "Tier 1 - pattern switch - Practice present tense verb conjug",
+  "subtitle": "Tier 1 - pattern switch - Practice present tense verb ending",
   "estimatedMinutes": 3,
   "mechanicId": "verb_present_tense",
   "mechanicLabel": "Verb Present Tense",
@@ -274,7 +274,7 @@
     "source": "template",
     "sourceRef": "mechanics/verb_present_tense",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.371Z"
+    "generatedAt": "2026-01-04T06:49:17.703Z"
   },
   "review": {
     "status": "needs_review"
@@ -286,9 +286,9 @@
     "en": "Verb Present Tens A1 Pattern"
   },
   "subtitle_i18n": {
-    "en": "Tier 1 - pattern switch - Practice present tense verb conjug"
+    "en": "Tier 1 - pattern switch - Practice present tense verb ending"
   },
   "contentId": "de:drill:verb_present_tense_a1_tier1_pattern-switch",
-  "contentHash": "c9870dce7c3e3e0d9209418455161b14e9e89d7cef63e344ffd0a8ff1cc3ddbc",
-  "revisionId": "c9870dce7c3e"
+  "contentHash": "f15f7b6b51bed0f17ddb5ef29e3bac00a93799c02468a10463d5dfe3e92515f6",
+  "revisionId": "f15f7b6b51be"
 }

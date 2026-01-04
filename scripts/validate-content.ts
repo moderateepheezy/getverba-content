@@ -5,6 +5,7 @@ import { join, dirname, relative } from 'path';
 import { fileURLToPath } from 'url';
 import { computePackAnalytics, computeDrillAnalytics } from './content-quality/computeAnalytics';
 import { validateI18nAndGrouping } from './content-quality/i18nValidation.js';
+import { vocabularyGradingService, type ContentGrade } from './vocabulary-grading/vocabularyGradingService.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -448,6 +449,10 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
 
         // Analytics validation: required for generated content, optional for handcrafted
         validatePackAnalytics(entry, contextFile, itemIdx);
+        // Level accuracy validation for packs
+        if (entry.prompts && Array.isArray(entry.prompts) && entry.prompts.length > 0) {
+          validateLevelAccuracy(entry, contextFile, itemIdx);
+        }
       }
       // If promptsUrl is used instead, validate it's a string
       if (entry.promptsUrl !== undefined && typeof entry.promptsUrl !== 'string') {
@@ -460,6 +465,10 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
       if (!entry.level || typeof entry.level !== 'string') {
         addError(contextFile, `Item ${itemIdx} exam entry missing or invalid field: level (must be string)`);
       }
+      
+      // Validate exam requirements (provider, official exam info)
+      validateExamRequirements(entry, contextFile, itemIdx);
+      
       // Description is optional for exams
       if (entry.description !== undefined && typeof entry.description !== 'string') {
         addError(contextFile, `Item ${itemIdx} exam entry description must be a string if present`);
@@ -487,6 +496,8 @@ function validateEntryDocument(entryPath: string, kind: string, contextFile: str
       // Drill quality gates (for prompts-based drills)
       if (entry.prompts && Array.isArray(entry.prompts) && entry.prompts.length > 0) {
         validateDrillQualityGates(entry, contextFile, itemIdx);
+        // Level accuracy validation (async, but we'll validate synchronously with warnings)
+        validateLevelAccuracy(entry, contextFile, itemIdx);
       }
 
       // Drills can have either prompts array OR promptsUrl (for session engine playability)
@@ -2395,6 +2406,248 @@ function validateDrillQualityGates(entry: any, contextFile: string, itemIdx: num
 }
 
 /**
+ * Validate level accuracy (CEFR level matches vocabulary difficulty)
+ * This validation checks if the claimed CEFR level matches the actual vocabulary difficulty.
+ */
+function validateLevelAccuracy(entry: any, contextFile: string, itemIdx: number): void {
+  // Skip if level is not set
+  if (!entry.level || typeof entry.level !== 'string') {
+    return;
+  }
+
+  // Skip if no prompts
+  if (!entry.prompts || !Array.isArray(entry.prompts) || entry.prompts.length === 0) {
+    return;
+  }
+
+  const claimedLevel = entry.level.toUpperCase();
+  const validLevels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+  if (!validLevels.includes(claimedLevel)) {
+    return; // Invalid level format, skip
+  }
+
+  // Get language from entry or default to 'de'
+  const language = entry.language || 'de';
+
+  // Load config to get validation rules
+  const configPath = join(META_DIR, 'level-grading-config.json');
+  let config: any = null;
+  if (existsSync(configPath)) {
+    try {
+      config = JSON.parse(readFileSync(configPath, 'utf-8'));
+    } catch (error) {
+      // Config not available, use defaults
+    }
+  }
+
+  const rule = config?.validationRules?.[claimedLevel] || {
+    maxHigherLevel: claimedLevel === 'A1' ? 0.05 : claimedLevel === 'A2' ? 0.10 : 0.15,
+    maxLevel: claimedLevel === 'A1' ? 'A2' : claimedLevel === 'A2' ? 'B1' : 'B2'
+  };
+
+  // Extract all tokens from prompts
+  const allTokens: string[] = [];
+  for (const prompt of entry.prompts) {
+    if (prompt.text && typeof prompt.text === 'string') {
+      // Simple tokenization
+      const tokens = prompt.text
+        .toLowerCase()
+        .split(/[\s.,!?;:()\[\]{}'"]+/)
+        .filter((t: string) => t.length >= 2);
+      allTokens.push(...tokens);
+    }
+  }
+
+  if (allTokens.length === 0) {
+    return; // No tokens to validate
+  }
+
+  // Check cache for token levels (synchronous check)
+  const cachePath = join(META_DIR, 'vocabulary-cache.json');
+  let cache: any = null;
+  if (existsSync(cachePath)) {
+    try {
+      cache = JSON.parse(readFileSync(cachePath, 'utf-8'));
+    } catch (error) {
+      // Cache not available
+    }
+  }
+
+  const CEFR_ORDER: Record<string, number> = {
+    'A1': 1, 'A2': 2, 'B1': 3, 'B2': 4, 'C1': 5, 'C2': 6
+  };
+
+  const maxAllowedOrder = CEFR_ORDER[rule.maxLevel] || 999;
+  const claimedOrder = CEFR_ORDER[claimedLevel] || 0;
+
+  // Check cached token levels
+  let exceedingCount = 0;
+  let gradedCount = 0;
+  const exceedingTokens: string[] = [];
+
+  for (const token of allTokens) {
+    const cachedLevel = cache?.vocabulary?.[language]?.[token];
+    if (cachedLevel) {
+      gradedCount++;
+      const tokenOrder = CEFR_ORDER[cachedLevel] || 0;
+      if (tokenOrder > maxAllowedOrder) {
+        exceedingCount++;
+        if (exceedingTokens.length < 5) {
+          exceedingTokens.push(token);
+        }
+      }
+    }
+  }
+
+  // If we have cached data, validate
+  if (gradedCount > 0) {
+    const exceedingRate = exceedingCount / gradedCount;
+    if (exceedingRate > rule.maxHigherLevel) {
+      const tokenList = exceedingTokens.length > 0 
+        ? ` (e.g., ${exceedingTokens.join(', ')})`
+        : '';
+      addError(
+        contextFile,
+        `Item ${itemIdx} level accuracy violation: ${(exceedingRate * 100).toFixed(1)}% of graded tokens exceed allowed level for ${claimedLevel}${tokenList}. Maximum allowed: ${(rule.maxHigherLevel * 100).toFixed(1)}%`
+      );
+    }
+  } else {
+    // No cached data - add warning that validation cannot be performed
+    // This is informational, not an error
+    // We could make this a warning, but for now we'll skip it to avoid noise
+    // The analyze-level-accuracy.ts script will handle full validation
+  }
+}
+
+/**
+ * Validate exam-specific requirements
+ */
+function validateExamRequirements(entry: any, contextFile: string, itemIdx: number): void {
+  // Load exam requirements
+  const requirementsPath = join(META_DIR, 'exam-requirements.json');
+  if (!existsSync(requirementsPath)) {
+    return; // Requirements file not available
+  }
+
+  let requirements: any = null;
+  try {
+    requirements = JSON.parse(readFileSync(requirementsPath, 'utf-8'));
+  } catch (error) {
+    return; // Failed to load requirements
+  }
+
+  // Check if exam has provider info
+  if (entry.examProvider && entry.officialExamInfo) {
+    const provider = entry.examProvider.toLowerCase();
+    const examLevel = entry.level?.toUpperCase();
+    const officialLevel = entry.officialExamInfo.cefrLevel?.toUpperCase();
+
+    // Validate provider exists
+    if (!requirements[provider]) {
+      addError(contextFile, `Item ${itemIdx} exam entry has unknown provider "${entry.examProvider}"`);
+      return;
+    }
+
+    // Validate level exists for provider
+    if (examLevel && !requirements[provider][examLevel]) {
+      addError(contextFile, `Item ${itemIdx} exam entry level "${examLevel}" not supported for provider "${entry.examProvider}"`);
+      return;
+    }
+
+    // Validate official exam info matches requirements
+    if (examLevel && requirements[provider][examLevel]) {
+      const req = requirements[provider][examLevel];
+
+      // Check CEFR level matches
+      if (officialLevel && officialLevel !== req.cefrLevel) {
+        addError(contextFile, `Item ${itemIdx} exam entry officialExamInfo.cefrLevel "${officialLevel}" does not match requirement "${req.cefrLevel}" for ${provider} ${examLevel}`);
+      }
+
+      // Check sections match (if provided)
+      if (entry.officialExamInfo.sections && Array.isArray(entry.officialExamInfo.sections)) {
+        const requiredSections = new Set(req.sections);
+        const providedSections = new Set(entry.officialExamInfo.sections);
+        
+        // Check all required sections are present
+        for (const section of req.sections) {
+          if (!providedSections.has(section)) {
+            addError(contextFile, `Item ${itemIdx} exam entry missing required section "${section}" for ${provider} ${examLevel}`);
+          }
+        }
+      }
+    }
+  }
+
+  // Validate level accuracy for exam prompts (if prompts exist)
+  if (entry.prompts && Array.isArray(entry.prompts) && entry.prompts.length > 0 && entry.level) {
+    // Use stricter validation for exams
+    const examLevel = entry.level.toUpperCase();
+    const provider = entry.examProvider?.toLowerCase();
+    
+    if (provider && requirements[provider] && requirements[provider][examLevel]) {
+      const req = requirements[provider][examLevel];
+      const maxHigherLevel = req.maxHigherLevel || 0.05; // Stricter for exams
+      
+      // Check vocabulary level (similar to level accuracy validation)
+      const language = entry.language || 'de';
+      const cachePath = join(META_DIR, 'vocabulary-cache.json');
+      let cache: any = null;
+      if (existsSync(cachePath)) {
+        try {
+          cache = JSON.parse(readFileSync(cachePath, 'utf-8'));
+        } catch (error) {
+          // Cache not available
+        }
+      }
+
+      if (cache) {
+        const CEFR_ORDER: Record<string, number> = {
+          'A1': 1, 'A2': 2, 'B1': 3, 'B2': 4, 'C1': 5, 'C2': 6
+        };
+        const vocabLevel = req.vocabularyLevel || examLevel;
+        const maxAllowedOrder = CEFR_ORDER[vocabLevel] || 999;
+
+        // Extract tokens from prompts
+        const allTokens: string[] = [];
+        for (const prompt of entry.prompts) {
+          if (prompt.text && typeof prompt.text === 'string') {
+            const tokens = prompt.text
+              .toLowerCase()
+              .split(/[\s.,!?;:()\[\]{}'"]+/)
+              .filter((t: string) => t.length >= 2);
+            allTokens.push(...tokens);
+          }
+        }
+
+        // Check token levels
+        let exceedingCount = 0;
+        let gradedCount = 0;
+        for (const token of allTokens) {
+          const cachedLevel = cache?.vocabulary?.[language]?.[token];
+          if (cachedLevel) {
+            gradedCount++;
+            const tokenOrder = CEFR_ORDER[cachedLevel] || 0;
+            if (tokenOrder > maxAllowedOrder) {
+              exceedingCount++;
+            }
+          }
+        }
+
+        if (gradedCount > 0) {
+          const exceedingRate = exceedingCount / gradedCount;
+          if (exceedingRate > maxHigherLevel) {
+            addError(
+              contextFile,
+              `Item ${itemIdx} exam entry vocabulary level violation: ${(exceedingRate * 100).toFixed(1)}% of tokens exceed allowed level for ${provider} ${examLevel} exam (max: ${(maxHigherLevel * 100).toFixed(1)}%)`
+            );
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
  * Validate context scenario index fields (groups, scope, recommended)
  */
 function validateContextScenarioIndexFields(doc: any, filePath: string): void {
@@ -3094,31 +3347,77 @@ function validateIndex(indexPath: string): void {
         if (!group.title || typeof group.title !== 'string') {
           addError(indexPath, `DrillGroup ${idx} missing or invalid field: title (must be string)`);
         }
+        // Title should be workspace language only (no i18n object)
+        if (group.title_i18n) {
+          addError(indexPath, `DrillGroup ${idx} should not have title_i18n (title is workspace-language only)`);
+        }
         if (!group.description || typeof group.description !== 'string') {
           addError(indexPath, `DrillGroup ${idx} missing or invalid field: description (must be string)`);
         }
-        if (!Array.isArray(group.tiers)) {
-          addError(indexPath, `DrillGroup ${idx} missing or invalid field: tiers (must be an array)`);
+        // Validate description_i18n if present
+        if (group.description_i18n && typeof group.description_i18n !== 'object') {
+          addError(indexPath, `DrillGroup ${idx} description_i18n must be an object`);
+        }
+        if (!Array.isArray(group.categories)) {
+          addError(indexPath, `DrillGroup ${idx} missing or invalid field: categories (must be an array)`);
         } else {
-          // Validate tiers
-          group.tiers.forEach((tier: any, tierIdx: number) => {
-            if (!tier.id || typeof tier.id !== 'string') {
-              addError(indexPath, `DrillGroup ${idx} tier ${tierIdx} missing or invalid field: id (must be string)`);
+          // Validate categories
+          group.categories.forEach((category: any, catIdx: number) => {
+            if (!category.id || typeof category.id !== 'string') {
+              addError(indexPath, `DrillGroup ${idx} category ${catIdx} missing or invalid field: id (must be string)`);
             }
-            if (typeof tier.tier !== 'number') {
-              addError(indexPath, `DrillGroup ${idx} tier ${tierIdx} missing or invalid field: tier (must be number)`);
+            if (!category.category || typeof category.category !== 'string') {
+              addError(indexPath, `DrillGroup ${idx} category ${catIdx} missing or invalid field: category (must be string)`);
             }
-            if (!tier.level || typeof tier.level !== 'string') {
-              addError(indexPath, `DrillGroup ${idx} tier ${tierIdx} missing or invalid field: level (must be string)`);
+            // Category should be workspace language only (no i18n object)
+            if (category.category_i18n) {
+              addError(indexPath, `DrillGroup ${idx} category ${catIdx} should not have category_i18n (category is workspace-language only)`);
             }
-            if (typeof tier.durationMinutes !== 'number') {
-              addError(indexPath, `DrillGroup ${idx} tier ${tierIdx} missing or invalid field: durationMinutes (must be number)`);
+            if (!category.loopType || typeof category.loopType !== 'string') {
+              addError(indexPath, `DrillGroup ${idx} category ${catIdx} missing or invalid field: loopType (must be string)`);
             }
-            if (!tier.status || typeof tier.status !== 'string') {
-              addError(indexPath, `DrillGroup ${idx} tier ${tierIdx} missing or invalid field: status (must be string)`);
-            }
-            if (!tier.entryUrl || typeof tier.entryUrl !== 'string') {
-              addError(indexPath, `DrillGroup ${idx} tier ${tierIdx} missing or invalid field: entryUrl (must be string)`);
+            if (!Array.isArray(category.tiers)) {
+              addError(indexPath, `DrillGroup ${idx} category ${catIdx} missing or invalid field: tiers (must be an array)`);
+            } else {
+              // Validate tiers
+              category.tiers.forEach((tier: any, tierIdx: number) => {
+                if (!tier.id || typeof tier.id !== 'string') {
+                  addError(indexPath, `DrillGroup ${idx} category ${catIdx} tier ${tierIdx} missing or invalid field: id (must be string)`);
+                }
+                if (typeof tier.tier !== 'number') {
+                  addError(indexPath, `DrillGroup ${idx} category ${catIdx} tier ${tierIdx} missing or invalid field: tier (must be number)`);
+                }
+                if (!tier.level || typeof tier.level !== 'string') {
+                  addError(indexPath, `DrillGroup ${idx} category ${catIdx} tier ${tierIdx} missing or invalid field: level (must be string)`);
+                }
+                if (!tier.title || typeof tier.title !== 'string') {
+                  addError(indexPath, `DrillGroup ${idx} category ${catIdx} tier ${tierIdx} missing or invalid field: title (must be string)`);
+                }
+                // Validate title_i18n if present
+                if (tier.title_i18n && typeof tier.title_i18n !== 'object') {
+                  addError(indexPath, `DrillGroup ${idx} category ${catIdx} tier ${tierIdx} title_i18n must be an object`);
+                }
+                // Check that tier title doesn't repeat drill group title
+                if (tier.title && group.title && tier.title.includes(group.title)) {
+                  console.warn(`⚠️  DrillGroup ${idx} category ${catIdx} tier ${tierIdx} title "${tier.title}" may repeat drill group title "${group.title}"`);
+                }
+                if (!tier.description || typeof tier.description !== 'string') {
+                  addError(indexPath, `DrillGroup ${idx} category ${catIdx} tier ${tierIdx} missing or invalid field: description (must be string)`);
+                }
+                // Validate description_i18n if present
+                if (tier.description_i18n && typeof tier.description_i18n !== 'object') {
+                  addError(indexPath, `DrillGroup ${idx} category ${catIdx} tier ${tierIdx} description_i18n must be an object`);
+                }
+                if (typeof tier.durationMinutes !== 'number') {
+                  addError(indexPath, `DrillGroup ${idx} category ${catIdx} tier ${tierIdx} missing or invalid field: durationMinutes (must be number)`);
+                }
+                if (!tier.status || typeof tier.status !== 'string') {
+                  addError(indexPath, `DrillGroup ${idx} category ${catIdx} tier ${tierIdx} missing or invalid field: status (must be string)`);
+                }
+                if (!tier.entryUrl || typeof tier.entryUrl !== 'string') {
+                  addError(indexPath, `DrillGroup ${idx} category ${catIdx} tier ${tierIdx} missing or invalid field: entryUrl (must be string)`);
+                }
+              });
             }
           });
         }
@@ -3158,54 +3457,6 @@ function validateIndex(indexPath: string): void {
       return; // Skip pagination validation for mechanics_index
     }
 
-    // Special handling for shaped drills format (has drillGroups array, not items)
-    if (indexPath.includes('/drills/index.json') && Array.isArray(index.drillGroups)) {
-      if (!Array.isArray(index.drillGroups)) {
-        addError(indexPath, 'Missing or invalid field: drillGroups (must be an array)');
-        return;
-      }
-      // Validate drillGroups array
-      index.drillGroups.forEach((group: any, idx: number) => {
-        if (!group.id || typeof group.id !== 'string') {
-          addError(indexPath, `DrillGroup ${idx} missing or invalid field: id (must be string)`);
-        }
-        if (!group.kind || group.kind !== 'drill_group') {
-          addError(indexPath, `DrillGroup ${idx} missing or invalid field: kind (must be "drill_group")`);
-        }
-        if (!group.title || typeof group.title !== 'string') {
-          addError(indexPath, `DrillGroup ${idx} missing or invalid field: title (must be string)`);
-        }
-        if (!group.description || typeof group.description !== 'string') {
-          addError(indexPath, `DrillGroup ${idx} missing or invalid field: description (must be string)`);
-        }
-        if (!Array.isArray(group.tiers)) {
-          addError(indexPath, `DrillGroup ${idx} missing or invalid field: tiers (must be an array)`);
-        } else {
-          // Validate tiers
-          group.tiers.forEach((tier: any, tierIdx: number) => {
-            if (!tier.id || typeof tier.id !== 'string') {
-              addError(indexPath, `DrillGroup ${idx} tier ${tierIdx} missing or invalid field: id (must be string)`);
-            }
-            if (typeof tier.tier !== 'number') {
-              addError(indexPath, `DrillGroup ${idx} tier ${tierIdx} missing or invalid field: tier (must be number)`);
-            }
-            if (!tier.level || typeof tier.level !== 'string') {
-              addError(indexPath, `DrillGroup ${idx} tier ${tierIdx} missing or invalid field: level (must be string)`);
-            }
-            if (typeof tier.durationMinutes !== 'number') {
-              addError(indexPath, `DrillGroup ${idx} tier ${tierIdx} missing or invalid field: durationMinutes (must be number)`);
-            }
-            if (!tier.status || typeof tier.status !== 'string') {
-              addError(indexPath, `DrillGroup ${idx} tier ${tierIdx} missing or invalid field: status (must be string)`);
-            }
-            if (!tier.entryUrl || typeof tier.entryUrl !== 'string') {
-              addError(indexPath, `DrillGroup ${idx} tier ${tierIdx} missing or invalid field: entryUrl (must be string)`);
-            }
-          });
-        }
-      });
-      return; // Skip pagination validation for shaped drills format
-    }
 
     // Pagination fields required for other index types
     if (typeof index.pageSize !== 'number') {

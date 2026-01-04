@@ -8,7 +8,7 @@
   "level": "A2",
   "title": "Negation: A2 (Tier 2) - Transform",
   "shortTitle": "Negation A2 Transform",
-  "subtitle": "Tier 2 - micro transform - Master negation placement (nicht,",
+  "subtitle": "Tier 2 - micro transform - Practice negation (nicht, kein, k",
   "estimatedMinutes": 4,
   "mechanicId": "negation",
   "mechanicLabel": "Negation",
@@ -364,7 +364,7 @@
     "source": "template",
     "sourceRef": "mechanics/negation",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.357Z"
+    "generatedAt": "2026-01-04T06:49:17.673Z"
   },
   "review": {
     "status": "needs_review"
@@ -376,9 +376,9 @@
     "en": "Negation A2 Transform"
   },
   "subtitle_i18n": {
-    "en": "Tier 2 - micro transform - Master negation placement (nicht,"
+    "en": "Tier 2 - micro transform - Practice negation (nicht, kein, k"
   },
   "contentId": "de:drill:negation_a2_tier2_micro-transform",
-  "contentHash": "246ec78e36d20e7902564eca9be58a3d03b1a185bb94ca1eef831d5ca102b461",
-  "revisionId": "246ec78e36d2"
+  "contentHash": "afda3f98ea3b4d9c7f3654a2a609f87e0b4085a7afb94f0b39bdd5462542aae0",
+  "revisionId": "afda3f98ea3b"
 }

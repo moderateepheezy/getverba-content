@@ -8,7 +8,7 @@
   "level": "A1",
   "title": "Time Expressions & Inversion: A1 (Tier 3) - Pattern",
   "shortTitle": "Time Expressions  A1 Pattern",
-  "subtitle": "Tier 3 - pattern switch - Master verb inversion with time ex",
+  "subtitle": "Tier 3 - pattern switch - Practice verb inversion with time ",
   "estimatedMinutes": 5,
   "mechanicId": "time_expressions_inversion",
   "mechanicLabel": "Time Expressions & Inversion",
@@ -416,7 +416,7 @@
     "source": "template",
     "sourceRef": "mechanics/time_expressions_inversion",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.368Z"
+    "generatedAt": "2026-01-04T06:49:17.696Z"
   },
   "review": {
     "status": "needs_review"
@@ -428,9 +428,9 @@
     "en": "Time Expressions  A1 Pattern"
   },
   "subtitle_i18n": {
-    "en": "Tier 3 - pattern switch - Master verb inversion with time ex"
+    "en": "Tier 3 - pattern switch - Practice verb inversion with time "
   },
   "contentId": "de:drill:time_expressions_inversion_a1_tier3_pattern-switch",
-  "contentHash": "a2c3047007222cf18ca3f90c8ae2c4622966ed191678b180252e25f6ffa72b7c",
-  "revisionId": "a2c304700722"
+  "contentHash": "2a05340c76f2982567c533fb5c01529197913574d3dc67d9a5d6223a4641c079",
+  "revisionId": "2a05340c76f2"
 }

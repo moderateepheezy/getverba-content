@@ -8,7 +8,7 @@
   "level": "A1",
   "title": "Word Order: Main Clause: A1 (Tier 3) - Slot",
   "shortTitle": "Word Order: Main Cla A1 Slot",
-  "subtitle": "Tier 3 - slot substitution - Master verb-second position in ",
+  "subtitle": "Tier 3 - slot substitution - Practice verb-second position i",
   "estimatedMinutes": 5,
   "mechanicId": "word_order_main_clause",
   "mechanicLabel": "Word Order: Main Clause",
@@ -421,7 +421,7 @@
     "source": "template",
     "sourceRef": "mechanics/word_order_main_clause",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.375Z"
+    "generatedAt": "2026-01-04T06:49:17.710Z"
   },
   "review": {
     "status": "needs_review"
@@ -433,9 +433,9 @@
     "en": "Word Order: Main Cla A1 Slot"
   },
   "subtitle_i18n": {
-    "en": "Tier 3 - slot substitution - Master verb-second position in "
+    "en": "Tier 3 - slot substitution - Practice verb-second position i"
   },
   "contentId": "de:drill:word_order_main_clause_a1_tier3_slot-substitution",
-  "contentHash": "9460678ad5665af03e45b7ab6ec8cd4c790a03cf93793dd54e5db4a392e28d36",
-  "revisionId": "9460678ad566"
+  "contentHash": "db1a5925a7d49a82265b1facadbd00bd233406bdeae396d55e582badb6e15467",
+  "revisionId": "db1a5925a7d4"
 }

@@ -8,7 +8,7 @@
   "level": "A2",
   "title": "Case Endings: Akkusativ: A2 (Tier 2) - Pairs",
   "shortTitle": "Case Endings: Akkus A2 Pairs",
-  "subtitle": "Tier 2 - contrast pairs - Master accusative case endings (de",
+  "subtitle": "Tier 2 - contrast pairs - Practice accusative case endings (",
   "estimatedMinutes": 4,
   "mechanicId": "case_endings_akkusativ",
   "mechanicLabel": "Case Endings: Akkusativ",
@@ -350,7 +350,7 @@
     "source": "template",
     "sourceRef": "mechanics/case_endings_akkusativ",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.345Z"
+    "generatedAt": "2026-01-04T06:49:17.643Z"
   },
   "review": {
     "status": "needs_review"
@@ -362,9 +362,9 @@
     "en": "Case Endings: Akkus A2 Pairs"
   },
   "subtitle_i18n": {
-    "en": "Tier 2 - contrast pairs - Master accusative case endings (de"
+    "en": "Tier 2 - contrast pairs - Practice accusative case endings ("
   },
   "contentId": "de:drill:case_endings_akkusativ_a2_tier2_contrast-pairs",
-  "contentHash": "473761592ae76ca553ddfb31d4ad26d2d882ae2510982afde9d575bc9fd427c0",
-  "revisionId": "473761592ae7"
+  "contentHash": "004e95ce161414b32aa9f34209938dd8f28660dd2c005a5ac6957253d767e30b",
+  "revisionId": "004e95ce1614"
 }

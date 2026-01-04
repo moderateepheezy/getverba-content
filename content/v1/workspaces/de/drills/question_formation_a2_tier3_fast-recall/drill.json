@@ -8,7 +8,7 @@
   "level": "A2",
   "title": "Question Formation: A2 (Tier 3) - Recall",
   "shortTitle": "Question Formation A2 Recall",
-  "subtitle": "Tier 3 - fast recall - Form questions using question words a",
+  "subtitle": "Tier 3 - fast recall - Practice question formation (Was, Wo,",
   "estimatedMinutes": 5,
   "mechanicId": "question_formation",
   "mechanicLabel": "Question Formation",
@@ -423,7 +423,7 @@
     "source": "template",
     "sourceRef": "mechanics/question_formation",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.367Z"
+    "generatedAt": "2026-01-04T06:49:17.692Z"
   },
   "review": {
     "status": "needs_review"
@@ -435,9 +435,9 @@
     "en": "Question Formation A2 Recall"
   },
   "subtitle_i18n": {
-    "en": "Tier 3 - fast recall - Form questions using question words a"
+    "en": "Tier 3 - fast recall - Practice question formation (Was, Wo,"
   },
   "contentId": "de:drill:question_formation_a2_tier3_fast-recall",
-  "contentHash": "a29655030071ffb07eddc64ddd5f4aabbc7c0ba73ac20668636b32b6c2e78e8b",
-  "revisionId": "a29655030071"
+  "contentHash": "5dfe2a4bbeae5116e2a4adbede641dbc15c20821c1b0a35ebb1fee990c7a7321",
+  "revisionId": "5dfe2a4bbeae"
 }

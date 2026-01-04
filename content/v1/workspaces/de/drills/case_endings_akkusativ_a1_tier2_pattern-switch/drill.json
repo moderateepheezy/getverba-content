@@ -8,7 +8,7 @@
   "level": "A1",
   "title": "Case Endings: Akkusativ: A1 (Tier 2) - Pattern",
   "shortTitle": "Case Endings: Akk A1 Pattern",
-  "subtitle": "Tier 2 - pattern switch - Master accusative case endings (de",
+  "subtitle": "Tier 2 - pattern switch - Practice accusative case endings (",
   "estimatedMinutes": 4,
   "mechanicId": "case_endings_akkusativ",
   "mechanicLabel": "Case Endings: Akkusativ",
@@ -341,12 +341,10 @@
     "source": "template",
     "sourceRef": "mechanics/case_endings_akkusativ",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.339Z"
+    "generatedAt": "2026-01-04T06:49:17.636Z"
   },
   "review": {
-    "status": "approved",
-    "reviewer": "system",
-    "reviewedAt": "2026-01-03T10:00:00.000Z"
+    "status": "needs_review"
   },
   "title_i18n": {
     "en": "Case Endings: Akkusativ: A1 (Tier 2) - Pattern"
@@ -355,9 +353,9 @@
     "en": "Case Endings: Akk A1 Pattern"
   },
   "subtitle_i18n": {
-    "en": "Tier 2 - pattern switch - Master accusative case endings (de"
+    "en": "Tier 2 - pattern switch - Practice accusative case endings ("
   },
   "contentId": "de:drill:case_endings_akkusativ_a1_tier2_pattern-switch",
-  "contentHash": "8a6dd0d7484c900207df0b8bbdca3306aaaa7b84f885c21b14d3fc98f70ea9e5",
-  "revisionId": "8a6dd0d7484c"
+  "contentHash": "a413c4bea31e30d355f04a38b7f91f47dcd2cb3e4ea213126511b88460af8e77",
+  "revisionId": "a413c4bea31e"
 }

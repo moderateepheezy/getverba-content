@@ -8,7 +8,7 @@
   "level": "A2",
   "title": "Verb Present Tense: A2 (Tier 3) - Pattern",
   "shortTitle": "Verb Present Tens A2 Pattern",
-  "subtitle": "Tier 3 - pattern switch - Practice present tense verb conjug",
+  "subtitle": "Tier 3 - pattern switch - Practice present tense verb ending",
   "estimatedMinutes": 5,
   "mechanicId": "verb_present_tense",
   "mechanicLabel": "Verb Present Tense",
@@ -410,7 +410,7 @@
     "source": "template",
     "sourceRef": "mechanics/verb_present_tense",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.373Z"
+    "generatedAt": "2026-01-04T06:49:17.707Z"
   },
   "review": {
     "status": "needs_review"
@@ -422,9 +422,9 @@
     "en": "Verb Present Tens A2 Pattern"
   },
   "subtitle_i18n": {
-    "en": "Tier 3 - pattern switch - Practice present tense verb conjug"
+    "en": "Tier 3 - pattern switch - Practice present tense verb ending"
   },
   "contentId": "de:drill:verb_present_tense_a2_tier3_pattern-switch",
-  "contentHash": "59e4a31e5441b62cfdad722db4f4dae2eaaf462b315020247b830699bd57eb1a",
-  "revisionId": "59e4a31e5441"
+  "contentHash": "18575a909bdcae53b4eb3c65787528126bfdb4e1797bc15f469e705fa07e6c2a",
+  "revisionId": "18575a909bdc"
 }

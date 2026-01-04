@@ -8,7 +8,7 @@
   "level": "A1",
   "title": "Question Formation: A1 (Tier 1) - Recall",
   "shortTitle": "Question Formation A1 Recall",
-  "subtitle": "Tier 1 - fast recall - Form questions using question words a",
+  "subtitle": "Tier 1 - fast recall - Practice question formation (Was, Wo,",
   "estimatedMinutes": 3,
   "mechanicId": "question_formation",
   "mechanicLabel": "Question Formation",
@@ -284,7 +284,7 @@
     "source": "template",
     "sourceRef": "mechanics/question_formation",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.363Z"
+    "generatedAt": "2026-01-04T06:49:17.687Z"
   },
   "review": {
     "status": "needs_review"
@@ -296,9 +296,9 @@
     "en": "Question Formation A1 Recall"
   },
   "subtitle_i18n": {
-    "en": "Tier 1 - fast recall - Form questions using question words a"
+    "en": "Tier 1 - fast recall - Practice question formation (Was, Wo,"
   },
   "contentId": "de:drill:question_formation_a1_tier1_fast-recall",
-  "contentHash": "4101321b4c046be3a80c913104c150f2eaf25767c9ee4e1b6adfc234c995b803",
-  "revisionId": "4101321b4c04"
+  "contentHash": "ce6d8bd9567e59699d80220e4fbe3bdca6f8eee04197cc750cff798e4356b25b",
+  "revisionId": "ce6d8bd9567e"
 }

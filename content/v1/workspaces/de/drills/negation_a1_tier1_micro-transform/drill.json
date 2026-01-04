@@ -8,7 +8,7 @@
   "level": "A1",
   "title": "Negation: A1 (Tier 1) - Transform",
   "shortTitle": "Negation A1 Transform",
-  "subtitle": "Tier 1 - micro transform - Master negation placement (nicht,",
+  "subtitle": "Tier 1 - micro transform - Practice negation (nicht, kein, k",
   "estimatedMinutes": 3,
   "mechanicId": "negation",
   "mechanicLabel": "Negation",
@@ -300,7 +300,7 @@
     "source": "template",
     "sourceRef": "mechanics/negation",
     "extractorVersion": "v4.0.0",
-    "generatedAt": "2026-01-03T09:52:17.353Z"
+    "generatedAt": "2026-01-04T06:49:17.668Z"
   },
   "review": {
     "status": "needs_review"
@@ -312,9 +312,9 @@
     "en": "Negation A1 Transform"
   },
   "subtitle_i18n": {
-    "en": "Tier 1 - micro transform - Master negation placement (nicht,"
+    "en": "Tier 1 - micro transform - Practice negation (nicht, kein, k"
   },
   "contentId": "de:drill:negation_a1_tier1_micro-transform",
-  "contentHash": "e994d64850e08a275cc28469ac7aeb66a699c5810d281defe509e9caf3f7221f",
-  "revisionId": "e994d64850e0"
+  "contentHash": "f0224560cb90d3612ad6218cfcb676806d67d4b0db7ae1aeaf3b7c7dbe5114a6",
+  "revisionId": "f0224560cb90"
 }
